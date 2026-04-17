@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutoriais | Estúdio A Locução</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .logo-img { max-height: 50px; width: auto; }
+        .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        .accent-color { color: #22d3ee; }
+        .btn-primary { background: #22d3ee; transition: all 0.3s ease; }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .tutorial-card {
+            transition: transform 0.3s ease;
+        }
+        .tutorial-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-slate-900 text-white shadow-xl">
+        <nav class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <a href="/">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_sBFI94b0Jhnsl6DY4UwsTOpsmltn1MNvF5n6zcrkdLUd7oqFJfxF5NAtCEwBchu-b65jEsMXi60X2SlPb04XheC1fuEaG-sRzEbENAbN4eMSX5YHbdk6oGhfGTHQOPR1tZJn_GwXOAjUL6UX4ZvpVITZOL6is83xruSEkk343d-9VEx5osefurjX8aY/s1600/logo.png" alt="Logo" class="logo-img">
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-6 text-sm font-bold uppercase tracking-widest">
+                    <a href="/" class="hover:text-cyan-400">Início</a>
+                    <a href="https://paineldegravacao.com.br/comerciaistop/" class="hover:text-cyan-400">Entrar no Painel</a>
+                </div>
+                <a href="https://wa.me/5500000000000" class="btn-primary text-slate-900 font-bold px-5 py-2 rounded-full text-xs uppercase">Suporte</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-6 uppercase">Central de <span class="accent-color">Ajuda</span></h1>
+            <p class="text-slate-300 text-lg max-w-2xl mx-auto">Tudo o que você precisa saber para solicitar suas gravações, vinhetas e gerenciar sua conta de forma rápida e profissional.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 py-12">
+        
+        <!-- Grid de Tutoriais -->
+        <div class="space-y-24">
+
+            <!-- Tutorial 1: Cadastro -->
+            <section class="grid lg:grid-cols-2 gap-12 items-start">
+                <div>
+                    <span class="inline-block bg-cyan-500/10 text-cyan-600 font-bold px-3 py-1 rounded text-xs uppercase mb-4">Passo Inicial</span>
+                    <h2 class="text-3xl font-black text-slate-900 mb-6 uppercase tracking-tight">COMO FAZER SEU CADASTRO</h2>
+                    <div class="space-y-6 text-slate-600">
+                        <div>
+                            <h4 class="font-bold text-slate-800 flex items-center gap-2"><span class="bg-slate-900 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">1</span> Criação da conta</h4>
+                            <p class="ml-8 text-sm">Acesse a tela de cadastro e clique em cadastre-se. Preencha nome, e-mail, telefone, usuário e senha. Clique em "criar conta grátis". <span class="text-cyan-600 font-medium">(0:00 - 0:19)</span></p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 flex items-center gap-2"><span class="bg-slate-900 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">2</span> Configuração inicial</h4>
+                            <p class="ml-8 text-sm">No painel, clique no ícone de perfil (canto superior direito) e selecione "Minha conta". Preencha todos os dados pessoais indicados pelo aviso vermelho e clique em "atualizar cadastros". <span class="text-cyan-600 font-medium">(0:20 - 0:44)</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/i-PGk40mYUU?modestbranding=1&rel=0&controls=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <hr class="border-slate-200">
+
+            <!-- Tutorial 2: Vinhetas DJ/Rádio -->
+            <section class="grid lg:grid-cols-2 gap-12 items-start">
+                <div class="lg:order-2">
+                    <span class="inline-block bg-cyan-500/10 text-cyan-600 font-bold px-3 py-1 rounded text-xs uppercase mb-4">Produção Especial</span>
+                    <h2 class="text-3xl font-black text-slate-900 mb-6 uppercase tracking-tight">COMO PEDIR VINHETAS DJ E RÁDIO</h2>
+                    <div class="space-y-4 text-slate-600 text-sm">
+                        <p><strong>Iniciar o Pedido:</strong> Clique em "pedir" e selecione "pedir produção" <span class="text-cyan-600 font-medium">(0:00 - 0:19)</span>.</p>
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li><strong>Configurações:</strong> Crie um título, altere a categoria para "vinhetas" e defina a quantidade (limite 4 por crédito) <span class="text-cyan-600 font-medium">(0:22 - 0:48)</span>.</li>
+                            <li><strong>Estilo e Locução:</strong> Escolha o estilo da voz e o locutor desejado <span class="text-cyan-600 font-medium">(0:49 - 1:02)</span>.</li>
+                            <li><strong>Textos:</strong> Digite revisando a pontuação. Use "arquivos guias" para pronúncias difíceis e "texto guia" para observações ao produtor <span class="text-cyan-600 font-medium">(1:02 - 1:58)</span>.</li>
+                            <li><strong>Finalização:</strong> Aceite os termos e confirme. Utilize Pix QR Code para liberação automática <span class="text-cyan-600 font-medium">(1:59 - 2:57)</span>.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="video-container lg:order-1">
+                    <iframe src="https://www.youtube.com/embed/lSYhwKIbCQ4?modestbranding=1&rel=0&controls=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <hr class="border-slate-200">
+
+            <!-- Tutorial 3: Créditos -->
+            <section class="grid lg:grid-cols-2 gap-12 items-start">
+                <div>
+                    <span class="inline-block bg-cyan-500/10 text-cyan-600 font-bold px-3 py-1 rounded text-xs uppercase mb-4">Financeiro</span>
+                    <h2 class="text-3xl font-black text-slate-900 mb-6 uppercase tracking-tight">COMO ADQUIRIR CRÉDITOS</h2>
+                    <div class="space-y-4 text-slate-600 text-sm">
+                        <p>No menu lateral esquerdo, clique na opção <strong>Créditos</strong>.</p>
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li><strong>Off:</strong> Apenas a voz "seca", sem tratamento <span class="text-cyan-600 font-medium">(0:08 - 0:27)</span>.</li>
+                            <li><strong>Produção:</strong> Voz equalizada, com trilhas e efeitos <span class="text-cyan-600 font-medium">(0:08 - 0:27)</span>.</li>
+                            <li><strong>Pagamento:</strong> Informe a quantidade e clique em "Pagar Agora". <strong>Cartão/Pix:</strong> Liberação automática. <strong>Boleto:</strong> Necessário enviar comprovante <span class="text-cyan-600 font-medium">(0:43 - 1:10)</span>.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/t-wEHAHMWVs?modestbranding=1&rel=0&controls=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <hr class="border-slate-200">
+
+            <!-- Tutorial 4: Off, Spot, Abertura -->
+            <section class="grid lg:grid-cols-2 gap-12 items-start">
+                <div class="lg:order-2">
+                    <span class="inline-block bg-cyan-500/10 text-cyan-600 font-bold px-3 py-1 rounded text-xs uppercase mb-4">Locuções Diversas</span>
+                    <h2 class="text-3xl font-black text-slate-900 mb-6 uppercase tracking-tight">PEDIR OFF, SPOT E ABERTURAS</h2>
+                    <div class="space-y-4 text-slate-600 text-sm">
+                        <p><strong>Iniciando:</strong> Clique em "Pedir". Use "Pedir off" para locução seca ou "Pedir produção" para Spot Comercial <span class="text-cyan-600 font-medium">(0:46 - 1:37)</span>.</p>
+                        <p><strong>Configuração:</strong> Digite o texto sem abreviações e com pontuação correta. Revise o tempo (1 crédito = até 40 segundos). Adicione guias de pronúncia se necessário <span class="text-cyan-600 font-medium">(0:54 - 1:14)</span>.</p>
+                        <p><strong>Correções:</strong> Só é possível pedir correção se o erro for do estúdio. Erros no texto enviado exigem nova gravação <span class="text-cyan-600 font-medium">(2:31 - 3:23)</span>.</p>
+                    </div>
+                </div>
+                <div class="video-container lg:order-1">
+                    <iframe src="https://www.youtube.com/embed/i-PGk40mYUU?modestbranding=1&rel=0&controls=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <hr class="border-slate-200">
+
+            <!-- Tutorial 5: Correção -->
+            <section class="grid lg:grid-cols-2 gap-12 items-start">
+                <div>
+                    <span class="inline-block bg-cyan-500/10 text-cyan-600 font-bold px-3 py-1 rounded text-xs uppercase mb-4">Ajustes</span>
+                    <h2 class="text-3xl font-black text-slate-900 mb-6 uppercase tracking-tight">SOLICITAR CORREÇÃO NO PAINEL</h2>
+                    <div class="space-y-4 text-slate-600 text-sm">
+                        <p>Caso precise de ajustes após receber o áudio:</p>
+                        <ol class="list-decimal ml-6 space-y-2">
+                            <li>Clique no botão com ícone de <strong>exclamação (!)</strong> ao lado do áudio <span class="text-cyan-600 font-medium">(2:52)</span>.</li>
+                            <li>Escolha a opção "Erro na gravação".</li>
+                            <li>Explique o problema detalhadamente, cole o trecho do texto e destaque a palavra incorreta antes de confirmar <span class="text-cyan-600 font-medium">(2:54 - 3:11)</span>.</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/EVe93pP0Fjk?modestbranding=1&rel=0&controls=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- Banner CTA -->
+    <section class="bg-cyan-400 py-16">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-6 uppercase italic">Pronto para começar?</h2>
+            <p class="text-slate-800 font-medium mb-8">Acesse agora o seu painel e faça o seu pedido.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://paineldegravacao.com.br/comerciaistop/" class="bg-slate-900 text-white font-black px-8 py-4 rounded-xl hover:bg-slate-800 transition uppercase tracking-tighter">Entrar no Painel</a>
+                <a href="https://wa.me/5500000000000" class="bg-white text-slate-900 font-black px-8 py-4 rounded-xl border-2 border-slate-900 hover:bg-slate-50 transition uppercase tracking-tighter">Falar com Consultor</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-slate-900 text-slate-500 text-center text-sm border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-6">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_sBFI94b0Jhnsl6DY4UwsTOpsmltn1MNvF5n6zcrkdLUd7oqFJfxF5NAtCEwBchu-b65jEsMXi60X2SlPb04XheC1fuEaG-sRzEbENAbN4eMSX5YHbdk6oGhfGTHQOPR1tZJn_GwXOAjUL6UX4ZvpVITZOL6is83xruSEkk343d-9VEx5osefurjX8aY/s1600/logo.png" alt="Logo" class="max-h-8 mx-auto mb-6 grayscale opacity-50">
+            <p>&copy; 2023 Estúdio A Locução. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
