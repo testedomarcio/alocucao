@@ -1,127 +1,228 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Meta Tags -->
     <title>Login | Estúdio A Locução - Painel de Gravação</title>
-    <meta name="description" content="Acesse o painel de gravação do Estúdio A Locução. Grave seus offs e spots comerciais em minutos.">
+    <meta name="description" content="Acesse o painel de gravação do Estúdio A Locução. Grave seus offs e spots comerciais em minutos com nossa equipe.">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093304718"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18093304718');
+    </script>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Configurações Customizadas Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    colors: {
+                        primary: '#22d3ee', // Cyan 400
+                        primaryDark: '#0891b2', // Cyan 600
+                        darkBg: '#0f172a', // Slate 900
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
         body { 
             font-family: 'Inter', sans-serif; 
             margin: 0;
             padding: 0;
-            height: 100vh;
+            height: 100vh; /* Ocupa 100% da altura da tela */
             display: flex;
             flex-direction: column;
-            overflow: hidden; /* Impede scroll na página pai para focar no iframe */
+            overflow: hidden; /* Impede scroll na página pai para focar 100% no iframe */
+            background-color: #f8fafc;
         }
         
-        .logo-img { max-height: 50px; width: auto; }
-        
+        /* Glassmorphism Header */
+        .glass-header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
         .btn-primary { 
-            background: #22d3ee; 
+            background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%);
             transition: all 0.3s ease; 
         }
         .btn-primary:hover { 
-            background: #0891b2; 
-            transform: translateY(-2px); 
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(34, 211, 238, 0.4);
+        }
+
+        .logo-img { max-height: 40px; width: auto; transition: transform 0.3s ease; }
+        .logo-img:hover { transform: scale(1.05); }
+
+        .container-custom {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Animação de Loading super moderna */
+        .loader-container {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8fafc;
+            z-index: 10;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 4px solid #e2e8f0;
+            border-bottom-color: #22d3ee;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+        }
+        @keyframes rotation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         /* Mobile menu transitions */
         #mobile-menu {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out;
+            transition: max-height 0.4s ease-in-out;
         }
         #mobile-menu.active {
-            max-height: 500px;
+            max-height: 600px;
         }
 
-        .container-custom {
-            max-width: 1280px;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-        }
-
-        /* Estilização do Iframe */
-        .iframe-container {
-            flex-grow: 1; /* Ocupa todo o espaço restante */
+        /* Iframe Styles */
+        .iframe-wrapper {
+            flex-grow: 1;
+            position: relative;
             width: 100%;
-            border: none;
-            background-color: #f8fafc;
+            height: 100%;
         }
-
-        iframe {
+        .iframe-wrapper iframe {
+            position: absolute;
+            inset: 0;
             width: 100%;
             height: 100%;
             border: none;
+            z-index: 20;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .iframe-wrapper iframe.loaded {
+            opacity: 1;
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body class="text-slate-800 antialiased selection:bg-cyan-200 selection:text-slate-900">
 
-    <!-- Header / Navbar (Extraído do código original) -->
-    <header class="bg-slate-900 text-white shadow-xl relative z-50">
-        <nav class="container-custom py-4">
+    <!-- Header Glassmorphism (Compacto para não roubar espaço do iframe) -->
+    <header class="flex-none glass-header text-white shadow-md relative z-50">
+        <nav class="container-custom py-2.5 sm:py-3">
             <div class="flex justify-between items-center">
+                
+                <!-- Logo -->
                 <div class="flex items-center gap-2">
-                    <a href="/">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_sBFI94b0Jhnsl6DY4UwsTOpsmltn1MNvF5n6zcrkdLUd7oqFJfxF5NAtCEwBchu-b65jEsMXi60X2SlPb04XheC1fuEaG-sRzEbENAbN4eMSX5YHbdk6oGhfGTHQOPR1tZJn_GwXOAjUL6UX4ZvpVITZOL6is83xruSEkk343d-9VEx5osefurjX8aY/s1600/logo.png" alt="Estúdio A Locução Logo" class="logo-img">
+                    <a href="https://www.alocucao.com.br/">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_sBFI94b0Jhnsl6DY4UwsTOpsmltn1MNvF5n6zcrkdLUd7oqFJfxF5NAtCEwBchu-b65jEsMXi60X2SlPb04XheC1fuEaG-sRzEbENAbN4eMSX5YHbdk6oGhfGTHQOPR1tZJn_GwXOAjUL6UX4ZvpVITZOL6is83xruSEkk343d-9VEx5osefurjX8aY/s1600/logo.png" alt="Estúdio A Locução" class="logo-img">
                     </a>
                 </div>
                 
                 <!-- Desktop Menu -->
-                <div class="hidden lg:flex space-x-6 font-medium text-sm uppercase tracking-wider">
-                    <a href="/" class="hover:text-cyan-400 transition">Início</a>
-                    <a href="/servicos" class="hover:text-cyan-400 transition">Serviços</a>
-                    <a href="/#vozes-mais-pedidas" class="hover:text-cyan-400 transition">Locutores</a>
-                    <a href="/#precos" class="hover:text-cyan-400 transition">Preços</a>
-                    <a href="https://www.alocucao.com.br/termos" class="hover:text-cyan-400 transition">Termos</a>
+                <div class="hidden lg:flex items-center space-x-6 font-semibold text-xs uppercase tracking-wider">
+                    <a href="https://www.alocucao.com.br/" class="text-slate-300 hover:text-cyan-400 transition-colors">Início</a>
+                    <a href="https://www.alocucao.com.br/vozes" class="text-slate-300 hover:text-cyan-400 transition-colors">Locutores</a>
+                    <a href="https://www.alocucao.com.br/tutoriais" class="text-slate-300 hover:text-cyan-400 transition-colors">Tutoriais</a>
                 </div>
 
-                <div class="flex items-center gap-4">
-                    <a href="https://paineldegravacao.com.br/comerciaistop/" class="hidden lg:block text-sm font-bold border border-cyan-400 px-4 py-2 rounded-full bg-cyan-400 text-slate-900 transition uppercase">LOGIN</a>
-                    <a href="https://paineldegravacao.com.br/alocucao/cadastro" target="_blank" class="hidden sm:block btn-primary text-slate-900 font-bold px-6 py-2 rounded-full shadow-lg text-sm uppercase tracking-tighter">CADASTRE-SE</a>
+                <!-- Botões de Ação Desktop -->
+                <div class="flex items-center gap-3">
+                    <a href="https://www.alocucao.com.br/login" class="hidden sm:inline-block text-xs font-bold text-cyan-400 border border-cyan-400/50 px-4 py-2 rounded-full hover:bg-cyan-400/10 transition-all uppercase tracking-wider">
+                        Atualizar Página
+                    </a>
+                    <a href="https://www.alocucao.com.br/cadastro" target="_blank" class="hidden sm:flex btn-primary text-slate-900 font-bold px-5 py-2 rounded-full shadow-lg text-xs uppercase tracking-wider items-center gap-2">
+                        Cadastre-se <i class="fas fa-arrow-right"></i>
+                    </a>
                     
-                    <button id="menu-toggle" class="lg:hidden text-2xl text-cyan-400 focus:outline-none">
+                    <!-- Mobile Toggle -->
+                    <button id="menu-toggle" aria-label="Abrir menu" class="lg:hidden text-2xl text-cyan-400 focus:outline-none p-1 ml-2">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
             </div>
 
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="lg:hidden">
-                <div class="flex flex-col space-y-4 pt-6 pb-4 border-t border-slate-800 mt-4">
-                    <a href="/" class="text-slate-300 hover:text-cyan-400 py-2 transition uppercase text-sm font-bold">Início</a>
-                    <a href="/servicos" class="text-slate-300 hover:text-cyan-400 py-2 transition uppercase text-sm font-bold">Serviços</a>
-                    <a href="/#vozes-mais-pedidas" class="text-slate-300 hover:text-cyan-400 py-2 transition uppercase text-sm font-bold">Locutores</a>
-                    <a href="/#precos" class="text-slate-300 hover:text-cyan-400 py-2 transition uppercase text-sm font-bold">Preços</a>
-                    <a href="https://paineldegravacao.com.br/comerciaistop/" class="bg-cyan-400 text-slate-900 text-center py-3 rounded-xl font-bold uppercase text-xs">LOGIN</a>
-                    <a href="https://paineldegravacao.com.br/alocucao/cadastro" target="_blank" class="btn-primary text-slate-900 text-center py-3 rounded-xl font-bold uppercase text-xs">CADASTRE-SE</a>
+            <!-- Mobile Menu Dropdown -->
+            <div id="mobile-menu" class="lg:hidden w-full absolute left-0 top-full bg-slate-900 border-t border-slate-800 shadow-2xl">
+                <div class="flex flex-col space-y-1 p-4">
+                    <a href="https://www.alocucao.com.br/" class="text-slate-200 hover:text-cyan-400 py-3 px-4 rounded-lg hover:bg-slate-800 transition text-sm font-bold uppercase tracking-wider">Início</a>
+                    <a href="https://www.alocucao.com.br/vozes" class="text-slate-200 hover:text-cyan-400 py-3 px-4 rounded-lg hover:bg-slate-800 transition text-sm font-bold uppercase tracking-wider">Locutores</a>
+                    <a href="https://www.alocucao.com.br/tutoriais" class="text-slate-200 hover:text-cyan-400 py-3 px-4 rounded-lg hover:bg-slate-800 transition text-sm font-bold uppercase tracking-wider">Tutoriais</a>
+                    
+                    <div class="grid grid-cols-2 gap-3 mt-4 pt-4 border-t border-slate-800">
+                        <a href="https://www.alocucao.com.br/login" class="border border-slate-600 text-white text-center py-3 rounded-xl font-bold uppercase text-xs tracking-wider">Login</a>
+                        <a href="https://www.alocucao.com.br/cadastro" target="_blank" class="btn-primary text-slate-900 text-center py-3 rounded-xl font-bold uppercase text-xs tracking-wider">Cadastre-se</a>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- Iframe Area -->
-    <main class="iframe-container">
+    <!-- Área Principal - Iframe com Loader -->
+    <main class="iframe-wrapper">
+        
+        <!-- Estado de Carregamento (Spinner Premium) -->
+        <div id="iframe-loader" class="loader-container">
+            <span class="loader"></span>
+            <p class="text-slate-400 font-bold text-sm uppercase tracking-widest mt-4">Iniciando Sistema...</p>
+        </div>
+
+        <!-- Iframe do Painel de Login -->
         <iframe 
+            id="painel-iframe"
             src="https://paineldegravacao.com.br/comerciaistop/" 
-            title="Painel de Gravação Comercial Top"
+            title="Painel de Gravação Estúdio A Locução"
             allow="autoplay; clipboard-write; microphone"
             loading="lazy">
         </iframe>
+        
     </main>
+
+    <!-- Botão Flutuante WhatsApp -->
+    <a href="https://wa.me/5527996529832" target="_blank" rel="noopener noreferrer" 
+       class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-3xl shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:scale-110 hover:-translate-y-2 transition-all duration-300 z-50 group"
+       aria-label="Atendimento via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <!-- Tooltip -->
+        <span class="absolute right-full mr-4 bg-slate-900 text-white text-xs font-bold px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            Suporte Rápido
+        </span>
+    </a>
 
     <script>
         // Lógica do Menu Mobile
@@ -139,6 +240,21 @@
                 icon.classList.add('fa-bars');
             }
         });
+
+        // Lógica do Loader do Iframe
+        const iframe = document.getElementById('painel-iframe');
+        const loader = document.getElementById('iframe-loader');
+
+        // Quando o iframe terminar de carregar, escondemos o loader e mostramos o painel suavemente
+        iframe.onload = function() {
+            loader.style.opacity = '0';
+            iframe.classList.add('loaded');
+            
+            // Remove o loader do DOM após a transição para não interferir em cliques
+            setTimeout(() => {
+                loader.style.visibility = 'hidden';
+            }, 500);
+        };
     </script>
 </body>
 </html>
