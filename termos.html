@@ -1,195 +1,421 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093304718">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18093304718');
-</script>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Meta Tags -->
     <title>Termos de Uso | Estúdio A Locução</title>
+    <meta name="description" content="Leia os termos de uso, políticas de reembolso e regras de conduta do painel de gravação do Estúdio A Locução.">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093304718"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18093304718');
+    </script>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Configurações Customizadas Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    colors: {
+                        primary: '#22d3ee', // Cyan 400
+                        primaryDark: '#0891b2', // Cyan 600
+                        darkBg: '#0f172a', // Slate 900
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
-        .accent-color { color: #22d3ee; }
-        .logo-img { max-height: 50px; width: auto; }
-        .content-section p { margin-bottom: 1.25rem; line-height: 1.6; color: #475569; }
-        .content-section h2 { margin-top: 2.5rem; margin-bottom: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: -0.025em; color: #0f172a; font-size: 1.25rem; border-left: 4px solid #22d3ee; padding-left: 1rem; }
-        .content-section ul { margin-bottom: 1.25rem; list-style-type: disc; padding-left: 1.5rem; color: #475569; }
-        .content-section li { margin-bottom: 0.5rem; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            scroll-behavior: smooth; 
+            overflow-x: hidden;
+            background-color: #f8fafc; /* slate-50 */
+        }
         
-        #mobile-menu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
+        .gradient-bg { 
+            background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 100%); 
         }
-        #mobile-menu.active {
-            max-height: 500px;
+        
+        .glass-header {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
+
+        .btn-primary { 
+            background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%);
+            transition: all 0.3s ease; 
+        }
+        .btn-primary:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(34, 211, 238, 0.4);
+        }
+
+        .logo-img { max-height: 45px; width: auto; transition: transform 0.3s ease; }
+        .logo-img:hover { transform: scale(1.05); }
 
         .container-custom {
+            width: 100%;
             max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
+
+        /* Efeitos visuais fundo */
+        .glow-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.3;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Estilização específica para o texto dos termos (Legibilidade) */
+        .legal-content h2 {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 800; /* font-extrabold */
+            color: #0f172a; /* slate-900 */
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: -0.025em;
+        }
+        .legal-content h2::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 1.5rem;
+            background-color: #22d3ee;
+            border-radius: 4px;
+        }
+        .legal-content p {
+            color: #475569; /* slate-600 */
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .legal-content ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 1.5rem;
+        }
+        .legal-content ul li {
+            position: relative;
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+        }
+        .legal-content ul li::before {
+            content: '\f054'; /* FontAwesome chevron-right */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #22d3ee;
+            font-size: 0.6rem;
+        }
+        .legal-content strong {
+            color: #1e293b; /* slate-800 */
+            font-weight: 700;
+        }
+
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body class="text-slate-800 antialiased selection:bg-cyan-200 selection:text-slate-900">
 
-    <!-- Header -->
-    <header class="sticky top-0 z-50 bg-slate-900 text-white shadow-xl">
-        <nav class="container-custom py-4">
+    <!-- Header Glassmorphism -->
+    <header class="fixed w-full top-0 z-50 glass-header text-white transition-all duration-300">
+        <nav class="max-w-[1280px] mx-auto px-6 py-3 sm:py-4">
             <div class="flex justify-between items-center">
-                <a href="index.html">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilDgkDjPUYKxiTuNxIhvnCj28dMY12o3l3VAR8HcKEkbQT-pUmmEMPh27iqj1wS_3-0yS1jW7nDCLozXNeC0tr0X2UvgtclDv4_wp4KRnyzRgxmPknJXp-sPfBeozQlEbuqAIrCxJvdeEQh69qbIYpsXFFIPXyBBNfpIRdJBurPcyAtfc44z69wd_U06s/s150/logo%20top.png" alt="Logo" class="logo-img">
-                </a>
+                <!-- Logo -->
+                <div class="flex items-center gap-2 z-50">
+                    <a href="https://www.alocucao.com.br/">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_sBFI94b0Jhnsl6DY4UwsTOpsmltn1MNvF5n6zcrkdLUd7oqFJfxF5NAtCEwBchu-b65jEsMXi60X2SlPb04XheC1fuEaG-sRzEbENAbN4eMSX5YHbdk6oGhfGTHQOPR1tZJn_GwXOAjUL6UX4ZvpVITZOL6is83xruSEkk343d-9VEx5osefurjX8aY/s1600/logo.png" alt="Estúdio A Locução" class="logo-img">
+                    </a>
+                </div>
                 
-                <div class="hidden lg:flex space-x-6 font-medium text-sm uppercase tracking-wider">
-                    <a href="index.html" class="hover:text-cyan-400 transition">Início</a>
-                    <a href="servicos.html" class="hover:text-cyan-400 transition">Serviços</a>
-                    <a href="https://alocucao.com.br/vozes" class="hover:text-cyan-400 transition">Locutores</a>
+                <!-- Links Desktop -->
+                <div class="hidden md:flex items-center space-x-8 font-semibold text-sm tracking-wide uppercase">
+                    <a href="https://www.alocucao.com.br/" class="text-slate-300 hover:text-cyan-400 transition-colors">Início</a>
+                    <a href="https://www.alocucao.com.br/vozes" class="text-slate-300 hover:text-cyan-400 transition-colors">Locutores</a>
+                    <a href="https://www.alocucao.com.br/tutoriais" class="text-slate-300 hover:text-cyan-400 transition-colors">Tutoriais</a>
                 </div>
 
-                <div class="flex items-center gap-4">
-                    <a href="https://alocucao/cadastro" target="_blank" class="hidden sm:block border-2 border-cyan-400 text-cyan-400 font-bold px-6 py-2 rounded-full hover:bg-cyan-400 hover:text-slate-900 transition text-sm uppercase">Painel</a>
-                    <button id="menu-toggle" class="lg:hidden text-2xl text-cyan-400 focus:outline-none">
+                <!-- Botões de Ação -->
+                <div class="flex items-center gap-3">
+                    <a href="https://www.alocucao.com.br/login" class="hidden sm:inline-block text-sm font-bold text-white border border-slate-600 px-5 py-2 rounded-full hover:border-cyan-400 hover:text-cyan-400 transition-all uppercase tracking-wider">
+                        Acessar Painel
+                    </a>
+                    
+                    <!-- Mobile Toggle -->
+                    <button id="menu-toggle" aria-label="Abrir menu" class="md:hidden text-2xl text-cyan-400 focus:outline-none p-1 ml-2">
                         <i class="fas fa-bars"></i>
                     </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Dropdown -->
+            <div id="mobile-menu" class="md:hidden w-full absolute left-0 top-full bg-slate-900 border-t border-slate-800 shadow-2xl max-h-0 overflow-hidden transition-all duration-300">
+                <div class="flex flex-col space-y-1 p-4">
+                    <a href="https://www.alocucao.com.br/" class="text-slate-200 hover:text-cyan-400 py-3 px-4 rounded-lg hover:bg-slate-800 transition text-sm font-bold uppercase tracking-wider">Início</a>
+                    <a href="https://www.alocucao.com.br/vozes" class="text-slate-200 hover:text-cyan-400 py-3 px-4 rounded-lg hover:bg-slate-800 transition text-sm font-bold uppercase tracking-wider">Locutores</a>
+                    <a href="https://www.alocucao.com.br/tutoriais" class="text-slate-200 hover:text-cyan-400 py-3 px-4 rounded-lg hover:bg-slate-800 transition text-sm font-bold uppercase tracking-wider">Tutoriais</a>
+                    
+                    <div class="grid grid-cols-2 gap-3 mt-4 pt-4 border-t border-slate-800">
+                        <a href="https://www.alocucao.com.br/login" class="border border-slate-600 text-white text-center py-3 rounded-xl font-bold uppercase text-xs tracking-wider">Login</a>
+                        <a href="https://www.alocucao.com.br/cadastro" target="_blank" class="btn-primary text-slate-900 text-center py-3 rounded-xl font-bold uppercase text-xs tracking-wider">Cadastre-se</a>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- Page Title -->
-    <section class="gradient-bg text-white py-12 lg:py-20 relative overflow-hidden">
-        <div class="container-custom text-center relative z-10">
-            <h1 class="text-3xl sm:text-5xl font-black uppercase italic tracking-tighter mb-4">
-                Termos e Condições de Uso
-            </h1>
-            <p class="text-slate-400 text-sm font-bold uppercase tracking-widest">
-                Atualizado em: 15/04/2026
-            </p>
-        </div>
-    </section>
-
-    <!-- Content -->
-    <main class="py-16 bg-white shadow-sm border-b border-slate-200">
-        <div class="container-custom content-section">
-            <p class="font-semibold text-slate-800 bg-slate-100 p-6 rounded-2xl">
-                Ao utilizar os serviços do <strong>Estúdio A Locução</strong> através de nosso <strong>Painel de Gravação</strong>, o usuário automaticamente CONCORDA, ACEITA e DECLARA CIÊNCIA de todas as cláusulas elencadas neste instrumento.
-            </p>
-
-            <h2>1. Do Objeto e Natureza do Serviço</h2>
-            <p>
-                O <strong>Estúdio A Locução</strong> atua como provedor de serviços de áudio (gravação, produção e edição), operando através de um sistema de revenda licenciada. O <strong>Painel de Gravação</strong> é a ferramenta exclusiva para solicitação, gestão e recebimento de pedidos.
-            </p>
-
-            <h2>2. Dos Créditos e Prazos de Validade</h2>
-            <ul>
-                <li><strong>Validade Exclusiva:</strong> Todo crédito adquirido possui um prazo de validade determinado, informado no ato da compra dentro do Painel de Gravação.</li>
-                <li><strong>Expiração:</strong> Após o período informado, os créditos expiram automaticamente no sistema. Não há possibilidade de recuperação, reativação ou solicitação de reembolso por créditos expirados e não utilizados dentro do prazo.</li>
-                <li><strong>Responsabilidade:</strong> É dever do cliente gerir seu saldo e utilizar os créditos antes do vencimento.</li>
-            </ul>
-
-            <h2>3. Política de Reembolso</h2>
-            <ul>
-                <li><strong>Regra de Utilização:</strong> Não realizamos reembolso de pacotes que já tenham sido utilizados, ainda que tenha havido apenas 01 (uma) única utilização.</li>
-                <li><strong>Pacotes Não Utilizados:</strong> Caso nenhum crédito tenha sido consumido, o reembolso pode ser solicitado em até 7 (sete) dias corridos após a compra.</li>
-                <li><strong>Processamento:</strong> O estorno será realizado em até 2 (dois) dias úteis por nossa equipe. Em pagamentos via Cartão de Crédito, o prazo para o crédito aparecer na fatura depende exclusivamente da operadora do cartão.</li>
-            </ul>
-
-            <h2>4. Comunicação e Conduta</h2>
-            <ul>
-                <li><strong>Canal Exclusivo:</strong> Não é permitido o contato direto com locutores ou produtores. Toda e qualquer comunicação, dúvida ou instrução deve ser realizada obrigatoriamente através do Painel de Gravação, no campo específico de cada pedido.</li>
-                <li><strong>Tentativa de Contato Externo:</strong> O cliente que utilizar o sistema para tentar burlar a plataforma, enviando números de WhatsApp, e-mails ou solicitando contato externo com os profissionais, poderá ser <strong>banido permanentemente</strong> do Painel de Gravação sem direito a reembolso de saldos remanescentes.</li>
-            </ul>
-
-            <h2>5. Prazos, Urgências e Responsabilidades</h2>
-            <p>
-                Embora trabalhemos com uma estimativa de entrega rápida (muitas vezes em minutos), o <strong>A Locução Top</strong> não se responsabiliza por atrasos decorrentes de:
-            </p>
-            <ul>
-                <li>Instabilidades na rede mundial de computadores (Internet).</li>
-                <li>Problemas técnicos imprevistos ou indisponibilidade súbita de profissionais (saúde ou força maior).</li>
-                <li><strong>Pedidos de Urgência:</strong> Desaconselhamos o envio de pedidos para eventos "em cima da hora" que não permitam margem para eventuais ajustes ou correções. Não nos responsabilizamos por perdas decorrentes de prazos exíguos do cliente.</li>
-            </ul>
-
-            <h2>6. Regravações e Correções</h2>
-            <ul>
-                <li><strong>Erros do Estúdio:</strong> Caso o locutor ou produtor cometa erros de leitura ou edição em desacordo com o texto enviado, a correção será realizada sem custo adicional, desde que solicitada em até 3 dias úteis.</li>
-                <li><strong>Erros do Cliente:</strong> Erros de ortografia, gramática, acréscimo/retirada de palavras ou escolha de estilo/locutor inadequado no ato do pedido são de inteira responsabilidade do cliente. Nestes casos, será necessário efetuar um <strong>novo pedido</strong> com novo desconto de crédito.</li>
-            </ul>
-
-            <h2>7. Alteração de Preços</h2>
-            <p>
-                O Estúdio reserva-se o direito de alterar os preços de seus serviços, pacotes e taxas a qualquer momento, visando manter o equilíbrio econômico do serviço, sem necessidade de aviso prévio. Os preços vigentes serão sempre os exibidos no Painel de Gravação no momento da compra.
-            </p>
-
-            <h2>8. Disposições Finais</h2>
-            <p>
-                Como operamos em regime de revenda, declaramos que não possuímos vínculo empregatício direto com os profissionais, atuando como intermediadores tecnológicos para viabilizar a produção de áudio. Este termo é regido pelas leis da República Federativa do Brasil.
-            </p>
-
-            <h2>9. Do Atendimento e Suporte</h2>
-            <p>
-                Para garantir a agilidade operacional, o <strong>Estúdio A Locução</strong> estabelece os seguintes canais de suporte:
-            </p>
-            <ul>
-                <li><strong>WhatsApp (IA):</strong> O atendimento via WhatsApp é realizado exclusivamente por <strong>Inteligência Artificial (IA)</strong>. Este canal é destinado a consultas rápidas e automatizadas.</li>
-                <li><strong>Atendimento Humanizado (E-mail):</strong> Caso necessite de suporte técnico humanizado para situações complexas, o cliente deverá enviar um e-mail para: <strong class="text-cyan-600 italic">suporte@alocucao.com.br</strong>.</li>
-                <li><strong>Horário do Suporte Humanizado:</strong> O atendimento por e-mail ocorre de <strong>segunda a sexta-feira, das 08h às 17h</strong>.</li>
-                <li><strong>Tempo de Resposta:</strong> O prazo médio para resposta de e-mails é de até <strong>2 (duas) horas</strong> dentro do horário comercial estabelecido.</li>
-            </ul>
-
-            <div class="mt-12 p-8 bg-slate-900 text-white rounded-[2rem] text-center">
-                <h3 class="font-black uppercase italic mb-4">Necessita de Atendimento Humanizado?</h3>
-                <p class="text-slate-400 mb-2">Envie um e-mail para nossa central:</p>
-                <p class="text-cyan-400 font-bold text-lg mb-6 underline">suporte@alocucao.com.br</p>
-                <p class="text-xs text-slate-500 uppercase tracking-widest mb-6">Seg. a Sex. das 08h às 17h | Resposta em até 2h</p>
-                <a href="mailto:suporte@alocucao.com.br" class="inline-block bg-cyan-400 text-slate-900 px-8 py-4 rounded-xl font-bold hover:scale-105 transition">Enviar E-mail Agora</a>
+    <main>
+        <!-- Hero Section -->
+        <section class="gradient-bg pt-32 pb-24 lg:pt-40 lg:pb-32 relative overflow-hidden text-white">
+            <div class="glow-circle w-[400px] h-[400px] bg-cyan-500/20 top-0 left-0"></div>
+            
+            <div class="container-custom text-center relative z-10">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-800/50 border border-slate-700 text-cyan-400 mb-6">
+                    <i class="fas fa-file-contract text-2xl"></i>
+                </div>
+                <h1 class="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter mb-4">
+                    Termos e Condições de Uso
+                </h1>
+                <p class="inline-block bg-slate-800/80 px-4 py-2 rounded-lg text-slate-300 text-xs font-bold uppercase tracking-widest border border-slate-700">
+                    Última atualização: <span class="text-cyan-400">15 de Abril de 2026</span>
+                </p>
             </div>
-        </div>
+        </section>
+
+        <!-- Content Section -->
+        <section class="pb-20 relative z-20 -mt-10">
+            <div class="container-custom">
+                <div class="bg-white rounded-[2rem] shadow-xl border border-slate-200 p-8 sm:p-12 lg:p-16 legal-content">
+                    
+                    <!-- Aviso Inicial Destacado -->
+                    <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl mb-10 flex gap-4 items-start">
+                        <i class="fas fa-info-circle text-cyan-500 text-xl mt-1 shrink-0"></i>
+                        <p class="!mb-0 !text-slate-700">
+                            Ao utilizar os serviços do <strong>Estúdio A Locução</strong> através de nosso <strong>Painel de Gravação</strong>, o usuário automaticamente CONCORDA, ACEITA e DECLARA CIÊNCIA de todas as cláusulas elencadas neste instrumento.
+                        </p>
+                    </div>
+
+                    <h2>1. Do Objeto e Natureza do Serviço</h2>
+                    <p>
+                        O <strong>Estúdio A Locução</strong> atua como provedor de serviços de áudio (gravação, produção e edição), operando através de um sistema de revenda licenciada. O <strong>Painel de Gravação</strong> é a ferramenta exclusiva para solicitação, gestão e recebimento de pedidos.
+                    </p>
+
+                    <h2>2. Dos Créditos e Prazos de Validade</h2>
+                    <ul>
+                        <li><strong>Validade Exclusiva:</strong> Todo crédito adquirido possui um prazo de validade determinado, informado no ato da compra dentro do Painel de Gravação.</li>
+                        <li><strong>Expiração:</strong> Após o período informado, os créditos expiram automaticamente no sistema. Não há possibilidade de recuperação, reativação ou solicitação de reembolso por créditos expirados e não utilizados dentro do prazo.</li>
+                        <li><strong>Responsabilidade:</strong> É dever do cliente gerenciar seu saldo e utilizar os créditos antes do vencimento.</li>
+                    </ul>
+
+                    <h2>3. Política de Reembolso</h2>
+                    <ul>
+                        <li><strong>Regra de Utilização:</strong> Não realizamos reembolso de pacotes que já tenham sido utilizados, ainda que tenha havido apenas 01 (uma) única utilização.</li>
+                        <li><strong>Pacotes Não Utilizados:</strong> Caso nenhum crédito tenha sido consumido, o reembolso pode ser solicitado em até 7 (sete) dias corridos após a compra.</li>
+                        <li><strong>Processamento:</strong> O estorno será realizado em até 2 (dois) dias úteis por nossa equipe. Em pagamentos via Cartão de Crédito, o prazo para o crédito aparecer na fatura depende exclusivamente da operadora do cartão.</li>
+                    </ul>
+
+                    <h2>4. Comunicação e Conduta</h2>
+                    <ul>
+                        <li><strong>Canal Exclusivo:</strong> Não é permitido o contato direto com locutores ou produtores. Toda e qualquer comunicação, dúvida ou instrução deve ser realizada obrigatoriamente através do Painel de Gravação, no campo específico de cada pedido.</li>
+                        <li><strong>Tentativa de Contato Externo:</strong> O cliente que utilizar o sistema para tentar burlar a plataforma, enviando números de WhatsApp, e-mails ou solicitando contato externo com os profissionais, poderá ser <strong>banido permanentemente</strong> do Painel de Gravação sem direito a reembolso de saldos remanescentes.</li>
+                    </ul>
+
+                    <h2>5. Prazos, Urgências e Responsabilidades</h2>
+                    <p>
+                        Embora trabalhemos com uma estimativa de entrega rápida (muitas vezes em minutos), o <strong>Estúdio A Locução</strong> não se responsabiliza por atrasos decorrentes de:
+                    </p>
+                    <ul>
+                        <li>Instabilidades na rede mundial de computadores (Internet).</li>
+                        <li>Problemas técnicos imprevistos ou indisponibilidade súbita de profissionais (questões de saúde ou força maior).</li>
+                        <li><strong>Pedidos de Urgência:</strong> Desaconselhamos o envio de pedidos para eventos "em cima da hora" que não permitam margem para eventuais ajustes ou correções. Não nos responsabilizamos por perdas decorrentes de prazos exíguos estabelecidos pelo cliente.</li>
+                    </ul>
+
+                    <h2>6. Regravações e Correções</h2>
+                    <ul>
+                        <li><strong>Erros do Estúdio:</strong> Caso o locutor ou produtor cometa erros de leitura ou edição em desacordo com o texto original enviado, a correção será realizada sem custo adicional, desde que solicitada em até 3 dias úteis.</li>
+                        <li><strong>Erros do Cliente:</strong> Erros de ortografia, gramática, acréscimo/retirada de palavras ou escolha de estilo/locutor inadequado no ato do pedido são de inteira responsabilidade do cliente. Nestes casos, será necessário efetuar um <strong>novo pedido</strong> com novo desconto de crédito.</li>
+                    </ul>
+
+                    <h2>7. Alteração de Preços</h2>
+                    <p>
+                        O Estúdio reserva-se o direito de alterar os preços de seus serviços, pacotes e taxas a qualquer momento, visando manter o equilíbrio econômico do serviço, sem necessidade de aviso prévio. Os preços vigentes serão sempre os exibidos no Painel de Gravação no momento da compra.
+                    </p>
+
+                    <h2>8. Disposições Finais</h2>
+                    <p>
+                        Como operamos em regime de revenda, declaramos que não possuímos vínculo empregatício direto com os profissionais, atuando como intermediadores tecnológicos para viabilizar a produção de áudio. Este termo é regido pelas leis da República Federativa do Brasil.
+                    </p>
+
+                    <h2>9. Do Atendimento e Suporte</h2>
+                    <p>
+                        Para garantir a agilidade operacional, o <strong>Estúdio A Locução</strong> estabelece os seguintes canais de suporte:
+                    </p>
+                    <ul>
+                        <li><strong>WhatsApp (IA):</strong> O atendimento via WhatsApp é realizado exclusivamente por <strong>Inteligência Artificial (IA)</strong>. Este canal é destinado a consultas rápidas e automatizadas.</li>
+                        <li><strong>Atendimento Humanizado (E-mail):</strong> Caso necessite de suporte técnico humanizado para situações complexas, o cliente deverá enviar um e-mail para nossa central.</li>
+                        <li><strong>Horário do Suporte Humanizado:</strong> O atendimento por e-mail ocorre de <strong>segunda a sexta-feira, das 08h às 17h</strong>.</li>
+                        <li><strong>Tempo de Resposta:</strong> O prazo médio para resposta de e-mails é de até <strong>2 (duas) horas</strong> dentro do horário comercial estabelecido.</li>
+                    </ul>
+
+                    <!-- Card de Contato / Suporte -->
+                    <div class="mt-16 p-8 sm:p-10 bg-slate-900 text-white rounded-[2rem] text-center shadow-2xl relative overflow-hidden">
+                        <div class="absolute inset-0 bg-cyan-500/10 backdrop-blur-3xl"></div>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 mx-auto bg-slate-800 rounded-2xl flex items-center justify-center mb-6 text-cyan-400 text-2xl border border-slate-700">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h3 class="text-2xl font-black uppercase italic mb-3">Necessita de Atendimento Humanizado?</h3>
+                            <p class="text-slate-400 mb-6 max-w-lg mx-auto">Envie um e-mail para nossa central detalhando sua solicitação e nossa equipe técnica retornará prontamente.</p>
+                            
+                            <a href="mailto:suporte@alocucao.com.br" class="inline-flex items-center gap-3 bg-cyan-400 text-slate-900 px-8 py-4 rounded-xl font-bold hover:bg-white transition uppercase tracking-widest mb-6">
+                                <i class="fas fa-envelope"></i> suporte@alocucao.com.br
+                            </a>
+                            
+                            <p class="text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest font-semibold flex flex-col sm:flex-row justify-center items-center gap-2">
+                                <span><i class="far fa-clock text-cyan-500 mr-1"></i> Seg. a Sex. das 08h às 17h</span>
+                                <span class="hidden sm:inline">|</span>
+                                <span>Resposta em até 2h</span>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-white py-12">
-        <div class="container-custom text-center">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYPBaiKxjc83IqqOA3ncIpkmot93nIlZyV0cFYcbtuqc3h4k6xO5cFG1eZEaOxJJeqmiiQINc_PuK9jvVONldvBA3K7hhm6k9aiO1DUFSn7A4pRG8wEaUCQY7aHTW44ON6igJ71IUNOxXoF3aBbhCjUWginVmhR4OSNhyphenhyphenjuE7qxMSppQklshvobu8B1SI/s2816/Gemini_Generated_Image_ihi574ihi574ihi5.png" alt="Logo" class="h-12 mx-auto mb-6 rounded-lg">
-            <p class="text-slate-400 text-xs font-bold uppercase tracking-widest">
-                &copy; 2012-2024 Estúdio A Locução - Todos os direitos reservados.
-            </p>
+    <!-- Footer Padrão Unificado -->
+    <footer class="bg-slate-950 py-16 border-t border-slate-800">
+        <div class="max-w-[1280px] mx-auto px-6">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12 text-slate-300">
+                <!-- Coluna 1 -->
+                <div>
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_sBFI94b0Jhnsl6DY4UwsTOpsmltn1MNvF5n6zcrkdLUd7oqFJfxF5NAtCEwBchu-b65jEsMXi60X2SlPb04XheC1fuEaG-sRzEbENAbN4eMSX5YHbdk6oGhfGTHQOPR1tZJn_GwXOAjUL6UX4ZvpVITZOL6is83xruSEkk343d-9VEx5osefurjX8aY/s1600/logo.png" alt="Estúdio A Locução" class="w-40 mb-6 brightness-0 invert opacity-70">
+                    <p class="text-sm leading-relaxed text-slate-400">
+                        Referência em produção de áudio desde 2012. Qualidade, rapidez e o melhor elenco de vozes do Brasil.
+                    </p>
+                </div>
+                <!-- Coluna 2 -->
+                <div>
+                    <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Atendimento 24h</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li>
+                            <a href="https://wa.me/5527996529832" target="_blank" class="flex items-center gap-3 hover:text-green-400 transition">
+                                <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-green-400"><i class="fab fa-whatsapp text-lg"></i></div>
+                                <span>(27) 99652-9832</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:suporte@alocucao.com.br" class="flex items-center gap-3 hover:text-cyan-400 transition">
+                                <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-cyan-400"><i class="fas fa-envelope text-sm"></i></div>
+                                <span>suporte@alocucao.com.br</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Coluna 3 -->
+                <div>
+                    <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Acesso Rápido</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="https://www.alocucao.com.br/" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-angle-right text-xs text-slate-600"></i> Início</a></li>
+                        <li><a href="https://www.alocucao.com.br/vozes" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-angle-right text-xs text-slate-600"></i> Banco de Vozes</a></li>
+                        <li><a href="https://www.alocucao.com.br/#precos" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-angle-right text-xs text-slate-600"></i> Preços e Créditos</a></li>
+                        <li><a href="https://www.alocucao.com.br/tutoriais" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-angle-right text-xs text-slate-600"></i> Tutoriais em Vídeo</a></li>
+                    </ul>
+                </div>
+                <!-- Coluna 4 -->
+                <div>
+                    <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Segurança</h4>
+                    <ul class="space-y-3 text-sm mb-6">
+                        <li><a href="https://www.alocucao.com.br/termos" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-angle-right text-xs text-slate-600"></i> Termos de Uso</a></li>
+                        <li><a href="https://www.alocucao.com.br/privacidade" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-angle-right text-xs text-slate-600"></i> Política de Privacidade</a></li>
+                    </ul>
+                    <a href="https://www.alocucao.com.br/cadastro" target="_blank" class="inline-block w-full text-center px-6 py-3 bg-slate-800 text-white rounded-lg text-sm font-bold uppercase tracking-wider hover:bg-cyan-600 hover:text-white transition">Criar Conta Grátis</a>
+                </div>
+            </div>
+            <!-- Direitos -->
+            <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-slate-500 font-medium tracking-widest uppercase">&copy; 2012 - 2026 Estúdio A Locução. Todos os direitos reservados.</p>
+                <div class="text-slate-600 flex gap-4 text-lg">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-pix"></i>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <!-- Mobile Menu Toggle Script -->
+    <!-- Botão Flutuante WhatsApp -->
+    <a href="https://wa.me/5527996529832" target="_blank" rel="noopener noreferrer" 
+       class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-3xl shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:scale-110 hover:-translate-y-2 transition-all duration-300 z-50 group"
+       aria-label="Atendimento via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <!-- Tooltip -->
+        <span class="absolute right-full mr-4 bg-slate-900 text-white text-xs font-bold px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            Atendimento 24h
+        </span>
+    </a>
+
+    <!-- Scripts -->
     <script>
+        // Lógica do Menu Mobile
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
-        const icon = menuToggle?.querySelector('i');
+        const icon = menuToggle.querySelector('i');
 
-        menuToggle?.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            if (icon) {
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
+        menuToggle.addEventListener('click', () => {
+            const isClosed = mobileMenu.style.maxHeight === '0px' || mobileMenu.style.maxHeight === '';
+            
+            if (isClosed) {
+                mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                mobileMenu.style.maxHeight = '0px';
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Efeito Header no Scroll
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+                header.style.background = 'rgba(15, 23, 42, 0.98)';
+            } else {
+                header.classList.remove('shadow-md');
+                header.style.background = 'rgba(15, 23, 42, 0.85)';
             }
         });
     </script>
