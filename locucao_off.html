@@ -1,246 +1,434 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093304718">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18093304718');
-</script>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gravação em OFF Profissional | Entrega em 10 Minutos | Estúdio A locução</title>
+    
+    <!-- SEO & Meta Tags -->
+    <title>Gravação em OFF Profissional | Entrega em 10 Minutos | Estúdio A Locução</title>
+    <meta name="description" content="Grave seu texto em OFF com locutores profissionais. Entrega super rápida em até 10 minutos. O melhor preço do mercado, a partir de R$ 9,99.">
+    <meta name="keywords" content="locução em off, gravação off, locutor off, áudio off, produtor de áudio, locutor para rádio, locutor varejo">
+    <meta name="author" content="Estúdio A Locução">
+
+    <!-- Open Graph / Redes Sociais -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gravação em OFF Profissional | Entrega Rápida">
+    <meta property="og:description" content="Apenas R$ 9,99 no pacote promocional. Ouça nossas vozes e receba seu áudio em tempo recorde.">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093304718"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18093304718');
+    </script>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Configurações Customizadas Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    colors: {
+                        primary: '#22d3ee', // Cyan 400
+                        primaryDark: '#0891b2', // Cyan 600
+                        darkBg: '#0f172a', // Slate 900
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
-        .accent-color { color: #22d3ee; }
-        .btn-primary { background: #22d3ee; transition: all 0.3s ease; }
-        .btn-primary:hover { background: #0891b2; transform: translateY(-2px); box-shadow: 0 10px 20px -5px rgba(34, 211, 238, 0.4); }
-        .logo-img { max-height: 50px; width: auto; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            scroll-behavior: smooth; 
+            overflow-x: hidden;
+        }
         
-        .container-custom {
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
+        .gradient-bg { 
+            background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 100%); 
+        }
+        
+        .glass-header {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         /* Glassmorphism para o card de preço */
         .glass {
             background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(34, 211, 238, 0.2);
         }
+
+        .btn-primary { 
+            background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%);
+            transition: all 0.3s ease; 
+        }
+        .btn-primary:hover { 
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -5px rgba(34, 211, 238, 0.4);
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            border-color: #22d3ee;
+            box-shadow: 0 20px 40px -15px rgba(34, 211, 238, 0.15);
+        }
+
+        .logo-img { max-height: 45px; width: auto; transition: transform 0.3s ease; }
+        .logo-img:hover { transform: scale(1.05); }
+        
+        /* Áudio Customizado */
+        audio {
+            height: 40px;
+            width: 100%;
+            border-radius: 8px;
+            outline: none;
+        }
+        audio::-webkit-media-controls-panel { background-color: #f8fafc; }
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-mute-button { background-color: #e2e8f0; border-radius: 50%; }
+
+        .container-custom {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .container-custom { padding: 0 2.5rem; }
+        }
+
+        .glow-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.3;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-cyan-200 selection:text-slate-900">
 
-    <!-- Header Simples -->
-    <header class="bg-slate-900 py-4 border-b border-slate-800">
+    <!-- Header Simples Focado em Conversão -->
+    <header class="fixed w-full top-0 z-50 glass-header text-white transition-all duration-300 py-3 sm:py-4">
         <div class="container-custom flex justify-between items-center">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_sBFI94b0Jhnsl6DY4UwsTOpsmltn1MNvF5n6zcrkdLUd7oqFJfxF5NAtCEwBchu-b65jEsMXi60X2SlPb04XheC1fuEaG-sRzEbENAbN4eMSX5YHbdk6oGhfGTHQOPR1tZJn_GwXOAjUL6UX4ZvpVITZOL6is83xruSEkk343d-9VEx5osefurjX8aY/s1600/logo.png" alt="Estúdio A Locução" class="logo-img">
-            <a href="https://wa.me/5527996529832" class="text-cyan-400 font-bold flex items-center gap-2 hover:underline">
-                <i class="fab fa-whatsapp"></i> Suporte Especializado
+            <a href="#">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_sBFI94b0Jhnsl6DY4UwsTOpsmltn1MNvF5n6zcrkdLUd7oqFJfxF5NAtCEwBchu-b65jEsMXi60X2SlPb04XheC1fuEaG-sRzEbENAbN4eMSX5YHbdk6oGhfGTHQOPR1tZJn_GwXOAjUL6UX4ZvpVITZOL6is83xruSEkk343d-9VEx5osefurjX8aY/s1600/logo.png" alt="Estúdio A Locução" class="logo-img">
+            </a>
+            <a href="https://wa.me/5527996529832" target="_blank" class="text-cyan-400 font-bold flex items-center gap-2 hover:text-cyan-300 transition-colors text-sm sm:text-base border border-cyan-400/30 px-4 py-2 rounded-full hover:bg-cyan-900/20">
+                <i class="fab fa-whatsapp text-lg"></i> <span class="hidden sm:inline">Suporte Especializado</span><span class="sm:hidden">Suporte</span>
             </a>
         </div>
     </header>
 
-    <!-- Hero Section (Dobra Principal - Sem Imagem) -->
-    <section class="gradient-bg text-white py-24 lg:py-40 relative overflow-hidden">
-        <div class="container-custom text-center relative z-10">
-            <div class="max-w-4xl mx-auto">
-                <span class="inline-block bg-cyan-500/20 text-cyan-400 px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-8 border border-cyan-500/30">
-                    O OFF MAIS RÁPIDO DO BRASIL
-                </span>
-                <h1 class="text-4xl sm:text-7xl font-extrabold leading-tight tracking-tighter mb-8">
-                    Sua Gravação em <span class="accent-color italic">OFF</span> pronta em até <span class="accent-color">10 Minutos</span>.
-                </h1>
-                <p class="text-slate-300 text-lg lg:text-2xl mb-12 leading-relaxed font-light">
-                    Vozes reais, locutores profissionais e o melhor preço do mercado. Ideal para editores, agências e produtores que precisam de agilidade e qualidade máxima.
-                </p>
+    <main>
+        <!-- Hero Section (Dobra Principal para Ads) -->
+        <section class="gradient-bg pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden text-white">
+            <!-- Efeitos visuais fundo -->
+            <div class="glow-circle w-[500px] h-[500px] bg-cyan-500 top-[-10%] left-[-10%]"></div>
+            <div class="glow-circle w-[400px] h-[400px] bg-blue-600 bottom-[-10%] right-[-5%]"></div>
+
+            <div class="container-custom text-center relative z-10">
+                <div class="max-w-4xl mx-auto">
+                    
+                    <!-- Badge Chamativo -->
+                    <span class="inline-flex items-center gap-2 bg-cyan-500/10 text-cyan-400 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-8 border border-cyan-400/30 shadow-[0_0_15px_rgba(34,211,238,0.2)]">
+                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span> O OFF MAIS RÁPIDO DO BRASIL
+                    </span>
+                    
+                    <!-- Headline Direta e Persuasiva -->
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight mb-6">
+                        Sua Gravação em <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 italic">OFF</span> pronta em até <span class="text-cyan-400">10 Min.</span>
+                    </h1>
+                    
+                    <p class="text-slate-300 text-lg lg:text-xl mb-12 leading-relaxed font-light max-w-3xl mx-auto">
+                        Vozes reais, locutores profissionais e o melhor preço do mercado. Ideal para editores, agências e produtoras que precisam de <strong class="text-white">agilidade e qualidade máxima</strong>.
+                    </p>
+                    
+                    <!-- Card de Preço em Destaque (Gatilho Visual) -->
+                    <div class="inline-block glass px-8 py-5 rounded-2xl mb-10 shadow-2xl relative transform hover:scale-105 transition-transform duration-300">
+                        <div class="absolute -top-3 -right-3 bg-rose-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-lg animate-bounce">
+                            Mais Barato!
+                        </div>
+                        <p class="text-xs font-bold text-cyan-400 uppercase tracking-widest mb-1">Pacote Promocional 50 Offs</p>
+                        <div class="flex items-baseline justify-center gap-2">
+                            <p class="text-4xl sm:text-6xl font-black italic tracking-tighter">R$ 9,99</p>
+                            <span class="text-sm font-medium text-slate-400 uppercase tracking-widest block text-left leading-tight mt-2">por<br>crédito</span>
+                        </div>
+                    </div>
+
+                    <!-- CTAs Duplos -->
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mb-12">
+                        <a href="https://www.alocucao.com.br/cadastro" target="_blank" class="w-full sm:w-auto btn-primary text-slate-900 px-10 py-5 rounded-2xl font-black text-xl lg:text-2xl flex items-center justify-center gap-3">
+                            <i class="fas fa-bolt"></i> PEDIR MEU OFF AGORA
+                        </a>
+                        <a href="#vozes" class="w-full sm:w-auto bg-white/5 backdrop-blur-sm hover:bg-white/10 border border-white/20 px-10 py-5 rounded-2xl font-bold text-xl lg:text-2xl transition flex items-center justify-center gap-3 text-white">
+                            <i class="fas fa-headphones"></i> OUVIR AMOSTRAS
+                        </a>
+                    </div>
+
+                    <!-- Microcopys de Confiança -->
+                    <div class="flex flex-wrap justify-center gap-6 sm:gap-10 text-xs sm:text-sm text-slate-300 font-semibold uppercase tracking-widest">
+                        <span class="flex items-center gap-2"><i class="fas fa-check-circle text-cyan-400"></i> Vozes Reais</span>
+                        <span class="flex items-center gap-2"><i class="fas fa-check-circle text-cyan-400"></i> Entrega Expressa</span>
+                        <span class="flex items-center gap-2"><i class="fas fa-check-circle text-cyan-400"></i> Plantão 24h</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vantagens Objetivas -->
+        <section class="py-20 bg-white relative z-20 -mt-6 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
+            <div class="container-custom">
+                <div class="grid md:grid-cols-3 gap-8 text-center sm:text-left">
+                    <div class="p-8 bg-slate-50 rounded-[2rem] border border-slate-100 hover:border-cyan-200 transition duration-300 group hover:shadow-lg hover:bg-white">
+                        <div class="w-16 h-16 bg-cyan-100 rounded-2xl flex items-center justify-center mb-6 mx-auto sm:mx-0 group-hover:-translate-y-2 transition-transform">
+                            <i class="fas fa-bolt text-cyan-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-slate-900 tracking-tight">Velocidade Extrema</h3>
+                        <p class="text-slate-600 leading-relaxed text-sm">Não perca tempo esperando dias. Nosso sistema de plantão interligado aos estúdios entrega seu áudio bruto em até 10 minutos.</p>
+                    </div>
+
+                    <div class="p-8 bg-slate-50 rounded-[2rem] border border-slate-100 hover:border-blue-200 transition duration-300 group hover:shadow-lg hover:bg-white">
+                        <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 mx-auto sm:mx-0 group-hover:-translate-y-2 transition-transform">
+                            <i class="fas fa-users text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-slate-900 tracking-tight">Mais de 200 Vozes</h3>
+                        <p class="text-slate-600 leading-relaxed text-sm">Acesse o maior banco de locutores reais do Brasil. Vozes masculinas, femininas e infantis em todos os estilos e timbres.</p>
+                    </div>
+
+                    <div class="p-8 bg-slate-50 rounded-[2rem] border border-slate-100 hover:border-emerald-200 transition duration-300 group hover:shadow-lg hover:bg-white">
+                        <div class="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6 mx-auto sm:mx-0 group-hover:-translate-y-2 transition-transform">
+                            <i class="fas fa-wallet text-emerald-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-slate-900 tracking-tight">Economia Real</h3>
+                        <p class="text-slate-600 leading-relaxed text-sm">Pague apenas o que usar. Compre OFF avulso por R$ 14,90 ou invista em pacotes com créditos saindo a partir de R$ 9,99.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Amostras de Vozes (Seção Crítica para Conversão) -->
+        <section id="vozes" class="py-24 bg-slate-50 border-y border-slate-200">
+            <div class="container-custom">
+                <div class="text-center mb-16">
+                    <span class="text-cyan-600 font-bold uppercase tracking-widest text-xs mb-2 block">Alta Qualidade</span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-4">Escolha a voz ideal para seu OFF</h2>
+                    <p class="text-slate-500">Amostras reais do nosso banco. Escute e comprove a qualidade de captação.</p>
+                </div>
                 
-                <!-- Card de Preço em Destaque -->
-                <div class="inline-block glass px-8 py-4 rounded-2xl border border-cyan-400/30 mb-12 shadow-2xl">
-                    <p class="text-xs font-bold text-cyan-400 uppercase tracking-widest mb-1 italic">Pacote Promocional</p>
-                    <p class="text-3xl sm:text-5xl font-black italic">R$ 9,99 <span class="text-sm font-normal text-slate-400 uppercase tracking-normal">por crédito</span></p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16">
+                    
+                    <!-- Locutor 1 -->
+                    <article class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 card-hover text-center relative pt-12 mt-8">
+                        <div class="absolute -top-10 left-1/2 -translate-x-1/2">
+                            <img src="https://testedomarcio.github.io/meuadio/celso.jpg" alt="Celso" class="w-24 h-24 rounded-full object-cover border-4 border-white shadow-lg" onerror="this.src='https://via.placeholder.com/150?text=Celso'">
+                        </div>
+                        <span class="bg-cyan-100 text-cyan-700 text-[9px] font-bold px-2 py-1 rounded absolute top-4 right-4 uppercase">Masc.</span>
+                        <h4 class="font-black text-xl text-slate-900 uppercase tracking-tight mb-1">Celso</h4>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-5">Varejo / Impacto</p>
+                        <audio controls preload="none" class="w-full bg-slate-50 rounded-lg shadow-inner">
+                            <source src="https://testedomarcio.github.io/meuadio/Celso.mp3" type="audio/mpeg">
+                        </audio>
+                    </article>
+
+                    <!-- Locutora 2 -->
+                    <article class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 card-hover text-center relative pt-12 mt-8">
+                        <div class="absolute -top-10 left-1/2 -translate-x-1/2">
+                            <img src="https://testedomarcio.github.io/meuadio/Elissandra.jpg" alt="Elissandra" class="w-24 h-24 rounded-full object-cover border-4 border-white shadow-lg" onerror="this.src='https://via.placeholder.com/150?text=Elissandra'">
+                        </div>
+                        <span class="bg-pink-100 text-pink-700 text-[9px] font-bold px-2 py-1 rounded absolute top-4 right-4 uppercase">Fem.</span>
+                        <h4 class="font-black text-xl text-slate-900 uppercase tracking-tight mb-1">Elissandra</h4>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-5">Institucional / Alegre</p>
+                        <audio controls preload="none" class="w-full bg-slate-50 rounded-lg shadow-inner">
+                            <source src="https://testedomarcio.github.io/meuadio/elissandra.mp3" type="audio/mpeg">
+                        </audio>
+                    </article>
+
+                    <!-- Locutor 3 -->
+                    <article class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 card-hover text-center relative pt-12 mt-8">
+                        <div class="absolute -top-10 left-1/2 -translate-x-1/2">
+                            <img src="https://testedomarcio.github.io/meuadio/leandro.jpg" alt="Leandro" class="w-24 h-24 rounded-full object-cover border-4 border-white shadow-lg" onerror="this.src='https://via.placeholder.com/150?text=Leandro'">
+                        </div>
+                        <span class="bg-cyan-100 text-cyan-700 text-[9px] font-bold px-2 py-1 rounded absolute top-4 right-4 uppercase">Masc.</span>
+                        <h4 class="font-black text-xl text-slate-900 uppercase tracking-tight mb-1">Leandro</h4>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-5">Jovem / Animado</p>
+                        <audio controls preload="none" class="w-full bg-slate-50 rounded-lg shadow-inner">
+                            <source src="https://testedomarcio.github.io/meuadio/Leandro.mp3" type="audio/mpeg">
+                        </audio>
+                    </article>
+
+                    <!-- Locutora 4 -->
+                    <article class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 card-hover text-center relative pt-12 mt-8">
+                        <div class="absolute -top-10 left-1/2 -translate-x-1/2">
+                            <img src="https://testedomarcio.github.io/meuadio/tati.jpg" alt="Tati" class="w-24 h-24 rounded-full object-cover border-4 border-white shadow-lg" onerror="this.src='https://via.placeholder.com/150?text=Tati'">
+                        </div>
+                        <span class="bg-pink-100 text-pink-700 text-[9px] font-bold px-2 py-1 rounded absolute top-4 right-4 uppercase">Fem.</span>
+                        <h4 class="font-black text-xl text-slate-900 uppercase tracking-tight mb-1">Tati</h4>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-5">Feminina / Up Festa</p>
+                        <audio controls preload="none" class="w-full bg-slate-50 rounded-lg shadow-inner">
+                            <source src="https://testedomarcio.github.io/meuadio/tati.mp3" type="audio/mpeg">
+                        </audio>
+                    </article>
                 </div>
 
-                <div class="flex flex-col sm:flex-row justify-center gap-6 mb-12">
-                    <a href="https://alocucao.com.br/cadastro" target="_blank" class="btn-primary text-slate-900 px-12 py-6 rounded-2xl font-black text-2xl shadow-[0_0_50px_rgba(34,211,238,0.3)]">
-                        PEDIR MEU OFF AGORA
+                <div class="text-center">
+                    <a href="https://www.alocucao.com.br/vozes" target="_blank" class="inline-flex items-center gap-2 text-cyan-600 font-bold border-2 border-cyan-200 px-8 py-4 rounded-xl hover:bg-cyan-600 hover:text-white transition uppercase text-sm tracking-widest">
+                        VER TODOS OS +200 LOCUTORES <i class="fas fa-arrow-right"></i>
                     </a>
-                    <a href="#vozes" class="bg-white/10 hover:bg-white/20 border border-white/20 px-12 py-6 rounded-2xl font-bold text-2xl transition">
-                        OUVIR AMOSTRAS
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ de Quebra de Objeções -->
+        <section class="py-24 bg-white">
+            <div class="container-custom max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight mb-2">Tudo o que você precisa saber</h2>
+                    <p class="text-slate-500">Dúvidas frequentes de quem compra conosco.</p>
+                </div>
+                
+                <div class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-6 open:bg-white open:ring-1 open:ring-cyan-400 transition-all duration-300">
+                        <summary class="flex justify-between items-center font-bold text-slate-800 cursor-pointer list-none text-lg">
+                            O que recebo exatamente em uma Gravação em OFF?
+                            <span class="transition group-open:rotate-180 text-cyan-500"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="text-slate-600 mt-4 text-sm leading-relaxed border-t border-slate-100 pt-4">
+                            Você recebe o áudio bruto gravado pelo locutor escolhido, exatamente como saiu do estúdio. Ele vem sem trilhas musicais (BG), sem efeitos e sem mixagem final. É o material ideal para produtoras e editores de vídeo que vão fazer a montagem final da campanha.
+                        </div>
+                    </details>
+
+                    <!-- FAQ 2 -->
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-6 open:bg-white open:ring-1 open:ring-cyan-400 transition-all duration-300">
+                        <summary class="flex justify-between items-center font-bold text-slate-800 cursor-pointer list-none text-lg">
+                            Qual o tempo de entrega? É em 10 minutos mesmo?
+                            <span class="transition group-open:rotate-180 text-cyan-500"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="text-slate-600 mt-4 text-sm leading-relaxed border-t border-slate-100 pt-4">
+                            Sim! Locutores identificados com o selo verde de "Plantão Online" em nosso sistema geralmente entregam <strong>em até 10 minutos</strong>. Outros locutores operam em turnos específicos e o prazo é informado no momento da escolha.
+                        </div>
+                    </details>
+
+                    <!-- FAQ 3 -->
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-6 open:bg-white open:ring-1 open:ring-cyan-400 transition-all duration-300">
+                        <summary class="flex justify-between items-center font-bold text-slate-800 cursor-pointer list-none text-lg">
+                            Como funciona o limite de tempo/créditos?
+                            <span class="transition group-open:rotate-180 text-cyan-500"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="text-slate-600 mt-4 text-sm leading-relaxed border-t border-slate-100 pt-4">
+                            Nosso sistema funciona por créditos. <strong>1 crédito equivale a um texto de até 40 segundos.</strong> Se o seu roteiro for maior, o sistema calculará automaticamente o uso de mais créditos. Você pode comprar OFFs avulsos ou pacotes para baratear o custo por crédito.
+                        </div>
+                    </details>
+                    
+                    <!-- FAQ 4 -->
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-6 open:bg-white open:ring-1 open:ring-cyan-400 transition-all duration-300">
+                        <summary class="flex justify-between items-center font-bold text-slate-800 cursor-pointer list-none text-lg">
+                            E se o locutor gravar com erro?
+                            <span class="transition group-open:rotate-180 text-cyan-500"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="text-slate-600 mt-4 text-sm leading-relaxed border-t border-slate-100 pt-4">
+                            Fique tranquilo. Erros cometidos pelo locutor (falha na dicção, desrespeito às orientações, palavras omitidas) dão direito a uma <strong>regravação gratuita</strong>. Só será cobrado novo crédito caso você altere o texto original após a gravação concluída.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Última Chamada para Ação (CTA) -->
+        <section class="py-24 gradient-bg text-white text-center relative overflow-hidden border-t border-white/5">
+            <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+            
+            <div class="container-custom relative z-10">
+                <h2 class="text-4xl sm:text-6xl font-black mb-6 tracking-tight">Pronto para acelerar suas produções?</h2>
+                <p class="text-slate-300 text-xl mb-12 max-w-2xl mx-auto font-light">Cadastre-se grátis agora mesmo, adicione créditos e libere seu primeiro áudio de alta qualidade.</p>
+                
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                    <a href="https://www.alocucao.com.br/cadastro" target="_blank" class="w-full sm:w-auto btn-primary text-slate-900 px-12 py-5 rounded-2xl font-black text-xl shadow-[0_0_40px_rgba(34,211,238,0.4)] flex items-center justify-center gap-2">
+                        CRIAR CONTA GRÁTIS <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
-
-                <div class="flex flex-wrap justify-center gap-8 text-sm text-slate-400 font-bold uppercase tracking-widest">
-                    <span class="flex items-center gap-2"><i class="fas fa-check-circle text-cyan-400"></i> Vozes Reais</span>
-                    <span class="flex items-center gap-2"><i class="fas fa-check-circle text-cyan-400"></i> Entrega Expressa</span>
-                    <span class="flex items-center gap-2"><i class="fas fa-check-circle text-cyan-400"></i> Plantão 24h</span>
-                </div>
+                <p class="mt-8 text-sm text-slate-400 font-semibold"><i class="fas fa-lock text-cyan-400 mr-1"></i> Plataforma 100% Segura e Automatizada</p>
             </div>
-        </div>
+        </section>
+    </main>
 
-        <!-- Elementos decorativos de fundo -->
-        <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px] -z-0"></div>
-        <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] -z-0"></div>
-    </section>
-
-    <!-- Vantagens -->
-    <section class="py-24 bg-white">
-        <div class="container-custom">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-8 bg-slate-50 rounded-[2.5rem] border border-transparent hover:border-cyan-200 transition">
-                    <div class="w-14 h-14 bg-cyan-100 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-bolt text-cyan-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 uppercase">Velocidade Extrema</h3>
-                    <p class="text-slate-600 leading-relaxed">Não perca tempo esperando dias. Nosso sistema de plantão entrega seu áudio bruto em até 10 minutos.</p>
-                </div>
-
-                <div class="p-8 bg-slate-50 rounded-[2.5rem] border border-transparent hover:border-cyan-200 transition">
-                    <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-users text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 uppercase">Mais de 200 Vozes</h3>
-                    <p class="text-slate-600 leading-relaxed">O maior banco de locutores reais do Brasil. Masculino, feminino e infantil em todos os estilos.</p>
-                </div>
-
-                <div class="p-8 bg-slate-50 rounded-[2.5rem] border border-transparent hover:border-cyan-200 transition">
-                    <div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-wallet text-emerald-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 uppercase">Economia Real</h3>
-                    <p class="text-slate-600 leading-relaxed">Pague apenas o que usar. Créditos em OFF a partir de R$ 4,00 no pacote de 50 unidades.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Amostras de Vozes -->
-    <section id="vozes" class="py-24 bg-slate-50 border-y border-slate-200">
-        <div class="container-custom text-center">
-            <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tighter mb-12">Escolha a voz ideal para seu OFF</h2>
+    <!-- Footer Simples e Limpo -->
+    <footer class="bg-slate-950 py-12 border-t border-slate-800">
+        <div class="container-custom flex flex-col items-center text-center">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_sBFI94b0Jhnsl6DY4UwsTOpsmltn1MNvF5n6zcrkdLUd7oqFJfxF5NAtCEwBchu-b65jEsMXi60X2SlPb04XheC1fuEaG-sRzEbENAbN4eMSX5YHbdk6oGhfGTHQOPR1tZJn_GwXOAjUL6UX4ZvpVITZOL6is83xruSEkk343d-9VEx5osefurjX8aY/s1600/logo.png" alt="Estúdio A Locução" class="h-12 mb-8 opacity-80 grayscale hover:grayscale-0 transition">
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                <!-- Locutor 1 -->
-                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200">
-                    <img src="https://testedomarcio.github.io/meuadio/celso.jpg" alt="Celso" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-cyan-100">
-                    <h4 class="font-black text-lg uppercase tracking-tighter mb-1">Celso</h4>
-                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4 italic">Varejo / Impacto</p>
-                    <audio controls class="w-full h-8">
-                        <source src="https://testedomarcio.github.io/meuadio/Celso.mp3" type="audio/mpeg">
-                    </audio>
-                </div>
-
-                <!-- Locutor 2 -->
-                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200">
-                    <img src="https://testedomarcio.github.io/meuadio/Elissandra.jpg" alt="Elissandra" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-pink-100">
-                    <h4 class="font-black text-lg uppercase tracking-tighter mb-1">Elissandra</h4>
-                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4 italic">Institucional / Alegre</p>
-                    <audio controls class="w-full h-8">
-                        <source src="https://testedomarcio.github.io/meuadio/elissandra.mp3" type="audio/mpeg">
-                    </audio>
-                </div>
-
-                <!-- Locutor 3 -->
-                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200">
-                    <img src="https://testedomarcio.github.io/meuadio/leandro.jpg" alt="Leandro" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-blue-100">
-                    <h4 class="font-black text-lg uppercase tracking-tighter mb-1">Leandro</h4>
-                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4 italic">Jovem / Animado</p>
-                    <audio controls class="w-full h-8">
-                        <source src="https://testedomarcio.github.io/meuadio/Leandro.mp3" type="audio/mpeg">
-                    </audio>
-                </div>
-
-                <!-- Locutor 4 -->
-                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200">
-                    <img src="https://testedomarcio.github.io/meuadio/tati.jpg" alt="Tati" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-pink-100">
-                    <h4 class="font-black text-lg uppercase tracking-tighter mb-1">Tati</h4>
-                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4 italic">Feminina / Up Festa</p>
-                    <audio controls class="w-full h-8">
-                        <source src="https://testedomarcio.github.io/meuadio/tati.mp3" type="audio/mpeg">
-                    </audio>
-                </div>
-            </div>
-
-            <a href="https://alocucao.com.br/vozes" target="_blank" class="inline-block text-cyan-600 font-black border-2 border-cyan-200 px-8 py-4 rounded-xl hover:bg-cyan-600 hover:text-white transition uppercase text-sm tracking-widest">
-                VER TODOS OS +200 LOCUTORES
-            </a>
-        </div>
-    </section>
-
-    <!-- FAQ Rápido -->
-    <section class="py-24 bg-white">
-        <div class="container-custom max-w-4xl">
-            <h2 class="text-3xl font-black uppercase text-center mb-16 italic tracking-tighter">Tudo o que você precisa saber</h2>
+            <p class="text-slate-500 text-sm mb-6">Estúdio A Locução &copy; 2012-2024. Todos os direitos reservados.</p>
             
-            <div class="space-y-6">
-                <div class="p-6 bg-slate-50 rounded-2xl">
-                    <h4 class="font-bold text-lg mb-2">O que recebo exatamente em uma Gravação em OFF?</h4>
-                    <p class="text-slate-600">Você recebe o áudio bruto gravado pelo locutor escolhido, sem trilhas, sem efeitos e sem mixagem. Ideal para você fazer sua própria produção.</p>
-                </div>
-                <div class="p-6 bg-slate-50 rounded-2xl">
-                    <h4 class="font-bold text-lg mb-2">Qual o tempo de entrega?</h4>
-                    <p class="text-slate-600">A estimativa é de 10 minutos a 4 horas. Locutores com selo "10min" entregam quase instantaneamente durante o horário de plantão.</p>
-                </div>
-                <div class="p-6 bg-slate-50 rounded-2xl">
-                    <h4 class="font-bold text-lg mb-2">Como utilizo meus créditos?</h4>
-                    <p class="text-slate-600">Cada crédito equivale a um áudio de até 40 segundos. Você pode adquirir pacotes de créditos para economizar no valor unitário.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Final -->
-    <section class="py-24 gradient-bg text-white text-center relative overflow-hidden border-t border-white/10">
-        <div class="container-custom relative z-10">
-            <h2 class="text-4xl sm:text-6xl font-black mb-8 italic tracking-tighter uppercase">Comece a gravar agora mesmo.</h2>
-            <p class="text-slate-300 text-xl mb-12 max-w-2xl mx-auto font-light">Cadastre-se grátis e tenha acesso imediato ao nosso painel de locutores.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="https://alocucao.com.br/cadastro" target="_blank" class="btn-primary text-slate-900 px-12 py-6 rounded-2xl font-black text-2xl shadow-[0_0_50px_rgba(34,211,238,0.4)]">
-                    CRIAR MINHA CONTA GRÁTIS
-                </a>
-                <a href="https://wa.me/5527996529832" target="_blank" class="bg-green-600 hover:bg-green-700 px-12 py-6 rounded-2xl font-black text-2xl flex items-center justify-center gap-3 transition">
-                    <i class="fab fa-whatsapp"></i> Falar no WhatsApp
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-slate-900 py-12">
-        <div class="container-custom text-center">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_sBFI94b0Jhnsl6DY4UwsTOpsmltn1MNvF5n6zcrkdLUd7oqFJfxF5NAtCEwBchu-b65jEsMXi60X2SlPb04XheC1fuEaG-sRzEbENAbN4eMSX5YHbdk6oGhfGTHQOPR1tZJn_GwXOAjUL6UX4ZvpVITZOL6is83xruSEkk343d-9VEx5osefurjX8aY/s1600/logo.pngnlo" alt="Estúdio A Locução" class="h-16 mx-auto mb-8 rounded-lg">
-            <p class="text-slate-500 text-sm mb-4">Estúdio A Locução &copy; 2012-2024</p>
-            <div class="flex justify-center gap-6 text-slate-600 text-[10px] font-black uppercase tracking-widest">
-                <a href="index.html" class="hover:text-cyan-400">Home</a>
-                <a href="servicos.html" class="hover:text-cyan-400">Serviços</a>
-                <a href="termos.html" class="hover:text-cyan-400">Termos</a>
+            <!-- Links Atualizados de acordo com sua orientação -->
+            <div class="flex flex-wrap justify-center gap-4 sm:gap-8 text-slate-400 text-xs font-bold uppercase tracking-widest">
+                <a href="https://www.alocucao.com.br/" class="hover:text-cyan-400 transition">Site Oficial</a>
+                <a href="https://www.alocucao.com.br/vozes" class="hover:text-cyan-400 transition">Banco de Vozes</a>
+                <a href="https://www.alocucao.com.br/termos" class="hover:text-cyan-400 transition">Termos de Uso</a>
+                <a href="https://www.alocucao.com.br/privacidade" class="hover:text-cyan-400 transition">Privacidade</a>
             </div>
         </div>
     </footer>
 
     <!-- Botão WhatsApp Flutuante -->
-    <a href="https://wa.me/5527996529832" target="_blank" class="fixed bottom-8 right-8 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform z-50">
+    <a href="https://wa.me/5527996529832" target="_blank" rel="noopener noreferrer" 
+       class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-3xl shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:scale-110 hover:-translate-y-2 transition-all duration-300 z-50 group"
+       aria-label="Atendimento via WhatsApp">
         <i class="fab fa-whatsapp"></i>
+        <!-- Tooltip -->
+        <span class="absolute right-full mr-4 bg-slate-900 text-white text-xs font-bold px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            Atendimento Rápido
+        </span>
     </a>
 
+    <!-- Scripts de Controle de Áudio -->
+    <script>
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+                header.style.background = 'rgba(15, 23, 42, 0.98)';
+            } else {
+                header.classList.remove('shadow-md');
+                header.style.background = 'rgba(15, 23, 42, 0.85)';
+            }
+        });
+
+        // Garantir que apenas 1 áudio toque por vez
+        const audios = document.querySelectorAll('audio');
+        audios.forEach(audio => {
+            audio.addEventListener('play', () => {
+                audios.forEach(otherAudio => {
+                    if (otherAudio !== audio) {
+                        otherAudio.pause();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
