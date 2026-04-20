@@ -374,45 +374,73 @@
             </div>
         </section>
 
-        <!-- Pricing Card de Alto Impacto -->
+        <!-- Pricing Cards com Oferta Downsell -->
         <section class="py-24 bg-slate-900 text-white relative overflow-hidden">
             <!-- Padrão de fundo -->
             <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
             
             <div class="container-custom text-center relative z-10">
                 <h2 class="text-3xl sm:text-5xl font-black mb-12 uppercase italic tracking-tighter">
-                    Investimento Pequeno, <span class="text-blue-400">Retorno Gigante</span>
+                    Escolha a opção ideal para <span class="text-blue-400">você</span>
                 </h2>
                 
-                <div class="max-w-md mx-auto glass p-10 rounded-[3rem] shadow-[0_0_60px_rgba(56,189,248,0.15)] relative transform hover:-translate-y-2 transition-transform duration-500">
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-center">
                     
-                    <!-- Selo Promocional -->
-                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-bold text-xs uppercase tracking-widest px-6 py-2 rounded-full shadow-xl">
-                        Plano Produção Completa
+                    <!-- PLANO 1: SPOT COMPLETO (Main / Destaque) -->
+                    <!-- Colocamos ele primeiro no HTML para aparecer no topo em dispositivos móveis -->
+                    <div class="glass p-10 rounded-[3rem] shadow-[0_0_60px_rgba(56,189,248,0.15)] relative transform md:-translate-y-4 hover:-translate-y-6 transition-transform duration-500 border border-blue-500/30 z-10">
+                        
+                        <!-- Selo Promocional -->
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-bold text-xs uppercase tracking-widest px-6 py-2 rounded-full shadow-xl">
+                            Produção Completa
+                        </div>
+
+                        <div class="mt-4 mb-6">
+                            <span class="text-6xl font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-300">R$ 24,80</span>
+                            <p class="text-slate-400 mt-3 text-xs uppercase font-bold tracking-widest">Por produção (No pacote com 10)</p>
+                            <p class="text-slate-500 text-xs font-medium mt-1">Avulso por R$ 29,90</p>
+                        </div>
+                        
+                        <div class="bg-slate-800/50 rounded-2xl p-6 mb-8 border border-slate-700/50 text-left">
+                            <ul class="space-y-4 text-sm font-medium text-slate-300">
+                                <li class="flex items-center gap-3"><i class="fas fa-check-circle text-blue-400 text-lg"></i> Voz Profissional Inclusa</li>
+                                <li class="flex items-center gap-3"><i class="fas fa-check-circle text-blue-400 text-lg"></i> Trilha Branca (Sem Direitos)</li>
+                                <li class="flex items-center gap-3"><i class="fas fa-check-circle text-blue-400 text-lg"></i> Mixagem & SFX Especial</li>
+                                <li class="flex items-center gap-3"><i class="fas fa-check-circle text-blue-400 text-lg"></i> Prioridade na Entrega</li>
+                            </ul>
+                        </div>
+
+                        <a href="https://www.alocucao.com.br/cadastro" target="_blank" class="block w-full py-5 btn-primary text-slate-900 font-black rounded-2xl transition uppercase tracking-widest shadow-xl">
+                            QUERO MEU COMERCIAL
+                        </a>
                     </div>
 
-                    <div class="mt-4 mb-8">
-                        <span class="text-6xl font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-300">R$ 24,80</span>
-                        <p class="text-slate-400 mt-3 text-xs uppercase font-bold tracking-widest">Por produção (No pacote com 10)</p>
-                    </div>
-                    
-                    <div class="bg-slate-800/50 rounded-2xl p-6 mb-8 border border-slate-700/50 text-left">
-                        <ul class="space-y-4 text-sm font-medium text-slate-300">
-                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-blue-400 text-lg"></i> Voz Profissional Inclusa</li>
-                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-blue-400 text-lg"></i> Trilha Branca (Sem Direitos)</li>
-                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-blue-400 text-lg"></i> Mixagem & SFX Especial</li>
-                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-blue-400 text-lg"></i> Prioridade na Entrega</li>
-                        </ul>
+                    <!-- PLANO 2: LOCUÇÃO OFF (Downsell) -->
+                    <div class="bg-slate-800 p-8 rounded-[2.5rem] border border-slate-700 relative transform hover:-translate-y-1 transition-transform duration-500 opacity-90 hover:opacity-100 flex flex-col justify-between h-full">
+                        
+                        <div>
+                            <span class="text-slate-400 font-bold text-xs uppercase tracking-widest block mb-2">Para quem edita áudio</span>
+                            <h3 class="text-3xl font-black italic tracking-tighter text-white mb-6">Locução Off</h3>
+                            
+                            <div class="mb-8">
+                                <span class="text-5xl font-black italic tracking-tighter text-white">R$ 9,90</span>
+                                <p class="text-slate-400 mt-2 text-xs uppercase font-bold tracking-widest">Por voz (No pacote com 10)</p>
+                                <p class="text-slate-500 text-xs font-medium mt-1">Avulso por R$ 14,90</p>
+                            </div>
+                            
+                            <ul class="space-y-4 text-sm font-medium text-slate-400 mb-8 text-left max-w-[250px] mx-auto">
+                                <li class="flex items-center gap-3"><i class="fas fa-check text-slate-500"></i> Locução Profissional Limpa</li>
+                                <li class="flex items-center gap-3 opacity-60"><i class="fas fa-times text-red-400/80"></i> Sem Trilha Sonora</li>
+                                <li class="flex items-center gap-3 opacity-60"><i class="fas fa-times text-red-400/80"></i> Sem Edição ou Efeitos</li>
+                            </ul>
+                        </div>
+
+                        <a href="https://wa.me/5527996529832" target="_blank" class="block w-full py-4 bg-transparent border-2 border-green-500 text-green-400 hover:bg-green-500 hover:text-white font-bold rounded-xl transition uppercase tracking-widest text-sm text-center">
+                            <i class="fab fa-whatsapp"></i> PEDIR PELO WHATSAPP
+                        </a>
                     </div>
 
-                    <a href="https://www.alocucao.com.br/cadastro" target="_blank" class="block w-full py-5 btn-primary text-slate-900 font-black rounded-2xl transition uppercase tracking-widest shadow-xl">
-                        QUERO MEU COMERCIAL
-                    </a>
                 </div>
-                
-                <p class="mt-8 text-slate-400 text-sm font-medium bg-slate-800/50 inline-block px-6 py-2 rounded-full border border-slate-700">
-                    Apenas precisa de 1 áudio? Produções avulsas por <strong class="text-white">R$ 29,90</strong>.
-                </p>
             </div>
         </section>
 
