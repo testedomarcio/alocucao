@@ -486,5 +486,85 @@
             }, 800);
         }
     </script>
+
+<div id="social-proof-float" style="display: none;">
+    <div class="sp-content">
+        <div class="sp-icon">📢</div>
+        <div class="sp-text">
+            <span id="sp-name">Márcio</span> <span id="sp-action">acabou de pedir</span><br>
+            <strong id="sp-service">um Spot Comercial Completo</strong>
+        </div>
+    </div>
+</div>
+
+<style>
+    #social-proof-float {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        background: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        z-index: 9999;
+        font-family: Arial, sans-serif;
+        border-left: 5px solid #25D366; /* Cor do WhatsApp */
+        animation: sp-slide 0.5s ease-out;
+    }
+
+    .sp-content { display: flex; align-items: center; gap: 12px; }
+    .sp-icon { font-size: 24px; }
+    .sp-text { font-size: 13px; color: #333; line-height: 1.4; }
+    .sp-text strong { color: #111; display: block; font-size: 14px; }
+
+    @keyframes sp-slide {
+        from { transform: translateY(100px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+        #social-proof-float { left: 10px; right: 10px; bottom: 10px; }
+    }
+</style>
+
+<script>
+    (function() {
+        const dados = {
+            nomes: ["Alexandre", "Maria", "Ricardo", "Fernanda", "José", "Cláudia", "Roberto", "Patrícia", "Carlos", "Sueli"],
+            servicos: ["um Spot Comercial Completo", "uma Locução Off (Seca)", "uma Vinheta de Rádio", "o Pacote de 50 Spots", "um Roteiro Grátis"],
+            acoes: ["acabou de pedir", "fechou agora pelo WhatsApp", "solicitou orçamento de", "acabou de contratar"]
+        };
+
+        const container = document.getElementById('social-proof-float');
+        const elName = document.getElementById('sp-name');
+        const elAction = document.getElementById('sp-action');
+        const elService = document.getElementById('sp-service');
+
+        function mostrarNotificacao() {
+            // Sorteia os dados
+            elName.innerText = dados.nomes[Math.floor(Math.random() * dados.nomes.length)];
+            elAction.innerText = dados.acoes[Math.floor(Math.random() * dados.acoes.length)];
+            elService.innerText = dados.servicos[Math.floor(Math.random() * dados.servicos.length)];
+
+            // Mostra o balão
+            container.style.display = 'block';
+
+            // Esconde depois de 6 segundos
+            setTimeout(() => {
+                container.style.display = 'none';
+            }, 6000);
+        }
+
+        // Configuração de tempo: 
+        // Primeira aparição em 5 segundos, depois se repete a cada 20 a 40 segundos
+        setTimeout(function loop() {
+            mostrarNotificacao();
+            let proximoIntervalo = Math.floor(Math.random() * (40000 - 20000) + 20000);
+            setTimeout(loop, proximoIntervalo);
+        }, 5000);
+    })();
+</script>
+
+    
 </body>
 </html>
