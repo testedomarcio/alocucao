@@ -1,41 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
-    <!-- Event snippet for Visualização de página conversion page -->
-<script>
-  gtag('event', 'conversion', {
-      'send_to': 'AW-18093304718/2fWbCJOH0JwcEI7Xx7ND',
-      'value': 1.0,
-      'currency': 'BRL'
-  });
-</script>
-
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKKDKPVDDH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-TKKDKPVDDH');
-</script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO & Meta Tags -->
+    <!-- SEO -->
     <title>Termos de Uso | Estúdio A Locução</title>
-    <meta name="description" content="Leia os termos de uso, políticas de gravação, regras de correções e direitos autorais do painel de gravação do Estúdio A Locução.">
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093304718"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-18093304718');
-    </script>
+    <meta name="description" content="Termos e condições de uso dos serviços de locução, gravação em off e produção comercial do Estúdio A Locução.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.alocucao.com.br/termos">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -44,18 +17,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Configurações Customizadas Tailwind -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
-                        primary: '#22d3ee', // Cyan 400
-                        primaryDark: '#0891b2', // Cyan 600
-                        darkBg: '#0f172a', // Slate 900
+                        primary: '#22d3ee',
+                        darkBg: '#0f172a',
                     }
                 }
             }
@@ -63,433 +34,241 @@
     </script>
 
     <style>
-        body { 
-            font-family: 'Inter', sans-serif; 
-            scroll-behavior: smooth; 
-            overflow-x: hidden;
-            background-color: #f8fafc; /* slate-50 */
-        }
-        
-        .gradient-bg { 
-            background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 100%); 
-        }
-        
-        .glass-header {
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .btn-primary { 
-            background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%);
-            transition: all 0.3s ease; 
-        }
-        .btn-primary:hover { 
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(34, 211, 238, 0.4);
-        }
-
-        .logo-img { max-height: 45px; width: auto; transition: transform 0.3s ease; }
-        .logo-img:hover { transform: scale(1.05); }
-
-        .container-custom {
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* Efeitos visuais fundo */
-        .glow-circle {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(90px);
-            opacity: 0.3;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        /* Estilização específica para o texto dos termos (Legibilidade) */
-        .legal-content h2 {
-            font-size: 1.25rem; /* text-xl */
-            font-weight: 800; /* font-extrabold */
-            color: #0f172a; /* slate-900 */
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: -0.025em;
-        }
-        .legal-content h2::before {
-            content: '';
-            display: block;
-            width: 4px;
-            height: 1.5rem;
-            background-color: #22d3ee;
-            border-radius: 4px;
-        }
-        .legal-content p {
-            color: #475569; /* slate-600 */
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-        .legal-content ul.main-list {
-            list-style-type: none;
-            padding-left: 0;
-            margin-bottom: 1.5rem;
-        }
-        .legal-content ul.main-list > li {
-            position: relative;
-            color: #475569;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-        }
-        .legal-content ul.main-list > li::before {
-            content: '\f054'; /* FontAwesome chevron-right */
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 4px;
-            color: #22d3ee;
-            font-size: 0.6rem;
-        }
-        .legal-content ul.sub-list {
-            list-style-type: none;
-            padding-left: 1.5rem;
-            margin-top: 0.75rem;
-            margin-bottom: 0.75rem;
-        }
-        .legal-content ul.sub-list li {
-            position: relative;
-            color: #64748b;
-            line-height: 1.5;
-            margin-bottom: 0.5rem;
-            padding-left: 1.25rem;
-        }
-        .legal-content ul.sub-list li::before {
-            content: '\f0da'; /* FontAwesome caret-right */
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 2px;
-            color: #94a3b8;
-            font-size: 0.75rem;
-        }
-        .legal-content strong {
-            color: #1e293b; /* slate-800 */
-            font-weight: 700;
-        }
-
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .terms-container { max-width: 900px; margin: 0 auto; }
+        .terms-content h2 { font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
+        .terms-content h3 { font-size: 1.2rem; font-weight: 600; color: #1e293b; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .terms-content p { color: #475569; line-height: 1.7; margin-bottom: 1rem; }
+        .terms-content ul, .terms-content ol { margin-left: 1.5rem; margin-bottom: 1rem; color: #475569; }
+        .terms-content li { margin-bottom: 0.5rem; }
+        .terms-content .highlight-box { background-color: #f1f5f9; border-left: 4px solid #22d3ee; padding: 1.25rem; border-radius: 0.5rem; margin: 1.5rem 0; }
+        .terms-content .warning-box { background-color: #fef3c7; border-left: 4px solid #f59e0b; padding: 1.25rem; border-radius: 0.5rem; margin: 1.5rem 0; }
+        .terms-content a { color: #0891b2; text-decoration: underline; }
+        .terms-content a:hover { color: #06b6d4; }
     </style>
 </head>
-<body class="text-slate-800 antialiased selection:bg-cyan-200 selection:text-slate-900">
+<body class="font-sans antialiased">
 
-    <!-- Header Glassmorphism -->
-    <header class="fixed w-full top-0 z-50 glass-header text-white transition-all duration-300">
-        <nav class="max-w-[1280px] mx-auto px-6 py-3 sm:py-4">
-            <div class="flex justify-between items-center">
-                <!-- Logo -->
-                <div class="flex items-center gap-2 z-50">
-                    <a href="https://www.alocucao.com.br/">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_sBFI94b0Jhnsl6DY4UwsTOpsmltn1MNvF5n6zcrkdLUd7oqFJfxF5NAtCEwBchu-b65jEsMXi60X2SlPb04XheC1fuEaG-sRzEbENAbN4eMSX5YHbdk6oGhfGTHQOPR1tZJn_GwXOAjUL6UX4ZvpVITZOL6is83xruSEkk343d-9VEx5osefurjX8aY/s1600/logo.png" alt="Estúdio A Locução" class="logo-img">
-                    </a>
-                </div>
-                
-                <!-- Links Desktop -->
-                <div class="hidden md:flex items-center space-x-8 font-semibold text-sm tracking-wide uppercase">
-                    <a href="https://www.alocucao.com.br/" class="text-slate-300 hover:text-cyan-400 transition-colors">Início</a>
-                    <a href="https://www.alocucao.com.br/vozes" class="text-slate-300 hover:text-cyan-400 transition-colors">Locutores</a>
-                    <a href="https://www.alocucao.com.br/tutoriais" class="text-slate-300 hover:text-cyan-400 transition-colors">Tutoriais</a>
-                </div>
-
-                <!-- Botões de Ação -->
-                <div class="flex items-center gap-3">
-                    <a href="https://www.alocucao.com.br/login" class="hidden sm:inline-block text-sm font-bold text-white border border-slate-600 px-5 py-2 rounded-full hover:border-cyan-400 hover:text-cyan-400 transition-all uppercase tracking-wider">
-                        Acessar Painel
-                    </a>
-                    
-                    <!-- Mobile Toggle -->
-                    <button id="menu-toggle" aria-label="Abrir menu" class="md:hidden text-2xl text-cyan-400 focus:outline-none p-1 ml-2">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Mobile Menu Dropdown -->
-            <div id="mobile-menu" class="md:hidden w-full absolute left-0 top-full bg-slate-900 border-t border-slate-800 shadow-2xl max-h-0 overflow-hidden transition-all duration-300">
-                <div class="flex flex-col space-y-1 p-4">
-                    <a href="https://www.alocucao.com.br/" class="text-slate-200 hover:text-cyan-400 py-3 px-4 rounded-lg hover:bg-slate-800 transition text-sm font-bold uppercase tracking-wider">Início</a>
-                    <a href="https://www.alocucao.com.br/vozes" class="text-slate-200 hover:text-cyan-400 py-3 px-4 rounded-lg hover:bg-slate-800 transition text-sm font-bold uppercase tracking-wider">Locutores</a>
-                    <a href="https://www.alocucao.com.br/tutoriais" class="text-slate-200 hover:text-cyan-400 py-3 px-4 rounded-lg hover:bg-slate-800 transition text-sm font-bold uppercase tracking-wider">Tutoriais</a>
-                    
-                    <div class="grid grid-cols-2 gap-3 mt-4 pt-4 border-t border-slate-800">
-                        <a href="https://www.alocucao.com.br/login" class="border border-slate-600 text-white text-center py-3 rounded-xl font-bold uppercase text-xs tracking-wider">Login</a>
-                        <a href="https://www.alocucao.com.br/cadastro" target="_blank" class="btn-primary text-slate-900 text-center py-3 rounded-xl font-bold uppercase text-xs tracking-wider">Cadastre-se</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
+    <!-- Header Simples -->
+    <header class="bg-darkBg text-white py-6 border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
+            <a href="/">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_sBFI94b0Jhnsl6DY4UwsTOpsmltn1MNvF5n6zcrkdLUd7oqFJfxF5NAtCEwBchu-b65jEsMXi60X2SlPb04XheC1fuEaG-sRzEbENAbN4eMSX5YHbdk6oGhfGTHQOPR1tZJn_GwXOAjUL6UX4ZvpVITZOL6is83xruSEkk343d-9VEx5osefurjX8aY/s1600/logo.png" alt="Estúdio A Locução" class="h-10 w-auto brightness-0 invert">
+            </a>
+            <a href="/" class="text-slate-300 hover:text-white transition flex items-center gap-2">
+                <i class="fas fa-arrow-left"></i> Voltar ao site
+            </a>
+        </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="gradient-bg pt-32 pb-24 lg:pt-40 lg:pb-32 relative overflow-hidden text-white">
-            <div class="glow-circle w-[400px] h-[400px] bg-cyan-500/20 top-0 left-0"></div>
+    <!-- Conteúdo Principal -->
+    <main class="py-12 px-4">
+        <div class="terms-container bg-white rounded-2xl shadow-lg p-6 sm:p-10 border border-slate-200">
             
-            <div class="container-custom text-center relative z-10">
-                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-800/50 border border-slate-700 text-cyan-400 mb-6">
-                    <i class="fas fa-file-contract text-2xl"></i>
-                </div>
-                <h1 class="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter mb-4">
-                    Termos e Condições de Uso
-                </h1>
-                <p class="inline-block bg-slate-800/80 px-4 py-2 rounded-lg text-slate-300 text-xs font-bold uppercase tracking-widest border border-slate-700">
-                    Última atualização: <span class="text-cyan-400">18 de Abril de 2026</span>
+            <!-- Cabeçalho -->
+            <div class="text-center mb-10">
+                <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">Termos de Uso</h1>
+                <p class="text-slate-500 mt-3">
+                    <i class="far fa-calendar-alt mr-2"></i> Última atualização: 21 de Abril de 2026
+                </p>
+                <div class="w-20 h-1 bg-primary mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <!-- Aviso Importante (Revenda) -->
+            <div class="highlight-box">
+                <p class="font-bold text-slate-800 flex items-start gap-3">
+                    <i class="fas fa-info-circle text-primary text-xl mt-0.5"></i>
+                    <span>O Estúdio A Locução (anteriormente Comerciais Top) é um revendedor autorizado dos serviços de locução e produção de áudio. Atuamos como intermediários para facilitar seu acesso aos melhores profissionais do mercado, garantindo suporte humanizado e atendimento personalizado.</span>
                 </p>
             </div>
-        </section>
 
-        <!-- Content Section -->
-        <section class="pb-20 relative z-20 -mt-10">
-            <div class="container-custom">
-                <div class="bg-white rounded-[2rem] shadow-xl border border-slate-200 p-8 sm:p-12 lg:p-16 legal-content">
+            <!-- Introdução -->
+            <div class="terms-content">
+                <p>Ao utilizar os serviços do <strong>Estúdio A Locução</strong>, seja através do nosso site, WhatsApp ou Painel de Gravação, você automaticamente CONCORDA e ACEITA todos os termos e condições aqui descritos.</p>
+                <p>Recomendamos a leitura atenta deste documento antes de realizar qualquer compra ou solicitação de serviço.</p>
 
-                    <h2>1. DO OBJETO</h2>
-                    <ul class="main-list">
-                        <li><strong>1.1.</strong> O <strong>PAINEL DE GRAVAÇÃO DO ESTÚDIO A LOCUÇÃO</strong> caracteriza-se pelo fornecimento de serviços de gravação de voz (Off), produção de áudio com trilha e efeitos (Spot), vinhetas e edição de áudio, intermediando a relação entre o Cliente e o Profissional de Voz.</li>
-                    </ul>
+                <!-- ==================== SEÇÃO 1: INFORMAÇÕES ESPECÍFICAS DO ESTÚDIO A LOCUÇÃO ==================== -->
+                <h2>1. Informações Importantes sobre Nossos Serviços</h2>
+                
+                <h3>1.1 Nossa Atuação como Revendedor</h3>
+                <p>O Estúdio A Locução, sediado em Brejetuba/ES, atua como <strong>revendedor autorizado</strong> dos serviços de locução e produção de áudio. Isso significa que:</p>
+                <ul>
+                    <li><strong>Não temos acesso direto aos locutores ou produtores:</strong> A comunicação com os profissionais é realizada através da plataforma que utilizamos.</li>
+                    <li><strong>Não realizamos estornos ou devoluções imediatas:</strong> Por sermos revendedores, solicitações de reembolso ou estorno dependem de aprovação da plataforma principal e seguem prazos bancários.</li>
+                    <li><strong>Não controlamos as preferências individuais dos locutores:</strong> Cada profissional possui regras próprias quanto aos tipos de texto que aceita gravar.</li>
+                </ul>
+                <p>Apesar disso, nos comprometemos a oferecer o melhor suporte possível dentro de nossas limitações, sempre buscando soluções rápidas e satisfatórias para você.</p>
 
-                    <h2>2. DOS CANAIS OFICIAIS E ATENDIMENTO</h2>
-                    <ul class="main-list">
-                        <li><strong>2.1. Painel de Gravação (Recomendado e Mais Rápido):</strong> É o meio oficial para realização de pedidos. Através dele o sistema calcula automaticamente o orçamento, contabiliza créditos e gerencia as entregas.</li>
-                        <li><strong>2.2. E-mail Oficial:</strong> Para orçamentos oficiais ou suporte que não possam ser resolvidos pelo painel, utilize o canal <strong>suporte@alocucao.com.br</strong>.</li>
-                        <li><strong>2.3. Atendimento via WhatsApp e Inteligência Artificial (IA):</strong> Nosso canal de WhatsApp é operado por uma Inteligência Artificial altamente treinada para fornecer suporte ágil e estimativas de preço.
-                            <br><br>
-                            <em>Ressalva Importante:</em> A IA pode cometer erros de interpretação ou cálculo. O orçamento oficial e vinculante é unicamente aquele gerado e fechado dentro do Painel de Gravação ou confirmado formalmente por e-mail. A A Locução não se responsabiliza por informações fornecidas exclusivamente pela IA que não tenham sido validadas pelos canais oficiais acima.
-                        </li>
-                    </ul>
-
-                    <h2>3. DA NAVEGAÇÃO E DISPONIBILIDADE DO SITE</h2>
-                    <ul class="main-list">
-                        <li><strong>3.1.</strong> A A LOCUÇÃO se compromete a utilizar todas as soluções técnicas à sua disposição para permitir o acesso ao serviço 24 (vinte e quatro) horas por dia, 7 (sete) dias por semana. Entretanto, o acesso poderá ser interrompido, limitado ou suspenso para manutenções, atualizações ou modificações de conteúdo julgadas necessárias para o bom funcionamento do sistema.</li>
-                        <li><strong>3.2.</strong> Os presentes termos se aplicam a todas as extensões da A LOCUÇÃO em redes sociais ou comunidades.</li>
-                    </ul>
-
-                    <h2>4. DO CADASTRO E SEGURANÇA</h2>
-                    <ul class="main-list">
-                        <li><strong>4.1.</strong> Para utilizar o PAINEL DE GRAVAÇÃO, o usuário deverá criar uma conta com dados pessoais e/ou empresariais verdadeiros, completos e atuais. É de total responsabilidade do cliente a atualização dos dados cadastrais.</li>
-                        <li><strong>4.2.</strong> A A LOCUÇÃO poderá recusar, suspender ou cancelar cadastros que contenham informações falsas ou incompletas.</li>
-                        <li><strong>4.3.</strong> O usuário é o único responsável pelo sigilo de sua senha e login. Qualquer atividade realizada através da conta do usuário será de sua inteira responsabilidade.</li>
-                    </ul>
-
-                    <h2>5. DOS SERVIÇOS PRESTADOS (DEFINIÇÕES TÉCNICAS)</h2>
-                    <ul class="main-list">
-                        <li><strong>5.1. Gravação em Off (Locução):</strong> Áudio gravado profissionalmente, contendo apenas a voz, sem edição de música de fundo (BG), efeitos ou masterização. O áudio é entregue "seco" para que o cliente faça a edição por conta própria.</li>
-                        <li><strong>5.2. Produção Comercial (Spot):</strong> Áudio finalizado. Inclui a locução gravada, escolha e inserção de trilha sonora (BG), efeitos sonoros e finalização profissional. O áudio é entregue pronto para veiculação imediata.</li>
-                        <li><strong>5.3. Vinhetas em Off:</strong> Gravação curta (até 10 segundos) apenas com voz, sem edição.</li>
-                        <li><strong>5.4. Vinhetas Produzidas:</strong> Gravação curta (até 10 segundos) com trilha, efeitos e masterização final.</li>
-                    </ul>
-
-                    <h2>6. DA RESPONSABILIDADE SOBRE O CONTEÚDO E LOCUTORES</h2>
-                    <ul class="main-list">
-                        <li><strong>6.1. Erros de Texto:</strong> A A LOCUÇÃO e seus locutores não se responsabilizam por erros de ortografia, pontuação, abreviações ou concordância enviados pelo cliente no campo de texto. O áudio será gravado exatamente conforme o texto inserido no painel.</li>
-                        <li><strong>6.2. Rejeição de Texto pelos Locutores (Autonomia Profissional):</strong> Os locutores são profissionais terceirizados que possuem autonomia para recusar pedidos que não estejam alinhados com seus valores pessoais ou com as descrições de serviço informadas em seus perfis.
-                            <ul class="sub-list">
-                                <li>Exemplos incluem, mas não se limitam a: textos políticos, religiosos, conteúdos adultos ou que incitem violência.</li>
-                            </ul>
-                            <em>Isenção de Responsabilidade:</em> A decisão de rejeitar um texto é exclusiva do locutor, sem necessidade de consulta prévia ou justificativa detalhada à A LOCUÇÃO. A rejeição não caracteriza discriminação ou intolerância por parte do Estúdio A Locução, mas sim o exercício regular do direito de liberdade profissional do locutor parceiro.
-                        </li>
-                        <li><strong>6.3. Disponibilidade do Locutor (Prazos):</strong> Os locutores operam com status definidos no painel: <em>Online (até 4h), 10min/30min (Entrega Rápida), Volto Já (Indisponível temporariamente), Offline, Férias</em> ou <em>Problema Técnico</em>.
-                            <br><br>
-                            Em caso de Problema Técnico ou ausência prolongada do locutor para correções futuras, o cliente deverá aguardar o retorno do profissional ou solicitar um novo pedido com outro locutor (o que implicará em nova cobrança).
-                        </li>
-                    </ul>
-
-                    <h2>7. DA POLÍTICA DE CORREÇÕES E AJUSTES</h2>
-                    <ul class="main-list">
-                        <li><strong>7.1. Correções por ERRO DO LOCUTOR OU PRODUTOR (Sem Custo):</strong> Erro de leitura (leu errado uma palavra), ruído técnico no áudio, ou edição em desacordo com o solicitado no campo de observações. <strong>Prazo para solicitar:</strong> Até 3 (três) dias corridos após a entrega do áudio.</li>
-                        <li><strong>7.2. Alterações por RESPONSABILIDADE DO CLIENTE (Cobrado como Novo Pedido):</strong>
-                            <ul class="sub-list">
-                                <li>Correção de erros de português ou abreviações enviadas no texto original.</li>
-                                <li>Inclusão de novas informações esquecidas no primeiro envio.</li>
-                                <li>Mudança do tom de voz, estilo ou troca de locutor.</li>
-                            </ul>
-                        </li>
-                        <li><strong>7.3. Produção e Escolha de Trilhas:</strong> Caso o cliente solicite uma Produção e NÃO especifique o nome da música ou o estilo desejado no campo "Observações", o produtor escolherá uma trilha adequada com base em seu critério técnico.
-                            <br><br>
-                            Se o cliente não gostar da trilha escolhida por falta de especificação no pedido, e o produtor considerar a trilha tecnicamente correta, a A LOCUÇÃO reserva-se o direito de não realizar a troca ou de cobrar um novo crédito de produção para refazer o trabalho.
-                        </li>
-                    </ul>
-
-                    <h2>8. DOS PRAZOS E SITUAÇÕES ADVERSAS</h2>
-                    <ul class="main-list">
-                        <li><strong>8.1.</strong> Procuramos seguir rigorosamente os prazos. No entanto, problemas técnicos (queda de energia, internet, falha de equipamento do locutor) ou problemas pessoais de saúde do profissional são imprevisíveis.</li>
-                        <li><strong>8.2. Pedidos Urgentes:</strong> É responsabilidade do cliente fazer o pedido com antecedência. A A LOCUÇÃO NÃO SE RESPONSABILIZA POR ATRASOS EM PEDIDOS URGENTES (COM PRAZO INFERIOR A 4 HORAS) DECORRENTES DE CASO FORTUITO, FORÇA MAIOR OU INDISPONIBILIDADE TÉCNICA DO LOCUTOR.</li>
-                    </ul>
-
-                    <h2>9. DA COBRANÇA E CRÉDITOS</h2>
-                    <ul class="main-list">
-                        <li><strong>9.1.</strong> O sistema calcula automaticamente os créditos com base no texto inserido no campo "Texto para Locução". Não utilize este campo para fazer perguntas ou dar instruções; utilize o campo "Observações".</li>
-                        <li><strong>9.2. Texto em Anexo:</strong> Não serão aceitos pedidos cujo texto esteja apenas em anexo (Word, PDF ou Imagem). O texto deve ser digitado no painel para o cálculo correto da cobrança.</li>
-                        <li><strong>9.3. Reembolso e Devolução:</strong> Em caso de devolução de créditos por insatisfação ou serviço não utilizado, aplicam-se as regras do Código de Defesa do Consumidor (Lei 8.078/90). O valor a ser reembolsado será calculado proporcionalmente aos serviços já prestados e baixados do sistema.</li>
-                    </ul>
-
-                    <h2>10. DOS DIREITOS DE USO E PROPRIEDADE INTELECTUAL</h2>
-                    <ul class="main-list">
-                        <li><strong>10.1. Licença de Uso Comercial (O que o cliente pode fazer):</strong> Ao efetuar o pagamento integral do serviço, o cliente recebe uma Licença de Uso Comercial Perpétua e Irrevogável do áudio finalizado. Isso significa que o cliente está autorizado a utilizar o arquivo de áudio pelo tempo que desejar e nas mídias que desejar (rádio, TV, internet, redes sociais, Youtube, Instagram, etc.) exclusivamente para a finalidade de divulgação do negócio ou projeto para o qual o áudio foi originalmente contratado.</li>
-                        <li><strong>10.2. Limitações e Proteção da Voz (O que o cliente NÃO pode fazer):</strong> O cliente NÃO adquire a propriedade intelectual da voz do locutor. A voz é um direito de personalidade do profissional. Portanto, é EXPRESSAMENTE PROIBIDO:
-                            <ul class="sub-list">
-                                <li>Revender o áudio isoladamente como se fosse um produto de prateleira (banco de vozes).</li>
-                                <li>Utilizar o áudio para clonagem de voz por Inteligência Artificial (IA), sintetização ou treinamento de modelos de voz (voice models).</li>
-                                <li>Cedência ou licenciamento da voz para terceiros não relacionados ao anúncio original.</li>
-                            </ul>
-                        </li>
-                        <li><strong>10.3. Resumo Simplificado:</strong> O cliente pode usar o áudio finalizado para sua publicidade para sempre, sem limitação de tempo. A única restrição é não usar a voz do locutor para criar uma cópia digital (IA) para gerar novos áudios sem pagar o profissional.</li>
-                    </ul>
-
-                    <h2>11. DO CONTEÚDO PROIBIDO E DIREITOS AUTORAIS</h2>
-                    <ul class="main-list">
-                        <li><strong>11.1.</strong> É TERMINANTEMENTE PROIBIDO o envio de textos que contenham:
-                            <ul class="sub-list">
-                                <li>Discurso de ódio, racismo, xenofobia ou homofobia.</li>
-                                <li>Pornografia infantil ou apologia à pedofilia.</li>
-                                <li>Conteúdo calunioso, difamatório ou injurioso contra terceiros.</li>
-                            </ul>
-                        </li>
-                        <li><strong>11.2. Proibição de Clonagem de Voz:</strong> É expressamente proibido o uso dos áudios fornecidos para clonagem de voz por Inteligência Artificial, sintetização ou criação de voice models. A violação deste item sujeitará o infrator a processo judicial por violação de direitos de personalidade e imagem do locutor, além do bloqueio permanente da conta.</li>
-                        <li><strong>11.3. Licença de Uso:</strong> Ao pagar pelo serviço, o cliente adquire uma licença de uso perpétua e não exclusiva do áudio finalizado para o fim a que se destina (publicidade, vídeo, etc.). A A LOCUÇÃO e os locutores mantêm os direitos morais e patrimoniais sobre a obra intelectual da voz e edição.</li>
-                    </ul>
-
-                    <h2>12. DISPOSIÇÕES FINAIS</h2>
-                    <ul class="main-list">
-                        <li><strong>12.1.</strong> A A LOCUÇÃO poderá modificar estes termos a qualquer momento, publicando a versão atualizada no site. Recomenda-se a leitura periódica.</li>
-                        <li><strong>12.2.</strong> A tolerância de eventual descumprimento de alguma cláusula não constitui novação ou renúncia de direitos.</li>
-                        <li><strong>12.3.</strong> Fica eleito o Foro da Comarca de Vitória/ES para dirimir quaisquer conflitos oriundos deste instrumento, com renúncia a qualquer outro, por mais privilegiado que seja.</li>
-                    </ul>
-
-                    <!-- Banner de Aceite -->
-                    <div class="mt-16 p-8 bg-cyan-50 border border-cyan-200 rounded-2xl text-center shadow-inner">
-                        <i class="fas fa-check-circle text-cyan-500 text-4xl mb-4"></i>
-                        <p class="font-black text-slate-800 text-lg uppercase tracking-tight leading-snug">
-                            AO REALIZAR O CADASTRO OU SOLICITAR UM SERVIÇO NO PAINEL DE GRAVAÇÃO DO ESTÚDIO A LOCUÇÃO, O CLIENTE DECLARA QUE LEU, COMPREENDEU E ACEITA INCONDICIONALMENTE TODOS OS TERMOS ACIMA DESCRITOS.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer Padrão Unificado -->
-    <footer class="bg-slate-950 py-16 border-t border-slate-800">
-        <div class="max-w-[1280px] mx-auto px-6">
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12 text-slate-300">
-                <!-- Coluna 1 -->
-                <div>
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_sBFI94b0Jhnsl6DY4UwsTOpsmltn1MNvF5n6zcrkdLUd7oqFJfxF5NAtCEwBchu-b65jEsMXi60X2SlPb04XheC1fuEaG-sRzEbENAbN4eMSX5YHbdk6oGhfGTHQOPR1tZJn_GwXOAjUL6UX4ZvpVITZOL6is83xruSEkk343d-9VEx5osefurjX8aY/s1600/logo.png" alt="Estúdio A Locução" class="w-40 mb-6 brightness-0 invert opacity-70">
-                    <p class="text-sm leading-relaxed text-slate-400">
-                        Referência em produção de áudio desde 2012. Qualidade, rapidez e o melhor elenco de vozes do Brasil.
+                <h3>1.2 Validade dos Créditos</h3>
+                <div class="warning-box">
+                    <p class="font-bold flex items-start gap-3">
+                        <i class="fas fa-exclamation-triangle text-amber-600 text-xl"></i>
+                        <span>Todos os créditos adquiridos (Off ou Produção) possuem prazo de validade. Esta informação é claramente exibida no Painel de Gravação no momento da compra e também é comunicada antes da confirmação de qualquer pedido via WhatsApp.</span>
                     </p>
                 </div>
-                <!-- Coluna 2 -->
-                <div>
-                    <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Atendimento 24h</h4>
-                    <ul class="space-y-4 text-sm">
-                        <li>
-                            <a href="https://wa.me/5527996529832" target="_blank" class="flex items-center gap-3 hover:text-green-400 transition">
-                                <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-green-400"><i class="fab fa-whatsapp text-lg"></i></div>
-                                <span>(27) 99652-9832</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="mailto:suporte@alocucao.com.br" class="flex items-center gap-3 hover:text-cyan-400 transition">
-                                <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-cyan-400"><i class="fas fa-envelope text-sm"></i></div>
-                                <span>suporte@alocucao.com.br</span>
-                            </a>
-                        </li>
-                    </ul>
+                <p>Após o vencimento do prazo, <strong>não há possibilidade de recuperação ou reativação dos créditos expirados</strong>. Recomendamos que você utilize seus créditos dentro do período informado para evitar perdas.</p>
+
+                <h3>1.3 Horário de Atendimento</h3>
+                <p>Nosso atendimento via WhatsApp funciona nos seguintes horários:</p>
+                <ul>
+                    <li><strong>Segunda a Sexta:</strong> 08h às 18h</li>
+                    <li><strong>Sábado:</strong> 08h às 12h</li>
+                    <li><strong>Domingos e Feriados:</strong> Não há atendimento</li>
+                </ul>
+                <p>Mensagens enviadas fora desses horários serão respondidas no próximo dia útil.</p>
+
+                <h3>1.4 Regras Próprias dos Locutores</h3>
+                <p>Os locutores disponíveis em nosso banco de vozes são profissionais autônomos que fazem parte do quadro da plataforma que revendemos. Cada locutor possui:</p>
+                <ul>
+                    <li><strong>Regras próprias de gravação:</strong> Informadas em seu portfólio individual.</li>
+                    <li><strong>Direito de recusa:</strong> O locutor pode rejeitar textos por motivos próprios, incluindo (mas não se limitando a) conteúdo religioso, político ou que considere inadequado.</li>
+                </ul>
+                <p><strong>Importante:</strong> O Estúdio A Locução não possui ingerência sobre as decisões individuais dos locutores. Caso um pedido seja recusado por um profissional, auxiliaremos na escolha de outro locutor compatível com seu texto, mas não podemos obrigar qualquer profissional a gravar conteúdo contra sua vontade.</p>
+
+                <h3>1.5 Correções e Alterações de Texto</h3>
+                <p>A correção do áudio <strong>somente será realizada sem custo</strong> quando houver erro comprovado por parte do locutor ou produtor, como:</p>
+                <ul>
+                    <li>Erro de pronúncia ou dicção;</li>
+                    <li>Desrespeito às orientações de entonação fornecidas;</li>
+                    <li>Omissão de palavras ou trechos do texto enviado.</li>
+                </ul>
+                <p><strong>Não nos responsabilizamos por:</strong></p>
+                <ul>
+                    <li>Erros de digitação, pontuação ou ortografia no texto enviado pelo cliente;</li>
+                    <li>Textos incompletos ou com informações faltantes;</li>
+                    <li>Alteração de estilo, tom de voz ou locutor após a entrega do áudio.</li>
+                </ul>
+                <p>Nestes casos, será necessário realizar um novo pedido, com a devida cobrança de créditos.</p>
+
+                <h3>1.6 Pedidos Urgentes e Prazos</h3>
+                <div class="warning-box">
+                    <p class="font-bold flex items-start gap-3">
+                        <i class="fas fa-clock text-amber-600 text-xl"></i>
+                        <span>Embora tenhamos orgulho da nossa agilidade na entrega, NÃO NOS RESPONSABILIZAMOS por pedidos realizados em cima da hora com prazos extremamente apertados.</span>
+                    </p>
                 </div>
-                <!-- Coluna 3 -->
-                <div>
-                    <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Acesso Rápido</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="https://www.alocucao.com.br/" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-angle-right text-xs text-slate-600"></i> Início</a></li>
-                        <li><a href="https://www.alocucao.com.br/vozes" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-angle-right text-xs text-slate-600"></i> Banco de Vozes</a></li>
-                        <li><a href="https://www.alocucao.com.br/#precos" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-angle-right text-xs text-slate-600"></i> Preços e Créditos</a></li>
-                        <li><a href="https://www.alocucao.com.br/tutoriais" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-angle-right text-xs text-slate-600"></i> Tutoriais em Vídeo</a></li>
-                    </ul>
-                </div>
-                <!-- Coluna 4 -->
-                <div>
-                    <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Segurança</h4>
-                    <ul class="space-y-3 text-sm mb-6">
-                        <li><a href="https://www.alocucao.com.br/termos" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-angle-right text-xs text-slate-600"></i> Termos de Uso</a></li>
-                        <li><a href="https://www.alocucao.com.br/privacidade" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-angle-right text-xs text-slate-600"></i> Política de Privacidade</a></li>
-                    </ul>
-                    <a href="https://www.alocucao.com.br/cadastro" target="_blank" class="inline-block w-full text-center px-6 py-3 bg-slate-800 text-white rounded-lg text-sm font-bold uppercase tracking-wider hover:bg-cyan-600 hover:text-white transition">Criar Conta Grátis</a>
+                <p>Problemas técnicos, indisponibilidade temporária do profissional escolhido ou imprevistos podem ocorrer. Além disso, caso seja necessário solicitar uma correção, o profissional que realizou o trabalho pode não estar imediatamente disponível.</p>
+                <p><strong>Recomendação:</strong> Sempre solicite seus áudios com antecedência razoável, especialmente para campanhas importantes ou com data marcada.</p>
+
+                <h3>1.7 Solicitação de Correção</h3>
+                <p>O prazo para solicitar correção de um áudio (quando aplicável por erro do profissional) é de <strong>até 3 (três) dias corridos</strong> após a entrega do pedido. Após este prazo, a regravação poderá ser cobrada como um novo serviço.</p>
+
+                <!-- ==================== SEÇÃO 2: TERMOS DA PLATAFORMA ==================== -->
+                <h2>2. Termos Gerais da Plataforma</h2>
+                <p>Os termos abaixo são estabelecidos pela plataforma que fornece a infraestrutura tecnológica e o banco de locutores que utilizamos. Ao usar nossos serviços, você também concorda com estas disposições.</p>
+
+                <h3>2.1 Do Objeto</h3>
+                <p>O Painel de Gravação caracteriza-se pelo sistema online que fornece prestação de serviço de gravação, produção e edição de áudios e derivados.</p>
+
+                <h3>2.2 Da Navegação e Disponibilidade</h3>
+                <p>O sistema se compromete a utilizar todas as soluções técnicas disponíveis para permitir o acesso 24 horas por dia, 7 dias por semana. Entretanto, poderá, a qualquer momento, interromper, limitar ou suspender o acesso para realizar atualizações, manutenções ou modificações necessárias.</p>
+
+                <h3>2.3 Do Cadastro</h3>
+                <p>Para utilizar os serviços, é necessário criar uma conta com dados pessoais e/ou empresariais verdadeiros e atualizados. Você é o único responsável pela confidencialidade de seu login e senha.</p>
+                <p>Os serviços apenas podem ser acessados por pessoas plenamente capazes, conforme o Direito brasileiro. Menores de 18 anos devem ser assistidos por seus representantes legais.</p>
+
+                <h3>2.4 Dos Serviços Prestados</h3>
+                <p>A plataforma fornece os seguintes serviços:</p>
+                <ul>
+                    <li><strong>Gravação em Off:</strong> Áudio gravado profissionalmente, contendo apenas a voz, sem trilha sonora ou edição.</li>
+                    <li><strong>Produção Comercial:</strong> Áudio completo com locução, trilha sonora, efeitos e finalização profissional.</li>
+                    <li><strong>Vinhetas em Off:</strong> Gravação curta (5 a 10 segundos) apenas com voz.</li>
+                    <li><strong>Vinhetas Produzidas:</strong> Vinheta curta (5 a 12 segundos) com produção completa.</li>
+                    <li><strong>Jingle Comercial/Político:</strong> Música personalizada para produto, empresa ou campanha.</li>
+                </ul>
+
+                <h3>2.5 Dos Pedidos</h3>
+                <ul>
+                    <li>Todos os textos devem ser enviados através do Painel de Gravação, no campo específico do formulário.</li>
+                    <li>Não são aceitos textos enviados em anexo (imagem ou Word).</li>
+                    <li>Não são aceitos múltiplos textos em um único pedido. Cada texto deve ter seu próprio pedido.</li>
+                    <li>Textos de Spot Comercial têm limite de 40 segundos por crédito (30 segundos + 10 segundos de margem).</li>
+                    <li>Alterações de tom, estilo ou locutor após a entrega serão tarifadas como novo pedido.</li>
+                </ul>
+
+                <h3>2.6 Dos Locutores e Prazos de Entrega</h3>
+                <p>Cada locutor possui status de disponibilidade informado no painel:</p>
+                <ul>
+                    <li><strong>10min / 30min / Online:</strong> Disponível para entrega rápida.</li>
+                    <li><strong>Volto já / Volto ainda hoje:</strong> Indisponível temporariamente.</li>
+                    <li><strong>Offline / Férias / Prob. Técnico:</strong> Indisponível por tempo determinado ou indeterminado.</li>
+                </ul>
+                <p>Produções completas têm prazo estimado de 1 a 4 horas. Vinhetas produzidas podem levar até 10 horas.</p>
+                <p>O horário de trabalho dos produtores é de Segunda a Sexta das 08h às 20h, e Sábado das 08h às 12h.</p>
+
+                <h3>2.7 Da Cobrança e Créditos</h3>
+                <ul>
+                    <li>O sistema utiliza créditos separados para serviços de Off e Produção.</li>
+                    <li>O valor em créditos é calculado automaticamente pelo sistema com base no texto enviado.</li>
+                    <li>É possível solicitar análise de créditos caso o valor cobrado esteja acima do tempo real do áudio entregue.</li>
+                </ul>
+
+                <h3>2.8 Da Liberação de Créditos (Após Pagamento)</h3>
+                <ul>
+                    <li><strong>Transferência/PIX (comprovante):</strong> Liberação em horário comercial (até 17h em dias úteis, sábado até 12h).</li>
+                    <li><strong>Cartão de Crédito:</strong> Liberação imediata após autorização da operadora.</li>
+                    <li><strong>Boleto Bancário:</strong> Liberação automática em até 12 horas após compensação.</li>
+                </ul>
+                <p><strong>Tarifa de Boleto:</strong> R$ 1,50 por emissão. Boletos não pagos geram nova cobrança da tarifa na próxima compra.</p>
+
+                <h3>2.9 Da Devolução e Reembolso</h3>
+                <p>Caso o cliente deseje solicitar a devolução de serviços não utilizados:</p>
+                <ul>
+                    <li>Será concedido reembolso proporcional ao número de serviços não utilizados.</li>
+                    <li>O cálculo considera o valor unitário com desconto do pacote adquirido.</li>
+                    <li>Se a solicitação ocorrer dentro do prazo de <strong>7 (sete) dias</strong> previsto no Art. 49 do Código de Defesa do Consumidor (direito de arrependimento), o reembolso será integral.</li>
+                </ul>
+                <p><strong>Importante:</strong> Como revendedores, o processamento de reembolsos depende da aprovação da plataforma principal e dos prazos bancários. Faremos todo o possível para agilizar o processo.</p>
+
+                <h3>2.10 Da Responsabilidade</h3>
+                <ul>
+                    <li>A plataforma se responsabiliza por erros de locução ou produção comprovados, desde que solicitada a correção dentro do prazo de 3 dias.</li>
+                    <li>A plataforma não se responsabiliza por erros de digitação ou ortografia originados no texto enviado pelo cliente.</li>
+                    <li>O usuário é inteiramente responsável pelo conteúdo dos textos enviados para gravação.</li>
+                </ul>
+
+                <h3>2.11 Da Licença de Uso</h3>
+                <p>É concedida permissão para acessar o Painel de Gravação apenas para uso dos serviços contratados. Você não pode modificar, copiar, decompilar ou transferir os materiais da plataforma.</p>
+                <p>É concedida total liberdade para uso dos áudios adquiridos em rádio, TV, YouTube, Instagram e outros meios de comunicação, respeitando as normas individuais de cada locutor.</p>
+
+                <h3>2.12 Das Sanções</h3>
+                <p>A plataforma poderá, a qualquer momento, advertir, suspender ou cancelar a conta do usuário que descumprir estes termos, praticar atos fraudulentos, usar brechas no sistema para benefício próprio ou causar prejuízos à plataforma ou a terceiros.</p>
+
+                <h3>2.13 Das Alterações nos Termos</h3>
+                <p>Este documento pode ser atualizado periodicamente. Recomendamos que você o consulte regularmente. O uso continuado dos serviços após alterações implica na aceitação das novas condições.</p>
+
+                <!-- ==================== SEÇÃO 3: DISPOSIÇÕES FINAIS ==================== -->
+                <h2>3. Disposições Finais</h2>
+                
+                <h3>3.1 Foro de Eleição</h3>
+                <p>Fica eleito o foro da Comarca de <strong>Brejetuba, Estado do Espírito Santo</strong>, para dirimir eventuais dúvidas e resolver conflitos oriundos deste termo, com renúncia a qualquer outro, por mais privilegiado que seja, ressalvados os direitos dos consumidores previstos no Código de Defesa do Consumidor.</p>
+
+                <h3>3.2 Legislação Aplicável</h3>
+                <p>Este Acordo é regido pelas leis da República Federativa do Brasil, pelos princípios gerais de direito e pelas normas de comércio eletrônico.</p>
+
+                <h3>3.3 Aceitação</h3>
+                <p>AO UTILIZAR NOSSOS SERVIÇOS, VOCÊ DECLARA QUE LEU, COMPREENDEU E ACEITA INTEGRALMENTE TODOS OS TERMOS E CONDIÇÕES AQUI ESTABELECIDOS.</p>
+
+                <!-- Data de Vigência -->
+                <div class="mt-10 pt-6 border-t border-slate-200 text-center text-sm text-slate-500">
+                    <p>Estúdio A Locução (anteriormente Comerciais Top) | Brejetuba - ES</p>
+                    <p class="mt-1">Versão vigente desde 21 de Abril de 2026</p>
                 </div>
             </div>
-            <!-- Direitos -->
-            <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-xs text-slate-500 font-medium tracking-widest uppercase">&copy; 2012 - 2026 Estúdio A Locução. Todos os direitos reservados.</p>
-                <div class="text-slate-600 flex gap-4 text-lg">
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    <i class="fab fa-pix"></i>
-                </div>
+        </div>
+    </main>
+
+    <!-- Footer Simples -->
+    <footer class="py-8 text-center text-slate-500 text-sm border-t border-slate-200 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>&copy; 2012 - 2026 Estúdio A Locução. Todos os direitos reservados.</p>
+            <div class="mt-3 space-x-4">
+                <a href="/" class="hover:text-primary transition">Início</a>
+                <span class="text-slate-300">|</span>
+                <a href="/privacidade" class="hover:text-primary transition">Política de Privacidade</a>
             </div>
         </div>
     </footer>
 
-    <!-- Botão Flutuante WhatsApp -->
-    <a href="https://wa.me/5527996529832" target="_blank" rel="noopener noreferrer" 
-       class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-3xl shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:scale-110 hover:-translate-y-2 transition-all duration-300 z-50 group"
-       aria-label="Atendimento via WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-        <!-- Tooltip -->
-        <span class="absolute right-full mr-4 bg-slate-900 text-white text-xs font-bold px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-            Atendimento 24h
-        </span>
-    </a>
-
-    <!-- Scripts -->
-    <script>
-        // Lógica do Menu Mobile
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const icon = menuToggle.querySelector('i');
-
-        menuToggle.addEventListener('click', () => {
-            const isClosed = mobileMenu.style.maxHeight === '0px' || mobileMenu.style.maxHeight === '';
-            
-            if (isClosed) {
-                mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                mobileMenu.style.maxHeight = '0px';
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-
-        // Efeito Header no Scroll
-        const header = document.querySelector('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                header.classList.add('shadow-md');
-                header.style.background = 'rgba(15, 23, 42, 0.98)';
-            } else {
-                header.classList.remove('shadow-md');
-                header.style.background = 'rgba(15, 23, 42, 0.85)';
-            }
-        });
-    </script>
 </body>
 </html>
