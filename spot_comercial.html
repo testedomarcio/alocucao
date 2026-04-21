@@ -2,14 +2,18 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     
-    <!-- SEO & Meta Tags -->
+    <!-- SEO & Meta Tags Otimizados para Ads -->
     <title>Spot Comercial Profissional com Entrega Rápida | Estúdio A Locução</title>
-    <meta name="description" content="Tenha um comercial de alto impacto para sua marca. Produção completa com voz, trilha e efeitos. Entregas no mesmo dia.">
-    <meta name="keywords" content="spot comercial, produção de áudio, comercial de rádio, áudio para carro de som, vinheta completa, locução com trilha">
+    <meta name="description" content="Spot comercial completo com locução profissional, trilha e efeitos. Entrega em poucas horas. Mais de 5.000 clientes atendidos.">
     
-    <!-- Google tag (gtag.js) -->
+    <!-- Preconnect para Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Google Tag -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093304718"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -17,12 +21,11 @@
       gtag('js', new Date());
       gtag('config', 'AW-18093304718');
 
-      // Funções de Rastreamento Personalizado
-      function trackWAClick(locationInfo) {
+      function trackWAClick(location) {
           gtag('event', 'conversion', {
               'send_to': 'AW-18093304718/WA_CLICK', 
               'event_category': 'WhatsApp',
-              'event_label': locationInfo
+              'event_label': location
           });
       }
       
@@ -30,14 +33,22 @@
           gtag('event', 'conversion', {
               'send_to': 'AW-18093304718/PANEL_CLICK', 
               'event_category': 'Painel',
-              'event_label': 'Cadastro Iniciado'
+              'event_label': 'Acesso Painel'
           });
       }
 
-      function trackAudioPlay(audioName) {
+      function trackAudioPlay(name) {
           gtag('event', 'play_audio', {
               'event_category': 'Engajamento',
-              'event_label': audioName
+              'event_label': name
+          });
+      }
+      
+      function trackLeadCapture() {
+          gtag('event', 'conversion', {
+              'send_to': 'AW-18093304718/LEAD_CAPTURE', 
+              'event_category': 'Lead',
+              'event_label': 'Roteiro_Gratis'
           });
       }
     </script>
@@ -46,10 +57,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -58,16 +69,20 @@
                     fontFamily: { sans: ['Inter', 'sans-serif'], },
                     colors: {
                         primary: '#38bdf8',
-                        primaryDark: '#0284c7',
                         darkBg: '#0f172a',
                     },
                     animation: {
-                        'infinite-scroll': 'scroll 35s linear infinite',
+                        'scroll': 'scroll 40s linear infinite',
+                        'soft-pulse': 'soft-pulse 2s infinite ease-in-out',
                     },
                     keyframes: {
                         scroll: {
                             '0%': { transform: 'translateX(0)' },
                             '100%': { transform: 'translateX(-50%)' },
+                        },
+                        'soft-pulse': {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.02)' },
                         }
                     }
                 }
@@ -76,471 +91,398 @@
     </script>
 
     <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
+        /* Critical CSS para evitar CLS */
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; background-color: #f8fafc; }
         
-        .gradient-bg { background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 100%); }
+        /* Otimização Mobile - Remove efeitos pesados */
+        @media (max-width: 640px) {
+            .backdrop-blur, .glass-effect {
+                backdrop-filter: none !important;
+                background: rgba(15, 23, 42, 0.98) !important;
+            }
+        }
         
         .glass-header {
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(56, 189, 248, 0.2);
+        
+        audio { 
+            height: 48px; 
+            width: 100%; 
+            border-radius: 60px; 
+            background: #f1f5f9;
         }
-
-        /* Áudio Customizado */
-        audio { height: 45px; width: 100%; border-radius: 12px; outline: none; }
-        audio::-webkit-media-controls-panel { background-color: #f1f5f9; }
+        audio::-webkit-media-controls-panel { background-color: #f8fafc; }
         
-        .container-custom { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-        @media (min-width: 768px) { .container-custom { padding: 0 2.5rem; } }
-
-        .glow-circle { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.3; z-index: 0; pointer-events: none; }
-        
-        @keyframes soft-pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-        }
-        .animate-soft-pulse { animation: soft-pulse 2.5s infinite ease-in-out; }
-        
-        /* Ocultar scrollbar do marquee */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
+        
+        /* Remove seta do summary no Safari */
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
+        
+        /* Redução de Layout Shift para imagens */
+        img { max-width: 100%; height: auto; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased">
+<body class="font-sans antialiased text-slate-800">
 
-    <!-- Header Simples Focado em Conversão -->
-    <header class="fixed w-full top-0 z-50 glass-header text-white transition-all py-3 sm:py-4">
-        <div class="container-custom flex justify-between items-center">
-            <a href="#">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_sBFI94b0Jhnsl6DY4UwsTOpsmltn1MNvF5n6zcrkdLUd7oqFJfxF5NAtCEwBchu-b65jEsMXi60X2SlPb04XheC1fuEaG-sRzEbENAbN4eMSX5YHbdk6oGhfGTHQOPR1tZJn_GwXOAjUL6UX4ZvpVITZOL6is83xruSEkk343d-9VEx5osefurjX8aY/s1600/logo.png" alt="Estúdio A Locução" class="max-h-[40px]">
+    <!-- Header Flutuante Focado em Conversão -->
+    <header class="fixed w-full top-0 z-50 glass-header text-white transition-all py-3">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
+            <a href="#" class="shrink-0">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_sBFI94b0Jhnsl6DY4UwsTOpsmltn1MNvF5n6zcrkdLUd7oqFJfxF5NAtCEwBchu-b65jEsMXi60X2SlPb04XheC1fuEaG-sRzEbENAbN4eMSX5YHbdk6oGhfGTHQOPR1tZJn_GwXOAjUL6UX4ZvpVITZOL6is83xruSEkk343d-9VEx5osefurjX8aY/s1600/logo.png" alt="Estúdio A Locução" class="h-9 sm:h-10 w-auto" width="120" height="40">
             </a>
-            <div class="flex items-center gap-4">
-                <span class="hidden md:flex items-center gap-2 text-slate-300 text-sm font-medium border-r border-slate-700 pr-4">
-                    <i class="fas fa-star text-yellow-400"></i> +5.000 clientes no Brasil
+            <div class="flex items-center gap-3 sm:gap-4">
+                <span class="hidden md:flex items-center gap-2 text-slate-300 text-xs font-medium border-r border-slate-700 pr-4">
+                    <i class="fas fa-star text-yellow-400 text-xs"></i> +5.000 clientes
                 </span>
-                <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20aumentar%20minhas%20vendas%20com%20um%20spot%20profissional!" 
+                <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20um%20spot%20profissional!" 
                    onclick="trackWAClick('Header')"
-                   target="_blank" class="bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold flex items-center gap-2 transition-colors text-xs sm:text-sm px-4 py-2 sm:py-2.5 rounded-full shadow-lg">
-                    <i class="fab fa-whatsapp text-lg"></i> <span class="hidden sm:inline">Chamar no WhatsApp</span><span class="sm:hidden">WhatsApp</span>
+                   target="_blank" 
+                   class="bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold flex items-center gap-2 transition-colors text-xs sm:text-sm px-4 py-2 rounded-full shadow-lg shadow-green-500/30">
+                    <i class="fab fa-whatsapp text-base"></i> <span class="hidden sm:inline">Chamar Agora</span><span class="sm:hidden">WhatsApp</span>
                 </a>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section Otimizada (Above the Fold) -->
-        <section class="gradient-bg pt-28 pb-16 lg:pt-40 lg:pb-24 relative overflow-hidden text-white">
-            <div class="glow-circle w-[400px] h-[400px] bg-blue-600 top-[-10%] left-[-10%]"></div>
+        <!-- Hero Section - Foco Total no WhatsApp -->
+        <section class="bg-darkBg pt-28 pb-16 lg:pt-36 lg:pb-20 relative overflow-hidden text-white">
+            <!-- Background otimizado sem blur no mobile -->
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-cyan-900/20 pointer-events-none"></div>
             
-            <div class="container-custom text-center relative z-10 flex flex-col items-center">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center text-center">
                 
-                <!-- Urgência Dinâmica/Forte -->
-                <div class="inline-flex items-center gap-2 bg-red-600 text-white px-5 py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wide mb-6 shadow-[0_0_20px_rgba(220,38,38,0.5)] animate-pulse border border-red-400">
-                    <i class="fas fa-fire"></i> Últimas 3 vagas disponíveis para entrega HOJE
+                <!-- Badge de Autoridade -->
+                <div class="inline-flex items-center gap-2 bg-blue-600/20 border border-blue-400/30 text-blue-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 backdrop-blur-sm">
+                    <i class="fas fa-check-circle text-blue-400"></i> Produção Profissional de Áudio
                 </div>
                 
-                <!-- Headline Direta ao Benefício -->
-                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-4 max-w-4xl">
-                    Aumente suas vendas com um <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 italic">Áudio Comercial Profissional</span>
+                <!-- Headline Principal (Keyword: Spot Comercial) -->
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-4 max-w-5xl">
+                    Spot Comercial <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Profissional</span> <br class="hidden sm:block">com Entrega em Horas
                 </h1>
                 
-                <p class="text-slate-300 text-base lg:text-xl mb-6 leading-relaxed font-light max-w-2xl">
-                    Há 12 anos no mercado. Vozes impactantes, trilha sonora e efeitos. Receba seu spot <strong>pronto para veicular em poucas horas</strong>.
+                <p class="text-slate-300 text-base lg:text-xl mb-8 leading-relaxed max-w-2xl font-normal">
+                    Locução, trilha sonora e efeitos. Tudo pronto para você veicular em carro de som, rádio ou redes sociais. 
+                    <strong class="text-white font-semibold">Sem burocracia, sem mensalidade.</strong>
                 </p>
 
-                <!-- Preços na Dobra Superior Otimizados -->
-                <div class="mb-8 flex flex-wrap justify-center gap-4">
-                    <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                        <p class="text-[10px] sm:text-xs text-slate-400 font-bold uppercase tracking-widest mb-1">Produção Completa</p>
-                        <p class="text-2xl sm:text-3xl font-black text-white italic">R$ 14,90 <span class="text-[10px] sm:text-xs font-normal text-slate-400 not-italic">(No pacote)</span></p>
+                <!-- Preço Ancorado com Reversão de Risco -->
+                <div class="mb-8 flex flex-col items-center">
+                    <div class="bg-white/5 border border-white/10 rounded-2xl px-8 py-5 backdrop-blur-sm inline-block">
+                        <p class="text-xs sm:text-sm text-slate-400 font-bold uppercase tracking-widest mb-1">Produção Completa</p>
+                        <p class="text-4xl sm:text-5xl font-black text-white italic tracking-tight">
+                            R$ 14,90 
+                            <span class="text-base font-normal text-slate-400 not-italic align-middle ml-2">/ spot</span>
+                        </p>
+                        <p class="text-xs text-slate-500 mt-1">no pacote com 10 unidades <span class="line-through ml-1">R$ 29,90 avulso</span></p>
                     </div>
-                    <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                        <p class="text-[10px] sm:text-xs text-slate-400 font-bold uppercase tracking-widest mb-1">Gravação Off</p>
-                        <p class="text-2xl sm:text-3xl font-black text-white italic">R$ 4,00 <span class="text-[10px] sm:text-xs font-normal text-slate-400 not-italic">(No pacote)</span></p>
+                    <!-- Garantia (Reversão de Risco) -->
+                    <div class="mt-4 flex items-center gap-2 text-green-400 text-sm font-medium bg-green-950/30 px-4 py-2 rounded-full border border-green-500/30">
+                        <i class="fas fa-shield-alt"></i> Satisfação Garantida ou Corrigimos sem Custo
                     </div>
                 </div>
                 
-                <!-- CTA Híbrido Focado em Ação -->
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 w-full max-w-3xl">
-                    <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20aumentar%20minhas%20vendas%20com%20um%20spot%20profissional!" 
-                       onclick="trackWAClick('Hero')"
-                       target="_blank" class="w-full sm:w-auto bg-[#25D366] hover:bg-[#20bd5a] text-white px-8 py-4 sm:py-5 rounded-2xl font-black text-lg sm:text-xl flex items-center justify-center gap-3 shadow-[0_10px_25px_rgba(37,211,102,0.4)] hover:-translate-y-1 transition-transform animate-soft-pulse">
-                        <i class="fab fa-whatsapp text-2xl"></i> QUERO AUMENTAR MINHAS VENDAS HOJE
+                <!-- CTA Principal - WHATSAPP (Hiper Destacado) -->
+                <div class="flex flex-col items-center w-full max-w-2xl">
+                    <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20meu%20Spot%20Comercial%20com%20entrega%20r%C3%A1pida!" 
+                       onclick="trackWAClick('Hero_Principal')"
+                       target="_blank" 
+                       class="w-full sm:w-auto bg-[#25D366] hover:bg-[#20bd5a] text-white px-10 py-5 sm:py-6 rounded-2xl font-black text-lg sm:text-xl flex items-center justify-center gap-4 shadow-[0_20px_40px_rgba(37,211,102,0.3)] hover:-translate-y-1 transition-all duration-300 animate-soft-pulse border border-green-400/30">
+                        <i class="fab fa-whatsapp text-2xl sm:text-3xl"></i> QUERO MEU SPOT PRONTO HOJE
+                        <i class="fas fa-arrow-right text-sm opacity-80"></i>
                     </a>
                     
-                    <div class="w-full sm:w-auto flex flex-col items-center">
-                        <a href="https://www.alocucao.com.br/cadastro" 
-                           onclick="trackPanelClick()"
-                           target="_blank" class="w-full sm:w-auto bg-white/5 hover:bg-white/10 border border-white/20 px-8 py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-lg transition flex items-center justify-center gap-3 text-white hover:border-blue-400/50">
-                            <i class="fas fa-desktop"></i> IR PARA O PAINEL ONLINE
+                    <p class="text-slate-400 text-xs mt-4 flex items-center gap-1">
+                        <i class="fas fa-lock text-[10px]"></i> Atendimento humano e rápido
+                    </p>
+                </div>
+
+                <!-- Micro CTAs Secundários (Painel e Locução Off) -->
+                <div class="mt-8 pt-6 border-t border-white/10 w-full max-w-3xl flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
+                    <!-- Link Painel (Baixo Atrito) -->
+                    <a href="https://www.alocucao.com.br/cadastro" 
+                       onclick="trackPanelClick()"
+                       target="_blank" 
+                       class="text-slate-400 hover:text-white text-sm font-medium transition flex items-center gap-2 border border-slate-700 hover:border-slate-500 px-5 py-2 rounded-full">
+                        <i class="fas fa-user-circle"></i> Já sou cliente · Acessar Painel
+                    </a>
+                    
+                    <!-- Link Locução Off (Informação Secundária) -->
+                    <div class="flex items-center gap-2 text-xs text-slate-500 bg-white/5 px-4 py-2 rounded-full">
+                        <i class="fas fa-microphone-alt text-blue-400"></i> 
+                        <span>Também fazemos <strong class="text-slate-300">Locução Off (Seca)</strong> a partir de <strong class="text-white">R$ 4,00</strong></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marcas (Prova Social) -->
+        <section class="py-6 bg-slate-900 border-b border-slate-800 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4">
+                <p class="text-center text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Empresas e Rádios que confiam no nosso áudio</p>
+                <div class="relative flex overflow-hidden">
+                    <div class="flex whitespace-nowrap gap-8 items-center animate-scroll">
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Design Móveis</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Sower Modas</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Universo Tecnologia</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Rádio Cultura</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Princesinha Vest</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Mellody Audiovisual</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Destaque Mais</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Rádio Imprensa FM</span><span class="text-slate-600 font-black">•</span>
+                        <!-- Duplicado para loop -->
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Design Móveis</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Sower Modas</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Universo Tecnologia</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Rádio Cultura</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Princesinha Vest</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Mellody Audiovisual</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Destaque Mais</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Rádio Imprensa FM</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Para quem é + Exemplos (Grid Otimizado) -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                    <!-- Lado Esquerdo: Benefícios -->
+                    <div>
+                        <span class="text-blue-600 font-bold uppercase tracking-widest text-xs mb-2 block">Solução Completa</span>
+                        <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight mb-6 text-slate-900">
+                            Áudio de Rádio sem <br class="hidden sm:block"><span class="text-blue-600 italic">Complicação</span>
+                        </h2>
+                        <p class="text-slate-600 text-lg mb-8 leading-relaxed">
+                            Ideal para quem precisa de resultado rápido: <strong>Spot Comercial</strong> mixado e masterizado, pronto para rodar em qualquer mídia.
+                        </p>
+                        
+                        <!-- Áudios de Exemplo (Ouvir Agora) -->
+                        <div class="space-y-4 mb-8">
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center gap-4">
+                                <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center shrink-0 shadow-md text-white"><i class="fas fa-shopping-cart"></i></div>
+                                <div class="w-full">
+                                    <h4 class="font-bold text-slate-900 mb-1 text-sm uppercase tracking-wide">Spot Varejo / Ofertas</h4>
+                                    <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Spot_Varejo')"><source src="https://testedomarcio.github.io/meuadio/Celso.mp3" type="audio/mpeg"></audio>
+                                </div>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center gap-4">
+                                <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center shrink-0 shadow-md text-white"><i class="fas fa-gem"></i></div>
+                                <div class="w-full">
+                                    <h4 class="font-bold text-slate-900 mb-1 text-sm uppercase tracking-wide">Institucional Premium</h4>
+                                    <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Inst_Premium')"><source src="https://testedomarcio.github.io/meuadio/elissandra.mp3" type="audio/mpeg"></audio>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Benefícios Lista -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i><span class="text-sm font-medium">Entrega em Horas</span></div>
+                            <div class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i><span class="text-sm font-medium">Trilha Inclusa</span></div>
+                            <div class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i><span class="text-sm font-medium">Mixagem Profissional</span></div>
+                            <div class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i><span class="text-sm font-medium">Locutor Premium</span></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Lado Direito: Imagem e Depoimento em Destaque -->
+                    <div class="relative">
+                        <div class="bg-slate-900 p-2 rounded-[2.5rem] shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=800" alt="Estúdio Profissional" class="rounded-[2rem] opacity-80 w-full h-auto">
+                            <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-white/50">
+                                <div class="flex text-yellow-400 text-sm mb-2 gap-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                <p class="text-slate-800 text-sm font-medium italic">"Acabei de baixar o spot. Ficou sensacional! A voz do locutor combinou certinho. Obrigado pela rapidez!"</p>
+                                <p class="text-xs font-bold text-slate-500 mt-2">— Sower Modas (Cliente Real)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabela de Preços Clara (Spot Completo vs Locução Off) -->
+        <section class="py-20 bg-slate-50">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 uppercase tracking-tight italic">Escolha o <span class="text-blue-600">Serviço Ideal</span></h2>
+                    <p class="text-slate-500 mt-2">Preços transparentes, sem surpresas.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Card 1: SPOT COMPLETO (Destaque) -->
+                    <div class="bg-white rounded-3xl shadow-xl border-2 border-blue-500/40 p-8 relative transform hover:-translate-y-1 transition-all">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-xs uppercase tracking-widest px-6 py-2 rounded-full shadow-lg">Mais Vendido</div>
+                        <div class="text-center mt-4">
+                            <h3 class="text-2xl font-black text-slate-900 uppercase mb-2">Spot Comercial Completo</h3>
+                            <span class="text-5xl font-black italic tracking-tight text-slate-900">R$ 14,90</span>
+                            <p class="text-slate-500 text-sm mt-1">por spot (Pacote c/ 10) · <span class="line-through">R$ 29,90 avulso</span></p>
+                        </div>
+                        <ul class="space-y-4 my-8 text-left max-w-xs mx-auto">
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-blue-500 text-lg"></i> <span class="font-medium">Locução Profissional</span></li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-blue-500 text-lg"></i> <span class="font-medium">Trilha Sonora e Efeitos</span></li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-blue-500 text-lg"></i> <span class="font-medium">Mixagem e Masterização</span></li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-blue-500 text-lg"></i> <span class="font-medium">Entrega Expressa (Horas)</span></li>
+                        </ul>
+                        <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20quero%20solicitar%20uma%20PRODU%C3%87%C3%83O%20COMPLETA%20de%20Spot%20Comercial!" 
+                           onclick="trackWAClick('Precos_Completo')"
+                           target="_blank" 
+                           class="block w-full py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-black rounded-xl transition uppercase tracking-widest shadow-lg text-center text-sm">
+                            <i class="fab fa-whatsapp mr-2"></i> PEDIR SPOT COMPLETO
+                        </a>
+                        <p class="text-center text-xs text-slate-400 mt-3">Atendimento imediato no WhatsApp</p>
+                    </div>
+
+                    <!-- Card 2: LOCUÇÃO OFF (Alternativa) -->
+                    <div class="bg-white rounded-3xl shadow-lg border border-slate-200 p-8 relative opacity-90 hover:opacity-100 transition-all">
+                        <div class="text-center">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Para Editores</span>
+                            <h3 class="text-2xl font-black text-slate-900 uppercase mt-1 mb-2">Locução Off (Seca)</h3>
+                            <span class="text-5xl font-black italic tracking-tight text-slate-900">R$ 4,00</span>
+                            <p class="text-slate-500 text-sm mt-1">por voz (Pacote c/ 10) · <span class="line-through">R$ 14,90 avulso</span></p>
+                        </div>
+                        <ul class="space-y-4 my-8 text-left max-w-xs mx-auto">
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-green-500"></i> <span class="font-medium">Locução Profissional Limpa</span></li>
+                            <li class="flex items-center gap-3 text-slate-400"><i class="fas fa-times text-red-400"></i> <span class="line-through">Trilha Sonora</span></li>
+                            <li class="flex items-center gap-3 text-slate-400"><i class="fas fa-times text-red-400"></i> <span class="line-through">Edição ou Efeitos</span></li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-green-500"></i> <span class="font-medium">Entrega em minutos</span></li>
+                        </ul>
+                        <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20quero%20solicitar%20apenas%20a%20LOCU%C3%87%C3%83O%20OFF%20(Voz%20Seca)." 
+                           onclick="trackWAClick('Precos_Off')"
+                           target="_blank" 
+                           class="block w-full py-4 bg-white border-2 border-green-500 text-green-600 hover:bg-green-50 font-bold rounded-xl transition uppercase tracking-widest text-sm text-center">
+                            <i class="fab fa-whatsapp mr-2"></i> PEDIR LOCUÇÃO OFF
                         </a>
                     </div>
                 </div>
-
-                <!-- Reforço de Confiança no Topo -->
-                <div class="mt-6 flex flex-wrap justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-slate-300 font-medium">
-                    <span class="flex items-center gap-1.5"><i class="fas fa-check text-green-400"></i> Entrega rápida</span>
-                    <span class="flex items-center gap-1.5"><i class="fas fa-check text-green-400"></i> Sem burocracia</span>
-                    <span class="flex items-center gap-1.5"><i class="fas fa-check text-green-400"></i> Atendimento humano</span>
-                </div>
             </div>
         </section>
 
-        <!-- Marcas Atendidas -->
-        <section class="py-6 bg-slate-900 border-b border-slate-800 overflow-hidden">
-            <div class="container-custom">
-                <p class="text-center text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Empresas e Rádios que confiam no nosso áudio</p>
-                <div class="relative flex overflow-hidden">
-                    <div class="flex whitespace-nowrap gap-8 items-center animate-infinite-scroll">
-                        <span class="text-slate-400 font-bold text-lg opacity-60">Design Móveis e Decorações</span>
-                        <span class="text-slate-600 font-black px-2">•</span>
-                        <span class="text-slate-400 font-bold text-lg opacity-60">Sower Modas</span>
-                        <span class="text-slate-600 font-black px-2">•</span>
-                        <span class="text-slate-400 font-bold text-lg opacity-60">Universo Tecnologia</span>
-                        <span class="text-slate-600 font-black px-2">•</span>
-                        <span class="text-slate-400 font-bold text-lg opacity-60">Rádio Cultura de Posse</span>
-                        <span class="text-slate-600 font-black px-2">•</span>
-                        <span class="text-slate-400 font-bold text-lg opacity-60">Princesinha Vest</span>
-                        <span class="text-slate-600 font-black px-2">•</span>
-                        <span class="text-slate-400 font-bold text-lg opacity-60">Mellody Audiovisual</span>
-                        <span class="text-slate-600 font-black px-2">•</span>
-                        <span class="text-slate-400 font-bold text-lg opacity-60">Destaque Mais</span>
-                        <span class="text-slate-600 font-black px-2">•</span>
-                        <span class="text-slate-400 font-bold text-lg opacity-60">Rádio Imprensa FM</span>
-                        <span class="text-slate-600 font-black px-2">•</span>
-                        <span class="text-slate-400 font-bold text-lg opacity-60">Rádio Clube LTDA</span>
-                        <span class="text-slate-600 font-black px-4">•</span>
-                        <!-- Repetição para Loop -->
-                        <span class="text-slate-400 font-bold text-lg opacity-60">Design Móveis e Decorações</span>
-                        <span class="text-slate-600 font-black px-2">•</span>
-                        <span class="text-slate-400 font-bold text-lg opacity-60">Sower Modas</span>
-                        <span class="text-slate-600 font-black px-2">•</span>
-                        <span class="text-slate-400 font-bold text-lg opacity-60">Universo Tecnologia</span>
-                        <span class="text-slate-600 font-black px-2">•</span>
-                        <span class="text-slate-400 font-bold text-lg opacity-60">Rádio Cultura de Posse</span>
-                        <span class="text-slate-600 font-black px-2">•</span>
-                        <span class="text-slate-400 font-bold text-lg opacity-60">Princesinha Vest</span>
-                        <span class="text-slate-600 font-black px-2">•</span>
-                        <span class="text-slate-400 font-bold text-lg opacity-60">Mellody Audiovisual</span>
-                        <span class="text-slate-600 font-black px-2">•</span>
-                        <span class="text-slate-400 font-bold text-lg opacity-60">Destaque Mais</span>
-                        <span class="text-slate-600 font-black px-2">•</span>
-                        <span class="text-slate-400 font-bold text-lg opacity-60">Rádio Imprensa FM</span>
-                        <span class="text-slate-600 font-black px-2">•</span>
-                        <span class="text-slate-400 font-bold text-lg opacity-60">Rádio Clube LTDA</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Para quem é? -->
-        <section class="py-24 bg-white relative z-20">
-            <div class="container-custom">
-                <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                    <div>
-                        <span class="text-blue-600 font-bold uppercase tracking-widest text-xs mb-2 block">Zero Dor de Cabeça</span>
-                        <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tighter mb-6 leading-tight text-slate-900">
-                            A Solução Perfeita para quem não quer ter <span class="text-blue-600 italic">Trabalho</span>.
-                        </h2>
-                        <p class="text-slate-600 text-lg mb-8 leading-relaxed">
-                            Se você precisa de um áudio impactante para ontem, mas não tem um editor de som na equipe, o nosso serviço de <strong>Produção Comercial Completa</strong> resolve tudo.
-                        </p>
-                        <div class="space-y-6">
-                            <div class="flex items-start gap-4 p-4 rounded-2xl hover:bg-slate-50 transition border border-transparent hover:border-slate-100">
-                                <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 text-xl"><i class="fas fa-store"></i></div>
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-lg mb-1">Comércio e Varejo</h4>
-                                    <p class="text-sm text-slate-500 leading-relaxed">Supermercados, farmácias, óticas e lojas que precisam de spots de ofertas atrativos para aumentar o fluxo na porta.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4 p-4 rounded-2xl hover:bg-slate-50 transition border border-transparent hover:border-slate-100">
-                                <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center shrink-0 text-xl"><i class="fas fa-car-side"></i></div>
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-lg mb-1">Carros de Som e Ruas</h4>
-                                    <p class="text-sm text-slate-500 leading-relaxed">Áudios mixados e equalizados nas frequências exatas para serem ouvidos com total clareza em caixas de som ao ar livre.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4 p-4 rounded-2xl hover:bg-slate-50 transition border border-transparent hover:border-slate-100">
-                                <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center shrink-0 text-xl"><i class="fas fa-broadcast-tower"></i></div>
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-lg mb-1">Propaganda Política e Rádio</h4>
-                                    <p class="text-sm text-slate-500 leading-relaxed">Jingles e spots com alta carga emocional, impacto direto e mixagem dentro dos padrões (LUFS) das emissoras.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="absolute inset-0 bg-blue-500 transform translate-x-4 translate-y-4 rounded-[3rem] opacity-20 blur-xl"></div>
-                        <div class="bg-slate-900 p-2 rounded-[3rem] shadow-2xl relative overflow-hidden group">
-                            <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=800" alt="Estúdio de Mixagem" class="rounded-[2.5rem] opacity-70 group-hover:scale-105 transition-transform duration-700">
-                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                <div class="bg-white/95 backdrop-blur-md px-8 py-6 rounded-3xl text-center shadow-2xl border border-white/50 transform group-hover:scale-110 transition-transform duration-500">
-                                    <div class="flex justify-center gap-2 mb-3 text-blue-500 text-xl">
-                                        <i class="fas fa-microphone"></i><i class="fas fa-plus text-xs mt-1"></i><i class="fas fa-music"></i><i class="fas fa-plus text-xs mt-1"></i><i class="fas fa-sliders-h"></i>
-                                    </div>
-                                    <p class="text-slate-900 font-black text-2xl mb-1 tracking-tight">O Combo Perfeito</p>
-                                    <p class="text-blue-600 font-bold uppercase text-xs tracking-widest">Pronto para o Play</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Depoimentos -->
-        <section class="py-20 bg-slate-50 border-y border-slate-200 relative z-20">
-            <div class="container-custom">
-                <div class="text-center mb-12">
-                    <span class="text-blue-600 font-bold uppercase tracking-widest text-xs mb-2 block">O que dizem sobre nós</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-4">Áudio que gera resultado real.</h2>
-                    <p class="text-slate-500 max-w-2xl mx-auto">Temos orgulho de atender +5.000 clientes em todo o Brasil.</p>
-                </div>
-                <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 relative transform transition hover:-translate-y-1">
-                        <i class="fas fa-quote-right absolute top-6 right-6 text-3xl text-slate-100"></i>
-                        <div class="flex text-yellow-400 text-sm mb-4 gap-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="text-slate-600 mb-6 leading-relaxed text-sm">"Acabei de baixar o áudio aqui no painel. Cara, ficou sensacional! A voz do locutor combinou certinho com a trilha. Muito obrigado pela rapidez!"</p>
-                        <div class="flex items-center gap-4 mt-auto">
-                            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-lg">S</div>
-                            <div><p class="text-sm font-black text-slate-900">Sower Modas</p><p class="text-xs text-slate-500 font-medium">Lojista Varejo</p></div>
-                        </div>
-                    </div>
-                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 relative transform transition hover:-translate-y-1">
-                        <i class="fas fa-quote-right absolute top-6 right-6 text-3xl text-slate-100"></i>
-                        <div class="flex text-yellow-400 text-sm mb-4 gap-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="text-slate-600 mb-6 leading-relaxed text-sm">"O carro de som já começou a rodar com o spot de vocês. O fluxo aqui na porta já aumentou. Semana que vem peço o pacote com 10 com certeza!"</p>
-                        <div class="flex items-center gap-4 mt-auto">
-                            <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center font-bold text-lg">M</div>
-                            <div><p class="text-sm font-black text-slate-900">Mercado Compre Bem</p><p class="text-xs text-slate-500 font-medium">Supermercado</p></div>
-                        </div>
-                    </div>
-                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 relative transform transition hover:-translate-y-1 hidden md:block">
-                        <i class="fas fa-quote-right absolute top-6 right-6 text-3xl text-slate-100"></i>
-                        <div class="flex text-yellow-400 text-sm mb-4 gap-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="text-slate-600 mb-6 leading-relaxed text-sm">"O material tá aprovadíssimo. A masterização veio limpa, bateu certinho com os padrões. Vamos centralizar as produções com vcs agora."</p>
-                        <div class="flex items-center gap-4 mt-auto">
-                            <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold text-lg">R</div>
-                            <div><p class="text-sm font-black text-slate-900">Rádio Imprensa FM</p><p class="text-xs text-slate-500 font-medium">Emissora de Rádio</p></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Exemplos de Áudio -->
-        <section id="exemplos" class="py-20 bg-white">
-            <div class="container-custom">
-                <div class="text-center mb-12 max-w-3xl mx-auto">
-                    <span class="text-blue-600 font-bold uppercase tracking-widest text-xs mb-2 block">Qualidade Comprovada</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-4 uppercase italic">Dê o play e ouça a diferença</h2>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 mb-10 max-w-4xl mx-auto">
-                    <div class="bg-slate-50 p-6 rounded-[2rem] border border-slate-200 flex flex-col sm:flex-row items-center gap-6">
-                        <div class="w-16 h-16 bg-blue-500 rounded-xl flex items-center justify-center shrink-0 shadow-md text-white"><i class="fas fa-shopping-cart text-2xl"></i></div>
-                        <div class="text-center sm:text-left w-full">
-                            <h4 class="font-black text-lg uppercase mb-1 text-slate-900">Spot Ofertas / Varejo</h4>
-                            <audio controls preload="none" class="w-full mt-2 shadow-sm" onplay="trackAudioPlay('Spot_Varejo_Celso')"><source src="https://testedomarcio.github.io/meuadio/Celso.mp3" type="audio/mpeg"></audio>
-                        </div>
-                    </div>
-                    <div class="bg-slate-50 p-6 rounded-[2rem] border border-slate-200 flex flex-col sm:flex-row items-center gap-6">
-                        <div class="w-16 h-16 bg-purple-500 rounded-xl flex items-center justify-center shrink-0 shadow-md text-white"><i class="fas fa-gem text-2xl"></i></div>
-                        <div class="text-center sm:text-left w-full">
-                            <h4 class="font-black text-lg uppercase mb-1 text-slate-900">Institucional Premium</h4>
-                            <audio controls preload="none" class="w-full mt-2 shadow-sm" onplay="trackAudioPlay('Inst_Premium_Elissandra')"><source src="https://testedomarcio.github.io/meuadio/elissandra.mp3" type="audio/mpeg"></audio>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center mt-10">
-                    <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20ouvi%20os%20exemplos%20no%20site%20e%20quero%20um%20%C3%A1udio%20com%20essa%20qualidade!" 
-                       onclick="trackWAClick('Exemplos_CTA')"
-                       target="_blank" class="inline-flex items-center gap-3 bg-[#25D366] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#20bd5a] hover:-translate-y-1 transition shadow-lg text-sm sm:text-base uppercase tracking-widest">
-                        <i class="fab fa-whatsapp text-xl"></i> QUERO UM ÁUDIO COM ESSA QUALIDADE
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Elemento de Captura (Lead Magnet) -->
-        <section class="py-12 bg-gradient-to-r from-blue-600 to-cyan-500 text-white relative overflow-hidden">
-            <div class="container-custom relative z-10">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-8 max-w-5xl mx-auto bg-white/10 p-8 rounded-3xl border border-white/20 backdrop-blur-sm shadow-2xl">
-                    <div class="text-center md:text-left md:w-1/2">
+        <!-- Captura de Lead (Roteiro Grátis) - Foco em Retenção -->
+        <section class="py-16 bg-gradient-to-r from-blue-700 to-cyan-600 text-white">
+            <div class="max-w-5xl mx-auto px-4">
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/20 flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/2 text-center md:text-left">
                         <div class="inline-flex items-center gap-2 bg-yellow-400 text-slate-900 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest mb-4"><i class="fas fa-gift"></i> Material Gratuito</div>
-                        <h3 class="text-2xl sm:text-3xl font-black tracking-tight mb-4">Sem ideias para o seu roteiro?</h3>
-                        <p class="text-blue-100 font-medium text-lg">Preencha o formulário e ganhe <strong>1 roteiro profissional grátis</strong>, pronto para você usar.</p>
+                        <h3 class="text-2xl sm:text-3xl font-black tracking-tight mb-3">Sem ideias para o roteiro?</h3>
+                        <p class="text-blue-100 text-base">Receba <strong class="text-white">1 roteiro profissional grátis</strong> pronto para usar.</p>
                     </div>
-                    <div class="w-full md:w-1/2">
-                        <form id="leadForm" onsubmit="captureLead(event)" class="bg-slate-900/40 p-6 rounded-2xl border border-white/10 flex flex-col gap-4 shadow-inner">
-                            <div class="relative"><div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"><i class="fas fa-user text-slate-400"></i></div><input type="text" id="leadName" required placeholder="Seu nome" class="w-full pl-11 pr-4 py-3.5 rounded-xl bg-white/95 text-slate-900 placeholder-slate-500 outline-none focus:ring-4 focus:ring-yellow-400/50 transition-all font-medium"></div>
-                            <div class="relative"><div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"><i class="fab fa-whatsapp text-slate-400 text-lg"></i></div><input type="tel" id="leadPhone" required placeholder="Seu WhatsApp" class="w-full pl-11 pr-4 py-3.5 rounded-xl bg-white/95 text-slate-900 placeholder-slate-500 outline-none focus:ring-4 focus:ring-yellow-400/50 transition-all font-medium"></div>
-                            <button type="submit" class="w-full bg-yellow-400 text-slate-900 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-yellow-300 hover:scale-[1.02] transition-all shadow-xl mt-2">QUERO MEU ROTEIRO GRÁTIS</button>
-                            <p class="text-[10px] text-center text-blue-200/60 uppercase tracking-widest mt-1"><i class="fas fa-lock mr-1"></i> 100% Seguro e sem spam</p>
+                    <div class="md:w-1/2 w-full">
+                        <form id="leadForm" onsubmit="captureLead(event)" class="bg-slate-900/40 p-6 rounded-2xl flex flex-col gap-4">
+                            <input type="text" id="leadName" required placeholder="Seu nome" class="w-full px-5 py-3.5 rounded-xl bg-white/95 text-slate-900 placeholder-slate-500 outline-none focus:ring-4 focus:ring-yellow-400/50 font-medium">
+                            <input type="tel" id="leadPhone" required placeholder="Seu WhatsApp" class="w-full px-5 py-3.5 rounded-xl bg-white/95 text-slate-900 placeholder-slate-500 outline-none focus:ring-4 focus:ring-yellow-400/50 font-medium">
+                            <button type="submit" class="w-full bg-yellow-400 text-slate-900 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-yellow-300 transition-all shadow-xl">
+                                QUERO MEU ROTEIRO GRÁTIS
+                            </button>
+                            <p class="text-[10px] text-center text-blue-200/60"><i class="fas fa-lock mr-1"></i> 100% Seguro · Sem Spam</p>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Pricing Cards Atualizados -->
-        <section class="py-24 bg-slate-900 text-white relative overflow-hidden">
-            <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
-            
-            <div class="container-custom text-center relative z-10">
-                <h2 class="text-3xl sm:text-5xl font-black mb-12 uppercase italic tracking-tighter">Escolha a opção ideal para <span class="text-blue-400">você</span></h2>
-                
-                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-center">
-                    
-                    <!-- PLANO 1: SPOT COMPLETO -->
-                    <div class="glass p-8 sm:p-10 rounded-[3rem] shadow-[0_0_60px_rgba(56,189,248,0.15)] relative transform md:-translate-y-4 hover:-translate-y-6 transition-transform duration-500 border border-blue-500/40 z-10">
-                        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-bold text-xs uppercase tracking-widest px-6 py-2 rounded-full shadow-xl">O Mais Pedido</div>
-                        <div class="mt-4 mb-6">
-                            <h3 class="text-2xl font-black text-white uppercase mb-2">Produção Completa</h3>
-                            <span class="text-5xl font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-300">R$ 14,90</span>
-                            <p class="text-slate-400 mt-2 text-xs uppercase font-bold tracking-widest">Por spot (No pacote com 10)</p>
-                            <p class="text-slate-500 text-xs font-medium mt-1">Avulso por <strong>R$ 29,90</strong></p>
-                        </div>
-                        <div class="bg-slate-800/80 rounded-2xl p-6 mb-8 border border-slate-700/50 text-left">
-                            <ul class="space-y-4 text-sm font-medium text-slate-200">
-                                <li class="flex items-center gap-3"><i class="fas fa-check-circle text-blue-400 text-lg"></i> Locutor Profissional</li>
-                                <li class="flex items-center gap-3"><i class="fas fa-check-circle text-blue-400 text-lg"></i> Trilha e Efeitos Inclusos</li>
-                                <li class="flex items-center gap-3"><i class="fas fa-check-circle text-blue-400 text-lg"></i> Mixagem & Masterização</li>
-                                <li class="flex items-center gap-3"><i class="fas fa-check-circle text-blue-400 text-lg"></i> Entrega Rápida</li>
-                            </ul>
-                        </div>
-                        <div class="flex flex-col gap-3">
-                            <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20quero%20solicitar%20uma%20PRODU%C3%87%C3%83O%20COMPLETA%20(Spot)." onclick="trackWAClick('Pricing_Completo')" target="_blank" class="block w-full py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-black rounded-xl transition uppercase tracking-widest shadow-xl hover:-translate-y-1 text-center text-sm sm:text-base"><i class="fab fa-whatsapp text-lg mr-1"></i> COMPRAR VIA WHATSAPP</a>
-                            <a href="https://www.alocucao.com.br/cadastro" onclick="trackPanelClick()" target="_blank" class="block w-full py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl transition uppercase tracking-widest text-xs border border-slate-600 hover:border-blue-400 text-center"><i class="fas fa-desktop mr-1"></i> FAZER PEDIDO NO PAINEL</a>
-                        </div>
-                    </div>
-
-                    <!-- PLANO 2: LOCUÇÃO OFF -->
-                    <div class="bg-slate-800 p-8 rounded-[2.5rem] border border-slate-700 relative transform hover:-translate-y-1 transition-transform duration-500 opacity-95 flex flex-col justify-between h-full">
-                        <div>
-                            <span class="text-slate-400 font-bold text-xs uppercase tracking-widest block mb-2">Para quem edita áudio</span>
-                            <h3 class="text-2xl font-black text-white uppercase mb-4">Locução Off (Seca)</h3>
-                            <div class="mb-8">
-                                <span class="text-4xl font-black italic tracking-tighter text-white">R$ 4,00</span>
-                                <p class="text-slate-400 mt-2 text-xs uppercase font-bold tracking-widest">Por voz (No pacote com 10)</p>
-                                <p class="text-slate-500 text-xs font-medium mt-1">Avulso por <strong>R$ 14,90</strong></p>
-                            </div>
-                            <ul class="space-y-4 text-sm font-medium text-slate-400 mb-8 text-left max-w-[250px] mx-auto">
-                                <li class="flex items-center gap-3"><i class="fas fa-check text-slate-500"></i> Locução Profissional Limpa</li>
-                                <li class="flex items-center gap-3 opacity-60"><i class="fas fa-times text-red-400/80"></i> Sem Trilha Sonora</li>
-                                <li class="flex items-center gap-3 opacity-60"><i class="fas fa-times text-red-400/80"></i> Sem Edição ou Efeitos</li>
-                            </ul>
-                        </div>
-                        <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20quero%20solicitar%20apenas%20a%20LOCU%C3%87%C3%83O%20OFF%20(Voz%20Seca)." onclick="trackWAClick('Pricing_Off')" target="_blank" class="block w-full py-4 bg-transparent border-2 border-green-500 text-green-400 hover:bg-green-500 hover:text-white font-bold rounded-xl transition uppercase tracking-widest text-sm text-center"><i class="fab fa-whatsapp"></i> PEDIR PELO WHATSAPP</a>
-                    </div>
-                </div>
-                <div class="mt-12 bg-emerald-500/10 border border-emerald-500/30 inline-flex flex-col sm:flex-row items-center gap-3 px-6 py-4 rounded-2xl text-emerald-400">
-                    <i class="fas fa-shield-check text-3xl"></i>
-                    <div class="text-left"><strong class="block uppercase tracking-wider text-sm">Garantia de Qualidade</strong><span class="text-sm text-emerald-200">Se houver qualquer erro do locutor ou produtor, corrigimos seu áudio sem custo.</span></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ -->
-        <section class="py-24 bg-white border-t border-slate-100">
-            <div class="container-custom max-w-4xl mx-auto">
+        <!-- FAQ Otimizada -->
+        <section class="py-20 bg-white">
+            <div class="max-w-3xl mx-auto px-4">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight mb-2 italic">Dúvidas sobre a Produção?</h2>
-                    <p class="text-slate-500">Respondemos às principais perguntas dos nossos clientes.</p>
+                    <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight italic">Dúvidas Rápidas</h2>
                 </div>
-                <div class="space-y-4">
-                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-6 open:bg-white open:ring-1 open:ring-blue-400 transition-all duration-300">
-                        <summary class="flex justify-between items-center font-bold text-slate-800 cursor-pointer list-none text-lg">Eu posso escolher a música de fundo (Trilha)? <span class="transition group-open:rotate-180 text-blue-500"><i class="fas fa-chevron-down"></i></span></summary>
-                        <div class="text-slate-600 mt-4 text-sm leading-relaxed border-t border-slate-100 pt-4">Sim! Ao fazer o pedido, você pode sugerir o estilo (ex: agitada, motivacional, rock, épica) ou até enviar uma trilha de referência.</div>
+                <div class="space-y-3">
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5 open:ring-1 open:ring-blue-400">
+                        <summary class="flex justify-between items-center font-bold text-slate-800 cursor-pointer">Posso escolher a música de fundo? <span class="transition group-open:rotate-180 text-blue-500"><i class="fas fa-chevron-down"></i></span></summary>
+                        <p class="text-slate-600 mt-4 text-sm border-t border-slate-200 pt-4">Sim! Você pode sugerir o estilo ou enviar uma referência.</p>
                     </details>
-                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-6 open:bg-white open:ring-1 open:ring-blue-400 transition-all duration-300">
-                        <summary class="flex justify-between items-center font-bold text-slate-800 cursor-pointer list-none text-lg">Quanto tempo demora a entrega da Produção? <span class="transition group-open:rotate-180 text-blue-500"><i class="fas fa-chevron-down"></i></span></summary>
-                        <div class="text-slate-600 mt-4 text-sm leading-relaxed border-t border-slate-100 pt-4">A estimativa para produções completas é de <strong>1 a 4 horas</strong> dentro do horário comercial.</div>
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5 open:ring-1 open:ring-blue-400">
+                        <summary class="flex justify-between items-center font-bold text-slate-800 cursor-pointer">Quanto tempo demora a entrega? <span class="transition group-open:rotate-180 text-blue-500"><i class="fas fa-chevron-down"></i></span></summary>
+                        <p class="text-slate-600 mt-4 text-sm border-t border-slate-200 pt-4">Produções completas são entregues em <strong>1 a 4 horas</strong> no horário comercial.</p>
                     </details>
-                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-6 open:bg-white open:ring-1 open:ring-blue-400 transition-all duration-300">
-                        <summary class="flex justify-between items-center font-bold text-slate-800 cursor-pointer list-none text-lg">Vocês escrevem o texto do meu comercial? <span class="transition group-open:rotate-180 text-blue-500"><i class="fas fa-chevron-down"></i></span></summary>
-                        <div class="text-slate-600 mt-4 text-sm leading-relaxed border-t border-slate-100 pt-4">Você mesmo insere o texto, mas nós te ajudamos! Disponibilizamos um <strong>Gerador de Textos Inteligente</strong> em nosso painel.</div>
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5 open:ring-1 open:ring-blue-400">
+                        <summary class="flex justify-between items-center font-bold text-slate-800 cursor-pointer">E se eu não gostar do áudio? <span class="transition group-open:rotate-180 text-blue-500"><i class="fas fa-chevron-down"></i></span></summary>
+                        <p class="text-slate-600 mt-4 text-sm border-t border-slate-200 pt-4"><strong class="text-green-600">Garantia de qualidade:</strong> Corrigimos gratuitamente qualquer erro de locução ou produção.</p>
                     </details>
                 </div>
             </div>
         </section>
 
         <!-- CTA Final -->
-        <section class="py-20 bg-blue-600 text-white text-center relative overflow-hidden">
-            <div class="absolute inset-0 opacity-[0.08] pointer-events-none flex items-center justify-center overflow-hidden"><i class="fas fa-microphone-alt text-[40rem] rotate-12 transform translate-x-20"></i></div>
-            <div class="container-custom relative z-10">
-                <h2 class="text-3xl sm:text-5xl font-black mb-6 tracking-tight uppercase italic max-w-4xl mx-auto">Não perca mais vendas por causa de áudios amadores.</h2>
-                <p class="text-blue-100 text-lg mb-10 max-w-2xl mx-auto font-light">Valorize a sua marca agora mesmo. Receba um comercial de alto impacto ainda hoje.</p>
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                    <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20quero%20vender%20mais%20com%20um%20%C3%A1udio%20profissional.%20Podem%20me%20ajudar%3F" onclick="trackWAClick('Final_CTA')" target="_blank" class="w-full sm:w-auto bg-[#25D366] text-white px-10 py-5 rounded-2xl font-black text-lg sm:text-xl hover:-translate-y-1 transition-all shadow-xl flex items-center justify-center gap-3"><i class="fab fa-whatsapp text-2xl"></i> QUERO VENDER MAIS AGORA</a>
-                </div>
+        <section class="py-20 bg-slate-900 text-white text-center">
+            <div class="max-w-3xl mx-auto px-4">
+                <h2 class="text-3xl sm:text-5xl font-black mb-6 uppercase italic">Pronto para vender mais?</h2>
+                <p class="text-slate-300 text-lg mb-10">Receba seu Spot Comercial profissional ainda hoje.</p>
+                <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20vender%20mais%20com%20um%20Spot%20Comercial!" 
+                   onclick="trackWAClick('Final_CTA')"
+                   target="_blank" 
+                   class="inline-flex items-center gap-4 bg-[#25D366] text-white px-12 py-5 rounded-2xl font-black text-xl hover:-translate-y-1 transition-all shadow-2xl shadow-green-500/30">
+                    <i class="fab fa-whatsapp text-3xl"></i> FALAR COM ESPECIALISTA AGORA
+                </a>
+                <p class="text-xs text-slate-500 mt-8">
+                    <a href="#" class="hover:text-slate-300">Política de Privacidade</a> · Estúdio A Locução &copy; 2012-2026
+                </p>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 py-12 border-t border-slate-800">
-        <div class="container-custom flex flex-col items-center text-center">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_sBFI94b0Jhnsl6DY4UwsTOpsmltn1MNvF5n6zcrkdLUd7oqFJfxF5NAtCEwBchu-b65jEsMXi60X2SlPb04XheC1fuEaG-sRzEbENAbN4eMSX5YHbdk6oGhfGTHQOPR1tZJn_GwXOAjUL6UX4ZvpVITZOL6is83xruSEkk343d-9VEx5osefurjX8aY/s1600/logo.png" alt="Estúdio A Locução" class="h-10 mb-6 opacity-60 grayscale">
-            <p class="text-slate-500 text-sm mb-4">Estúdio A Locução &copy; 2012-2026. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
     <!-- Botão WhatsApp Flutuante -->
-    <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20estou%20no%20site%20e%20preciso%20de%20ajuda%20para%20fazer%20um%20spot!" 
-       onclick="trackWAClick('Floating_Btn')"
-       target="_blank" rel="noopener noreferrer" 
-       class="fixed bottom-6 right-6 bg-[#25D366] text-white px-4 py-3 sm:px-5 sm:py-4 rounded-full flex items-center gap-3 shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:scale-110 hover:-translate-y-2 transition-all duration-300 z-50 group"
-       aria-label="Atendimento via WhatsApp">
+    <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20preciso%20de%20um%20spot%20comercial%20r%C3%A1pido!" 
+       onclick="trackWAClick('Flutuante')"
+       target="_blank" 
+       class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.5)] hover:scale-110 transition-all z-50 flex items-center gap-2 group"
+       aria-label="WhatsApp">
         <i class="fab fa-whatsapp text-3xl"></i>
-        <span class="font-bold text-sm tracking-wide hidden sm:block whitespace-nowrap pr-1">Falar no WhatsApp</span>
+        <span class="font-bold text-sm max-w-0 overflow-hidden group-hover:max-w-xs group-hover:px-2 transition-all duration-300 whitespace-nowrap hidden sm:block">Chamar Agora</span>
     </a>
 
     <!-- Scripts -->
     <script>
+        // Header Scroll Effect
         const header = document.querySelector('header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 20) {
-                header.classList.add('shadow-md');
                 header.style.background = 'rgba(15, 23, 42, 0.98)';
+                header.classList.add('shadow-md');
             } else {
-                header.classList.remove('shadow-md');
                 header.style.background = 'rgba(15, 23, 42, 0.95)';
+                header.classList.remove('shadow-md');
             }
         });
 
+        // Pausar outros áudios ao dar play
         const audios = document.querySelectorAll('audio');
         audios.forEach(audio => {
             audio.addEventListener('play', () => {
-                audios.forEach(otherAudio => {
-                    if (otherAudio !== audio) {
-                        otherAudio.pause();
-                    }
-                });
+                audios.forEach(other => { if (other !== audio) other.pause(); });
             });
         });
 
+        // Função de Captura de Lead (Roteiro Grátis)
         function captureLead(event) {
             event.preventDefault();
             const btn = event.target.querySelector('button');
             const originalText = btn.innerHTML;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ENVIANDO...';
-            const name = document.getElementById('leadName').value;
-            const phone = document.getElementById('leadPhone').value;
-            gtag('event', 'conversion', { 'send_to': 'AW-18093304718/LEAD_CAPTURE', 'event_category': 'Lead', 'event_label': 'Roteiro_Gratis' });
+            btn.disabled = true;
+            
+            const name = document.getElementById('leadName').value.trim();
+            const phone = document.getElementById('leadPhone').value.trim();
+            
+            // Rastreamento
+            trackLeadCapture();
+            
             setTimeout(() => {
                 const msg = encodeURIComponent(`Olá! Me chamo ${name}. Preenchi o formulário no site e gostaria de ganhar o meu roteiro grátis!`);
                 window.open(`https://wa.me/5527996529832?text=${msg}`, '_blank');
-                btn.innerHTML = '<i class="fas fa-check"></i> PRONTO!';
-                setTimeout(() => { btn.innerHTML = originalText; event.target.reset(); }, 3000);
+                
+                btn.innerHTML = '<i class="fas fa-check"></i> REDIRECIONANDO...';
+                setTimeout(() => { 
+                    btn.innerHTML = originalText; 
+                    btn.disabled = false;
+                    document.getElementById('leadForm').reset();
+                }, 2000);
             }, 800);
         }
     </script>
