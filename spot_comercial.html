@@ -152,6 +152,25 @@
         .player-mini audio {
             height: 35px;
         }
+        
+        /* Container responsivo para iframe do YouTube */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Proporção 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 1rem;
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-slate-800">
@@ -412,6 +431,58 @@
             </div>
         </section>
         <!-- ========== FIM DA GALERIA DE VOZES ========== -->
+
+        <!-- ========== NOVA SEÇÃO: VÍDEO DE BOAS-VINDAS (ANTES DOS PREÇOS) ========== -->
+        <section class="py-16 lg:py-20 bg-gradient-to-b from-slate-50 to-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-10">
+                    <span class="text-blue-600 font-bold uppercase tracking-widest text-xs mb-2 block">Conheça Nosso Estúdio</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 uppercase tracking-tight mb-4">
+                        Veja Quem <span class="text-blue-600 italic">Faz Seu Spot</span> Acontecer
+                    </h2>
+                    <p class="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
+                        <strong class="text-slate-900">Somos locutores reais, em estúdio profissional.</strong><br>
+                        Nada de inteligência artificial ou vozes robotizadas. Assista e sinta a diferença de trabalhar com quem entende de áudio.
+                    </p>
+                </div>
+
+                <!-- Vídeo do YouTube em Iframe -->
+                <div class="max-w-3xl mx-auto">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/mbF_fjqNVoM?rel=0&showinfo=0&modestbranding=1" 
+                            title="Boas-vindas do Estúdio A Locução - Conheça nossos locutores" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    
+                    <!-- Texto de apoio abaixo do vídeo -->
+                    <div class="text-center mt-6">
+                        <p class="text-slate-500 text-sm max-w-xl mx-auto">
+                            🎙️ <strong class="text-slate-700">Locutores reais dando as boas-vindas!</strong> 
+                            É esse time que vai criar o spot perfeito para o seu negócio. 
+                            <span class="text-blue-600 font-medium">Clique no play e aumente o som!</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CTA rápida pós-vídeo -->
+                <div class="text-center mt-10">
+                    <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20acabei%20de%20assistir%20ao%20v%C3%ADdeo%20do%20est%C3%BAdio%20e%20quero%20meu%20spot%20comercial!" 
+                       onclick="trackWAClick('Video_BoasVindas')"
+                       target="_blank" 
+                       class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white px-8 py-4 rounded-2xl font-black text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+                        <i class="fab fa-whatsapp text-2xl"></i> 
+                        GOSTEI! QUERO FALAR COM UM LOCUTOR AGORA
+                    </a>
+                    <p class="text-xs text-slate-400 mt-3">Atendimento rápido e sem robôs 😉</p>
+                </div>
+            </div>
+        </section>
+        <!-- ========== FIM DA SEÇÃO DE VÍDEO ========== -->
 
         <!-- Tabela de Preços Clara (Spot Completo vs Locução Off) -->
         <section class="py-20 bg-slate-50">
