@@ -173,14 +173,21 @@
                 </p>
 
                 <!-- Preço Ancorado com Reversão de Risco -->
+                <!-- ===== ALTERAÇÃO PRINCIPAL AQUI: Destaque para o valor unitário do pacote ===== -->
                 <div class="mb-8 flex flex-col items-center">
                     <div class="bg-white/5 border border-white/10 rounded-2xl px-8 py-5 backdrop-blur-sm inline-block">
                         <p class="text-xs sm:text-sm text-slate-400 font-bold uppercase tracking-widest mb-1">Produção Completa</p>
-                        <p class="text-4xl sm:text-5xl font-black text-white italic tracking-tight">
-                            R$ 14,90 
-                            <span class="text-base font-normal text-slate-400 not-italic align-middle ml-2">/ spot</span>
+                        <!-- Preço do pacote em GRANDE destaque -->
+                        <p class="text-5xl sm:text-6xl lg:text-7xl font-black text-white italic tracking-tight leading-none">
+                            R$ 29,90
                         </p>
-                        <p class="text-xs text-slate-500 mt-1">no pacote com 50 unidades <span class="line-through ml-1">R$ 29,90 avulso</span></p>
+                        <p class="text-base sm:text-lg text-slate-300 font-medium mt-1">
+                            R$ 14,90 a un. no pacote c/ 50
+                        </p>
+                        <!-- Preço avulso em tamanho MENOR -->
+                        <p class="text-xs text-slate-500 mt-2">
+                            ou <span class="line-through">R$ 29,90</span> avulso
+                        </p>
                     </div>
                     <!-- Garantia (Reversão de Risco) -->
                     <div class="mt-4 flex items-center gap-2 text-green-400 text-sm font-medium bg-green-950/30 px-4 py-2 rounded-full border border-green-500/30">
@@ -320,6 +327,7 @@
                         <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-xs uppercase tracking-widest px-6 py-2 rounded-full shadow-lg">Mais Vendido</div>
                         <div class="text-center mt-4">
                             <h3 class="text-2xl font-black text-slate-900 uppercase mb-2">Spot Comercial Completo</h3>
+                            <!-- Destaque maior para o valor do pacote -->
                             <span class="text-5xl font-black italic tracking-tight text-slate-900">R$ 14,90</span>
                             <p class="text-slate-500 text-sm mt-1">por spot (Pacote c/ 50) · <span class="line-through">R$ 29,90 avulso</span></p>
                         </div>
