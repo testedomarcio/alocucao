@@ -51,6 +51,13 @@
               'event_label': 'Roteiro_Gratis'
           });
       }
+
+      function trackVozesClick() {
+          gtag('event', 'click_vozes', {
+              'event_category': 'Engajamento',
+              'event_label': 'Ver_Todas_Vozes'
+          });
+      }
     </script>
     
     <!-- Tailwind CSS -->
@@ -109,7 +116,7 @@
         }
         
         audio { 
-            height: 48px; 
+            height: 40px; 
             width: 100%; 
             border-radius: 60px; 
             background: #f1f5f9;
@@ -125,6 +132,26 @@
         
         /* Redução de Layout Shift para imagens */
         img { max-width: 100%; height: auto; }
+
+        /* Estilo dos cards de locutores */
+        .locutor-card {
+            transition: all 0.3s ease;
+        }
+        .locutor-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .locutor-img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .player-mini audio {
+            height: 35px;
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-slate-800">
@@ -173,20 +200,17 @@
                 </p>
 
                 <!-- Preço Ancorado com Reversão de Risco -->
-                <!-- ===== ALTERAÇÃO PRINCIPAL AQUI: Destaque para o valor unitário do pacote ===== -->
                 <div class="mb-8 flex flex-col items-center">
                     <div class="bg-white/5 border border-white/10 rounded-2xl px-8 py-5 backdrop-blur-sm inline-block">
                         <p class="text-xs sm:text-sm text-slate-400 font-bold uppercase tracking-widest mb-1">Produção Completa</p>
-                        <!-- Preço do pacote em GRANDE destaque -->
                         <p class="text-5xl sm:text-6xl lg:text-7xl font-black text-white italic tracking-tight leading-none">
-                            R$ 29,90
+                            R$ 14,90
                         </p>
                         <p class="text-base sm:text-lg text-slate-300 font-medium mt-1">
-                            R$ 4,00 cada a unidade no pct com 50
+                            a unidade no pacote com 50
                         </p>
-                        <!-- Preço avulso em tamanho MENOR -->
                         <p class="text-xs text-slate-500 mt-2">
-                            
+                            ou <span class="line-through">R$ 29,90</span> avulso
                         </p>
                     </div>
                     <!-- Garantia (Reversão de Risco) -->
@@ -223,7 +247,7 @@
                     <!-- Link Locução Off (Informação Secundária) -->
                     <div class="flex items-center gap-2 text-xs text-slate-500 bg-white/5 px-4 py-2 rounded-full">
                         <i class="fas fa-microphone-alt text-blue-400"></i> 
-                        <span>Também fazemos <strong class="text-slate-300">Locução Off (Seca)</strong> Por apenas <strong class="text-white">R$ 14,90</strong></span>
+                        <span>Também fazemos <strong class="text-slate-300">Locução Off (Seca)</strong> a partir de <strong class="text-white">R$ 4,00</strong></span>
                     </div>
                 </div>
             </div>
@@ -257,61 +281,137 @@
             </div>
         </section>
 
-        <!-- Para quem é + Exemplos (Grid Otimizado) -->
-        <section class="py-20 bg-white">
+        <!-- ========== NOVA SEÇÃO: GALERIA DE VOZES (Substitui "Áudio de Rádio sem Complicação") ========== -->
+        <section class="py-16 lg:py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-                    <!-- Lado Esquerdo: Benefícios -->
-                    <div>
-                        <span class="text-blue-600 font-bold uppercase tracking-widest text-xs mb-2 block">Solução Completa</span>
-                        <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight mb-6 text-slate-900">
-                            Áudio de Rádio sem <br class="hidden sm:block"><span class="text-blue-600 italic">Complicação</span>
-                        </h2>
-                        <p class="text-slate-600 text-lg mb-8 leading-relaxed">
-                            Ideal para quem precisa de resultado rápido: <strong>Spot Comercial</strong> mixado e masterizado, pronto para rodar em qualquer mídia.
-                        </p>
-                        
-                        <!-- Áudios de Exemplo (Ouvir Agora) -->
-                        <div class="space-y-4 mb-8">
-                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center gap-4">
-                                <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center shrink-0 shadow-md text-white"><i class="fas fa-shopping-cart"></i></div>
-                                <div class="w-full">
-                                    <h4 class="font-bold text-slate-900 mb-1 text-sm uppercase tracking-wide">Spot Varejo / Ofertas</h4>
-                                    <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Spot_Varejo')"><source src="https://testedomarcio.github.io/meuadio/Celso.mp3" type="audio/mpeg"></audio>
-                                </div>
-                            </div>
-                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center gap-4">
-                                <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center shrink-0 shadow-md text-white"><i class="fas fa-gem"></i></div>
-                                <div class="w-full">
-                                    <h4 class="font-bold text-slate-900 mb-1 text-sm uppercase tracking-wide">Institucional Premium</h4>
-                                    <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Inst_Premium')"><source src="https://testedomarcio.github.io/meuadio/elissandra.mp3" type="audio/mpeg"></audio>
-                                </div>
+                <div class="text-center mb-10">
+                    <span class="text-blue-600 font-bold uppercase tracking-widest text-xs mb-2 block">Ouça Nossas Vozes</span>
+                    <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight mb-4 text-slate-900">
+                        Encontre a <span class="text-blue-600 italic">Voz Perfeita</span> para sua Marca
+                    </h2>
+                    <p class="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
+                        Ouça abaixo uma amostra dos nossos locutores profissionais. <strong class="text-slate-900">Mais de 200 vozes disponíveis</strong> para dar vida ao seu spot comercial.
+                    </p>
+                </div>
+
+                <!-- Grid de Vozes Femininas -->
+                <div class="mb-12">
+                    <h3 class="text-xl font-black text-slate-800 uppercase tracking-wide mb-6 flex items-center gap-3">
+                        <i class="fas fa-female text-pink-500 text-2xl"></i> Vozes Femininas
+                    </h3>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <!-- Lindy -->
+                        <div class="locutor-card bg-slate-50 border border-slate-200 rounded-2xl p-4 flex items-center gap-4">
+                            <img src="https://testedomarcio.github.io/meuadio/lindy.jpeg" alt="Locutora Lindy" class="locutor-img shrink-0" loading="lazy">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-slate-900 text-sm">Lindy</h4>
+                                <p class="text-xs text-slate-500 mb-2">Jovem · Energética · Comercial</p>
+                                <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Lindy')"><source src="https://testedomarcio.github.io/meuadio/Lindy.mp3" type="audio/mpeg"></audio>
                             </div>
                         </div>
-                        
-                        <!-- Benefícios Lista -->
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i><span class="text-sm font-medium">Entrega em Horas</span></div>
-                            <div class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i><span class="text-sm font-medium">Trilha Inclusa</span></div>
-                            <div class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i><span class="text-sm font-medium">Mixagem Profissional</span></div>
-                            <div class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i><span class="text-sm font-medium">Locutor Premium</span></div>
+                        <!-- Elissandra -->
+                        <div class="locutor-card bg-slate-50 border border-slate-200 rounded-2xl p-4 flex items-center gap-4">
+                            <img src="https://testedomarcio.github.io/meuadio/Elissandra.jpg" alt="Locutora Elissandra" class="locutor-img shrink-0" loading="lazy">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-slate-900 text-sm">Elissandra</h4>
+                                <p class="text-xs text-slate-500 mb-2">Suave · Acolhedora · Institucional</p>
+                                <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Elissandra')"><source src="https://testedomarcio.github.io/meuadio/elissandra.mp3" type="audio/mpeg"></audio>
+                            </div>
+                        </div>
+                        <!-- Silvia -->
+                        <div class="locutor-card bg-slate-50 border border-slate-200 rounded-2xl p-4 flex items-center gap-4">
+                            <img src="https://testedomarcio.github.io/meuadio/silvia.jpeg" alt="Locutora Silvia" class="locutor-img shrink-0" loading="lazy">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-slate-900 text-sm">Silvia</h4>
+                                <p class="text-xs text-slate-500 mb-2">Elegante · Sofisticada · Premium</p>
+                                <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Silvia')"><source src="https://testedomarcio.github.io/meuadio/Silvia.mp3" type="audio/mpeg"></audio>
+                            </div>
+                        </div>
+                        <!-- Tati -->
+                        <div class="locutor-card bg-slate-50 border border-slate-200 rounded-2xl p-4 flex items-center gap-4">
+                            <img src="https://testedomarcio.github.io/meuadio/tati.jpg" alt="Locutora Tati" class="locutor-img shrink-0" loading="lazy">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-slate-900 text-sm">Tati</h4>
+                                <p class="text-xs text-slate-500 mb-2">Descontraída · Divertida · Varejo</p>
+                                <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Tati')"><source src="https://testedomarcio.github.io/meuadio/tati.mp3" type="audio/mpeg"></audio>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Lado Direito: Imagem e Depoimento em Destaque -->
-                    <div class="relative">
-                        <div class="bg-slate-900 p-2 rounded-[2.5rem] shadow-2xl">
-                            <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=800" alt="Estúdio Profissional" class="rounded-[2rem] opacity-80 w-full h-auto">
-                            <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-white/50">
-                                <div class="flex text-yellow-400 text-sm mb-2 gap-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                                <p class="text-slate-800 text-sm font-medium italic">"Acabei de baixar o spot. Ficou sensacional! A voz do locutor combinou certinho. Obrigado pela rapidez!"</p>
-                                <p class="text-xs font-bold text-slate-500 mt-2">— Sower Modas (Cliente Real)</p>
+                </div>
+
+                <!-- Grid de Vozes Masculinas -->
+                <div class="mb-10">
+                    <h3 class="text-xl font-black text-slate-800 uppercase tracking-wide mb-6 flex items-center gap-3">
+                        <i class="fas fa-male text-blue-600 text-2xl"></i> Vozes Masculinas
+                    </h3>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <!-- Celso -->
+                        <div class="locutor-card bg-slate-50 border border-slate-200 rounded-2xl p-4 flex items-center gap-4">
+                            <img src="https://testedomarcio.github.io/meuadio/celso.jpg" alt="Locutor Celso" class="locutor-img shrink-0" loading="lazy">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-slate-900 text-sm">Celso</h4>
+                                <p class="text-xs text-slate-500 mb-2">Grave · Impactante · Vendas</p>
+                                <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Celso')"><source src="https://testedomarcio.github.io/meuadio/Celso.mp3" type="audio/mpeg"></audio>
                             </div>
+                        </div>
+                        <!-- Charles -->
+                        <div class="locutor-card bg-slate-50 border border-slate-200 rounded-2xl p-4 flex items-center gap-4">
+                            <img src="https://testedomarcio.github.io/meuadio/charles.png" alt="Locutor Charles" class="locutor-img shrink-0" loading="lazy">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-slate-900 text-sm">Charles</h4>
+                                <p class="text-xs text-slate-500 mb-2">Clássico · Confiável · Rádio</p>
+                                <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Charles')"><source src="https://testedomarcio.github.io/meuadio/Charles.mp3" type="audio/mpeg"></audio>
+                            </div>
+                        </div>
+                        <!-- Cristian Jr -->
+                        <div class="locutor-card bg-slate-50 border border-slate-200 rounded-2xl p-4 flex items-center gap-4">
+                            <img src="https://testedomarcio.github.io/meuadio/CristianJr.jpg" alt="Locutor Cristian Jr" class="locutor-img shrink-0" loading="lazy">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-slate-900 text-sm">Cristian Jr</h4>
+                                <p class="text-xs text-slate-500 mb-2">Jovem · Dinâmico · Moderno</p>
+                                <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Cristian_Jr')"><source src="https://testedomarcio.github.io/meuadio/Cristian.mp3" type="audio/mpeg"></audio>
+                            </div>
+                        </div>
+                        <!-- Leandro -->
+                        <div class="locutor-card bg-slate-50 border border-slate-200 rounded-2xl p-4 flex items-center gap-4">
+                            <img src="https://testedomarcio.github.io/meuadio/leandro.jpg" alt="Locutor Leandro" class="locutor-img shrink-0" loading="lazy">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-slate-900 text-sm">Leandro</h4>
+                                <p class="text-xs text-slate-500 mb-2">Versátil · Persuasivo · Narração</p>
+                                <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Leandro')"><source src="https://testedomarcio.github.io/meuadio/Leandro.mp3" type="audio/mpeg"></audio>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA para ver todas as vozes + Ataque ao Concorrente -->
+                <div class="text-center mt-10">
+                    <div class="inline-flex flex-col items-center gap-4">
+                        <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20quero%20ouvir%20todas%20as%20mais%20de%20200%20vozes%20dispon%C3%ADveis!" 
+                           onclick="trackVozesClick(); trackWAClick('Ver_Todas_Vozes')"
+                           target="_blank" 
+                           class="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-8 py-4 rounded-2xl font-black text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                            <i class="fas fa-headphones text-xl"></i> OUVIR TODAS AS 200+ VOZES
+                            <i class="fab fa-whatsapp text-xl ml-2"></i>
+                        </a>
+                        <p class="text-slate-500 text-sm">Clique e peça para ouvir nossas vozes no WhatsApp</p>
+                        
+                        <!-- ATAQUE AO CONCORRENTE (Casa das Vozes) -->
+                        <div class="mt-4 bg-red-50 border-2 border-red-200 rounded-2xl px-6 py-4 max-w-lg">
+                            <p class="text-red-800 font-bold text-base flex items-center justify-center gap-2">
+                                <i class="fas fa-bolt text-red-500"></i> 
+                                Por que esperar 2 dias? 
+                                <i class="fas fa-bolt text-red-500"></i>
+                            </p>
+                            <p class="text-red-700 text-sm mt-1 font-medium">
+                                Receba seu <strong class="text-red-900">Spot Comercial pronto HOJE</strong>, em poucas horas. Não perca vendas esperando!
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- ========== FIM DA GALERIA DE VOZES ========== -->
 
         <!-- Tabela de Preços Clara (Spot Completo vs Locução Off) -->
         <section class="py-20 bg-slate-50">
@@ -327,9 +427,8 @@
                         <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-xs uppercase tracking-widest px-6 py-2 rounded-full shadow-lg">Mais Vendido</div>
                         <div class="text-center mt-4">
                             <h3 class="text-2xl font-black text-slate-900 uppercase mb-2">Spot Comercial Completo</h3>
-                            <!-- Destaque maior para o valor do pacote -->
-                            <span class="text-5xl font-black italic tracking-tight text-slate-900">R$ 29,90</span>
-                            <p class="text-slate-500 text-sm mt-1">R$ 14,90 cada no pct com 50 · <span class="line-through"></span></p>
+                            <span class="text-5xl font-black italic tracking-tight text-slate-900">R$ 14,90</span>
+                            <p class="text-slate-500 text-sm mt-1">por spot (Pacote c/ 50) · <span class="line-through">R$ 29,90 avulso</span></p>
                         </div>
                         <ul class="space-y-4 my-8 text-left max-w-xs mx-auto">
                             <li class="flex items-center gap-3"><i class="fas fa-check-circle text-blue-500 text-lg"></i> <span class="font-medium">Locução Profissional</span></li>
@@ -351,8 +450,8 @@
                         <div class="text-center">
                             <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Para Editores</span>
                             <h3 class="text-2xl font-black text-slate-900 uppercase mt-1 mb-2">Locução Off (Seca)</h3>
-                            <span class="text-5xl font-black italic tracking-tight text-slate-900">R$ 14,90</span>
-                            <p class="text-slate-500 text-sm mt-1">R$ 4,00 cada no pct com 50 · <span class="line-through"></span></p>
+                            <span class="text-5xl font-black italic tracking-tight text-slate-900">R$ 4,00</span>
+                            <p class="text-slate-500 text-sm mt-1">por voz (Pacote c/ 50) · <span class="line-through">R$ 14,90 avulso</span></p>
                         </div>
                         <ul class="space-y-4 my-8 text-left max-w-xs mx-auto">
                             <li class="flex items-center gap-3"><i class="fas fa-check text-green-500"></i> <span class="font-medium">Locução Profissional Limpa</span></li>
@@ -407,7 +506,7 @@
                     </details>
                     <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5 open:ring-1 open:ring-blue-400">
                         <summary class="flex justify-between items-center font-bold text-slate-800 cursor-pointer">Quanto tempo demora a entrega? <span class="transition group-open:rotate-180 text-blue-500"><i class="fas fa-chevron-down"></i></span></summary>
-                        <p class="text-slate-600 mt-4 text-sm border-t border-slate-200 pt-4">Produções completas são entregues em <strong>1 a 4 horas</strong> no horário comercial.</p>
+                        <p class="text-slate-600 mt-4 text-sm border-t border-slate-200 pt-4">Produções completas são entregues em <strong>1 a 4 horas</strong> no horário comercial. <strong class="text-red-600">Não esperamos 2 dias!</strong></p>
                     </details>
                     <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5 open:ring-1 open:ring-blue-400">
                         <summary class="flex justify-between items-center font-bold text-slate-800 cursor-pointer">E se eu não gostar do áudio? <span class="transition group-open:rotate-180 text-blue-500"><i class="fas fa-chevron-down"></i></span></summary>
@@ -522,7 +621,7 @@
         box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         z-index: 9999;
         font-family: Arial, sans-serif;
-        border-left: 5px solid #25D366; /* Cor do WhatsApp */
+        border-left: 5px solid #25D366;
         animation: sp-slide 0.5s ease-out;
     }
 
@@ -555,22 +654,17 @@
         const elService = document.getElementById('sp-service');
 
         function mostrarNotificacao() {
-            // Sorteia os dados
             elName.innerText = dados.nomes[Math.floor(Math.random() * dados.nomes.length)];
             elAction.innerText = dados.acoes[Math.floor(Math.random() * dados.acoes.length)];
             elService.innerText = dados.servicos[Math.floor(Math.random() * dados.servicos.length)];
 
-            // Mostra o balão
             container.style.display = 'block';
 
-            // Esconde depois de 6 segundos
             setTimeout(() => {
                 container.style.display = 'none';
             }, 6000);
         }
 
-        // Configuração de tempo: 
-        // Primeira aparição em 5 segundos, depois se repete a cada 20 a 40 segundos
         setTimeout(function loop() {
             mostrarNotificacao();
             let proximoIntervalo = Math.floor(Math.random() * (40000 - 20000) + 20000);
