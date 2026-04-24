@@ -6,7 +6,7 @@
     
     <!-- SEO & Meta Tags Otimizados para Ads -->
     <title>Spot Comercial Profissional com Entrega Rápida | Estúdio A Locução</title>
-    <meta name="description" content="Spot comercial completo com locução profissional, trilha e efeitos. Entrega em poucas horas.">
+    <meta name="description" content="Spot comercial completo com locução profissional, trilha e efeitos. Entrega em poucas horas. Aproveite: Jingle personalizado por apenas R$ 25,90 na compra do spot!">
     
     <!-- Preconnect para Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,6 +56,13 @@
           gtag('event', 'click_vozes', {
               'event_category': 'Engajamento',
               'event_label': 'Ver_Todas_Vozes'
+          });
+      }
+      
+      function trackJingleClick() {
+          gtag('event', 'click_jingle', {
+              'event_category': 'Upsell',
+              'event_label': 'Jingle_Oferta'
           });
       }
     </script>
@@ -152,25 +159,6 @@
         .player-mini audio {
             height: 35px;
         }
-        
-        /* Container responsivo para iframe do YouTube */
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* Proporção 16:9 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 1rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 1rem;
-        }
     </style>
 </head>
 <body class="font-sans antialiased text-slate-800">
@@ -228,9 +216,6 @@
                         <p class="text-base sm:text-lg text-slate-300 font-medium mt-1">
                             Locução, trilha e efeitos
                         </p>
-                        <p class="text-xs text-slate-500 mt-2">
-                          
-                        </p>
                     </div>
                     <!-- Garantia (Reversão de Risco) -->
                     <div class="mt-4 flex items-center gap-2 text-green-400 text-sm font-medium bg-green-950/30 px-4 py-2 rounded-full border border-green-500/30">
@@ -272,6 +257,135 @@
             </div>
         </section>
 
+        <!-- ========== NOVA SEÇÃO: OFERTA RELÂMPAGO DE JINGLE (UPSELL COM CONTRASTE DE PREÇO) ========== -->
+        <section class="py-12 bg-gradient-to-r from-amber-50 via-yellow-50 to-orange-50 border-b-4 border-yellow-400">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <div class="bg-white rounded-3xl shadow-2xl border-2 border-yellow-400 overflow-hidden">
+                    <!-- Faixa Superior de Urgência -->
+                    <div class="bg-gradient-to-r from-yellow-400 to-amber-500 text-center py-3 px-4">
+                        <p class="text-slate-900 font-black text-sm sm:text-base uppercase tracking-widest flex items-center justify-center gap-2">
+                            <i class="fas fa-clock animate-pulse"></i> 
+                            Oferta por Tempo Limitado — Exclusiva para Clientes do Spot
+                            <i class="fas fa-clock animate-pulse"></i>
+                        </p>
+                    </div>
+                    
+                    <div class="p-6 sm:p-10">
+                        <div class="flex flex-col lg:flex-row items-center gap-8">
+                            <!-- Coluna da Oferta -->
+                            <div class="flex-1 text-center lg:text-left">
+                                <div class="inline-flex items-center gap-2 bg-red-100 text-red-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider mb-4">
+                                    <i class="fas fa-fire text-red-500"></i> Super Desconto Exclusivo
+                                </div>
+                                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 mb-4 leading-tight">
+                                    Leve Também um <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-600">Jingle Personalizado</span> 
+                                </h2>
+                                <p class="text-slate-600 text-base mb-6 max-w-xl">
+                                    Uma música exclusiva com a identidade da sua marca. <strong class="text-slate-900">Melodia, letra e produção profissional</strong> para fixar seu negócio na mente do cliente.
+                                </p>
+                                
+                                <!-- Bloco de Contraste de Preço (O SEGREDO DA VENDA) -->
+                                <div class="bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl p-6 mb-6">
+                                    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest mb-3 text-center lg:text-left">Resumo da Oferta</p>
+                                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-8">
+                                        <!-- Preço Normal (Riscado - Criando a Âncora) -->
+                                        <div class="text-center">
+                                            <p class="text-xs text-slate-400 font-medium mb-1">Preço Normal do Jingle</p>
+                                            <p class="text-3xl font-black text-slate-400 line-through decoration-red-500 decoration-2">
+                                                R$ 99,90
+                                            </p>
+                                        </div>
+                                        
+                                        <!-- Seta de Redução -->
+                                        <div class="flex flex-col items-center">
+                                            <span class="bg-red-100 text-red-600 text-xs font-black px-3 py-1 rounded-full mb-1">
+                                                -74%
+                                            </span>
+                                            <i class="fas fa-arrow-down text-2xl text-red-500"></i>
+                                        </div>
+                                        
+                                        <!-- Preço Exclusivo (O Valor Percebido) -->
+                                        <div class="text-center bg-gradient-to-r from-amber-400 to-orange-500 text-white rounded-2xl px-6 py-4 shadow-xl">
+                                            <p class="text-xs font-bold opacity-90 mb-1">HOJE, ADICIONANDO AO SPOT:</p>
+                                            <p class="text-4xl sm:text-5xl font-black italic tracking-tight">
+                                                R$ 25,90
+                                            </p>
+                                            <p class="text-xs font-bold opacity-90 mt-1">Somente nesta oferta!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Itens do Jingle -->
+                                <ul class="space-y-3 mb-8 text-left max-w-md mx-auto lg:mx-0">
+                                    <li class="flex items-center gap-3">
+                                        <i class="fas fa-check-circle text-amber-500 text-lg"></i>
+                                        <span class="font-medium text-slate-700">Melodia original e exclusiva</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fas fa-check-circle text-amber-500 text-lg"></i>
+                                        <span class="font-medium text-slate-700">Letra personalizada com o nome da sua marca</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fas fa-check-circle text-amber-500 text-lg"></i>
+                                        <span class="font-medium text-slate-700">Produção profissional com trilha e efeitos</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fas fa-check-circle text-amber-500 text-lg"></i>
+                                        <span class="font-medium text-slate-700">Entrega junto com o Spot Comercial</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Coluna do CTA do Jingle -->
+                            <div class="flex-1 w-full max-w-sm">
+                                <div class="bg-slate-900 rounded-2xl p-6 text-white text-center shadow-xl">
+                                    <p class="text-amber-400 font-black text-lg mb-2 uppercase tracking-wider">
+                                        <i class="fas fa-music"></i> Spot + Jingle
+                                    </p>
+                                    <p class="text-slate-300 text-sm mb-4">
+                                        Adicione o Jingle ao seu pedido e garanta esse desconto exclusivo.
+                                    </p>
+                                    
+                                    <!-- Preço Total do Combo -->
+                                    <div class="bg-white/10 rounded-xl p-4 mb-6">
+                                        <p class="text-xs text-slate-400 mb-1">TOTAL DO COMBO:</p>
+                                        <div class="flex items-baseline justify-center gap-2">
+                                            <span class="text-2xl text-slate-400 line-through">R$ 129,80</span>
+                                        </div>
+                                        <p class="text-4xl font-black text-white italic mt-1">
+                                            R$ 55,80
+                                        </p>
+                                        <p class="text-xs text-amber-400 font-bold mt-2">
+                                            <i class="fas fa-tags"></i> Você economiza R$ 74,00!
+                                        </p>
+                                    </div>
+                                    
+                                    <a href="https://wa.me/5527996529832?text=Ol%C3%A1!%20Quero%20aproveitar%20a%20oferta%20do%20Jingle%20Personalizado%20por%20apenas%20R%24%2025,90%20na%20compra%20do%20Spot%20Comercial.%20Quero%20fechar%20o%20combo%20com%20desconto!" 
+                                       onclick="trackJingleClick(); trackWAClick('Upsell_Jingle')"
+                                       target="_blank" 
+                                       class="w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white py-4 rounded-xl font-black text-lg flex items-center justify-center gap-3 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
+                                        <i class="fab fa-whatsapp text-2xl"></i> QUERO SPOT + JINGLE
+                                    </a>
+                                    
+                                    <p class="text-slate-400 text-xs mt-4 flex items-center justify-center gap-1">
+                                        <i class="fas fa-lock text-[10px]"></i> 
+                                        Desconto aplicado automaticamente no WhatsApp
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Selo de Urgência Inferior -->
+                    <div class="bg-slate-100 border-t border-slate-200 px-6 py-3 flex items-center justify-center gap-2 text-slate-600 text-sm font-medium">
+                        <i class="fas fa-exclamation-triangle text-amber-500"></i>
+                        <strong>Oferta válida apenas para novos pedidos de Spot Comercial.</strong> Preço normal do Jingle: R$ 99,90.
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ========== FIM DA SEÇÃO DE JINGLE ========== -->
+
         <!-- Marcas (Prova Social) -->
         <section class="py-6 bg-slate-900 border-b border-slate-800 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4">
@@ -312,7 +426,7 @@
             </div>
         </section>
 
-        <!-- ========== NOVA SEÇÃO: GALERIA DE VOZES (Substitui "Áudio de Rádio sem Complicação") ========== -->
+        <!-- ========== SEÇÃO: GALERIA DE VOZES ========== -->
         <section class="py-16 lg:py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-10">
@@ -444,58 +558,6 @@
         </section>
         <!-- ========== FIM DA GALERIA DE VOZES ========== -->
 
-        <!-- ========== NOVA SEÇÃO: VÍDEO DE BOAS-VINDAS (ANTES DOS PREÇOS) ========== -->
-        <section class="py-16 lg:py-20 bg-gradient-to-b from-slate-50 to-white">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6">
-                <div class="text-center mb-10">
-                    <span class="text-blue-600 font-bold uppercase tracking-widest text-xs mb-2 block">Conheça Nosso Estúdio</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 uppercase tracking-tight mb-4">
-                        Veja Quem <span class="text-blue-600 italic">Faz Seu Spot</span> Acontecer
-                    </h2>
-                    <p class="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
-                        <strong class="text-slate-900">Mais de 200 locutores profissionais.</strong><br>
-                        Os mais variados estilos, para atender suas necessidades: Locução Padrão, impacto, jovem, institucional e mais.
-                    </p>
-                </div>
-
-                <!-- Vídeo do YouTube em Iframe -->
-                <div class="max-w-3xl mx-auto">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/mbF_fjqNVoM?rel=0&showinfo=0&modestbranding=1" 
-                            title="Boas-vindas do Estúdio A Locução - Conheça nossos locutores" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen
-                            loading="lazy">
-                        </iframe>
-                    </div>
-                    
-                    <!-- Texto de apoio abaixo do vídeo -->
-                    <div class="text-center mt-6">
-                        <p class="text-slate-500 text-sm max-w-xl mx-auto">
-                            🎙️ <strong class="text-slate-700">Sem bem-vindo ao Estúdio a Locução!</strong> 
-                            Iremos criar o spot perfeito para o seu negócio. 
-                            <span class="text-blue-600 font-medium">Clique no play e aumente o som!</span>
-                        </p>
-                    </div>
-                </div>
-
-                <!-- CTA rápida pós-vídeo -->
-                <div class="text-center mt-10">
-                    <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20acabei%20de%20assistir%20ao%20v%C3%ADdeo%20do%20est%C3%BAdio%20e%20quero%20meu%20spot%20comercial!" 
-                       onclick="trackWAClick('Video_BoasVindas')"
-                       target="_blank" 
-                       class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white px-8 py-4 rounded-2xl font-black text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
-                        <i class="fab fa-whatsapp text-2xl"></i> 
-                        GOSTEI! QUERO FALAR COM UM LOCUTOR AGORA
-                    </a>
-                    <p class="text-xs text-slate-400 mt-3">Atendimento rápido e sem robôs 😉</p>
-                </div>
-            </div>
-        </section>
-        <!-- ========== FIM DA SEÇÃO DE VÍDEO ========== -->
-
         <!-- Tabela de Preços Clara (Spot Completo vs Locução Off) -->
         <section class="py-20 bg-slate-50">
             <div class="max-w-5xl mx-auto px-4 sm:px-6">
@@ -511,7 +573,7 @@
                         <div class="text-center mt-4">
                             <h3 class="text-2xl font-black text-slate-900 uppercase mb-2">Spot Comercial Completo</h3>
                             <span class="text-5xl font-black italic tracking-tight text-slate-900">R$ 29,90</span>
-                            <p class="text-slate-500 text-sm mt-1">Locução, trilha e efeitos <span class="line-through"></span></p>
+                            <p class="text-slate-500 text-sm mt-1">Locução, trilha e efeitos</p>
                         </div>
                         <ul class="space-y-4 my-8 text-left max-w-xs mx-auto">
                             <li class="flex items-center gap-3"><i class="fas fa-check-circle text-blue-500 text-lg"></i> <span class="font-medium">Locução Profissional</span></li>
@@ -534,13 +596,13 @@
                             <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Para Editores</span>
                             <h3 class="text-2xl font-black text-slate-900 uppercase mt-1 mb-2">Locução Off (Seca)</h3>
                             <span class="text-5xl font-black italic tracking-tight text-slate-900">R$ 14,90</span>
-                            <p class="text-slate-500 text-sm mt-1">Recomendado para produtores e revendedores <span class="line-through"></span></p>
+                            <p class="text-slate-500 text-sm mt-1">Recomendado para produtores e revendedores</p>
                         </div>
                         <ul class="space-y-4 my-8 text-left max-w-xs mx-auto">
                             <li class="flex items-center gap-3"><i class="fas fa-check text-green-500"></i> <span class="font-medium">Locução Profissional Limpa</span></li>
                             <li class="flex items-center gap-3 text-slate-400"><i class="fas fa-times text-red-400"></i> <span class="line-through">Trilha Sonora</span></li>
                             <li class="flex items-center gap-3 text-slate-400"><i class="fas fa-times text-red-400"></i> <span class="line-through">Edição ou Efeitos</span></li>
-                            <li class="flex items-center gap-3"><i class="fas fa-check text-green-500"></i> <span class="font-medium">Entrega 10 em minutos</span></li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-green-500"></i> <span class="font-medium">Entrega em 10 minutos</span></li>
                         </ul>
                         <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20quero%20solicitar%20apenas%20a%20LOCU%C3%87%C3%83O%20OFF%20(Voz%20Seca)." 
                            onclick="trackWAClick('Precos_Off')"
@@ -584,7 +646,11 @@
                 </div>
                 <div class="space-y-3">
                     <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5 open:ring-1 open:ring-blue-400">
-                        <summary class="flex justify-between items-center font-bold text-slate-800 cursor-pointer">Posso escolher a música de fundo? <span class="transition group-open:rotate-180 text-blue-500"><i class="fas fa-chevron-down"></i></span></summary>
+                        <summary class="flex justify-between items-center font-bold text-slate-800 cursor-pointer">O que é um Jingle Personalizado? <span class="transition group-open:rotate-180 text-blue-500"><i class="fas fa-chevron-down"></i></span></summary>
+                        <p class="text-slate-600 mt-4 text-sm border-t border-slate-200 pt-4">É uma música exclusiva criada para a sua marca, com melodia original e letra personalizada com o nome do seu negócio, perfeita para fixar na mente dos clientes.</p>
+                    </details>
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5 open:ring-1 open:ring-blue-400">
+                        <summary class="flex justify-between items-center font-bold text-slate-800 cursor-pointer">Posso escolher a música de fundo do Spot? <span class="transition group-open:rotate-180 text-blue-500"><i class="fas fa-chevron-down"></i></span></summary>
                         <p class="text-slate-600 mt-4 text-sm border-t border-slate-200 pt-4">Sim! Você pode sugerir o estilo ou enviar uma referência.</p>
                     </details>
                     <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5 open:ring-1 open:ring-blue-400">
@@ -613,12 +679,11 @@
                 <p class="text-xs text-slate-500 mt-8">
                     <a href="#" class="hover:text-slate-300">Política de Privacidade</a> · Estúdio A Locução &copy; 2012-2026
                 </p>
-<div style="text-align: center; margin-top: 15px; padding-bottom: 20px;">
-    <p style="font-size: 11px; color: #888; font-style: italic; margin: 0;">
-        "Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos." — Provérbios 16:3
-    </p>
-</div>
-                
+                <div style="text-align: center; margin-top: 15px; padding-bottom: 20px;">
+                    <p style="font-size: 11px; color: #888; font-style: italic; margin: 0;">
+                        "Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos." — Provérbios 16:3
+                    </p>
+                </div>
             </div>
         </section>
     </main>
@@ -683,79 +748,79 @@
         }
     </script>
 
-<div id="social-proof-float" style="display: none;">
-    <div class="sp-content">
-        <div class="sp-icon">📢</div>
-        <div class="sp-text">
-            <span id="sp-name">Márcio</span> <span id="sp-action">acabou de pedir</span><br>
-            <strong id="sp-service">um Spot Comercial Completo</strong>
+    <!-- Social Proof Float -->
+    <div id="social-proof-float" style="display: none;">
+        <div class="sp-content">
+            <div class="sp-icon">📢</div>
+            <div class="sp-text">
+                <span id="sp-name">Márcio</span> <span id="sp-action">acabou de pedir</span><br>
+                <strong id="sp-service">um Spot Comercial Completo</strong>
+            </div>
         </div>
     </div>
-</div>
 
-<style>
-    #social-proof-float {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        background: #fff;
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-        z-index: 9999;
-        font-family: Arial, sans-serif;
-        border-left: 5px solid #25D366;
-        animation: sp-slide 0.5s ease-out;
-    }
-
-    .sp-content { display: flex; align-items: center; gap: 12px; }
-    .sp-icon { font-size: 24px; }
-    .sp-text { font-size: 13px; color: #333; line-height: 1.4; }
-    .sp-text strong { color: #111; display: block; font-size: 14px; }
-
-    @keyframes sp-slide {
-        from { transform: translateY(100px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
-    }
-
-    @media (max-width: 600px) {
-        #social-proof-float { left: 10px; right: 10px; bottom: 10px; }
-    }
-</style>
-
-<script>
-    (function() {
-        const dados = {
-            nomes: ["Alexandre", "Maria", "Ricardo", "Fernanda", "José", "Cláudia", "Roberto", "Patrícia", "Carlos", "Sueli"],
-            servicos: ["um Spot Comercial Completo", "uma Locução Off (Seca)", "uma Vinheta de Rádio", " 4 vinhetas", "uma Gravação Off"],
-            acoes: ["acabou de pedir", "fechou agora pelo WhatsApp", "solicitou orçamento de", "acabou de contratar"]
-        };
-
-        const container = document.getElementById('social-proof-float');
-        const elName = document.getElementById('sp-name');
-        const elAction = document.getElementById('sp-action');
-        const elService = document.getElementById('sp-service');
-
-        function mostrarNotificacao() {
-            elName.innerText = dados.nomes[Math.floor(Math.random() * dados.nomes.length)];
-            elAction.innerText = dados.acoes[Math.floor(Math.random() * dados.acoes.length)];
-            elService.innerText = dados.servicos[Math.floor(Math.random() * dados.servicos.length)];
-
-            container.style.display = 'block';
-
-            setTimeout(() => {
-                container.style.display = 'none';
-            }, 6000);
+    <style>
+        #social-proof-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            z-index: 9999;
+            font-family: Arial, sans-serif;
+            border-left: 5px solid #25D366;
+            animation: sp-slide 0.5s ease-out;
         }
 
-        setTimeout(function loop() {
-            mostrarNotificacao();
-            let proximoIntervalo = Math.floor(Math.random() * (40000 - 20000) + 20000);
-            setTimeout(loop, proximoIntervalo);
-        }, 5000);
-    })();
-</script>
+        .sp-content { display: flex; align-items: center; gap: 12px; }
+        .sp-icon { font-size: 24px; }
+        .sp-text { font-size: 13px; color: #333; line-height: 1.4; }
+        .sp-text strong { color: #111; display: block; font-size: 14px; }
 
+        @keyframes sp-slide {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            #social-proof-float { left: 10px; right: 10px; bottom: 10px; }
+        }
+    </style>
+
+    <script>
+        (function() {
+            const dados = {
+                nomes: ["Alexandre", "Maria", "Ricardo", "Fernanda", "José", "Cláudia", "Roberto", "Patrícia", "Carlos", "Sueli"],
+                servicos: ["um Spot Comercial Completo", "uma Locução Off (Seca)", "uma Vinheta de Rádio", " 4 vinhetas", "uma Gravação Off"],
+                acoes: ["acabou de pedir", "fechou agora pelo WhatsApp", "solicitou orçamento de", "acabou de contratar"]
+            };
+
+            const container = document.getElementById('social-proof-float');
+            const elName = document.getElementById('sp-name');
+            const elAction = document.getElementById('sp-action');
+            const elService = document.getElementById('sp-service');
+
+            function mostrarNotificacao() {
+                elName.innerText = dados.nomes[Math.floor(Math.random() * dados.nomes.length)];
+                elAction.innerText = dados.acoes[Math.floor(Math.random() * dados.acoes.length)];
+                elService.innerText = dados.servicos[Math.floor(Math.random() * dados.servicos.length)];
+
+                container.style.display = 'block';
+
+                setTimeout(() => {
+                    container.style.display = 'none';
+                }, 6000);
+            }
+
+            setTimeout(function loop() {
+                mostrarNotificacao();
+                let proximoIntervalo = Math.floor(Math.random() * (40000 - 20000) + 20000);
+                setTimeout(loop, proximoIntervalo);
+            }, 5000);
+        })();
+    </script>
     
 </body>
 </html>
