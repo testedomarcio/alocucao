@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    
+    <!-- SEO & Meta Tags Otimizados para Jingle Comercial -->
+    <title>Jingle Comercial com Tecnologia IA | Entrega Rápida e Preço Acessível | Estúdio A Locução</title>
+    <meta name="description" content="Jingle comercial personalizado com produção assistida por IA de última geração. Melodia exclusiva, letra personalizada e locução profissional. Resultado rápido e acessível.">
+    
+    <!-- Preconnect para Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Google Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093304718"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18093304718');
+
+      function trackWAClick(location) {
+          gtag('event', 'conversion', {
+              'send_to': 'AW-18093304718/WA_CLICK', 
+              'event_category': 'WhatsApp',
+              'event_label': location
+          });
+      }
+      
+      function trackPanelClick() {
+          gtag('event', 'conversion', {
+              'send_to': 'AW-18093304718/PANEL_CLICK', 
+              'event_category': 'Painel',
+              'event_label': 'Acesso Painel'
+          });
+      }
+
+      function trackAudioPlay(name) {
+          gtag('event', 'play_audio', {
+              'event_category': 'Engajamento',
+              'event_label': name
+          });
+      }
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    colors: {
+                        violet: { 500: '#8b5cf6', 600: '#7c3aed', 700: '#6d28d9' },
+                        fuchsia: { 500: '#d946ef', 600: '#c026d3' },
+                        darkBg: '#0f172a',
+                    },
+                    animation: {
+                        'scroll': 'scroll 40s linear infinite',
+                        'soft-pulse': 'soft-pulse 2s infinite ease-in-out',
+                        'fade-in-up': 'fade-in-up 0.6s ease-out',
+                        'glow': 'glow 2s infinite ease-in-out',
+                    },
+                    keyframes: {
+                        scroll: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        'soft-pulse': {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.02)' },
+                        },
+                        'fade-in-up': {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        'glow': {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(139, 92, 246, 0.3)' },
+                            '50%': { boxShadow: '0 0 40px rgba(139, 92, 246, 0.6)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; background-color: #f8fafc; }
+        
+        @media (max-width: 640px) {
+            .backdrop-blur, .glass-effect {
+                backdrop-filter: none !important;
+                background: rgba(15, 23, 42, 0.98) !important;
+            }
+        }
+        
+        .glass-header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        audio { 
+            height: 40px; 
+            width: 100%; 
+            border-radius: 60px; 
+            background: #f1f5f9;
+        }
+        audio::-webkit-media-controls-panel { background-color: #f8fafc; }
+        
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        
+        img { max-width: 100%; height: auto; }
+
+        .jingle-card {
+            transition: all 0.3s ease;
+        }
+        .jingle-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        /* Badge de IA com estilo tech */
+        .badge-ia {
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-slate-800">
+
+    <!-- Header Flutuante -->
+    <header class="fixed w-full top-0 z-50 glass-header text-white transition-all py-3">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
+            <a href="#" class="shrink-0">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_sBFI94b0Jhnsl6DY4UwsTOpsmltn1MNvF5n6zcrkdLUd7oqFJfxF5NAtCEwBchu-b65jEsMXi60X2SlPb04XheC1fuEaG-sRzEbENAbN4eMSX5YHbdk6oGhfGTHQOPR1tZJn_GwXOAjUL6UX4ZvpVITZOL6is83xruSEkk343d-9VEx5osefurjX8aY/s1600/logo.png" alt="Estúdio A Locução" class="h-9 sm:h-10 w-auto" width="120" height="40">
+            </a>
+            <div class="flex items-center gap-3 sm:gap-4">
+                <span class="hidden md:flex items-center gap-2 text-violet-400 text-xs font-medium border-r border-slate-700 pr-4">
+                    <i class="fas fa-robot"></i> Jingles High-Tech com IA
+                </span>
+                <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20criar%20um%20Jingle%20Comercial!" 
+                   onclick="trackWAClick('Header')"
+                   target="_blank" 
+                   class="bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold flex items-center gap-2 transition-colors text-xs sm:text-sm px-4 py-2 rounded-full shadow-lg shadow-green-500/30">
+                    <i class="fab fa-whatsapp text-base"></i> <span class="hidden sm:inline">Chamar Agora</span><span class="sm:hidden">WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section - Foco em Jingle IA -->
+        <section class="bg-gradient-to-br from-violet-900 via-slate-900 to-fuchsia-900/30 pt-28 pb-16 lg:pt-36 lg:pb-20 relative overflow-hidden text-white">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-violet-500/10 via-transparent to-fuchsia-500/10 pointer-events-none"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center text-center">
+                
+                <!-- Badge Tech/IA -->
+                <div class="inline-flex items-center gap-3 bg-violet-500/20 border border-violet-400/40 text-violet-300 px-5 py-2 rounded-full text-sm font-bold uppercase tracking-wider mb-6 backdrop-blur-sm">
+                    <i class="fas fa-microchip text-violet-400"></i> 
+                    PRODUÇÃO ASSISTIDA POR IA DE ÚLTIMA GERAÇÃO
+                    <i class="fas fa-robot text-violet-400"></i>
+                </div>
+                
+                <!-- Headline Principal -->
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-4 max-w-5xl">
+                    Jingle Comercial <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">High-Tech</span> <br class="hidden sm:block">Composição Exclusiva e Rápida
+                </h1>
+                
+                <p class="text-slate-300 text-base lg:text-xl mb-6 leading-relaxed max-w-2xl font-normal">
+                    <strong class="text-white font-semibold">A união da criatividade humana com o poder da Inteligência Artificial.</strong> Melodia original, letra personalizada e locução profissional. 
+                    <span class="block mt-2 text-violet-300 text-sm font-medium bg-violet-950/30 py-1 px-3 rounded-full inline-block">Tecnologia algorítmica exclusiva para resultados rápidos e acessíveis</span>
+                </p>
+
+                <!-- Preço Principal -->
+                <div class="mb-8 flex flex-col items-center">
+                    <div class="bg-white/5 border border-violet-500/30 rounded-2xl px-8 py-5 backdrop-blur-sm inline-block">
+                        <p class="text-xs sm:text-sm text-slate-400 font-bold uppercase tracking-widest mb-1">Jingle Personalizado</p>
+                        <p class="text-4xl sm:text-5xl font-black text-white italic tracking-tight leading-none">
+                            a partir de R$ 59,90
+                        </p>
+                        <p class="text-sm text-slate-400 mt-2">
+                            Composição algorítmica exclusiva · Entrega rápida
+                        </p>
+                    </div>
+                    <!-- Garantia -->
+                    <div class="mt-4 flex items-center gap-2 text-fuchsia-300 text-sm font-medium bg-fuchsia-950/30 px-4 py-2 rounded-full border border-fuchsia-500/30">
+                        <i class="fas fa-shield-alt"></i> Satisfação Garantida ou Revisamos sem Custo
+                    </div>
+                </div>
+                
+                <!-- CTA Principal -->
+                <div class="flex flex-col items-center w-full max-w-2xl">
+                    <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20criar%20meu%20Jingle%20Comercial%20com%20IA!" 
+                       onclick="trackWAClick('Hero_Principal_Jingle')"
+                       target="_blank" 
+                       class="w-full sm:w-auto bg-[#25D366] hover:bg-[#20bd5a] text-white px-10 py-5 sm:py-6 rounded-2xl font-black text-lg sm:text-xl flex items-center justify-center gap-4 shadow-[0_20px_40px_rgba(139,92,246,0.4)] hover:-translate-y-1 transition-all duration-300 animate-soft-pulse border border-green-400/30">
+                        <i class="fab fa-whatsapp text-2xl sm:text-3xl"></i> QUERO CRIAR MEU JINGLE AGORA
+                        <i class="fas fa-arrow-right text-sm opacity-80"></i>
+                    </a>
+                    
+                    <p class="text-slate-400 text-xs mt-4 flex items-center gap-1">
+                        <i class="fas fa-lock text-[10px]"></i> Atendimento humano para orientar sua criação
+                    </p>
+                </div>
+
+                <!-- Micro CTAs Secundários -->
+                <div class="mt-8 pt-6 border-t border-white/10 w-full max-w-3xl flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
+                    <a href="https://www.alocucao.com.br/cadastro" 
+                       onclick="trackPanelClick()"
+                       target="_blank" 
+                       class="text-slate-400 hover:text-white text-sm font-medium transition flex items-center gap-2 border border-slate-700 hover:border-slate-500 px-5 py-2 rounded-full">
+                        <i class="fas fa-user-circle"></i> Já sou cliente · Acessar Painel
+                    </a>
+                    
+                    <div class="flex items-center gap-2 text-xs text-slate-500 bg-white/5 px-4 py-2 rounded-full">
+                        <i class="fas fa-headphones text-violet-400"></i> 
+                        <span>Também fazemos <strong class="text-slate-300">Spot Comercial</strong> a partir de <strong class="text-white">R$ 14,90</strong> e <strong class="text-slate-300">Locução Off</strong></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selos de Confiança -->
+        <section class="py-10 bg-slate-900 border-b border-slate-800">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div class="text-white">
+                        <i class="fas fa-robot text-3xl text-violet-400 mb-2"></i>
+                        <p class="font-black text-xl">IA + Humano</p>
+                        <p class="text-slate-400 text-xs uppercase tracking-wider">Criação Híbrida</p>
+                    </div>
+                    <div class="text-white">
+                        <i class="fas fa-bolt text-3xl text-yellow-400 mb-2"></i>
+                        <p class="font-black text-xl">Rápido</p>
+                        <p class="text-slate-400 text-xs uppercase tracking-wider">Entrega Expressa</p>
+                    </div>
+                    <div class="text-white">
+                        <i class="fas fa-fingerprint text-3xl text-fuchsia-400 mb-2"></i>
+                        <p class="font-black text-xl">Exclusivo</p>
+                        <p class="text-slate-400 text-xs uppercase tracking-wider">Melodia Original</p>
+                    </div>
+                    <div class="text-white">
+                        <i class="fas fa-wallet text-3xl text-green-400 mb-2"></i>
+                        <p class="font-black text-xl">Acessível</p>
+                        <p class="text-slate-400 text-xs uppercase tracking-wider">Preço Econômico</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marcas (Prova Social) -->
+        <section class="py-6 bg-slate-800 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4">
+                <p class="text-center text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Empresas que já criaram seu Jingle com a gente</p>
+                <div class="relative flex overflow-hidden">
+                    <div class="flex whitespace-nowrap gap-8 items-center animate-scroll">
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Supermercado Bom Preço</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Sorriso Perfeito Odontologia</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Power Fit Academia</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Drogaria Mais Vida</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Rádio Top FM</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Espetaria Grill</span><span class="text-slate-600 font-black">•</span>
+                        <!-- Duplicado para loop -->
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Supermercado Bom Preço</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Sorriso Perfeito Odontologia</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Power Fit Academia</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Drogaria Mais Vida</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Rádio Top FM</span><span class="text-slate-600 font-black">•</span>
+                        <span class="text-slate-400 font-bold text-lg opacity-60">Espetaria Grill</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== DEMOS DE JINGLES ========== -->
+        <section class="py-16 lg:py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-10">
+                    <span class="text-violet-600 font-bold uppercase tracking-widest text-xs mb-2 block">Ouça Nossas Criações</span>
+                    <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight mb-4 text-slate-900">
+                        Jingles <span class="text-violet-600 italic">High-Tech</span> que Vendem
+                    </h2>
+                    <p class="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
+                        Produção assistida por <strong class="text-slate-900">Inteligência Artificial de última geração</strong>, com supervisão humana para garantir qualidade e originalidade.
+                    </p>
+                </div>
+
+                <!-- Grid de Demos -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+                    <!-- Supermercado Bom Preço -->
+                    <div class="jingle-card bg-slate-50 border border-slate-200 rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-12 h-12 bg-violet-100 text-violet-600 rounded-xl flex items-center justify-center text-xl"><i class="fas fa-shopping-cart"></i></div>
+                            <div>
+                                <h4 class="font-black text-slate-900 text-sm uppercase">Supermercado Bom Preço</h4>
+                                <p class="text-xs text-slate-500">Varejo · Animado</p>
+                            </div>
+                        </div>
+                        <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Jingle_Supermercado')"><source src="https://testedomarcio.github.io/meuadio/supermercadobompreco.mp3" type="audio/mpeg"></audio>
+                    </div>
+                    <!-- Sorriso Perfeito Odontologia -->
+                    <div class="jingle-card bg-slate-50 border border-slate-200 rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-12 h-12 bg-fuchsia-100 text-fuchsia-600 rounded-xl flex items-center justify-center text-xl"><i class="fas fa-tooth"></i></div>
+                            <div>
+                                <h4 class="font-black text-slate-900 text-sm uppercase">Sorriso Perfeito</h4>
+                                <p class="text-xs text-slate-500">Saúde · Acolhedor</p>
+                            </div>
+                        </div>
+                        <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Jingle_Odontologia')"><source src="https://testedomarcio.github.io/meuadio/sorrisoperfeito.mp3" type="audio/mpeg"></audio>
+                    </div>
+                    <!-- Power Fit Academia -->
+                    <div class="jingle-card bg-slate-50 border border-slate-200 rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl"><i class="fas fa-dumbbell"></i></div>
+                            <div>
+                                <h4 class="font-black text-slate-900 text-sm uppercase">Power Fit Academia</h4>
+                                <p class="text-xs text-slate-500">Fitness · Motivacional</p>
+                            </div>
+                        </div>
+                        <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Jingle_Academia')"><source src="https://testedomarcio.github.io/meuadio/powerfitacademia.mp3" type="audio/mpeg"></audio>
+                    </div>
+                    <!-- Drogaria Mais Vida -->
+                    <div class="jingle-card bg-slate-50 border border-slate-200 rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-xl"><i class="fas fa-prescription-bottle-medical"></i></div>
+                            <div>
+                                <h4 class="font-black text-slate-900 text-sm uppercase">Drogaria Mais Vida</h4>
+                                <p class="text-xs text-slate-500">Farmácia · Confiável</p>
+                            </div>
+                        </div>
+                        <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Jingle_Drogaria')"><source src="https://testedomarcio.github.io/meuadio/drogariamaisvida.mp3" type="audio/mpeg"></audio>
+                    </div>
+                    <!-- Rádio Top FM -->
+                    <div class="jingle-card bg-slate-50 border border-slate-200 rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl"><i class="fas fa-broadcast-tower"></i></div>
+                            <div>
+                                <h4 class="font-black text-slate-900 text-sm uppercase">Rádio Top FM</h4>
+                                <p class="text-xs text-slate-500">Rádio · Dinâmico</p>
+                            </div>
+                        </div>
+                        <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Jingle_Radio')"><source src="https://testedomarcio.github.io/meuadio/radiotopfm.mp3" type="audio/mpeg"></audio>
+                    </div>
+                    <!-- Espetaria -->
+                    <div class="jingle-card bg-slate-50 border border-slate-200 rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-xl"><i class="fas fa-utensils"></i></div>
+                            <div>
+                                <h4 class="font-black text-slate-900 text-sm uppercase">Espetaria Grill</h4>
+                                <p class="text-xs text-slate-500">Alimentação · Descontraído</p>
+                            </div>
+                        </div>
+                        <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Jingle_Espetaria')"><source src="https://testedomarcio.github.io/meuadio/espetaria.mp3" type="audio/mpeg"></audio>
+                    </div>
+                </div>
+
+                <!-- CTA após demos -->
+                <div class="text-center">
+                    <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20ouvi%20os%20jingles%20de%20exemplo%20e%20quero%20criar%20o%20meu!" 
+                       onclick="trackWAClick('Demos_Jingle')"
+                       target="_blank" 
+                       class="inline-flex items-center gap-3 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-8 py-4 rounded-2xl font-black text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                        <i class="fab fa-whatsapp text-xl"></i> QUERO UM JINGLE ASSIM
+                        <i class="fas fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SEÇÃO INFORMATIVA SOBRE IA (Transparência Estratégica) ========== -->
+        <section class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-10">
+                    <span class="text-violet-600 font-bold uppercase tracking-widest text-xs mb-2 block">Nossa Tecnologia</span>
+                    <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight mb-4 text-slate-900">
+                        Jingles <span class="text-violet-600 italic">High-Tech</span>: Economia com Qualidade
+                    </h2>
+                    <p class="text-slate-500 max-w-2xl mx-auto">Entenda como funciona nossa produção assistida por IA</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-gradient-to-br from-violet-50 to-fuchsia-50 border border-violet-200 rounded-2xl p-6 text-center">
+                        <div class="w-14 h-14 bg-violet-100 text-violet-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4"><i class="fas fa-rocket"></i></div>
+                        <h3 class="font-black text-slate-900 mb-2">Velocidade</h3>
+                        <p class="text-sm text-slate-600">A IA compõe a estrutura musical em minutos, permitindo entregas muito mais rápidas que métodos tradicionais.</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-violet-50 to-fuchsia-50 border border-violet-200 rounded-2xl p-6 text-center">
+                        <div class="w-14 h-14 bg-fuchsia-100 text-fuchsia-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4"><i class="fas fa-dollar-sign"></i></div>
+                        <h3 class="font-black text-slate-900 mb-2">Economia</h3>
+                        <p class="text-sm text-slate-600">Sem custos de estúdio, músicos ou banda. O resultado é um jingle profissional por um preço acessível.</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-violet-50 to-fuchsia-50 border border-violet-200 rounded-2xl p-6 text-center">
+                        <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4"><i class="fas fa-user-check"></i></div>
+                        <h3 class="font-black text-slate-900 mb-2">Supervisão Humana</h3>
+                        <p class="text-sm text-slate-600">Nossa equipe revisa, edita e finaliza cada jingle, garantindo qualidade, afinação e personalidade únicas.</p>
+                    </div>
+                </div>
+
+                <!-- Nota sobre transparência -->
+                <div class="mt-10 bg-amber-50 border border-amber-200 rounded-2xl p-5">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-info-circle text-amber-500 text-lg mt-0.5"></i>
+                        <div>
+                            <p class="text-sm font-bold text-amber-800 mb-1">Transparência com o cliente</p>
+                            <p class="text-xs text-amber-700 leading-relaxed">
+                                Nossos jingles utilizam <strong>composição algorítmica assistida por IA</strong>. Por ser uma tecnologia generativa, pequenas variações de notas ou instrumentos específicos podem não ser editáveis manualmente como em uma gravação de banda. O que entregamos é a <strong>licença de uso comercial</strong> da peça produzida com nossa tecnologia. Para produções 100% artesanais e personalizadas, consulte nossa equipe sobre valores e prazos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== TABELA DE PREÇOS (Jingles + Serviços) ========== -->
+        <section class="py-20 bg-slate-50">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 uppercase tracking-tight italic">Escolha o <span class="text-violet-600">Jingle Ideal</span></h2>
+                    <p class="text-slate-500 mt-2">Linha Express com tecnologia IA · Preços acessíveis e transparentes</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <!-- Card 1: JINGLE AI EXPRESS -->
+                    <div class="bg-white rounded-3xl shadow-xl border-2 border-violet-500/40 p-8 relative transform hover:-translate-y-1 transition-all">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-violet-600 to-purple-600 text-white font-bold text-xs uppercase tracking-widest px-6 py-2 rounded-full shadow-lg">Linha Express</div>
+                        <div class="text-center mt-4">
+                            <div class="badge-ia text-white text-xs font-bold px-3 py-1 rounded-full inline-flex items-center gap-1 mb-3">
+                                <i class="fas fa-robot"></i> ASSISTIDO POR IA
+                            </div>
+                            <h3 class="text-2xl font-black text-slate-900 uppercase mb-2">Jingle AI Express</h3>
+                            <p class="text-slate-500 text-sm mb-3">Melodia e letra via IA (sem edições complexas)</p>
+                            <span class="text-5xl font-black italic tracking-tight text-slate-900">R$ 59,90</span>
+                            <p class="text-slate-400 text-xs mt-1">pagamento único</p>
+                        </div>
+                        <ul class="space-y-4 my-8 text-left max-w-xs mx-auto">
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-violet-500 text-lg"></i> <span class="font-medium">Melodia original via IA</span></li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-violet-500 text-lg"></i> <span class="font-medium">Letra personalizada</span></li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-violet-500 text-lg"></i> <span class="font-medium">Locução profissional inclusa</span></li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-violet-500 text-lg"></i> <span class="font-medium">Mixagem e masterização</span></li>
+                            <li class="flex items-center gap-3 text-slate-400"><i class="fas fa-times text-red-400"></i> <span class="line-through">Edições finas de notas/instrumentos</span></li>
+                        </ul>
+                        <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20quero%20o%20JINGLE%20AI%20EXPRESS%20de%20R%24%2059%2C90!" 
+                           onclick="trackWAClick('Precos_Express')"
+                           target="_blank" 
+                           class="block w-full py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-black rounded-xl transition uppercase tracking-widest shadow-lg text-center text-sm">
+                            <i class="fab fa-whatsapp mr-2"></i> PEDIR JINGLE EXPRESS
+                        </a>
+                        <p class="text-center text-xs text-slate-400 mt-3">Ideal para campanhas rápidas e econômicas</p>
+                    </div>
+
+                    <!-- Card 2: JINGLE AI PRO -->
+                    <div class="bg-white rounded-3xl shadow-xl border-2 border-fuchsia-500/40 p-8 relative transform hover:-translate-y-1 transition-all">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white font-bold text-xs uppercase tracking-widest px-6 py-2 rounded-full shadow-lg">Mais Completo</div>
+                        <div class="text-center mt-4">
+                            <div class="badge-ia text-white text-xs font-bold px-3 py-1 rounded-full inline-flex items-center gap-1 mb-3">
+                                <i class="fas fa-robot"></i> IA + EDIÇÃO PRO
+                            </div>
+                            <h3 class="text-2xl font-black text-slate-900 uppercase mb-2">Jingle AI Pro</h3>
+                            <p class="text-slate-500 text-sm mb-3">Base IA + Edição profissional + Locução de impacto</p>
+                            <span class="text-5xl font-black italic tracking-tight text-slate-900">R$ 89,90</span>
+                            <p class="text-slate-400 text-xs mt-1">pagamento único</p>
+                        </div>
+                        <ul class="space-y-4 my-8 text-left max-w-xs mx-auto">
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-fuchsia-500 text-lg"></i> <span class="font-medium">Tudo do AI Express</span></li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-fuchsia-500 text-lg"></i> <span class="font-medium">Edição profissional aprimorada</span></li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-fuchsia-500 text-lg"></i> <span class="font-medium">Locução de impacto premium</span></li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-fuchsia-500 text-lg"></i> <span class="font-medium">Efeitos e transições extras</span></li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-fuchsia-500 text-lg"></i> <span class="font-medium">Revisão humana detalhada</span></li>
+                        </ul>
+                        <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20quero%20o%20JINGLE%20AI%20PRO%20de%20R%24%2089%2C90!" 
+                           onclick="trackWAClick('Precos_Pro')"
+                           target="_blank" 
+                           class="block w-full py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-black rounded-xl transition uppercase tracking-widest shadow-lg text-center text-sm">
+                            <i class="fab fa-whatsapp mr-2"></i> PEDIR JINGLE PRO
+                        </a>
+                        <p class="text-center text-xs text-slate-400 mt-3">Para quem quer máxima qualidade e impacto</p>
+                    </div>
+                </div>
+
+                <!-- Cards Adicionais (Spot + Locução Off) em tamanho menor -->
+                <div class="text-center mb-8">
+                    <p class="text-slate-500 text-sm">Conheça também nossos outros serviços</p>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                    <!-- Spot Comercial -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-6 text-center relative opacity-90 hover:opacity-100 transition-all">
+                        <span class="text-xs font-bold text-blue-500 uppercase tracking-widest">Produção Completa</span>
+                        <h4 class="text-lg font-black text-slate-900 uppercase mt-1 mb-1">Spot Comercial</h4>
+                        <p class="text-3xl font-black italic text-slate-900">R$ 14,90<span class="text-sm font-normal text-slate-400">/spot</span></p>
+                        <p class="text-xs text-slate-400 mt-2">no pacote com 50 · Locução, trilha e efeitos</p>
+                        <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Spot%20Comercial!" 
+                           onclick="trackWAClick('Precos_Spot_Sec')"
+                           target="_blank" 
+                           class="block w-full py-3 bg-white border-2 border-blue-500 text-blue-600 hover:bg-blue-50 font-bold rounded-xl transition text-sm mt-4">
+                            <i class="fab fa-whatsapp mr-1"></i> SABER MAIS
+                        </a>
+                    </div>
+                    <!-- Locução Off -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-6 text-center relative opacity-90 hover:opacity-100 transition-all">
+                        <span class="text-xs font-bold text-emerald-500 uppercase tracking-widest">Agilidade Total</span>
+                        <h4 class="text-lg font-black text-slate-900 uppercase mt-1 mb-1">Locução Off</h4>
+                        <p class="text-3xl font-black italic text-slate-900">R$ 14,90<span class="text-sm font-normal text-slate-400">/crédito</span></p>
+                        <p class="text-xs text-slate-400 mt-2">Voz limpa · Entrega em até 10 minutos</p>
+                        <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20Grava%C3%A7%C3%A3o%20em%20Off!" 
+                           onclick="trackWAClick('Precos_Off_Sec')"
+                           target="_blank" 
+                           class="block w-full py-3 bg-white border-2 border-emerald-500 text-emerald-600 hover:bg-emerald-50 font-bold rounded-xl transition text-sm mt-4">
+                            <i class="fab fa-whatsapp mr-1"></i> SABER MAIS
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="py-20 bg-white">
+            <div class="max-w-3xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight italic">Dúvidas sobre Jingles</h2>
+                </div>
+                <div class="space-y-3">
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5 open:ring-1 open:ring-violet-400">
+                        <summary class="flex justify-between items-center font-bold text-slate-800 cursor-pointer">O jingle é realmente criado por IA? <span class="transition group-open:rotate-180 text-violet-500"><i class="fas fa-chevron-down"></i></span></summary>
+                        <p class="text-slate-600 mt-4 text-sm border-t border-slate-200 pt-4">Sim, utilizamos <strong>Inteligência Artificial de última geração</strong> para compor a base musical e a letra. Depois, nossa equipe revisa, edita e finaliza com locução profissional, garantindo um resultado de alta qualidade.</p>
+                    </details>
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5 open:ring-1 open:ring-violet-400">
+                        <summary class="flex justify-between items-center font-bold text-slate-800 cursor-pointer">Posso pedir alterações na melodia? <span class="transition group-open:rotate-180 text-violet-500"><i class="fas fa-chevron-down"></i></span></summary>
+                        <p class="text-slate-600 mt-4 text-sm border-t border-slate-200 pt-4">O plano <strong>AI Express</strong> inclui ajustes simples. Para edições mais detalhadas de notas ou instrumentos específicos, recomendamos o <strong>AI Pro</strong>, que conta com edição profissional aprimorada.</p>
+                    </details>
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5 open:ring-1 open:ring-violet-400">
+                        <summary class="flex justify-between items-center font-bold text-slate-800 cursor-pointer">Quem é o dono dos direitos do jingle? <span class="transition group-open:rotate-180 text-violet-500"><i class="fas fa-chevron-down"></i></span></summary>
+                        <p class="text-slate-600 mt-4 text-sm border-t border-slate-200 pt-4">Você recebe a <strong>licença de uso comercial</strong> da peça produzida. Pode utilizar em rádio, TV, carro de som e redes sociais sem custos adicionais. Como a legislação de obras geradas por IA ainda está em desenvolvimento, a licença cobre o uso comercial da produção.</p>
+                    </details>
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5 open:ring-1 open:ring-violet-400">
+                        <summary class="flex justify-between items-center font-bold text-slate-800 cursor-pointer">Quanto tempo demora para ficar pronto? <span class="transition group-open:rotate-180 text-violet-500"><i class="fas fa-chevron-down"></i></span></summary>
+                        <p class="text-slate-600 mt-4 text-sm border-t border-slate-200 pt-4">Jingles são entregues em <strong>24 a 48 horas</strong> após a confirmação do briefing. <strong class="text-red-600">Não esperamos dias ou semanas como em estúdios tradicionais!</strong></p>
+                    </details>
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5 open:ring-1 open:ring-violet-400">
+                        <summary class="flex justify-between items-center font-bold text-slate-800 cursor-pointer">E se eu não gostar do resultado? <span class="transition group-open:rotate-180 text-violet-500"><i class="fas fa-chevron-down"></i></span></summary>
+                        <p class="text-slate-600 mt-4 text-sm border-t border-slate-200 pt-4"><strong class="text-violet-600">Garantia de satisfação:</strong> Se o jingle não atender às expectativas, revisamos gratuitamente. Nosso objetivo é que você fique 100% satisfeito.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="py-20 bg-gradient-to-r from-violet-900 to-slate-900 text-white text-center">
+            <div class="max-w-3xl mx-auto px-4">
+                <div class="inline-flex items-center gap-2 bg-violet-500/30 text-violet-300 px-4 py-2 rounded-full text-sm font-bold mb-6">
+                    <i class="fas fa-robot"></i> CRIE SEU JINGLE COM TECNOLOGIA IA
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-black mb-6 uppercase italic">Pronto para ter seu Jingle no ar?</h2>
+                <p class="text-slate-300 text-lg mb-10">Solicite agora mesmo e receba uma composição exclusiva em tempo recorde.</p>
+                <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20criar%20meu%20Jingle%20Comercial%20agora!" 
+                   onclick="trackWAClick('Final_CTA_Jingle')"
+                   target="_blank" 
+                   class="inline-flex items-center gap-4 bg-[#25D366] text-white px-12 py-5 rounded-2xl font-black text-xl hover:-translate-y-1 transition-all shadow-2xl shadow-green-500/30">
+                    <i class="fab fa-whatsapp text-3xl"></i> CRIAR MEU JINGLE AGORA
+                </a>
+                <p class="text-xs text-slate-500 mt-8">
+                    <a href="#" class="hover:text-slate-300">Política de Privacidade</a> · Estúdio A Locução &copy; 2012-2026
+                </p>
+<div style="text-align: center; margin-top: 15px; padding-bottom: 20px;">
+    <p style="font-size: 11px; color: #888; font-style: italic; margin: 0;">
+        "Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos." — Provérbios 16:3
+    </p>
+</div>
+                
+            </div>
+        </section>
+    </main>
+
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20quero%20criar%20um%20Jingle%20Comercial%20personalizado!" 
+       onclick="trackWAClick('Flutuante_Jingle')"
+       target="_blank" 
+       class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.5)] hover:scale-110 transition-all z-50 flex items-center gap-2 group"
+       aria-label="WhatsApp">
+        <i class="fab fa-whatsapp text-3xl"></i>
+        <span class="font-bold text-sm max-w-0 overflow-hidden group-hover:max-w-xs group-hover:px-2 transition-all duration-300 whitespace-nowrap hidden sm:block">Quero um Jingle</span>
+    </a>
+
+    <!-- ========== NOTIFICAÇÕES DE PROVA SOCIAL ========== -->
+    <div id="social-proof-float" style="display: none;">
+        <div class="sp-content">
+            <div class="sp-icon">🎵</div>
+            <div class="sp-text">
+                <span id="sp-name">Márcio</span> <span id="sp-action">acabou de criar</span><br>
+                <strong id="sp-service">um Jingle Comercial</strong>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        #social-proof-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            z-index: 9999;
+            font-family: Arial, sans-serif;
+            border-left: 5px solid #8b5cf6;
+            animation: sp-slide 0.5s ease-out;
+        }
+
+        .sp-content { display: flex; align-items: center; gap: 12px; }
+        .sp-icon { font-size: 24px; }
+        .sp-text { font-size: 13px; color: #333; line-height: 1.4; }
+        .sp-text strong { color: #111; display: block; font-size: 14px; }
+
+        @keyframes sp-slide {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            #social-proof-float { left: 10px; right: 10px; bottom: 10px; }
+        }
+    </style>
+
+    <script>
+        // Header Scroll Effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.style.background = 'rgba(15, 23, 42, 0.98)';
+                header.classList.add('shadow-md');
+            } else {
+                header.style.background = 'rgba(15, 23, 42, 0.95)';
+                header.classList.remove('shadow-md');
+            }
+        });
+
+        // Pausar outros áudios
+        const audios = document.querySelectorAll('audio');
+        audios.forEach(audio => {
+            audio.addEventListener('play', () => {
+                audios.forEach(other => { if (other !== audio) other.pause(); });
+            });
+        });
+
+        // ========== NOTIFICAÇÕES DE PROVA SOCIAL ==========
+        (function() {
+            const dados = {
+                nomes: ["Alexandre", "Maria", "Ricardo", "Fernanda", "José", "Cláudia", "Roberto", "Patrícia", "Carlos", "Sueli", "Eduardo", "Vanessa", "Marcos", "Juliana", "Rafael"],
+                servicos: ["um Jingle Comercial", "um Jingle AI Pro", "um Jingle para Loja", "um Jingle para Rádio", "uma Melodia Exclusiva", "um Jingle Personalizado"],
+                acoes: ["acabou de criar", "fechou agora pelo WhatsApp", "solicitou orçamento de", "acabou de contratar", "recebeu o jingle pronto", "pediu agora mesmo"]
+            };
+
+            const container = document.getElementById('social-proof-float');
+            const elName = document.getElementById('sp-name');
+            const elAction = document.getElementById('sp-action');
+            const elService = document.getElementById('sp-service');
+
+            function mostrarNotificacao() {
+                elName.innerText = dados.nomes[Math.floor(Math.random() * dados.nomes.length)];
+                elAction.innerText = dados.acoes[Math.floor(Math.random() * dados.acoes.length)];
+                elService.innerText = dados.servicos[Math.floor(Math.random() * dados.servicos.length)];
+
+                container.style.display = 'block';
+
+                setTimeout(() => {
+                    container.style.display = 'none';
+                }, 6000);
+            }
+
+            setTimeout(function loop() {
+                mostrarNotificacao();
+                let proximoIntervalo = Math.floor(Math.random() * (40000 - 20000) + 20000);
+                setTimeout(loop, proximoIntervalo);
+            }, 5000);
+        })();
+    </script>
+</body>
+</html>
