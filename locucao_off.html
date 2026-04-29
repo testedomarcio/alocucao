@@ -149,11 +149,6 @@
         .badge-urgencia {
             animation: soft-pulse 2.5s infinite ease-in-out;
         }
-
-        /* Cores dos prazos */
-        .prazo-urgente { color: #10b981; } /* verde - 10 min */
-        .prazo-rapido { color: #f59e0b; }  /* amarelo - 30 min */
-        .prazo-flexivel { color: #3b82f6; } /* azul - até 4h */
     </style>
 </head>
 <body class="font-sans antialiased text-slate-800">
@@ -162,7 +157,7 @@
     <header class="fixed w-full top-0 z-50 glass-header text-white transition-all py-3">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
             <a href="#" class="shrink-0">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_sBFI94b0Jhnsl6DY4UwsTOpsmltn1MNvF5n6zcrkdLUd7oqFJfxF5NAtCEwBchu-b65jEsMXi60X2SlPb04XheC1fuEaG-sRzEbENAbN4eMSX5YHbdk6oGhfGTHQOPR1tZJn_GwXOAjUL6UX4ZvpVITZOL6is83xruSEkk343d-9VEx5osefurjX8aY/s1600/logo.png" alt="Estúdio A Locução" class="h-9 sm:h-10 w-auto" width="120" height="40">
+                <img src="https://testedomarcio.github.io/meuadio/logo.webp" alt="Estúdio A Locução" class="h-9 sm:h-10 w-auto" width="120" height="40">
             </a>
             <div class="flex items-center gap-3 sm:gap-4">
                 <span class="hidden md:flex items-center gap-2 text-slate-400 text-xs font-medium border-r border-slate-700 pr-4">
@@ -205,33 +200,6 @@
                 <p class="text-slate-300 text-base lg:text-xl mb-6 leading-relaxed max-w-2xl font-normal">
                     <strong class="text-white font-semibold">Voz limpa e profissional para seu projeto.</strong> Ideal para editores de vídeo, produtoras e agências que precisam de agilidade sem abrir mão da qualidade.
                 </p>
-
-                <!-- Prazos Transparentes (NOVO - Diferencial Bem Comunicado) -->
-                <div class="mb-8 w-full max-w-2xl">
-                    <div class="bg-slate-800/50 border border-slate-700 rounded-2xl px-6 py-5">
-                        <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-3 text-center">Prazos de Entrega (Conforme Locutor Escolhido)</p>
-                        <div class="grid grid-cols-3 gap-4 text-center">
-                            <div class="bg-slate-900/50 rounded-xl p-3 border border-slate-700">
-                                <i class="fas fa-bolt text-2xl prazo-urgente mb-1"></i>
-                                <p class="font-black text-xl prazo-urgente">10 min</p>
-                                <p class="text-slate-400 text-[10px] uppercase tracking-wider">Locutores Urgentes</p>
-                            </div>
-                            <div class="bg-slate-900/50 rounded-xl p-3 border border-slate-700">
-                                <i class="fas fa-clock text-2xl prazo-rapido mb-1"></i>
-                                <p class="font-black text-xl prazo-rapido">30 min</p>
-                                <p class="text-slate-400 text-[10px] uppercase tracking-wider">Locutores Rápidos</p>
-                            </div>
-                            <div class="bg-slate-900/50 rounded-xl p-3 border border-slate-700">
-                                <i class="fas fa-hourglass-half text-2xl prazo-flexivel mb-1"></i>
-                                <p class="font-black text-xl prazo-flexivel">até 4h</p>
-                                <p class="text-slate-400 text-[10px] uppercase tracking-wider">Mais Opções de Voz</p>
-                            </div>
-                        </div>
-                        <p class="text-slate-500 text-[11px] mt-3 text-center leading-relaxed">
-                            Temos locutores com diferentes status de disponibilidade. <strong class="text-slate-300">Escolha a voz ideal e o prazo</strong> que melhor atende seu projeto.
-                        </p>
-                    </div>
-                </div>
 
                 <!-- Preço -->
                 <div class="mb-8 flex flex-col items-center">
@@ -285,7 +253,7 @@
             <div class="max-w-7xl mx-auto px-4">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                     <div class="text-white">
-                        <i class="fas fa-bolt text-3xl prazo-urgente mb-2"></i>
+                        <i class="fas fa-bolt text-3xl text-green-400 mb-2"></i>
                         <p class="font-black text-xl">10 min</p>
                         <p class="text-slate-500 text-xs uppercase tracking-wider">Entrega Mínima</p>
                     </div>
@@ -355,41 +323,37 @@
                     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         <!-- Lindy -->
                         <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4">
-                            <img src="https://testedomarcio.github.io/meuadio/lindy.jpeg" alt="Locutora Lindy" class="locutor-img shrink-0" loading="lazy">
+                            <img src="https://testedomarcio.github.io/meuadio/lindy.webp" alt="Locutora Lindy" class="locutor-img shrink-0" loading="lazy">
                             <div class="flex-1 min-w-0">
                                 <h4 class="font-bold text-slate-800 text-sm">Lindy</h4>
                                 <p class="text-xs text-slate-400 mb-1">Jovem · Energética · Comercial</p>
-                                <p class="text-xs font-medium prazo-urgente mb-2"><i class="fas fa-bolt text-[10px]"></i> Entrega em 10 min</p>
                                 <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Lindy_Off')"><source src="https://testedomarcio.github.io/meuadio/Lindy.mp3" type="audio/mpeg"></audio>
                             </div>
                         </div>
                         <!-- Elissandra -->
                         <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4">
-                            <img src="https://testedomarcio.github.io/meuadio/Elissandra.jpg" alt="Locutora Elissandra" class="locutor-img shrink-0" loading="lazy">
+                            <img src="https://testedomarcio.github.io/meuadio/Elissandra.webp" alt="Locutora Elissandra" class="locutor-img shrink-0" loading="lazy">
                             <div class="flex-1 min-w-0">
                                 <h4 class="font-bold text-slate-800 text-sm">Elissandra</h4>
                                 <p class="text-xs text-slate-400 mb-1">Suave · Acolhedora · Institucional</p>
-                                <p class="text-xs font-medium prazo-rapido mb-2"><i class="fas fa-clock text-[10px]"></i> Entrega em 30 min</p>
                                 <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Elissandra_Off')"><source src="https://testedomarcio.github.io/meuadio/elissandra.mp3" type="audio/mpeg"></audio>
                             </div>
                         </div>
                         <!-- Silvia -->
                         <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4">
-                            <img src="https://testedomarcio.github.io/meuadio/silvia.jpeg" alt="Locutora Silvia" class="locutor-img shrink-0" loading="lazy">
+                            <img src="https://testedomarcio.github.io/meuadio/Silvia.webp" alt="Locutora Silvia" class="locutor-img shrink-0" loading="lazy">
                             <div class="flex-1 min-w-0">
                                 <h4 class="font-bold text-slate-800 text-sm">Silvia</h4>
                                 <p class="text-xs text-slate-400 mb-1">Elegante · Sofisticada · Premium</p>
-                                <p class="text-xs font-medium prazo-flexivel mb-2"><i class="fas fa-hourglass-half text-[10px]"></i> Entrega em até 4h</p>
                                 <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Silvia_Off')"><source src="https://testedomarcio.github.io/meuadio/Silvia.mp3" type="audio/mpeg"></audio>
                             </div>
                         </div>
                         <!-- Tati -->
                         <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4">
-                            <img src="https://testedomarcio.github.io/meuadio/tati.jpg" alt="Locutora Tati" class="locutor-img shrink-0" loading="lazy">
+                            <img src="https://testedomarcio.github.io/meuadio/Tati.webp" alt="Locutora Tati" class="locutor-img shrink-0" loading="lazy">
                             <div class="flex-1 min-w-0">
                                 <h4 class="font-bold text-slate-800 text-sm">Tati</h4>
                                 <p class="text-xs text-slate-400 mb-1">Descontraída · Divertida · Varejo</p>
-                                <p class="text-xs font-medium prazo-urgente mb-2"><i class="fas fa-bolt text-[10px]"></i> Entrega em 10 min</p>
                                 <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Tati_Off')"><source src="https://testedomarcio.github.io/meuadio/tati.mp3" type="audio/mpeg"></audio>
                             </div>
                         </div>
@@ -404,41 +368,37 @@
                     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         <!-- Celso -->
                         <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4">
-                            <img src="https://testedomarcio.github.io/meuadio/celso.jpg" alt="Locutor Celso" class="locutor-img shrink-0" loading="lazy">
+                            <img src="https://testedomarcio.github.io/meuadio/celso.webp" alt="Locutor Celso" class="locutor-img shrink-0" loading="lazy">
                             <div class="flex-1 min-w-0">
                                 <h4 class="font-bold text-slate-800 text-sm">Celso</h4>
                                 <p class="text-xs text-slate-400 mb-1">Grave · Impactante · Vendas</p>
-                                <p class="text-xs font-medium prazo-rapido mb-2"><i class="fas fa-clock text-[10px]"></i> Entrega em 30 min</p>
                                 <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Celso_Off')"><source src="https://testedomarcio.github.io/meuadio/Celso.mp3" type="audio/mpeg"></audio>
                             </div>
                         </div>
                         <!-- Charles -->
                         <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4">
-                            <img src="https://testedomarcio.github.io/meuadio/charles.png" alt="Locutor Charles" class="locutor-img shrink-0" loading="lazy">
+                            <img src="https://testedomarcio.github.io/meuadio/charles.webp" alt="Locutor Charles" class="locutor-img shrink-0" loading="lazy">
                             <div class="flex-1 min-w-0">
                                 <h4 class="font-bold text-slate-800 text-sm">Charles</h4>
                                 <p class="text-xs text-slate-400 mb-1">Clássico · Confiável · Rádio</p>
-                                <p class="text-xs font-medium prazo-urgente mb-2"><i class="fas fa-bolt text-[10px]"></i> Entrega em 10 min</p>
                                 <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Charles_Off')"><source src="https://testedomarcio.github.io/meuadio/Charles.mp3" type="audio/mpeg"></audio>
                             </div>
                         </div>
                         <!-- Cristian Jr -->
                         <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4">
-                            <img src="https://testedomarcio.github.io/meuadio/CristianJr.jpg" alt="Locutor Cristian Jr" class="locutor-img shrink-0" loading="lazy">
+                            <img src="https://testedomarcio.github.io/meuadio/Cristian.webp" alt="Locutor Cristian Jr" class="locutor-img shrink-0" loading="lazy">
                             <div class="flex-1 min-w-0">
                                 <h4 class="font-bold text-slate-800 text-sm">Cristian Jr</h4>
                                 <p class="text-xs text-slate-400 mb-1">Jovem · Dinâmico · Moderno</p>
-                                <p class="text-xs font-medium prazo-flexivel mb-2"><i class="fas fa-hourglass-half text-[10px]"></i> Entrega em até 4h</p>
                                 <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Cristian_Jr_Off')"><source src="https://testedomarcio.github.io/meuadio/Cristian.mp3" type="audio/mpeg"></audio>
                             </div>
                         </div>
                         <!-- Leandro -->
                         <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4">
-                            <img src="https://testedomarcio.github.io/meuadio/leandro.jpg" alt="Locutor Leandro" class="locutor-img shrink-0" loading="lazy">
+                            <img src="https://testedomarcio.github.io/meuadio/Leandro.webp" alt="Locutor Leandro" class="locutor-img shrink-0" loading="lazy">
                             <div class="flex-1 min-w-0">
                                 <h4 class="font-bold text-slate-800 text-sm">Leandro</h4>
                                 <p class="text-xs text-slate-400 mb-1">Versátil · Persuasivo · Narração</p>
-                                <p class="text-xs font-medium prazo-rapido mb-2"><i class="fas fa-clock text-[10px]"></i> Entrega em 30 min</p>
                                 <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Leandro_Off')"><source src="https://testedomarcio.github.io/meuadio/Leandro.mp3" type="audio/mpeg"></audio>
                             </div>
                         </div>
@@ -545,7 +505,7 @@
                 <div class="space-y-3">
                     <details class="group bg-white border border-slate-200 rounded-2xl p-5 open:ring-1 open:ring-slate-300">
                         <summary class="flex justify-between items-center font-bold text-slate-700 cursor-pointer">Quanto tempo realmente demora? <span class="transition group-open:rotate-180 text-slate-400"><i class="fas fa-chevron-down"></i></span></summary>
-                        <p class="text-slate-500 mt-4 text-sm border-t border-slate-200 pt-4">O prazo varia conforme o locutor escolhido: temos opções com entrega em <strong class="prazo-urgente">até 10 minutos</strong>, <strong class="prazo-rapido">até 30 minutos</strong> e <strong class="prazo-flexivel">até 4 horas</strong>. Todos entregam com qualidade profissional.</p>
+                        <p class="text-slate-500 mt-4 text-sm border-t border-slate-200 pt-4">O prazo varia conforme o locutor escolhido: temos opções com entrega em <strong class="text-green-600">até 10 minutos</strong>, <strong class="text-amber-500">até 30 minutos</strong> e <strong class="text-blue-500">até 4 horas</strong>. Todos entregam com qualidade profissional.</p>
                     </details>
                     <details class="group bg-white border border-slate-200 rounded-2xl p-5 open:ring-1 open:ring-slate-300">
                         <summary class="flex justify-between items-center font-bold text-slate-700 cursor-pointer">Funciona final de semana e feriado? <span class="transition group-open:rotate-180 text-slate-400"><i class="fas fa-chevron-down"></i></span></summary>
