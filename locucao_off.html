@@ -149,6 +149,21 @@
         .badge-urgencia {
             animation: soft-pulse 2.5s infinite ease-in-out;
         }
+
+        /* Promo/Exit Intent Popup */
+        #promo-popup {
+            display: none;
+        }
+        #promo-popup.active {
+            display: flex;
+        }
+        .popup-content {
+            animation: slideUp 0.5s ease-out;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-slate-800">
@@ -561,6 +576,45 @@
         <span class="font-bold text-sm max-w-0 overflow-hidden group-hover:max-w-xs group-hover:px-2 transition-all duration-300 whitespace-nowrap hidden sm:block">Preciso Agora</span>
     </a>
 
+    <!-- Pop-up Oferta Relâmpago Primeira Compra -->
+    <div id="promo-popup" class="fixed inset-0 bg-black/80 z-[99999] hidden items-center justify-center p-4">
+        <div class="popup-content bg-white p-6 md:p-8 rounded-3xl max-w-md w-full text-center shadow-2xl relative">
+            <!-- Botão Fechar -->
+            <button onclick="closePromoPopup()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition-colors">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+
+            <div class="inline-flex items-center gap-2 bg-red-100 text-red-600 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4 animate-pulse">
+                <i class="fas fa-fire"></i> Oferta Primeira Compra
+            </div>
+            
+            <h3 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-2">Gravação em Off</h3>
+            <p class="text-slate-500 mb-2">Sua primeira gravação de voz limpa de <span class="line-through text-slate-400">R$ 14,90</span> por apenas:</p>
+            
+            <div class="text-6xl font-black italic text-slate-900 mb-6 drop-shadow-sm">
+                R$ 9,90
+            </div>
+            
+            <!-- Timer Countdown -->
+            <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200 mb-6">
+                <p class="text-xs text-slate-500 font-bold uppercase mb-2">Esta oferta expira em:</p>
+                <div class="flex justify-center items-center gap-3 text-3xl font-black text-red-600" id="countdown-timer">
+                    <div class="bg-white px-3 py-2 rounded-xl shadow-sm border border-red-100 w-16"><span id="timer-min">15</span><span class="block text-[9px] font-bold text-slate-400 uppercase mt-1">Min</span></div>
+                    <span class="text-slate-300 -mt-5">:</span>
+                    <div class="bg-white px-3 py-2 rounded-xl shadow-sm border border-red-100 w-16"><span id="timer-sec">00</span><span class="block text-[9px] font-bold text-slate-400 uppercase mt-1">Seg</span></div>
+                </div>
+            </div>
+            
+            <a href="#" 
+               onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20estou%20no%20site%20e%20quero%20garantir%20minha%20primeira%20grava%C3%A7%C3%A3o%20em%20off%20por%20apenas%20R%24%209%2C90!', 'WA_CLICK', 'WhatsApp', 'Promo_Popup_Off')"
+               class="flex items-center justify-center w-full bg-action-green hover:bg-action-green-hover text-white py-4 rounded-xl font-black uppercase tracking-widest transition-all shadow-[0_10px_20px_rgba(37,211,102,0.3)] hover:-translate-y-1 mb-3">
+                <i class="fab fa-whatsapp text-2xl mr-2"></i> QUERO POR R$ 9,90
+            </a>
+            
+            <p class="text-[10px] text-slate-400 font-medium"><i class="fas fa-lock mr-1"></i> Oferta válida para 1 (uma) gravação (voz seca). Atendimento imediato.</p>
+        </div>
+    </div>
+
     <script>
         // Header Scroll Effect
         const header = document.querySelector('header');
@@ -580,6 +634,65 @@
             audio.addEventListener('play', () => {
                 audios.forEach(other => { if (other !== audio) other.pause(); });
             });
+        });
+
+        // Lógica do Pop-up de Oferta (Timer + Urgência)
+        const promoPopup = document.getElementById('promo-popup');
+        let timerInterval;
+
+        function showPromoPopup() {
+            // Chave diferente ('oferta990Exibida') da página anterior para rodar independente
+            if(!sessionStorage.getItem('oferta990Exibida')) {
+                promoPopup.classList.add('active');
+                startTimer(15 * 60); // Inicia com 15 minutos
+                sessionStorage.setItem('oferta990Exibida', 'true');
+            }
+        }
+
+        function closePromoPopup() {
+            promoPopup.classList.remove('active');
+        }
+
+        function startTimer(duration) {
+            let timer = duration, minutes, seconds;
+            const minEl = document.getElementById('timer-min');
+            const secEl = document.getElementById('timer-sec');
+
+            clearInterval(timerInterval);
+
+            timerInterval = setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                minEl.textContent = minutes;
+                secEl.textContent = seconds;
+
+                if (--timer < 0) {
+                    clearInterval(timerInterval);
+                    minEl.textContent = "00";
+                    secEl.textContent = "00";
+                }
+            }, 1000);
+        }
+
+        // 1. Gatilho de Tempo: Mostrar após 3 segundos na página
+        setTimeout(showPromoPopup, 3000);
+
+        // 2. Gatilho de Saída (Intenção de Saída)
+        document.addEventListener('mouseout', function(e) {
+            if (e.clientY < 10 && e.relatedTarget === null) {
+                showPromoPopup();
+            }
+        });
+
+        // Clicar fora do Pop-up também fecha
+        promoPopup.addEventListener('click', function(e) {
+            if (e.target === promoPopup) {
+                closePromoPopup();
+            }
         });
     </script>
 </body>
