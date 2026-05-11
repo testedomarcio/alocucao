@@ -546,7 +546,7 @@
         <span class="font-bold text-sm max-w-0 overflow-hidden group-hover:max-w-xs group-hover:px-2 transition-all duration-300 whitespace-nowrap hidden sm:block">Chamar Agora</span>
     </a>
 
-    <!-- Pop-up Oferta Relâmpago (Substituindo Exit Intent) -->
+    <!-- Pop-up Exit Intent - NOVO CONTEÚDO -->
     <div id="promo-popup" class="fixed inset-0 bg-black/80 z-[99999] hidden items-center justify-center p-4">
         <div class="popup-content bg-white p-6 md:p-8 rounded-3xl max-w-md w-full text-center shadow-2xl relative">
             <!-- Botão Fechar -->
@@ -554,34 +554,54 @@
                 <i class="fas fa-times text-xl"></i>
             </button>
 
-            <div class="inline-flex items-center gap-2 bg-red-100 text-red-600 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4 animate-pulse">
-                <i class="fas fa-fire"></i> Oferta Exclusiva
+            <!-- Tag Visual no Topo - Estilo Aviso -->
+            <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider mb-5 border border-blue-200">
+                <i class="fas fa-clock"></i> 🕒 Disponibilidade 24/7
             </div>
             
-            <h3 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-2">Spot Comercial Completo</h3>
-            <p class="text-slate-500 mb-2">Sua primeira produção de <span class="line-through text-slate-400">R$ 24,90</span> por apenas:</p>
+            <!-- Título Impactante -->
+            <h3 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight mb-3 leading-tight">
+                Precisa do áudio para o fim de semana ou feriado?
+            </h3>
             
-            <div class="text-6xl font-black italic text-slate-900 mb-6 drop-shadow-sm">
-                R$ 19,90
+            <!-- Subtítulo/Corpo -->
+            <p class="text-slate-500 text-sm mb-5 leading-relaxed">
+                Não se preocupe com o relógio. Cadastre-se gratuitamente no nosso painel e tenha acesso a 
+                <strong class="text-slate-700">mais de 300 vozes 100% humanas</strong>.
+            </p>
+            
+            <p class="text-slate-500 text-sm mb-6 leading-relaxed">
+                Nossos locutores gravam <strong class="text-slate-700">todos os dias</strong>, fora do horário comercial, 
+                finais de semana e feriados para garantir que sua campanha não pare.
+            </p>
+            
+            <!-- Checklist -->
+            <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200 mb-6 text-left">
+                <ul class="space-y-2">
+                    <li class="flex items-center gap-2 text-sm text-slate-600">
+                        <span class="text-green-500 font-bold">✓</span> Sem taxa de adesão
+                    </li>
+                    <li class="flex items-center gap-2 text-sm text-slate-600">
+                        <span class="text-green-500 font-bold">✓</span> Entrega rápida real
+                    </li>
+                    <li class="flex items-center gap-2 text-sm text-slate-600">
+                        <span class="text-green-500 font-bold">✓</span> Banco de vozes diversificado
+                    </li>
+                </ul>
             </div>
             
-            <!-- Timer Countdown -->
-            <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200 mb-6">
-                <p class="text-xs text-slate-500 font-bold uppercase mb-2">Esta oferta expira em:</p>
-                <div class="flex justify-center items-center gap-3 text-3xl font-black text-red-600" id="countdown-timer">
-                    <div class="bg-white px-3 py-2 rounded-xl shadow-sm border border-red-100 w-16"><span id="timer-min">15</span><span class="block text-[9px] font-bold text-slate-400 uppercase mt-1">Min</span></div>
-                    <span class="text-slate-300 -mt-5">:</span>
-                    <div class="bg-white px-3 py-2 rounded-xl shadow-sm border border-red-100 w-16"><span id="timer-sec">00</span><span class="block text-[9px] font-bold text-slate-400 uppercase mt-1">Seg</span></div>
-                </div>
-            </div>
-            
-            <a href="#" 
-               onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20estou%20no%20site%20e%20quero%20garantir%20minha%20primeira%20produ%C3%A7%C3%A3o%20por%20apenas%20R%24%2019%2C90!', 'WA_CLICK', 'WhatsApp', 'Promo_Popup')"
-               class="flex items-center justify-center w-full bg-action-green hover:bg-action-green-hover text-white py-4 rounded-xl font-black uppercase tracking-widest transition-all shadow-[0_10px_20px_rgba(37,211,102,0.3)] hover:-translate-y-1 mb-3">
-                <i class="fab fa-whatsapp text-2xl mr-2"></i> QUERO POR R$ 19,90
+            <!-- Botão CTA Verde -->
+            <a href="https://www.alocucao.com.br/cadastro" 
+               onclick="trackPanelClick()"
+               target="_blank"
+               class="flex items-center justify-center w-full bg-action-green hover:bg-action-green-hover text-white py-4 rounded-xl font-black uppercase tracking-widest transition-all shadow-[0_10px_20px_rgba(37,211,102,0.3)] hover:-translate-y-1 mb-3 text-sm">
+                <i class="fas fa-user-plus text-lg mr-2"></i> ACESSAR PAINEL GRATUITAMENTE
             </a>
             
-            <p class="text-[10px] text-slate-400 font-medium"><i class="fas fa-lock mr-1"></i> Oferta válida para 1 (uma) produção. Atendimento imediato.</p>
+            <!-- Texto de apoio -->
+            <p class="text-[10px] text-slate-400 font-medium">
+                <i class="fas fa-lock mr-1"></i> Cadastro gratuito • Acesso imediato às vozes
+            </p>
         </div>
     </div>
 
@@ -606,18 +626,16 @@
             });
         });
 
-        // ====== LÓGICA CORRIGIDA DO POPUP ======
+        // ====== LÓGICA DO POPUP EXIT INTENT ======
         const promoPopup = document.getElementById('promo-popup');
-        let timerInterval;
         let popupShown = false; // Flag para controlar se o popup já foi mostrado
 
         function showPromoPopup() {
             // Só mostra se ainda não foi exibido nesta sessão
-            if (!popupShown && !sessionStorage.getItem('oferta1990Exibida')) {
+            if (!popupShown && !sessionStorage.getItem('popupPainelExibido')) {
                 promoPopup.classList.add('active');
-                startTimer(15 * 60); // Inicia com 15 minutos (15 * 60 segundos)
                 popupShown = true;
-                sessionStorage.setItem('oferta1990Exibida', 'true');
+                sessionStorage.setItem('popupPainelExibido', 'true');
             }
         }
 
@@ -625,36 +643,7 @@
             promoPopup.classList.remove('active');
         }
 
-        function startTimer(duration) {
-            let timer = duration, minutes, seconds;
-            const minEl = document.getElementById('timer-min');
-            const secEl = document.getElementById('timer-sec');
-
-            // Limpa qualquer timer anterior
-            clearInterval(timerInterval);
-
-            timerInterval = setInterval(function () {
-                minutes = parseInt(timer / 60, 10);
-                seconds = parseInt(timer % 60, 10);
-
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                minEl.textContent = minutes;
-                secEl.textContent = seconds;
-
-                if (--timer < 0) {
-                    clearInterval(timerInterval);
-                    minEl.textContent = "00";
-                    secEl.textContent = "00";
-                }
-            }, 1000);
-        }
-
-        // 1. GATILHO DE TEMPO: Mostrar após 3 MINUTOS (180000 milissegundos)
-        setTimeout(showPromoPopup, 180000); // 3 minutos = 180.000 ms
-
-        // 2. GATILHO DE SAÍDA/EXIT INTENT: Quando o mouse sai da janela (tentando fechar a aba)
+        // 1. GATILHO DE SAÍDA/EXIT INTENT: Quando o mouse sai da janela (tentando fechar a aba)
         document.addEventListener('mouseout', function(e) {
             // Se o mouse cruzar a barra superior do navegador
             if (e.clientY < 10 && e.relatedTarget === null) {
@@ -662,7 +651,7 @@
             }
         });
 
-        // 3. GATILHO DE BOTÃO VOLTAR: Detecta quando o usuário tenta navegar para trás
+        // 2. GATILHO DE BOTÃO VOLTAR: Detecta quando o usuário tenta navegar para trás
         // Adiciona um estado ao histórico para capturar o evento de voltar
         window.addEventListener('load', function() {
             // Adiciona um estado extra ao histórico para detectar o botão voltar
