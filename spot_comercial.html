@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth scroll-pt-24">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     
-    <!-- SEO & Meta Tags Otimizados para Ads -->
+    <!-- SEO & Meta Tags Otimizadas para Ads -->
     <title>Spot Comercial Profissional com Entrega Rápida | Estúdio A Locução</title>
     <meta name="description" content="Spot comercial completo com locução profissional, trilha e efeitos. Entrega em poucas horas. Produção rápida e qualidade garantida!">
     
@@ -102,7 +102,7 @@
     </script>
 
     <style>
-        body { font-family: 'Inter', sans-serif; overflow-x: hidden; background-color: #f8fafc; }
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; background-color: #f8fafc; scroll-behavior: smooth; }
         
         @media (max-width: 640px) {
             .backdrop-blur, .glass-effect {
@@ -167,6 +167,16 @@
         .badge-urgencia {
             animation: soft-pulse 2.5s infinite ease-in-out;
         }
+
+        /* Seções âncora - padding para compensar header fixo */
+        .anchor-section {
+            scroll-margin-top: 80px;
+        }
+        @media (max-width: 768px) {
+            .anchor-section {
+                scroll-margin-top: 70px;
+            }
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-slate-800">
@@ -190,13 +200,13 @@
     </header>
 
     <main>
-        <!-- Hero Section - ID HOME ADICIONADO AQUI -->
-        <section id="home" class="bg-darkBg pt-28 pb-16 lg:pt-36 lg:pb-20 relative overflow-hidden text-white">
+        <!-- Hero Section - ÂNCORA #home: mensagem "Atendendo Agora • Vagas Limitadas Hoje" -->
+        <section id="home" class="anchor-section bg-darkBg pt-28 pb-16 lg:pt-36 lg:pb-20 relative overflow-hidden text-white">
             <div class="absolute inset-0 bg-gradient-to-b from-brand-blue/20 to-transparent pointer-events-none"></div>
             
             <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center text-center">
                 
-                <!-- Badge de Urgência Sutil -->
+                <!-- Badge de Urgência Sutil - Mensagem alvo da âncora #home -->
                 <div class="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 text-slate-400 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 badge-urgencia">
                     <span class="relative flex h-2 w-2">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -232,7 +242,7 @@
                     </div>
                 </div>
                 
-                <!-- CTA Principal - ÚNICO elemento com destaque máximo -->
+                <!-- CTA Principal -->
                 <div class="flex flex-col items-center w-full max-w-2xl">
                     <a href="#" 
                        onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20meu%20Spot%20Comercial%20com%20entrega%20r%C3%A1pida!', 'WA_CLICK', 'WhatsApp', 'Hero_Principal')"
@@ -246,7 +256,7 @@
                     </p>
                 </div>
 
-                <!-- Micro links secundários (visibilidade reduzida) -->
+                <!-- Micro links secundários -->
                 <div class="mt-8 pt-6 border-t border-white/5 w-full max-w-3xl flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
                     <a href="https://www.alocucao.com.br/cadastro" 
                        onclick="trackPanelClick()"
@@ -263,7 +273,7 @@
             </div>
         </section>
 
-        <!-- Marcas (Prova Social) - Visual mais limpo -->
+        <!-- Marcas (Prova Social) -->
         <section class="py-6 bg-slate-900 border-b border-slate-800 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4">
                 <p class="text-center text-xs font-bold text-slate-600 uppercase tracking-widest mb-4">Empresas e Rádios que confiam no nosso áudio</p>
@@ -283,7 +293,6 @@
                         <span class="text-slate-500 font-bold text-lg">Agência Recom</span><span class="text-slate-700">•</span>
                         <span class="text-slate-500 font-bold text-lg">Radio Ney Digital</span><span class="text-slate-700">•</span>
                         <span class="text-slate-500 font-bold text-lg">Bariri Rádio Clube LTDA</span><span class="text-slate-700">•</span>
-                        <!-- Duplicado -->
                         <span class="text-slate-500 font-bold text-lg">Design Móveis</span><span class="text-slate-700">•</span>
                         <span class="text-slate-500 font-bold text-lg">Sower Modas</span><span class="text-slate-700">•</span>
                         <span class="text-slate-500 font-bold text-lg">Universo Tecnologia</span><span class="text-slate-700">•</span>
@@ -303,8 +312,8 @@
             </div>
         </section>
 
-        <!-- Galeria de Vozes - ID VOZES ADICIONADO AQUI -->
-        <section id="vozes" class="py-16 lg:py-20 bg-white">
+        <!-- Galeria de Vozes - ÂNCORA #vozes: "Ouça Nossas Vozes" -->
+        <section id="vozes" class="anchor-section py-16 lg:py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-10">
                     <span class="text-slate-400 font-bold uppercase tracking-widest text-xs mb-2 block">Ouça Nossas Vozes</span>
@@ -322,7 +331,6 @@
                         <i class="fas fa-female text-slate-400 text-xl"></i> Vozes Femininas
                     </h3>
                     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <!-- Lindy -->
                         <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4">
                             <img src="https://testedomarcio.github.io/meuadio/lindy.webp" alt="Locutora Lindy" class="locutor-img shrink-0" loading="lazy">
                             <div class="flex-1 min-w-0">
@@ -331,7 +339,6 @@
                                 <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Lindy')"><source src="https://testedomarcio.github.io/meuadio/Lindy.mp3" type="audio/mpeg"></audio>
                             </div>
                         </div>
-                        <!-- Elissandra -->
                         <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4">
                             <img src="https://testedomarcio.github.io/meuadio/Elissandra.webp" alt="Locutora Elissandra" class="locutor-img shrink-0" loading="lazy">
                             <div class="flex-1 min-w-0">
@@ -340,7 +347,6 @@
                                 <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Elissandra')"><source src="https://testedomarcio.github.io/meuadio/elissandra.mp3" type="audio/mpeg"></audio>
                             </div>
                         </div>
-                        <!-- Silvia -->
                         <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4">
                             <img src="https://testedomarcio.github.io/meuadio/Silvia.webp" alt="Locutora Silvia" class="locutor-img shrink-0" loading="lazy">
                             <div class="flex-1 min-w-0">
@@ -349,7 +355,6 @@
                                 <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Silvia')"><source src="https://testedomarcio.github.io/meuadio/Silvia.mp3" type="audio/mpeg"></audio>
                             </div>
                         </div>
-                        <!-- Tati -->
                         <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4">
                             <img src="https://testedomarcio.github.io/meuadio/Tati.webp" alt="Locutora Tati" class="locutor-img shrink-0" loading="lazy">
                             <div class="flex-1 min-w-0">
@@ -367,7 +372,6 @@
                         <i class="fas fa-male text-slate-400 text-xl"></i> Vozes Masculinas
                     </h3>
                     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <!-- Celso -->
                         <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4">
                             <img src="https://testedomarcio.github.io/meuadio/celso.webp" alt="Locutor Celso" class="locutor-img shrink-0" loading="lazy">
                             <div class="flex-1 min-w-0">
@@ -376,7 +380,6 @@
                                 <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Celso')"><source src="https://testedomarcio.github.io/meuadio/Celso.mp3" type="audio/mpeg"></audio>
                             </div>
                         </div>
-                        <!-- Charles -->
                         <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4">
                             <img src="https://testedomarcio.github.io/meuadio/charles.webp" alt="Locutor Charles" class="locutor-img shrink-0" loading="lazy">
                             <div class="flex-1 min-w-0">
@@ -385,7 +388,6 @@
                                 <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Charles')"><source src="https://testedomarcio.github.io/meuadio/Charles.mp3" type="audio/mpeg"></audio>
                             </div>
                         </div>
-                        <!-- Cristian Jr -->
                         <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4">
                             <img src="https://testedomarcio.github.io/meuadio/Cristian.webp" alt="Locutor Cristian Jr" class="locutor-img shrink-0" loading="lazy">
                             <div class="flex-1 min-w-0">
@@ -394,7 +396,6 @@
                                 <audio controls preload="none" class="w-full" onplay="trackAudioPlay('Cristian_Jr')"><source src="https://testedomarcio.github.io/meuadio/Cristian.mp3" type="audio/mpeg"></audio>
                             </div>
                         </div>
-                        <!-- Leandro -->
                         <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4">
                             <img src="https://testedomarcio.github.io/meuadio/Leandro.webp" alt="Locutor Leandro" class="locutor-img shrink-0" loading="lazy">
                             <div class="flex-1 min-w-0">
@@ -406,7 +407,7 @@
                     </div>
                 </div>
 
-                <!-- CTA para ver vozes - Botão verde (ação secundária, mas ainda verde) -->
+                <!-- CTA para ver vozes -->
                 <div class="text-center mt-10">
                     <a href="#" 
                        onclick="trackVozesClick(); return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20quero%20ouvir%20todas%20as%20mais%20de%20200%20vozes%20dispon%C3%ADveis!', 'WA_CLICK', 'WhatsApp', 'Ver_Todas_Vozes')"
@@ -416,7 +417,6 @@
                     </a>
                     <p class="text-slate-400 text-sm mt-3">Clique e peça para ouvir nossas vozes no WhatsApp</p>
                     
-                    <!-- Diferencial de entrega (sem cor chamativa) -->
                     <div class="mt-6 bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 max-w-lg mx-auto">
                         <p class="text-slate-700 font-semibold text-sm flex items-center justify-center gap-2">
                             <i class="fas fa-clock text-slate-400"></i> 
@@ -430,8 +430,8 @@
             </div>
         </section>
 
-        <!-- Tabela de Preços - ID PRECOS ADICIONADO AQUI -->
-        <section id="precos" class="py-20 bg-slate-50">
+        <!-- Tabela de Preços - ÂNCORA #precos: "Escolha o Serviço Ideal" -->
+        <section id="precos" class="anchor-section py-20 bg-slate-50">
             <div class="max-w-5xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl sm:text-4xl font-black text-slate-900 uppercase tracking-tight">Escolha o <span class="text-slate-500">Serviço Ideal</span></h2>
@@ -439,7 +439,7 @@
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Card 1: SPOT COMPLETO (Destaque principal) -->
+                    <!-- Card 1: SPOT COMPLETO -->
                     <div class="bg-white rounded-3xl shadow-lg border-2 border-green-200 p-8 relative transform hover:-translate-y-1 transition-all">
                         <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-action-green text-white font-bold text-xs uppercase tracking-widest px-5 py-2 rounded-full shadow-md">Mais Vendido</div>
                         <div class="text-center mt-4">
@@ -461,7 +461,7 @@
                         <p class="text-center text-xs text-slate-400 mt-3">Atendimento imediato no WhatsApp</p>
                     </div>
 
-                    <!-- Card 2: LOCUÇÃO OFF (Sem destaque, sem cores fortes) -->
+                    <!-- Card 2: LOCUÇÃO OFF -->
                     <div class="bg-white rounded-3xl shadow border border-slate-200 p-8 relative opacity-85 hover:opacity-100 transition-all">
                         <div class="text-center">
                             <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Para Editores</span>
@@ -478,7 +478,7 @@
                         <a href="#" 
                            onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20quero%20solicitar%20apenas%20a%20LOCU%C3%87%C3%83O%20OFF%20(Voz%20Seca).', 'WA_CLICK', 'WhatsApp', 'Precos_Off')"
                            class="block w-full py-4 bg-white border border-slate-200 text-slate-500 hover:bg-slate-50 font-medium rounded-xl transition uppercase tracking-widest text-sm text-center">
-                            <i class="fas fa-hand-pointer mr-2"></i> PEDIR LOCUÇÃO OFF
+                            PEDIR LOCUÇÃO OFF
                         </a>
                     </div>
                 </div>
@@ -508,8 +508,8 @@
             </div>
         </section>
 
-        <!-- CTA Final - ID WHATSAPP ADICIONADO AQUI -->
-        <section id="whatsapp" class="py-20 bg-darkBg text-white text-center">
+        <!-- CTA Final - ÂNCORA #whatsapp: mensagem "Pedidos de Hoje Ainda Estão Sendo Entregues" -->
+        <section id="whatsapp" class="anchor-section py-20 bg-darkBg text-white text-center">
             <div class="max-w-3xl mx-auto px-4">
                 <div class="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 text-slate-400 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 badge-urgencia">
                     <span class="relative flex h-2 w-2">
@@ -549,64 +549,41 @@
     <!-- Pop-up Exit Intent -->
     <div id="promo-popup" class="fixed inset-0 bg-black/80 z-[99999] hidden items-center justify-center p-4">
         <div class="popup-content bg-white p-6 md:p-8 rounded-3xl max-w-md w-full text-center shadow-2xl relative">
-            <!-- Botão Fechar -->
             <button onclick="closePromoPopup()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition-colors">
                 <i class="fas fa-times text-xl"></i>
             </button>
-
-            <!-- Tag Visual no Topo - Estilo Aviso -->
             <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider mb-5 border border-blue-200">
                 <i class="fas fa-clock"></i> 🕒 Disponibilidade 24/7
             </div>
-            
-            <!-- Título Impactante -->
             <h3 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight mb-3 leading-tight">
                 Precisa do áudio para o fim de semana ou feriado?
             </h3>
-            
-            <!-- Subtítulo/Corpo -->
             <p class="text-slate-500 text-sm mb-5 leading-relaxed">
                 Não se preocupe com o relógio. Cadastre-se gratuitamente no nosso painel e tenha acesso a 
                 <strong class="text-slate-700">mais de 300 vozes 100% humanas</strong>.
             </p>
-            
             <p class="text-slate-500 text-sm mb-6 leading-relaxed">
                 Nossos locutores gravam <strong class="text-slate-700">todos os dias</strong>, fora do horário comercial, 
                 finais de semana e feriados para garantir que sua campanha não pare.
             </p>
-            
-            <!-- Checklist -->
             <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200 mb-6 text-left">
                 <ul class="space-y-2">
-                    <li class="flex items-center gap-2 text-sm text-slate-600">
-                        <span class="text-green-500 font-bold">✓</span> Sem taxa de adesão
-                    </li>
-                    <li class="flex items-center gap-2 text-sm text-slate-600">
-                        <span class="text-green-500 font-bold">✓</span> Entrega rápida real
-                    </li>
-                    <li class="flex items-center gap-2 text-sm text-slate-600">
-                        <span class="text-green-500 font-bold">✓</span> Banco de vozes diversificado
-                    </li>
+                    <li class="flex items-center gap-2 text-sm text-slate-600"><span class="text-green-500 font-bold">✓</span> Sem taxa de adesão</li>
+                    <li class="flex items-center gap-2 text-sm text-slate-600"><span class="text-green-500 font-bold">✓</span> Entrega rápida real</li>
+                    <li class="flex items-center gap-2 text-sm text-slate-600"><span class="text-green-500 font-bold">✓</span> Banco de vozes diversificado</li>
                 </ul>
             </div>
-            
-            <!-- Botão CTA Verde -->
             <a href="https://www.alocucao.com.br/cadastro" 
                onclick="trackPanelClick()"
                target="_blank"
                class="flex items-center justify-center w-full bg-action-green hover:bg-action-green-hover text-white py-4 rounded-xl font-black uppercase tracking-widest transition-all shadow-[0_10px_20px_rgba(37,211,102,0.3)] hover:-translate-y-1 mb-3 text-sm">
                 <i class="fas fa-user-plus text-lg mr-2"></i> ACESSAR PAINEL GRATUITAMENTE
             </a>
-            
-            <!-- Texto de apoio -->
-            <p class="text-[10px] text-slate-400 font-medium">
-                <i class="fas fa-lock mr-1"></i> Cadastro gratuito • Acesso imediato às vozes
-            </p>
+            <p class="text-[10px] text-slate-400 font-medium"><i class="fas fa-lock mr-1"></i> Cadastro gratuito • Acesso imediato às vozes</p>
         </div>
     </div>
 
     <script>
-        // Header Scroll Effect
         const header = document.querySelector('header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 20) {
@@ -618,7 +595,6 @@
             }
         });
 
-        // Pausar outros áudios ao dar play
         const audios = document.querySelectorAll('audio');
         audios.forEach(audio => {
             audio.addEventListener('play', () => {
@@ -626,53 +602,14 @@
             });
         });
 
-        // ====== LÓGICA DO POPUP EXIT INTENT ======
         const promoPopup = document.getElementById('promo-popup');
-        let popupShown = false; // Flag para controlar se o popup já foi mostrado
-
-        function showPromoPopup() {
-            // Só mostra se ainda não foi exibido nesta sessão
-            if (!popupShown && !sessionStorage.getItem('popupPainelExibido')) {
-                promoPopup.classList.add('active');
-                popupShown = true;
-                sessionStorage.setItem('popupPainelExibido', 'true');
-            }
-        }
-
-        function closePromoPopup() {
-            promoPopup.classList.remove('active');
-        }
-
-        // 1. GATILHO DE SAÍDA/EXIT INTENT: Quando o mouse sai da janela (tentando fechar a aba)
-        document.addEventListener('mouseout', function(e) {
-            // Se o mouse cruzar a barra superior do navegador
-            if (e.clientY < 10 && e.relatedTarget === null) {
-                showPromoPopup();
-            }
-        });
-
-        // 2. GATILHO DE BOTÃO VOLTAR: Detecta quando o usuário tenta navegar para trás
-        // Adiciona um estado ao histórico para capturar o evento de voltar
-        window.addEventListener('load', function() {
-            // Adiciona um estado extra ao histórico para detectar o botão voltar
-            history.pushState({popupReady: true}, '', window.location.href);
-        });
-
-        // Detecta quando o usuário clica no botão voltar do navegador
-        window.addEventListener('popstate', function(e) {
-            if (e.state && e.state.popupReady) {
-                showPromoPopup();
-                // Re-adiciona o estado para continuar detectando
-                history.pushState({popupReady: true}, '', window.location.href);
-            }
-        });
-
-        // Clicar fora do Pop-up também fecha
-        promoPopup.addEventListener('click', function(e) {
-            if (e.target === promoPopup) {
-                closePromoPopup();
-            }
-        });
+        let popupShown = false;
+        function showPromoPopup() { if (!popupShown && !sessionStorage.getItem('popupPainelExibido')) { promoPopup.classList.add('active'); popupShown = true; sessionStorage.setItem('popupPainelExibido', 'true'); } }
+        function closePromoPopup() { promoPopup.classList.remove('active'); }
+        document.addEventListener('mouseout', function(e) { if (e.clientY < 10 && e.relatedTarget === null) showPromoPopup(); });
+        window.addEventListener('load', function() { history.pushState({popupReady: true}, '', window.location.href); });
+        window.addEventListener('popstate', function(e) { if (e.state && e.state.popupReady) { showPromoPopup(); history.pushState({popupReady: true}, '', window.location.href); } });
+        promoPopup.addEventListener('click', function(e) { if (e.target === promoPopup) closePromoPopup(); });
     </script>
     
 </body>
