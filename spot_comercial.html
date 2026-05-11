@@ -606,15 +606,17 @@
             });
         });
 
-        // Lógica do Novo Pop-up de Oferta (Timer + Urgência)
+        // ====== LÓGICA CORRIGIDA DO POPUP ======
         const promoPopup = document.getElementById('promo-popup');
         let timerInterval;
+        let popupShown = false; // Flag para controlar se o popup já foi mostrado
 
         function showPromoPopup() {
-            // Usa sessionStorage para não exibir a oferta toda vez que ele recarregar a página na mesma aba
-            if(!sessionStorage.getItem('oferta1990Exibida')) {
+            // Só mostra se ainda não foi exibido nesta sessão
+            if (!popupShown && !sessionStorage.getItem('oferta1990Exibida')) {
                 promoPopup.classList.add('active');
                 startTimer(15 * 60); // Inicia com 15 minutos (15 * 60 segundos)
+                popupShown = true;
                 sessionStorage.setItem('oferta1990Exibida', 'true');
             }
         }
@@ -649,14 +651,30 @@
             }, 1000);
         }
 
-        // 1. Gatilho de Tempo: Mostrar após 3 segundos na página
-        setTimeout(showPromoPopup, 3000);
+        // 1. GATILHO DE TEMPO: Mostrar após 3 MINUTOS (180000 milissegundos)
+        setTimeout(showPromoPopup, 180000); // 3 minutos = 180.000 ms
 
-        // 2. Gatilho de Saída (Mantido por precaução, caso o usuário tente fechar a aba muito rápido)
+        // 2. GATILHO DE SAÍDA/EXIT INTENT: Quando o mouse sai da janela (tentando fechar a aba)
         document.addEventListener('mouseout', function(e) {
             // Se o mouse cruzar a barra superior do navegador
             if (e.clientY < 10 && e.relatedTarget === null) {
                 showPromoPopup();
+            }
+        });
+
+        // 3. GATILHO DE BOTÃO VOLTAR: Detecta quando o usuário tenta navegar para trás
+        // Adiciona um estado ao histórico para capturar o evento de voltar
+        window.addEventListener('load', function() {
+            // Adiciona um estado extra ao histórico para detectar o botão voltar
+            history.pushState({popupReady: true}, '', window.location.href);
+        });
+
+        // Detecta quando o usuário clica no botão voltar do navegador
+        window.addEventListener('popstate', function(e) {
+            if (e.state && e.state.popupReady) {
+                showPromoPopup();
+                // Re-adiciona o estado para continuar detectando
+                history.pushState({popupReady: true}, '', window.location.href);
             }
         });
 
