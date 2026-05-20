@@ -1,5 +1,4 @@
-<script>(function(a,b,c,d){try{var e=b.head||b.getElementsByTagName("head")[0];var f=b.createElement("script");f.setAttribute("src",c);f.setAttribute("charset","UTF-8");f.defer=true;a.neuroleadId=d;e.appendChild(f)}catch(g){}})(window,document,"https://cdn.leadster.com.br/neurolead/neurolead.min.js","suuyuh5U3EkKnzksGWBUMxBly")</script>
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -87,6 +86,7 @@
                         'scroll': 'scroll 40s linear infinite',
                         'soft-pulse': 'soft-pulse 2.5s infinite ease-in-out',
                         'urgent-pulse': 'urgent-pulse 1.5s infinite ease-in-out',
+                        'whatsapp-bounce': 'whatsapp-bounce 2s infinite ease-in-out',
                     },
                     keyframes: {
                         scroll: {
@@ -100,6 +100,10 @@
                         'urgent-pulse': {
                             '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(239, 68, 68, 0.7)' },
                             '50%': { transform: 'scale(1.05)', boxShadow: '0 0 0 15px rgba(239, 68, 68, 0)' },
+                        },
+                        'whatsapp-bounce': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-8px)' },
                         }
                     }
                 }
@@ -184,27 +188,6 @@
             }
         }
         
-        /* Ajuste para o iframe do SoundCloud */
-        .soundcloud-container iframe {
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        .soundcloud-credit {
-            font-size: 10px; 
-            color: #cccccc;
-            line-break: anywhere;
-            word-break: normal;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis; 
-            font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
-            font-weight: 100;
-        }
-        .soundcloud-credit a {
-            color: #cccccc; 
-            text-decoration: none;
-        }
-
         /* Estilos do cronômetro */
         .timer-digits {
             font-variant-numeric: tabular-nums;
@@ -241,9 +224,107 @@
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* Botão WhatsApp Flutuante */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+        
+        .whatsapp-tooltip {
+            background: white;
+            color: #1e293b;
+            padding: 12px 18px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            position: relative;
+            animation: tooltip-float 2s infinite ease-in-out;
+            white-space: nowrap;
+            max-width: 280px;
+            text-align: center;
+        }
+        
+        .whatsapp-tooltip::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 40px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid white;
+        }
+        
+        @keyframes tooltip-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .whatsapp-button {
+            width: 65px;
+            height: 65px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            animation: whatsapp-bounce 2s infinite ease-in-out;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+            background: #1fb855;
+        }
+        
+        @media (max-width: 640px) {
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+            }
+            .whatsapp-button {
+                width: 55px;
+                height: 55px;
+                font-size: 28px;
+            }
+            .whatsapp-tooltip {
+                font-size: 12px;
+                padding: 10px 14px;
+                max-width: 220px;
+            }
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-slate-800">
+
+    <!-- Botão WhatsApp Flutuante -->
+    <div class="whatsapp-float">
+        <div class="whatsapp-tooltip">
+            <i class="fas fa-headset mr-1" style="color: #25D366;"></i> 
+            Precisa de um spot? Fale conosco!
+        </div>
+        <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20um%20spot%20profissional!" 
+           onclick="gtag('event', 'conversion', {'send_to': 'AW-18093304718/WA_FLOAT_CLICK', 'event_category': 'WhatsApp', 'event_label': 'Botao_Flutuante'});"
+           target="_blank" 
+           class="whatsapp-button" 
+           title="Fale conosco no WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
 
     <header class="fixed w-full top-0 z-50 glass-header text-white transition-all py-2 sm:py-3">
         <!-- Barra superior com contato -->
@@ -312,10 +393,10 @@
                         <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-500 text-white text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider whitespace-nowrap">⭐ Recomendado</span>
                         <p class="text-xs sm:text-sm text-green-400 font-bold uppercase tracking-widest mb-2 mt-2">Produção Completa</p>
                         <p class="text-3xl sm:text-4xl lg:text-5xl font-black text-white italic tracking-tight leading-none mb-1">
-                            R$ 24,00
+                            R$ 29,00
                         </p>
                         <p class="text-xs sm:text-sm text-slate-300 font-medium mb-3">
-                            Locução, trilha e efeitos
+                            a partir de R$ 20,00 no pacote
                         </p>
                     </div>
 
@@ -323,10 +404,10 @@
                     <div class="bg-white/5 border border-white/10 rounded-2xl p-5 sm:p-6 relative order-2 sm:order-2 opacity-80">
                         <p class="text-xs sm:text-sm text-slate-400 font-bold uppercase tracking-widest mb-2">Locução Off</p>
                         <p class="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-300 tracking-tight leading-none mb-1">
-                            R$ 12,00
+                            R$ 14,00
                         </p>
                         <p class="text-xs sm:text-sm text-slate-400 font-normal mb-3">
-                            Somente locução, sem edição
+                            a partir de R$ 10,00 no pacote
                         </p>
                     </div>
                 </div>
@@ -520,16 +601,12 @@
             </div>
         </section>
 
-        <!-- Tabela de Preços - PACOTES SIMPLIFICADOS CONFORME SOLICITADO -->
+        <!-- Tabela de Preços - VALORES ATUALIZADOS -->
         <section id="precos" class="anchor-section py-20 bg-slate-50">
             <div class="max-w-6xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl sm:text-4xl font-black text-slate-900 uppercase tracking-tight">Escolha o <span class="text-slate-500">Serviço Ideal</span></h2>
                     <p class="text-slate-400 mt-2">Preços transparentes, sem surpresas.</p>
-                    <p class="text-slate-400 text-sm mt-1 bg-slate-100 inline-block px-4 py-1 rounded-full">
-                        <i class="fas fa-info-circle text-slate-300 mr-1"></i> 
-                        Cada crédito corresponde ao texto de até <strong>40 segundos</strong>
-                    </p>
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
@@ -546,12 +623,16 @@
                         
                         <div class="space-y-3 mb-8">
                             <div class="flex justify-between items-center bg-green-50 rounded-xl px-4 py-3 border border-green-200">
-                                <span class="font-medium text-slate-700">Spot Avulso</span>
-                                <span class="font-black text-green-600 text-xl">R$ 24,00</span>
+                                <span class="font-medium text-slate-700">1 Spot Avulso</span>
+                                <span class="font-black text-green-600 text-xl">R$ 29,00</span>
                             </div>
                             <div class="flex justify-between items-center bg-slate-50 rounded-xl px-4 py-3 border border-slate-100">
-                                <span class="font-medium text-slate-700">Pacote 40 Spots</span>
-                                <span class="font-black text-slate-800 text-xl">R$ 447,90</span>
+                                <span class="font-medium text-slate-700">5 Spots</span>
+                                <span class="font-black text-slate-800 text-xl">R$ 120,00</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-slate-50 rounded-xl px-4 py-3 border border-slate-100">
+                                <span class="font-medium text-slate-700">10 Spots</span>
+                                <span class="font-black text-slate-800 text-xl">R$ 200,00</span>
                             </div>
                         </div>
                         
@@ -581,11 +662,15 @@
                         <div class="space-y-3 mb-8">
                             <div class="flex justify-between items-center bg-slate-50 rounded-xl px-4 py-3 border border-slate-100">
                                 <span class="font-medium text-slate-700">Off Avulso</span>
-                                <span class="font-bold text-slate-700 text-xl">R$ 12,00</span>
+                                <span class="font-bold text-slate-700 text-xl">R$ 14,00</span>
                             </div>
                             <div class="flex justify-between items-center bg-slate-50 rounded-xl px-4 py-3 border border-slate-100">
-                                <span class="font-medium text-slate-700">Pacote 50 Offs</span>
-                                <span class="font-bold text-slate-700 text-xl">R$ 210,90</span>
+                                <span class="font-medium text-slate-700">5 Offs</span>
+                                <span class="font-bold text-slate-700 text-xl">R$ 60,00</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-slate-50 rounded-xl px-4 py-3 border border-slate-100">
+                                <span class="font-medium text-slate-700">10 Offs</span>
+                                <span class="font-bold text-slate-700 text-xl">R$ 100,00</span>
                             </div>
                         </div>
                         
@@ -603,49 +688,10 @@
                         </a>
                     </div>
                 </div>
-                
-                <!-- Informação sobre créditos -->
-                <div class="text-center mt-8">
-                    <p class="text-slate-500 text-sm inline-flex items-center gap-2 bg-white px-5 py-2 rounded-full border border-slate-200">
-                        <i class="fas fa-clock text-slate-400"></i>
-                        <strong>Cada crédito</strong> corresponde ao texto de até <strong>40 segundos</strong>
-                    </p>
-                </div>
             </div>
         </section>
 
-        <!-- Nossos Últimos Trabalhos (SoundCloud) -->
-        <section class="py-16 lg:py-20 bg-white border-b border-slate-100">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6">
-                <div class="text-center mb-10">
-                    <span class="text-slate-400 font-bold uppercase tracking-widest text-xs mb-2 block">Portfólio Recente</span>
-                    <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight mb-4 text-slate-900">
-                        Nossos <span class="text-slate-700">Últimos Trabalhos</span>
-                    </h2>
-                    <p class="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed">
-                        Ouça algumas das produções completas que entregamos recentemente. 
-                        <strong class="text-slate-700">Qualidade de rádio</strong> para a sua campanha.
-                    </p>
-                </div>
-                
-                <div class="soundcloud-container bg-slate-50 p-4 sm:p-6 rounded-2xl border border-slate-200 shadow-sm">
-                    <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2236503149&color=%231e72c5&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-                    <div class="soundcloud-credit mt-2 text-center">
-                        <a href="https://soundcloud.com/a-locucao" title="A Locução" target="_blank">A Locução</a> · 
-                        <a href="https://soundcloud.com/marcio-souza-463225128/sets/nossos-ultimos-trabalhos" title="Nossos últimos trabalhos - Produção Completa" target="_blank">Nossos últimos trabalhos - Produção Completa</a>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-6">
-                    <p class="text-slate-400 text-sm flex items-center justify-center gap-2">
-                        <i class="fas fa-headphones text-slate-300"></i> 
-                        Estes são exemplos reais de spots produzidos para clientes em todo o Brasil
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ - Dúvidas Rápidas (ATUALIZADA E EXPANDIDA) -->
+        <!-- FAQ - Dúvidas Rápidas -->
         <section class="py-20 bg-white">
             <div class="max-w-3xl mx-auto px-4">
                 <div class="text-center mb-12">
@@ -854,19 +900,8 @@
         </section>
     </main>
 
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/6a0609466046481c318ec97d/1jojp8h78';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-    <!--End of Tawk.to Script-->
+    <!-- Script Leadster (mantido) -->
+    <script>(function(a,b,c,d){try{var e=b.head||b.getElementsByTagName("head")[0];var f=b.createElement("script");f.setAttribute("src",c);f.setAttribute("charset","UTF-8");f.defer=true;a.neuroleadId=d;e.appendChild(f)}catch(g){}})(window,document,"https://cdn.leadster.com.br/neurolead/neurolead.min.js","suuyuh5U3EkKnzksGWBUMxBly")</script>
 
     <!-- Pop-up Exit Intent -->
     <div id="promo-popup" class="fixed inset-0 bg-black/90 z-[99999] hidden items-center justify-center p-4">
@@ -912,8 +947,8 @@
             <div class="bg-white rounded-2xl p-4 border-2 border-green-200 mb-3 shadow-inner">
                 <p class="text-sm font-bold text-green-700 mb-1">Produção Completa (Spot Comercial)</p>
                 <p class="text-4xl font-black text-slate-900">
-                    <span class="text-slate-400 line-through text-xl">R$ 24,00</span> 
-                    <span class="text-green-600">R$ 21,51</span>
+                    <span class="text-slate-400 line-through text-xl">R$ 29,00</span> 
+                    <span class="text-green-600">R$ 26,10</span>
                 </p>
                 <p class="text-xs text-slate-500 mt-1">Locução, trilha e efeitos</p>
             </div>
@@ -921,8 +956,8 @@
             <div class="bg-white rounded-xl p-3 border border-slate-200 mb-5 opacity-70">
                 <p class="text-xs font-medium text-slate-600">Locução Off</p>
                 <p class="text-xl font-bold text-slate-600">
-                    <span class="text-slate-400 line-through text-sm">R$ 12,00</span> 
-                    R$ 9,81
+                    <span class="text-slate-400 line-through text-sm">R$ 14,00</span> 
+                    R$ 12,60
                 </p>
                 <p class="text-[10px] text-slate-400">Somente locução, sem edição</p>
             </div>
@@ -1044,6 +1079,16 @@
                 closePromoPopup();
             }
         });
+
+        // Esconder tooltip do WhatsApp flutuante após 10 segundos
+        setTimeout(function() {
+            const tooltip = document.querySelector('.whatsapp-tooltip');
+            if (tooltip) {
+                tooltip.style.opacity = '0';
+                tooltip.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => { if (tooltip) tooltip.style.display = 'none'; }, 500);
+            }
+        }, 10000);
     </script>
     
 </body>
