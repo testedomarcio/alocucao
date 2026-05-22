@@ -122,6 +122,23 @@
             box-shadow: 0 12px 28px rgba(0,0,0,0.05);
         }
 
+        .pricing-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .pricing-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.12);
+        }
+        .pricing-card.featured {
+            border-color: #25D366;
+            box-shadow: 0 0 25px rgba(37, 211, 102, 0.15);
+        }
+        .pricing-card.premium-highlight {
+            border-color: #F59E0B;
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.15);
+        }
+
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -297,7 +314,7 @@
                         </a>
                     </div>
 
-                    <!-- Plano 3: Premium (Recomendado) - CORRIGIDO -->
+                    <!-- Plano 3: Premium (Recomendado) -->
                     <div class="plan-card recommended rounded-2xl p-6 text-left flex flex-col border-2 border-green-400 relative">
                         <span class="absolute -top-3 right-4 bg-premium-gold text-slate-900 text-xs font-bold px-3 py-1 rounded-full shadow-lg">
                             ⭐ MAIS RECOMENDADO
@@ -371,6 +388,122 @@
                         <span class="text-slate-400 font-medium text-sm">Princesinha Vest</span><span class="text-slate-700">•</span>
                         <span class="text-slate-400 font-medium text-sm">Mellody Audiovisual</span><span class="text-slate-700">•</span>
                         <span class="text-slate-400 font-medium text-sm">Rádio Imprensa FM</span><span class="text-slate-700">•</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TABELA DE PREÇOS COMPLETA (Estilo da página de Locução Off) -->
+        <section id="precos" class="anchor-section py-20 bg-slate-50">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12">
+                    <span class="text-slate-400 font-semibold uppercase tracking-wider text-xs mb-2 block">Nossos Pacotes</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">Pacotes de <span class="text-green-600">Produção</span></h2>
+                    <p class="text-slate-500 mt-2">Preços transparentes. Qualidade profissional em cada entrega.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto">
+                    
+                    <!-- Card 1: Locução Off -->
+                    <div class="pricing-card bg-white rounded-3xl shadow border border-slate-200 p-6 relative hover:-translate-y-1 transition-all">
+                        <div class="text-center">
+                            <span class="text-xs font-semibold text-slate-400 uppercase tracking-widest bg-slate-100 px-4 py-1 rounded-full">Básico</span>
+                            <h3 class="text-xl font-bold text-slate-700 mt-3 mb-2">Locução Off</h3>
+                            <p class="text-slate-500 text-sm mb-4">Voz limpa para edição própria</p>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between items-center bg-slate-50 rounded-xl px-4 py-3 border border-slate-100">
+                                <span class="font-medium text-slate-700">Off Avulso</span>
+                                <span class="font-bold text-slate-700 text-lg">R$ 14,90</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-slate-50 rounded-xl px-4 py-3 border border-slate-100">
+                                <span class="font-medium text-slate-700">5 Offs</span>
+                                <span class="font-bold text-slate-700 text-lg">R$ 60,00</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-slate-50 rounded-xl px-4 py-3 border border-slate-100">
+                                <span class="font-medium text-slate-700">10 Offs</span>
+                                <span class="font-bold text-slate-700 text-lg">R$ 100,00</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check text-slate-400"></i> Locução profissional</li>
+                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check text-slate-400"></i> Arquivo em MP3/WAV</li>
+                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check text-slate-400"></i> Escolha da voz no casting</li>
+                        </ul>
+                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Quero%20Locu%C3%A7%C3%A3o%20Off!', 'WA_CLICK', 'WhatsApp', 'Precos_Off')" class="block w-full py-3 bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold rounded-xl transition text-center text-sm">
+                            Quero Locução Off
+                        </a>
+                    </div>
+
+                    <!-- Card 2: Spot Comercial (Destaque) -->
+                    <div class="pricing-card featured bg-white rounded-3xl shadow-lg border-2 border-green-400 p-6 relative hover:-translate-y-1 transition-all">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-action-green text-white font-bold text-sm uppercase tracking-widest px-6 py-2 rounded-full shadow-lg z-20">
+                            <i class="fas fa-star mr-1"></i> Recomendado
+                        </div>
+                        <div class="text-center mt-4">
+                            <span class="text-xs font-semibold text-green-600 uppercase tracking-widest bg-green-50 px-4 py-1 rounded-full">Mais Popular</span>
+                            <h3 class="text-2xl font-bold text-slate-900 mt-3 mb-2">Spot Comercial</h3>
+                            <p class="text-slate-500 text-sm mb-4">Locução + Trilha</p>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between items-center bg-green-50 rounded-xl px-4 py-3 border border-green-200">
+                                <span class="font-medium text-slate-700">1 Spot Avulso</span>
+                                <span class="font-black text-green-700 text-xl">R$ 29,90</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-slate-50 rounded-xl px-4 py-3 border border-slate-100">
+                                <span class="font-medium text-slate-700">5 Spots</span>
+                                <span class="font-bold text-slate-800 text-xl">R$ 120,00</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-slate-50 rounded-xl px-4 py-3 border border-slate-100">
+                                <span class="font-medium text-slate-700">10 Spots</span>
+                                <span class="font-bold text-slate-800 text-xl">R$ 200,00</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check-circle text-green-500"></i> <strong>Locução profissional</strong></li>
+                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check-circle text-green-500"></i> <strong>Trilha sonora licenciada</strong></li>
+                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check-circle text-green-500"></i> Cliente envia o texto</li>
+                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check-circle text-green-500"></i> Suporte personalizado</li>
+                        </ul>
+                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Quero%20Spot%20Comercial!', 'WA_CLICK', 'WhatsApp', 'Precos_Spot')" class="block w-full py-3 bg-action-green hover:bg-action-green-hover text-white font-bold rounded-xl transition text-center text-sm shadow-md">
+                            <i class="fab fa-whatsapp mr-2"></i> QUERO SPOT COMERCIAL
+                        </a>
+                    </div>
+
+                    <!-- Card 3: Spot Premium -->
+                    <div class="pricing-card premium-highlight bg-white rounded-3xl shadow border-2 border-amber-400 p-6 relative hover:-translate-y-1 transition-all">
+                        <div class="text-center">
+                            <span class="text-xs font-semibold text-amber-600 uppercase tracking-widest bg-amber-50 px-4 py-1 rounded-full">⭐ Premium</span>
+                            <h3 class="text-xl font-bold text-slate-700 mt-3 mb-2">Spot Premium</h3>
+                            <p class="text-slate-500 text-sm mb-4">Produção Completa</p>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between items-center bg-amber-50 rounded-xl px-4 py-3 border border-amber-200">
+                                <span class="font-medium text-slate-700">1 Spot Premium</span>
+                                <span class="font-bold text-amber-600 text-xl">R$ 49,90</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check text-amber-500"></i> <strong>Locução, trilha e efeitos</strong></li>
+                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check text-amber-500"></i> <strong>Consultoria de roteiro</strong></li>
+                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check text-amber-500"></i> Criamos o texto para você</li>
+                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check text-amber-500"></i> <strong>Edição profissional premium</strong></li>
+                        </ul>
+                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Quero%20Spot%20Premium!', 'WA_CLICK', 'WhatsApp', 'Precos_Premium')" class="block w-full py-3 bg-premium-gold hover:bg-amber-500 text-slate-900 font-bold rounded-xl transition text-center text-sm shadow-md">
+                            QUERO SPOT PREMIUM ✨
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Selo de pagamento -->
+                <div class="mt-8 flex flex-wrap justify-center gap-4">
+                    <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm border">
+                        <i class="fas fa-credit-card text-slate-500"></i>
+                        <span class="text-sm text-slate-600">PIX • Cartão • Boleto</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm border">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span class="text-sm text-slate-600">Correções gratuitas (se erro do locutor)</span>
                     </div>
                 </div>
             </div>
