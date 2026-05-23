@@ -59,7 +59,6 @@
 
         .logo-img { max-height: 45px; width: auto; height: auto; }
         
-        /* Customização da barra de rolagem */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0f172a; }
         ::-webkit-scrollbar-thumb { background: #5B3A8C; border-radius: 4px; }
@@ -239,10 +238,9 @@
         const coreAudio = document.getElementById('coreAudioElement');
         const reprodutorFlutuante = document.getElementById('reprodutorFlutuante');
         const btnControleMaster = document.getElementById('btnControleMaster');
-        
         const modalInfo = document.getElementById('modalInfo');
 
-        // ETAPA 1: Carregamento do banco original e embaralhamento (Shuffle)
+        // ETAPA 1: Carregamento do banco original e Scraper automático de Status Real
         async function extrairBancoDeVozes() {
             try {
                 const resposta = await fetch('bancodevozes.html');
@@ -256,33 +254,51 @@
                 bancoLocutoresOriginal = [];
 
                 linhasLocutores.forEach(linha => {
-                    const imgEl = linha.querySelector('img');
+                    const imgEl = line = linha.querySelector('img');
                     const btnPlayOld = linha.querySelector('[playDemo]');
                     
-                    let nome = "";
-                    const strongEl = linha.querySelector('strong');
-                    if (strongEl) {
-                        nome = strongEl.innerText.trim();
-                    } else {
-                        const celulas = linha.querySelectorAll('td');
-                        if (celulas.length > 0) {
-                            // Limpa possíveis textos auxiliares do nome
-                            nome = celulas[0].innerText.replace(/10\s*min|30\s*min|online|offline|volto\s*j\u00e1/gi, '').trim();
-                        }
-                    }
-
-                    if (imgEl && btnPlayOld && nome) {
+                    if (imgEl && btnPlayOld) {
                         const urlAudio = btnPlayOld.getAttribute('playDemo');
                         const rawEstilos = btnPlayOld.getAttribute('estilos') || "";
                         
-                        // Separar os estilos e a parte descritiva html adicional
+                        // Captura dinâmica do status vindo da Locução Brasil
+                        let statusAtual = "offline"; 
+                        let textoStatus = "Offline";
+                        const textoLinhaCompleta = linha.innerText || "";
+                        
+                        if (/online/gi.test(textoLinhaCompleta)) {
+                            statusAtual = "online";
+                            textoStatus = "Online Agora";
+                        } else if (/10\s*min/gi.test(textoLinhaCompleta)) {
+                            statusAtual = "10min";
+                            textoStatus = "Em 10 min";
+                        } else if (/30\s*min/gi.test(textoLinhaCompleta)) {
+                            statusAtual = "30min";
+                            textoStatus = "Em 30 min";
+                        } else if (/volto\s*j\u00e1|breve/gi.test(textoLinhaCompleta)) {
+                            statusAtual = "breve";
+                            textoStatus = "Volta em Breve";
+                        }
+
+                        // Extração e limpeza do Nome do Locutor
+                        let nome = "";
+                        const strongEl = linha.querySelector('strong');
+                        if (strongEl) {
+                            nome = strongEl.innerText.trim();
+                        } else {
+                            const celulas = linha.querySelectorAll('td');
+                            if (celulas.length > 0) {
+                                nome = celulas[0].innerText;
+                            }
+                        }
+                        nome = nome.replace(/10\s*min|30\s*min|online|offline|volto\s*j\u00e1/gi, '').replace(/[\r\n\t]+/g, ' ').trim();
+
+                        // Separar estilos e informações adicionais
                         let partes = rawEstilos.split(/<br\s*\/?>/i);
                         let listaEstilos = partes[0] ? partes[0].replace(/MASCULINA|FEMININA|INFANTIL/gi, '').split(',').map(s => s.trim()).filter(s => s.length > 0) : [];
-                        
-                        // Juntar o resto como informações adicionais/horários
                         let infoAdicional = partes.slice(1).join('<br>').replace(/<b>Informações adicionais:<\/b>/gi, '').trim();
 
-                        // Detecta gênero com base nos metadados ou na estrutura original
+                        // Identificação do perfil de voz
                         let tipoVoz = "masculina";
                         const rawTextoLinha = linha.innerHTML.toLowerCase();
                         if (rawTextoLinha.includes('filtro-voz="feminina"') || rawTextoLinha.includes('feminina')) {
@@ -291,7 +307,6 @@
                             tipoVoz = "infantil";
                         }
 
-                        // Garante caminhos completos se forem relativos
                         let fotoUrl = imgEl.src;
                         let audioUrl = urlAudio.startsWith('//') ? 'https:' + urlAudio : urlAudio;
 
@@ -301,12 +316,14 @@
                             audio: audioUrl,
                             tipo: tipoVoz,
                             estilos: listaEstilos,
+                            status: statusAtual,
+                            statusTxt: textoStatus,
                             infos: infoAdicional || "Horários comerciais padrão. Entre em contato para prazos urgentes de produção."
                         });
                     }
                 });
 
-                // REQUISITO: Algoritmo Fisher-Yates para embaralhar os locutores aleatoriamente a cada acesso
+                // Algoritmo Aleatório (Shuffle) a cada carregamento
                 for (let i = bancoLocutoresOriginal.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
                     [bancoLocutoresOriginal[i], bancoLocutoresOriginal[j]] = [bancoLocutoresOriginal[j], bancoLocutoresOriginal[i]];
@@ -318,17 +335,16 @@
                 desenharCardsCasting();
 
             } catch (erro) {
-                console.error("Erro no processamento:", erro);
+                console.error("Erro no processamento do banco:", erro);
                 loader.innerHTML = `
                     <div class="text-rose-500 p-6 bg-white rounded-2xl border border-slate-200 inline-block shadow-sm">
                         <i class="fas fa-exclamation-triangle text-3xl mb-2"></i>
                         <p class="text-sm font-bold uppercase">Erro ao sincronizar banco</p>
-                        <p class="text-xs text-slate-400 mt-1">Verifique se o arquivo 'bancodevozes.html' está na mesma raiz do servidor.</p>
                     </div>`;
             }
         }
 
-        // ETAPA 2: Renderização dos Cards no padrão Visual Premium do seu Index
+        // ETAPA 2: Renderização com Exibição de Status Dinâmicos e Cores do seu Layout
         function desenharCardsCasting() {
             gridCasting.innerHTML = '';
 
@@ -336,7 +352,6 @@
                 const bateGenero = filtroGenero === 'all' || locutor.tipo === filtroGenero;
                 const bateNome = locutor.nome.toLowerCase().includes(termoPesquisa.toLowerCase());
                 
-                // Filtro por estilo na sub-lista
                 let bateEstilo = true;
                 if (filtroEstilo !== 'all') {
                     bateEstilo = locutor.estilos.some(est => est.toUpperCase().includes(filtroEstilo.toUpperCase()));
@@ -349,19 +364,33 @@
                 gridCasting.innerHTML = `
                     <div class="col-span-full text-center py-16 text-slate-400 bg-white border border-slate-200 rounded-3xl shadow-sm">
                         <i class="fas fa-microphone-slash text-2xl mb-2 block text-slate-300"></i>
-                        Nenhum profissional corresponde aos filtros selecionados no momento.
+                        Nenhum profissional corresponde aos filtros selecionados.
                     </div>`;
                 return;
             }
 
-            dadosFiltrados.forEach((locutor, index) => {
+            dadosFiltrados.forEach((locutor) => {
                 const card = document.createElement('article');
                 card.className = "bg-white rounded-3xl p-5 border border-slate-200 shadow-sm card-hover flex flex-col justify-between";
                 
                 const estaTocandoAgora = referenciaLocutorAtivo && referenciaLocutorAtivo.audio === locutor.audio && !coreAudio.paused;
                 const badgeCor = locutor.tipo === 'feminina' ? 'bg-rose-500' : (locutor.tipo === 'infantil' ? 'bg-amber-500' : 'bg-premiumPurple');
 
-                // Renderiza os primeiros 3 estilos como badges pequenas no card
+                // Estilização das Badges de Status Real
+                let statusClasses = "bg-slate-100 text-slate-400 border border-slate-200"; 
+                let indicadorLuminoso = "";
+
+                if (locutor.status === "online") {
+                    statusClasses = "bg-emerald-500/10 text-emerald-600 border border-emerald-200";
+                    indicadorLuminoso = `<span class="absolute top-0 right-0 flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span>`;
+                } else if (locutor.status === "10min" || locutor.status === "30min") {
+                    statusClasses = "bg-amber-500/10 text-amber-600 border border-amber-200";
+                    indicadorLuminoso = `<span class="absolute top-0 right-0 flex h-2 w-2"><span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span></span>`;
+                } else if (locutor.status === "breve") {
+                    statusClasses = "bg-blue-500/10 text-blue-600 border border-blue-200";
+                    indicadorLuminoso = `<span class="absolute top-0 right-0 flex h-2 w-2"><span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span></span>`;
+                }
+
                 let estilosTags = locutor.estilos.slice(0, 3).map(e => 
                     `<span class="bg-slate-50 text-slate-500 text-[10px] font-medium px-2 py-0.5 rounded-md border border-slate-100">${e}</span>`
                 ).join('');
@@ -376,6 +405,11 @@
                             <img src="${locutor.foto}" alt="Profissional ${locutor.nome}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
                             <span class="absolute top-3 left-3 ${badgeCor} text-white text-[9px] font-black px-2.5 py-1 rounded-full tracking-wider uppercase shadow-sm">${locutor.tipo}</span>
                             
+                            <div class="absolute bottom-3 left-3 flex items-center gap-1.5 ${statusClasses} px-2.5 py-1 rounded-lg text-[10px] font-bold shadow-sm backdrop-blur-sm">
+                                <div class="relative w-2 h-2 flex items-center justify-center">${indicadorLuminoso}</div>
+                                <span>${locutor.statusTxt}</span>
+                            </div>
+
                             <button onclick="abrirModalInfo(${JSON.stringify(locutor).replace(/"/g, '&quot;')})" 
                                     class="absolute top-3 right-3 w-8 h-8 bg-slate-900/80 hover:bg-premiumPurple text-white rounded-full flex items-center justify-center backdrop-blur-sm transition-colors text-xs" 
                                     title="Ver horários e informações">
@@ -397,7 +431,7 @@
                             <span>${estaTocandoAgora ? 'Pausar' : 'Ouvir Guia'}</span>
                         </button>
 
-                        <a href="https://wa.me/5527996529832?text=Olá!%20Gostaria%20de%20produzir%20um%20projeto%20com%20a%20voz%20de:%20${encodeURIComponent(locutor.nome)}" 
+                        <a href="https://wa.me/5527996529832?text=Olá!%20Gostaria%20de%20produzir%20um%20projeto%20com%20a%20voz%20de:%20${encodeURIComponent(locutor.nome)}%20(${encodeURIComponent(locutor.statusTxt)})" 
                            target="_blank" 
                            class="w-10 h-10 min-w-[40px] bg-emerald-50 hover:bg-emerald-600 text-emerald-600 hover:text-white border border-emerald-100 hover:border-emerald-600 rounded-xl flex items-center justify-center transition-all shadow-sm"
                            title="Contratar esta voz via WhatsApp">
@@ -409,7 +443,7 @@
             });
         }
 
-        // ETAPA 3: Player de Áudio Unificado
+        // ETAPA 3: Player de Áudio Unificado (Estilo Streaming)
         function gerenciarPlayerMaster(url, nome, foto, tipo) {
             if (referenciaLocutorAtivo && referenciaLocutorAtivo.audio === url) {
                 if (coreAudio.paused) coreAudio.play();
@@ -442,13 +476,12 @@
             }
         }
 
-        // ETAPA 4: Sistema de Modais de Informações Avançadas
+        // ETAPA 4: Sistema de Modais (Popup) de Informações Adicionais
         function abrirModalInfo(locutorObj) {
             document.getElementById('modalNome').textContent = locutorObj.nome;
             document.getElementById('modalAvatar').src = locutorObj.foto;
             document.getElementById('modalInfoTexto').innerHTML = locutorObj.infos;
             
-            // Renderiza os estilos internos do modal
             const container = document.getElementById('modalEstilosContainer');
             container.innerHTML = '';
             if (locutorObj.estilos.length > 0) {
@@ -459,7 +492,7 @@
                 container.innerHTML = `<span class="text-xs italic text-slate-400">Padrão, Varejo, Comercial</span>`;
             }
 
-            document.getElementById('modalBtnWhats').href = `https://wa.me/5527996529832?text=Olá!%20Gostaria%20de%20fechar%20um%20trabalho%20com%20o%20locutor%20${encodeURIComponent(locutorObj.nome)}`;
+            document.getElementById('modalBtnWhats').href = `https://wa.me/5527996529832?text=Olá!%20Gostaria%20de%20fechar%20um%20trabalho%20com%20o%20locutor%20${encodeURIComponent(locutorObj.nome)}%20(${encodeURIComponent(locutorObj.statusTxt)})`;
 
             modalInfo.classList.remove('hidden');
             setTimeout(() => {
@@ -476,7 +509,7 @@
             }, 300);
         }
 
-        // ETAPA 5: Sincronismo de Eventos de Áudio e Controles
+        // ETAPA 5: Sincronismo dos Eventos e Linha de Tempo
         coreAudio.addEventListener('play', () => { desenharCardsCasting(); ajustarIconeControleMaster(); });
         coreAudio.addEventListener('pause', () => { desenharCardsCasting(); ajustarIconeControleMaster(); });
         
@@ -514,7 +547,7 @@
             return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
         }
 
-        // ETAPA 6: Eventos de Escuta dos Filtros
+        // ETAPA 6: Eventos de Escuta dos Filtros do Topo
         document.querySelectorAll('.btn-filtro').forEach(botao => {
             botao.addEventListener('click', (e) => {
                 document.querySelectorAll('.btn-filtro').forEach(b => {
@@ -537,12 +570,11 @@
             desenharCardsCasting();
         });
 
-        // Fechamento de modal se clicar fora do card interno
         modalInfo.addEventListener('click', (e) => {
             if(e.target === modalInfo) fecharModalInfo();
         });
 
-        // Inicialização Automática
+        // Inicialização Inicial do Banco
         extrairBancoDeVozes();
     </script>
 </body>
