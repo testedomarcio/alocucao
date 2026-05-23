@@ -2,303 +2,451 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banco de Vozes Premium | A Locução</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    
+    <title>Banco de Vozes | Estúdio A Locução · Casting Dinâmico Premium</title>
+    <meta name="description" content="Selecione e gerencie as melhores vozes para seus projetos com o casting exclusivo do Estúdio A Locução.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    colors: {
+                        primary: '#22d3ee',
+                        primaryDark: '#0891b2',
+                        darkBg: '#0f172a',
+                        premiumPurple: '#5B3A8C',
+                        premiumGold: '#C9A03D',
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0b0f19; /* Fundo dark ultra moderno */
-            color: #f3f4f6;
+        body { font-family: 'Inter', sans-serif; background-color: #faf9f8; }
+        
+        .gradient-bg { 
+            background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 100%); 
         }
-        /* Customização sutil da barra de rolagem */
+        
+        .glass-header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-primary { 
+            background: linear-gradient(135deg, #5B3A8C 0%, #22d3ee 100%);
+            transition: all 0.3s ease; 
+        }
+        .btn-primary:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(91, 58, 140, 0.4);
+        }
+
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); border-color: #5B3A8C; box-shadow: 0 12px 20px -8px rgba(91, 58, 140, 0.15); }
+
+        .logo-img { max-height: 45px; width: auto; height: auto; }
+        
+        /* Customização da barra de rolagem */
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0b0f19; }
-        ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #374151; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #5B3A8C; border-radius: 4px; }
+
+        /* Esconder controles nativos de áudio se existirem */
+        .audio-escondido { display: none; }
     </style>
 </head>
-<body class="min-h-screen antialiased pb-24">
+<body class="font-sans antialiased text-slate-700 pb-28">
 
-    <header class="border-b border-gray-800 bg-gray-900/50 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div>
-                <h1 class="text-2xl font-bold bg-gradient-to-r align-middle from-violet-400 to-indigo-500 bg-clip-text text-transparent">
-                    <i class="fa-solid fa-microphone-lines mr-2 text-indigo-400"></i>Banco de Vozes Personalizado
-                </h1>
-                <p class="text-xs text-gray-400 mt-1">Selecione e gerencie as melhores vozes para seus projetos</p>
+    <header class="fixed w-full top-0 z-50 glass-header text-white transition-all duration-300">
+        <nav class="max-w-7xl mx-auto px-6 py-3 sm:py-4 flex justify-between items-center" aria-label="Menu principal">
+            <div class="flex items-center gap-2">
+                <a href="/" aria-label="Estúdio A Locução - Locução Premium">
+                    <img src="https://testedomarcio.github.io/meuadio/logo.webp" alt="Estúdio A Locução" class="logo-img" width="120" height="40">
+                </a>
             </div>
             
-            <div class="relative w-full md:w-80">
-                <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-500">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </span>
-                <input type="search" id="inputPesquisa" 
-                    class="w-full pl-10 pr-4 py-2 text-sm bg-gray-900 border border-gray-700 rounded-xl focus:outline-none focus:border-indigo-500 text-gray-200 transition-colors" 
-                    placeholder="Buscar locutor...">
+            <div class="hidden lg:flex items-center space-x-8 font-semibold text-sm tracking-wide">
+                <a href="/" class="text-slate-200 hover:text-cyan-400 transition-colors">Início</a>
+                <a href="/#servicos" class="text-slate-200 hover:text-cyan-400 transition-colors">Serviços</a>
+                <a href="#" class="text-cyan-400 transition-colors flex items-center gap-1">
+                    <i class="fas fa-microphone-alt"></i> Casting / Banco de Vozes
+                </a>
+                <a href="/#precos" class="text-slate-200 hover:text-cyan-400 transition-colors">Preços</a>
             </div>
-        </div>
+
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/5527996529832?text=Olá!%20Gostaria%20de%20solicitar%20uma%20locução%20com%20o%20locutor%20selecionado" target="_blank" class="btn-primary text-white font-bold px-6 py-2.5 rounded-full shadow-lg text-sm uppercase tracking-wider flex items-center gap-2">
+                    <i class="fab fa-whatsapp"></i> Falar com Especialista
+                </a>
+            </div>
+        </nav>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 mt-8">
-        <div class="bg-gray-900/40 border border-gray-800/80 rounded-2xl p-4 mb-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+    <section class="gradient-bg pt-32 pb-16 relative overflow-hidden text-white text-center">
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <span class="inline-flex items-center gap-2 bg-premiumPurple/30 text-primary px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border border-primary/20 mb-4">
+                <i class="fas fa-layer-group"></i> Sistema de Filtro Inteligente e Integrado
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-black tracking-tight mb-4 text-white">
+                Nosso <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-premiumPurple">Casting Completo</span> de Locutores
+            </h1>
+            <p class="text-slate-300 max-w-xl mx-auto text-sm sm:text-base font-light">
+                Ouça as demonstrações em tempo real. Filtre por gênero ou perfil e encontre a voz ideal para o seu projeto.
+            </p>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-6 mt-8">
+        <div class="bg-white border border-slate-200 shadow-sm rounded-2xl p-5 mb-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
             
-            <div class="flex flex-wrap items-center gap-2">
-                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider mr-2">Voz:</span>
-                <button data-filter="all" class="btn-filter-tipo px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-600/20">Todas</button>
-                <button data-filter="masculina" class="btn-filter-tipo px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-gray-800/60 text-gray-400 hover:text-white hover:bg-gray-800">Masculina</button>
-                <button data-filter="feminina" class="btn-filter-tipo px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-gray-800/60 text-gray-400 hover:text-white hover:bg-gray-800">Feminina</button>
-                <button data-filter="infantil" class="btn-filter-tipo px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-gray-800/60 text-gray-400 hover:text-white hover:bg-gray-800">Infantil</button>
+            <div class="flex flex-wrap items-center gap-2" id="grupoFiltros">
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-400 mr-2"><i class="fas fa-filter"></i> Filtrar:</span>
+                <button data-filter="all" class="btn-filtro active px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-premiumPurple text-white shadow-md shadow-premiumPurple/10">Todas as Vozes</button>
+                <button data-filter="masculina" class="btn-filtro px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-100 text-slate-600 hover:bg-slate-200">Masculinas</button>
+                <button data-filter="feminina" class="btn-filtro px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-100 text-slate-600 hover:bg-slate-200">Femininas</button>
+                <button data-filter="infantil" class="btn-filtro px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-100 text-slate-600 hover:bg-slate-200">Infantis</button>
             </div>
 
-            <div class="flex flex-wrap items-center gap-2">
-                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider mr-2">Disponibilidade:</span>
-                <button data-status="all" class="btn-filter-status px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-600/20">Todos</button>
-                <button data-status="online" class="btn-filter-status px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-gray-800/60 text-gray-400 hover:text-emerald-400 hover:bg-gray-800"><span class="w-2 h-2 inline-block bg-emerald-500 rounded-full mr-1.5 animate-pulse"></span>Online</button>
-                <button data-status="10min" class="btn-filter-status px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-gray-800/60 text-gray-400 hover:text-rose-400 hover:bg-gray-800">10 Min</button>
-                <button data-status="30min" class="btn-filter-status px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-gray-800/60 text-gray-400 hover:text-amber-400 hover:bg-gray-800">30 Min</button>
+            <div class="relative w-full md:w-72">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400">
+                    <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                </span>
+                <input type="search" id="inputLocalizar" 
+                    class="w-full pl-9 pr-4 py-2.5 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-premiumPurple text-slate-800 transition-colors" 
+                    placeholder="Buscar locutor por nome...">
             </div>
         </div>
 
-        <div id="gridLocutores" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div id="loader" class="text-center py-20">
+            <div class="inline-block w-8 h-8 border-4 border-slate-200 border-t-premiumPurple rounded-full animate-spin mb-3"></div>
+            <p class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Sincronizando Banco de Vozes...</p>
+        </div>
+
+        <div id="gridCasting" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 opacity-0 transition-opacity duration-300">
             </div>
     </main>
 
-    <div id="playerFixo" class="fixed bottom-0 left-0 right-0 bg-gray-900/95 backdrop-blur-lg border-t border-gray-800 py-3 px-6 transform translate-y-full transition-transform duration-300 z-50 shadow-2xl">
+    <div id="reprodutorFlutuante" class="fixed bottom-0 left-0 right-0 bg-slate-950/95 backdrop-blur-md border-t border-slate-800 py-3.5 px-6 transform translate-y-full transition-transform duration-300 z-50 shadow-2xl text-white">
         <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
-            <div class="flex items-center gap-3 w-1/3 min-w-[150px]">
-                <img id="playerImg" src="" class="w-10 h-10 rounded-lg object-cover border border-gray-700" alt="">
+            
+            <div class="flex items-center gap-3 w-1/3 min-w-[140px]">
+                <img id="playerAvatar" src="" class="w-11 h-11 rounded-xl object-cover border border-slate-700/60 shadow" alt="">
                 <div class="overflow-hidden">
-                    <h4 id="playerNome" class="text-sm font-semibold text-white truncate">Selecionado</h4>
-                    <p id="playerEstilo" class="text-xs text-gray-400 truncate">Estilo da voz</p>
+                    <h4 id="playerNomeLocutor" class="text-sm font-bold text-white truncate">Nenhum selecionado</h4>
+                    <span id="playerBadgeTipo" class="inline-block text-[9px] font-extrabold uppercase bg-premiumPurple/40 text-primary px-2 py-0.5 rounded-md mt-0.5">---</span>
                 </div>
             </div>
             
-            <div class="flex flex-col items-center gap-1 w-1/3">
+            <div class="flex flex-col items-center gap-1.5 w-1/3 min-w-[200px]">
                 <div class="flex items-center gap-4">
-                    <button id="btnVoltar10" class="text-gray-400 hover:text-white transition-colors"><i class="fa-solid fa-backward-step"></i></button>
-                    <button id="btnPlayMaster" class="w-10 h-10 bg-indigo-500 hover:bg-indigo-600 text-white rounded-full flex items-center justify-center transition-transform hover:scale-105 shadow-md"><i class="fa-solid fa-play ml-0.5"></i></button>
-                    <button id="btnAvancar10" class="text-gray-400 hover:text-white transition-colors"><i class="fa-solid fa-forward-step"></i></button>
+                    <button id="btnVoltar10s" class="text-slate-400 hover:text-white text-xs transition-colors"><i class="fa-solid fa-backward"></i> 10s</button>
+                    <button id="btnControleMaster" class="w-9 h-9 bg-gradient-to-r from-premiumPurple to-primary hover:scale-105 text-white rounded-full flex items-center justify-center transition-transform shadow-md"><i class="fa-solid fa-play ml-0.5"></i></button>
+                    <button id="btnAvancar10s" class="text-slate-400 hover:text-white text-xs transition-colors">10s <i class="fa-solid fa-forward"></i></button>
                 </div>
                 <div class="w-full flex items-center gap-2">
-                    <span id="tempoAtual" class="text-[10px] text-gray-500 font-mono">00:00</span>
-                    <input type="range" id="barraProgresso" value="0" class="w-full h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-indigo-500">
-                    <span id="tempoTotal" class="text-[10px] text-gray-500 font-mono">00:00</span>
+                    <span id="txtTempoAtual" class="text-[10px] text-slate-400 font-mono">00:00</span>
+                    <input type="range" id="sliderProgresso" value="0" class="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-primary">
+                    <span id="txtTempoTotal" class="text-[10px] text-slate-400 font-mono">00:00</span>
                 </div>
             </div>
 
             <div class="w-1/3 flex justify-end">
-                <button id="btnPlayerOrcamento" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold flex items-center gap-2 transition-colors shadow-lg shadow-emerald-600/10">
-                    <i class="fa-brands fa-whatsapp text-sm"></i> <span class="hidden sm:inline">Solicitar Locução</span>
-                </button>
+                <a id="lnkOrcamentoDireto" href="#" target="_blank" class="px-4 py-2 bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white rounded-xl text-xs font-bold flex items-center gap-2 transition-all shadow-lg shadow-emerald-950/20">
+                    <i class="fa-brands fa-whatsapp text-sm"></i> <span class="hidden sm:inline">Contratar esta Voz</span>
+                </a>
             </div>
         </div>
     </div>
 
-    <audio id="audioGlobal"></audio>
+    <audio id="coreAudioElement" class="audio-escondido"></audio>
 
     <script>
-        // Dados brutos extraídos do seu HTML original
-        const locutores = [
-            {
-                nome: "Alessandro Peixoto",
-                foto: "https://hd.paineldegravacao.com.br/perfil/0693395001776198709.jpeg",
-                audio: "https://paineldegravacao.com.br/player/play/Alessandro_Peixoto/2/4118",
-                tipo: "masculina",
-                status: "10min"
-            },
-            {
-                nome: "Alexandre Silva",
-                foto: "https://hd.paineldegravacao.com.br/perfil/01004925001736440537.jpeg",
-                audio: "https://paineldegravacao.com.br/player/play/Alexandre_Silva/2/4488",
-                tipo: "masculina",
-                status: "online"
-            },
-            {
-                nome: "Bruna K",
-                foto: "https://hd.paineldegravacao.com.br/perfil/04337222001712242131.png",
-                audio: "https://paineldegravacao.com.br/player/play/Bruna_K/2/4397",
-                tipo: "feminina",
-                status: "30min"
-            }
-            // Você pode colar os outros locutores aqui seguindo este mesmo padrão de objeto
-        ];
-
-        // Estado do App
-        let filtroTipo = 'all';
-        let filtroStatus = 'all';
+        let bancoLocutoresOriginal = [];
+        let filtroSelecionado = 'all';
         let termoPesquisa = '';
-        let locutorAtual = null;
+        let referenciaLocutorAtivo = null;
 
-        // Elementos DOM
-        const grid = document.getElementById('gridLocutores');
-        const audio = document.getElementById('audioGlobal');
-        const playerFixo = document.getElementById('playerFixo');
-        const btnPlayMaster = document.getElementById('btnPlayMaster');
+        // Elementos DOM chave
+        const gridCasting = document.getElementById('gridCasting');
+        const loader = document.getElementById('loader');
+        const coreAudio = document.getElementById('coreAudioElement');
+        const reprodutorFlutuante = document.getElementById('reprodutorFlutuante');
+        const btnControleMaster = document.getElementById('btnControleMaster');
 
-        // Renderizador de Cards
-        function renderizarCards() {
-            grid.innerHTML = '';
-            
-            const filtrados = locutores.filter(l => {
-                const bateTipo = filtroTipo === 'all' || l.tipo === filtroTipo;
-                const bateStatus = filtroStatus === 'all' || l.status === filtroStatus;
-                const bateNome = l.nome.toLowerCase().includes(termoPesquisa.toLowerCase());
-                return bateTipo && bateStatus && bateNome;
+        // ETAPA 1: O "Web Scraper" que lê o arquivo local bancodevozes.html em tempo real
+        async function extrairBancoDeVozes() {
+            try {
+                // Busca o arquivo HTML original completo
+                const resposta = await fetch('bancodevozes.html');
+                if (!resposta.ok) throw new Error('Não foi possível ler o arquivo bancodevozes.html');
+                
+                const htmlTexto = await resposta.text();
+                
+                // Converte a string de texto bruto em um DOM manipulável via JS
+                const parser = new DOMParser();
+                const docDinamico = parser.parseFromString(htmlTexto, 'text/html');
+                
+                // Localiza as linhas ou blocos de locutores no documento original
+                // Se o arquivo original usa elementos 'tr' (linhas de tabela) para agrupar os locutores:
+                const linhasLocutores = docDinamico.querySelectorAll('tr');
+                
+                bancoLocutoresOriginal = [];
+
+                linhasLocutores.forEach(linha => {
+                    // Seleciona os dados específicos dentro de cada linha
+                    const imgEl = linha.querySelector('img');
+                    const linkAudioEl = linha.querySelector('a[href*="play"]');
+                    
+                    // Tratamento seguro para capturar o nome do locutor
+                    let nome = "";
+                    const negritoEl = linha.querySelector('strong');
+                    if (negritoEl) {
+                        nome = negritoEl.innerText.trim();
+                    } else {
+                        // Fallback caso não tenha tag strong
+                        const celulas = linha.querySelectorAll('td');
+                        if (celulas.length > 1) nome = celulas[1].innerText.trim();
+                    }
+
+                    if (imgEl && linkAudioEl && nome) {
+                        // Determinar gênero ou tipo de voz de forma inteligente baseado no nome ou links
+                        let tipoVoz = "masculina"; 
+                        const textoLinha = linha.innerText.toLowerCase();
+                        
+                        if (textoLinha.includes('feminina') || textoLinha.includes('mulher') || textoLinha.includes('locutora')) {
+                            tipoVoz = "feminina";
+                        } else if (textoLinha.includes('infantil') || textoLinha.includes('criança') || textoLinha.includes('menino') || textoLinha.includes('menina')) {
+                            tipoVoz = "infantil";
+                        }
+
+                        bancoLocutoresOriginal.push({
+                            nome: nome,
+                            foto: imgEl.src,
+                            audio: linkAudioEl.href,
+                            tipo: tipoVoz
+                        });
+                    }
+                });
+
+                // Caso o seletor por tabela falhe devido a uma mudança estrutural, tenta o seletor alternativo (cards/artigos)
+                if (bancoLocutoresOriginal.length === 0) {
+                    const blocosAlternativos = docDinamico.querySelectorAll('article, .locutor-box, .card');
+                    blocosAlternativos.forEach(bloco => {
+                        const img = bloco.querySelector('img');
+                        const audioLink = bloco.querySelector('a[href*="play"], source, audio');
+                        const h3 = bloco.querySelector('h3, h4, .nome');
+                        
+                        if (img && audioLink && h3) {
+                            let srcAudio = audioLink.href || audioLink.src;
+                            let tipoVoz = bloco.innerText.toLowerCase().includes('feminina') ? 'feminina' : 'masculina';
+                            bancoLocutoresOriginal.push({
+                                nome: h3.innerText.trim(),
+                                foto: img.src,
+                                audio: srcAudio,
+                                tipo: tipoVoz
+                            });
+                        }
+                    });
+                }
+
+                // Oculta o loader e exibe o painel renderizado
+                loader.classList.add('hidden');
+                gridCasting.classList.remove('opacity-0');
+                
+                // Desenha os cards na tela com o banco completo
+                desenharCardsCasting();
+
+            } catch (erro) {
+                console.error("Erro na extração dos dados:", erro);
+                loader.innerHTML = `
+                    <div class="text-rose-500">
+                        <i class="fas fa-exclamation-triangle text-2xl mb-2"></i>
+                        <p class="text-xs font-bold uppercase">Erro ao carregar o banco dinâmico</p>
+                        <p class="text-xs text-slate-400 mt-1">Certifique-se de que o arquivo 'bancodevozes.html' está na mesma pasta.</p>
+                    </div>`;
+            }
+        }
+
+        // ETAPA 2: Renderização dos Cards com os estilos oficiais do seu site index
+        function desenharCardsCasting() {
+            gridCasting.innerHTML = '';
+
+            // Filtra os dados com base no gênero clicado e na caixa de pesquisa por nome
+            const dadosFiltrados = bancoLocutoresOriginal.filter(locutor => {
+                const bateGenero = filtroSelecionado === 'all' || locutor.tipo === filtroSelecionado;
+                const bateNome = locutor.nome.toLowerCase().includes(termoPesquisa.toLowerCase());
+                return bateGenero && bateNome;
             });
 
-            if(filtrados.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-500">Nenhum locutor encontrado com estes filtros.</div>`;
+            if (dadosFiltrados.length === 0) {
+                gridCasting.innerHTML = `
+                    <div class="col-span-full text-center py-12 text-slate-400 text-sm">
+                        <i class="fas fa-microphone-slash text-xl mb-2 block"></i>
+                        Nenhum profissional encontrado com os critérios definidos.
+                    </div>`;
                 return;
             }
 
-            filtrados.forEach((locutor, index) => {
-                const statusConfig = {
-                    online: { cor: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20', label: 'Online' },
-                    '10min': { cor: 'text-rose-400 bg-rose-500/10 border-rose-500/20', label: '10 Min' },
-                    '30min': { cor: 'text-amber-400 bg-amber-500/10 border-amber-500/20', label: '30 Min' }
-                }[locutor.status] || { cor: 'text-gray-400 bg-gray-500/10 border-gray-500/20', label: 'Indisponível' };
-
-                const card = document.createElement('div');
-                card.className = "bg-gray-900/60 border border-gray-800/80 hover:border-indigo-500/40 rounded-2xl p-5 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/5 group relative overflow-hidden";
+            dadosFiltrados.forEach(locutor => {
+                const card = document.createElement('article');
+                card.className = "bg-white rounded-3xl p-5 border border-slate-200 shadow-sm card-hover flex flex-col justify-between";
                 
-                const estaTocandoEste = locutorAtual && locutorAtual.audio === locutor.audio && !audio.paused;
+                // Verifica se este card específico está em reprodução ativa no momento
+                const estaTocandoAgora = referenciaLocutorAtivo && referenciaLocutorAtivo.audio === locutor.audio && !coreAudio.paused;
+
+                // Define as badges com base nas cores do seu site principal
+                const badgeCor = locutor.tipo === 'feminina' ? 'bg-rose-500' : (locutor.tipo === 'infantil' ? 'bg-amber-500' : 'bg-premiumPurple');
 
                 card.innerHTML = `
                     <div>
-                        <div class="flex items-start justify-between gap-4">
-                            <div class="flex items-center gap-3">
-                                <div class="relative">
-                                    <img src="${locutor.foto}" class="w-14 h-14 rounded-full object-cover border-2 border-gray-800 group-hover:border-indigo-500/50 transition-colors" alt="${locutor.nome}">
-                                    ${locutor.status === 'online' ? '<span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-emerald-500 border-2 border-gray-900 rounded-full"></span>' : ''}
-                                </div>
-                                <div>
-                                    <h3 class="font-bold text-white group-hover:text-indigo-400 transition-colors text-base">${locutor.nome}</h3>
-                                    <span class="inline-block text-[10px] uppercase tracking-wider text-gray-400 mt-0.5 font-medium">${locutor.tipo}</span>
-                                </div>
-                            </div>
-                            <span class="text-[11px] font-medium px-2.5 py-1 rounded-lg border ${statusConfig.cor}">
-                                ${statusConfig.label}
-                            </span>
+                        <div class="overflow-hidden rounded-2xl aspect-square relative bg-slate-100">
+                            <img src="${locutor.foto}" alt="Locutor ${locutor.nome}" class="w-full h-full object-cover" loading="lazy" width="300" height="300">
+                            <span class="absolute bottom-3 left-3 ${badgeCor} text-white text-[10px] font-black px-3 py-1 rounded-full tracking-wider uppercase">${locutor.tipo}</span>
+                        </div>
+                        <div class="mt-4">
+                            <h3 class="font-extrabold text-lg text-slate-900 truncate">${locutor.nome}</h3>
+                            <p class="text-slate-400 text-xs mt-0.5">Estilo: Voz de Alta Performance</p>
                         </div>
                     </div>
-
-                    <div class="mt-6 flex items-center justify-between pt-4 border-t border-gray-800/60">
-                        <button onclick="controlarAudio('${locutor.audio}', ${index})" class="flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-xl transition-all ${estaTocandoEste ? 'bg-amber-500 text-slate-950' : 'bg-indigo-500/10 text-indigo-400 hover:bg-indigo-500 hover:text-white'}">
-                            <i class="fa-solid ${estaTocandoEste ? 'fa-pause' : 'fa-play'} text-xs"></i>
-                            <span>${estaTocandoEste ? 'Pausar' : 'Ouvir Demo'}</span>
+                    
+                    <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+                        <button onclick="gerenciarPlayerMaster('${locutor.audio}', '${locutor.nome}', '${locutor.foto}', '${locutor.tipo}')" 
+                                class="w-full flex items-center justify-center gap-2 text-xs font-bold px-4 py-2.5 rounded-xl transition-all ${estaTocandoAgora ? 'bg-premiumGold text-slate-950' : 'bg-slate-100 text-slate-700 hover:bg-premiumPurple hover:text-white'}">
+                            <i class="fa-solid ${estaTocandoAgora ? 'fa-pause' : 'fa-play'}"></i>
+                            <span>${estaTocandoAgora ? 'Pausar Áudio' : 'Ouvir Amostra'}</span>
                         </button>
 
-                        <a href="https://wa.me/5528999999999?text=Olá,%20gostei%20da%20voz%20de%20${encodeURIComponent(locutor.nome)}" target="_blank" 
-                           class="w-9 h-9 bg-gray-800 hover:bg-emerald-600 text-gray-400 hover:text-white rounded-xl flex items-center justify-center transition-colors">
-                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <a href="https://wa.me/5527996529832?text=Olá!%20Gostaria%20de%20produzir%20um%20projeto%20com%20a%20voz%20de:%20${encodeURIComponent(locutor.nome)}" 
+                           target="_blank" 
+                           class="w-10 h-10 min-w-[40px] bg-slate-50 hover:bg-emerald-600 text-slate-400 hover:text-white border border-slate-200 hover:border-emerald-600 rounded-xl flex items-center justify-center transition-colors"
+                           title="Selecionar locutor">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
                         </a>
                     </div>
                 `;
-                grid.appendChild(card);
+                gridCasting.appendChild(card);
             });
         }
 
-        // Lógica de Áudio Global
-        function controlarAudio(url, index) {
-            const locutor = locutores[index];
-
-            if (locutorAtual && locutorAtual.audio === url) {
-                if (audio.paused) {
-                    audio.play();
+        // ETAPA 3: Núcleo de Controle de Áudio Unificado (Estilo Spotify/Streamer)
+        function gerenciarPlayerMaster(url, nome, foto, tipo) {
+            if (referenciaLocutorAtivo && referenciaLocutorAtivo.audio === url) {
+                // Se clicou no mesmo locutor, alterna entre tocar e pausar
+                if (coreAudio.paused) {
+                    coreAudio.play();
                 } else {
-                    audio.pause();
+                    coreAudio.pause();
                 }
             } else {
-                locutorAtual = locutor;
-                audio.src = url;
-                audio.play();
-                atualizarBarraPlayerFixo();
+                // Clicou em um locutor diferente: carrega a nova faixa
+                referenciaLocutorAtivo = { url, nome, foto, tipo, audio: url };
+                coreAudio.src = url;
+                coreAudio.play();
+                montarEstruturaPlayerFixo();
             }
-            renderizarCards();
-            atualizarIconeMaster();
+            desenharCardsCasting();
+            ajustarIconeControleMaster();
         }
 
-        function atualizarBarraPlayerFixo() {
-            if (!locutorAtual) return;
-            document.getElementById('playerImg').src = locutorAtual.foto;
-            document.getElementById('playerNome').textContent = locutorAtual.nome;
-            document.getElementById('playerEstilo').textContent = `Perfil: ${locutorAtual.tipo.toUpperCase()}`;
-            playerFixo.classList.remove('translate-y-full');
+        function montarEstruturaPlayerFixo() {
+            if (!referenciaLocutorAtivo) return;
+            document.getElementById('playerAvatar').src = referenciaLocutorAtivo.foto;
+            document.getElementById('playerNomeLocutor').textContent = referenciaLocutorAtivo.nome;
+            
+            const badge = document.getElementById('playerBadgeTipo');
+            badge.textContent = referenciaLocutorAtivo.tipo;
+            
+            // Atualiza o link do WhatsApp da barra inferior dinamicamente
+            document.getElementById('lnkOrcamentoDireto').href = `https://wa.me/5527996529832?text=Olá!%20Gostaria%20de%20fechar%20uma%20locução%20com%20o%20profissional%20${encodeURIComponent(referenciaLocutorAtivo.nome)}`;
+            
+            // Remove o deslocamento trazendo a barra para a tela visível
+            reprodutorFlutuante.classList.remove('translate-y-full');
         }
 
-        function atualizarIconeMaster() {
-            if (audio.paused) {
-                btnPlayMaster.innerHTML = `<i class="fa-solid fa-play ml-0.5"></i>`;
+        function ajustarIconeControleMaster() {
+            if (coreAudio.paused) {
+                btnControleMaster.innerHTML = `<i class="fa-solid fa-play ml-0.5"></i>`;
             } else {
-                btnPlayMaster.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+                btnControleMaster.innerHTML = `<i class="fa-solid fa-pause"></i>`;
             }
         }
 
-        // Eventos e Sincronização do Player
-        audio.addEventListener('play', () => { renderizarCards(); atualizarIconeMaster(); });
-        audio.addEventListener('pause', () => { renderizarCards(); atualizarIconeMaster(); });
-        btnPlayMaster.addEventListener('click', () => {
-            if(audio.src) {
-                if(audio.paused) audio.play();
-                else audio.pause();
+        // ETAPA 4: Manipulação de Eventos e Sincronismo Temporal das Faixas
+        coreAudio.addEventListener('play', () => { desenharCardsCasting(); ajustarIconeControleMaster(); });
+        coreAudio.addEventListener('pause', () => { desenharCardsCasting(); ajustarIconeControleMaster(); });
+        
+        btnControleMaster.addEventListener('click', () => {
+            if (coreAudio.src) {
+                if (coreAudio.paused) coreAudio.play();
+                else coreAudio.pause();
             }
         });
 
-        // Barra de progresso do Player Estilo Spotify
-        const barraProgresso = document.getElementById('barraProgresso');
-        const tempoAtual = document.getElementById('tempoAtual');
-        const tempoTotal = document.getElementById('tempoTotal');
+        // Controles de Avanço/Retrocesso (10 segundos)
+        document.getElementById('btnVoltar10s').addEventListener('click', () => { coreAudio.currentTime = Math.max(0, coreAudio.currentTime - 10); });
+        document.getElementById('btnAvancar10s').addEventListener('click', () => { coreAudio.currentTime = Math.min(coreAudio.duration || 0, coreAudio.currentTime + 10); });
 
-        audio.addEventListener('timeupdate', () => {
-            if (!isNaN(audio.duration)) {
-                const valor = (audio.currentTime / audio.duration) * 100;
-                barraProgresso.value = valor;
-                tempoAtual.textContent = formatarTempo(audio.currentTime);
-                tempoTotal.textContent = formatarTempo(audio.duration);
+        // Vinculação dos Sliders de Tempo
+        const sliderProgresso = document.getElementById('sliderProgresso');
+        const txtTempoAtual = document.getElementById('txtTempoAtual');
+        const txtTempoTotal = document.getElementById('txtTempoTotal');
+
+        coreAudio.addEventListener('timeupdate', () => {
+            if (!isNaN(coreAudio.duration)) {
+                const percentual = (coreAudio.currentTime / coreAudio.duration) * 100;
+                sliderProgresso.value = percentual;
+                txtTempoAtual.textContent = normalizarMinutos(coreAudio.currentTime);
+                txtTempoTotal.textContent = normalizarMinutos(coreAudio.duration);
             }
         });
 
-        barraProgresso.addEventListener('input', () => {
-            const tempo = (barraProgresso.value / 100) * audio.duration;
-            audio.currentTime = tempo;
+        sliderProgresso.addEventListener('input', () => {
+            const destinoTemporal = (sliderProgresso.value / 100) * coreAudio.duration;
+            coreAudio.currentTime = destinoTemporal;
         });
 
-        function formatarTempo(segundos) {
-            const min = Math.floor(segundos / 60);
-            const seg = Math.floor(segundos % 60);
-            return `${min.toString().padStart(2, '0')}:${seg.toString().padStart(2, '0')}`;
+        function normalizarMinutos(segundos) {
+            const m = Math.floor(segundos / 60);
+            const s = Math.floor(segundos % 60);
+            return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
         }
 
-        // Eventos de Filtro Superior Dinâmico
-        document.querySelectorAll('.btn-filter-tipo').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                document.querySelectorAll('.btn-filter-tipo').forEach(b => b.className = "btn-filter-tipo px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-gray-800/60 text-gray-400 hover:text-white hover:bg-gray-800");
-                e.currentTarget.className = "btn-filter-tipo px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-600/20";
-                filtroTipo = e.currentTarget.getAttribute('data-filter');
-                renderizarCards();
+        // ETAPA 5: Monitoramento de cliques nos Filtros Superiores Dinâmicos
+        document.querySelectorAll('.btn-filtro').forEach(botao => {
+            botao.addEventListener('click', (e) => {
+                // Reseta a classe visual de todos os botões de filtro
+                document.querySelectorAll('.btn-filtro').forEach(b => {
+                    b.className = "btn-filtro px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-100 text-slate-600 hover:bg-slate-200";
+                });
+                // Aplica a classe de destaque ativa no botão clicado utilizando o Roxo Premium
+                e.currentTarget.className = "btn-filtro active px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-premiumPurple text-white shadow-md shadow-premiumPurple/10";
+                
+                filtroSelecionado = e.currentTarget.getAttribute('data-filter');
+                desenharCardsCasting();
             });
         });
 
-        document.querySelectorAll('.btn-filter-status').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                document.querySelectorAll('.btn-filter-status').forEach(b => b.className = "btn-filter-status px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-gray-800/60 text-gray-400 hover:bg-gray-800");
-                e.currentTarget.className = "btn-filter-status px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-600/20";
-                filtroStatus = e.currentTarget.getAttribute('data-status');
-                renderizarCards();
-            });
-        });
-
-        document.getElementById('inputPesquisa').addEventListener('input', (e) => {
+        // Monitoramento da caixa de digitação por nomes
+        document.getElementById('inputLocalizar').addEventListener('input', (e) => {
             termoPesquisa = e.target.value;
-            renderizarCards();
+            desenharCardsCasting();
         });
 
-        // Inicialização
-        renderizarCards();
+        // Execução Inicializadora Automática
+        extrairBancoDeVozes();
     </script>
 </body>
 </html>
