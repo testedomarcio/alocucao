@@ -5,44 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     
     <title>Banco de Vozes | A Locução</title>
-    <meta name="description" content="Banco de vozes profissionais. Ouça o demo, escolha a voz ideal e solicite sua locução.">
+    <meta name="description" content="Banco de vozes profissionais. Ouça o demo e solicite sua locução.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         * { font-family: 'Inter', sans-serif; }
-        body { background: #f8fafc; }
+        body { background: #f1f5f9; }
         
-        .locutor-card {
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
-        }
-        .locutor-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
-            border-color: #C9A03D;
+        .glass-header {
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         
-        .tag {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 20px;
-            font-size: 10px;
-            font-weight: 500;
-            margin: 2px;
+        audio {
+            height: 32px;
+            width: 180px;
+            border-radius: 60px;
         }
-        .tag-impacto { background: #fee2e2; color: #991b1b; }
-        .tag-jovem { background: #dcfce7; color: #166534; }
-        .tag-varejo { background: #dbeafe; color: #1e40af; }
-        .tag-institucional { background: #fef3c7; color: #92400e; }
-        .tag-up-fest { background: #fce7f3; color: #9d174d; }
-        .tag-jornalistico { background: #e0e7ff; color: #3730a3; }
-        .tag-caricato { background: #fed7aa; color: #9a3412; }
-        .tag-caipira { background: #d1fae5; color: #065f46; }
-        .tag-padrao { background: #e2e8f0; color: #334155; }
-        .tag-geral { background: #e0f2fe; color: #0369a1; }
+        audio::-webkit-media-controls-panel {
+            background-color: #f1f5f9;
+        }
         
         .filter-btn.active {
             background: #5B3A8C !important;
@@ -50,17 +36,33 @@
             border-color: #5B3A8C !important;
         }
         
-        .style-filter-btn.active {
-            background: #C9A03D !important;
-            color: #1e293b !important;
-            border-color: #C9A03D !important;
+        .btn-whatsapp-small {
+            background: #25D366;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-whatsapp-small:hover {
+            background: #1fb855;
         }
         
-        .status-online { background: #dcfce7; color: #166534; }
-        .status-10min { background: #dbeafe; color: #1e40af; }
-        .status-30min { background: #fef3c7; color: #92400e; }
-        .status-voltoja { background: #fed7aa; color: #9a3412; }
-        .status-offline { background: #f1f5f9; color: #64748b; }
+        .tag-estilo {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 500;
+            margin: 2px;
+            background: #e2e8f0;
+            color: #334155;
+        }
         
         .whatsapp-float {
             position: fixed;
@@ -69,14 +71,14 @@
             z-index: 9999;
         }
         .whatsapp-button {
-            width: 65px;
-            height: 65px;
+            width: 60px;
+            height: 60px;
             background: #25D366;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
+            font-size: 30px;
             color: white;
             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
             transition: all 0.3s ease;
@@ -90,26 +92,64 @@
             50% { transform: translateY(-10px); }
         }
         
-        @media (max-width: 640px) {
-            .whatsapp-float { bottom: 20px; right: 20px; }
-            .whatsapp-button { width: 55px; height: 55px; font-size: 28px; }
+        @media (max-width: 768px) {
+            audio { width: 130px; }
+            .btn-whatsapp-small { padding: 4px 10px; font-size: 10px; }
+            .tag-estilo { font-size: 8px; padding: 1px 6px; }
         }
         
-        .glass-header {
-            background: rgba(15, 23, 42, 0.96);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        .tabela-container {
+            overflow-x: auto;
         }
         
-        audio { height: 32px; width: 100%; border-radius: 60px; }
-        audio::-webkit-media-controls-panel { background-color: #f1f5f9; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        
+        th {
+            text-align: left;
+            padding: 14px 12px;
+            background: #f8fafc;
+            font-weight: 600;
+            font-size: 13px;
+            color: #1e293b;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        td {
+            padding: 12px 12px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: middle;
+        }
+        
+        .locutor-linha:hover {
+            background-color: #f8fafc;
+        }
+        
+        .foto-locutor {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #C9A03D;
+        }
+        
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+        }
     </style>
 </head>
 <body>
 
     <div class="whatsapp-float">
-        <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20Banco%20de%20Vozes%20e%20gostaria%20de%20solicitar%20uma%20loca%C3%A7%C3%A3o!" 
-           target="_blank" class="whatsapp-button">
+        <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20Banco%20de%20Vozes" target="_blank" class="whatsapp-button">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
@@ -124,8 +164,7 @@
         </div>
         <div class="max-w-7xl mx-auto px-4 flex justify-between items-center py-2">
             <a href="#"><img src="https://testedomarcio.github.io/meuadio/logo.webp" alt="A Locução" class="h-8 sm:h-10 w-auto"></a>
-            <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20Banco%20de%20Vozes" 
-               target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold flex items-center gap-2 text-xs sm:text-sm px-5 py-2.5 rounded-full">
+            <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20Banco%20de%20Vozes" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold flex items-center gap-2 text-xs sm:text-sm px-5 py-2.5 rounded-full">
                 <i class="fab fa-whatsapp text-base"></i> Solicitar Locução
             </a>
         </div>
@@ -133,107 +172,91 @@
 
     <main class="pt-28 sm:pt-32 pb-16">
         
-        <section class="bg-[#0f172a] text-white py-12">
+        <section class="bg-[#0f172a] text-white py-8">
             <div class="max-w-7xl mx-auto px-4 text-center">
-                <h1 class="text-3xl sm:text-5xl font-bold mb-4">Banco de <span class="text-[#C9A03D]">Vozes</span></h1>
-                <p class="text-slate-300 text-lg max-w-2xl mx-auto">Locutores profissionais. Ouça o demo, escolha a voz ideal e solicite sua locução.</p>
+                <h1 class="text-2xl sm:text-4xl font-bold mb-2">Banco de <span class="text-[#C9A03D]">Vozes</span></h1>
+                <p class="text-slate-300 text-sm">Locutores profissionais. Ouça o demo e solicite sua locução.</p>
             </div>
         </section>
 
-        <section class="sticky top-20 z-40 bg-white border-b shadow-sm py-4">
+        <section class="sticky top-20 z-40 bg-white border-b shadow-sm py-3">
             <div class="max-w-7xl mx-auto px-4">
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <button data-filter="all" class="filter-btn px-4 py-2 rounded-full text-sm font-medium border transition bg-[#5B3A8C] text-white border-[#5B3A8C]">Todos</button>
-                    <button data-filter="masculina" class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-slate-300">👨 Masculinas</button>
-                    <button data-filter="feminina" class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-slate-300">👩 Femininas</button>
-                    <button data-filter="infantil" class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-slate-300">🧒 Infantis</button>
-                </div>
-                
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs text-slate-500 mr-2 self-center">Filtrar por estilo:</span>
-                    <button data-style="all" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300 active bg-[#C9A03D] text-slate-800 border-[#C9A03D]">Todos</button>
-                    <button data-style="impacto" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Impacto</button>
-                    <button data-style="jovem" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Jovem</button>
-                    <button data-style="varejo" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Varejo</button>
-                    <button data-style="institucional" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Institucional</button>
-                    <button data-style="up-fest" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Up-Fest</button>
-                    <button data-style="jornalistico" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Jornalístico</button>
-                    <button data-style="caricato" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Caricato</button>
-                </div>
-                
-                <div class="mt-3">
-                    <p id="contador" class="text-xs text-slate-500"></p>
+                <div class="flex flex-wrap gap-2 items-center justify-between">
+                    <div class="flex flex-wrap gap-2">
+                        <button data-filter="all" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border transition bg-[#5B3A8C] text-white border-[#5B3A8C]">Todos</button>
+                        <button data-filter="masculina" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border border-slate-300">Masculinas</button>
+                        <button data-filter="feminina" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border border-slate-300">Femininas</button>
+                        <button data-filter="infantil" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border border-slate-300">Infantis</button>
+                    </div>
+                    <div class="text-xs text-slate-500">
+                        <span id="contador">Carregando...</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="max-w-7xl mx-auto px-4 py-8">
-            <div id="loading" class="text-center py-12">
-                <i class="fas fa-spinner fa-spin text-4xl text-[#5B3A8C] mb-4"></i>
-                <p class="text-slate-500">Carregando banco de vozes...</p>
+        <section class="max-w-7xl mx-auto px-4 py-6">
+            <div id="loading" class="loading">
+                <div class="text-center">
+                    <i class="fas fa-spinner fa-spin text-3xl text-[#5B3A8C] mb-3"></i>
+                    <p class="text-slate-500 text-sm">Carregando banco de vozes...</p>
+                </div>
             </div>
-            <div id="locutores-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 hidden"></div>
+            
+            <div id="tabela-container" class="tabela-container hidden">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Locutor</th>
+                            <th>Estilos</th>
+                            <th>Demo</th>
+                            <th>Solicitar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-locutores"></tbody>
+                </table>
+            </div>
+            
             <div id="no-results" class="text-center py-12 hidden">
-                <i class="fas fa-microphone-slash text-5xl text-slate-300 mb-4"></i>
+                <i class="fas fa-microphone-slash text-4xl text-slate-300 mb-3"></i>
                 <p class="text-slate-500">Nenhum locutor encontrado.</p>
-            </div>
-        </section>
-
-        <section class="bg-[#0f172a] text-white text-center py-16 mt-8">
-            <div class="max-w-3xl mx-auto px-4">
-                <h2 class="text-2xl sm:text-3xl font-bold mb-4">Não encontrou a voz ideal?</h2>
-                <p class="text-slate-300 mb-6">Fale comigo diretamente e me conte o perfil que você busca.</p>
-                <a href="https://wa.me/5527996529832?text=Ol%C3%A1,%20vim%20pelo%20Banco%20de%20Vozes%20e%20n%C3%A3o%20encontrei%20a%20voz%20que%20precisava" 
-                   target="_blank" class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 px-8 py-4 rounded-2xl font-bold text-lg">
-                    <i class="fab fa-whatsapp text-2xl"></i> FALAR COM ESPECIALISTA
-                </a>
             </div>
         </section>
     </main>
 
-    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm">
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs">
         <p>A Locução © 2012-2026 · Banco de Vozes Profissionais</p>
-        <p class="text-xs mt-2">WhatsApp (27) 99652-9832 · suporte@alocucao.com.br</p>
+        <p class="mt-1">WhatsApp (27) 99652-9832 · suporte@alocucao.com.br</p>
     </footer>
 
     <script>
-        // Função para extrair TODOS os locutores do HTML original
+        // Função para extrair TODOS os locutores do arquivo bancodevozes.html
         async function carregarLocutores() {
             try {
-                // Tenta carregar o arquivo original da Locução Brasil
-                // IMPORTANTE: Substitua 'bancodevozes.html' pelo nome correto do arquivo no seu GitHub
                 const response = await fetch('bancodevozes.html');
                 const html = await response.text();
                 
-                // Criar um DOM parser para extrair os dados
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, 'text/html');
                 
-                // Encontrar todas as linhas da tabela de locutores
                 const linhas = doc.querySelectorAll('#tLocutores tr');
-                
-                const locutores = [];
+                const locutoresMap = new Map(); // Para evitar duplicados
                 
                 linhas.forEach(linha => {
-                    // Extrair nome
                     const nomeElement = linha.querySelector('.media-body b');
                     const nome = nomeElement ? nomeElement.textContent.trim() : null;
-                    
                     if (!nome) return;
                     
-                    // Extrair gênero (do atributo filtro-voz)
+                    // Pular se já tem (primeira ocorrência)
+                    if (locutoresMap.has(nome)) return;
+                    
+                    // Extrair gênero
                     const spanElement = linha.querySelector('[filtro-voz]');
                     let genero = spanElement ? spanElement.getAttribute('filtro-voz') : 'masculina';
-                    if (!genero || genero === '') genero = 'masculina';
-                    
-                    // Extrair status (filtro-horario)
-                    const statusElement = linha.querySelector('[filtro-horario]');
-                    let status = statusElement ? statusElement.getAttribute('filtro-horario') : 'offline';
-                    if (!status) status = 'offline';
                     
                     // Extrair foto
                     const imgElement = linha.querySelector('img');
-                    let foto = imgElement ? imgElement.src : 'https://via.placeholder.com/80';
+                    let foto = imgElement ? imgElement.src : '';
                     
                     // Extrair audio demo
                     let audioDemo = '';
@@ -242,194 +265,139 @@
                         audioDemo = playButton.getAttribute('playDemo');
                     }
                     
-                    // Extrair estilos (do atributo estilos)
-                    let estilosTexto = '';
+                    // Extrair estilos
+                    let estilos = [];
                     if (playButton) {
-                        estilosTexto = playButton.getAttribute('estilos') || '';
-                    }
-                    
-                    // Processar estilos
-                    const estilosMap = {
-                        'impacto': 'impacto',
-                        'jovem': 'jovem',
-                        'varejo': 'varejo',
-                        'institucional': 'institucional',
-                        'up-fest': 'up-fest',
-                        'jornalistico': 'jornalistico',
-                        'jornalístico': 'jornalistico',
-                        'caricato': 'caricato',
-                        'caipira': 'caipira',
-                        'padrão': 'padrao',
-                        'padrao': 'padrao',
-                        'alegre': 'jovem',
-                        'animado': 'jovem'
-                    };
-                    
-                    const estilos = [];
-                    const textoLower = estilosTexto.toLowerCase();
-                    
-                    for (const [key, value] of Object.entries(estilosMap)) {
-                        if (textoLower.includes(key)) {
-                            if (!estilos.includes(value)) estilos.push(value);
+                        const estilosTexto = playButton.getAttribute('estilos') || '';
+                        const textoLower = estilosTexto.toLowerCase();
+                        
+                        const estilosMap = {
+                            'impacto': 'Impacto', 'jovem': 'Jovem', 'varejo': 'Varejo',
+                            'institucional': 'Institucional', 'up-fest': 'Up-Fest',
+                            'jornalistico': 'Jornalístico', 'caricato': 'Caricato',
+                            'caipira': 'Caipira', 'padrão': 'Padrão', 'padrao': 'Padrão',
+                            'alegre': 'Alegre', 'animado': 'Animado', 'velho': 'Velho',
+                            'igreja': 'Igreja', 'evento': 'Evento', 'geral': 'Geral'
+                        };
+                        
+                        for (const [key, value] of Object.entries(estilosMap)) {
+                            if (textoLower.includes(key)) {
+                                if (!estilos.includes(value)) estilos.push(value);
+                            }
                         }
                     }
                     
-                    if (estilos.length === 0) estilos.push('geral');
+                    if (estilos.length === 0) estilos.push('Geral');
                     
-                    // Informações adicionais
-                    let infoAdicional = '';
-                    const estiloInfo = playButton ? playButton.getAttribute('estilos') : '';
-                    if (estiloInfo) {
-                        infoAdicional = estiloInfo.substring(0, 100);
-                    }
-                    
-                    locutores.push({
-                        nome, genero, status, foto, audioDemo, estilos, infoAdicional
+                    locutoresMap.set(nome, {
+                        nome, genero, foto, audioDemo, estilos
                     });
                 });
                 
-                // Remover duplicados (pelo nome)
-                const locutoresUnicos = [];
-                const nomesExistentes = new Set();
-                
-                for (const locutor of locutores) {
-                    if (!nomesExistentes.has(locutor.nome)) {
-                        nomesExistentes.add(locutor.nome);
-                        locutoresUnicos.push(locutor);
-                    }
-                }
-                
-                console.log(`Total de locutores extraídos: ${locutoresUnicos.length}`);
-                return locutoresUnicos;
+                const locutores = Array.from(locutoresMap.values());
+                console.log(`Total de locutores extraídos: ${locutores.length}`);
+                return locutores;
                 
             } catch (error) {
                 console.error('Erro ao carregar arquivo:', error);
-                // Se não conseguir carregar, usa dados de fallback
-                return getDadosFallback();
+                return [];
             }
         }
-        
-        function getDadosFallback() {
-            return [
-                { nome: "Alessandro Peixoto", genero: "masculina", estilos: ["impacto", "jovem", "varejo"], status: "10min", foto: "https://hd.paineldegravacao.com.br/perfil/0693395001776198709.jpeg", audioDemo: "https://hd.paineldegravacao.com.br/demos/0011337001754510609.mp3", infoAdicional: "Textos Comerciais de até 15min" },
-                { nome: "Jonatha Melonio", genero: "masculina", estilos: ["impacto", "jovem", "varejo"], status: "10min", foto: "https://hd.paineldegravacao.com.br/perfil/0252098001696358048.jpeg", audioDemo: "https://hd.paineldegravacao.com.br/demos/0496922001763396473.mp3", infoAdicional: "Textos Comerciais de até 03min" },
-                { nome: "Hellen Reis", genero: "feminina", estilos: ["jovem", "padrao", "varejo"], status: "online", foto: "https://hd.paineldegravacao.com.br/perfil/0746641001766254455.jpg", audioDemo: "https://hd.paineldegravacao.com.br/demos/0481177001768302255.mp3", infoAdicional: "Textos Comerciais de até 02min" },
-                { nome: "FELIPE BONFIM", genero: "infantil", estilos: ["infantil", "jovem"], status: "online", foto: "https://hd.paineldegravacao.com.br/perfil/0530676001608312410.jpeg", audioDemo: "https://hd.paineldegravacao.com.br/demos/0334842001618527299.mp3", infoAdicional: "Textos Comerciais de até 03min" }
-            ];
-        }
-        
-        function getStatusBadge(status) {
-            const classes = {
-                'online': 'status-online',
-                '10min': 'status-10min',
-                '30min': 'status-30min',
-                'voltoja': 'status-voltoja'
-            };
-            const classe = classes[status] || 'status-offline';
-            const icone = status === 'online' ? '<i class="fas fa-circle text-xs mr-1"></i>' : '';
-            const texto = status === 'online' ? 'Online' : status === '10min' ? '⏱️ 10min' : status === '30min' ? '⏱️ 30min' : status === 'voltoja' ? '⏰ Volto já' : '⚫ Indisponível';
-            return `<span class="inline-block px-2 py-1 rounded-full text-xs font-medium ${classe}">${icone}${texto}</span>`;
-        }
-        
+
         function getStyleTags(estilos) {
-            const styleClasses = {
-                'impacto': 'tag-impacto', 'jovem': 'tag-jovem', 'varejo': 'tag-varejo',
-                'institucional': 'tag-institucional', 'up-fest': 'tag-up-fest',
-                'jornalistico': 'tag-jornalistico', 'caricato': 'tag-caricato',
-                'caipira': 'tag-caipira', 'padrao': 'tag-padrao', 'geral': 'tag-geral'
-            };
-            return estilos.map(estilo => `<span class="tag ${styleClasses[estilo] || 'tag-geral'}">${estilo.charAt(0).toUpperCase() + estilo.slice(1)}</span>`).join('');
+            return estilos.map(estilo => `<span class="tag-estilo">${estilo}</span>`).join('');
         }
-        
+
         let todosLocutores = [];
         let currentFilter = 'all';
-        let currentStyle = 'all';
-        
-        function renderizar() {
+
+        async function renderizarTabela() {
+            const loading = document.getElementById('loading');
+            const tabelaContainer = document.getElementById('tabela-container');
+            const noResults = document.getElementById('no-results');
+            const tbody = document.getElementById('lista-locutores');
+            const contador = document.getElementById('contador');
+            
+            if (todosLocutores.length === 0) {
+                todosLocutores = await carregarLocutores();
+            }
+            
             let filtrados = [...todosLocutores];
             
             if (currentFilter !== 'all') {
                 filtrados = filtrados.filter(l => l.genero === currentFilter);
             }
-            if (currentStyle !== 'all') {
-                filtrados = filtrados.filter(l => l.estilos.includes(currentStyle));
-            }
             
-            const container = document.getElementById('locutores-container');
-            const noResults = document.getElementById('no-results');
-            const loading = document.getElementById('loading');
-            const contador = document.getElementById('contador');
-            
-            contador.textContent = `${filtrados.length} locutores encontrados`;
+            contador.textContent = `${filtrados.length} locutores`;
             
             if (filtrados.length === 0) {
-                container.classList.add('hidden');
+                tabelaContainer.classList.add('hidden');
                 noResults.classList.remove('hidden');
                 loading.classList.add('hidden');
                 return;
             }
             
-            container.classList.remove('hidden');
+            tabelaContainer.classList.remove('hidden');
             noResults.classList.add('hidden');
             loading.classList.add('hidden');
             
-            container.innerHTML = filtrados.map(l => `
-                <div class="locutor-card bg-white rounded-2xl p-5">
-                    <div class="flex gap-4">
-                        <img src="${l.foto}" alt="${l.nome}" class="w-20 h-20 rounded-full object-cover border-2 border-[#C9A03D] shrink-0" onerror="this.src='https://via.placeholder.com/80'">
-                        <div class="flex-1">
-                            <div class="flex justify-between items-start">
-                                <h3 class="font-bold text-lg">${l.nome}</h3>
-                                ${getStatusBadge(l.status)}
-                            </div>
-                            <div class="flex flex-wrap gap-1 mt-2">${getStyleTags(l.estilos)}</div>
+            tbody.innerHTML = filtrados.map(locutor => `
+                <tr class="locutor-linha">
+                    <td class="whitespace-nowrap">
+                        <div class="flex items-center gap-3">
+                            <img src="${locutor.foto}" class="foto-locutor" onerror="this.src='https://via.placeholder.com/42?text=Sem+Foto'">
+                            <span class="font-medium text-sm">${locutor.nome}</span>
                         </div>
-                    </div>
-                    <div class="mt-3 text-xs text-slate-500">${l.infoAdicional || 'Disponível para gravação'}</div>
-                    <div class="mt-4"><audio controls preload="none" src="${l.audioDemo}"></audio></div>
-                    <div class="mt-4">
-                        <a href="https://wa.me/5527996529832?text=Olá, quero solicitar locução com ${encodeURIComponent(l.nome)}" 
-                           target="_blank" class="flex items-center justify-center gap-2 w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 rounded-xl text-sm">
-                            <i class="fab fa-whatsapp"></i> Quero este locutor
+                    </td>
+                    <td>
+                        <div class="flex flex-wrap gap-1">${getStyleTags(locutor.estilos)}</div>
+                    </td>
+                    <td class="whitespace-nowrap">
+                        <audio controls preload="none">
+                            <source src="${locutor.audioDemo}" type="audio/mpeg">
+                        </audio>
+                    </td>
+                    <td class="whitespace-nowrap">
+                        <a href="https://wa.me/5527996529832?text=Olá, quero solicitar uma locução com o locutor ${encodeURIComponent(locutor.nome)}" 
+                           target="_blank" class="btn-whatsapp-small">
+                            <i class="fab fa-whatsapp"></i> Solicitar
                         </a>
-                    </div>
-                </div>
+                    </td>
+                </tr>
             `).join('');
+            
+            setTimeout(() => {
+                document.querySelectorAll('audio').forEach(audio => audio.load());
+            }, 100);
         }
-        
-        async function iniciar() {
-            const loading = document.getElementById('loading');
-            loading.classList.remove('hidden');
-            
-            todosLocutores = await carregarLocutores();
-            renderizar();
-            
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active', 'bg-[#5B3A8C]', 'text-white'));
-                    btn.classList.add('active', 'bg-[#5B3A8C]', 'text-white');
-                    currentFilter = btn.getAttribute('data-filter');
-                    renderizar();
-                });
+
+        // Filtro por gênero
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active', 'bg-[#5B3A8C]', 'text-white'));
+                btn.classList.add('active', 'bg-[#5B3A8C]', 'text-white');
+                currentFilter = btn.getAttribute('data-filter');
+                renderizarTabela();
             });
-            
-            document.querySelectorAll('.style-filter-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    document.querySelectorAll('.style-filter-btn').forEach(b => b.classList.remove('active', 'bg-[#C9A03D]', 'text-slate-800'));
-                    btn.classList.add('active', 'bg-[#C9A03D]', 'text-slate-800');
-                    currentStyle = btn.getAttribute('data-style');
-                    renderizar();
-                });
-            });
-        }
-        
-        iniciar();
-        
+        });
+
+        // Pausar outros áudios
         document.addEventListener('play', function(e) {
             if (e.target.tagName === 'AUDIO') {
-                document.querySelectorAll('audio').forEach(audio => { if (audio !== e.target) audio.pause(); });
+                document.querySelectorAll('audio').forEach(audio => {
+                    if (audio !== e.target) audio.pause();
+                });
             }
         }, true);
+
+        // Iniciar
+        renderizarTabela();
+
+        // Efeito scroll header
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            header.style.background = window.scrollY > 20 ? 'rgba(15, 23, 42, 0.98)' : 'rgba(15, 23, 42, 0.96)';
+        });
     </script>
 </body>
 </html>
