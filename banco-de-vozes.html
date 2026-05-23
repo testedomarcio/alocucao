@@ -2,477 +2,303 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    
-    <title>Banco de Vozes | A Locução</title>
-    <meta name="description" content="Banco de vozes profissionais. Ouça o demo e solicite sua locução.">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco de Vozes Premium | A Locução</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        * { font-family: 'Inter', sans-serif; }
-        body { background: #f1f5f9; }
-        
-        .glass-header {
-            background: rgba(15, 23, 42, 0.96);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19; /* Fundo dark ultra moderno */
+            color: #f3f4f6;
         }
-        
-        audio {
-            height: 32px;
-            width: 180px;
-            border-radius: 60px;
-        }
-        
-        audio::-webkit-media-controls-panel {
-            background-color: #f1f5f9;
-        }
-        
-        .filter-btn.active {
-            background: #5B3A8C !important;
-            color: white !important;
-            border-color: #5B3A8C !important;
-        }
-        
-        .btn-whatsapp-small {
-            background: #25D366;
-            color: white;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 500;
-            transition: all 0.2s;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .btn-whatsapp-small:hover {
-            background: #1fb855;
-        }
-        
-        .status-badge {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 600;
-        }
-        .status-10min { background: #05B1F9; color: white; }
-        .status-30min { background: #1E90FF; color: white; }
-        .status-online { background: #32CD32; color: white; }
-        .status-ferias { background: #8B4513; color: white; }
-        .status-indisponivel { background: #6c757d; color: white; }
-        .status-offline { background: #CDC9C9; color: #333; }
-        
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 9999;
-        }
-        .whatsapp-button {
-            width: 60px;
-            height: 60px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            color: white;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            animation: float 3s ease-in-out infinite;
-        }
-        .whatsapp-button:hover { transform: scale(1.1); background: #1fb855; }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        @media (max-width: 768px) {
-            audio { width: 130px; }
-            .btn-whatsapp-small { padding: 4px 10px; font-size: 10px; }
-            th, td { padding: 8px 6px; }
-            .status-badge { padding: 2px 8px; font-size: 9px; }
-        }
-        
-        .tabela-container {
-            overflow-x: auto;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-        }
-        
-        th {
-            text-align: left;
-            padding: 14px 12px;
-            background: #f8fafc;
-            font-weight: 600;
-            font-size: 13px;
-            color: #1e293b;
-            border-bottom: 2px solid #e2e8f0;
-        }
-        
-        td {
-            padding: 12px 12px;
-            border-bottom: 1px solid #e2e8f0;
-            vertical-align: middle;
-        }
-        
-        .locutor-linha:hover {
-            background-color: #f8fafc;
-        }
-        
-        .loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 300px;
-        }
-        
-        .atualizado-em {
-            font-size: 10px;
-            color: #94a3b8;
-            background: #f1f5f9;
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 20px;
-        }
+        /* Customização sutil da barra de rolagem */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0b0f19; }
+        ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #374151; }
     </style>
 </head>
-<body>
+<body class="min-h-screen antialiased pb-24">
 
-    <div class="whatsapp-float">
-        <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20Banco%20de%20Vozes" target="_blank" class="whatsapp-button">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-    </div>
-
-    <header class="fixed w-full top-0 z-50 glass-header text-white">
-        <div class="bg-slate-800/40 border-b border-slate-700/30">
-            <div class="max-w-7xl mx-auto px-4 flex justify-center sm:justify-between items-center py-1.5 text-[10px] sm:text-xs text-slate-400">
-                <span class="hidden sm:flex items-center gap-2"><i class="fas fa-envelope"></i> suporte@alocucao.com.br</span>
-                <span class="flex items-center gap-2"><i class="fab fa-whatsapp text-green-500"></i> (27) 99652-9832</span>
-                <span class="hidden sm:flex items-center gap-1"><i class="fas fa-clock"></i> Seg a Sex 08h-18h | Sáb 08h-13h</span>
+    <header class="border-b border-gray-800 bg-gray-900/50 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+                <h1 class="text-2xl font-bold bg-gradient-to-r align-middle from-violet-400 to-indigo-500 bg-clip-text text-transparent">
+                    <i class="fa-solid fa-microphone-lines mr-2 text-indigo-400"></i>Banco de Vozes Personalizado
+                </h1>
+                <p class="text-xs text-gray-400 mt-1">Selecione e gerencie as melhores vozes para seus projetos</p>
             </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center py-2">
-            <a href="#"><img src="https://testedomarcio.github.io/meuadio/logo.webp" alt="A Locução" class="h-8 sm:h-10 w-auto"></a>
-            <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20Banco%20de%20Vozes" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold flex items-center gap-2 text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-md">
-                <i class="fab fa-whatsapp text-base"></i> Solicitar Locução
-            </a>
+            
+            <div class="relative w-full md:w-80">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-500">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+                <input type="search" id="inputPesquisa" 
+                    class="w-full pl-10 pr-4 py-2 text-sm bg-gray-900 border border-gray-700 rounded-xl focus:outline-none focus:border-indigo-500 text-gray-200 transition-colors" 
+                    placeholder="Buscar locutor...">
+            </div>
         </div>
     </header>
 
-    <main class="pt-28 sm:pt-32 pb-16">
-        
-        <section class="bg-[#0f172a] text-white py-10">
-            <div class="max-w-7xl mx-auto px-4 text-center">
-                <h1 class="text-3xl sm:text-5xl font-bold mb-3">Banco de <span class="text-[#C9A03D]">Vozes</span></h1>
-                <p class="text-slate-300 text-base max-w-2xl mx-auto">Locutores profissionais. Status em tempo real. Ouça o demo e solicite sua locução.</p>
-            </div>
-        </section>
-
-        <section class="sticky top-20 z-40 bg-white border-b shadow-sm py-4">
-            <div class="max-w-7xl mx-auto px-4">
-                <div class="flex flex-wrap gap-2 items-center justify-between">
-                    <div class="flex flex-wrap gap-2">
-                        <button data-filter="all" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border transition bg-[#5B3A8C] text-white border-[#5B3A8C]">Todos</button>
-                        <button data-filter="Masculino" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border border-slate-300">Masculinos</button>
-                        <button data-filter="Feminino" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border border-slate-300">Femininos</button>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <button id="btn-atualizar" class="btn-ordenar" style="background:#f1f5f9; border:1px solid #e2e8f0; padding:6px 12px; border-radius:20px; font-size:12px; cursor:pointer;">
-                            <i class="fas fa-sync-alt mr-1"></i> Atualizar
-                        </button>
-                        <div class="text-xs text-slate-500">
-                            <span id="contador">Carregando...</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex justify-between items-center mt-2">
-                    <span class="text-xs text-slate-400"><i class="fas fa-sort-amount-down mr-1"></i> Ordenado por disponibilidade</span>
-                    <span id="ultima-atualizacao" class="atualizado-em"></span>
-                </div>
-            </div>
-        </section>
-
-        <section class="max-w-7xl mx-auto px-4 py-6">
-            <div id="loading" class="loading">
-                <div class="text-center">
-                    <i class="fas fa-spinner fa-spin text-3xl text-[#5B3A8C] mb-3"></i>
-                    <p class="text-slate-500 text-sm">Carregando banco de vozes...</p>
-                    <p class="text-slate-400 text-xs mt-2">Buscando dados atualizados da Offs Brasil</p>
-                </div>
-            </div>
+    <main class="max-w-7xl mx-auto px-4 mt-8">
+        <div class="bg-gray-900/40 border border-gray-800/80 rounded-2xl p-4 mb-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             
-            <div id="tabela-container" class="tabela-container hidden">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Locutor</th>
-                            <th>Status</th>
-                            <th>Demo</th>
-                            <th>Solicitar</th>
-                        </tr>
-                    </thead>
-                    <tbody id="lista-locutores"></tbody>
-                </table>
+            <div class="flex flex-wrap items-center gap-2">
+                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider mr-2">Voz:</span>
+                <button data-filter="all" class="btn-filter-tipo px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-600/20">Todas</button>
+                <button data-filter="masculina" class="btn-filter-tipo px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-gray-800/60 text-gray-400 hover:text-white hover:bg-gray-800">Masculina</button>
+                <button data-filter="feminina" class="btn-filter-tipo px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-gray-800/60 text-gray-400 hover:text-white hover:bg-gray-800">Feminina</button>
+                <button data-filter="infantil" class="btn-filter-tipo px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-gray-800/60 text-gray-400 hover:text-white hover:bg-gray-800">Infantil</button>
             </div>
-            
-            <div id="no-results" class="text-center py-12 hidden">
-                <i class="fas fa-microphone-slash text-4xl text-slate-300 mb-3"></i>
-                <p class="text-slate-500">Nenhum locutor encontrado.</p>
+
+            <div class="flex flex-wrap items-center gap-2">
+                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider mr-2">Disponibilidade:</span>
+                <button data-status="all" class="btn-filter-status px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-600/20">Todos</button>
+                <button data-status="online" class="btn-filter-status px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-gray-800/60 text-gray-400 hover:text-emerald-400 hover:bg-gray-800"><span class="w-2 h-2 inline-block bg-emerald-500 rounded-full mr-1.5 animate-pulse"></span>Online</button>
+                <button data-status="10min" class="btn-filter-status px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-gray-800/60 text-gray-400 hover:text-rose-400 hover:bg-gray-800">10 Min</button>
+                <button data-status="30min" class="btn-filter-status px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-gray-800/60 text-gray-400 hover:text-amber-400 hover:bg-gray-800">30 Min</button>
             </div>
-        </section>
+        </div>
+
+        <div id="gridLocutores" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            </div>
     </main>
 
-    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs">
-        <p>A Locução © 2012-2026 · Banco de Vozes Profissionais</p>
-        <p class="mt-1">WhatsApp (27) 99652-9832 · suporte@alocucao.com.br</p>
-    </footer>
+    <div id="playerFixo" class="fixed bottom-0 left-0 right-0 bg-gray-900/95 backdrop-blur-lg border-t border-gray-800 py-3 px-6 transform translate-y-full transition-transform duration-300 z-50 shadow-2xl">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3 w-1/3 min-w-[150px]">
+                <img id="playerImg" src="" class="w-10 h-10 rounded-lg object-cover border border-gray-700" alt="">
+                <div class="overflow-hidden">
+                    <h4 id="playerNome" class="text-sm font-semibold text-white truncate">Selecionado</h4>
+                    <p id="playerEstilo" class="text-xs text-gray-400 truncate">Estilo da voz</p>
+                </div>
+            </div>
+            
+            <div class="flex flex-col items-center gap-1 w-1/3">
+                <div class="flex items-center gap-4">
+                    <button id="btnVoltar10" class="text-gray-400 hover:text-white transition-colors"><i class="fa-solid fa-backward-step"></i></button>
+                    <button id="btnPlayMaster" class="w-10 h-10 bg-indigo-500 hover:bg-indigo-600 text-white rounded-full flex items-center justify-center transition-transform hover:scale-105 shadow-md"><i class="fa-solid fa-play ml-0.5"></i></button>
+                    <button id="btnAvancar10" class="text-gray-400 hover:text-white transition-colors"><i class="fa-solid fa-forward-step"></i></button>
+                </div>
+                <div class="w-full flex items-center gap-2">
+                    <span id="tempoAtual" class="text-[10px] text-gray-500 font-mono">00:00</span>
+                    <input type="range" id="barraProgresso" value="0" class="w-full h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-indigo-500">
+                    <span id="tempoTotal" class="text-[10px] text-gray-500 font-mono">00:00</span>
+                </div>
+            </div>
+
+            <div class="w-1/3 flex justify-end">
+                <button id="btnPlayerOrcamento" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold flex items-center gap-2 transition-colors shadow-lg shadow-emerald-600/10">
+                    <i class="fa-brands fa-whatsapp text-sm"></i> <span class="hidden sm:inline">Solicitar Locução</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <audio id="audioGlobal"></audio>
 
     <script>
-        let todosLocutores = [];
-        let currentFilter = 'all';
+        // Dados brutos extraídos do seu HTML original
+        const locutores = [
+            {
+                nome: "Alessandro Peixoto",
+                foto: "https://hd.paineldegravacao.com.br/perfil/0693395001776198709.jpeg",
+                audio: "https://paineldegravacao.com.br/player/play/Alessandro_Peixoto/2/4118",
+                tipo: "masculina",
+                status: "10min"
+            },
+            {
+                nome: "Alexandre Silva",
+                foto: "https://hd.paineldegravacao.com.br/perfil/01004925001736440537.jpeg",
+                audio: "https://paineldegravacao.com.br/player/play/Alexandre_Silva/2/4488",
+                tipo: "masculina",
+                status: "online"
+            },
+            {
+                nome: "Bruna K",
+                foto: "https://hd.paineldegravacao.com.br/perfil/04337222001712242131.png",
+                audio: "https://paineldegravacao.com.br/player/play/Bruna_K/2/4397",
+                tipo: "feminina",
+                status: "30min"
+            }
+            // Você pode colar os outros locutores aqui seguindo este mesmo padrão de objeto
+        ];
 
-        function getStatusOrdem(statusTexto, statusCor) {
-            const texto = (statusTexto || '').toLowerCase();
-            const cor = (statusCor || '').toLowerCase();
-            
-            if (texto.includes('10 minutos') || cor === '#05b1f9') return 1;
-            if (texto.includes('30 minutos') || cor === '#1e90ff') return 2;
-            if (texto.includes('online') || texto.includes('1 à 5 horas') || cor === '#32cd32') return 3;
-            if (texto.includes('férias') || texto.includes('ferias') || cor === 'gray' || texto.includes('indisponível')) return 4;
-            return 5;
-        }
+        // Estado do App
+        let filtroTipo = 'all';
+        let filtroStatus = 'all';
+        let termoPesquisa = '';
+        let locutorAtual = null;
 
-        function getStatusBadge(statusTexto, statusCor) {
-            const texto = (statusTexto || '').toLowerCase();
-            const cor = (statusCor || '').toLowerCase();
-            
-            if (texto.includes('10 minutos') || cor === '#05b1f9') {
-                return '<span class="status-badge status-10min">⏱️ 10 minutos</span>';
-            }
-            if (texto.includes('30 minutos') || cor === '#1e90ff') {
-                return '<span class="status-badge status-30min">⏱️ 30 minutos</span>';
-            }
-            if (texto.includes('online') || texto.includes('1 à 5 horas') || cor === '#32cd32') {
-                return '<span class="status-badge status-online">🟢 Online</span>';
-            }
-            if (texto.includes('férias') || texto.includes('ferias')) {
-                return '<span class="status-badge status-ferias">🏖️ Férias</span>';
-            }
-            if (texto.includes('indisponível') || cor === 'gray') {
-                return '<span class="status-badge status-indisponivel">⏸️ Indisponível</span>';
-            }
-            return '<span class="status-badge status-offline">⚫ Offline</span>';
-        }
+        // Elementos DOM
+        const grid = document.getElementById('gridLocutores');
+        const audio = document.getElementById('audioGlobal');
+        const playerFixo = document.getElementById('playerFixo');
+        const btnPlayMaster = document.getElementById('btnPlayMaster');
 
-        async function carregarLocutores(mostrarLoading = true) {
-            const loading = document.getElementById('loading');
-            const tabelaContainer = document.getElementById('tabela-container');
+        // Renderizador de Cards
+        function renderizarCards() {
+            grid.innerHTML = '';
             
-            if (mostrarLoading) {
-                loading.classList.remove('hidden');
-                tabelaContainer.classList.add('hidden');
-            }
-            
-            try {
-                // Adiciona timestamp para evitar cache do navegador
-                const timestamp = new Date().getTime();
-                const response = await fetch(`offsbrasil.html?nocache=${timestamp}`);
-                const html = await response.text();
-                
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, 'text/html');
-                
-                const linhas = doc.querySelectorAll('#example tbody tr');
-                const locutoresMap = new Map();
-                
-                linhas.forEach(linha => {
-                    const nomeCell = linha.querySelector('td:first-child');
-                    let nome = nomeCell ? nomeCell.textContent?.trim() : '';
-                    if (nomeCell) {
-                        const nomeText = nomeCell.textContent || '';
-                        nome = nomeText.split('★')[0].trim();
-                    }
-                    if (!nome || nome === '') return;
-                    if (locutoresMap.has(nome)) return;
-                    
-                    const statusCell = linha.querySelector('td:nth-child(2)');
-                    let statusTexto = '';
-                    let statusCor = '';
-                    if (statusCell) {
-                        const p = statusCell.querySelector('p');
-                        if (p) {
-                            statusTexto = p.textContent || '';
-                            const style = p.getAttribute('style') || '';
-                            const bgMatch = style.match(/background-color:([^;]+)/);
-                            if (bgMatch) statusCor = bgMatch[1].trim();
-                        }
-                    }
-                    
-                    const audioCell = linha.querySelector('td:nth-child(3)');
-                    let audioUrl = '';
-                    if (audioCell) {
-                        const audio = audioCell.querySelector('audio');
-                        if (audio) {
-                            audioUrl = audio.getAttribute('src') || '';
-                        }
-                    }
-                    
-                    let genero = 'Masculino';
-                    const spans = linha.querySelectorAll('span[style*="font-size:1px"]');
-                    spans.forEach(span => {
-                        const text = span.textContent || '';
-                        if (text === 'Masculino') genero = 'Masculino';
-                        if (text === 'Feminino') genero = 'Feminino';
-                    });
-                    
-                    if (nome && audioUrl) {
-                        locutoresMap.set(nome, {
-                            nome: nome,
-                            genero: genero,
-                            statusTexto: statusTexto,
-                            statusCor: statusCor,
-                            audioUrl: audioUrl
-                        });
-                    }
-                });
-                
-                const locutores = Array.from(locutoresMap.values());
-                locutores.sort((a, b) => {
-                    const ordemA = getStatusOrdem(a.statusTexto, a.statusCor);
-                    const ordemB = getStatusOrdem(b.statusTexto, b.statusCor);
-                    return ordemA - ordemB;
-                });
-                
-                console.log(`Total de locutores extraídos: ${locutores.length}`);
-                return locutores;
-                
-            } catch (error) {
-                console.error('Erro ao carregar arquivo:', error);
-                return [];
-            }
-        }
+            const filtrados = locutores.filter(l => {
+                const bateTipo = filtroTipo === 'all' || l.tipo === filtroTipo;
+                const bateStatus = filtroStatus === 'all' || l.status === filtroStatus;
+                const bateNome = l.nome.toLowerCase().includes(termoPesquisa.toLowerCase());
+                return bateTipo && bateStatus && bateNome;
+            });
 
-        function renderizarTabela() {
-            const tabelaContainer = document.getElementById('tabela-container');
-            const noResults = document.getElementById('no-results');
-            const loading = document.getElementById('loading');
-            const tbody = document.getElementById('lista-locutores');
-            const contador = document.getElementById('contador');
-            
-            let filtrados = [...todosLocutores];
-            
-            if (currentFilter !== 'all') {
-                filtrados = filtrados.filter(l => l.genero === currentFilter);
-            }
-            
-            contador.textContent = `${filtrados.length} locutores`;
-            
-            if (filtrados.length === 0) {
-                tabelaContainer.classList.add('hidden');
-                noResults.classList.remove('hidden');
-                loading.classList.add('hidden');
+            if(filtrados.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-500">Nenhum locutor encontrado com estes filtros.</div>`;
                 return;
             }
-            
-            tabelaContainer.classList.remove('hidden');
-            noResults.classList.add('hidden');
-            loading.classList.add('hidden');
-            
-            tbody.innerHTML = filtrados.map(locutor => `
-                <tr class="locutor-linha">
-                    <td class="whitespace-nowrap">
-                        <div class="flex items-center gap-3">
-                            <div class="w-8 h-8 bg-[#5B3A8C] rounded-full flex items-center justify-center text-white text-xs font-bold">
-                                ${locutor.nome.charAt(0)}
+
+            filtrados.forEach((locutor, index) => {
+                const statusConfig = {
+                    online: { cor: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20', label: 'Online' },
+                    '10min': { cor: 'text-rose-400 bg-rose-500/10 border-rose-500/20', label: '10 Min' },
+                    '30min': { cor: 'text-amber-400 bg-amber-500/10 border-amber-500/20', label: '30 Min' }
+                }[locutor.status] || { cor: 'text-gray-400 bg-gray-500/10 border-gray-500/20', label: 'Indisponível' };
+
+                const card = document.createElement('div');
+                card.className = "bg-gray-900/60 border border-gray-800/80 hover:border-indigo-500/40 rounded-2xl p-5 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/5 group relative overflow-hidden";
+                
+                const estaTocandoEste = locutorAtual && locutorAtual.audio === locutor.audio && !audio.paused;
+
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-start justify-between gap-4">
+                            <div class="flex items-center gap-3">
+                                <div class="relative">
+                                    <img src="${locutor.foto}" class="w-14 h-14 rounded-full object-cover border-2 border-gray-800 group-hover:border-indigo-500/50 transition-colors" alt="${locutor.nome}">
+                                    ${locutor.status === 'online' ? '<span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-emerald-500 border-2 border-gray-900 rounded-full"></span>' : ''}
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-white group-hover:text-indigo-400 transition-colors text-base">${locutor.nome}</h3>
+                                    <span class="inline-block text-[10px] uppercase tracking-wider text-gray-400 mt-0.5 font-medium">${locutor.tipo}</span>
+                                </div>
                             </div>
-                            <span class="font-medium text-sm">${locutor.nome}</span>
+                            <span class="text-[11px] font-medium px-2.5 py-1 rounded-lg border ${statusConfig.cor}">
+                                ${statusConfig.label}
+                            </span>
                         </div>
-                    </td>
-                    <td class="whitespace-nowrap">${getStatusBadge(locutor.statusTexto, locutor.statusCor)}</td>
-                    <td class="whitespace-nowrap">
-                        <audio controls preload="none">
-                            <source src="${locutor.audioUrl}" type="audio/mpeg">
-                        </audio>
-                    </td>
-                    <td class="whitespace-nowrap">
-                        <a href="https://wa.me/5527996529832?text=Olá, quero solicitar uma locução com o locutor ${encodeURIComponent(locutor.nome)}" 
-                           target="_blank" class="btn-whatsapp-small">
-                            <i class="fab fa-whatsapp"></i> Solicitar
+                    </div>
+
+                    <div class="mt-6 flex items-center justify-between pt-4 border-t border-gray-800/60">
+                        <button onclick="controlarAudio('${locutor.audio}', ${index})" class="flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-xl transition-all ${estaTocandoEste ? 'bg-amber-500 text-slate-950' : 'bg-indigo-500/10 text-indigo-400 hover:bg-indigo-500 hover:text-white'}">
+                            <i class="fa-solid ${estaTocandoEste ? 'fa-pause' : 'fa-play'} text-xs"></i>
+                            <span>${estaTocandoEste ? 'Pausar' : 'Ouvir Demo'}</span>
+                        </button>
+
+                        <a href="https://wa.me/5528999999999?text=Olá,%20gostei%20da%20voz%20de%20${encodeURIComponent(locutor.nome)}" target="_blank" 
+                           class="w-9 h-9 bg-gray-800 hover:bg-emerald-600 text-gray-400 hover:text-white rounded-xl flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
                         </a>
-                    </td>
-                </tr>
-            `).join('');
-            
-            // Mostrar horário da última atualização
-            const agora = new Date();
-            const horaFormatada = agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-            document.getElementById('ultima-atualizacao').innerHTML = `<i class="far fa-clock mr-1"></i> Atualizado às ${horaFormatada}`;
-            
-            setTimeout(() => {
-                document.querySelectorAll('audio').forEach(audio => audio.load());
-            }, 100);
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
         }
 
-        async function atualizarDados() {
-            const loading = document.getElementById('loading');
-            const tabelaContainer = document.getElementById('tabela-container');
-            
-            loading.classList.remove('hidden');
-            tabelaContainer.classList.add('hidden');
-            
-            todosLocutores = await carregarLocutores(true);
-            renderizarTabela();
+        // Lógica de Áudio Global
+        function controlarAudio(url, index) {
+            const locutor = locutores[index];
+
+            if (locutorAtual && locutorAtual.audio === url) {
+                if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
+            } else {
+                locutorAtual = locutor;
+                audio.src = url;
+                audio.play();
+                atualizarBarraPlayerFixo();
+            }
+            renderizarCards();
+            atualizarIconeMaster();
         }
 
-        async function iniciar() {
-            todosLocutores = await carregarLocutores(true);
-            renderizarTabela();
+        function atualizarBarraPlayerFixo() {
+            if (!locutorAtual) return;
+            document.getElementById('playerImg').src = locutorAtual.foto;
+            document.getElementById('playerNome').textContent = locutorAtual.nome;
+            document.getElementById('playerEstilo').textContent = `Perfil: ${locutorAtual.tipo.toUpperCase()}`;
+            playerFixo.classList.remove('translate-y-full');
         }
 
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active', 'bg-[#5B3A8C]', 'text-white'));
-                btn.classList.add('active', 'bg-[#5B3A8C]', 'text-white');
-                currentFilter = btn.getAttribute('data-filter');
-                renderizarTabela();
+        function atualizarIconeMaster() {
+            if (audio.paused) {
+                btnPlayMaster.innerHTML = `<i class="fa-solid fa-play ml-0.5"></i>`;
+            } else {
+                btnPlayMaster.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+            }
+        }
+
+        // Eventos e Sincronização do Player
+        audio.addEventListener('play', () => { renderizarCards(); atualizarIconeMaster(); });
+        audio.addEventListener('pause', () => { renderizarCards(); atualizarIconeMaster(); });
+        btnPlayMaster.addEventListener('click', () => {
+            if(audio.src) {
+                if(audio.paused) audio.play();
+                else audio.pause();
+            }
+        });
+
+        // Barra de progresso do Player Estilo Spotify
+        const barraProgresso = document.getElementById('barraProgresso');
+        const tempoAtual = document.getElementById('tempoAtual');
+        const tempoTotal = document.getElementById('tempoTotal');
+
+        audio.addEventListener('timeupdate', () => {
+            if (!isNaN(audio.duration)) {
+                const valor = (audio.currentTime / audio.duration) * 100;
+                barraProgresso.value = valor;
+                tempoAtual.textContent = formatarTempo(audio.currentTime);
+                tempoTotal.textContent = formatarTempo(audio.duration);
+            }
+        });
+
+        barraProgresso.addEventListener('input', () => {
+            const tempo = (barraProgresso.value / 100) * audio.duration;
+            audio.currentTime = tempo;
+        });
+
+        function formatarTempo(segundos) {
+            const min = Math.floor(segundos / 60);
+            const seg = Math.floor(segundos % 60);
+            return `${min.toString().padStart(2, '0')}:${seg.toString().padStart(2, '0')}`;
+        }
+
+        // Eventos de Filtro Superior Dinâmico
+        document.querySelectorAll('.btn-filter-tipo').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.btn-filter-tipo').forEach(b => b.className = "btn-filter-tipo px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-gray-800/60 text-gray-400 hover:text-white hover:bg-gray-800");
+                e.currentTarget.className = "btn-filter-tipo px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-600/20";
+                filtroTipo = e.currentTarget.getAttribute('data-filter');
+                renderizarCards();
             });
         });
 
-        document.getElementById('btn-atualizar').addEventListener('click', () => {
-            atualizarDados();
+        document.querySelectorAll('.btn-filter-status').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.btn-filter-status').forEach(b => b.className = "btn-filter-status px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-gray-800/60 text-gray-400 hover:bg-gray-800");
+                e.currentTarget.className = "btn-filter-status px-4 py-1.5 rounded-xl text-xs font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-600/20";
+                filtroStatus = e.currentTarget.getAttribute('data-status');
+                renderizarCards();
+            });
         });
 
-        document.addEventListener('play', function(e) {
-            if (e.target.tagName === 'AUDIO') {
-                document.querySelectorAll('audio').forEach(audio => {
-                    if (audio !== e.target) audio.pause();
-                });
-            }
-        }, true);
-
-        iniciar();
-
-        const header = document.querySelector('header');
-        window.addEventListener('scroll', () => {
-            header.style.background = window.scrollY > 20 ? 'rgba(15, 23, 42, 0.98)' : 'rgba(15, 23, 42, 0.96)';
+        document.getElementById('inputPesquisa').addEventListener('input', (e) => {
+            termoPesquisa = e.target.value;
+            renderizarCards();
         });
+
+        // Inicialização
+        renderizarCards();
     </script>
 </body>
 </html>
