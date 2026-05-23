@@ -2,59 +2,29 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     
-    <!-- SEO -->
-    <title>Banco de Vozes | +30 Locutores Profissionais com Demos | Estúdio A Locução</title>
-    <meta name="description" content="Ouça demonstrações dos nossos locutores profissionais. Vozes masculinas e femininas para spot comercial, locução off, vídeos institucionais e muito mais. Escolha a voz ideal.">
-    <meta name="keywords" content="banco de vozes, locutores profissionais, vozes para propaganda, locução comercial, vozes masculinas, vozes femininas, demo de locução">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.alocucao.com.br/banco-de-vozes">
+    <!-- ==================== SEO META TAGS ==================== -->
+    <title>Demo de Vozes | Estúdio A Locução · Casting Exclusivo</title>
+    <meta name="description" content="Ouça as demonstrações de voz dos nossos locutores profissionais. Casting exclusivo com vozes selecionadas para seu projeto.">
+    <meta name="author" content="Estúdio A Locução">
+    <link rel="canonical" href="https://www.alocucao.com.br/vozes">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Banco de Vozes | Estúdio A Locução">
-    <meta property="og:description" content="Ouça demonstrações dos nossos locutores profissionais. +30 vozes disponíveis para o seu projeto.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.alocucao.com.br/banco-de-vozes">
-    
-    <!-- Preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <meta property="og:url" content="https://www.alocucao.com.br/vozes">
+    <meta property="og:title" content="Demonstrações de Vozes | Estúdio A Locução">
+    <meta property="og:description" content="Vozes selecionadas com curadoria exclusiva. Ouça e escolha a voz ideal para seu projeto.">
+    <meta property="og:image" content="https://testedomarcio.github.io/meuadio/logo.webp">
     
     <!-- Google Tag -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093304718"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKKDKPVDDH"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('config', 'G-TKKDKPVDDH');
       gtag('config', 'AW-18093304718');
-
-      function safeRedirectWA(url, conversionLabel, eventCategory, eventLabel) {
-          gtag('event', 'conversion', {
-              'send_to': 'AW-18093304718/' + conversionLabel,
-              'event_category': eventCategory,
-              'event_label': eventLabel
-          });
-          setTimeout(function() {
-              window.open(url, '_blank');
-          }, 300);
-          return false;
-      }
-
-      function trackAudioPlay(locutorName) {
-          gtag('event', 'play_demo', {
-              'event_category': 'Banco de Vozes',
-              'event_label': locutorName
-          });
-      }
-      
-      function trackModalOpen(locutorName) {
-          gtag('event', 'modal_info', {
-              'event_category': 'Banco de Vozes',
-              'event_label': locutorName
-          });
-      }
     </script>
     
     <!-- Tailwind CSS -->
@@ -64,6 +34,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <script>
@@ -72,26 +44,11 @@
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'], },
                     colors: {
-                        'brand-blue': '#1e3a5f',
-                        'darkBg': '#0f172a',
-                        'action-green': '#25D366',
-                        'action-green-hover': '#1fb855',
-                        'accent': '#2563eb',
-                        'accent-hover': '#1d4ed8',
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.3s ease-out',
-                        'slide-up': 'slideUp 0.4s ease-out',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            from: { opacity: '0' },
-                            to: { opacity: '1' },
-                        },
-                        slideUp: {
-                            from: { transform: 'translateY(30px)', opacity: '0' },
-                            to: { transform: 'translateY(0)', opacity: '1' },
-                        },
+                        primary: '#22d3ee',
+                        primaryDark: '#0891b2',
+                        darkBg: '#0f172a',
+                        premiumPurple: '#5B3A8C',
+                        premiumGold: '#C9A03D',
                     }
                 }
             }
@@ -99,983 +56,437 @@
     </script>
 
     <style>
-        body { 
-            font-family: 'Inter', sans-serif; 
-            overflow-x: hidden; 
-            background-color: #f8fafc; 
-            scroll-behavior: smooth; 
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; background-color: #faf9f8; }
+        
+        .gradient-bg { 
+            background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 100%); 
+        }
+        
+        @media (max-width: 640px) {
+            .glow-circle { display: none; }
+            .backdrop-blur { backdrop-filter: none !important; background: rgba(15, 23, 42, 0.98) !important; }
         }
         
         .glass-header {
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(15, 23, 42, 0.92);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-        
-        audio { 
-            height: 36px; 
-            width: 100%; 
-            border-radius: 50px; 
-            background: #f1f5f9;
-        }
-        audio::-webkit-media-controls-panel { 
-            background-color: #f8fafc; 
-            border-radius: 50px;
-        }
-        
-        img { max-width: 100%; height: auto; }
 
-        .locutor-card {
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
+        .btn-primary { 
+            background: linear-gradient(135deg, #5B3A8C 0%, #22d3ee 100%);
+            transition: all 0.3s ease; 
         }
-        .locutor-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-            border-color: #cbd5e1;
+        .btn-primary:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(91, 58, 140, 0.4);
         }
 
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(4px);
-            z-index: 9999;
+        .logo-img { max-height: 45px; width: auto; height: auto; }
+        
+        #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; }
+        #mobile-menu.active { max-height: 600px; }
+
+        .container-custom { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+        @media (min-width: 768px) { .container-custom { padding: 0 2.5rem; } }
+
+        .glow-circle { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.3; z-index: 0; pointer-events: none; }
+        
+        .elegant-badge {
+            background: rgba(34, 211, 238, 0.12);
+            border: 1px solid rgba(34, 211, 238, 0.3);
+        }
+
+        /* Iframe container responsivo - mantém proporção e boa experiência */
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: 800px;
+            overflow: hidden;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 24px;
+            background-color: #fff;
+        }
+        
+        @media (max-width: 768px) {
+            .iframe-container {
+                height: 650px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .iframe-container {
+                height: 550px;
+            }
+        }
+        
+        /* Loader elegante para iframe */
+        .iframe-loader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+            display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1rem;
-            animation: fadeIn 0.2s ease-out;
+            z-index: 5;
+            transition: opacity 0.4s ease;
+            border-radius: 24px;
         }
-        .modal-overlay.active {
-            display: flex;
+        
+        .iframe-loader.hidden {
+            opacity: 0;
+            visibility: hidden;
         }
-        .modal-content {
-            background: white;
-            border-radius: 1.5rem;
-            max-width: 600px;
-            width: 100%;
-            max-height: 85vh;
-            overflow-y: auto;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
-            animation: slideUp 0.4s ease-out;
-            position: relative;
+        
+        .loader-spinner {
+            width: 48px;
+            height: 48px;
+            border: 3px solid rgba(91, 58, 140, 0.2);
+            border-top: 3px solid #5B3A8C;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
         }
-        .modal-content::-webkit-scrollbar {
-            width: 6px;
-        }
-        .modal-content::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 10px;
-        }
-
-        .estilo-badge {
-            display: inline-block;
-            background: #eff6ff;
-            color: #2563eb;
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            margin: 0.15rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            border: 1px solid #bfdbfe;
-        }
-
-        #search-input:focus {
-            outline: none;
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        /* Botões de filtro ativos */
-        .filter-btn.active {
-            background-color: #2563eb !important;
-            color: white !important;
-            border-color: #2563eb !important;
-        }
-
-        @media (max-width: 640px) {
-            .modal-content {
-                border-radius: 1rem 1rem 0 0;
-                max-height: 90vh;
-                margin-top: auto;
-            }
-            .modal-overlay {
-                align-items: flex-end;
-            }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
-<body class="font-sans antialiased text-slate-800">
+<body class="font-sans antialiased text-slate-700">
 
-    <!-- Header -->
-    <header class="fixed w-full top-0 z-50 glass-header text-white transition-all py-2 sm:py-3">
-        <div class="bg-slate-800/50 border-b border-slate-700/50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-center sm:justify-between items-center py-1.5 text-[10px] sm:text-xs text-slate-400">
-                <span class="hidden sm:flex items-center gap-2">
-                    <i class="fas fa-envelope text-slate-500"></i> suporte@alocucao.com.br
-                </span>
-                <span class="flex items-center gap-2">
-                    <i class="fab fa-whatsapp text-green-500"></i> (27) 99652-9832
-                </span>
-                <span class="hidden sm:flex items-center gap-1">
-                    <i class="fas fa-clock text-slate-500"></i> Gravações das 7h às 22h • Todos os dias
-                </span>
+    <header class="fixed w-full top-0 z-50 glass-header text-white transition-all duration-300">
+        <nav class="container-custom py-3 sm:py-4" aria-label="Menu principal">
+            <div class="flex justify-between items-center">
+                
+                <div class="flex items-center gap-2 z-50">
+                    <a href="/" aria-label="Estúdio A Locução - Locução Premium">
+                        <img src="https://testedomarcio.github.io/meuadio/logo.webp" alt="Estúdio A Locução - Locução Profissional com Curadoria" class="logo-img" width="120" height="40">
+                    </a>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-8 font-semibold text-sm tracking-wide">
+                    <a href="/" class="text-slate-200 hover:text-cyan-400 transition-colors">Início</a>
+                    <a href="/#servicos" class="text-slate-200 hover:text-cyan-400 transition-colors">Serviços</a>
+                    <a href="/#casting" class="text-slate-200 hover:text-cyan-400 transition-colors flex items-center gap-1">
+                        <i class="fas fa-microphone-alt"></i> Casting Exclusivo
+                    </a>
+                    <a href="/#precos" class="text-slate-200 hover:text-cyan-400 transition-colors">Preços</a>
+                    <a href="vozes.html" class="text-cyan-400 transition-colors font-bold" aria-current="page">Demo de Vozes</a>
+                </div>
+
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="https://wa.me/5527996529832?text=Olá!%20Gostaria%20de%20solicitar%20uma%20locução%20com%20qualidade%20de%20estúdio" target="_blank" class="btn-primary text-white font-bold px-6 py-2.5 rounded-full shadow-lg text-sm uppercase tracking-wider flex items-center gap-2">
+                        <i class="fab fa-whatsapp"></i> Falar com Especialista
+                    </a>
+                </div>
+
+                <button id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" class="lg:hidden text-2xl text-cyan-400 focus:outline-none p-2 z-50">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center py-2">
-            <a href="/" class="shrink-0">
-                <img src="https://testedomarcio.github.io/meuadio/logo.webp" alt="Estúdio A Locução" class="h-8 sm:h-10 w-auto" width="120" height="40">
-            </a>
-            <a href="/" class="text-slate-400 hover:text-white text-sm font-medium transition flex items-center gap-1">
-                <i class="fas fa-arrow-left text-xs"></i> Voltar ao Site
-            </a>
-        </div>
+
+            <div id="mobile-menu" class="lg:hidden w-full">
+                <div class="flex flex-col space-y-2 pt-6 pb-4 border-t border-slate-700/50 mt-4">
+                    <a href="/" class="text-slate-200 hover:text-cyan-400 py-3 px-4 rounded-lg text-sm font-bold uppercase">Início</a>
+                    <a href="/#servicos" class="text-slate-200 hover:text-cyan-400 py-3 px-4 rounded-lg text-sm font-bold uppercase">Serviços</a>
+                    <a href="/#casting" class="text-slate-200 hover:text-cyan-400 py-3 px-4 rounded-lg text-sm font-bold uppercase">Casting Exclusivo</a>
+                    <a href="/#precos" class="text-slate-200 hover:text-cyan-400 py-3 px-4 rounded-lg text-sm font-bold uppercase">Preços</a>
+                    <a href="vozes.html" class="text-cyan-400 py-3 px-4 rounded-lg text-sm font-bold uppercase">Demo de Vozes</a>
+                    
+                    <div class="mt-4 pt-4 border-t border-slate-700/50">
+                        <a href="https://wa.me/5527996529832?text=Olá!%20Gostaria%20de%20solicitar%20uma%20locução%20com%20qualidade%20de%20estúdio" target="_blank" class="btn-primary text-white text-center py-3 rounded-xl font-bold uppercase text-sm flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp"></i> Falar com Especialista
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </header>
 
-    <main class="pt-28 sm:pt-32 pb-16">
-        
-        <!-- Hero -->
-        <section class="max-w-7xl mx-auto px-4 sm:px-6 mb-12">
-            <div class="text-center">
-                <span class="text-accent font-bold uppercase tracking-widest text-xs mb-3 block">Banco de Vozes</span>
-                <h1 class="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight mb-4">
-                    Encontre a <span class="text-accent">Voz Perfeita</span>
-                </h1>
-                <p class="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed mb-8">
-                    Ouça as demonstrações dos nossos locutores profissionais. 
-                    <strong class="text-slate-700">+30 vozes disponíveis</strong> para spot comercial, locução off, vídeos e muito mais.
+    <main>
+        <!-- Hero Section da página de demonstrações -->
+        <section class="gradient-bg pt-32 pb-16 lg:pt-44 lg:pb-20 relative overflow-hidden text-white">
+            <div class="glow-circle w-[500px] h-[500px] bg-cyan-500/20 top-[-10%] left-[-10%]"></div>
+            <div class="glow-circle w-[400px] h-[400px] bg-premiumPurple/20 bottom-[-10%] right-[-5%]"></div>
+
+            <div class="container-custom relative z-10">
+                <div class="max-w-4xl mx-auto text-center">
+                    
+                    <!-- Badge elegante -->
+                    <div class="flex justify-center mb-6">
+                        <span class="inline-flex items-center gap-2 elegant-badge text-cyan-400 px-5 py-2 rounded-full text-sm font-semibold border border-cyan-500/30">
+                            <i class="fas fa-headphones"></i> Casting Exclusivo · Vozes Reais
+                        </span>
+                    </div>
+
+                    <div class="flex flex-wrap justify-center gap-3 mb-6">
+                        <span class="inline-flex items-center gap-2 bg-premiumPurple/20 text-premiumGold px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border border-premiumGold/30">
+                            <i class="fas fa-star-of-life"></i> Curadoria Premium
+                        </span>
+                        <span class="inline-flex items-center gap-2 bg-amber-500/10 text-amber-400 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border border-amber-500/20">
+                            <i class="fas fa-medal"></i> +12 Anos de Excelência
+                        </span>
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6 text-white">
+                        Ouça as Vozes do Nosso
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-premiumPurple">Casting Exclusivo</span>
+                    </h1>
+                    
+                    <p class="text-slate-300 text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto font-light mb-8">
+                        <strong class="text-white">Vozes selecionadas com direção artística</strong> para projetos que exigem o melhor. 
+                        Escute, compare e escolha a voz ideal para sua marca.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
+                        <a href="https://wa.me/5527996529832?text=Olá!%20Quero%20solicitar%20minha%20locução%20após%20ouvir%20as%20demonstrações" target="_blank" class="w-full sm:w-auto btn-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp"></i> INICIAR MEU PROJETO
+                        </a>
+                        <a href="https://wa.me/5527996529832?text=Tenho%20dúvidas%20sobre%20o%20casting%20de%20vozes" target="_blank" class="w-full sm:w-auto bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all flex items-center justify-center gap-2">
+                            <i class="fas fa-headset"></i> Atendimento Humanizado
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Destaque: O que você encontrará -->
+        <section class="py-10 bg-white relative z-20 border-b border-slate-100">
+            <div class="container-custom">
+                <div class="flex flex-wrap justify-center gap-8 text-center">
+                    <div class="flex items-center gap-3 text-slate-600">
+                        <i class="fas fa-microphone-alt text-premiumPurple text-xl"></i>
+                        <span class="text-sm font-medium">Vozes 100% Humanas</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-slate-600">
+                        <i class="fas fa-star text-premiumGold text-xl"></i>
+                        <span class="text-sm font-medium">Curadoria Rigorosa</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-slate-600">
+                        <i class="fas fa-headphones text-cyan-500 text-xl"></i>
+                        <span class="text-sm font-medium">Estilos para Todo Projeto</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-slate-600">
+                        <i class="fas fa-calendar-check text-premiumPurple text-xl"></i>
+                        <span class="text-sm font-medium">Entrega no Mesmo Dia</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Container do iframe - Player de Demonstrações de Vozes -->
+        <section class="py-16 md:py-20 bg-slate-50 relative z-20">
+            <div class="container-custom">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                        <span class="text-premiumPurple">🎧 Explore Nosso Catálogo de Vozes</span>
+                    </h2>
+                    <p class="text-slate-500 mt-3 max-w-2xl mx-auto">
+                        Clique nos players para ouvir demonstrações. Todas as vozes são de locutores profissionais do nosso casting exclusivo.
+                    </p>
+                </div>
+                
+                <!-- Iframe responsivo com loader -->
+                <div class="iframe-container mx-auto">
+                    <div id="iframeLoader" class="iframe-loader">
+                        <div class="flex flex-col items-center gap-4">
+                            <div class="loader-spinner"></div>
+                            <p class="text-premiumPurple font-medium text-sm">Carregando demonstrações de voz...</p>
+                        </div>
+                    </div>
+                    <iframe 
+                        id="voiceIframe"
+                        src="https://paineldegravacao.com.br/comerciaistop/lista-locutores/padrao" 
+                        title="Demonstrações de voz - Casting Estúdio A Locução"
+                        loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                
+                <div class="text-center mt-10 max-w-2xl mx-auto">
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                        <i class="fas fa-info-circle text-premiumPurple text-xl mb-2 inline-block"></i>
+                        <p class="text-sm text-slate-600">
+                            As demonstrações acima apresentam o talento dos nossos locutores. 
+                            Para solicitar uma locução personalizada, <a href="https://wa.me/5527996529832?text=Olá!%20Gostaria%20de%20escolher%20uma%20voz%20do%20casting%20para%20meu%20projeto" target="_blank" class="text-cyan-600 font-bold hover:underline">fale com nosso time via WhatsApp</a> 
+                            e nossa equipe vai te orientar com o melhor estilo para seu projeto.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefícios complementares -->
+        <section class="py-16 bg-white border-t border-slate-100">
+            <div class="container-custom">
+                <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="text-center p-6 rounded-2xl bg-slate-50/50 hover:bg-slate-50 transition">
+                        <div class="w-16 h-16 bg-premiumPurple/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-gem text-2xl text-premiumPurple"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-slate-800 mb-2">Curadoria Exclusiva</h3>
+                        <p class="text-slate-500 text-sm">Cada voz é testada e selecionada por profissionais de áudio com anos de experiência.</p>
+                    </div>
+                    <div class="text-center p-6 rounded-2xl bg-slate-50/50 hover:bg-slate-50 transition">
+                        <div class="w-16 h-16 bg-cyan-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-headset text-2xl text-cyan-600"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-slate-800 mb-2">Atendimento Personalizado</h3>
+                        <p class="text-slate-500 text-sm">Do briefing à entrega final, você fala com nossa equipe diretamente via WhatsApp.</p>
+                    </div>
+                    <div class="text-center p-6 rounded-2xl bg-slate-50/50 hover:bg-slate-50 transition">
+                        <div class="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-clock text-2xl text-amber-600"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-slate-800 mb-2">Entrega Ágil</h3>
+                        <p class="text-slate-500 text-sm">Pedidos realizados até as 18h são entregues no mesmo dia, sem perder a qualidade.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Final -->
+        <section class="py-20 bg-gradient-to-r from-slate-900 to-slate-800 relative overflow-hidden">
+            <div class="glow-circle w-[300px] h-[300px] bg-premiumPurple/20 top-0 right-0"></div>
+            <div class="container-custom relative z-10 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Pronto para dar voz ao seu projeto?</h2>
+                <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">
+                    Entre em contato agora e tenha um acompanhamento humanizado. Nossa equipe artística vai te ajudar a escolher a voz perfeita.
                 </p>
-                
-                <!-- Barra de busca -->
-                <div class="max-w-xl mx-auto relative">
-                    <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                    <input type="text" id="search-input" 
-                           placeholder="Buscar por nome ou estilo (ex: jovem, varejo, impacto...)" 
-                           class="w-full pl-12 pr-4 py-3 rounded-2xl border-2 border-slate-200 text-slate-700 font-medium text-sm focus:border-accent transition-all shadow-sm"
-                           oninput="filterLocutores()">
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://wa.me/5527996529832?text=Olá!%20Quero%20solicitar%20uma%20locução%20personalizada%20após%20ouvir%20as%20vozes" target="_blank" class="btn-primary text-white px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp"></i> Falar com um Especialista
+                    </a>
+                    <a href="/" class="bg-white/10 backdrop-blur border border-white/20 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all flex items-center justify-center gap-2">
+                        <i class="fas fa-home"></i> Voltar para Home
+                    </a>
                 </div>
-                
-                <!-- Filtros rápidos -->
-                <div class="flex flex-wrap justify-center gap-2 mt-4">
-                    <button onclick="filterByStyle('todos')" class="filter-btn active px-4 py-1.5 rounded-full text-xs font-bold transition-all">Todos</button>
-                    <button onclick="filterByStyle('padrao')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold bg-white text-slate-600 border border-slate-200 hover:border-accent hover:text-accent transition-all">Padrão</button>
-                    <button onclick="filterByStyle('varejo')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold bg-white text-slate-600 border border-slate-200 hover:border-accent hover:text-accent transition-all">Varejo</button>
-                    <button onclick="filterByStyle('jovem')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold bg-white text-slate-600 border border-slate-200 hover:border-accent hover:text-accent transition-all">Jovem</button>
-                    <button onclick="filterByStyle('institucional')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold bg-white text-slate-600 border border-slate-200 hover:border-accent hover:text-accent transition-all">Institucional</button>
-                    <button onclick="filterByStyle('impacto')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold bg-white text-slate-600 border border-slate-200 hover:border-accent hover:text-accent transition-all">Impacto</button>
-                    <button onclick="filterByStyle('alegre')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold bg-white text-slate-600 border border-slate-200 hover:border-accent hover:text-accent transition-all">Alegre</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- VOZES MASCULINAS -->
-        <section class="max-w-7xl mx-auto px-4 sm:px-6 mb-16">
-            <div class="flex items-center gap-3 mb-8">
-                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                    <i class="fas fa-male text-accent text-xl"></i>
-                </div>
-                <div>
-                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 uppercase tracking-tight">Vozes Masculinas</h2>
-                    <p id="contador-masculinas" class="text-slate-500 text-sm">17 locutores</p>
-                </div>
-            </div>
-            
-            <div id="grid-masculinas" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            </div>
-        </section>
-
-        <!-- VOZES FEMININAS -->
-        <section class="max-w-7xl mx-auto px-4 sm:px-6 mb-16">
-            <div class="flex items-center gap-3 mb-8">
-                <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center">
-                    <i class="fas fa-female text-pink-500 text-xl"></i>
-                </div>
-                <div>
-                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 uppercase tracking-tight">Vozes Femininas</h2>
-                    <p id="contador-femininas" class="text-slate-500 text-sm">14 locutoras</p>
-                </div>
-            </div>
-            
-            <div id="grid-femininas" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            </div>
-        </section>
-
-        <!-- CTA Final -->
-        <section class="max-w-3xl mx-auto px-4 sm:px-6 text-center mt-8">
-            <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-8 sm:p-10 text-white">
-                <h3 class="text-2xl sm:text-3xl font-black mb-3">Não encontrou a voz ideal?</h3>
-                <p class="text-slate-300 mb-6">Fale conosco no WhatsApp e te ajudamos a escolher a voz perfeita para seu projeto.</p>
-                <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20estou%20no%20Banco%20de%20Vozes%20e%20preciso%20de%20ajuda%20para%20escolher%20um%20locutor!" 
-                   onclick="gtag('event', 'conversion', {'send_to': 'AW-18093304718/WA_BANCO_VOZES', 'event_category': 'WhatsApp', 'event_label': 'CTA_Final_Banco'});"
-                   target="_blank"
-                   class="inline-flex items-center gap-3 bg-action-green hover:bg-action-green-hover text-white px-8 py-4 rounded-2xl font-black text-lg transition-all shadow-lg hover:-translate-y-1">
-                    <i class="fab fa-whatsapp text-2xl"></i> FALAR COM ESPECIALISTA
-                </a>
+                <p class="text-slate-400 text-sm mt-8">
+                    Atendimento de segunda a sexta, 8h às 18h. Resposta rápida e consultoria gratuita.
+                </p>
             </div>
         </section>
     </main>
 
-    <!-- Modal de Informações -->
-    <div id="locutor-modal" class="modal-overlay" onclick="closeModal(event)">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="sticky top-0 bg-white z-10 flex justify-between items-start p-6 pb-4 border-b border-slate-100">
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-16 border-t border-slate-800">
+        <div class="container-custom">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
                 <div>
-                    <h3 id="modal-nome" class="text-2xl font-black text-slate-900"></h3>
+                    <img src="https://testedomarcio.github.io/meuadio/logo.webp" alt="Estúdio A Locução" class="w-40 mb-6 brightness-0 invert opacity-80" width="160" height="45">
+                    <p class="text-sm leading-relaxed text-slate-400">Estúdio boutique desde 2012. Curadoria, excelência e atendimento humano em produção de áudio.</p>
                 </div>
-                <button onclick="closeModalDirect()" class="text-slate-400 hover:text-slate-600 transition-colors p-1">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
+                <div>
+                    <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Contato</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="https://wa.me/5527996529832" target="_blank" class="flex items-center gap-3 hover:text-green-400 transition"><i class="fab fa-whatsapp text-lg"></i> (27) 99652-9832</a></li>
+                        <li><a href="mailto:contato@alocucao.com.br" class="flex items-center gap-3 hover:text-cyan-400 transition"><i class="fas fa-envelope"></i> contato@alocucao.com.br</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Links Rápidos</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="/" class="hover:text-cyan-400 transition">Início</a></li>
+                        <li><a href="/#casting" class="hover:text-cyan-400 transition">Casting Exclusivo</a></li>
+                        <li><a href="/#precos" class="hover:text-cyan-400 transition">Preços</a></li>
+                        <li><a href="vozes.html" class="hover:text-cyan-400 transition">Demo de Vozes</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Legal</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-cyan-400 transition">Termos de Uso</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Política de Privacidade</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="p-6 pt-4 space-y-5">
-                <!-- Estilos -->
-                <div>
-                    <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Estilos de Gravação</p>
-                    <div id="modal-estilos" class="flex flex-wrap gap-1"></div>
-                </div>
-                
-                <!-- Audio -->
-                <div>
-                    <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Demonstração</p>
-                    <audio id="modal-audio" controls preload="none" class="w-full"></audio>
-                </div>
-                
-                <!-- Horários -->
-                <div>
-                    <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Horários Disponíveis</p>
-                    <div id="modal-horarios" class="space-y-3"></div>
-                </div>
-                
-                <!-- Informações adicionais -->
-                <div>
-                    <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Informações Adicionais</p>
-                    <div id="modal-info" class="text-sm text-slate-600 space-y-1.5 bg-slate-50 rounded-xl p-4"></div>
-                </div>
-                
-                <!-- Botão WhatsApp -->
-                <a id="modal-whatsapp" 
-                   href="#" 
-                   target="_blank"
-                   onclick="gtag('event', 'conversion', {'send_to': 'AW-18093304718/WA_MODAL', 'event_category': 'WhatsApp', 'event_label': 'Modal_Pedir_Locutor'});"
-                   class="flex items-center justify-center w-full bg-action-green hover:bg-action-green-hover text-white py-4 rounded-xl font-black uppercase tracking-wider transition-all shadow-lg hover:-translate-y-0.5 text-sm gap-2">
-                    <i class="fab fa-whatsapp text-lg"></i> QUERO ESTE LOCUTOR
-                </a>
+            <div class="pt-8 border-t border-slate-800 text-center">
+                <p class="text-xs text-slate-500">&copy; 2012 - 2026 ESTÚDIO A LOCUÇÃO. Todos os direitos reservados. Qualidade e excelência.</p>
             </div>
         </div>
-    </div>
-
-    <!-- Footer simples -->
-    <footer class="border-t border-slate-200 py-6 text-center">
-        <p class="text-xs text-slate-400">Estúdio A Locução &copy; 2012-2026 · WhatsApp (27) 99652-9832</p>
     </footer>
 
+    <!-- Botão Flutuante WhatsApp -->
+    <a href="https://wa.me/5527996529832" target="_blank" rel="noopener" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-lg hover:scale-110 transition-all z-50" aria-label="Fale com um especialista pelo WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <script>
-        // Dados dos locutores
-        const locutoresMasculinos = [
-            {
-                nome: "Alex P",
-                demo: "https://www.alocucao.com.br/Alex%20P.mp3",
-                estilos: ["PADRÃO", "ANIMADA", "VAREJO", "INSTITUCIONAL"],
-                info: [
-                    "Textos Comerciais de até 05:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 05:00 minutos",
-                    "Não grava Textos Políticos",
-                    "Textos Religiosos de até 05:00 minutos",
-                    "Não Grava Espera Telefônica",
-                    "NÃO GRAVO VOZ IMPACTO, CARRO DA PAMONHA, DO OVO, CARRO DO PICOLÉ, DA FRUTA OU SIMILARES."
-                ],
-                horarios: [
-                    { dia: "Segunda-Feira", slots: ["08:00 às 12:00", "14:00 às 18:00"] },
-                    { dia: "Terça-Feira", slots: ["08:00 às 12:00", "14:00 às 18:00"] },
-                    { dia: "Quarta-Feira", slots: ["08:00 às 12:00", "14:00 às 18:00"] },
-                    { dia: "Quinta-Feira", slots: ["08:00 às 12:00", "14:00 às 18:00"] },
-                    { dia: "Sexta-Feira", slots: ["08:00 às 12:00", "14:00 às 18:00"] }
-                ]
-            },
-            {
-                nome: "Amâncio Santos",
-                demo: "https://www.alocucao.com.br/Amancio%20Santos.mp3",
-                estilos: ["PAPAI NOEL", "DJS", "IGREJA", "RICARDO ELETRO", "CARICATO", "JORNALISTICO", "NARRATIVAS", "MENSAGENS", "VELHO", "VELHA"],
-                info: [
-                    "Textos Comerciais de até 06:00 minutos",
-                    "Não grava Textos Institucionais (Vídeos/TV)",
-                    "Textos Políticos de até 06:00 minutos",
-                    "Textos Religiosos de até 06:00 minutos",
-                    "Espera Telefônica de até 06:00 minutos",
-                    "Não gravo para o ES DDD 027,028. Não domino pronuncias no inglês, pedido será recusado! Textos Institucionais acima de 1 crédito somente com orçamento prévio."
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["00:00 às 23:59 (24h)"] }
-                ]
-            },
-            {
-                nome: "Amorim",
-                demo: "https://www.alocucao.com.br/Amorim.mp3",
-                estilos: ["PADRÃO", "IMPACTO", "JOVEM", "VAREJO", "INSTITUCIONAL", "UP- FESTAS"],
-                info: [
-                    "Textos Comerciais de até 02:00 minutos",
-                    "Não grava Textos Institucionais (Vídeos/TV)",
-                    "Não grava Textos Políticos",
-                    "Textos Religiosos de até 02:00 minutos",
-                    "Não Grava Espera Telefônica",
-                    "Textos para Tv/Video ou Institucional, E Textos Políticos só com orçamento e acerto de valor a ser combinado diretamente com o atendente. Não atendo mais que 16 vinhetas no pacote somente avulso."
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["08:00 às 12:00", "14:00 às 16:50"] }
-                ]
-            },
-            {
-                nome: "Anderson Nardele",
-                demo: "https://www.alocucao.com.br/Anderson%20Nardele.mp3",
-                estilos: ["PADRÃO", "JOVEM", "VAREJO", "INSTITUCIONAL", "ALEGRE", "CARICATO", "PAPAI NOEL"],
-                info: [
-                    "Textos Comerciais de até 05:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 05:00 minutos",
-                    "Textos Políticos de até 05:00 minutos",
-                    "Textos Religiosos de até 05:00 minutos",
-                    "Espera Telefônica de até 05:00 minutos"
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["07:00 às 12:00", "13:00 às 17:30"] },
-                    { dia: "Sábado", slots: ["09:00 às 13:00"] }
-                ]
-            },
-            {
-                nome: "André Willian",
-                demo: "https://www.alocucao.com.br/Andre%20William.mp3",
-                estilos: ["PADRÃO", "JOVEM", "VAREJO", "INSTITUCIONAL", "UP FESTA", "JORNAL", "CARICATO", "CAIPIRA"],
-                info: [
-                    "Textos Comerciais de até 23:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 23:00 minutos",
-                    "Textos Políticos de até 23:00 minutos",
-                    "Textos Religiosos de até 23:00 minutos",
-                    "Espera Telefônica de até 23:00 minutos"
-                ],
-                horarios: [
-                    { dia: "Segunda a Domingo", slots: ["07:00 às 23:59"] }
-                ]
-            },
-            {
-                nome: "André Gonzaga",
-                demo: "https://www.alocucao.com.br/Andr%C3%A9%20Gonzaga.mp3",
-                estilos: ["PADRÃO", "JOVEM", "VAREJO", "INSTITUCIONAL", "PRA CIMA", "JORNALÍSTICO", "CAIPIRA"],
-                info: [
-                    "Textos Comerciais de até 09:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 09:00 minutos",
-                    "Textos Políticos de até 09:00 minutos",
-                    "Textos Religiosos de até 09:00 minutos",
-                    "Espera Telefônica de até 09:00 minutos"
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["07:00 às 18:00"] }
-                ]
-            },
-            {
-                nome: "Cássio",
-                demo: "https://www.alocucao.com.br/Cassio.mp3",
-                estilos: ["PADRÃO", "VAREJO", "IMPACTO", "CARICATO", "JORNALISTICO", "VINHETAS"],
-                info: [
-                    "Textos Comerciais de até 10:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 10:00 minutos",
-                    "Não grava Textos Políticos",
-                    "Textos Religiosos de até 10:00 minutos",
-                    "Espera Telefônica de até 10:00 minutos",
-                    "Textos políticos somente com orçamento como atendente. Textos em inglês, orçamento com o atendente. Não gravo vinhetas para djs. Não faço narrativas de outras religiões."
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["08:00 às 12:00", "13:00 às 18:00"] }
-                ]
-            },
-            {
-                nome: "Charles",
-                demo: "https://www.alocucao.com.br/Charles.mp3",
-                estilos: ["JOVEM", "PADRÃO", "ALEGRE", "VAREJO", "INSTITUCIONAL", "UP FESTA", "MASCULINA"],
-                info: [
-                    "Textos Comerciais de até 23:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 23:00 minutos",
-                    "Textos Políticos de até 23:00 minutos",
-                    "Textos Religiosos de até 23:00 minutos",
-                    "Espera Telefônica de até 23:00 minutos",
-                    "Gravo materiais com duração maior que 30 minutos. NÃO GRAVO ESTILO DE LOCUÇÃO DO TIPO \"GRITADO\". Documentários ou algum tipo de dublagem, somente orçamento com atendente."
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["09:00 às 21:00"] }
-                ]
-            },
-            {
-                nome: "Cristian Junior",
-                demo: "https://www.alocucao.com.br/Cristian%20Jr..mp3",
-                estilos: ["PADRÃO", "JOVEM", "VAREJO", "INSTITUCIONAL", "UP- FESTAS"],
-                info: [
-                    "Textos Comerciais de até 04:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 04:00 minutos",
-                    "Textos Políticos de até 04:00 minutos",
-                    "Textos Religiosos de até 04:00 minutos",
-                    "Espera Telefônica de até 04:00 minutos"
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["06:30 às 18:00"] }
-                ]
-            },
-            {
-                nome: "Douglas Lima",
-                demo: "https://www.alocucao.com.br/Douglas%20Lima.mp3",
-                estilos: ["PADRÃO", "IMPACTO", "JOVEM", "VAREJO", "PRA CIMA"],
-                info: [
-                    "Textos Comerciais de até 02:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 02:00 minutos",
-                    "Textos Políticos de até 02:00 minutos",
-                    "Textos Religiosos de até 02:00 minutos",
-                    "Espera Telefônica de até 02:00 minutos"
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["07:00 às 12:00", "12:30 às 18:00"] }
-                ]
-            },
-            {
-                nome: "Emerson C",
-                demo: "https://www.alocucao.com.br/Emerson%20C.MP3",
-                estilos: ["MASCULINA", "PADRÃO", "INSTITUCIONAL", "VAREJO", "RELIGIOSO"],
-                info: [
-                    "Textos Comerciais de até 02:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 02:00 minutos",
-                    "Não grava Textos Políticos",
-                    "Textos Religiosos de até 02:00 minutos",
-                    "Espera Telefônica de até 02:00 minutos",
-                    "VINHETA DJ IMPACTO (AVULSO) TEXTO IMPACTO ACIMA 40 SEGUNDOS (AVULSO) TEXTO ORGÃOS PUBLICOS SOMENTE PREÇO AVULSO"
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["06:00 às 20:00"] },
-                    { dia: "Sábado", slots: ["06:00 às 12:00"] }
-                ]
-            },
-            {
-                nome: "Guigo",
-                demo: "https://www.alocucao.com.br/Guigo.mp3",
-                estilos: ["INSTITUCIONAL", "JOVEM", "ALEGRE", "PADRÃO", "IMPACTO"],
-                info: [
-                    "Textos Comerciais de até 02:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 02:00 minutos",
-                    "Não grava Textos Políticos",
-                    "Textos Religiosos de até 02:00 minutos",
-                    "Espera Telefônica de até 02:00 minutos",
-                    "Gravação de material político, orçamento pela plataforma. Favor consultar o auxílio administrativo para mais informações."
-                ],
-                horarios: [
-                    { dia: "Segunda a Quinta", slots: ["08:00 às 11:00", "13:00 às 17:00"] },
-                    { dia: "Sexta-Feira", slots: ["09:00 às 12:00", "14:00 às 16:00"] }
-                ]
-            },
-            {
-                nome: "Leandro",
-                demo: "https://www.alocucao.com.br/Leandro.mp3",
-                estilos: ["IMPACTO", "JOVEM/ANIMADO", "PADRÃO", "VAREJO"],
-                info: [
-                    "Textos Comerciais de até 10:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 10:00 minutos",
-                    "Não grava Textos Políticos",
-                    "Textos Religiosos de até 10:00 minutos",
-                    "Espera Telefônica de até 10:00 minutos",
-                    "NÃO GRAVO NADA COM PALAVRÕES E OFENSAS. TEXTOS POLITICOS GRAVO APENAS ATRAVÉS DE ORÇAMENTO AVULSO."
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["08:00 às 21:00"] },
-                    { dia: "Sábado", slots: ["08:00 às 12:00"] }
-                ]
-            },
-            {
-                nome: "Lindomar",
-                demo: "https://www.alocucao.com.br/Lindomar.mp3",
-                estilos: ["IMPACTO", "JOVEM", "ALEGRE", "UP FESTA", "RODEIO", "RICARDO ELETRO", "CARICATO", "PADRÃO", "MASCULINA"],
-                info: [
-                    "Textos Comerciais de até 02:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 02:00 minutos",
-                    "Textos Políticos de até 02:00 minutos",
-                    "Textos Religiosos de até 02:00 minutos",
-                    "Espera Telefônica de até 02:00 minutos"
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["07:00 às 23:59"] },
-                    { dia: "Sábado e Domingo", slots: ["07:00 às 23:30"] }
-                ]
-            },
-            {
-                nome: "Rodiney",
-                demo: "https://www.alocucao.com.br/Rodinei.mp3",
-                estilos: ["INSTITUCIONAL", "VAREJO", "ALEGRE", "PADRÃO"],
-                info: [
-                    "Textos Comerciais de até 02:00 minutos",
-                    "Não grava Textos Institucionais (Vídeos/TV)",
-                    "Textos Políticos de até 02:00 minutos",
-                    "Textos Religiosos de até 02:00 minutos",
-                    "Não Grava Espera Telefônica",
-                    "NÃO GRAVO IMPACTO NEM CARICATO"
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["10:00 às 20:00"] }
-                ]
-            }
-        ];
-
-        const locutorasFemininas = [
-            {
-                nome: "Cassiane",
-                demo: "https://www.alocucao.com.br/Cassiane.mp3",
-                estilos: ["ALEGRE", "ANIMADA", "VAREJO", "INSTITUCIONAL", "URA"],
-                info: [
-                    "Textos Comerciais de até 10:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 10:00 minutos",
-                    "Textos Políticos de até 10:00 minutos",
-                    "Textos Religiosos de até 10:00 minutos",
-                    "Espera Telefônica de até 10:00 minutos",
-                    "Não realizo gravações que tenham contexto vulgar, ofensivo ou sexual."
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["08:00 às 11:30", "13:30 às 17:30"] }
-                ]
-            },
-            {
-                nome: "Diane",
-                demo: "https://www.alocucao.com.br/Diane.mp3",
-                estilos: ["INSTITUCIONAL", "PADRÃO", "ALEGRE", "JOVEM", "VAREJO", "UP FESTA", "FEMININA"],
-                info: [
-                    "Textos Comerciais de até 02:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 02:00 minutos",
-                    "Não grava Textos Políticos",
-                    "Textos Religiosos de até 02:00 minutos",
-                    "Espera Telefônica de até 02:00 minutos"
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["08:30 às 11:00", "13:00 às 17:00"] }
-                ]
-            },
-            {
-                nome: "Elissandra",
-                demo: "https://www.alocucao.com.br/Elissandra.mp3",
-                estilos: ["INSTITUCIONAL", "ALEGRE", "VAREJO", "PADRÃO"],
-                info: [
-                    "Textos Comerciais de até 02:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 02:00 minutos",
-                    "Não grava Textos Políticos",
-                    "Textos Religiosos de até 02:00 minutos",
-                    "Espera Telefônica de até 02:00 minutos",
-                    "Textos políticos e roteiros acima de 2 min, somente mediante orçamento com atendente."
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["08:00 às 12:00", "13:00 às 17:00"] },
-                    { dia: "Sábado", slots: ["08:00 às 16:00"] },
-                    { dia: "Domingo", slots: ["09:00 às 16:00"] }
-                ]
-            },
-            {
-                nome: "Fernanda P",
-                demo: "https://www.alocucao.com.br/Fernanda%20P.mp3",
-                estilos: ["PADRÃO", "VAREJO", "JOVEM", "ALEGRE", "INSTITUCIONAL", "UP FESTA", "FEMININA", "GPS-MOÇA DO GOOGLE"],
-                info: [
-                    "Textos Comerciais de até 23:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 23:00 minutos",
-                    "Textos Políticos de até 23:00 minutos",
-                    "Textos Religiosos de até 23:00 minutos",
-                    "Espera Telefônica de até 23:00 minutos"
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["07:00 às 12:00", "13:30 às 16:50"] }
-                ]
-            },
-            {
-                nome: "Kássia",
-                demo: "https://www.alocucao.com.br/K%C3%A1ssia.mp3",
-                estilos: ["JOVEM", "VAREJO", "ALEGRE", "UP FESTA", "INSTITUCIONAL", "CARICATO", "CAIPIRA", "CRIANÇA", "PADRÃO", "FEMININA", "INFANTIL"],
-                info: [
-                    "Textos Comerciais de até 20:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 20:00 minutos",
-                    "Textos Políticos de até 20:00 minutos",
-                    "Textos Religiosos de até 20:00 minutos",
-                    "Espera Telefônica de até 20:00 minutos"
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["08:00 às 12:00", "13:00 às 22:00"] }
-                ]
-            },
-            {
-                nome: "Lindy",
-                demo: "https://www.alocucao.com.br/Lindy.mp3",
-                estilos: ["JOVEM", "ALEGRE", "VAREJO", "INSTITUCIONAL", "PADRÃO", "FEMININA"],
-                info: [
-                    "Textos Comerciais de até 03:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 03:00 minutos",
-                    "Textos Políticos de até 03:00 minutos",
-                    "Textos Religiosos de até 03:00 minutos",
-                    "Espera Telefônica de até 03:00 minutos",
-                    "Não atendo textos com palavrões e vinhetas com meu nome."
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["08:30 às 12:00", "14:00 às 16:50"] }
-                ]
-            },
-            {
-                nome: "Patrícia Souza",
-                demo: "https://www.alocucao.com.br/Patricia%20Souza.mp3",
-                estilos: ["JOVEM", "INSTITUCIONAL", "VAREJO", "ALEGRE", "PADRÃO", "FEMININA"],
-                info: [
-                    "Textos Comerciais de até 10:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 10:00 minutos",
-                    "Textos Políticos de até 10:00 minutos",
-                    "Textos Religiosos de até 10:00 minutos",
-                    "Espera Telefônica de até 10:00 minutos",
-                    "Textos apenas em português. Termos ou algumas palavras que dentro do texto apareçam em outros idiomas, gravo apenas mediante áudio guia e análise da possibilidade."
-                ],
-                horarios: [
-                    { dia: "Segunda-Feira", slots: ["08:00 às 15:00"] },
-                    { dia: "Terça a Quinta", slots: ["08:00 às 12:00", "14:00 às 18:00"] },
-                    { dia: "Sexta-Feira", slots: ["08:00 às 12:00"] }
-                ]
-            },
-            {
-                nome: "Patrícia V",
-                demo: "https://www.alocucao.com.br/Patricia%20V.mp3",
-                estilos: ["JOVEM", "ALEGRE", "PADRÃO", "UP FESTA", "INSTITUCIONAL", "FEMININA"],
-                info: [
-                    "Textos Comerciais de até 23:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 23:00 minutos",
-                    "Textos Políticos de até 23:00 minutos",
-                    "Textos Religiosos de até 23:00 minutos",
-                    "Espera Telefônica de até 23:00 minutos"
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["07:30 às 20:00"] }
-                ]
-            },
-            {
-                nome: "Samira Santos",
-                demo: "https://www.alocucao.com.br/SAMIRA%20SANTOS.mp3",
-                estilos: ["PADRÃO", "IMPACTO", "JOVEM", "INSTITUCIONAL", "UP FEST", "JORNALISTICO", "CARICATO"],
-                info: [
-                    "Textos Comerciais de até 20:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 20:00 minutos",
-                    "Textos Políticos de até 20:00 minutos",
-                    "Textos Religiosos de até 20:00 minutos",
-                    "Espera Telefônica de até 20:00 minutos"
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["07:00 às 22:00"] }
-                ]
-            },
-            {
-                nome: "Sabrina",
-                demo: "https://www.alocucao.com.br/Sabrina.mp3",
-                estilos: ["PADRÃO", "JOVEM", "ALEGRE", "VAREJO", "INSTITUCIONAL", "UP FESTA", "FEMININA"],
-                info: [
-                    "Textos Comerciais de até 02:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 02:00 minutos",
-                    "Textos Políticos de até 02:00 minutos",
-                    "Textos Religiosos de até 02:00 minutos",
-                    "Espera Telefônica de até 02:00 minutos",
-                    "Gostaria de pedir aos clientes que quando o texto necessitar de pronuncias de palavras complicadas, por favor enviar áudios guia e/ou por escrito."
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["08:00 às 16:00"] }
-                ]
-            },
-            {
-                nome: "Suane",
-                demo: "https://www.alocucao.com.br/Suane.mp3",
-                estilos: ["JOVEM", "VAREJO", "PADRÃO", "FEMININA", "ESPERA TELEFÔNICA"],
-                info: [
-                    "Textos Comerciais de até 23:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 23:00 minutos",
-                    "Não grava Textos Políticos",
-                    "Textos Religiosos de até 23:00 minutos",
-                    "Não Grava Espera Telefônica",
-                    "NÃO GRAVO: JOGOS DE APOSTAS, SEXSHOP, MOTEL, CANDOMBLE, VINHETAS PARA DJS. TEXTOS POLITICOS SÓ POR ORÇAMENTO"
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["08:00 às 12:00", "14:00 às 17:00"] }
-                ]
-            },
-            {
-                nome: "Sunshine",
-                demo: "https://www.alocucao.com.br/Sunshine.mp3",
-                estilos: ["UP FESTA", "JOVEM", "VAREJO", "ALEGRE", "INSTITUCIONAL", "PADRÃO"],
-                info: [
-                    "Textos Comerciais de até 11:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 11:00 minutos",
-                    "Textos Políticos de até 11:00 minutos",
-                    "Não grava Textos Religiosos",
-                    "Espera Telefônica de até 11:00 minutos",
-                    "Não gravo palavrões e vulgaridades."
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["07:00 às 21:00"] },
-                    { dia: "Sábado", slots: ["07:00 às 15:00"] }
-                ]
-            },
-            {
-                nome: "Suzana",
-                demo: "https://www.alocucao.com.br/Suzana.mp3",
-                estilos: ["JOVEM", "ALEGRE", "VAREJO", "INSTITUCIONAL", "PADRÃO", "FEMININA"],
-                info: [
-                    "Textos Comerciais de até 24:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 24:00 minutos",
-                    "Textos Políticos de até 24:00 minutos",
-                    "Textos Religiosos de até 24:00 minutos",
-                    "Espera Telefônica de até 24:00 minutos"
-                ],
-                horarios: [
-                    { dia: "Segunda a Sábado", slots: ["08:00 às 22:00"] }
-                ]
-            },
-            {
-                nome: "Vanessa",
-                demo: "https://www.alocucao.com.br/Vanessa.mp3",
-                estilos: ["PADRÃO", "JOVEM", "PRA CIMA", "VAREJO", "INSTITUCIONAL", "JORNALISTICO"],
-                info: [
-                    "Textos Comerciais de até 10:00 minutos",
-                    "Textos Institucionais (Vídeos/TV) de até 10:00 minutos",
-                    "Textos Políticos de até 10:00 minutos",
-                    "Textos Religiosos de até 10:00 minutos",
-                    "Espera Telefônica de até 10:00 minutos"
-                ],
-                horarios: [
-                    { dia: "Segunda a Sexta-Feira", slots: ["09:00 às 20:00"] }
-                ]
-            }
-        ];
-
-        // Função para criar card do locutor (SEM badge de disponibilidade)
-        function criarCard(locutor, genero) {
-            const estilosLimitados = locutor.estilos.slice(0, 4);
-            const temMais = locutor.estilos.length > 4;
-            
-            return `
-                <div class="locutor-card bg-white rounded-2xl p-5 flex flex-col gap-4" 
-                     data-nome="${locutor.nome.toLowerCase()}" 
-                     data-estilos="${locutor.estilos.join(' ').toLowerCase()}"
-                     data-genero="${genero}">
-                    
-                    <!-- Cabeçalho -->
-                    <div class="flex items-start justify-between">
-                        <h3 class="text-lg font-black text-slate-900">${locutor.nome}</h3>
-                        <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-400">
-                            <i class="fas fa-microphone-alt"></i>
-                        </div>
-                    </div>
-                    
-                    <!-- Estilos -->
-                    <div class="flex flex-wrap gap-1">
-                        ${estilosLimitados.map(e => `<span class="estilo-badge">${e}</span>`).join('')}
-                        ${temMais ? `<span class="estilo-badge" style="background:#f1f5f9;color:#64748b;border-color:#e2e8f0;">+${locutor.estilos.length - 4}</span>` : ''}
-                    </div>
-                    
-                    <!-- Audio Player -->
-                    <audio controls preload="none" class="w-full" onplay="trackAudioPlay('${locutor.nome}')">
-                        <source src="${locutor.demo}" type="audio/mpeg">
-                    </audio>
-                    
-                    <!-- Botão Informações -->
-                    <button onclick='abrirModal(${JSON.stringify(locutor).replace(/'/g, "&#39;")})' 
-                            class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-sm rounded-xl transition-all flex items-center justify-center gap-2">
-                        <i class="fas fa-info-circle text-slate-400"></i> Horários / +Informações
-                    </button>
-                </div>
-            `;
-        }
-
-        // Renderizar cards
-        function renderizarCards() {
-            const gridMasc = document.getElementById('grid-masculinas');
-            const gridFem = document.getElementById('grid-femininas');
-            
-            gridMasc.innerHTML = locutoresMasculinos.map(l => criarCard(l, 'masculino')).join('');
-            gridFem.innerHTML = locutorasFemininas.map(l => criarCard(l, 'feminino')).join('');
-            
-            atualizarContadores();
-        }
-
-        // Atualizar contadores
-        function atualizarContadores() {
-            const cardsMasc = document.querySelectorAll('#grid-masculinas .locutor-card');
-            const cardsFem = document.querySelectorAll('#grid-femininas .locutor-card');
-            
-            const visiveisMasc = Array.from(cardsMasc).filter(c => c.style.display !== 'none').length;
-            const visiveisFem = Array.from(cardsFem).filter(c => c.style.display !== 'none').length;
-            
-            document.getElementById('contador-masculinas').textContent = `${visiveisMasc} locutores`;
-            document.getElementById('contador-femininas').textContent = `${visiveisFem} locutoras`;
-        }
-
-        // Modal
-        function abrirModal(locutor) {
-            trackModalOpen(locutor.nome);
-            
-            document.getElementById('modal-nome').textContent = locutor.nome;
-            
-            // Estilos
-            document.getElementById('modal-estilos').innerHTML = locutor.estilos.map(e => `<span class="estilo-badge">${e}</span>`).join('');
-            
-            // Audio
-            const audioEl = document.getElementById('modal-audio');
-            audioEl.innerHTML = `<source src="${locutor.demo}" type="audio/mpeg">`;
-            audioEl.load();
-            
-            // Horários
-            document.getElementById('modal-horarios').innerHTML = locutor.horarios.map(h => `
-                <div class="bg-slate-50 rounded-xl p-3">
-                    <p class="text-xs font-bold text-slate-500 uppercase mb-1">${h.dia}</p>
-                    <div class="flex flex-wrap gap-2">
-                        ${h.slots.map(s => `<span class="text-sm font-semibold text-slate-700 bg-white px-3 py-1 rounded-lg border border-slate-200">${s}</span>`).join('')}
-                    </div>
-                </div>
-            `).join('');
-            
-            // Informações
-            document.getElementById('modal-info').innerHTML = locutor.info.map(i => {
-                let classe = 'text-slate-600';
-                if (i.toLowerCase().includes('não grava') || i.toLowerCase().includes('não gravo') || i.toLowerCase().includes('não atendo')) {
-                    classe = 'text-red-600 font-medium';
-                }
-                return `<p class="${classe} flex items-start gap-2">
-                    <i class="fas fa-circle text-[4px] mt-2 text-slate-300"></i> ${i}
-                </p>`;
-            }).join('');
-            
-            // WhatsApp link
-            const msg = encodeURIComponent(`Olá, quero o locutor ${locutor.nome}!`);
-            document.getElementById('modal-whatsapp').href = `https://wa.me/5527996529832?text=${msg}`;
-            
-            // Abrir modal
-            document.getElementById('locutor-modal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-            
-            // Parar todos os audios da página
-            document.querySelectorAll('audio').forEach(a => a.pause());
-        }
-
-        function closeModal(e) {
-            if (e.target === document.getElementById('locutor-modal')) {
-                closeModalDirect();
-            }
-        }
-
-        function closeModalDirect() {
-            document.getElementById('locutor-modal').classList.remove('active');
-            document.body.style.overflow = '';
-            const modalAudio = document.getElementById('modal-audio');
-            modalAudio.pause();
-            modalAudio.innerHTML = '';
-        }
-
-        // Fechar modal com ESC
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeModalDirect();
-            }
-        });
-
-        // Filtros - CORRIGIDO
-        let filtroAtivo = 'todos';
-
-        function filterByStyle(estilo) {
-            filtroAtivo = estilo;
-            
-            // Atualizar classes dos botões
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active', 'bg-accent', 'text-white', 'border-accent');
-                btn.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
+        // Menu Mobile
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const icon = menuToggle.querySelector('i');
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+                const isOpen = mobileMenu.classList.contains('active');
+                icon.classList.toggle('fa-bars', !isOpen);
+                icon.classList.toggle('fa-times', isOpen);
+                menuToggle.setAttribute('aria-expanded', isOpen);
             });
-            
-            // Encontrar e ativar o botão clicado
-            const botoes = document.querySelectorAll('.filter-btn');
-            botoes.forEach(btn => {
-                const onclickAttr = btn.getAttribute('onclick');
-                if (onclickAttr && onclickAttr.includes(`'${estilo}'`)) {
-                    btn.classList.add('active', 'bg-accent', 'text-white', 'border-accent');
-                    btn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
-                }
-            });
-            
-            // Limpar busca
-            document.getElementById('search-input').value = '';
-            
-            // Filtrar cards
-            aplicarFiltros();
-        }
-
-        function filterLocutores() {
-            const termo = document.getElementById('search-input').value.toLowerCase().trim();
-            
-            if (termo) {
-                // Resetar botões de filtro
-                document.querySelectorAll('.filter-btn').forEach(btn => {
-                    btn.classList.remove('active', 'bg-accent', 'text-white', 'border-accent');
-                    btn.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    if (icon) {
+                        icon.classList.add('fa-bars');
+                        icon.classList.remove('fa-times');
+                    }
+                    menuToggle.setAttribute('aria-expanded', 'false');
                 });
-                const btnTodos = document.querySelector('.filter-btn');
-                if (btnTodos) {
-                    btnTodos.classList.add('active', 'bg-accent', 'text-white', 'border-accent');
-                    btnTodos.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
-                }
-                filtroAtivo = 'todos';
-            }
-            
-            aplicarFiltros();
+            });
         }
-
-        function aplicarFiltros() {
-            const termo = document.getElementById('search-input').value.toLowerCase().trim();
-            const cards = document.querySelectorAll('.locutor-card');
-            
-            cards.forEach(card => {
-                const nome = card.getAttribute('data-nome') || '';
-                const estilos = card.getAttribute('data-estilos') || '';
-                
-                let mostrarPorTermo = true;
-                let mostrarPorFiltro = true;
-                
-                // Verificar termo de busca
-                if (termo) {
-                    mostrarPorTermo = nome.includes(termo) || estilos.includes(termo);
-                }
-                
-                // Verificar filtro de estilo
-                if (filtroAtivo !== 'todos') {
-                    // Normalizar: remover acentos para comparação
-                    const estilosNormalizado = estilos
-                        .normalize('NFD')
-                        .replace(/[\u0300-\u036f]/g, '')
-                        .toLowerCase();
-                    const filtroNormalizado = filtroAtivo
-                        .normalize('NFD')
-                        .replace(/[\u0300-\u036f]/g, '')
-                        .toLowerCase();
-                    
-                    mostrarPorFiltro = estilosNormalizado.includes(filtroNormalizado);
-                }
-                
-                // Aplicar visibilidade
-                if (mostrarPorTermo && mostrarPorFiltro) {
-                    card.style.display = '';
-                } else {
-                    card.style.display = 'none';
-                }
+        
+        // Header Scroll
+        const header = document.querySelector('header');
+        if (header) {
+            window.addEventListener('scroll', () => {
+                header.style.background = window.scrollY > 20 ? 'rgba(15, 23, 42, 0.98)' : 'rgba(15, 23, 42, 0.92)';
+            });
+        }
+        
+        // Gerenciar loader do iframe
+        const iframe = document.getElementById('voiceIframe');
+        const loader = document.getElementById('iframeLoader');
+        
+        if (iframe && loader) {
+            // Quando o iframe carregar, esconder o loader
+            iframe.addEventListener('load', function() {
+                setTimeout(() => {
+                    loader.classList.add('hidden');
+                }, 300);
             });
             
-            atualizarContadores();
+            // Caso o carregamento demore muito, garantir que o loader suma após 5 segundos
+            setTimeout(() => {
+                if (loader && !loader.classList.contains('hidden')) {
+                    loader.classList.add('hidden');
+                }
+            }, 5000);
         }
-
-        // Pausar outros audios ao tocar um
-        document.addEventListener('play', function(e) {
-            if (e.target.tagName === 'AUDIO') {
-                document.querySelectorAll('audio').forEach(a => {
-                    if (a !== e.target) a.pause();
-                });
+        
+        // Controle de áudio externo (se houver áudio na página, pausar ao abrir o iframe não é necessário, mas mantemos boas práticas)
+        // Pequeno ajuste para melhorar a experiência em dispositivos móveis
+        const fixMobileTouch = () => {
+            if (iframe) {
+                iframe.style.pointerEvents = 'auto';
             }
-        }, true);
-
-        // Inicializar
-        renderizarCards();
+        };
+        fixMobileTouch();
     </script>
 </body>
 </html>
