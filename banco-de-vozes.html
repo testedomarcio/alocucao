@@ -13,7 +13,7 @@
 
     <style>
         * { font-family: 'Inter', sans-serif; }
-        body { background: #f1f5f9; }
+        body { background: #f1f5f9; margin: 0; padding: 0; }
         
         .glass-header {
             background: rgba(15, 23, 42, 0.96);
@@ -34,6 +34,12 @@
             background: #5B3A8C !important;
             color: white !important;
             border-color: #5B3A8C !important;
+        }
+        
+        .style-filter-btn.active {
+            background: #C9A03D !important;
+            color: #1e293b !important;
+            border-color: #C9A03D !important;
         }
         
         .btn-whatsapp-small {
@@ -144,6 +150,35 @@
             align-items: center;
             min-height: 300px;
         }
+        
+        .btn-ordenar {
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-ordenar:hover {
+            background: #e2e8f0;
+        }
+        
+        .badge-aleatorio {
+            background: #C9A03D;
+            color: #1e293b;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-left: 8px;
+        }
+        
+        .filtros-estilos {
+            border-top: 1px solid #e2e8f0;
+            margin-top: 12px;
+            padding-top: 12px;
+        }
     </style>
 </head>
 <body>
@@ -154,7 +189,7 @@
         </a>
     </div>
 
-    <header class="fixed w-full top-0 z-50 glass-header text-white py-2">
+    <header class="fixed w-full top-0 z-50 glass-header text-white">
         <div class="bg-slate-800/40 border-b border-slate-700/30">
             <div class="max-w-7xl mx-auto px-4 flex justify-center sm:justify-between items-center py-1.5 text-[10px] sm:text-xs text-slate-400">
                 <span class="hidden sm:flex items-center gap-2"><i class="fas fa-envelope"></i> suporte@alocucao.com.br</span>
@@ -164,7 +199,7 @@
         </div>
         <div class="max-w-7xl mx-auto px-4 flex justify-between items-center py-2">
             <a href="#"><img src="https://testedomarcio.github.io/meuadio/logo.webp" alt="A Locução" class="h-8 sm:h-10 w-auto"></a>
-            <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20Banco%20de%20Vozes" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold flex items-center gap-2 text-xs sm:text-sm px-5 py-2.5 rounded-full">
+            <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20Banco%20de%20Vozes" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold flex items-center gap-2 text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-md">
                 <i class="fab fa-whatsapp text-base"></i> Solicitar Locução
             </a>
         </div>
@@ -172,15 +207,18 @@
 
     <main class="pt-28 sm:pt-32 pb-16">
         
-        <section class="bg-[#0f172a] text-white py-8">
+        <!-- Hero -->
+        <section class="bg-[#0f172a] text-white py-10">
             <div class="max-w-7xl mx-auto px-4 text-center">
-                <h1 class="text-2xl sm:text-4xl font-bold mb-2">Banco de <span class="text-[#C9A03D]">Vozes</span></h1>
-                <p class="text-slate-300 text-sm">Locutores profissionais. Ouça o demo e solicite sua locução.</p>
+                <h1 class="text-3xl sm:text-5xl font-bold mb-3">Banco de <span class="text-[#C9A03D]">Vozes</span></h1>
+                <p class="text-slate-300 text-base max-w-2xl mx-auto">Locutores profissionais. Ouça o demo e solicite sua locução diretamente pelo WhatsApp.</p>
             </div>
         </section>
 
-        <section class="sticky top-20 z-40 bg-white border-b shadow-sm py-3">
+        <!-- Filtros -->
+        <section class="sticky top-20 z-40 bg-white border-b shadow-sm py-4">
             <div class="max-w-7xl mx-auto px-4">
+                <!-- Filtro por gênero -->
                 <div class="flex flex-wrap gap-2 items-center justify-between">
                     <div class="flex flex-wrap gap-2">
                         <button data-filter="all" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border transition bg-[#5B3A8C] text-white border-[#5B3A8C]">Todos</button>
@@ -188,13 +226,39 @@
                         <button data-filter="feminina" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border border-slate-300">Femininas</button>
                         <button data-filter="infantil" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border border-slate-300">Infantis</button>
                     </div>
-                    <div class="text-xs text-slate-500">
-                        <span id="contador">Carregando...</span>
+                    <div class="flex items-center gap-3">
+                        <button id="btn-embaralhar" class="btn-ordenar">
+                            <i class="fas fa-random mr-1"></i> Embaralhar
+                        </button>
+                        <div class="text-xs text-slate-500">
+                            <span id="contador">Carregando...</span>
+                        </div>
                     </div>
+                </div>
+                
+                <!-- Filtro por estilo -->
+                <div class="filtros-estilos flex flex-wrap gap-2 items-center mt-3">
+                    <span class="text-xs text-slate-500 font-medium">Filtrar por estilo:</span>
+                    <button data-style="all" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300 active bg-[#C9A03D] text-slate-800 border-[#C9A03D]">Todos</button>
+                    <button data-style="Impacto" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Impacto</button>
+                    <button data-style="Jovem" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Jovem</button>
+                    <button data-style="Varejo" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Varejo</button>
+                    <button data-style="Institucional" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Institucional</button>
+                    <button data-style="Up-Fest" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Up-Fest</button>
+                    <button data-style="Jornalístico" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Jornalístico</button>
+                    <button data-style="Caricato" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Caricato</button>
+                    <button data-style="Caipira" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Caipira</button>
+                    <button data-style="Padrão" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Padrão</button>
+                    <button data-style="Animado" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Animado</button>
+                </div>
+                
+                <div class="text-right mt-2">
+                    <span class="badge-aleatorio"><i class="fas fa-shuffle mr-1"></i> Ordem aleatória a cada visita</span>
                 </div>
             </div>
         </section>
 
+        <!-- Lista de locutores -->
         <section class="max-w-7xl mx-auto px-4 py-6">
             <div id="loading" class="loading">
                 <div class="text-center">
@@ -219,7 +283,7 @@
             
             <div id="no-results" class="text-center py-12 hidden">
                 <i class="fas fa-microphone-slash text-4xl text-slate-300 mb-3"></i>
-                <p class="text-slate-500">Nenhum locutor encontrado.</p>
+                <p class="text-slate-500">Nenhum locutor encontrado com os filtros selecionados.</p>
             </div>
         </section>
     </main>
@@ -230,6 +294,15 @@
     </footer>
 
     <script>
+        // Função para embaralhar array (algoritmo Fisher-Yates)
+        function embaralharArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
         // Função para extrair TODOS os locutores do arquivo bancodevozes.html
         async function carregarLocutores() {
             try {
@@ -240,32 +313,26 @@
                 const doc = parser.parseFromString(html, 'text/html');
                 
                 const linhas = doc.querySelectorAll('#tLocutores tr');
-                const locutoresMap = new Map(); // Para evitar duplicados
+                const locutoresMap = new Map();
                 
                 linhas.forEach(linha => {
                     const nomeElement = linha.querySelector('.media-body b');
                     const nome = nomeElement ? nomeElement.textContent.trim() : null;
                     if (!nome) return;
-                    
-                    // Pular se já tem (primeira ocorrência)
                     if (locutoresMap.has(nome)) return;
                     
-                    // Extrair gênero
                     const spanElement = linha.querySelector('[filtro-voz]');
                     let genero = spanElement ? spanElement.getAttribute('filtro-voz') : 'masculina';
                     
-                    // Extrair foto
                     const imgElement = linha.querySelector('img');
                     let foto = imgElement ? imgElement.src : '';
                     
-                    // Extrair audio demo
                     let audioDemo = '';
                     const playButton = linha.querySelector('[playDemo]');
                     if (playButton) {
                         audioDemo = playButton.getAttribute('playDemo');
                     }
                     
-                    // Extrair estilos
                     let estilos = [];
                     if (playButton) {
                         const estilosTexto = playButton.getAttribute('estilos') || '';
@@ -273,11 +340,12 @@
                         
                         const estilosMap = {
                             'impacto': 'Impacto', 'jovem': 'Jovem', 'varejo': 'Varejo',
-                            'institucional': 'Institucional', 'up-fest': 'Up-Fest',
-                            'jornalistico': 'Jornalístico', 'caricato': 'Caricato',
-                            'caipira': 'Caipira', 'padrão': 'Padrão', 'padrao': 'Padrão',
-                            'alegre': 'Alegre', 'animado': 'Animado', 'velho': 'Velho',
-                            'igreja': 'Igreja', 'evento': 'Evento', 'geral': 'Geral'
+                            'institucional': 'Institucional', 'up-fest': 'Up-Fest', 'up fest': 'Up-Fest',
+                            'jornalistico': 'Jornalístico', 'jornalístico': 'Jornalístico',
+                            'caricato': 'Caricato', 'caipira': 'Caipira',
+                            'padrão': 'Padrão', 'padrao': 'Padrão',
+                            'alegre': 'Animado', 'animado': 'Animado',
+                            'velho': 'Caricato', 'igreja': 'Institucional', 'evento': 'Evento'
                         };
                         
                         for (const [key, value] of Object.entries(estilosMap)) {
@@ -289,12 +357,13 @@
                     
                     if (estilos.length === 0) estilos.push('Geral');
                     
-                    locutoresMap.set(nome, {
-                        nome, genero, foto, audioDemo, estilos
-                    });
+                    locutoresMap.set(nome, { nome, genero, foto, audioDemo, estilos });
                 });
                 
-                const locutores = Array.from(locutoresMap.values());
+                let locutores = Array.from(locutoresMap.values());
+                // Remover locutores sem áudio
+                locutores = locutores.filter(l => l.audioDemo && l.audioDemo !== '');
+                
                 console.log(`Total de locutores extraídos: ${locutores.length}`);
                 return locutores;
                 
@@ -309,28 +378,38 @@
         }
 
         let todosLocutores = [];
+        let locutoresExibidos = [];
         let currentFilter = 'all';
+        let currentStyle = 'all';
 
-        async function renderizarTabela() {
-            const loading = document.getElementById('loading');
-            const tabelaContainer = document.getElementById('tabela-container');
-            const noResults = document.getElementById('no-results');
-            const tbody = document.getElementById('lista-locutores');
-            const contador = document.getElementById('contador');
-            
-            if (todosLocutores.length === 0) {
-                todosLocutores = await carregarLocutores();
-            }
-            
+        function aplicarFiltrosEOrdenar() {
             let filtrados = [...todosLocutores];
             
+            // Filtro por gênero
             if (currentFilter !== 'all') {
                 filtrados = filtrados.filter(l => l.genero === currentFilter);
             }
             
-            contador.textContent = `${filtrados.length} locutores`;
+            // Filtro por estilo
+            if (currentStyle !== 'all') {
+                filtrados = filtrados.filter(l => l.estilos.includes(currentStyle));
+            }
             
-            if (filtrados.length === 0) {
+            // Embaralhar
+            locutoresExibidos = embaralharArray([...filtrados]);
+            renderizarTabela();
+        }
+
+        function renderizarTabela() {
+            const tabelaContainer = document.getElementById('tabela-container');
+            const noResults = document.getElementById('no-results');
+            const loading = document.getElementById('loading');
+            const tbody = document.getElementById('lista-locutores');
+            const contador = document.getElementById('contador');
+            
+            contador.textContent = `${locutoresExibidos.length} locutores`;
+            
+            if (locutoresExibidos.length === 0) {
                 tabelaContainer.classList.add('hidden');
                 noResults.classList.remove('hidden');
                 loading.classList.add('hidden');
@@ -341,7 +420,7 @@
             noResults.classList.add('hidden');
             loading.classList.add('hidden');
             
-            tbody.innerHTML = filtrados.map(locutor => `
+            tbody.innerHTML = locutoresExibidos.map(locutor => `
                 <tr class="locutor-linha">
                     <td class="whitespace-nowrap">
                         <div class="flex items-center gap-3">
@@ -371,14 +450,34 @@
             }, 100);
         }
 
-        // Filtro por gênero
+        // Inicializar
+        async function iniciar() {
+            todosLocutores = await carregarLocutores();
+            aplicarFiltrosEOrdenar();
+        }
+
+        // Eventos dos filtros
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active', 'bg-[#5B3A8C]', 'text-white'));
                 btn.classList.add('active', 'bg-[#5B3A8C]', 'text-white');
                 currentFilter = btn.getAttribute('data-filter');
-                renderizarTabela();
+                aplicarFiltrosEOrdenar();
             });
+        });
+
+        document.querySelectorAll('.style-filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.style-filter-btn').forEach(b => b.classList.remove('active', 'bg-[#C9A03D]', 'text-slate-800'));
+                btn.classList.add('active', 'bg-[#C9A03D]', 'text-slate-800');
+                currentStyle = btn.getAttribute('data-style');
+                aplicarFiltrosEOrdenar();
+            });
+        });
+
+        // Botão embaralhar
+        document.getElementById('btn-embaralhar').addEventListener('click', () => {
+            aplicarFiltrosEOrdenar();
         });
 
         // Pausar outros áudios
@@ -390,8 +489,7 @@
             }
         }, true);
 
-        // Iniciar
-        renderizarTabela();
+        iniciar();
 
         // Efeito scroll header
         const header = document.querySelector('header');
