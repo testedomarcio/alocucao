@@ -27,6 +27,10 @@
             border-radius: 60px;
         }
         
+        audio::-webkit-media-controls-panel {
+            background-color: #f1f5f9;
+        }
+        
         .filter-btn.active {
             background: #5B3A8C !important;
             color: white !important;
@@ -95,6 +99,8 @@
         @media (max-width: 768px) {
             audio { width: 130px; }
             .btn-whatsapp-small { padding: 4px 10px; font-size: 10px; }
+            th, td { padding: 8px 6px; }
+            .status-badge { padding: 2px 8px; font-size: 9px; }
         }
         
         .tabela-container {
@@ -135,6 +141,15 @@
             align-items: center;
             min-height: 300px;
         }
+        
+        .atualizado-em {
+            font-size: 10px;
+            color: #94a3b8;
+            background: #f1f5f9;
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 20px;
+        }
     </style>
 </head>
 <body>
@@ -166,7 +181,7 @@
         <section class="bg-[#0f172a] text-white py-10">
             <div class="max-w-7xl mx-auto px-4 text-center">
                 <h1 class="text-3xl sm:text-5xl font-bold mb-3">Banco de <span class="text-[#C9A03D]">Vozes</span></h1>
-                <p class="text-slate-300 text-base max-w-2xl mx-auto">Locutores profissionais. Ouça o demo e solicite sua locução diretamente pelo WhatsApp.</p>
+                <p class="text-slate-300 text-base max-w-2xl mx-auto">Locutores profissionais. Status em tempo real. Ouça o demo e solicite sua locução.</p>
             </div>
         </section>
 
@@ -178,12 +193,18 @@
                         <button data-filter="Masculino" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border border-slate-300">Masculinos</button>
                         <button data-filter="Feminino" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border border-slate-300">Femininos</button>
                     </div>
-                    <div class="text-xs text-slate-500">
-                        <span id="contador">Carregando...</span>
+                    <div class="flex items-center gap-3">
+                        <button id="btn-atualizar" class="btn-ordenar" style="background:#f1f5f9; border:1px solid #e2e8f0; padding:6px 12px; border-radius:20px; font-size:12px; cursor:pointer;">
+                            <i class="fas fa-sync-alt mr-1"></i> Atualizar
+                        </button>
+                        <div class="text-xs text-slate-500">
+                            <span id="contador">Carregando...</span>
+                        </div>
                     </div>
                 </div>
-                <div class="text-right mt-2">
+                <div class="flex justify-between items-center mt-2">
                     <span class="text-xs text-slate-400"><i class="fas fa-sort-amount-down mr-1"></i> Ordenado por disponibilidade</span>
+                    <span id="ultima-atualizacao" class="atualizado-em"></span>
                 </div>
             </div>
         </section>
@@ -193,6 +214,7 @@
                 <div class="text-center">
                     <i class="fas fa-spinner fa-spin text-3xl text-[#5B3A8C] mb-3"></i>
                     <p class="text-slate-500 text-sm">Carregando banco de vozes...</p>
+                    <p class="text-slate-400 text-xs mt-2">Buscando dados atualizados da Offs Brasil</p>
                 </div>
             </div>
             
@@ -223,34 +245,23 @@
     </footer>
 
     <script>
-        // Função para identificar o status e retornar um código de ordem (1 a 5)
+        let todosLocutores = [];
+        let currentFilter = 'all';
+
         function getStatusOrdem(statusTexto, statusCor) {
             const texto = (statusTexto || '').toLowerCase();
-            const cor = statusCor || '';
+            const cor = (statusCor || '').toLowerCase();
             
-            // 1º: 10 minutos (azul claro #05B1F9)
-            if (texto.includes('10 minutos') || cor === '#05b1f9') {
-                return 1;
-            }
-            // 2º: 30 minutos (azul escuro #1E90FF)
-            if (texto.includes('30 minutos') || cor === '#1e90ff') {
-                return 2;
-            }
-            // 3º: Online (verde #32CD32)
-            if (texto.includes('online') || texto.includes('1 à 5 horas') || cor === '#32cd32') {
-                return 3;
-            }
-            // 4º: Férias (marrom) ou Indisponível (cinza escuro)
-            if (texto.includes('férias') || texto.includes('ferias') || cor === 'gray' || texto.includes('indisponível')) {
-                return 4;
-            }
-            // 5º: Offline (cinza claro #CDC9C9)
+            if (texto.includes('10 minutos') || cor === '#05b1f9') return 1;
+            if (texto.includes('30 minutos') || cor === '#1e90ff') return 2;
+            if (texto.includes('online') || texto.includes('1 à 5 horas') || cor === '#32cd32') return 3;
+            if (texto.includes('férias') || texto.includes('ferias') || cor === 'gray' || texto.includes('indisponível')) return 4;
             return 5;
         }
 
         function getStatusBadge(statusTexto, statusCor) {
             const texto = (statusTexto || '').toLowerCase();
-            const cor = statusCor || '';
+            const cor = (statusCor || '').toLowerCase();
             
             if (texto.includes('10 minutos') || cor === '#05b1f9') {
                 return '<span class="status-badge status-10min">⏱️ 10 minutos</span>';
@@ -270,9 +281,19 @@
             return '<span class="status-badge status-offline">⚫ Offline</span>';
         }
 
-        async function carregarLocutores() {
+        async function carregarLocutores(mostrarLoading = true) {
+            const loading = document.getElementById('loading');
+            const tabelaContainer = document.getElementById('tabela-container');
+            
+            if (mostrarLoading) {
+                loading.classList.remove('hidden');
+                tabelaContainer.classList.add('hidden');
+            }
+            
             try {
-                const response = await fetch('offsbrasil.html');
+                // Adiciona timestamp para evitar cache do navegador
+                const timestamp = new Date().getTime();
+                const response = await fetch(`offsbrasil.html?nocache=${timestamp}`);
                 const html = await response.text();
                 
                 const parser = new DOMParser();
@@ -289,10 +310,8 @@
                         nome = nomeText.split('★')[0].trim();
                     }
                     if (!nome || nome === '') return;
-                    
                     if (locutoresMap.has(nome)) return;
                     
-                    // Extrair status
                     const statusCell = linha.querySelector('td:nth-child(2)');
                     let statusTexto = '';
                     let statusCor = '';
@@ -306,7 +325,6 @@
                         }
                     }
                     
-                    // Extrair áudio
                     const audioCell = linha.querySelector('td:nth-child(3)');
                     let audioUrl = '';
                     if (audioCell) {
@@ -316,7 +334,6 @@
                         }
                     }
                     
-                    // Extrair gênero (está escondido em spans)
                     let genero = 'Masculino';
                     const spans = linha.querySelectorAll('span[style*="font-size:1px"]');
                     spans.forEach(span => {
@@ -337,8 +354,6 @@
                 });
                 
                 const locutores = Array.from(locutoresMap.values());
-                
-                // Ordenar por status (1: 10min, 2: 30min, 3: online, 4: ferias/indisponivel, 5: offline)
                 locutores.sort((a, b) => {
                     const ordemA = getStatusOrdem(a.statusTexto, a.statusCor);
                     const ordemB = getStatusOrdem(b.statusTexto, b.statusCor);
@@ -353,9 +368,6 @@
                 return [];
             }
         }
-
-        let todosLocutores = [];
-        let currentFilter = 'all';
 
         function renderizarTabela() {
             const tabelaContainer = document.getElementById('tabela-container');
@@ -408,13 +420,29 @@
                 </tr>
             `).join('');
             
+            // Mostrar horário da última atualização
+            const agora = new Date();
+            const horaFormatada = agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            document.getElementById('ultima-atualizacao').innerHTML = `<i class="far fa-clock mr-1"></i> Atualizado às ${horaFormatada}`;
+            
             setTimeout(() => {
                 document.querySelectorAll('audio').forEach(audio => audio.load());
             }, 100);
         }
 
+        async function atualizarDados() {
+            const loading = document.getElementById('loading');
+            const tabelaContainer = document.getElementById('tabela-container');
+            
+            loading.classList.remove('hidden');
+            tabelaContainer.classList.add('hidden');
+            
+            todosLocutores = await carregarLocutores(true);
+            renderizarTabela();
+        }
+
         async function iniciar() {
-            todosLocutores = await carregarLocutores();
+            todosLocutores = await carregarLocutores(true);
             renderizarTabela();
         }
 
@@ -425,6 +453,10 @@
                 currentFilter = btn.getAttribute('data-filter');
                 renderizarTabela();
             });
+        });
+
+        document.getElementById('btn-atualizar').addEventListener('click', () => {
+            atualizarDados();
         });
 
         document.addEventListener('play', function(e) {
