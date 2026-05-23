@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     
-    <!-- SEO & Meta Tags -->
-    <title>Estúdio A Locução | Produção de Spots Comerciais Profissionais</title>
-    <meta name="description" content="Spot comercial profissional com locução, trilha e efeitos a partir de R$29,90. Consultoria de roteiro gratuita. Entrega rápida e atendimento personalizado.">
+    <title>Spot Comercial Profissional | Locução + Trilha a partir de R$29,90</title>
+    <meta name="description" content="Spot comercial profissional com locução, trilha e efeitos. Atendimento humano via WhatsApp. Entrega rápida e consultoria de roteiro gratuita.">
     
-    <!-- Preconnect para Performance -->
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -56,19 +55,14 @@
                         'action-green': '#25D366',
                         'action-green-hover': '#1fb855',
                         'premium-gold': '#F59E0B',
-                        'premium-dark': '#1a1f2e',
                     },
                     animation: {
-                        'scroll': 'scroll 40s linear infinite',
                         'float': 'float 3s ease-in-out infinite',
                         'fade-in-up': 'fadeInUp 0.6s ease-out',
-                        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
                     },
                     keyframes: {
-                        scroll: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
-                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } },
                         fadeInUp: { 'from': { opacity: '0', transform: 'translateY(20px)' }, 'to': { opacity: '1', transform: 'translateY(0)' } },
-                        pulseGlow: { '0%, 100%': { boxShadow: '0 0 20px rgba(37, 211, 102, 0.3)' }, '50%': { boxShadow: '0 0 40px rgba(37, 211, 102, 0.6)' } }
                     }
                 }
             }
@@ -87,88 +81,34 @@
         audio { height: 40px; width: 100%; border-radius: 60px; background: #f1f5f9; }
         audio::-webkit-media-controls-panel { background-color: #f8fafc; }
         
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        details > summary { list-style: none; }
-        details > summary::-webkit-details-marker { display: none; }
-
-        .plan-card {
+        .testimonial-card {
             transition: all 0.3s ease;
-            border: 2px solid transparent;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(8px);
         }
-        .plan-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
-        }
-        .plan-card.recommended {
-            background: linear-gradient(135deg, rgba(37, 211, 102, 0.15) 0%, rgba(30, 58, 95, 0.3) 100%);
-            border-color: #25D366;
-            box-shadow: 0 0 30px rgba(37, 211, 102, 0.2);
-            animation: pulseGlow 2s ease-in-out infinite;
-        }
-        .plan-card.recommended:hover {
-            box-shadow: 0 25px 50px -12px rgba(37, 211, 102, 0.3);
-        }
-        
-        .differential-card {
-            transition: all 0.3s ease;
-            border: 1px solid #f0efed;
-        }
-        .differential-card:hover {
+        .testimonial-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
         }
-
+        
         .pricing-card {
             transition: all 0.3s ease;
-            border: 2px solid transparent;
         }
         .pricing-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.12);
         }
-        .pricing-card.featured {
-            border-color: #25D366;
-            box-shadow: 0 0 25px rgba(37, 211, 102, 0.15);
+        
+        .voice-card {
+            transition: all 0.3s ease;
         }
-        .pricing-card.premium-highlight {
-            border-color: #F59E0B;
-            box-shadow: 0 0 25px rgba(245, 158, 11, 0.15);
+        .voice-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
-
+        
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
             right: 30px;
             z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 12px;
-        }
-        .whatsapp-tooltip {
-            background: white;
-            color: #1e293b;
-            padding: 14px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-            white-space: nowrap;
-            max-width: 280px;
-            text-align: center;
-        }
-        .whatsapp-tooltip::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            right: 40px;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-top: 10px solid white;
         }
         .whatsapp-button {
             width: 65px;
@@ -187,29 +127,19 @@
         }
         .whatsapp-button:hover {
             transform: scale(1.1);
-            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
             background: #1fb855;
         }
-
-        /* Pop-up Vantagens */
-        #advantages-popup {
-            display: none;
-        }
-        #advantages-popup.active {
-            display: flex;
-        }
-        .popup-content {
-            animation: slideUp 0.5s ease-out;
-        }
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
+        
         @media (max-width: 640px) {
             .whatsapp-float { bottom: 20px; right: 20px; }
             .whatsapp-button { width: 55px; height: 55px; font-size: 28px; }
-            .whatsapp-tooltip { font-size: 12px; padding: 10px 14px; max-width: 220px; }
+        }
+        
+        /* Formulário */
+        .form-input:focus {
+            outline: none;
+            ring: 2px solid #25D366;
+            border-color: #25D366;
         }
     </style>
 </head>
@@ -217,31 +147,26 @@
 
     <!-- WhatsApp Flutuante -->
     <div class="whatsapp-float">
-        <div class="whatsapp-tooltip">
-            <i class="fas fa-headset mr-1" style="color: #25D366;"></i> 
-            Fale com um especialista
-        </div>
-        <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os!" 
-           onclick="gtag('event', 'conversion', {'send_to': 'AW-18093304718/WA_FLOAT_CLICK', 'event_category': 'WhatsApp', 'event_label': 'Botao_Flutuante'});"
+        <a href="#" 
+           onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20fazer%20um%20spot%20comercial!', 'WA_FLOAT_CLICK', 'WhatsApp', 'Botao_Flutuante')"
            target="_blank" 
-           class="whatsapp-button" 
-           title="Fale com nosso time">
+           class="whatsapp-button">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
 
     <!-- HEADER -->
-    <header class="fixed w-full top-0 z-50 glass-header text-white transition-all py-2 sm:py-3">
+    <header class="fixed w-full top-0 z-50 glass-header text-white transition-all py-2">
         <div class="bg-slate-800/40 border-b border-slate-700/30">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-center sm:justify-between items-center py-1.5 text-[10px] sm:text-xs text-slate-400">
-                <span class="hidden sm:flex items-center gap-2"><i class="fas fa-envelope text-slate-500"></i> contato@alocucao.com.br</span>
+                <span class="hidden sm:flex items-center gap-2"><i class="fas fa-envelope text-slate-500"></i> suporte@alocucao.com.br</span>
                 <span class="flex items-center gap-2"><i class="fab fa-whatsapp text-green-500"></i> (27) 99652-9832</span>
                 <span class="hidden sm:flex items-center gap-1"><i class="fas fa-clock text-slate-500"></i> Seg a Sex 08h-18h | Sáb 08h-13h</span>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center py-2">
             <a href="#" class="shrink-0">
-                <img src="https://testedomarcio.github.io/meuadio/logo.webp" alt="Estúdio A Locução" class="h-8 sm:h-10 w-auto" width="120" height="40">
+                <img src="https://testedomarcio.github.io/meuadio/logo.webp" alt="A Locução" class="h-8 sm:h-10 w-auto" width="120" height="40">
             </a>
             <div class="flex items-center gap-3 sm:gap-4">
                 <span class="hidden lg:flex items-center gap-2 text-slate-300 text-xs font-medium border-r border-slate-700 pr-4">
@@ -258,364 +183,417 @@
 
     <main>
         <!-- HERO SECTION -->
-        <section id="home" class="bg-darkBg pt-32 sm:pt-36 lg:pt-40 pb-20 lg:pb-24 relative overflow-hidden text-white">
+        <section class="bg-darkBg pt-32 sm:pt-36 lg:pt-40 pb-16 lg:pb-20 relative overflow-hidden text-white">
             <div class="absolute inset-0 bg-gradient-to-b from-brand-blue/20 to-transparent pointer-events-none"></div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center text-center">
                 
-                <div class="inline-flex items-center gap-2 bg-slate-800/60 border border-slate-700 text-slate-300 px-5 py-1.5 rounded-full text-xs font-medium tracking-wide mb-6">
+                <div class="inline-flex items-center gap-2 bg-slate-800/60 border border-slate-700 text-slate-300 px-5 py-1.5 rounded-full text-xs font-medium tracking-wide mb-6 animate-fade-in-up">
                     <i class="fas fa-microphone-alt text-green-400 text-xs"></i>
-                    Produção profissional com qualidade de estúdio
+                    +12 anos produzindo spots que vendem
                 </div>
                 
-                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-5 max-w-5xl">
-                    Spots Comerciais que <span class="text-green-400">Convertem</span> em Resultados
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-5 max-w-5xl animate-fade-in-up">
+                    Spot Comercial que <span class="text-green-400">Converte</span> em Vendas
                 </h1>
                 
-                <p class="text-slate-300 text-base lg:text-xl mb-12 leading-relaxed max-w-2xl font-normal">
-                    Da locução profissional à produção completa com trilha e efeitos. 
-                    <strong class="text-white font-semibold">Atendimento consultivo do início ao fim.</strong>
+                <p class="text-slate-300 text-base lg:text-xl mb-8 leading-relaxed max-w-2xl font-normal animate-fade-in-up">
+                    Locução profissional + trilha sonora + entrega rápida.<br>
+                    <strong class="text-white">Você envia o texto, eu produzo o spot.</strong>
                 </p>
 
-                <!-- PLANOS PRINCIPAIS -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl mb-10">
+                <!-- PLANOS PRINCIPAIS (APENAS 2) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mb-8 animate-fade-in-up">
                     
-                    <!-- Plano 1: Locução Off -->
-                    <div class="plan-card rounded-2xl p-6 text-left flex flex-col border border-white/10">
-                        <div class="mb-4">
-                            <h3 class="text-lg font-bold text-white">Locução Off</h3>
-                            <p class="text-slate-400 text-sm">Voz limpa para edição própria</p>
-                        </div>
-                        <div class="text-4xl font-black text-white mb-6">R$ 14<small class="text-lg font-normal text-slate-400">,90</small></div>
-                        <ul class="space-y-3 mb-8 flex-grow text-sm text-slate-300">
-                            <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> Locução profissional</li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> Arquivo em MP3/WAV</li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> Escolha da voz no casting</li>
-                        </ul>
-                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Quero%20contratar%20uma%20Locu%C3%A7%C3%A3o%20Off!', 'WA_CLICK', 'WhatsApp', 'Plano_Off')" class="block w-full py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition text-center text-sm border border-white/10">
-                            Quero Locução Off
-                        </a>
-                    </div>
-
-                    <!-- Plano 2: Spot Comercial -->
-                    <div class="plan-card rounded-2xl p-6 text-left flex flex-col border border-white/20">
+                    <!-- Plano 1: Spot Comercial -->
+                    <div class="pricing-card bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-left border border-white/10 hover:border-green-400/30 transition-all">
                         <div class="mb-4">
                             <h3 class="text-lg font-bold text-white">Spot Comercial</h3>
                             <p class="text-slate-400 text-sm">Locução + Trilha</p>
                         </div>
-                        <div class="text-4xl font-black text-white mb-6">R$ 29<small class="text-lg font-normal text-slate-400">,90</small></div>
-                        <ul class="space-y-3 mb-8 flex-grow text-sm text-slate-300">
+                        <div class="text-4xl font-black text-white mb-2">R$ 29<small class="text-lg font-normal text-slate-400">,90</small></div>
+                        <p class="text-xs text-slate-500 mb-6">*Preço base para textos de até 40 segundos</p>
+                        <ul class="space-y-3 mb-8 text-sm text-slate-300">
                             <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> Locução profissional</li>
                             <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> Trilha sonora licenciada</li>
                             <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> Cliente envia o texto</li>
                             <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> Suporte personalizado</li>
                         </ul>
-                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Quero%20contratar%20um%20Spot%20Comercial!', 'WA_CLICK', 'WhatsApp', 'Plano_Spot')" class="block w-full py-3 bg-action-green hover:bg-action-green-hover text-white font-bold rounded-xl transition text-center text-sm">
-                            Quero Spot Comercial
+                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20um%20Spot%20Comercial!%20Meu%20texto%20tem%20aproximadamente%20X%20segundos.', 'WA_CLICK', 'WhatsApp', 'Plano_Spot')" class="block w-full py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition text-center text-sm">
+                            Solicitar Spot →
                         </a>
                     </div>
 
-                    <!-- Plano 3: Premium (Recomendado) -->
-                    <div class="plan-card recommended rounded-2xl p-6 text-left flex flex-col border-2 border-green-400 relative">
+                    <!-- Plano 2: Spot Premium (Recomendado) -->
+                    <div class="pricing-card bg-gradient-to-br from-green-500/10 to-brand-blue/20 backdrop-blur-sm rounded-2xl p-6 text-left border-2 border-green-400 relative">
                         <span class="absolute -top-3 right-4 bg-premium-gold text-slate-900 text-xs font-bold px-3 py-1 rounded-full shadow-lg">
                             ⭐ MAIS RECOMENDADO
                         </span>
                         <div class="mb-4">
                             <h3 class="text-lg font-bold text-white">Spot Premium</h3>
-                            <p class="text-green-300 text-sm font-medium">Produção Completa</p>
+                            <p class="text-green-300 text-sm">Produção Completa</p>
                         </div>
-                        <div class="text-4xl font-black text-white mb-6">R$ 49<small class="text-lg font-normal text-green-300">,90</small></div>
-                        <ul class="space-y-3 mb-8 flex-grow text-sm text-white">
-                            <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> <strong>Locução, trilha e efeitos</strong></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> <strong>Consultoria de roteiro</strong></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> Analisamos sua ideia e criamos o texto</li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> <strong>Edição profissional premium</strong></li>
+                        <div class="text-4xl font-black text-white mb-2">R$ 59<small class="text-lg font-normal text-green-300">,90</small></div>
+                        <p class="text-xs text-slate-500 mb-6">*Preço base para textos de até 40 segundos</p>
+                        <ul class="space-y-3 mb-8 text-sm text-white">
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> <strong>Locução + trilha + efeitos</strong></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> <strong>Crio o roteiro para você</strong></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> Ajustes gratuitos</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> <strong>Entrega prioritária</strong></li>
                         </ul>
-                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Quero%20contratar%20o%20Spot%20Premium!', 'WA_CLICK', 'WhatsApp', 'Plano_Premium')" class="block w-full py-3 bg-premium-gold hover:bg-amber-500 text-slate-900 font-bold rounded-xl transition text-center text-sm shadow-lg">
+                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20o%20Spot%20Premium!%20Não%20tenho%20texto%20pronto,%20preciso%20de%20ajuda%20para%20criar.', 'WA_CLICK', 'WhatsApp', 'Plano_Premium')" class="block w-full py-3 bg-premium-gold hover:bg-amber-500 text-slate-900 font-bold rounded-xl transition text-center text-sm shadow-lg">
                             Quero Spot Premium ✨
                         </a>
                     </div>
                 </div>
 
-                <p class="text-slate-500 text-xs mt-4"><i class="fas fa-user-check text-[10px]"></i> Atendimento personalizado via WhatsApp</p>
+                <p class="text-slate-500 text-xs"><i class="fas fa-user-check text-[10px]"></i> Atendimento humano via WhatsApp. Respondo em minutos.</p>
             </div>
         </section>
 
-        <!-- DIFERENCIAIS PREMIUM -->
-        <section class="py-20 bg-white border-b border-slate-100">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                <div class="text-center mb-14">
-                    <span class="text-slate-400 font-semibold uppercase tracking-wider text-xs mb-2 block">Por que a A Locução</span>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Diferenciais que fazem a diferença</h2>
-                    <p class="text-slate-500 max-w-2xl mx-auto mt-3">Produção que valoriza sua marca e gera resultados</p>
-                </div>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="differential-card bg-slate-50 rounded-2xl p-6 text-center">
-                        <div class="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-clock text-white text-xl"></i></div>
-                        <h3 class="font-bold text-slate-800 text-lg mb-2">Agilidade</h3>
-                        <p class="text-slate-500 text-sm">Entrega no mesmo dia para pedidos até as 18h. Sempre com qualidade profissional.</p>
-                    </div>
-                    <div class="differential-card bg-slate-50 rounded-2xl p-6 text-center">
-                        <div class="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fab fa-whatsapp text-white text-xl"></i></div>
-                        <h3 class="font-bold text-slate-800 text-lg mb-2">Atendimento Real</h3>
-                        <p class="text-slate-500 text-sm">Consultoria no WhatsApp com humanos, não robôs. Entendemos seu projeto.</p>
-                    </div>
-                    <div class="differential-card bg-slate-50 rounded-2xl p-6 text-center">
-                        <div class="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-pen-fancy text-white text-xl"></i></div>
-                        <h3 class="font-bold text-slate-800 text-lg mb-2">Criação de Roteiro</h3>
-                        <p class="text-slate-500 text-sm">Não sabe o que escrever? Nós ajudamos a criar o texto ideal para sua campanha.</p>
-                    </div>
-                    <div class="differential-card bg-slate-50 rounded-2xl p-6 text-center">
-                        <div class="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-handshake text-white text-xl"></i></div>
-                        <h3 class="font-bold text-slate-800 text-lg mb-2">Suporte Total</h3>
-                        <p class="text-slate-500 text-sm">Acompanhamento do início ao fim, com suporte antes, durante e após a entrega.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- MARCA D'ÁGUA DE PROVA SOCIAL -->
-        <section class="py-6 bg-slate-900 border-y border-slate-800 overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4">
-                <p class="text-center text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Empresas e rádios que confiam no nosso trabalho</p>
-                <div class="relative flex overflow-hidden">
-                    <div class="flex whitespace-nowrap gap-8 items-center animate-scroll">
-                        <span class="text-slate-400 font-medium text-sm">Design Móveis</span><span class="text-slate-700">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Sower Modas</span><span class="text-slate-700">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Universo Tecnologia</span><span class="text-slate-700">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Rádio Cultura</span><span class="text-slate-700">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Super Mais Supermercado</span><span class="text-slate-700">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Farmácia Santa Catarina Nicolau</span><span class="text-slate-700">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Princesinha Vest</span><span class="text-slate-700">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Mellody Audiovisual</span><span class="text-slate-700">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Rádio Imprensa FM</span><span class="text-slate-700">•</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- TABELA DE PREÇOS COMPLETA (Estilo da página de Locução Off) -->
-        <section id="precos" class="anchor-section py-20 bg-slate-50">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <!-- DEPOIMENTOS (PROVA SOCIAL) -->
+        <section class="py-16 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-12">
-                    <span class="text-slate-400 font-semibold uppercase tracking-wider text-xs mb-2 block">Nossos Pacotes</span>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">Pacotes de <span class="text-green-600">Produção</span></h2>
-                    <p class="text-slate-500 mt-2">Preços transparentes. Qualidade profissional em cada entrega.</p>
+                    <span class="text-green-600 font-semibold uppercase tracking-wider text-xs mb-2 block">O que nossos clientes dizem</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Quem confia no nosso trabalho</h2>
+                    <p class="text-slate-500 max-w-2xl mx-auto mt-3">Clientes reais, resultados reais</p>
                 </div>
                 
-                <div class="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Depoimento 1 -->
+                    <div class="testimonial-card bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="https://www.alocucao.com.br/homem%201.png" alt="Carlos Henrique" class="w-14 h-14 rounded-full object-cover border-2 border-green-400" loading="lazy">
+                            <div>
+                                <h4 class="font-bold text-slate-800">Carlos Henrique</h4>
+                                <p class="text-xs text-slate-400">Super Mais Supermercados</p>
+                                <div class="flex text-yellow-400 text-xs mt-1">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            "Trabalhamos juntos há mais de 3 anos. O atendimento sempre foi um grande diferencial. Toda segunda-feira produzimos nossos anúncios e sempre fomos atendidos com rapidez, atenção e muito profissionalismo. É uma parceria de confiança que faz parte do crescimento do nosso supermercado."
+                        </p>
+                        <i class="fas fa-quote-right text-slate-200 text-2xl mt-3 block text-right"></i>
+                    </div>
                     
-                    <!-- Card 1: Locução Off -->
-                    <div class="pricing-card bg-white rounded-3xl shadow border border-slate-200 p-6 relative hover:-translate-y-1 transition-all">
-                        <div class="text-center">
-                            <span class="text-xs font-semibold text-slate-400 uppercase tracking-widest bg-slate-100 px-4 py-1 rounded-full">Básico</span>
-                            <h3 class="text-xl font-bold text-slate-700 mt-3 mb-2">Locução Off</h3>
-                            <p class="text-slate-500 text-sm mb-4">Voz limpa para edição própria</p>
-                        </div>
-                        <div class="space-y-3 mb-6">
-                            <div class="flex justify-between items-center bg-slate-50 rounded-xl px-4 py-3 border border-slate-100">
-                                <span class="font-medium text-slate-700">Off Avulso</span>
-                                <span class="font-bold text-slate-700 text-lg">R$ 14,90</span>
-                            </div>
-                            <div class="flex justify-between items-center bg-slate-50 rounded-xl px-4 py-3 border border-slate-100">
-                                <span class="font-medium text-slate-700">5 Offs</span>
-                                <span class="font-bold text-slate-700 text-lg">R$ 60,00</span>
-                            </div>
-                            <div class="flex justify-between items-center bg-slate-50 rounded-xl px-4 py-3 border border-slate-100">
-                                <span class="font-medium text-slate-700">10 Offs</span>
-                                <span class="font-bold text-slate-700 text-lg">R$ 100,00</span>
+                    <!-- Depoimento 2 -->
+                    <div class="testimonial-card bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="https://www.alocucao.com.br/barbearia.png" alt="Rafael Martins" class="w-14 h-14 rounded-full object-cover border-2 border-green-400" loading="lazy">
+                            <div>
+                                <h4 class="font-bold text-slate-800">Rafael Martins</h4>
+                                <p class="text-xs text-slate-400">Barber Shop</p>
+                                <div class="flex text-yellow-400 text-xs mt-1">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
                             </div>
                         </div>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check text-slate-400"></i> Locução profissional</li>
-                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check text-slate-400"></i> Arquivo em MP3/WAV</li>
-                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check text-slate-400"></i> Escolha da voz no casting</li>
-                        </ul>
-                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Quero%20Locu%C3%A7%C3%A3o%20Off!', 'WA_CLICK', 'WhatsApp', 'Precos_Off')" class="block w-full py-3 bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold rounded-xl transition text-center text-sm">
-                            Quero Locução Off
-                        </a>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            "As produções para nossa barbearia sempre ficam modernas, chamativas e ajudam muito a fortalecer nossa marca. O atendimento é excelente, rápido e muito atencioso. Hoje temos a tranquilidade de saber que nossas divulgações estão em boas mãos."
+                        </p>
+                        <i class="fas fa-quote-right text-slate-200 text-2xl mt-3 block text-right"></i>
                     </div>
-
-                    <!-- Card 2: Spot Comercial (Destaque) -->
-                    <div class="pricing-card featured bg-white rounded-3xl shadow-lg border-2 border-green-400 p-6 relative hover:-translate-y-1 transition-all">
-                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-action-green text-white font-bold text-sm uppercase tracking-widest px-6 py-2 rounded-full shadow-lg z-20">
-                            <i class="fas fa-star mr-1"></i> Recomendado
-                        </div>
-                        <div class="text-center mt-4">
-                            <span class="text-xs font-semibold text-green-600 uppercase tracking-widest bg-green-50 px-4 py-1 rounded-full">Mais Popular</span>
-                            <h3 class="text-2xl font-bold text-slate-900 mt-3 mb-2">Spot Comercial</h3>
-                            <p class="text-slate-500 text-sm mb-4">Locução + Trilha</p>
-                        </div>
-                        <div class="space-y-3 mb-6">
-                            <div class="flex justify-between items-center bg-green-50 rounded-xl px-4 py-3 border border-green-200">
-                                <span class="font-medium text-slate-700">1 Spot Avulso</span>
-                                <span class="font-black text-green-700 text-xl">R$ 29,90</span>
-                            </div>
-                            <div class="flex justify-between items-center bg-slate-50 rounded-xl px-4 py-3 border border-slate-100">
-                                <span class="font-medium text-slate-700">5 Spots</span>
-                                <span class="font-bold text-slate-800 text-xl">R$ 120,00</span>
-                            </div>
-                            <div class="flex justify-between items-center bg-slate-50 rounded-xl px-4 py-3 border border-slate-100">
-                                <span class="font-medium text-slate-700">10 Spots</span>
-                                <span class="font-bold text-slate-800 text-xl">R$ 200,00</span>
+                    
+                    <!-- Depoimento 3 -->
+                    <div class="testimonial-card bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="https://www.alocucao.com.br/padaria.png" alt="Juliana Ferreira" class="w-14 h-14 rounded-full object-cover border-2 border-green-400" loading="lazy">
+                            <div>
+                                <h4 class="font-bold text-slate-800">Juliana Ferreira</h4>
+                                <p class="text-xs text-slate-400">Padaria Bom Sabor</p>
+                                <div class="flex text-yellow-400 text-xs mt-1">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
                             </div>
                         </div>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check-circle text-green-500"></i> <strong>Locução profissional</strong></li>
-                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check-circle text-green-500"></i> <strong>Trilha sonora licenciada</strong></li>
-                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check-circle text-green-500"></i> Cliente envia o texto</li>
-                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check-circle text-green-500"></i> Suporte personalizado</li>
-                        </ul>
-                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Quero%20Spot%20Comercial!', 'WA_CLICK', 'WhatsApp', 'Precos_Spot')" class="block w-full py-3 bg-action-green hover:bg-action-green-hover text-white font-bold rounded-xl transition text-center text-sm shadow-md">
-                            <i class="fab fa-whatsapp mr-2"></i> QUERO SPOT COMERCIAL
-                        </a>
-                    </div>
-
-                    <!-- Card 3: Spot Premium -->
-                    <div class="pricing-card premium-highlight bg-white rounded-3xl shadow border-2 border-amber-400 p-6 relative hover:-translate-y-1 transition-all">
-                        <div class="text-center">
-                            <span class="text-xs font-semibold text-amber-600 uppercase tracking-widest bg-amber-50 px-4 py-1 rounded-full">⭐ Premium</span>
-                            <h3 class="text-xl font-bold text-slate-700 mt-3 mb-2">Spot Premium</h3>
-                            <p class="text-slate-500 text-sm mb-4">Produção Completa</p>
-                        </div>
-                        <div class="space-y-3 mb-6">
-                            <div class="flex justify-between items-center bg-amber-50 rounded-xl px-4 py-3 border border-amber-200">
-                                <span class="font-medium text-slate-700">1 Spot Premium</span>
-                                <span class="font-bold text-amber-600 text-xl">R$ 49,90</span>
-                            </div>
-                        </div>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check text-amber-500"></i> <strong>Locução, trilha e efeitos</strong></li>
-                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check text-amber-500"></i> <strong>Consultoria de roteiro</strong></li>
-                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check text-amber-500"></i> Criamos o texto para você</li>
-                            <li class="flex items-center gap-2 text-sm"><i class="fas fa-check text-amber-500"></i> <strong>Edição profissional premium</strong></li>
-                        </ul>
-                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Quero%20Spot%20Premium!', 'WA_CLICK', 'WhatsApp', 'Precos_Premium')" class="block w-full py-3 bg-premium-gold hover:bg-amber-500 text-slate-900 font-bold rounded-xl transition text-center text-sm shadow-md">
-                            QUERO SPOT PREMIUM ✨
-                        </a>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            "O serviço de Spot Premium se tornou essencial para nós. A equipe já conhece nossa empresa, entende nossa linguagem e cria tudo praticamente pronto. Além da qualidade, o atendimento sempre foi ágil e atencioso."
+                        </p>
+                        <i class="fas fa-quote-right text-slate-200 text-2xl mt-3 block text-right"></i>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Selo de pagamento -->
-                <div class="mt-8 flex flex-wrap justify-center gap-4">
-                    <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm border">
-                        <i class="fas fa-credit-card text-slate-500"></i>
-                        <span class="text-sm text-slate-600">PIX • Cartão • Boleto</span>
+        <!-- DIFERENCIAIS -->
+        <section class="py-16 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12">
+                    <span class="text-green-600 font-semibold uppercase tracking-wider text-xs mb-2 block">Por que escolher a A Locução</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Diferenciais que fazem a diferença</h2>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-2xl p-6 text-center border shadow-sm">
+                        <div class="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-clock text-white text-xl"></i></div>
+                        <h3 class="font-bold text-slate-800 text-lg mb-2">Entrega no Mesmo Dia</h3>
+                        <p class="text-slate-500 text-sm">Pedidos até as 18h são entregues no mesmo dia. Sempre com qualidade profissional.</p>
                     </div>
-                    <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm border">
-                        <i class="fas fa-check-circle text-green-500"></i>
-                        <span class="text-sm text-slate-600">Correções gratuitas (se erro do locutor)</span>
+                    <div class="bg-white rounded-2xl p-6 text-center border shadow-sm">
+                        <div class="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fab fa-whatsapp text-white text-xl"></i></div>
+                        <h3 class="font-bold text-slate-800 text-lg mb-2">Atendimento Real</h3>
+                        <p class="text-slate-500 text-sm">Consultoria no WhatsApp com humanos. Entendo seu projeto e suas necessidades.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 text-center border shadow-sm">
+                        <div class="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-pen-fancy text-white text-xl"></i></div>
+                        <h3 class="font-bold text-slate-800 text-lg mb-2">Criação de Roteiro</h3>
+                        <p class="text-slate-500 text-sm">Não sabe o que escrever? Eu ajudo a criar o texto ideal para sua campanha.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 text-center border shadow-sm">
+                        <div class="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-handshake text-white text-xl"></i></div>
+                        <h3 class="font-bold text-slate-800 text-lg mb-2">Parceria de Longa Data</h3>
+                        <p class="text-slate-500 text-sm">Mais de 12 anos no mercado. Clientes que confiam e voltam sempre.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- CASTING DE VOZES -->
-        <section id="vozes" class="py-16 lg:py-20 bg-white">
+        <section class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-10">
-                    <span class="text-slate-400 font-semibold uppercase tracking-widest text-xs mb-2 block">Casting Exclusivo</span>
+                    <span class="text-green-600 font-semibold uppercase tracking-wider text-xs mb-2 block">Casting Exclusivo</span>
                     <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Vozes <span class="text-slate-600">Selecionadas</span></h2>
-                    <p class="text-slate-500 text-lg max-w-2xl mx-auto mt-3">Locutores profissionais com curadoria especializada para sua marca.</p>
+                    <p class="text-slate-500 max-w-2xl mx-auto mt-3">Locutores profissionais com curadoria especializada</p>
                 </div>
+                
                 <!-- Vozes Femininas -->
                 <div class="mb-12">
                     <h3 class="text-md font-semibold text-slate-500 uppercase tracking-wide mb-5 flex items-center gap-2 border-b pb-2"><i class="fas fa-female text-slate-400"></i> Femininas</h3>
                     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <div class="bg-white rounded-2xl border p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/lindy.webp" class="w-16 h-16 rounded-full object-cover border-2" loading="lazy"><div class="flex-1 min-w-0"><h4 class="font-bold text-slate-800 text-sm">Lindy</h4><p class="text-xs text-slate-400 mb-1">Jovem · Energética</p><audio controls preload="none" onplay="trackAudioPlay('Lindy')"><source src="https://testedomarcio.github.io/meuadio/Lindy.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="bg-white rounded-2xl border p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Elissandra.webp" class="w-16 h-16 rounded-full object-cover border-2" loading="lazy"><div class="flex-1 min-w-0"><h4 class="font-bold text-slate-800 text-sm">Elissandra</h4><p class="text-xs text-slate-400 mb-1">Suave · Acolhedora</p><audio controls preload="none" onplay="trackAudioPlay('Elissandra')"><source src="https://testedomarcio.github.io/meuadio/elissandra.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="bg-white rounded-2xl border p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Silvia.webp" class="w-16 h-16 rounded-full object-cover border-2" loading="lazy"><div class="flex-1 min-w-0"><h4 class="font-bold text-slate-800 text-sm">Silvia</h4><p class="text-xs text-slate-400 mb-1">Elegante · Sofisticada</p><audio controls preload="none" onplay="trackAudioPlay('Silvia')"><source src="https://testedomarcio.github.io/meuadio/Silvia.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="bg-white rounded-2xl border p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Tati.webp" class="w-16 h-16 rounded-full object-cover border-2" loading="lazy"><div class="flex-1 min-w-0"><h4 class="font-bold text-slate-800 text-sm">Tati</h4><p class="text-xs text-slate-400 mb-1">Descontraída · Varejo</p><audio controls preload="none" onplay="trackAudioPlay('Tati')"><source src="https://testedomarcio.github.io/meuadio/tati.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="voice-card bg-white rounded-2xl border p-4 flex items-center gap-4">
+                            <img src="https://testedomarcio.github.io/meuadio/lindy.webp" class="w-16 h-16 rounded-full object-cover border-2" loading="lazy">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-slate-800 text-sm">Lindy</h4>
+                                <p class="text-xs text-slate-400 mb-1">Jovem · Energética</p>
+                                <audio controls preload="none" onplay="trackAudioPlay('Lindy')"><source src="https://testedomarcio.github.io/meuadio/Lindy.mp3" type="audio/mpeg"></audio>
+                            </div>
+                        </div>
+                        <div class="voice-card bg-white rounded-2xl border p-4 flex items-center gap-4">
+                            <img src="https://testedomarcio.github.io/meuadio/Elissandra.webp" class="w-16 h-16 rounded-full object-cover border-2" loading="lazy">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-slate-800 text-sm">Elissandra</h4>
+                                <p class="text-xs text-slate-400 mb-1">Suave · Acolhedora</p>
+                                <audio controls preload="none" onplay="trackAudioPlay('Elissandra')"><source src="https://testedomarcio.github.io/meuadio/elissandra.mp3" type="audio/mpeg"></audio>
+                            </div>
+                        </div>
+                        <div class="voice-card bg-white rounded-2xl border p-4 flex items-center gap-4">
+                            <img src="https://testedomarcio.github.io/meuadio/Silvia.webp" class="w-16 h-16 rounded-full object-cover border-2" loading="lazy">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-slate-800 text-sm">Silvia</h4>
+                                <p class="text-xs text-slate-400 mb-1">Elegante · Sofisticada</p>
+                                <audio controls preload="none" onplay="trackAudioPlay('Silvia')"><source src="https://testedomarcio.github.io/meuadio/Silvia.mp3" type="audio/mpeg"></audio>
+                            </div>
+                        </div>
+                        <div class="voice-card bg-white rounded-2xl border p-4 flex items-center gap-4">
+                            <img src="https://testedomarcio.github.io/meuadio/Tati.webp" class="w-16 h-16 rounded-full object-cover border-2" loading="lazy">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-slate-800 text-sm">Tati</h4>
+                                <p class="text-xs text-slate-400 mb-1">Descontraída · Varejo</p>
+                                <audio controls preload="none" onplay="trackAudioPlay('Tati')"><source src="https://testedomarcio.github.io/meuadio/tati.mp3" type="audio/mpeg"></audio>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
                 <!-- Vozes Masculinas -->
                 <div class="mb-10">
                     <h3 class="text-md font-semibold text-slate-500 uppercase tracking-wide mb-5 flex items-center gap-2 border-b pb-2"><i class="fas fa-male text-slate-400"></i> Masculinas</h3>
                     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <div class="bg-white rounded-2xl border p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/celso.webp" class="w-16 h-16 rounded-full object-cover border-2" loading="lazy"><div class="flex-1 min-w-0"><h4 class="font-bold text-slate-800 text-sm">Celso</h4><p class="text-xs text-slate-400 mb-1">Grave · Impactante</p><audio controls preload="none" onplay="trackAudioPlay('Celso')"><source src="https://testedomarcio.github.io/meuadio/Celso.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="bg-white rounded-2xl border p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/charles.webp" class="w-16 h-16 rounded-full object-cover border-2" loading="lazy"><div class="flex-1 min-w-0"><h4 class="font-bold text-slate-800 text-sm">Charles</h4><p class="text-xs text-slate-400 mb-1">Clássico · Confiável</p><audio controls preload="none" onplay="trackAudioPlay('Charles')"><source src="https://testedomarcio.github.io/meuadio/Charles.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="bg-white rounded-2xl border p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Cristian.webp" class="w-16 h-16 rounded-full object-cover border-2" loading="lazy"><div class="flex-1 min-w-0"><h4 class="font-bold text-slate-800 text-sm">Cristian Jr</h4><p class="text-xs text-slate-400 mb-1">Dinâmico · Moderno</p><audio controls preload="none" onplay="trackAudioPlay('Cristian_Jr')"><source src="https://testedomarcio.github.io/meuadio/Cristian.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="bg-white rounded-2xl border p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Leandro.webp" class="w-16 h-16 rounded-full object-cover border-2" loading="lazy"><div class="flex-1 min-w-0"><h4 class="font-bold text-slate-800 text-sm">Leandro</h4><p class="text-xs text-slate-400 mb-1">Versátil · Persuasivo</p><audio controls preload="none" onplay="trackAudioPlay('Leandro')"><source src="https://testedomarcio.github.io/meuadio/Leandro.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="voice-card bg-white rounded-2xl border p-4 flex items-center gap-4">
+                            <img src="https://testedomarcio.github.io/meuadio/celso.webp" class="w-16 h-16 rounded-full object-cover border-2" loading="lazy">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-slate-800 text-sm">Celso</h4>
+                                <p class="text-xs text-slate-400 mb-1">Grave · Impactante</p>
+                                <audio controls preload="none" onplay="trackAudioPlay('Celso')"><source src="https://testedomarcio.github.io/meuadio/Celso.mp3" type="audio/mpeg"></audio>
+                            </div>
+                        </div>
+                        <div class="voice-card bg-white rounded-2xl border p-4 flex items-center gap-4">
+                            <img src="https://testedomarcio.github.io/meuadio/charles.webp" class="w-16 h-16 rounded-full object-cover border-2" loading="lazy">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-slate-800 text-sm">Charles</h4>
+                                <p class="text-xs text-slate-400 mb-1">Clássico · Confiável</p>
+                                <audio controls preload="none" onplay="trackAudioPlay('Charles')"><source src="https://testedomarcio.github.io/meuadio/Charles.mp3" type="audio/mpeg"></audio>
+                            </div>
+                        </div>
+                        <div class="voice-card bg-white rounded-2xl border p-4 flex items-center gap-4">
+                            <img src="https://testedomarcio.github.io/meuadio/Cristian.webp" class="w-16 h-16 rounded-full object-cover border-2" loading="lazy">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-slate-800 text-sm">Cristian Jr</h4>
+                                <p class="text-xs text-slate-400 mb-1">Dinâmico · Moderno</p>
+                                <audio controls preload="none" onplay="trackAudioPlay('Cristian_Jr')"><source src="https://testedomarcio.github.io/meuadio/Cristian.mp3" type="audio/mpeg"></audio>
+                            </div>
+                        </div>
+                        <div class="voice-card bg-white rounded-2xl border p-4 flex items-center gap-4">
+                            <img src="https://testedomarcio.github.io/meuadio/Leandro.webp" class="w-16 h-16 rounded-full object-cover border-2" loading="lazy">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-slate-800 text-sm">Leandro</h4>
+                                <p class="text-xs text-slate-400 mb-1">Versátil · Persuasivo</p>
+                                <audio controls preload="none" onplay="trackAudioPlay('Leandro')"><source src="https://testedomarcio.github.io/meuadio/Leandro.mp3" type="audio/mpeg"></audio>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- RESPOSTAS RÁPIDAS (OBJEÇÕES) -->
+        <section class="py-16 bg-slate-50">
+            <div class="max-w-4xl mx-auto px-4">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl font-bold text-slate-800">Respostas para suas dúvidas</h2>
+                    <p class="text-slate-500">O que você precisa saber antes de contratar</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-white p-5 rounded-xl border">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-robot text-slate-400"></i>
+                            <span class="font-bold text-slate-700">Por que não usar IA?</span>
+                        </div>
+                        <p class="text-slate-600 text-sm">IA não tem emoção, não entende seu negócio e não gera conexão com o cliente. Nossas vozes são 100% humanas. <a href="#vozes" class="text-green-600">Ouça a diferença →</a></p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-dollar-sign text-slate-400"></i>
+                            <span class="font-bold text-slate-700">É caro?</span>
+                        </div>
+                        <p class="text-slate-600 text-sm">A partir de R$29,90 você tem um spot profissional. Compare com o custo de um funcionário ou agência. Você paga apenas pelo que precisa.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-clock text-slate-400"></i>
+                            <span class="font-bold text-slate-700">Qual o prazo?</span>
+                        </div>
+                        <p class="text-slate-600 text-sm">Pedidos até 18h são entregues no MESMO DIA. Você não espera dias pelo seu spot.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-headset text-slate-400"></i>
+                            <span class="font-bold text-slate-700">Não sei escrever roteiro</span>
+                        </div>
+                        <p class="text-slate-600 text-sm">No plano Premium, eu crio o texto para você. Você só manda a ideia, eu faço o resto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULÁRIO DE ORÇAMENTO -->
+        <section class="py-16 bg-white">
+            <div class="max-w-2xl mx-auto px-4">
+                <div class="text-center mb-8">
+                    <i class="fas fa-file-alt text-4xl text-green-500 mb-3"></i>
+                    <h2 class="text-3xl font-bold text-slate-800">Solicite seu orçamento</h2>
+                    <p class="text-slate-500 mt-2">Preencha abaixo que eu analiso e te respondo pelo WhatsApp em até 2 horas</p>
+                </div>
+
+                <form action="https://formsubmit.co/suporte@alocucao.com.br" method="POST" class="bg-slate-50 rounded-2xl p-6 border">
+                    <input type="hidden" name="_subject" value="📋 NOVO PEDIDO DE ORÇAMENTO - Spot Comercial">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://www.alocucao.com.br/obrigado">
+                    
+                    <div class="mb-4">
+                        <label class="block text-slate-700 font-medium mb-2">Seu nome *</label>
+                        <input type="text" name="nome" required class="w-full p-3 border rounded-xl bg-white focus:ring-2 focus:ring-green-500 focus:outline-none">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-slate-700 font-medium mb-2">Seu e-mail *</label>
+                        <input type="email" name="email" required class="w-full p-3 border rounded-xl bg-white focus:ring-2 focus:ring-green-500 focus:outline-none">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-slate-700 font-medium mb-2">Seu WhatsApp com DDD *</label>
+                        <input type="tel" name="whatsapp" placeholder="(11) 99999-9999" required class="w-full p-3 border rounded-xl bg-white focus:ring-2 focus:ring-green-500 focus:outline-none">
+                        <p class="text-xs text-slate-400 mt-1">É por aqui que vou te responder</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-slate-700 font-medium mb-2">O que você precisa? *</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="flex items-center gap-2 bg-white p-3 rounded-xl border cursor-pointer hover:bg-slate-50">
+                                <input type="radio" name="servico" value="Spot Comercial (R$29,90)" required class="text-green-500"> Spot Comercial
+                            </label>
+                            <label class="flex items-center gap-2 bg-white p-3 rounded-xl border cursor-pointer hover:bg-slate-50">
+                                <input type="radio" name="servico" value="Spot Premium (R$59,90)" required> Spot Premium
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-slate-700 font-medium mb-2">Seu texto para locução</label>
+                        <textarea name="texto" rows="6" class="w-full p-3 border rounded-xl bg-white focus:ring-2 focus:ring-green-500 focus:outline-none" placeholder="Cole seu texto aqui...&#10;&#10;Se não tiver texto pronto, escreva sua ideia que eu ajudo a criar o roteiro (grátis no plano Premium)"></textarea>
+                        <p class="text-xs text-slate-400 mt-1">Não tem texto? Me conta sua ideia que eu crio para você.</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-slate-700 font-medium mb-2">Informação adicional (opcional)</label>
+                        <input type="text" name="informacao" placeholder="Ex: quero voz feminina, trilha animada, urgência..." class="w-full p-3 border rounded-xl bg-white">
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl transition text-lg">
+                        📨 ENVIAR E RECEBER ORÇAMENTO
+                    </button>
+                    
+                    <p class="text-center text-xs text-slate-400 mt-4">
+                        <i class="fas fa-lock"></i> Seus dados são seguros. Respondo em até 2 horas.
+                    </p>
+                </form>
+                
                 <div class="text-center mt-8">
-                    <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20casting%20completo%20de%20vozes!', 'WA_CLICK', 'WhatsApp', 'Conhecer_Vozes')" class="inline-flex items-center gap-2 bg-slate-800 text-white px-6 py-3 rounded-xl font-semibold hover:bg-slate-700 transition">Solicitar acesso ao casting <i class="fab fa-whatsapp ml-1"></i></a>
+                    <p class="text-slate-400 text-sm mb-2">ou</p>
+                    <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento!', 'WA_CLICK', 'WhatsApp', 'Formulario_Alternativo')" class="inline-flex items-center gap-2 text-green-600 hover:text-green-700 font-medium">
+                        <i class="fab fa-whatsapp text-xl"></i> Prefere falar agora? Clique aqui
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- FAQ -->
-        <section class="py-20 bg-white">
+        <section class="py-16 bg-slate-50">
             <div class="max-w-3xl mx-auto px-4">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-slate-900">Dúvidas Frequentes</h2>
-                    <p class="text-slate-500 mt-2">Respostas rápidas para suas perguntas</p>
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-slate-800">Dúvidas Frequentes</h2>
+                    <p class="text-slate-500 mt-2">Tire suas dúvidas em segundos</p>
                 </div>
                 <div class="space-y-3">
-                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5">
-                        <summary class="flex justify-between font-bold text-slate-700 cursor-pointer">Como funciona o processo de criação?<span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span></summary>
-                        <div class="text-slate-600 mt-3 text-sm"><p>Você envia sua ideia ou texto por WhatsApp. Se não tiver roteiro, ajudamos na criação (incluso no plano Premium). Após aprovação, escolhemos a voz ideal, produzimos e entregamos o áudio final.</p></div>
+                    <details class="group bg-white border border-slate-200 rounded-xl p-5">
+                        <summary class="flex justify-between font-bold text-slate-700 cursor-pointer">Como funciona o processo?<span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span></summary>
+                        <div class="text-slate-600 mt-3 text-sm"><p>Você envia seu texto ou ideia. Eu analiso, orço e produzo. Entrega no mesmo dia para pedidos até 18h.</p></div>
                     </details>
-                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5">
+                    <details class="group bg-white border border-slate-200 rounded-xl p-5">
                         <summary class="flex justify-between font-bold text-slate-700 cursor-pointer">Qual o prazo de entrega?<span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span></summary>
-                        <div class="text-slate-600 mt-3 text-sm"><p>Pedidos realizados até as 18h são entregues no mesmo dia. Trabalhamos com produção profissional e o prazo é compatível com a excelência que entregamos.</p></div>
+                        <div class="text-slate-600 mt-3 text-sm"><p>Pedidos até as 18h são entregues no mesmo dia.</p></div>
                     </details>
-                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5">
+                    <details class="group bg-white border border-slate-200 rounded-xl p-5">
                         <summary class="flex justify-between font-bold text-slate-700 cursor-pointer">Como faço meu pedido?<span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span></summary>
-                        <div class="text-slate-600 mt-3 text-sm"><p>Atendemos via WhatsApp. Basta enviar sua solicitação e nosso time consultivo cuidará de todo o processo, com acompanhamento personalizado.</p></div>
+                        <div class="text-slate-600 mt-3 text-sm"><p>Via WhatsApp ou pelo formulário acima. Escolha a forma mais fácil para você.</p></div>
                     </details>
-                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5">
-                        <summary class="flex justify-between font-bold text-slate-700 cursor-pointer">Posso pedir ajuda para criar o texto?<span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span></summary>
-                        <div class="text-slate-600 mt-3 text-sm"><p>Sim! No plano Premium, oferecemos consultoria completa de roteiro: analisamos sua ideia e criamos o texto para você. Nos outros planos, auxiliamos com sugestões.</p></div>
-                    </details>
-                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5">
-                        <summary class="flex justify-between font-bold text-slate-700 cursor-pointer">Quais as formas de pagamento?<span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span></summary>
-                        <div class="text-slate-600 mt-3 text-sm"><p>Aceitamos PIX, cartão de crédito e boleto bancário. O pagamento é antecipado e seguro.</p></div>
-                    </details>
-                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-5">
+                    <details class="group bg-white border border-slate-200 rounded-xl p-5">
                         <summary class="flex justify-between font-bold text-slate-700 cursor-pointer">E se eu precisar de ajustes?<span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span></summary>
-                        <div class="text-slate-600 mt-3 text-sm"><p>Garantimos sua satisfação. Se houver erro na locução ou produção, corrigimos sem custo adicional.</p></div>
+                        <div class="text-slate-600 mt-3 text-sm"><p>Se houver erro na locução, corrijo sem custo adicional. Sua satisfação é garantida.</p></div>
                     </details>
                 </div>
             </div>
         </section>
 
         <!-- CTA FINAL -->
-        <section class="py-20 bg-darkBg text-white text-center">
+        <section class="py-16 bg-darkBg text-white text-center">
             <div class="max-w-3xl mx-auto px-4">
-                <h2 class="text-3xl sm:text-5xl font-bold mb-5">Pronto para um spot que gera resultados?</h2>
-                <p class="text-slate-300 text-lg mb-10">Converse com um especialista e transforme sua ideia em um comercial profissional.</p>
-                <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Quero%20falar%20com%20um%20especialista!', 'WA_CLICK', 'WhatsApp', 'Final_CTA')" class="inline-flex items-center gap-3 bg-action-green hover:bg-action-green-hover text-white px-8 py-5 rounded-2xl font-bold text-xl transition-all shadow-[0_20px_40px_rgba(37,211,102,0.25)]"><i class="fab fa-whatsapp text-2xl"></i> FALAR COM ESPECIALISTA</a>
-                <p class="text-xs text-slate-600 mt-8">WhatsApp (27) 99652-9832 · contato@alocucao.com.br</p>
-                <p class="text-xs text-slate-600 mt-1">Estúdio A Locução &copy; 2012-2026 · Produção com excelência</p>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Pronto para um spot que vende?</h2>
+                <p class="text-slate-300 text-lg mb-8">Converse comigo e transforme sua ideia em um comercial profissional.</p>
+                <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Quero%20fazer%20um%20spot%20comercial!', 'WA_CLICK', 'WhatsApp', 'Final_CTA')" class="inline-flex items-center gap-3 bg-action-green hover:bg-action-green-hover text-white px-8 py-5 rounded-2xl font-bold text-xl transition-all shadow-lg">
+                    <i class="fab fa-whatsapp text-2xl"></i> FALAR COMIGO AGORA
+                </a>
+                <p class="text-xs text-slate-600 mt-6">WhatsApp (27) 99652-9832 · suporte@alocucao.com.br</p>
+                <p class="text-xs text-slate-600 mt-1">A Locução &copy; 2012-2026 · Atendimento humano e personalizado</p>
             </div>
         </section>
     </main>
 
     <!-- Leadster -->
     <script>(function(a,b,c,d){try{var e=b.head||b.getElementsByTagName("head")[0];var f=b.createElement("script");f.setAttribute("src",c);f.setAttribute("charset","UTF-8");f.defer=true;a.neuroleadId=d;e.appendChild(f)}catch(g){}})(window,document,"https://cdn.leadster.com.br/neurolead/neurolead.min.js","suuyuh5U3EkKnzksGWBUMxBly")</script>
-
-    <!-- POP-UP DE VANTAGENS -->
-    <div id="advantages-popup" class="fixed inset-0 bg-black/80 z-[99999] hidden items-center justify-center p-4">
-        <div class="popup-content bg-white p-6 md:p-8 rounded-2xl max-w-md w-full text-center shadow-2xl relative">
-            <button onclick="closeAdvantagesPopup()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600"><i class="fas fa-times text-xl"></i></button>
-            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i class="fas fa-star text-green-600 text-2xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-slate-800 mb-2">Por que escolher a A Locução?</h3>
-            <p class="text-slate-500 text-sm mb-5">Somos especialistas em spots que convertem</p>
-            <ul class="text-left space-y-3 mb-6">
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <strong>Produção profissional</strong> com qualidade de estúdio</li>
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <strong>Consultoria de roteiro</strong> sem custo adicional</li>
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <strong>Casting selecionado</strong> com vozes para cada perfil</li>
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <strong>Entrega rápida</strong> no mesmo dia (até 18h)</li>
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <strong>Atendimento real</strong> via WhatsApp</li>
-            </ul>
-            <a href="#" onclick="closeAdvantagesPopup(); return safeRedirectWA('https://wa.me/5527996529832?text=Quero%20fazer%20um%20or%C3%A7amento!', 'WA_CLICK', 'WhatsApp', 'Popup_Vantagens')" class="flex items-center justify-center w-full bg-action-green text-white py-3 rounded-xl font-bold gap-2 hover:bg-action-green-hover transition">
-                <i class="fab fa-whatsapp text-xl"></i> FALAR COM ESPECIALISTA
-            </a>
-            <p class="text-[10px] text-slate-400 mt-3">Atendimento humano e personalizado</p>
-        </div>
-    </div>
 
     <script>
         // Header scroll effect
@@ -631,55 +609,6 @@
                 audios.forEach(other => { if(other !== audio) other.pause(); }); 
             }); 
         });
-        
-        // Pop-up de Vantagens
-        let popupShown = false;
-        function showAdvantagesPopup() { 
-            if (!popupShown && !sessionStorage.getItem('popupVantagens')) { 
-                document.getElementById('advantages-popup').classList.add('active'); 
-                popupShown = true; 
-                sessionStorage.setItem('popupVantagens', 'true'); 
-            } 
-        }
-        function closeAdvantagesPopup() { 
-            document.getElementById('advantages-popup').classList.remove('active'); 
-        }
-        
-        // Exit intent popup
-        document.addEventListener('mouseout', function(e) { 
-            if (e.clientY < 10 && e.relatedTarget === null) showAdvantagesPopup(); 
-        });
-        
-        // Popstate trigger
-        window.addEventListener('load', function() { 
-            history.pushState({popupReady: true}, '', window.location.href); 
-        });
-        window.addEventListener('popstate', function(e) { 
-            if (e.state && e.state.popupReady) { 
-                showAdvantagesPopup(); 
-                history.pushState({popupReady: true}, '', window.location.href); 
-            } 
-        });
-        
-        // Close popup on overlay click
-        document.getElementById('advantages-popup')?.addEventListener('click', function(e) { 
-            if(e.target === this) closeAdvantagesPopup(); 
-        });
-        
-        // Close popup on Escape
-        document.addEventListener('keydown', function(e) { 
-            if(e.key === 'Escape' && document.getElementById('advantages-popup')?.classList.contains('active')) 
-                closeAdvantagesPopup(); 
-        });
-        
-        // Hide tooltip after 10 seconds
-        setTimeout(() => { 
-            const tooltip = document.querySelector('.whatsapp-tooltip'); 
-            if(tooltip) { 
-                tooltip.style.opacity = '0'; 
-                setTimeout(() => tooltip.style.display = 'none', 500); 
-            } 
-        }, 10000);
     </script>
 </body>
 </html>
