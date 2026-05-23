@@ -13,7 +13,7 @@
 
     <style>
         * { font-family: 'Inter', sans-serif; }
-        body { background: #f1f5f9; margin: 0; padding: 0; }
+        body { background: #f1f5f9; }
         
         .glass-header {
             background: rgba(15, 23, 42, 0.96);
@@ -26,20 +26,11 @@
             width: 180px;
             border-radius: 60px;
         }
-        audio::-webkit-media-controls-panel {
-            background-color: #f1f5f9;
-        }
         
         .filter-btn.active {
             background: #5B3A8C !important;
             color: white !important;
             border-color: #5B3A8C !important;
-        }
-        
-        .style-filter-btn.active {
-            background: #C9A03D !important;
-            color: #1e293b !important;
-            border-color: #C9A03D !important;
         }
         
         .btn-whatsapp-small {
@@ -59,16 +50,19 @@
             background: #1fb855;
         }
         
-        .tag-estilo {
+        .status-badge {
             display: inline-block;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 10px;
-            font-weight: 500;
-            margin: 2px;
-            background: #e2e8f0;
-            color: #334155;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
         }
+        .status-10min { background: #05B1F9; color: white; }
+        .status-30min { background: #1E90FF; color: white; }
+        .status-online { background: #32CD32; color: white; }
+        .status-ferias { background: #8B4513; color: white; }
+        .status-indisponivel { background: #6c757d; color: white; }
+        .status-offline { background: #CDC9C9; color: #333; }
         
         .whatsapp-float {
             position: fixed;
@@ -101,7 +95,6 @@
         @media (max-width: 768px) {
             audio { width: 130px; }
             .btn-whatsapp-small { padding: 4px 10px; font-size: 10px; }
-            .tag-estilo { font-size: 8px; padding: 1px 6px; }
         }
         
         .tabela-container {
@@ -136,48 +129,11 @@
             background-color: #f8fafc;
         }
         
-        .foto-locutor {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #C9A03D;
-        }
-        
         .loading {
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 300px;
-        }
-        
-        .btn-ordenar {
-            background: #f1f5f9;
-            border: 1px solid #e2e8f0;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .btn-ordenar:hover {
-            background: #e2e8f0;
-        }
-        
-        .badge-aleatorio {
-            background: #C9A03D;
-            color: #1e293b;
-            font-size: 10px;
-            padding: 2px 8px;
-            border-radius: 20px;
-            margin-left: 8px;
-        }
-        
-        .filtros-estilos {
-            border-top: 1px solid #e2e8f0;
-            margin-top: 12px;
-            padding-top: 12px;
         }
     </style>
 </head>
@@ -207,7 +163,6 @@
 
     <main class="pt-28 sm:pt-32 pb-16">
         
-        <!-- Hero -->
         <section class="bg-[#0f172a] text-white py-10">
             <div class="max-w-7xl mx-auto px-4 text-center">
                 <h1 class="text-3xl sm:text-5xl font-bold mb-3">Banco de <span class="text-[#C9A03D]">Vozes</span></h1>
@@ -215,50 +170,24 @@
             </div>
         </section>
 
-        <!-- Filtros -->
         <section class="sticky top-20 z-40 bg-white border-b shadow-sm py-4">
             <div class="max-w-7xl mx-auto px-4">
-                <!-- Filtro por gênero -->
                 <div class="flex flex-wrap gap-2 items-center justify-between">
                     <div class="flex flex-wrap gap-2">
                         <button data-filter="all" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border transition bg-[#5B3A8C] text-white border-[#5B3A8C]">Todos</button>
-                        <button data-filter="masculina" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border border-slate-300">Masculinas</button>
-                        <button data-filter="feminina" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border border-slate-300">Femininas</button>
-                        <button data-filter="infantil" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border border-slate-300">Infantis</button>
+                        <button data-filter="Masculino" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border border-slate-300">Masculinos</button>
+                        <button data-filter="Feminino" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border border-slate-300">Femininos</button>
                     </div>
-                    <div class="flex items-center gap-3">
-                        <button id="btn-embaralhar" class="btn-ordenar">
-                            <i class="fas fa-random mr-1"></i> Embaralhar
-                        </button>
-                        <div class="text-xs text-slate-500">
-                            <span id="contador">Carregando...</span>
-                        </div>
+                    <div class="text-xs text-slate-500">
+                        <span id="contador">Carregando...</span>
                     </div>
                 </div>
-                
-                <!-- Filtro por estilo -->
-                <div class="filtros-estilos flex flex-wrap gap-2 items-center mt-3">
-                    <span class="text-xs text-slate-500 font-medium">Filtrar por estilo:</span>
-                    <button data-style="all" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300 active bg-[#C9A03D] text-slate-800 border-[#C9A03D]">Todos</button>
-                    <button data-style="Impacto" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Impacto</button>
-                    <button data-style="Jovem" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Jovem</button>
-                    <button data-style="Varejo" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Varejo</button>
-                    <button data-style="Institucional" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Institucional</button>
-                    <button data-style="Up-Fest" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Up-Fest</button>
-                    <button data-style="Jornalístico" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Jornalístico</button>
-                    <button data-style="Caricato" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Caricato</button>
-                    <button data-style="Caipira" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Caipira</button>
-                    <button data-style="Padrão" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Padrão</button>
-                    <button data-style="Animado" class="style-filter-btn px-3 py-1 rounded-full text-xs font-medium border border-slate-300">Animado</button>
-                </div>
-                
                 <div class="text-right mt-2">
-                    <span class="badge-aleatorio"><i class="fas fa-shuffle mr-1"></i> Ordem aleatória a cada visita</span>
+                    <span class="text-xs text-slate-400"><i class="fas fa-sort-amount-down mr-1"></i> Ordenado por disponibilidade</span>
                 </div>
             </div>
         </section>
 
-        <!-- Lista de locutores -->
         <section class="max-w-7xl mx-auto px-4 py-6">
             <div id="loading" class="loading">
                 <div class="text-center">
@@ -272,7 +201,7 @@
                     <thead>
                         <tr>
                             <th>Locutor</th>
-                            <th>Estilos</th>
+                            <th>Status</th>
                             <th>Demo</th>
                             <th>Solicitar</th>
                         </tr>
@@ -283,7 +212,7 @@
             
             <div id="no-results" class="text-center py-12 hidden">
                 <i class="fas fa-microphone-slash text-4xl text-slate-300 mb-3"></i>
-                <p class="text-slate-500">Nenhum locutor encontrado com os filtros selecionados.</p>
+                <p class="text-slate-500">Nenhum locutor encontrado.</p>
             </div>
         </section>
     </main>
@@ -294,75 +223,127 @@
     </footer>
 
     <script>
-        // Função para embaralhar array (algoritmo Fisher-Yates)
-        function embaralharArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
+        // Função para identificar o status e retornar um código de ordem (1 a 5)
+        function getStatusOrdem(statusTexto, statusCor) {
+            const texto = (statusTexto || '').toLowerCase();
+            const cor = statusCor || '';
+            
+            // 1º: 10 minutos (azul claro #05B1F9)
+            if (texto.includes('10 minutos') || cor === '#05b1f9') {
+                return 1;
             }
-            return array;
+            // 2º: 30 minutos (azul escuro #1E90FF)
+            if (texto.includes('30 minutos') || cor === '#1e90ff') {
+                return 2;
+            }
+            // 3º: Online (verde #32CD32)
+            if (texto.includes('online') || texto.includes('1 à 5 horas') || cor === '#32cd32') {
+                return 3;
+            }
+            // 4º: Férias (marrom) ou Indisponível (cinza escuro)
+            if (texto.includes('férias') || texto.includes('ferias') || cor === 'gray' || texto.includes('indisponível')) {
+                return 4;
+            }
+            // 5º: Offline (cinza claro #CDC9C9)
+            return 5;
         }
 
-        // Função para extrair TODOS os locutores do arquivo bancodevozes.html
+        function getStatusBadge(statusTexto, statusCor) {
+            const texto = (statusTexto || '').toLowerCase();
+            const cor = statusCor || '';
+            
+            if (texto.includes('10 minutos') || cor === '#05b1f9') {
+                return '<span class="status-badge status-10min">⏱️ 10 minutos</span>';
+            }
+            if (texto.includes('30 minutos') || cor === '#1e90ff') {
+                return '<span class="status-badge status-30min">⏱️ 30 minutos</span>';
+            }
+            if (texto.includes('online') || texto.includes('1 à 5 horas') || cor === '#32cd32') {
+                return '<span class="status-badge status-online">🟢 Online</span>';
+            }
+            if (texto.includes('férias') || texto.includes('ferias')) {
+                return '<span class="status-badge status-ferias">🏖️ Férias</span>';
+            }
+            if (texto.includes('indisponível') || cor === 'gray') {
+                return '<span class="status-badge status-indisponivel">⏸️ Indisponível</span>';
+            }
+            return '<span class="status-badge status-offline">⚫ Offline</span>';
+        }
+
         async function carregarLocutores() {
             try {
-                const response = await fetch('bancodevozes.html');
+                const response = await fetch('offsbrasil.html');
                 const html = await response.text();
                 
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, 'text/html');
                 
-                const linhas = doc.querySelectorAll('#tLocutores tr');
+                const linhas = doc.querySelectorAll('#example tbody tr');
                 const locutoresMap = new Map();
                 
                 linhas.forEach(linha => {
-                    const nomeElement = linha.querySelector('.media-body b');
-                    const nome = nomeElement ? nomeElement.textContent.trim() : null;
-                    if (!nome) return;
+                    const nomeCell = linha.querySelector('td:first-child');
+                    let nome = nomeCell ? nomeCell.textContent?.trim() : '';
+                    if (nomeCell) {
+                        const nomeText = nomeCell.textContent || '';
+                        nome = nomeText.split('★')[0].trim();
+                    }
+                    if (!nome || nome === '') return;
+                    
                     if (locutoresMap.has(nome)) return;
                     
-                    const spanElement = linha.querySelector('[filtro-voz]');
-                    let genero = spanElement ? spanElement.getAttribute('filtro-voz') : 'masculina';
-                    
-                    const imgElement = linha.querySelector('img');
-                    let foto = imgElement ? imgElement.src : '';
-                    
-                    let audioDemo = '';
-                    const playButton = linha.querySelector('[playDemo]');
-                    if (playButton) {
-                        audioDemo = playButton.getAttribute('playDemo');
-                    }
-                    
-                    let estilos = [];
-                    if (playButton) {
-                        const estilosTexto = playButton.getAttribute('estilos') || '';
-                        const textoLower = estilosTexto.toLowerCase();
-                        
-                        const estilosMap = {
-                            'impacto': 'Impacto', 'jovem': 'Jovem', 'varejo': 'Varejo',
-                            'institucional': 'Institucional', 'up-fest': 'Up-Fest', 'up fest': 'Up-Fest',
-                            'jornalistico': 'Jornalístico', 'jornalístico': 'Jornalístico',
-                            'caricato': 'Caricato', 'caipira': 'Caipira',
-                            'padrão': 'Padrão', 'padrao': 'Padrão',
-                            'alegre': 'Animado', 'animado': 'Animado',
-                            'velho': 'Caricato', 'igreja': 'Institucional', 'evento': 'Evento'
-                        };
-                        
-                        for (const [key, value] of Object.entries(estilosMap)) {
-                            if (textoLower.includes(key)) {
-                                if (!estilos.includes(value)) estilos.push(value);
-                            }
+                    // Extrair status
+                    const statusCell = linha.querySelector('td:nth-child(2)');
+                    let statusTexto = '';
+                    let statusCor = '';
+                    if (statusCell) {
+                        const p = statusCell.querySelector('p');
+                        if (p) {
+                            statusTexto = p.textContent || '';
+                            const style = p.getAttribute('style') || '';
+                            const bgMatch = style.match(/background-color:([^;]+)/);
+                            if (bgMatch) statusCor = bgMatch[1].trim();
                         }
                     }
                     
-                    if (estilos.length === 0) estilos.push('Geral');
+                    // Extrair áudio
+                    const audioCell = linha.querySelector('td:nth-child(3)');
+                    let audioUrl = '';
+                    if (audioCell) {
+                        const audio = audioCell.querySelector('audio');
+                        if (audio) {
+                            audioUrl = audio.getAttribute('src') || '';
+                        }
+                    }
                     
-                    locutoresMap.set(nome, { nome, genero, foto, audioDemo, estilos });
+                    // Extrair gênero (está escondido em spans)
+                    let genero = 'Masculino';
+                    const spans = linha.querySelectorAll('span[style*="font-size:1px"]');
+                    spans.forEach(span => {
+                        const text = span.textContent || '';
+                        if (text === 'Masculino') genero = 'Masculino';
+                        if (text === 'Feminino') genero = 'Feminino';
+                    });
+                    
+                    if (nome && audioUrl) {
+                        locutoresMap.set(nome, {
+                            nome: nome,
+                            genero: genero,
+                            statusTexto: statusTexto,
+                            statusCor: statusCor,
+                            audioUrl: audioUrl
+                        });
+                    }
                 });
                 
-                let locutores = Array.from(locutoresMap.values());
-                // Remover locutores sem áudio
-                locutores = locutores.filter(l => l.audioDemo && l.audioDemo !== '');
+                const locutores = Array.from(locutoresMap.values());
+                
+                // Ordenar por status (1: 10min, 2: 30min, 3: online, 4: ferias/indisponivel, 5: offline)
+                locutores.sort((a, b) => {
+                    const ordemA = getStatusOrdem(a.statusTexto, a.statusCor);
+                    const ordemB = getStatusOrdem(b.statusTexto, b.statusCor);
+                    return ordemA - ordemB;
+                });
                 
                 console.log(`Total de locutores extraídos: ${locutores.length}`);
                 return locutores;
@@ -373,32 +354,8 @@
             }
         }
 
-        function getStyleTags(estilos) {
-            return estilos.map(estilo => `<span class="tag-estilo">${estilo}</span>`).join('');
-        }
-
         let todosLocutores = [];
-        let locutoresExibidos = [];
         let currentFilter = 'all';
-        let currentStyle = 'all';
-
-        function aplicarFiltrosEOrdenar() {
-            let filtrados = [...todosLocutores];
-            
-            // Filtro por gênero
-            if (currentFilter !== 'all') {
-                filtrados = filtrados.filter(l => l.genero === currentFilter);
-            }
-            
-            // Filtro por estilo
-            if (currentStyle !== 'all') {
-                filtrados = filtrados.filter(l => l.estilos.includes(currentStyle));
-            }
-            
-            // Embaralhar
-            locutoresExibidos = embaralharArray([...filtrados]);
-            renderizarTabela();
-        }
 
         function renderizarTabela() {
             const tabelaContainer = document.getElementById('tabela-container');
@@ -407,9 +364,15 @@
             const tbody = document.getElementById('lista-locutores');
             const contador = document.getElementById('contador');
             
-            contador.textContent = `${locutoresExibidos.length} locutores`;
+            let filtrados = [...todosLocutores];
             
-            if (locutoresExibidos.length === 0) {
+            if (currentFilter !== 'all') {
+                filtrados = filtrados.filter(l => l.genero === currentFilter);
+            }
+            
+            contador.textContent = `${filtrados.length} locutores`;
+            
+            if (filtrados.length === 0) {
                 tabelaContainer.classList.add('hidden');
                 noResults.classList.remove('hidden');
                 loading.classList.add('hidden');
@@ -420,20 +383,20 @@
             noResults.classList.add('hidden');
             loading.classList.add('hidden');
             
-            tbody.innerHTML = locutoresExibidos.map(locutor => `
+            tbody.innerHTML = filtrados.map(locutor => `
                 <tr class="locutor-linha">
                     <td class="whitespace-nowrap">
                         <div class="flex items-center gap-3">
-                            <img src="${locutor.foto}" class="foto-locutor" onerror="this.src='https://via.placeholder.com/42?text=Sem+Foto'">
+                            <div class="w-8 h-8 bg-[#5B3A8C] rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                ${locutor.nome.charAt(0)}
+                            </div>
                             <span class="font-medium text-sm">${locutor.nome}</span>
                         </div>
                     </td>
-                    <td>
-                        <div class="flex flex-wrap gap-1">${getStyleTags(locutor.estilos)}</div>
-                    </td>
+                    <td class="whitespace-nowrap">${getStatusBadge(locutor.statusTexto, locutor.statusCor)}</td>
                     <td class="whitespace-nowrap">
                         <audio controls preload="none">
-                            <source src="${locutor.audioDemo}" type="audio/mpeg">
+                            <source src="${locutor.audioUrl}" type="audio/mpeg">
                         </audio>
                     </td>
                     <td class="whitespace-nowrap">
@@ -450,37 +413,20 @@
             }, 100);
         }
 
-        // Inicializar
         async function iniciar() {
             todosLocutores = await carregarLocutores();
-            aplicarFiltrosEOrdenar();
+            renderizarTabela();
         }
 
-        // Eventos dos filtros
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active', 'bg-[#5B3A8C]', 'text-white'));
                 btn.classList.add('active', 'bg-[#5B3A8C]', 'text-white');
                 currentFilter = btn.getAttribute('data-filter');
-                aplicarFiltrosEOrdenar();
+                renderizarTabela();
             });
         });
 
-        document.querySelectorAll('.style-filter-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.style-filter-btn').forEach(b => b.classList.remove('active', 'bg-[#C9A03D]', 'text-slate-800'));
-                btn.classList.add('active', 'bg-[#C9A03D]', 'text-slate-800');
-                currentStyle = btn.getAttribute('data-style');
-                aplicarFiltrosEOrdenar();
-            });
-        });
-
-        // Botão embaralhar
-        document.getElementById('btn-embaralhar').addEventListener('click', () => {
-            aplicarFiltrosEOrdenar();
-        });
-
-        // Pausar outros áudios
         document.addEventListener('play', function(e) {
             if (e.target.tagName === 'AUDIO') {
                 document.querySelectorAll('audio').forEach(audio => {
@@ -491,7 +437,6 @@
 
         iniciar();
 
-        // Efeito scroll header
         const header = document.querySelector('header');
         window.addEventListener('scroll', () => {
             header.style.background = window.scrollY > 20 ? 'rgba(15, 23, 42, 0.98)' : 'rgba(15, 23, 42, 0.96)';
