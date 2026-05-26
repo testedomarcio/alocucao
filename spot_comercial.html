@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     
-    <title>Spot Comercial Profissional | Locução + Trilha a partir de R$29,90</title>
-    <meta name="description" content="Spot comercial profissional com locução, trilha e efeitos. Atendimento humano via WhatsApp. Entrega rápida e consultoria de roteiro gratuita.">
+    <title>Spot Comercial Profissional | Locução + Trilha por R$29,90</title>
+    <meta name="description" content="Spot comercial profissional com locução humana, trilha e efeitos. Criação de roteiro grátis. Entrega rápida e atendimento via WhatsApp.">
     
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,6 +59,7 @@
                     animation: {
                         'float': 'float 3s ease-in-out infinite',
                         'fade-in-up': 'fadeInUp 0.6s ease-out',
+                        'pulse-slow': 'pulse 2s ease-in-out infinite',
                     },
                     keyframes: {
                         float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } },
@@ -135,11 +136,19 @@
             .whatsapp-button { width: 55px; height: 55px; font-size: 28px; }
         }
         
-        /* Formulário */
-        .form-input:focus {
-            outline: none;
-            ring: 2px solid #25D366;
-            border-color: #25D366;
+        .how-it-works-step {
+            transition: all 0.3s ease;
+        }
+        .how-it-works-step:hover {
+            transform: translateY(-5px);
+        }
+
+        .pricing-badge {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .badge-300 {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
         }
     </style>
 </head>
@@ -175,7 +184,7 @@
                 <a href="#" 
                    onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20quero%20solicitar%20meu%20spot%20comercial!', 'WA_CLICK', 'WhatsApp', 'Header')"
                    class="bg-action-green hover:bg-action-green-hover text-white font-bold flex items-center gap-2 transition-colors text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-md">
-                    <i class="fab fa-whatsapp text-base"></i> <span class="hidden sm:inline">Solicitar Spot</span><span class="sm:hidden">WhatsApp</span>
+                    <i class="fab fa-whatsapp text-base"></i> <span class="hidden sm:inline">QUERO MEU SPOT →</span><span class="sm:hidden">WhatsApp</span>
                 </a>
             </div>
         </div>
@@ -198,55 +207,70 @@
                 
                 <p class="text-slate-300 text-base lg:text-xl mb-8 leading-relaxed max-w-2xl font-normal animate-fade-in-up">
                     Locução profissional + trilha sonora + entrega rápida.<br>
-                    <strong class="text-white">Você envia o texto, eu produzo o spot.</strong>
+                    <strong class="text-white">Você envia a ideia, eu faço o spot completo.</strong>
                 </p>
 
-                <!-- PLANOS PRINCIPAIS (APENAS 2) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mb-8 animate-fade-in-up">
-                    
-                    <!-- Plano 1: Spot Comercial -->
-                    <div class="pricing-card bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-left border border-white/10 hover:border-green-400/30 transition-all">
-                        <div class="mb-4">
-                            <h3 class="text-lg font-bold text-white">Spot Comercial</h3>
-                            <p class="text-slate-400 text-sm">Locução + Trilha</p>
-                        </div>
-                        <div class="text-4xl font-black text-white mb-2">R$ 29<small class="text-lg font-normal text-slate-400">,90</small></div>
-                        <p class="text-xs text-slate-500 mb-6">*Preço base para textos de até 40 segundos</p>
-                        <ul class="space-y-3 mb-8 text-sm text-slate-300">
-                            <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> Locução profissional</li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> Trilha sonora licenciada</li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> Cliente envia o texto</li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> Suporte personalizado</li>
-                        </ul>
-                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20um%20Spot%20Comercial!%20Meu%20texto%20tem%20aproximadamente%20X%20segundos.', 'WA_CLICK', 'WhatsApp', 'Plano_Spot')" class="block w-full py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition text-center text-sm">
-                            Solicitar Spot →
-                        </a>
-                    </div>
-
-                    <!-- Plano 2: Spot Premium (Recomendado) -->
+                <!-- PLANO ÚNICO PREMIUM -->
+                <div class="w-full max-w-md mx-auto mb-8 animate-fade-in-up">
                     <div class="pricing-card bg-gradient-to-br from-green-500/10 to-brand-blue/20 backdrop-blur-sm rounded-2xl p-6 text-left border-2 border-green-400 relative">
-                        <span class="absolute -top-3 right-4 bg-premium-gold text-slate-900 text-xs font-bold px-3 py-1 rounded-full shadow-lg">
-                            ⭐ MAIS RECOMENDADO
-                        </span>
-                        <div class="mb-4">
-                            <h3 class="text-lg font-bold text-white">Spot Premium</h3>
-                            <p class="text-green-300 text-sm">Produção Completa</p>
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 pricing-badge text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg whitespace-nowrap">
+                            ⭐ MAIS ESCOLHIDO PELOS CLIENTES
                         </div>
-                        <div class="text-4xl font-black text-white mb-2">R$ 59<small class="text-lg font-normal text-green-300">,90</small></div>
-                        <p class="text-xs text-slate-500 mb-6">*Preço base para textos de até 40 segundos</p>
-                        <ul class="space-y-3 mb-8 text-sm text-white">
-                            <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> <strong>Locução + trilha + efeitos</strong></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> <strong>Crio o roteiro para você</strong></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> Ajustes gratuitos</li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-0.5"></i> <strong>Entrega prioritária</strong></li>
+                        <div class="mb-4 text-center">
+                            <h3 class="text-xl font-bold text-white">Spot Premium Completo</h3>
+                            <p class="text-green-300 text-sm">Locução + Trilha + Efeitos</p>
+                        </div>
+                        <div class="text-center mb-2">
+                            <span class="text-5xl font-black text-white">R$ 29<small class="text-xl font-normal text-green-300">,90</small></span>
+                        </div>
+                        
+                        <!-- DESTAQUE DA COBRANÇA -->
+                        <div class="bg-slate-800/60 rounded-lg p-2 mb-5 text-center">
+                            <p class="text-xs text-slate-300">
+                                <i class="fas fa-hourglass-half text-green-400 mr-1"></i> 
+                                <strong class="text-white">Valor por bloco de 40 segundos de áudio</strong>
+                                <br><span class="text-slate-400">Acima de 40s consulte preço</span>
+                            </p>
+                        </div>
+                        
+                        <ul class="space-y-3 mb-6 text-sm text-white">
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-400 mt-0.5"></i> <strong>Locução humana profissional</strong> (ouça as vozes abaixo)</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-400 mt-0.5"></i> <strong>Trilha sonora licenciada + efeitos</strong></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-400 mt-0.5"></i> <strong>🎁 Criação de roteiro GRÁTIS</strong> <span class="text-green-300 text-xs">(você só dá a ideia)</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-400 mt-0.5"></i> Ajustes gratuitos (somente se houver erro do locutor)</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-400 mt-0.5"></i> <strong>Entrega no mesmo dia</strong> (pedidos até 18h)</li>
                         </ul>
-                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20o%20Spot%20Premium!%20Não%20tenho%20texto%20pronto,%20preciso%20de%20ajuda%20para%20criar.', 'WA_CLICK', 'WhatsApp', 'Plano_Premium')" class="block w-full py-3 bg-premium-gold hover:bg-amber-500 text-slate-900 font-bold rounded-xl transition text-center text-sm shadow-lg">
-                            Quero Spot Premium ✨
+                        
+                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20um%20Spot%20Premium!%20Minha%20ideia%20%C3%A9...', 'WA_CLICK', 'WhatsApp', 'Plano_Premium')" class="block w-full py-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold rounded-xl transition text-center shadow-lg text-base">
+                            <i class="fab fa-whatsapp mr-2"></i> QUERO MEU SPOT AGORA →
                         </a>
+                        
+                        <p class="text-center text-slate-400 text-xs mt-4">
+                            <i class="fas fa-credit-card"></i> Pagamento antecipado via PIX | Ajustes gratuitos apenas para erros do locutor
+                        </p>
                     </div>
                 </div>
 
-                <p class="text-slate-500 text-xs"><i class="fas fa-user-check text-[10px]"></i> Atendimento humano via WhatsApp. Respondo em minutos.</p>
+                <!-- COMO FUNCIONA (3 PASSOS SIMPLES) -->
+                <div class="max-w-3xl mx-auto mt-6 pt-4 border-t border-slate-700/50">
+                    <p class="text-slate-400 text-sm mb-4"><i class="fas fa-play-circle text-green-400"></i> Como funciona em 3 passos simples:</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+                        <div class="flex items-start gap-3">
+                            <span class="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0">1</span>
+                            <p class="text-slate-300 text-xs">Você me envia sua <strong class="text-white">ideia ou texto</strong> pelo WhatsApp</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0">2</span>
+                            <p class="text-slate-300 text-xs">Você <strong class="text-white">paga antecipado via PIX</strong> e eu produzo o spot</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0">3</span>
+                            <p class="text-slate-300 text-xs">Você <strong class="text-white">recebe o MP3</strong> no mesmo dia (pedidos até 18h)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-slate-500 text-xs mt-6"><i class="fas fa-user-check text-[10px]"></i> Atendimento humano via WhatsApp. Respondo em minutos.</p>
             </div>
         </section>
 
@@ -256,11 +280,10 @@
                 <div class="text-center mb-12">
                     <span class="text-green-600 font-semibold uppercase tracking-wider text-xs mb-2 block">O que nossos clientes dizem</span>
                     <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Quem confia no nosso trabalho</h2>
-                    <p class="text-slate-500 max-w-2xl mx-auto mt-3">Clientes reais, resultados reais</p>
+                    <p class="text-slate-500 max-w-2xl mx-auto mt-3">Mais de 1.500 spots produzidos para pequenos negócios</p>
                 </div>
                 
                 <div class="grid md:grid-cols-3 gap-6">
-                    <!-- Depoimento 1 -->
                     <div class="testimonial-card bg-slate-50 rounded-2xl p-6 border border-slate-100">
                         <div class="flex items-center gap-4 mb-4">
                             <img src="https://www.alocucao.com.br/homem%201.png" alt="Carlos Henrique" class="w-14 h-14 rounded-full object-cover border-2 border-green-400" loading="lazy">
@@ -273,12 +296,11 @@
                             </div>
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">
-                            "Trabalhamos juntos há mais de 3 anos. O atendimento sempre foi um grande diferencial. Toda segunda-feira produzimos nossos anúncios e sempre fomos atendidos com rapidez, atenção e muito profissionalismo. É uma parceria de confiança que faz parte do crescimento do nosso supermercado."
+                            "Trabalhamos juntos há mais de 3 anos. O atendimento sempre foi um grande diferencial. Toda segunda-feira produzimos nossos anúncios e sempre fomos atendidos com rapidez, atenção e muito profissionalismo."
                         </p>
                         <i class="fas fa-quote-right text-slate-200 text-2xl mt-3 block text-right"></i>
                     </div>
                     
-                    <!-- Depoimento 2 -->
                     <div class="testimonial-card bg-slate-50 rounded-2xl p-6 border border-slate-100">
                         <div class="flex items-center gap-4 mb-4">
                             <img src="https://www.alocucao.com.br/barbearia.png" alt="Rafael Martins" class="w-14 h-14 rounded-full object-cover border-2 border-green-400" loading="lazy">
@@ -291,12 +313,11 @@
                             </div>
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">
-                            "As produções para nossa barbearia sempre ficam modernas, chamativas e ajudam muito a fortalecer nossa marca. O atendimento é excelente, rápido e muito atencioso. Hoje temos a tranquilidade de saber que nossas divulgações estão em boas mãos."
+                            "As produções para nossa barbearia sempre ficam modernas e ajudam a fortalecer nossa marca. O atendimento é excelente, rápido e muito atencioso."
                         </p>
                         <i class="fas fa-quote-right text-slate-200 text-2xl mt-3 block text-right"></i>
                     </div>
                     
-                    <!-- Depoimento 3 -->
                     <div class="testimonial-card bg-slate-50 rounded-2xl p-6 border border-slate-100">
                         <div class="flex items-center gap-4 mb-4">
                             <img src="https://www.alocucao.com.br/padaria.png" alt="Juliana Ferreira" class="w-14 h-14 rounded-full object-cover border-2 border-green-400" loading="lazy">
@@ -309,7 +330,7 @@
                             </div>
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">
-                            "O serviço de Spot Premium se tornou essencial para nós. A equipe já conhece nossa empresa, entende nossa linguagem e cria tudo praticamente pronto. Além da qualidade, o atendimento sempre foi ágil e atencioso."
+                            "O serviço se tornou essencial para nós. A equipe já conhece nossa empresa, entende nossa linguagem e cria tudo praticamente pronto. Qualidade e agilidade."
                         </p>
                         <i class="fas fa-quote-right text-slate-200 text-2xl mt-3 block text-right"></i>
                     </div>
@@ -317,7 +338,7 @@
             </div>
         </section>
 
-        <!-- DIFERENCIAIS -->
+        <!-- DIFERENCIAIS (CORRIGIDOS) -->
         <section class="py-16 bg-slate-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-12">
@@ -328,7 +349,7 @@
                     <div class="bg-white rounded-2xl p-6 text-center border shadow-sm">
                         <div class="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-clock text-white text-xl"></i></div>
                         <h3 class="font-bold text-slate-800 text-lg mb-2">Entrega no Mesmo Dia</h3>
-                        <p class="text-slate-500 text-sm">Pedidos até as 18h são entregues no mesmo dia. Sempre com qualidade profissional.</p>
+                        <p class="text-slate-500 text-sm">Pedidos até as 18h são entregues no mesmo dia. Qualidade profissional garantida.</p>
                     </div>
                     <div class="bg-white rounded-2xl p-6 text-center border shadow-sm">
                         <div class="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fab fa-whatsapp text-white text-xl"></i></div>
@@ -337,30 +358,45 @@
                     </div>
                     <div class="bg-white rounded-2xl p-6 text-center border shadow-sm">
                         <div class="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-pen-fancy text-white text-xl"></i></div>
-                        <h3 class="font-bold text-slate-800 text-lg mb-2">Criação de Roteiro</h3>
-                        <p class="text-slate-500 text-sm">Não sabe o que escrever? Eu ajudo a criar o texto ideal para sua campanha.</p>
+                        <h3 class="font-bold text-slate-800 text-lg mb-2">Roteiro Grátis</h3>
+                        <p class="text-slate-500 text-sm">Não sabe o que escrever? Eu ajudo a criar o texto ideal para sua campanha SEM CUSTO.</p>
                     </div>
                     <div class="bg-white rounded-2xl p-6 text-center border shadow-sm">
-                        <div class="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-handshake text-white text-xl"></i></div>
-                        <h3 class="font-bold text-slate-800 text-lg mb-2">Parceria de Longa Data</h3>
-                        <p class="text-slate-500 text-sm">Mais de 12 anos no mercado. Clientes que confiam e voltam sempre.</p>
+                        <div class="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-microphone-alt text-white text-xl"></i></div>
+                        <h3 class="font-bold text-slate-800 text-lg mb-2">Mais de 300 Vozes</h3>
+                        <p class="text-slate-500 text-sm">Banco exclusivo com diversos estilos. Feminina, masculina, jovem, clássica, regional...</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CASTING DE VOZES -->
+        <!-- CASTING DE VOZES (COM DESTAQUE DO BANCO DE VOZES) -->
         <section class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-10">
                     <span class="text-green-600 font-semibold uppercase tracking-wider text-xs mb-2 block">Casting Exclusivo</span>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Vozes <span class="text-slate-600">Selecionadas</span></h2>
-                    <p class="text-slate-500 max-w-2xl mx-auto mt-3">Locutores profissionais com curadoria especializada</p>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Vozes <span class="text-slate-600">100% Humanas</span></h2>
+                    <p class="text-slate-500 max-w-2xl mx-auto mt-3">Locutores profissionais selecionados. Clique e ouça a diferença.</p>
+                    
+                    <!-- BANNER DO BANCO DE VOZES -->
+                    <div class="inline-flex items-center gap-2 bg-purple-50 border border-purple-200 rounded-full px-4 py-2 mt-4">
+                        <i class="fas fa-database text-purple-600 text-sm"></i>
+                        <span class="text-purple-700 text-xs font-medium">🎙️ Banco com <strong class="text-purple-800">+300 vozes</strong> disponíveis | Femininas, masculinas, infantis, regionais e muito mais</span>
+                    </div>
+                </div>
+                
+                <!-- AVISO SOBRE MAIS VOZES -->
+                <div class="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl p-4 mb-8 text-center border border-purple-100">
+                    <p class="text-slate-700 text-sm">
+                        <i class="fas fa-headphones text-purple-600 mr-1"></i> 
+                        <strong>Estes são apenas 8 exemplos.</strong> Temos um banco com mais de 300 opções de vozes! 
+                        <span class="text-purple-600 font-medium">Não encontrou o estilo ideal? Fale comigo e escolha a voz perfeita para o seu negócio.</span>
+                    </p>
                 </div>
                 
                 <!-- Vozes Femininas -->
                 <div class="mb-12">
-                    <h3 class="text-md font-semibold text-slate-500 uppercase tracking-wide mb-5 flex items-center gap-2 border-b pb-2"><i class="fas fa-female text-slate-400"></i> Femininas</h3>
+                    <h3 class="text-md font-semibold text-slate-500 uppercase tracking-wide mb-5 flex items-center gap-2 border-b pb-2"><i class="fas fa-female text-slate-400"></i> Femininas (alguns exemplos)</h3>
                     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         <div class="voice-card bg-white rounded-2xl border p-4 flex items-center gap-4">
                             <img src="https://testedomarcio.github.io/meuadio/lindy.webp" class="w-16 h-16 rounded-full object-cover border-2" loading="lazy">
@@ -399,7 +435,7 @@
                 
                 <!-- Vozes Masculinas -->
                 <div class="mb-10">
-                    <h3 class="text-md font-semibold text-slate-500 uppercase tracking-wide mb-5 flex items-center gap-2 border-b pb-2"><i class="fas fa-male text-slate-400"></i> Masculinas</h3>
+                    <h3 class="text-md font-semibold text-slate-500 uppercase tracking-wide mb-5 flex items-center gap-2 border-b pb-2"><i class="fas fa-male text-slate-400"></i> Masculinas (alguns exemplos)</h3>
                     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         <div class="voice-card bg-white rounded-2xl border p-4 flex items-center gap-4">
                             <img src="https://testedomarcio.github.io/meuadio/celso.webp" class="w-16 h-16 rounded-full object-cover border-2" loading="lazy">
@@ -435,6 +471,13 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- BOTÃO PARA MAIS VOZES -->
+                <div class="text-center mt-8">
+                    <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20conhecer%20mais%20op%C3%A7%C3%B5es%20de%20vozes!', 'WA_CLICK', 'WhatsApp', 'Mais_Vozes')" class="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium text-sm">
+                        <i class="fab fa-whatsapp text-lg"></i> Quer ouvir outras opções de vozes? Fale comigo →
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -448,137 +491,51 @@
                 <div class="grid md:grid-cols-2 gap-4">
                     <div class="bg-white p-5 rounded-xl border">
                         <div class="flex items-center gap-2 mb-2">
-                            <i class="fas fa-robot text-slate-400"></i>
-                            <span class="font-bold text-slate-700">Por que não usar IA?</span>
+                            <i class="fas fa-hourglass-half text-slate-400"></i>
+                            <span class="font-bold text-slate-700">E se meu texto for maior que 40 segundos?</span>
                         </div>
-                        <p class="text-slate-600 text-sm">IA não tem emoção, não entende seu negócio e não gera conexão com o cliente. Nossas vozes são 100% humanas. <a href="#vozes" class="text-green-600">Ouça a diferença →</a></p>
+                        <p class="text-slate-600 text-sm">Cobramos por bloco de 40 segundos. Ex: 60 segundos = R$59,80. Consulte valores para textos mais longos.</p>
                     </div>
                     <div class="bg-white p-5 rounded-xl border">
                         <div class="flex items-center gap-2 mb-2">
-                            <i class="fas fa-dollar-sign text-slate-400"></i>
-                            <span class="font-bold text-slate-700">É caro?</span>
+                            <i class="fas fa-robot text-slate-400"></i>
+                            <span class="font-bold text-slate-700">Por que não usar IA?</span>
                         </div>
-                        <p class="text-slate-600 text-sm">A partir de R$29,90 você tem um spot profissional. Compare com o custo de um funcionário ou agência. Você paga apenas pelo que precisa.</p>
+                        <p class="text-slate-600 text-sm">IA não tem emoção, não entende seu negócio e não gera conexão. Nossas vozes são 100% humanas. <a href="#vozes" class="text-green-600">Ouça a diferença →</a></p>
                     </div>
                     <div class="bg-white p-5 rounded-xl border">
                         <div class="flex items-center gap-2 mb-2">
                             <i class="fas fa-clock text-slate-400"></i>
-                            <span class="font-bold text-slate-700">Qual o prazo?</span>
+                            <span class="font-bold text-slate-700">Qual o prazo de entrega?</span>
                         </div>
-                        <p class="text-slate-600 text-sm">Pedidos até 18h são entregues no MESMO DIA. Você não espera dias pelo seu spot.</p>
+                        <p class="text-slate-600 text-sm">Pedidos até 18h são entregues no MESMO DIA. Após esse horário, no dia seguinte útil.</p>
                     </div>
                     <div class="bg-white p-5 rounded-xl border">
                         <div class="flex items-center gap-2 mb-2">
                             <i class="fas fa-headset text-slate-400"></i>
                             <span class="font-bold text-slate-700">Não sei escrever roteiro</span>
                         </div>
-                        <p class="text-slate-600 text-sm">No plano Premium, eu crio o texto para você. Você só manda a ideia, eu faço o resto.</p>
+                        <p class="text-slate-600 text-sm">Sem problemas! Você só manda a ideia do que quer vender e eu crio o texto completo GRATUITAMENTE.</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FORMULÁRIO DE ORÇAMENTO -->
-        <section class="py-16 bg-white">
-            <div class="max-w-2xl mx-auto px-4">
-                <div class="text-center mb-8">
-                    <i class="fas fa-file-alt text-4xl text-green-500 mb-3"></i>
-                    <h2 class="text-3xl font-bold text-slate-800">Solicite seu orçamento</h2>
-                    <p class="text-slate-500 mt-2">Preencha abaixo que eu analiso e te respondo pelo WhatsApp em até 2 horas</p>
-                </div>
-
-                <form action="https://formsubmit.co/suporte@alocucao.com.br" method="POST" class="bg-slate-50 rounded-2xl p-6 border">
-                    <input type="hidden" name="_subject" value="📋 NOVO PEDIDO DE ORÇAMENTO - Spot Comercial">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="https://www.alocucao.com.br/obrigado">
-                    
-                    <div class="mb-4">
-                        <label class="block text-slate-700 font-medium mb-2">Seu nome *</label>
-                        <input type="text" name="nome" required class="w-full p-3 border rounded-xl bg-white focus:ring-2 focus:ring-green-500 focus:outline-none">
-                    </div>
-                    
-                    <div class="mb-4">
-                        <label class="block text-slate-700 font-medium mb-2">Seu e-mail *</label>
-                        <input type="email" name="email" required class="w-full p-3 border rounded-xl bg-white focus:ring-2 focus:ring-green-500 focus:outline-none">
-                    </div>
-                    
-                    <div class="mb-4">
-                        <label class="block text-slate-700 font-medium mb-2">Seu WhatsApp com DDD *</label>
-                        <input type="tel" name="whatsapp" placeholder="(11) 99999-9999" required class="w-full p-3 border rounded-xl bg-white focus:ring-2 focus:ring-green-500 focus:outline-none">
-                        <p class="text-xs text-slate-400 mt-1">É por aqui que vou te responder</p>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <label class="block text-slate-700 font-medium mb-2">O que você precisa? *</label>
-                        <div class="grid grid-cols-2 gap-3">
-                            <label class="flex items-center gap-2 bg-white p-3 rounded-xl border cursor-pointer hover:bg-slate-50">
-                                <input type="radio" name="servico" value="Spot Comercial (R$29,90)" required class="text-green-500"> Spot Comercial
-                            </label>
-                            <label class="flex items-center gap-2 bg-white p-3 rounded-xl border cursor-pointer hover:bg-slate-50">
-                                <input type="radio" name="servico" value="Spot Premium (R$59,90)" required> Spot Premium
-                            </label>
+                    <div class="bg-white p-5 rounded-xl border">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-microphone-alt text-slate-400"></i>
+                            <span class="font-bold text-slate-700">Posso escolher a voz?</span>
                         </div>
+                        <p class="text-slate-600 text-sm">Sim! Tenho mais de 300 opções de vozes. Você ouve samples e escolhe a que mais combina com seu negócio.</p>
                     </div>
-                    
-                    <div class="mb-4">
-                        <label class="block text-slate-700 font-medium mb-2">Seu texto para locução</label>
-                        <textarea name="texto" rows="6" class="w-full p-3 border rounded-xl bg-white focus:ring-2 focus:ring-green-500 focus:outline-none" placeholder="Cole seu texto aqui...&#10;&#10;Se não tiver texto pronto, escreva sua ideia que eu ajudo a criar o roteiro (grátis no plano Premium)"></textarea>
-                        <p class="text-xs text-slate-400 mt-1">Não tem texto? Me conta sua ideia que eu crio para você.</p>
+                    <div class="bg-white p-5 rounded-xl border">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-credit-card text-slate-400"></i>
+                            <span class="font-bold text-slate-700">Como funciona o pagamento?</span>
+                        </div>
+                        <p class="text-slate-600 text-sm">Pagamento antecipado via PIX. Ajustes gratuitos apenas se houver erro do locutor na gravação.</p>
                     </div>
-                    
-                    <div class="mb-6">
-                        <label class="block text-slate-700 font-medium mb-2">Informação adicional (opcional)</label>
-                        <input type="text" name="informacao" placeholder="Ex: quero voz feminina, trilha animada, urgência..." class="w-full p-3 border rounded-xl bg-white">
-                    </div>
-                    
-                    <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl transition text-lg">
-                        📨 ENVIAR E RECEBER ORÇAMENTO
-                    </button>
-                    
-                    <p class="text-center text-xs text-slate-400 mt-4">
-                        <i class="fas fa-lock"></i> Seus dados são seguros. Respondo em até 2 horas.
-                    </p>
-                </form>
-                
-                <div class="text-center mt-8">
-                    <p class="text-slate-400 text-sm mb-2">ou</p>
-                    <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento!', 'WA_CLICK', 'WhatsApp', 'Formulario_Alternativo')" class="inline-flex items-center gap-2 text-green-600 hover:text-green-700 font-medium">
-                        <i class="fab fa-whatsapp text-xl"></i> Prefere falar agora? Clique aqui
-                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- FAQ -->
-        <section class="py-16 bg-slate-50">
-            <div class="max-w-3xl mx-auto px-4">
-                <div class="text-center mb-10">
-                    <h2 class="text-3xl font-bold text-slate-800">Dúvidas Frequentes</h2>
-                    <p class="text-slate-500 mt-2">Tire suas dúvidas em segundos</p>
-                </div>
-                <div class="space-y-3">
-                    <details class="group bg-white border border-slate-200 rounded-xl p-5">
-                        <summary class="flex justify-between font-bold text-slate-700 cursor-pointer">Como funciona o processo?<span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span></summary>
-                        <div class="text-slate-600 mt-3 text-sm"><p>Você envia seu texto ou ideia. Eu analiso, orço e produzo. Entrega no mesmo dia para pedidos até 18h.</p></div>
-                    </details>
-                    <details class="group bg-white border border-slate-200 rounded-xl p-5">
-                        <summary class="flex justify-between font-bold text-slate-700 cursor-pointer">Qual o prazo de entrega?<span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span></summary>
-                        <div class="text-slate-600 mt-3 text-sm"><p>Pedidos até as 18h são entregues no mesmo dia.</p></div>
-                    </details>
-                    <details class="group bg-white border border-slate-200 rounded-xl p-5">
-                        <summary class="flex justify-between font-bold text-slate-700 cursor-pointer">Como faço meu pedido?<span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span></summary>
-                        <div class="text-slate-600 mt-3 text-sm"><p>Via WhatsApp ou pelo formulário acima. Escolha a forma mais fácil para você.</p></div>
-                    </details>
-                    <details class="group bg-white border border-slate-200 rounded-xl p-5">
-                        <summary class="flex justify-between font-bold text-slate-700 cursor-pointer">E se eu precisar de ajustes?<span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span></summary>
-                        <div class="text-slate-600 mt-3 text-sm"><p>Se houver erro na locução, corrijo sem custo adicional. Sua satisfação é garantida.</p></div>
-                    </details>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA FINAL -->
+        <!-- CTA FINAL SIMPLES -->
         <section class="py-16 bg-darkBg text-white text-center">
             <div class="max-w-3xl mx-auto px-4">
                 <h2 class="text-3xl sm:text-4xl font-bold mb-4">Pronto para um spot que vende?</h2>
@@ -586,8 +543,10 @@
                 <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Quero%20fazer%20um%20spot%20comercial!', 'WA_CLICK', 'WhatsApp', 'Final_CTA')" class="inline-flex items-center gap-3 bg-action-green hover:bg-action-green-hover text-white px-8 py-5 rounded-2xl font-bold text-xl transition-all shadow-lg">
                     <i class="fab fa-whatsapp text-2xl"></i> FALAR COMIGO AGORA
                 </a>
-                <p class="text-xs text-slate-600 mt-6">WhatsApp (27) 99652-9832 · suporte@alocucao.com.br</p>
-                <p class="text-xs text-slate-600 mt-1">A Locução &copy; 2012-2026 · Atendimento humano e personalizado</p>
+                <p class="text-xs text-slate-600 mt-6">
+                    <i class="fab fa-whatsapp"></i> (27) 99652-9832 · suporte@alocucao.com.br
+                </p>
+                <p class="text-xs text-slate-600 mt-1">A Locução © 2012-2026 · Atendimento humano e personalizado</p>
             </div>
         </section>
     </main>
