@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    
+    <!-- SEO & Meta Tags -->
+    <title>Gravação de URA Profissional | Espera Telefônica | A Locução</title>
+    <meta name="description" content="Gravação de URA, espera telefônica e mensagens para PABX virtual. Locução profissional corporativa com trilha inclusa. Formatos WAV/MP3 compatíveis com todos os sistemas. A partir de R$29,90.">
+    
+    <!-- Preconnect para Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Google Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093304718"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18093304718');
+
+      function safeRedirectWA(url, conversionLabel, eventCategory, eventLabel) {
+          gtag('event', 'conversion', {
+              'send_to': 'AW-18093304718/' + conversionLabel,
+              'event_category': eventCategory,
+              'event_label': eventLabel
+          });
+          setTimeout(function() {
+              window.open(url, '_blank');
+          }, 300);
+          return false;
+      }
+
+      function trackAudioPlay(name) {
+          gtag('event', 'play_audio', {
+              'event_category': 'Engajamento',
+              'event_label': name
+          });
+      }
+      
+      function trackVozesClick() {
+          gtag('event', 'click_vozes', {
+              'event_category': 'Engajamento',
+              'event_label': 'Acessar_Casting_Corporativo'
+          });
+      }
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        'brand-blue': '#1e3a5f',
+                        'darkBg': '#0f172a',
+                        'action-green': '#25D366',
+                        'action-green-hover': '#1fb855',
+                        'premium-purple': '#5B3A8C',
+                        'premium-gold': '#F59E0B',
+                    },
+                    animation: {
+                        'scroll': 'scroll 40s linear infinite',
+                        'fade-in-up': 'fadeInUp 0.6s ease-out',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        scroll: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
+                        fadeInUp: { 'from': { opacity: '0', transform: 'translateY(20px)' }, 'to': { opacity: '1', transform: 'translateY(0)' } },
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #faf9f8; scroll-behavior: smooth; }
+        
+        .glass-header {
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        audio { height: 40px; width: 100%; border-radius: 60px; background: #f1f5f9; }
+        audio::-webkit-media-controls-panel { background-color: #f8fafc; }
+        
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        
+        img { max-width: 100%; height: auto; }
+
+        .locutor-card {
+            transition: all 0.25s ease;
+            border: 1px solid #e9e8e6;
+        }
+        .locutor-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            border-color: #d4d2cf;
+        }
+        .locutor-img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #e2e8f0;
+        }
+
+        .anchor-section { scroll-margin-top: 80px; }
+        @media (max-width: 768px) { .anchor-section { scroll-margin-top: 70px; } }
+        
+        .diferencial-card {
+            transition: all 0.3s ease;
+            border: 1px solid #f0efed;
+        }
+        .diferencial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+            border-color: #d4d2cf;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+        .whatsapp-tooltip {
+            background: white;
+            color: #1e293b;
+            padding: 14px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            position: relative;
+            white-space: nowrap;
+            max-width: 280px;
+            text-align: center;
+        }
+        .whatsapp-tooltip::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 40px;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid white;
+        }
+        .whatsapp-button {
+            width: 65px;
+            height: 65px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: float 3s ease-in-out infinite;
+        }
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
+            background: #1fb855;
+        }
+        @media (max-width: 640px) {
+            .whatsapp-float { bottom: 20px; right: 20px; }
+            .whatsapp-button { width: 55px; height: 55px; font-size: 28px; }
+            .whatsapp-tooltip { font-size: 12px; padding: 10px 14px; max-width: 220px; }
+        }
+        
+        .elegant-badge {
+            background: linear-gradient(135deg, rgba(91,58,140,0.15) 0%, rgba(91,58,140,0.08) 100%);
+            border: 1px solid rgba(91,58,140,0.25);
+        }
+
+        .price-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e9e8e6;
+        }
+        .price-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        .price-card.destaque {
+            border: 2px solid #5B3A8C;
+            box-shadow: 0 15px 35px rgba(91,58,140,0.1);
+        }
+
+        /* Pop-up Vantagens */
+        #advantages-popup {
+            display: none;
+        }
+        #advantages-popup.active {
+            display: flex;
+        }
+        .popup-content {
+            animation: slideUp 0.5s ease-out;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-slate-700">
+
+    <!-- WhatsApp Flutuante -->
+    <div class="whatsapp-float">
+        <div class="whatsapp-tooltip">
+            <i class="fas fa-headset mr-1" style="color: #25D366;"></i> 
+            Solicite um orçamento para sua URA
+        </div>
+        <a href="#" 
+           onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20preciso%20de%20uma%20grava%C3%A7%C3%A3o%20de%20URA%20profissional%20para%20minha%20empresa!', 'WA_FLOAT_CLICK', 'WhatsApp', 'Botao_Flutuante')"
+           target="_blank" 
+           class="whatsapp-button" 
+           title="Fale com nosso time">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- HEADER -->
+    <header class="fixed w-full top-0 z-50 glass-header text-white transition-all py-2 sm:py-3">
+        <div class="bg-slate-800/40 border-b border-slate-700/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-center sm:justify-between items-center py-1.5 text-[10px] sm:text-xs text-slate-400">
+                <span class="hidden sm:flex items-center gap-2"><i class="fas fa-envelope text-slate-500"></i> contato@alocucao.com.br</span>
+                <span class="flex items-center gap-2"><i class="fab fa-whatsapp text-green-500"></i> (27) 99652-9832</span>
+                <span class="hidden sm:flex items-center gap-1"><i class="fas fa-clock text-slate-500"></i> Seg a Sex 08h-18h | Sáb 08h-12h</span>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center py-2">
+            <a href="#" class="shrink-0">
+                <img src="https://testedomarcio.github.io/meuadio/logo.webp" alt="Estúdio A Locução" class="h-8 sm:h-10 w-auto" width="120" height="40">
+            </a>
+            <div class="flex items-center gap-3 sm:gap-4">
+                <span class="hidden lg:flex items-center gap-2 text-slate-300 text-xs font-medium border-r border-slate-700 pr-4">
+                    <i class="fas fa-gem text-premium-gold text-xs"></i> Produção completa: Voz + Trilha + Efeitos
+                </span>
+                <a href="#" 
+                   onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20profissionalizar%20meu%20atendimento%20telef%C3%B4nico!', 'WA_CLICK', 'WhatsApp', 'Header')"
+                   class="bg-action-green hover:bg-action-green-hover text-white font-bold flex items-center gap-2 transition-colors text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-md">
+                    <i class="fab fa-whatsapp text-base"></i> <span class="hidden sm:inline">SOLICITAR ORÇAMENTO →</span><span class="sm:hidden">WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section - Foco em URA e Atendimento Corporativo -->
+        <section id="home" class="anchor-section bg-darkBg pt-32 sm:pt-36 lg:pt-40 pb-16 lg:pb-20 relative overflow-hidden text-white">
+            <div class="absolute inset-0 bg-gradient-to-br from-premium-purple/10 via-brand-blue/5 to-transparent pointer-events-none"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center text-center">
+                
+                <div class="inline-flex items-center gap-2 elegant-badge text-premium-gold px-5 py-2 rounded-full text-xs font-semibold tracking-wide mb-6 shadow-sm">
+                    <i class="fas fa-phone-office text-sm"></i>
+                    GRAVAÇÃO PROFISSIONAL PARA URA E PABX VIRTUAL
+                </div>
+                
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight mb-4 max-w-5xl">
+                    A Voz da Sua Empresa com <span class="text-premium-gold">Padrão de Grande Marca</span>
+                </h1>
+                
+                <p class="text-slate-300 text-lg lg:text-2xl mb-4 leading-relaxed max-w-3xl font-medium">
+                    Gravação de URA, Espera Telefônica e Mensagens para PABX.<br>
+                    <span class="text-premium-gold font-bold">Produção completa: Locução Profissional + Trilha Corporativa + Efeitos Sonoros.</span>
+                </p>
+
+                <!-- Preço principal: Produção Completa de URA -->
+                <div class="flex flex-col items-center justify-center gap-4 mb-6">
+                    <div class="bg-premium-purple/20 backdrop-blur-sm rounded-2xl px-8 py-5 border-2 border-premium-gold/40">
+                        <p class="text-sm text-premium-gold font-semibold uppercase tracking-wide">Produção Completa de URA</p>
+                        <p class="text-6xl sm:text-7xl font-black text-white">R$ 29<small class="text-3xl font-normal text-slate-300">,90</small></p>
+                        <p class="text-sm text-slate-300 font-medium mt-1">por bloco de até 40 segundos de áudio</p>
+                    </div>
+                </div>
+
+                <!-- DESTAQUE DA REGRA DE BLOCO -->
+                <div class="bg-slate-800/60 rounded-lg p-3 mb-6 text-center max-w-lg mx-auto border border-slate-700/50">
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        <i class="fas fa-info-circle text-premium-gold mr-1"></i> 
+                        <strong class="text-white">Valor por bloco de até 40 segundos de áudio gravado e editado.</strong>
+                        <br><span class="text-slate-400">Inclui locução profissional, trilha branca corporativa e efeitos sonoros. Acima de 40s, consulte o preço.</span>
+                    </p>
+                </div>
+                
+                <!-- Grid de diferenciais corporativos -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-5 w-full max-w-4xl mb-8">
+                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-premium-gold/50 transition-all">
+                        <i class="fas fa-sliders-h text-premium-gold text-2xl mb-2"></i>
+                        <p class="text-sm font-bold text-white">Produção Completa</p>
+                        <p class="text-xs text-slate-400">Voz, trilha corporativa e efeitos inclusos</p>
+                    </div>
+                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-premium-gold/50 transition-all">
+                        <i class="fas fa-server text-premium-gold text-2xl mb-2"></i>
+                        <p class="text-sm font-bold text-white">Pronto para PABX</p>
+                        <p class="text-xs text-slate-400">Formatos WAV/MP3 para qualquer sistema VoIP</p>
+                    </div>
+                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-premium-gold/50 transition-all">
+                        <i class="fas fa-user-tie text-premium-gold text-2xl mb-2"></i>
+                        <p class="text-sm font-bold text-white">Casting Corporativo</p>
+                        <p class="text-xs text-slate-400">Vozes sérias, institucionais e profissionais</p>
+                    </div>
+                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-premium-gold/50 transition-all">
+                        <i class="fas fa-clock text-premium-gold text-2xl mb-2"></i>
+                        <p class="text-sm font-bold text-white">Prazos Ágeis</p>
+                        <p class="text-xs text-slate-400">Entrega rápida no mesmo dia (no expediente)</p>
+                    </div>
+                </div>
+                
+                <!-- COMO FUNCIONA (3 PASSOS) -->
+                <div class="max-w-2xl mx-auto mb-8 pt-4 border-t border-slate-700/50">
+                    <p class="text-slate-400 text-sm mb-4"><i class="fas fa-play-circle text-premium-gold"></i> Como funciona em 3 passos:</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+                        <div class="flex items-start gap-3">
+                            <span class="w-6 h-6 bg-premium-purple text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0">1</span>
+                            <p class="text-slate-300 text-xs">Você envia os <strong class="text-white">textos da sua URA</strong> pelo WhatsApp</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="w-6 h-6 bg-premium-purple text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0">2</span>
+                            <p class="text-slate-300 text-xs"><strong class="text-white">Pagamento via PIX</strong> e iniciamos a produção</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="w-6 h-6 bg-premium-purple text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0">3</span>
+                            <p class="text-slate-300 text-xs">Você recebe os <strong class="text-white">arquivos prontos</strong> para upload no PABX</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTA Principal -->
+                <div class="flex flex-col items-center w-full max-w-2xl">
+                    <a href="#" 
+                       onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20quero%20profissionalizar%20meu%20atendimento%20telef%C3%B4nico%20com%20grava%C3%A7%C3%A3o%20de%20URA!', 'WA_CLICK', 'WhatsApp', 'Hero_URA')"
+                       class="w-full sm:w-auto bg-premium-purple hover:bg-premium-purple/90 text-white px-10 py-5 sm:py-6 rounded-2xl font-bold text-lg sm:text-xl flex items-center justify-center gap-4 shadow-[0_20px_40px_rgba(91,58,140,0.3)] hover:-translate-y-1 transition-all duration-300">
+                        <i class="fab fa-whatsapp text-2xl sm:text-3xl"></i> SOLICITAR MINHA GRAVAÇÃO DE URA
+                        <i class="fas fa-arrow-right text-sm opacity-80"></i>
+                    </a>
+                    <p class="text-slate-400 text-xs mt-4"><i class="fas fa-shield-alt text-premium-gold text-xs"></i> Pagamento via PIX | Correções gratuitas apenas para erros do locutor | Trilhas com licença comercial inclusa</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diferenciais em Detalhe (Foco Corporativo) -->
+        <section class="py-16 bg-white border-b border-slate-100">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-10">
+                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Solução Corporativa Completa</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4 text-slate-900">
+                        Profissionalize seu <span class="text-premium-purple">Atendimento Telefônico</span>
+                    </h2>
+                    <p class="text-slate-500 text-lg max-w-2xl mx-auto">
+                        Uma URA bem produzida transmite credibilidade, reduz a evasão de chamadas e fortalece a imagem da sua empresa perante clientes e parceiros.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="diferencial-card bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
+                        <div class="w-16 h-16 bg-premium-purple/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-file-audio text-premium-purple text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Produção Completa</h3>
+                        <p class="text-slate-500 text-sm">Não se preocupe com nada. Entregamos a locução gravada, com trilha sonora corporativa de fundo e efeitos sonoros já mixados e masterizados.</p>
+                    </div>
+                    <div class="diferencial-card bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
+                        <div class="w-16 h-16 bg-premium-purple/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-plug text-premium-purple text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Compatibilidade Total</h3>
+                        <p class="text-slate-500 text-sm">Arquivos otimizados nos formatos WAV e MP3, prontos para upload em qualquer sistema: PABX tradicional, VoIP, 3CX, Asterisk, entre outros.</p>
+                    </div>
+                    <div class="diferencial-card bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
+                        <div class="w-16 h-16 bg-premium-purple/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-certificate text-premium-purple text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Trilhas Licenciadas</h3>
+                        <p class="text-slate-500 text-sm">Todas as trilhas e efeitos sonoros utilizados possuem direito de uso comercial. Zero risco de problemas com direitos autorais na sua linha telefônica.</p>
+                    </div>
+                </div>
+                <div class="mt-8 flex flex-wrap justify-center gap-4">
+                    <div class="flex items-center gap-2 bg-slate-100 px-4 py-2 rounded-full">
+                        <i class="fas fa-credit-card text-slate-500"></i>
+                        <span class="text-sm text-slate-600">PIX • Cartão • Boleto</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-slate-100 px-4 py-2 rounded-full">
+                        <i class="fas fa-check-circle text-premium-purple"></i>
+                        <span class="text-sm text-slate-600">Correções gratuitas (se erro do locutor)</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-slate-100 px-4 py-2 rounded-full">
+                        <i class="fas fa-headphones text-premium-purple"></i>
+                        <span class="text-sm text-slate-600">Suporte na divisão dos blocos</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Casting de Vozes Corporativas -->
+        <section id="vozes" class="anchor-section py-16 lg:py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-10">
+                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Casting Corporativo Exclusivo</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4 text-slate-900">
+                        Vozes <span class="text-premium-purple">Institucionais</span> para sua Empresa
+                    </h2>
+                    <p class="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed">
+                        Nosso casting conta com vozes profissionais e sérias, ideais para transmitir confiança, credibilidade e profissionalismo no atendimento telefônico.
+                    </p>
+                    
+                    <!-- BANNER DO CASTING CORPORATIVO -->
+                    <div class="inline-flex items-center gap-2 bg-purple-50 border border-purple-200 rounded-full px-4 py-2 mt-4">
+                        <i class="fas fa-building text-purple-600 text-sm"></i>
+                        <span class="text-purple-700 text-xs font-medium">🎙️ <strong class="text-purple-800">Casting Corporativo</strong> | Vozes institucionais, de saudação e menu técnico</span>
+                    </div>
+                </div>
+
+                <!-- AVISO SOBRE MAIS VOZES -->
+                <div class="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl p-4 mb-8 text-center border border-purple-100">
+                    <p class="text-slate-700 text-sm">
+                        <i class="fas fa-headphones text-purple-600 mr-1"></i> 
+                        <strong>Estas são apenas algumas sugestões do nosso casting corporativo.</strong> 
+                        <span class="text-purple-600 font-medium">Não encontrou o perfil ideal para sua empresa? Fale conosco e escolha a voz perfeita para representar sua marca no telefone.</span>
+                    </p>
+                </div>
+                
+                <!-- Vozes Femininas -->
+                <div class="mb-12">
+                    <h3 class="text-md font-semibold text-slate-500 uppercase tracking-wide mb-5 flex items-center gap-2 border-b pb-2"><i class="fas fa-female text-premium-purple"></i> Femininas (Perfis Corporativos)</h3>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/lindy.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Lindy</h4><p class="text-xs text-slate-400 mb-1">Voz de Saudação · Acolhedora</p><audio controls preload="none" onplay="trackAudioPlay('Lindy')"><source src="https://testedomarcio.github.io/meuadio/Lindy.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Elissandra.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Elissandra</h4><p class="text-xs text-slate-400 mb-1">Voz Institucional · Suave</p><audio controls preload="none" onplay="trackAudioPlay('Elissandra')"><source src="https://testedomarcio.github.io/meuadio/elissandra.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Silvia.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Silvia</h4><p class="text-xs text-slate-400 mb-1">Voz Corporativa · Elegante</p><audio controls preload="none" onplay="trackAudioPlay('Silvia')"><source src="https://testedomarcio.github.io/meuadio/Silvia.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Tati.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Tati</h4><p class="text-xs text-slate-400 mb-1">Voz para Menu · Objetiva</p><audio controls preload="none" onplay="trackAudioPlay('Tati')"><source src="https://testedomarcio.github.io/meuadio/tati.mp3" type="audio/mpeg"></audio></div></div>
+                    </div>
+                </div>
+                <!-- Vozes Masculinas -->
+                <div class="mb-10">
+                    <h3 class="text-md font-semibold text-slate-500 uppercase tracking-wide mb-5 flex items-center gap-2 border-b pb-2"><i class="fas fa-male text-premium-purple"></i> Masculinas (Perfis Corporativos)</h3>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/celso.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Celso</h4><p class="text-xs text-slate-400 mb-1">Voz de Impacto · Corporativa</p><audio controls preload="none" onplay="trackAudioPlay('Celso')"><source src="https://testedomarcio.github.io/meuadio/Celso.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/charles.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Charles</h4><p class="text-xs text-slate-400 mb-1">Voz Institucional · Clássica</p><audio controls preload="none" onplay="trackAudioPlay('Charles')"><source src="https://testedomarcio.github.io/meuadio/Charles.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Cristian.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Cristian Jr</h4><p class="text-xs text-slate-400 mb-1">Voz para Menu Técnico · Dinâmico</p><audio controls preload="none" onplay="trackAudioPlay('Cristian_Jr')"><source src="https://testedomarcio.github.io/meuadio/Cristian.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Leandro.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Leandro</h4><p class="text-xs text-slate-400 mb-1">Voz Empresarial · Persuasiva</p><audio controls preload="none" onplay="trackAudioPlay('Leandro')"><source src="https://testedomarcio.github.io/meuadio/Leandro.mp3" type="audio/mpeg"></audio></div></div>
+                    </div>
+                </div>
+
+                <!-- BOTÃO PARA MAIS VOZES -->
+                <div class="text-center mt-8">
+                    <a href="#" 
+                       onclick="trackVozesClick(); return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20conhecer%20mais%20vozes%20corporativas%20para%20minha%20URA%20empresarial!', 'WA_CLICK', 'WhatsApp', 'Conhecer_Casting_Corporativo')"
+                       class="inline-flex items-center gap-3 bg-slate-800 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-slate-700 transition-all duration-300">
+                        <i class="fas fa-star-of-life text-premium-gold text-lg"></i> ESCOLHER A VOZ PARA MINHA EMPRESA
+                        <i class="fab fa-whatsapp text-xl ml-2 text-green-400"></i>
+                    </a>
+                    <p class="text-slate-400 text-sm mt-3">Nosso especialista ajuda você a escolher o perfil ideal para cada parte da sua URA</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabela de Preços - Foco em URA Empresarial -->
+        <section id="precos" class="anchor-section py-20 bg-slate-50">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12">
+                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Investimento</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">Pacotes de <span class="text-premium-purple">URA Profissional</span></h2>
+                    <p class="text-slate-500 mt-2">Produção completa com locução, trilha corporativa e efeitos sonoros. Pronto para seu PABX.</p>
+                    <p class="text-xs text-slate-400 mt-2"><i class="fas fa-info-circle"></i> Todos os valores por bloco de até 40 segundos de áudio gravado e editado</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+                    
+                    <!-- Card 1: Produção de URA Avulsa -->
+                    <div class="price-card bg-white rounded-3xl shadow-lg border border-slate-200 p-6 relative hover:-translate-y-2 transition-all duration-300">
+                        <div class="text-center">
+                            <span class="text-xs font-semibold text-slate-500 uppercase tracking-widest bg-slate-100 px-4 py-1 rounded-full">AVULSO</span>
+                            <h3 class="text-xl font-bold text-slate-800 mt-3 mb-1">Produção de URA</h3>
+                            <p class="text-slate-500 text-sm mb-4">Ideal para uma mensagem específica</p>
+                        </div>
+                        <div class="bg-slate-50 rounded-2xl p-4 mb-5 text-center border border-slate-200">
+                            <p class="text-4xl font-black text-slate-900">R$ 29<small class="text-xl font-normal text-slate-500">,90</small></p>
+                            <p class="text-xs text-slate-400">por bloco de até 40s</p>
+                        </div>
+                        <ul class="space-y-2 mb-6 text-sm">
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Locação profissional</strong> com voz corporativa</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Trilha branca corporativa</strong> de fundo</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Efeitos sonoros</strong> quando necessário</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Arquivos em WAV e MP3</strong> masterizados</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Trilhas com licença comercial</strong> inclusa</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Suporte na divisão</strong> dos blocos</span></li>
+                        </ul>
+                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20solicitar%20uma%20PRODU%C3%87%C3%83O%20DE%20URA%20AVULSA!', 'WA_CLICK', 'WhatsApp', 'Precos_Avulso')" class="block w-full py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition text-center text-sm">
+                            <i class="fab fa-whatsapp mr-2"></i> SOLICITAR AVULSA
+                        </a>
+                    </div>
+
+                    <!-- Card 2: Combo Empresa 3 Áudios (DESTAQUE) -->
+                    <div class="price-card destaque bg-white rounded-3xl shadow-xl p-6 relative hover:-translate-y-2 transition-all duration-300">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-premium-purple text-white font-bold text-xs uppercase tracking-widest px-6 py-2 rounded-full shadow-lg z-20">
+                            <i class="fas fa-star mr-1"></i> MAIS VENDIDO B2B
+                        </div>
+                        <div class="text-center mt-4">
+                            <span class="text-xs font-semibold text-premium-purple uppercase tracking-widest bg-purple-100 px-4 py-1 rounded-full">COMBO EMPRESA</span>
+                            <h3 class="text-xl font-bold text-slate-800 mt-3 mb-1">Pacote 3 Áudios</h3>
+                            <p class="text-slate-500 text-sm mb-4">Saudação + Menu + Horário de Atendimento</p>
+                        </div>
+                        <div class="bg-premium-purple/5 rounded-2xl p-4 mb-5 text-center border-2 border-premium-purple/20">
+                            <p class="text-4xl font-black text-premium-purple">R$ 79<small class="text-xl font-normal text-slate-500">,90</small></p>
+                            <p class="text-xs text-slate-400">3 blocos de até 40s cada</p>
+                            <p class="text-xs text-green-600 font-medium mt-1">Economia de R$ 9,80</p>
+                        </div>
+                        <ul class="space-y-2 mb-6 text-sm">
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>3 blocos completos</strong> de URA</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Saudação Inicial</strong> + Menu de Opções</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Mensagem de Horário</strong> de Atendimento</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Trilha corporativa</strong> em todos os áudios</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Arquivos WAV/MP3</strong> para qualquer PABX</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span class="text-amber-700"><strong>Consultoria na organização</strong> da URA</span></li>
+                        </ul>
+                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20o%20COMBO%20EMPRESA%203%20%C3%81UDIOS%20para%20minha%20URA!', 'WA_CLICK', 'WhatsApp', 'Precos_Combo3')" class="block w-full py-3 bg-premium-purple hover:bg-premium-purple/90 text-white font-bold rounded-xl transition text-center text-sm shadow-lg">
+                            <i class="fab fa-whatsapp mr-2"></i> COMPRAR COMBO EMPRESA
+                        </a>
+                    </div>
+
+                    <!-- Card 3: Combo Corporativo 5 Áudios -->
+                    <div class="price-card bg-white rounded-3xl shadow-lg border border-slate-200 p-6 relative hover:-translate-y-2 transition-all duration-300">
+                        <div class="text-center">
+                            <span class="text-xs font-semibold text-amber-600 uppercase tracking-widest bg-amber-50 px-4 py-1 rounded-full">SOLUÇÃO COMPLETA</span>
+                            <h3 class="text-xl font-bold text-slate-800 mt-3 mb-1">Combo Corporativo 5</h3>
+                            <p class="text-slate-500 text-sm mb-4">URA completa para grandes centrais</p>
+                        </div>
+                        <div class="bg-amber-50 rounded-2xl p-4 mb-5 text-center border border-amber-200">
+                            <p class="text-4xl font-black text-amber-600">R$ 120<small class="text-xl font-normal text-slate-500">,00</small></p>
+                            <p class="text-xs text-slate-400">5 blocos de até 40s cada</p>
+                            <p class="text-xs text-green-600 font-medium mt-1">Economia de R$ 29,50</p>
+                        </div>
+                        <ul class="space-y-2 mb-6 text-sm">
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>5 blocos completos</strong> de URA</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Saudação + Menu Principal</strong> + Submenus</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Mensagens de espera</strong> e transferência</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Trilhas personalizadas</strong> por setor</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Formatos WAV/MP3</strong> otimizados</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span class="text-amber-700"><strong>Prioridade máxima</strong> na produção</span></li>
+                        </ul>
+                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20o%20COMBO%20CORPORATIVO%205%20%C3%81UDIOS%20para%20minha%20central%20PABX!', 'WA_CLICK', 'WhatsApp', 'Precos_Combo5')" class="block w-full py-3 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold rounded-xl transition text-center text-sm">
+                            <i class="fab fa-whatsapp mr-2"></i> COMPRAR COMBO 5
+                        </a>
+                    </div>
+                </div>
+
+                <!-- OBSERVAÇÃO IMPORTANTE -->
+                <div class="text-center mt-8 bg-white rounded-xl p-5 max-w-2xl mx-auto border border-slate-200">
+                    <p class="text-xs text-slate-500 mb-2">
+                        <i class="fas fa-info-circle text-premium-purple"></i> 
+                        <strong>Política de correções:</strong> Ajustes gratuitos apenas se houver erro do locutor na gravação. 
+                        Alterações de texto ou mudança de entonação após aprovação podem ter custo adicional.
+                    </p>
+                    <p class="text-xs text-slate-500 mb-2">
+                        <i class="fas fa-music text-premium-purple"></i>
+                        <strong>Trilhas e efeitos:</strong> Todas as trilhas sonoras e efeitos utilizados possuem licença de uso comercial. Sua empresa não terá problemas com direitos autorais.
+                    </p>
+                    <p class="text-xs text-slate-500">
+                        <i class="fas fa-clock text-premium-purple"></i>
+                        <strong>Horário de produção:</strong> Segunda a Sexta das 08h às 18h | Sábados das 08h às 12h. Pedidos aprovados no expediente são entregues no mesmo dia.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marcas / Empresas que confiam -->
+        <section class="py-8 bg-white border-t border-slate-100 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4">
+                <p class="text-center text-xs font-semibold text-slate-400 uppercase tracking-widest mb-4">Empresas que profissionalizaram o atendimento com a gente</p>
+                <div class="relative flex overflow-hidden">
+                    <div class="flex whitespace-nowrap gap-8 items-center animate-scroll">
+                        <span class="text-slate-400 font-medium text-sm">Produtora AudioMix</span><span class="text-slate-300">•</span>
+                        <span class="text-slate-400 font-medium text-sm">Rádio Cultura FM</span><span class="text-slate-300">•</span>
+                        <span class="text-slate-400 font-medium text-sm">Super Mais Supermercado</span><span class="text-slate-300">•</span>
+                        <span class="text-slate-400 font-medium text-sm">Agência Clip</span><span class="text-slate-300">•</span>
+                        <span class="text-slate-400 font-medium text-sm">Estúdio Mídia Total</span><span class="text-slate-300">•</span>
+                        <span class="text-slate-400 font-medium text-sm">Rádio Imprensa</span><span class="text-slate-300">•</span>
+                        <span class="text-slate-400 font-medium text-sm">Web Rádio Brasil</span><span class="text-slate-300">•</span>
+                        <span class="text-slate-400 font-medium text-sm">Produtora Som Livre</span><span class="text-slate-300">•</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final (Foco em Credibilidade Corporativa) -->
+        <section id="whatsapp" class="anchor-section py-20 bg-darkBg text-white text-center">
+            <div class="max-w-3xl mx-auto px-4">
+                <div class="inline-flex items-center gap-2 bg-premium-purple/20 border border-premium-purple/30 rounded-full px-5 py-2 mb-6">
+                    <i class="fas fa-building text-premium-gold"></i>
+                    <span class="text-slate-300 text-sm font-medium">Solução corporativa completa para seu atendimento telefônico</span>
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-bold mb-5">Sua empresa merece um <span class="text-premium-gold">atendimento de excelência</span></h2>
+                <p class="text-slate-300 text-lg mb-10">Uma URA profissional reduz a evasão de chamadas, transmite credibilidade e fortalece a imagem da sua marca. Fale conosco e descubra como é simples.</p>
+                <a href="#" 
+                   onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20quero%20profissionalizar%20o%20atendimento%20telef%C3%B4nico%20da%20minha%20empresa%20com%20grava%C3%A7%C3%A3o%20de%20URA!', 'WA_CLICK', 'WhatsApp', 'Final_CTA_URA')"
+                   class="inline-flex items-center gap-4 bg-premium-purple hover:bg-premium-purple/90 text-white px-12 py-5 rounded-2xl font-bold text-xl hover:-translate-y-1 transition-all shadow-[0_20px_40px_rgba(91,58,140,0.3)]">
+                    <i class="fab fa-whatsapp text-3xl"></i> SOLICITAR ORÇAMENTO EMPRESARIAL
+                </a>
+                <p class="text-slate-400 text-sm mt-6"><i class="fas fa-shield-alt text-premium-gold"></i> Produção completa com trilhas licenciadas | Direito de uso comercial incluso</p>
+                <p class="text-xs text-slate-600 mt-8"><i class="fab fa-whatsapp"></i> (27) 99652-9832 · contato@alocucao.com.br</p>
+                <p class="text-xs text-slate-600 mt-1">Estúdio A Locução © 2012-2026 · Produção com excelência</p>
+                <div style="text-align: center; margin-top: 15px; padding-bottom: 20px;">
+                    <p style="font-size: 11px; color: #94a3b8; font-style: italic; margin: 0;">
+                        "Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos." — Provérbios 16:3
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- POP-UP DE VANTAGENS (Adaptado para URA Corporativa) -->
+    <div id="advantages-popup" class="fixed inset-0 bg-black/80 z-[99999] hidden items-center justify-center p-4">
+        <div class="popup-content bg-white p-6 md:p-8 rounded-2xl max-w-md w-full text-center shadow-2xl relative">
+            <button onclick="closeAdvantagesPopup()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600"><i class="fas fa-times text-xl"></i></button>
+            <div class="w-16 h-16 bg-premium-purple/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-phone-office text-premium-purple text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-800 mb-2">Antes de sair...</h3>
+            <p class="text-slate-500 text-sm mb-5">Sua empresa merece um atendimento profissional!</p>
+            <ul class="text-left space-y-3 mb-6">
+                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-premium-purple mt-0.5"></i> <strong>Produção completa:</strong> Locução + Trilha + Efeitos</li>
+                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-premium-purple mt-0.5"></i> <strong>Trilhas 100% licenciadas</strong> para uso comercial</li>
+                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-premium-purple mt-0.5"></i> <strong>Arquivos WAV/MP3</strong> compatíveis com qualquer PABX</li>
+                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-premium-purple mt-0.5"></i> <strong>Vozes corporativas</strong> que transmitem credibilidade</li>
+                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-premium-purple mt-0.5"></i> <strong>Suporte na organização</strong> dos blocos da URA</li>
+                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-premium-purple mt-0.5"></i> <strong>Entrega ágil</strong> no mesmo dia útil</li>
+            </ul>
+            <a href="#" onclick="closeAdvantagesPopup(); return safeRedirectWA('https://wa.me/5527996529832?text=Quero%20profissionalizar%20meu%20atendimento%20telef%C3%B4nico%20com%20URA!', 'WA_CLICK', 'WhatsApp', 'Popup_Vantagens')" class="flex items-center justify-center w-full bg-premium-purple text-white py-3 rounded-xl font-bold gap-2 hover:bg-premium-purple/90 transition">
+                <i class="fab fa-whatsapp text-xl"></i> QUERO MINHA URA PROFISSIONAL
+            </a>
+            <p class="text-[10px] text-slate-400 mt-3">Uma URA bem produzida reduz a evasão de chamadas e fortalece sua marca</p>
+        </div>
+    </div>
+
+    <!-- Leadster -->
+    <script>(function(a,b,c,d){try{var e=b.head||b.getElementsByTagName("head")[0];var f=b.createElement("script");f.setAttribute("src",c);f.setAttribute("charset","UTF-8");f.defer=true;a.neuroleadId=d;e.appendChild(f)}catch(g){}})(window,document,"https://cdn.leadster.com.br/neurolead/neurolead.min.js","suuyuh5U3EkKnzksGWBUMxBly")</script>
+
+    <script>
+        // Header scroll effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.style.background = 'rgba(15, 23, 42, 0.98)';
+                header.classList.add('shadow-md');
+            } else {
+                header.style.background = 'rgba(15, 23, 42, 0.96)';
+                header.classList.remove('shadow-md');
+            }
+        });
+
+        // Pause other audios on play
+        const audios = document.querySelectorAll('audio');
+        audios.forEach(audio => {
+            audio.addEventListener('play', () => {
+                audios.forEach(other => { if (other !== audio) other.pause(); });
+            });
+        });
+
+        // Pop-up de Vantagens
+        let popupShown = false;
+        function showAdvantagesPopup() { 
+            if (!popupShown && !sessionStorage.getItem('popupVantagens')) { 
+                document.getElementById('advantages-popup').classList.add('active'); 
+                popupShown = true; 
+                sessionStorage.setItem('popupVantagens', 'true'); 
+            } 
+        }
+        function closeAdvantagesPopup() { 
+            document.getElementById('advantages-popup').classList.remove('active'); 
+        }
+        
+        // Exit intent popup
+        document.addEventListener('mouseout', function(e) { 
+            if (e.clientY < 10 && e.relatedTarget === null) showAdvantagesPopup(); 
+        });
+        
+        // Popstate trigger
+        window.addEventListener('load', function() { 
+            history.pushState({popupReady: true}, '', window.location.href); 
+        });
+        window.addEventListener('popstate', function(e) { 
+            if (e.state && e.state.popupReady) { 
+                showAdvantagesPopup(); 
+                history.pushState({popupReady: true}, '', window.location.href); 
+            } 
+        });
+        
+        // Close popup on overlay click
+        document.getElementById('advantages-popup')?.addEventListener('click', function(e) { 
+            if(e.target === this) closeAdvantagesPopup(); 
+        });
+        
+        // Close popup on Escape
+        document.addEventListener('keydown', function(e) { 
+            if(e.key === 'Escape' && document.getElementById('advantages-popup')?.classList.contains('active')) 
+                closeAdvantagesPopup(); 
+        });
+
+        // Hide tooltip after 10 seconds
+        setTimeout(function() {
+            const tooltip = document.querySelector('.whatsapp-tooltip');
+            if (tooltip) {
+                tooltip.style.opacity = '0';
+                tooltip.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => { if (tooltip) tooltip.style.display = 'none'; }, 500);
+            }
+        }, 10000);
+    </script>
+    
+</body>
+</html>
