@@ -4,57 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     
-    <!-- SEO & Meta Tags -->
-    <title>Gravação de Spot para Farmácia | Propaganda de Ofertas e Plantão | A Locução</title>
-    <meta name="description" content="Gravação de spots e vinhetas para farmácias, drogarias e redes farmacêuticas. Locução profissional com credibilidade, trilha institucional e efeitos. Produção completa a partir de R$29,90. Entrega no mesmo dia.">
+    <title>Gravação de Spot para Farmácia | Painel de Gravação 24h | A Locução</title>
+    <meta name="description" content="Gravação de spots e vinhetas para farmácias, drogarias e redes farmacêuticas com total autonomia. Painel 24h, mais de 300 locutores, orçamentos automáticos e entrega expressa.">
     
-    <!-- Preconnect para Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
-    <!-- Google Tag -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093304718"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-18093304718');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-18093304718');
 
-      function safeRedirectWA(url, conversionLabel, eventCategory, eventLabel) {
-          gtag('event', 'conversion', {
-              'send_to': 'AW-18093304718/' + conversionLabel,
-              'event_category': eventCategory,
-              'event_label': eventLabel
-          });
-          setTimeout(function() {
-              window.open(url, '_blank');
-          }, 300);
-          return false;
-      }
+        function safeRedirectPanel(url, conversionLabel, eventCategory, eventLabel) {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-18093304718/' + conversionLabel,
+                'event_category': eventCategory,
+                'event_label': eventLabel
+            });
+            setTimeout(function() {
+                window.location.href = url;
+            }, 300);
+            return false;
+        }
 
-      function trackAudioPlay(name) {
-          gtag('event', 'play_audio', {
-              'event_category': 'Engajamento',
-              'event_label': name
-          });
-      }
-      
-      function trackVozesClick() {
-          gtag('event', 'click_vozes', {
-              'event_category': 'Engajamento',
-              'event_label': 'Acessar_Casting_Farmacia'
-          });
-      }
+        function trackAudioPlay(name) {
+            gtag('event', 'play_audio', {
+                'event_category': 'Engajamento',
+                'event_label': name
+            });
+        }
+        
+        function trackVozesClick() {
+            gtag('event', 'click_vozes', {
+                'event_category': 'Engajamento',
+                'event_label': 'Acessar_Casting_Farmacia'
+            });
+        }
     </script>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <script>
@@ -71,18 +65,6 @@
                         'premium-gold': '#F59E0B',
                         'pharma-green': '#059669',
                         'pharma-light': '#D1FAE5',
-                    },
-                    animation: {
-                        'scroll': 'scroll 40s linear infinite',
-                        'fade-in-up': 'fadeInUp 0.6s ease-out',
-                        'float': 'float 3s ease-in-out infinite',
-                        'pulse-pharma': 'pulsePharma 2s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        scroll: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
-                        fadeInUp: { 'from': { opacity: '0', transform: 'translateY(20px)' }, 'to': { opacity: '1', transform: 'translateY(0)' } },
-                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
-                        pulsePharma: { '0%, 100%': { boxShadow: '0 0 0 0 rgba(5, 150, 105, 0.4)' }, '50%': { boxShadow: '0 0 0 15px rgba(5, 150, 105, 0)' } }
                     }
                 }
             }
@@ -91,173 +73,44 @@
 
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #faf9f8; scroll-behavior: smooth; }
-        
-        .glass-header {
-            background: rgba(15, 23, 42, 0.96);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
+        .glass-header { background: rgba(15, 23, 42, 0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
         audio { height: 40px; width: 100%; border-radius: 60px; background: #f1f5f9; }
         audio::-webkit-media-controls-panel { background-color: #f8fafc; }
-        
-        details > summary { list-style: none; }
-        details > summary::-webkit-details-marker { display: none; }
-        
-        img { max-width: 100%; height: auto; }
-
-        .locutor-card {
-            transition: all 0.25s ease;
-            border: 1px solid #e9e8e6;
-        }
-        .locutor-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-            border-color: #d4d2cf;
-        }
-        .locutor-img {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #e2e8f0;
-        }
-
+        .locutor-card { transition: all 0.25s ease; border: 1px solid #e9e8e6; }
+        .locutor-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); border-color: #d4d2cf; }
+        .locutor-img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid #e2e8f0; }
         .anchor-section { scroll-margin-top: 80px; }
         @media (max-width: 768px) { .anchor-section { scroll-margin-top: 70px; } }
-        
-        .diferencial-card {
-            transition: all 0.3s ease;
-            border: 1px solid #f0efed;
-        }
-        .diferencial-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
-            border-color: #d4d2cf;
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 10px;
-        }
-        .whatsapp-tooltip {
-            background: white;
-            color: #1e293b;
-            padding: 14px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-            position: relative;
-            white-space: nowrap;
-            max-width: 280px;
-            text-align: center;
-        }
-        .whatsapp-tooltip::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            right: 40px;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-top: 10px solid white;
-        }
-        .whatsapp-button {
-            width: 65px;
-            height: 65px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            color: white;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            animation: float 3s ease-in-out infinite;
-        }
-        .whatsapp-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
-            background: #1fb855;
-        }
-        @media (max-width: 640px) {
-            .whatsapp-float { bottom: 20px; right: 20px; }
-            .whatsapp-button { width: 55px; height: 55px; font-size: 28px; }
-            .whatsapp-tooltip { font-size: 12px; padding: 10px 14px; max-width: 220px; }
-        }
-        
-        .elegant-badge {
-            background: linear-gradient(135deg, rgba(91,58,140,0.15) 0%, rgba(91,58,140,0.08) 100%);
-            border: 1px solid rgba(91,58,140,0.25);
-        }
-
-        .pharma-badge {
-            background: linear-gradient(135deg, rgba(5, 150, 105, 0.15) 0%, rgba(5, 150, 105, 0.05) 100%);
-            border: 2px solid rgba(5, 150, 105, 0.3);
-            animation: pulsePharma 2s ease-in-out infinite;
-        }
-
-        .price-card {
-            transition: all 0.3s ease;
-            border: 1px solid #e9e8e6;
-        }
-        .price-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-        }
-        .price-card.destaque {
-            border: 2px solid #5B3A8C;
-            box-shadow: 0 15px 35px rgba(91,58,140,0.1);
-        }
-
-        /* Pop-up Vantagens */
-        #advantages-popup {
-            display: none;
-        }
-        #advantages-popup.active {
-            display: flex;
-        }
-        .popup-content {
-            animation: slideUp 0.5s ease-out;
-        }
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
+        .diferencial-card { transition: all 0.3s ease; border: 1px solid #f0efed; }
+        .diferencial-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.05); border-color: #d4d2cf; }
+        .price-card { transition: all 0.3s ease; border: 1px solid #e9e8e6; }
+        .price-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .price-card.destaque { border: 2px solid #5B3A8C; box-shadow: 0 15px 35px rgba(91,58,140,0.1); }
+        #advantages-popup { display: none; }
+        #advantages-popup.active { display: flex; }
+        .popup-content { animation: slideUp 0.5s ease-out; }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     </style>
 </head>
 <body class="font-sans antialiased text-slate-700">
 
-    <!-- WhatsApp Flutuante -->
-    <div class="whatsapp-float">
-        <div class="whatsapp-tooltip">
-            <i class="fas fa-headset mr-1" style="color: #25D366;"></i> 
-            Grave seu spot para farmácia agora!
+    <div class="fixed bottom-6 right-6 z-[9999] flex flex-col align-end items-end gap-2">
+        <div class="bg-white text-slate-800 text-xs font-bold px-4 py-2.5 rounded-xl shadow-xl border border-slate-100 hidden sm:block">
+            <i class="fas fa-question-circle text-[#25D366] mr-1"></i> Dúvidas com o Painel? Fale Comigo 👍
         </div>
-        <a href="#" 
-           onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20preciso%20de%20um%20spot%20promocional%20para%20minha%20farm%C3%A1cia!', 'WA_FLOAT_CLICK', 'WhatsApp', 'Botao_Flutuante')"
-           target="_blank" 
-           class="whatsapp-button" 
-           title="Fale com nosso time">
+        <a href="https://wa.me/5527996529832?text=Olá!%20Estou%20na%20página%20de%20farmácia%20e%20fiquei%20com%20uma%20dúvida%20sobre%20como%20usar%20ou%20me%20cadastrar%20no%20Painel." 
+           target="_blank" rel="noopener noreferrer"
+           class="w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] rounded-full flex items-center justify-center text-3xl text-white shadow-[0_8px_25px_rgba(37,211,102,0.4)] hover:scale-110 transition-all duration-300">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
 
-    <!-- HEADER -->
     <header class="fixed w-full top-0 z-50 glass-header text-white transition-all py-2 sm:py-3">
         <div class="bg-slate-800/40 border-b border-slate-700/30">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-center sm:justify-between items-center py-1.5 text-[10px] sm:text-xs text-slate-400">
                 <span class="hidden sm:flex items-center gap-2"><i class="fas fa-envelope text-slate-500"></i> contato@alocucao.com.br</span>
-                <span class="flex items-center gap-2"><i class="fab fa-whatsapp text-green-500"></i> (27) 99652-9832</span>
-                <span class="hidden sm:flex items-center gap-1"><i class="fas fa-clock text-slate-500"></i> Seg a Sex 08h-18h | Sáb 08h-12h</span>
+                <span class="flex items-center gap-2"><i class="fas fa-shield-alt text-cyan-400"></i> Plataforma Oficial Automatizada 24 Horas</span>
+                <span class="hidden sm:flex items-center gap-1"><i class="fas fa-clock text-slate-500"></i> Plantão de Locutores: Todos os dias 06h às 22h</span>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center py-2">
@@ -268,370 +121,243 @@
                 <span class="hidden lg:flex items-center gap-2 text-emerald-400 text-xs font-bold border-r border-slate-700 pr-4">
                     <i class="fas fa-plus-circle text-emerald-400 text-xs"></i> Especialistas em áudio para o varejo farmacêutico
                 </span>
-                <a href="#" 
-                   onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20um%20spot%20para%20minha%20drogaria!', 'WA_CLICK', 'WhatsApp', 'Header')"
-                   class="bg-action-green hover:bg-action-green-hover text-white font-bold flex items-center gap-2 transition-colors text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-md">
-                    <i class="fab fa-whatsapp text-base"></i> <span class="hidden sm:inline">SOLICITAR SPOT →</span><span class="sm:hidden">WhatsApp</span>
+                <a href="https://www.alocucao.com.br/cadastro"
+                   class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold flex items-center gap-2 transition-all text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-md hover:opacity-90">
+                    <i class="fas fa-user-plus"></i> CRIAR CONTA GRATUITA
                 </a>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section - Foco em Farmácias e Drogarias -->
         <section id="home" class="anchor-section bg-darkBg pt-32 sm:pt-36 lg:pt-40 pb-16 lg:pb-20 relative overflow-hidden text-white">
             <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-premium-purple/10 to-teal-900/10 pointer-events-none"></div>
             
             <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center text-center">
-                
-                <!-- Badge de Farmácia / Drogaria -->
-                <div class="inline-flex items-center gap-2 pharma-badge text-emerald-300 px-5 py-2 rounded-full text-xs font-bold tracking-wide mb-6 shadow-lg">
-                    <i class="fas fa-plus-circle text-sm"></i>
-                    SPOTS E PROPAGANDAS PARA FARMÁCIAS, DROGARIAS E REDES FARMACÊUTICAS
+                <div class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-900/40 to-cyan-900/40 border border-cyan-500/30 text-cyan-400 px-5 py-2 rounded-full text-xs font-bold tracking-wide mb-6 shadow-lg">
+                    <i class="fas fa-bolt text-amber-400"></i> PLATAFORMA DE LOCUÇÃO AUTOMATIZADA COM TOTAL AUTONOMIA
                 </div>
                 
                 <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight mb-4 max-w-5xl">
-                    Atraia Mais Clientes para Sua <span class="text-premium-gold">Farmácia</span> com Áudios Profissionais
+                    Grave Seus Spots para Farmácia no <span class="text-premium-gold">Novo Painel de Gravação 24h</span>
                 </h1>
                 
                 <p class="text-slate-300 text-lg lg:text-2xl mb-4 leading-relaxed max-w-3xl font-medium">
-                    Gravação de Spots, Vinhetas e Propagandas para Drogarias.<br>
-                    <span class="text-premium-gold font-bold">Produção Completa: Locução Varejo/Promocional + Trilha Sonora Comercial + Efeitos de Impacto.</span>
+                    Simule orçamentos automáticos, escolha entre mais de 300 locutores e envie suas campanhas de encarte a qualquer hora, sem burocracias.
                 </p>
 
-                <!-- Preço principal: Produção Completa de Spot para Farmácia -->
                 <div class="flex flex-col items-center justify-center gap-4 mb-6">
-                    <div class="bg-gradient-to-br from-emerald-900/40 to-premium-purple/30 backdrop-blur-sm rounded-2xl px-8 py-5 border-2 border-premium-gold/50">
-                        <p class="text-sm text-premium-gold font-semibold uppercase tracking-wide">Produção Completa de Spot para Farmácia</p>
+                    <div class="bg-gradient-to-br from-slate-800/80 to-slate-900/90 backdrop-blur-sm rounded-2xl px-8 py-5 border-2 border-cyan-500/30 shadow-2xl">
+                        <p class="text-sm text-cyan-400 font-semibold uppercase tracking-wide">Produção Completa Via Painel</p>
                         <p class="text-6xl sm:text-7xl font-black text-white">R$ 29<small class="text-3xl font-normal text-slate-300">,90</small></p>
-                        <p class="text-sm text-slate-300 font-medium mt-1">por bloco de até 40 segundos de áudio</p>
+                        <p class="text-sm text-slate-300 font-medium mt-1">por bloco de até 40 segundos com liberação imediata via PIX</p>
                     </div>
                 </div>
 
-                <!-- DESTAQUE DA REGRA DE BLOCO -->
-                <div class="bg-slate-800/60 rounded-lg p-3 mb-6 text-center max-w-lg mx-auto border border-slate-700/50">
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        <i class="fas fa-info-circle text-premium-gold mr-1"></i> 
-                        <strong class="text-white">Valor por bloco de até 40 segundos de áudio gravado e produzido.</strong>
-                        <br><span class="text-slate-400">Ideal para ofertas de encarte, perfumaria, genéricos e inaugurações. Inclui locução, trilha e efeitos.</span>
-                    </p>
-                </div>
-                
-                <!-- Grid de diferenciais para farmácias -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-5 w-full max-w-4xl mb-8">
-                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-emerald-400/50 transition-all">
-                        <i class="fas fa-bullhorn text-emerald-400 text-2xl mb-2"></i>
-                        <p class="text-sm font-bold text-white">Voz Varejo / Promocional</p>
-                        <p class="text-xs text-slate-400">Locutores especialistas em ofertas, blitz da saúde e inaugurações</p>
+                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-cyan-400/40 transition-all">
+                        <i class="fas fa-clock text-cyan-400 text-2xl mb-2"></i>
+                        <p class="text-sm font-bold text-white">Autonomia 24h/7</p>
+                        <p class="text-xs text-slate-400">Faça orçamentos, insira novos preços e envie roteiros farmacêuticos a qualquer hora do dia ou da noite</p>
                     </div>
-                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-emerald-400/50 transition-all">
-                        <i class="fas fa-truck-fast text-emerald-400 text-2xl mb-2"></i>
-                        <p class="text-sm font-bold text-white">Entrega Rápida no Expediente</p>
-                        <p class="text-xs text-slate-400">Anúncios prontos no mesmo dia para o som da loja ou carro de som</p>
+                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-cyan-400/40 transition-all">
+                        <i class="fas fa-calendar-check text-cyan-400 text-2xl mb-2"></i>
+                        <p class="text-sm font-bold text-white">Plantão de Locutores</p>
+                        <p class="text-xs text-slate-400">Gravações todos os dias, incluindo finais de semana e feriados, das 06h às 22h</p>
                     </div>
-                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-emerald-400/50 transition-all">
-                        <i class="fas fa-sliders-h text-emerald-400 text-2xl mb-2"></i>
-                        <p class="text-sm font-bold text-white">Produção Completa</p>
-                        <p class="text-xs text-slate-400">Roteiro, voz profissional, trilha sonora e efeitos de varejo inclusos</p>
+                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-cyan-400/40 transition-all">
+                        <i class="fas fa-users text-cyan-400 text-2xl mb-2"></i>
+                        <p class="text-sm font-bold text-white">+300 Locutores</p>
+                        <p class="text-xs text-slate-400">Filtragem por perfil institucional ou de ofertas e acesso instantâneo a quem está gravando rápido</p>
                     </div>
-                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-emerald-400/50 transition-all">
-                        <i class="fas fa-file-alt text-emerald-400 text-2xl mb-2"></i>
-                        <p class="text-sm font-bold text-white">Roteiro Grátis</p>
-                        <p class="text-xs text-slate-400">Criamos ou ajustamos o texto das suas ofertas sem custo extra</p>
-                    </div>
-                </div>
-                
-                <!-- COMO FUNCIONA (3 PASSOS) -->
-                <div class="max-w-2xl mx-auto mb-8 pt-4 border-t border-slate-700/50">
-                    <p class="text-slate-400 text-sm mb-4"><i class="fas fa-play-circle text-premium-gold"></i> Em 3 passos seu spot está no ar:</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
-                        <div class="flex items-start gap-3">
-                            <span class="w-6 h-6 bg-premium-purple text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0">1</span>
-                            <p class="text-slate-300 text-xs">Envie suas <strong class="text-white">ofertas e campanhas</strong> pelo WhatsApp</p>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <span class="w-6 h-6 bg-premium-purple text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0">2</span>
-                            <p class="text-slate-300 text-xs"><strong class="text-white">Criamos o roteiro</strong> e produzimos o spot completo</p>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <span class="w-6 h-6 bg-premium-purple text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0">3</span>
-                            <p class="text-slate-300 text-xs">Receba o <strong class="text-white">áudio pronto</strong> para tocar na sua farmácia</p>
-                        </div>
+                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-cyan-400/40 transition-all">
+                        <i class="fas fa-eye text-cyan-400 text-2xl mb-2"></i>
+                        <p class="text-sm font-bold text-white">Status em Tempo Real</p>
+                        <p class="text-xs text-slate-400">Acompanhe as etapas de mixagem e baixe seus áudios antigos e novos quando quiser</p>
                     </div>
                 </div>
                 
-                <!-- CTA Principal -->
                 <div class="flex flex-col items-center w-full max-w-2xl">
                     <a href="#" 
-                       onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20preciso%20de%20um%20spot%20promocional%20para%20minha%20farm%C3%A1cia%20ou%20drogaria!', 'WA_CLICK', 'WhatsApp', 'Hero_Spot_Farmacia')"
-                       class="w-full sm:w-auto bg-premium-purple hover:bg-premium-purple/90 text-white px-10 py-5 sm:py-6 rounded-2xl font-bold text-lg sm:text-xl flex items-center justify-center gap-4 shadow-[0_20px_40px_rgba(91,58,140,0.3)] hover:-translate-y-1 transition-all duration-300">
-                        <i class="fab fa-whatsapp text-2xl sm:text-3xl"></i> QUERO MEU SPOT PARA FARMÁCIA
+                       onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_HERO_CLICK', 'Plataforma', 'Hero_Cadastro')"
+                       class="w-full sm:w-auto bg-gradient-to-r from-premium-purple to-indigo-700 hover:opacity-95 text-white px-10 py-5 sm:py-6 rounded-2xl font-bold text-lg sm:text-xl flex items-center justify-center gap-4 shadow-[0_20px_40px_rgba(91,58,140,0.4)] hover:-translate-y-1 transition-all duration-300">
+                        <i class="fas fa-laptop-code text-2xl sm:text-3xl"></i> CRIAR CONTA E ENVIAR ÁUDIO AGORA
                         <i class="fas fa-arrow-right text-sm opacity-80"></i>
                     </a>
-                    <p class="text-slate-400 text-xs mt-4"><i class="fas fa-shield-alt text-premium-gold text-xs"></i> Pagamento via PIX | Roteiro grátis incluso | Correções gratuitas para erros do locutor</p>
+                    <p class="text-slate-400 text-xs mt-4"><i class="fas fa-info-circle text-cyan-400"></i> Liberação imediata de créditos via PIX | Roteiros analisados por especialistas dentro da plataforma</p>
                 </div>
             </div>
         </section>
 
-        <!-- Diferenciais em Detalhe (Foco Farmácias) -->
         <section class="py-16 bg-white border-b border-slate-100">
             <div class="max-w-6xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-10">
-                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Por que as farmácias escolhem a gente?</span>
+                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Agilidade Profissional</span>
                     <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4 text-slate-900">
-                        Spots que <span class="text-premium-purple">aumentam o fluxo</span> na sua drogaria
+                        Como funciona o nosso <span class="text-premium-purple">Painel Inteligente</span>?
                     </h2>
                     <p class="text-slate-500 text-lg max-w-2xl mx-auto">
-                        Um áudio profissional na porta ou no interior da farmácia estimula a compra de itens de perfumaria, cosméticos e conveniência que o cliente não pretendia levar.
+                        Esqueça a demora dos atendimentos tradicionais. Veja como é simples gerenciar a comunicação da sua farmácia em poucos cliques.
                     </p>
                 </div>
                 <div class="grid md:grid-cols-3 gap-6">
                     <div class="diferencial-card bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
-                        <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-comment-dots text-emerald-600 text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-800 mb-2">Locução com Credibilidade</h3>
-                        <p class="text-slate-500 text-sm">Vozes que transmitem confiança e profissionalismo, essenciais para o setor de saúde. Do tom promocional ao institucional, temos o perfil ideal.</p>
+                        <div class="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4 text-cyan-600 font-bold">1</div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">Simule e Adicione Crédito</h3>
+                        <p class="text-slate-500 text-sm">Crie sua conta em segundos, digite as ofertas do seu encarte e simule o valor. Adicione créditos de forma imediata via PIX automático.</p>
                     </div>
                     <div class="diferencial-card bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
-                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-pen-fancy text-premium-purple text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-800 mb-2">Roteiro que Converte</h3>
-                        <p class="text-slate-500 text-sm">Criamos textos que destacam ofertas de medicamentos, genéricos, perfumaria e produtos de conveniência. Formatamos as informações para o áudio vender mais.</p>
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 text-premium-purple font-bold">2</div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">Filtre e Escolha a Voz</h3>
+                        <p class="text-slate-500 text-sm">Navegue por mais de 300 vozes profissionais. Filtre por perfis que transmitem a credibilidade institucional que o segmento de saúde exige.</p>
                     </div>
                     <div class="diferencial-card bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
-                        <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-music text-amber-600 text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-800 mb-2">Trilhas Comerciais Adequadas</h3>
-                        <p class="text-slate-500 text-sm">Trilhas sonoras que criam atmosfera de oferta sem perder a elegância que o setor farmacêutico exige. Tudo com licença de uso comercial inclusa.</p>
-                    </div>
-                </div>
-                <div class="mt-8 flex flex-wrap justify-center gap-4">
-                    <div class="flex items-center gap-2 bg-emerald-50 px-4 py-2 rounded-full border border-emerald-200">
-                        <i class="fas fa-credit-card text-emerald-600"></i>
-                        <span class="text-sm text-slate-700 font-medium">PIX • Cartão • Boleto</span>
-                    </div>
-                    <div class="flex items-center gap-2 bg-purple-50 px-4 py-2 rounded-full border border-purple-200">
-                        <i class="fas fa-check-circle text-premium-purple"></i>
-                        <span class="text-sm text-slate-700 font-medium">Roteiro promocional grátis incluso</span>
-                    </div>
-                    <div class="flex items-center gap-2 bg-amber-50 px-4 py-2 rounded-full border border-amber-200">
-                        <i class="fas fa-store-alt text-amber-600"></i>
-                        <span class="text-sm text-slate-700 font-medium">Para som interno, fachada ou carro de som</span>
+                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4 text-amber-600 font-bold">3</div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">Acompanhe e Baixe</h3>
+                        <p class="text-slate-500 text-sm">Você recebe notificações em tempo real. O áudio mixado com fundos sonoros adequados é liberado pronto para tocar no som interno da drogaria.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Casting de Vozes para Farmácias -->
         <section id="vozes" class="anchor-section py-16 lg:py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-10">
-                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Casting de Vozes para o Varejo Farmacêutico</span>
+                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Demonstração de Qualidade</span>
                     <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4 text-slate-900">
-                        Vozes que <span class="text-premium-purple">Transmitem Confiança</span> e Geram Vendas
+                        Vozes de Alta Credibilidade para Sua Drogaria
                     </h2>
                     <p class="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed">
-                        Conheça alguns exemplos do nosso casting de locutores especializados em spots para farmácias, drogarias e o setor de saúde.
-                    </p>
-                    
-                    <!-- BANNER DO CASTING FARMÁCIA -->
-                    <div class="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-full px-4 py-2 mt-4">
-                        <i class="fas fa-clinic-medical text-emerald-600 text-sm"></i>
-                        <span class="text-emerald-700 text-xs font-medium">🎙️ <strong class="text-emerald-800">Casting Farmacêutico</strong> | Vozes para ofertas diárias, linha cosmética, institucional e confiança médica</span>
-                    </div>
-                </div>
-
-                <!-- AVISO SOBRE MAIS VOZES -->
-                <div class="bg-gradient-to-r from-emerald-50 to-purple-50 rounded-2xl p-4 mb-8 text-center border border-emerald-100">
-                    <p class="text-slate-700 text-sm">
-                        <i class="fas fa-headphones text-emerald-600 mr-1"></i> 
-                        <strong>Estas são apenas algumas sugestões do nosso casting farmacêutico.</strong> 
-                        <span class="text-emerald-600 font-medium">Não encontrou o perfil ideal para sua drogaria? Fale conosco e escolha a voz perfeita para suas campanhas.</span>
+                        Estas são apenas 8 opções rápidas de demonstração. Criando sua conta, você terá acesso completo a mais de 300 vozes para campanhas promocionais e institucionais.
                     </p>
                 </div>
                 
-                <!-- Vozes Femininas -->
                 <div class="mb-12">
-                    <h3 class="text-md font-semibold text-slate-500 uppercase tracking-wide mb-5 flex items-center gap-2 border-b pb-2"><i class="fas fa-female text-premium-purple"></i> Femininas (Perfis para Farmácia)</h3>
+                    <h3 class="text-md font-semibold text-slate-500 uppercase tracking-wide mb-5 flex items-center gap-2 border-b pb-2"><i class="fas fa-female text-premium-purple"></i> Femininas (Sugestões Rápidas)</h3>
                     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/lindy.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Lindy</h4><p class="text-xs text-slate-400 mb-1">Voz Varejo · Ofertas Diárias</p><audio controls preload="none" onplay="trackAudioPlay('Lindy')"><source src="https://testedomarcio.github.io/meuadio/Lindy.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/lindy.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Lindy</h4><p class="text-xs text-slate-400 mb-1">Voz Varejo · Ofertas</p><audio controls preload="none" onplay="trackAudioPlay('Lindy')"><source src="https://testedomarcio.github.io/meuadio/Lindy.mp3" type="audio/mpeg"></audio></div></div>
                         <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Elissandra.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Elissandra</h4><p class="text-xs text-slate-400 mb-1">Voz Jovem · Linha Cosmética</p><audio controls preload="none" onplay="trackAudioPlay('Elissandra')"><source src="https://testedomarcio.github.io/meuadio/elissandra.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Silvia.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Silvia</h4><p class="text-xs text-slate-400 mb-1">Voz Institucional · Confiança Médica</p><audio controls preload="none" onplay="trackAudioPlay('Silvia')"><source src="https://testedomarcio.github.io/meuadio/Silvia.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Tati.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Tati</h4><p class="text-xs text-slate-400 mb-1">Voz Promocional · Perfumaria</p><audio controls preload="none" onplay="trackAudioPlay('Tati')"><source src="https://testedomarcio.github.io/meuadio/tati.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Silvia.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Silvia</h4><p class="text-xs text-slate-400 mb-1">Voz Institucional · Confiança</p><audio controls preload="none" onplay="trackAudioPlay('Silvia')"><source src="https://testedomarcio.github.io/meuadio/Silvia.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Tati.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Tati</h4><p class="text-xs text-slate-400 mb-1">Voz Dinâmica · Perfumaria</p><audio controls preload="none" onplay="trackAudioPlay('Tati')"><source src="https://testedomarcio.github.io/meuadio/tati.mp3" type="audio/mpeg"></audio></div></div>
                     </div>
                 </div>
-                <!-- Vozes Masculinas -->
                 <div class="mb-10">
-                    <h3 class="text-md font-semibold text-slate-500 uppercase tracking-wide mb-5 flex items-center gap-2 border-b pb-2"><i class="fas fa-male text-premium-purple"></i> Masculinas (Perfis para Farmácia)</h3>
+                    <h3 class="text-md font-semibold text-slate-500 uppercase tracking-wide mb-5 flex items-center gap-2 border-b pb-2"><i class="fas fa-male text-premium-purple"></i> Masculinas (Sugestões Rápidas)</h3>
                     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/celso.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Celso</h4><p class="text-xs text-slate-400 mb-1">Voz Impacto · Genéricos e Ofertas</p><audio controls preload="none" onplay="trackAudioPlay('Celso')"><source src="https://testedomarcio.github.io/meuadio/Celso.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/charles.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Charles</h4><p class="text-xs text-slate-400 mb-1">Voz Institucional · Drogaria</p><audio controls preload="none" onplay="trackAudioPlay('Charles')"><source src="https://testedomarcio.github.io/meuadio/Charles.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Cristian.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Cristian Jr</h4><p class="text-xs text-slate-400 mb-1">Voz Varejo · Dinâmico</p><audio controls preload="none" onplay="trackAudioPlay('Cristian_Jr')"><source src="https://testedomarcio.github.io/meuadio/Cristian.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Leandro.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Leandro</h4><p class="text-xs text-slate-400 mb-1">Voz Promocional · Persuasiva</p><audio controls preload="none" onplay="trackAudioPlay('Leandro')"><source src="https://testedomarcio.github.io/meuadio/Leandro.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/charles.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Charles</h4><p class="text-xs text-slate-400 mb-1">Voz Sóbria · Drogaria</p><audio controls preload="none" onplay="trackAudioPlay('Charles')"><source src="https://testedomarcio.github.io/meuadio/Charles.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Cristian.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Cristian Jr</h4><p class="text-xs text-slate-400 mb-1">Voz Dinâmica · Varejo</p><audio controls preload="none" onplay="trackAudioPlay('Cristian_Jr')"><source src="https://testedomarcio.github.io/meuadio/Cristian.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Leandro.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Leandro</h4><p class="text-xs text-slate-400 mb-1">Voz Persuasiva · Linha Saúde</p><audio controls preload="none" onplay="trackAudioPlay('Leandro')"><source src="https://testedomarcio.github.io/meuadio/Leandro.mp3" type="audio/mpeg"></audio></div></div>
                     </div>
                 </div>
 
-                <!-- BOTÃO PARA MAIS VOZES -->
                 <div class="text-center mt-8">
                     <a href="#" 
-                       onclick="trackVozesClick(); return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20conhecer%20mais%20vozes%20para%20os%20spots%20da%20minha%20farm%C3%A1cia!', 'WA_CLICK', 'WhatsApp', 'Conhecer_Casting_Farmacia')"
+                       onclick="trackVozesClick(); return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_CASTING_CLICK', 'Plataforma', 'Casting_Acessar')"
                        class="inline-flex items-center gap-3 bg-slate-800 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-slate-700 transition-all duration-300">
-                        <i class="fas fa-star-of-life text-premium-gold text-lg"></i> ESCOLHER A VOZ PARA MINHA FARMÁCIA
-                        <i class="fab fa-whatsapp text-xl ml-2 text-green-400"></i>
+                        <i class="fas fa-headphones-simple text-premium-gold text-lg"></i> ENTRAR NO PAINEL E OUVIR MAIS DE 300 VOZES
+                        <i class="fas fa-arrow-right text-sm opacity-60 ml-2"></i>
                     </a>
-                    <p class="text-slate-400 text-sm mt-3">Nosso especialista ajuda você a escolher o perfil ideal para cada tipo de campanha da sua drogaria</p>
                 </div>
             </div>
         </section>
 
-        <!-- Tabela de Preços - Foco em Spots para Farmácias -->
         <section id="precos" class="anchor-section py-20 bg-slate-50">
             <div class="max-w-5xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-12">
-                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Pacotes para Sua Drogaria</span>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">Spots e <span class="text-premium-purple">Propagandas</span> que Atraem Clientes</h2>
-                    <p class="text-slate-500 mt-2">Produção completa com roteiro, locução para varejo farmacêutico, trilha comercial e efeitos. Pronto para tocar na sua loja.</p>
-                    <p class="text-xs text-slate-400 mt-2"><i class="fas fa-info-circle"></i> Todos os valores por bloco de até 40 segundos de áudio | Ideal para ofertas de encarte e campanhas</p>
+                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Tabela Geral de Valores</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">Formatos Disponíveis no Painel Inteligente</h2>
+                    <p class="text-slate-500 mt-2">Escolha a melhor solução para sua drogaria. Roteiros e fundos comerciais com alta definição.</p>
                 </div>
                 
                 <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
-                    
-                    <!-- Card 1: Spot Promocional Avulso -->
                     <div class="price-card bg-white rounded-3xl shadow-lg border border-slate-200 p-6 relative hover:-translate-y-2 transition-all duration-300">
                         <div class="text-center">
-                            <span class="text-xs font-semibold text-slate-500 uppercase tracking-widest bg-slate-100 px-4 py-1 rounded-full">AVULSO</span>
-                            <h3 class="text-xl font-bold text-slate-800 mt-3 mb-1">Spot Promocional</h3>
-                            <p class="text-slate-500 text-sm mb-4">Para o "Dia do Genérico", "Festival do Bebê" ou ofertas da semana</p>
+                            <span class="text-xs font-semibold text-slate-500 uppercase tracking-widest bg-slate-100 px-4 py-1 rounded-full">VOZ CRUA</span>
+                            <h3 class="text-xl font-bold text-slate-800 mt-3 mb-1">Locução Off</h3>
+                            <p class="text-slate-500 text-sm mb-4">Apenas a voz limpa e tratada do locutor. Perfeito se você já possui trilhas.</p>
                         </div>
                         <div class="bg-slate-50 rounded-2xl p-4 mb-5 text-center border border-slate-200">
-                            <p class="text-4xl font-black text-slate-900">R$ 29<small class="text-xl font-normal text-slate-500">,90</small></p>
+                            <p class="text-4xl font-black text-slate-900">R$ 14<small class="text-xl font-normal text-slate-500">,90</small></p>
                             <p class="text-xs text-slate-400">por bloco de até 40s</p>
                         </div>
                         <ul class="space-y-2 mb-6 text-sm">
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <span><strong>Locação varejo/promocional</strong> profissional</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <span><strong>Trilha comercial</strong> adequada ao setor</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <span><strong>Efeitos sonoros</strong> de impacto</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <span><strong>Criação ou ajuste</strong> de roteiro grátis</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <span><strong>Arquivo em alta qualidade</strong> WAV/MP3</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <span><strong>Trilhas com licença</strong> comercial inclusa</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-cyan-500 mt-0.5"></i> <span>Voz limpa perfeitamente equalizada</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-cyan-500 mt-0.5"></i> <span>Sem músicas ou efeitos sonoros de fundo</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-cyan-500 mt-0.5"></i> <span>Ideal para agências que cuidam de redes</span></li>
                         </ul>
-                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20um%20SPOT%20PROMOCIONAL%20AVULSO%20para%20minha%20farm%C3%A1cia!', 'WA_CLICK', 'WhatsApp', 'Precos_Avulso')" class="block w-full py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition text-center text-sm">
-                            <i class="fab fa-whatsapp mr-2"></i> SOLICITAR SPOT AVULSO
+                        <a href="#" onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_PRICE_OFF', 'Plataforma', 'Precos_Off')" class="block w-full py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition text-center text-sm">
+                            GRAVAR LOCUÇÃO OFF →
                         </a>
                     </div>
 
-                    <!-- Card 2: Combo Drogaria 3 Spots (DESTAQUE) -->
                     <div class="price-card destaque bg-white rounded-3xl shadow-xl p-6 relative hover:-translate-y-2 transition-all duration-300">
                         <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-premium-purple text-white font-bold text-xs uppercase tracking-widest px-6 py-2 rounded-full shadow-lg z-20">
-                            <i class="fas fa-star mr-1"></i> MAIS VENDIDO
+                            <i class="fas fa-star mr-1"></i> MAIS PEDIDO
                         </div>
                         <div class="text-center mt-4">
-                            <span class="text-xs font-semibold text-premium-purple uppercase tracking-widest bg-purple-100 px-4 py-1 rounded-full">COMBO DROGARIA</span>
-                            <h3 class="text-xl font-bold text-slate-800 mt-3 mb-1">Pacote 3 Spots</h3>
-                            <p class="text-slate-500 text-sm mb-4">Medicamentos + Perfumaria + Higiene</p>
+                            <span class="text-xs font-semibold text-premium-purple uppercase tracking-widest bg-purple-100 px-4 py-1 rounded-full">PRODUÇÃO COMPLETA</span>
+                            <h3 class="text-xl font-bold text-slate-800 mt-3 mb-1">Spot Farmácia</h3>
+                            <p class="text-slate-500 text-sm mb-4">Áudio completo pronto para uso em rádio, carros de som ou loja interna.</p>
                         </div>
                         <div class="bg-premium-purple/5 rounded-2xl p-4 mb-5 text-center border-2 border-premium-purple/20">
-                            <p class="text-4xl font-black text-premium-purple">R$ 79<small class="text-xl font-normal text-slate-500">,90</small></p>
-                            <p class="text-xs text-slate-400">3 blocos de até 40s cada</p>
-                            <p class="text-xs text-emerald-600 font-medium mt-1">Economia de R$ 9,80</p>
+                            <p class="text-4xl font-black text-premium-purple">R$ 29<small class="text-xl font-normal text-slate-500">,90</small></p>
+                            <p class="text-xs text-slate-400">por bloco de até 40s</p>
                         </div>
                         <ul class="space-y-2 mb-6 text-sm">
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <span><strong>3 spots completos</strong> para campanhas</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <span><strong>Ideal para:</strong> Medicamentos + Perfumaria + Higiene</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <span><strong>Trilhas diferentes</strong> para cada spot</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <span><strong>Roteiro incluso</strong> para todos os áudios</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <span><strong>Arquivos WAV/MP3</strong> de alta qualidade</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span class="text-amber-700"><strong>Prioridade na produção</strong></span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Locução comercial com foco em conversão</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Trilha sonora adequada e licenciada de fundo</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Efeitos sonoros sutis de varejo</span></li>
                         </ul>
-                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20o%20COMBO%20DROGARIA%203%20SPOTS%20para%20minhas%20campanhas!', 'WA_CLICK', 'WhatsApp', 'Precos_Combo3')" class="block w-full py-3 bg-premium-purple hover:bg-premium-purple/90 text-white font-bold rounded-xl transition text-center text-sm shadow-lg">
-                            <i class="fab fa-whatsapp mr-2"></i> COMPRAR COMBO 3 SPOTS
+                        <a href="#" onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_PRICE_SPOT', 'Plataforma', 'Precos_Spot')" class="block w-full py-3 bg-premium-purple hover:bg-premium-purple/90 text-white font-bold rounded-xl transition text-center text-sm shadow-lg">
+                            PRODUZIR SPOT COMPLETO →
                         </a>
                     </div>
 
-                    <!-- Card 3: Pacote Mensal 5 Spots -->
                     <div class="price-card bg-white rounded-3xl shadow-lg border border-slate-200 p-6 relative hover:-translate-y-2 transition-all duration-300">
                         <div class="text-center">
-                            <span class="text-xs font-semibold text-amber-600 uppercase tracking-widest bg-amber-50 px-4 py-1 rounded-full">MELHOR CUSTO</span>
-                            <h3 class="text-xl font-bold text-slate-800 mt-3 mb-1">Pacote Mensal 5</h3>
-                            <p class="text-slate-500 text-sm mb-4">Campanhas do mês inteiro garantidas</p>
+                            <span class="text-xs font-semibold text-amber-600 uppercase tracking-widest bg-amber-50 px-4 py-1 rounded-full">ECONOMIA</span>
+                            <h3 class="text-xl font-bold text-slate-800 mt-3 mb-1">Combo 3 Spots</h3>
+                            <p class="text-slate-500 text-sm mb-4">Economize comprando blocos para rodar ofertas diferentes.</p>
                         </div>
                         <div class="bg-amber-50 rounded-2xl p-4 mb-5 text-center border border-amber-200">
-                            <p class="text-4xl font-black text-amber-600">R$ 120<small class="text-xl font-normal text-slate-500">,00</small></p>
-                            <p class="text-xs text-slate-400">5 blocos de até 40s cada</p>
-                            <p class="text-xs text-emerald-600 font-medium mt-1">Economia de R$ 29,50</p>
+                            <p class="text-4xl font-black text-amber-600">R$ 79<small class="text-xl font-normal text-slate-500">,90</small></p>
+                            <p class="text-xs text-slate-400">3 blocos de até 40s cada</p>
                         </div>
                         <ul class="space-y-2 mb-6 text-sm">
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <span><strong>5 spots completos</strong> para o mês</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <span><strong>Todas as campanhas</strong> do mês cobertas</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <span><strong>Roteiro incluso</strong> em todos os spots</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <span><strong>Trilhas variadas</strong> para cada campanha</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <span><strong>Arquivos WAV/MP3</strong> otimizados</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span class="text-amber-700"><strong>Prioridade máxima</strong> na produção</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>3 produções completas gerenciadas no painel</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Use os créditos rotativos de acordo com o encarte</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span>Fundos sonoros comerciais variados inclusos</span></li>
                         </ul>
-                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20o%20PACOTE%20MENSAL%205%20SPOTS%20para%20minha%20farm%C3%A1cia!', 'WA_CLICK', 'WhatsApp', 'Precos_Pacote5')" class="block w-full py-3 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold rounded-xl transition text-center text-sm">
-                            <i class="fab fa-whatsapp mr-2"></i> COMPRAR PACOTE MENSAL
+                        <a href="#" onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_PRICE_COMBO', 'Plataforma', 'Precos_Combo')" class="block w-full py-3 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold rounded-xl transition text-center text-sm">
+                            ADQUIRIR COMBO NO PAINEL →
                         </a>
                     </div>
                 </div>
 
-                <!-- OBSERVAÇÃO IMPORTANTE -->
                 <div class="text-center mt-8 bg-white rounded-xl p-5 max-w-2xl mx-auto border border-slate-200">
                     <p class="text-xs text-slate-500 mb-2">
-                        <i class="fas fa-info-circle text-premium-purple"></i> 
-                        <strong>Política de correções:</strong> Ajustes gratuitos apenas se houver erro do locutor na gravação. 
-                        Alterações de texto ou mudança de produtos após aprovação podem ter custo adicional.
-                    </p>
-                    <p class="text-xs text-slate-500 mb-2">
-                        <i class="fas fa-music text-premium-purple"></i>
-                        <strong>Trilhas e efeitos:</strong> Todas as trilhas sonoras e efeitos utilizados possuem licença de uso comercial. Sua farmácia não terá problemas com direitos autorais.
+                        <i class="fas fa-music text-premium-purple"></i> <strong>Direitos Autorais Seguros:</strong> Todas as trilhas e efeitos de fundo possuem licenças comerciais vitalícias.
                     </p>
                     <p class="text-xs text-slate-500">
-                        <i class="fas fa-clock text-premium-purple"></i>
-                        <strong>Horário de produção:</strong> Segunda a Sexta das 08h às 18h | Sábados das 08h às 12h. Pedidos aprovados no expediente são entregues no mesmo dia.
+                        <i class="fas fa-clock text-premium-purple"></i> <strong>Dinâmica de Prazos:</strong> O painel recebe pedidos 24h. O plantão ativo grava das 06h às 22h. As edições e mixagens completas são finalizadas em tempo recorde dentro do horário comercial (Seg a Sex 08h-18h e Sáb 08h-12h).
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Marcas / Farmácias que confiam -->
-        <section class="py-8 bg-white border-t border-slate-100 overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4">
-                <p class="text-center text-xs font-semibold text-slate-400 uppercase tracking-widest mb-4">Farmácias e drogarias que aumentam as vendas com nossos spots</p>
-                <div class="relative flex overflow-hidden">
-                    <div class="flex whitespace-nowrap gap-8 items-center animate-scroll">
-                        <span class="text-slate-400 font-medium text-sm">Drogaria Saúde Total</span><span class="text-slate-300">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Farmácia Bem Estar</span><span class="text-slate-300">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Drogaria Preço Baixo</span><span class="text-slate-300">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Rede Farmácia Popular</span><span class="text-slate-300">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Drogaria São Lucas</span><span class="text-slate-300">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Farmácia Vida Nova</span><span class="text-slate-300">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Drogaria Central</span><span class="text-slate-300">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Farmácia Econômica</span><span class="text-slate-300">•</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Final (Foco em Conversão Local e Ticket Médio) -->
-        <section id="whatsapp" class="anchor-section py-20 bg-darkBg text-white text-center">
+        <section class="anchor-section py-20 bg-darkBg text-white text-center">
             <div class="max-w-3xl mx-auto px-4">
-                <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-5 py-2 mb-6">
-                    <i class="fas fa-shopping-basket text-emerald-400"></i>
-                    <span class="text-emerald-300 text-sm font-medium">Spots que estimulam a compra de itens de perfumaria, cosméticos e conveniência</span>
-                </div>
-                <h2 class="text-3xl sm:text-5xl font-bold mb-5">Faça seu cliente comprar <span class="text-premium-gold">o que não estava na lista!</span></h2>
-                <p class="text-slate-300 text-lg mb-10">Um spot profissional na porta ou no interior da sua farmácia aumenta o ticket médio e atrai mais clientes. Fale conosco e comece a ver resultados ainda hoje.</p>
+                <h2 class="text-3xl sm:text-5xl font-bold mb-5">Sua estrutura de áudio automatizada e <span class="text-premium-gold">disponível 24h</span></h2>
+                <p class="text-slate-300 text-lg mb-10">Mude a forma de gerenciar os anúncios da sua drogaria. Tenha autonomia total de prazos, simulações de valores e escolha de profissionais diretamente pelo painel digital.</p>
+                
                 <a href="#" 
-                   onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20quero%20aumentar%20as%20vendas%20da%20minha%20farm%C3%A1cia%20com%20spots%20profissionais!', 'WA_CLICK', 'WhatsApp', 'Final_CTA_Farmacia')"
-                   class="inline-flex items-center gap-4 bg-premium-purple hover:bg-premium-purple/90 text-white px-12 py-5 rounded-2xl font-bold text-xl hover:-translate-y-1 transition-all shadow-[0_20px_40px_rgba(91,58,140,0.3)]">
-                    <i class="fab fa-whatsapp text-3xl"></i> QUERO ATRAIR MAIS CLIENTES
+                   onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_FINAL_CTA', 'Plataforma', 'Final_CTA_Cadastro')"
+                   class="inline-flex items-center gap-4 bg-gradient-to-r from-premium-purple to-indigo-700 hover:opacity-95 text-white px-12 py-5 rounded-2xl font-bold text-xl hover:-translate-y-1 transition-all shadow-[0_20px_40px_rgba(91,58,140,0.3)]">
+                    <i class="fas fa-user-plus text-3xl"></i> CRIAR CONTA E ACESSAR PAINEL AGORA
                 </a>
-                <p class="text-slate-400 text-sm mt-6"><i class="fas fa-shield-alt text-premium-gold"></i> Roteiro grátis incluso | Trilhas licenciadas | Produção no mesmo dia</p>
-                <p class="text-xs text-slate-600 mt-8"><i class="fab fa-whatsapp"></i> (27) 99652-9832 · contato@alocucao.com.br</p>
-                <p class="text-xs text-slate-600 mt-1">Estúdio A Locução © 2012-2026 · Produção com excelência</p>
+                
+                <p class="text-xs text-slate-600 mt-12">Estúdio A Locução © 2012-2026 · Propagandas com excelência tecnológica</p>
                 <div style="text-align: center; margin-top: 15px; padding-bottom: 20px;">
                     <p style="font-size: 11px; color: #94a3b8; font-style: italic; margin: 0;">
                         "Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos." — Provérbios 16:3
@@ -641,31 +367,26 @@
         </section>
     </main>
 
-    <!-- POP-UP DE VANTAGENS (Adaptado para Farmácias) -->
     <div id="advantages-popup" class="fixed inset-0 bg-black/80 z-[99999] hidden items-center justify-center p-4">
         <div class="popup-content bg-white p-6 md:p-8 rounded-2xl max-w-md w-full text-center shadow-2xl relative">
             <button onclick="closeAdvantagesPopup()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600"><i class="fas fa-times text-xl"></i></button>
-            <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i class="fas fa-plus-circle text-emerald-600 text-2xl"></i>
+            <div class="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4 text-cyan-600 text-2xl">
+                <i class="fas fa-laptop-house"></i>
             </div>
-            <h3 class="text-2xl font-bold text-slate-800 mb-2">Sua farmácia merece spots profissionais!</h3>
-            <p class="text-slate-500 text-sm mb-5">Anúncios em áudio de qualidade aumentam o fluxo e o ticket médio da sua drogaria.</p>
+            <h3 class="text-2xl font-bold text-slate-800 mb-2">Aproveite Nosso Painel Inteligente!</h3>
+            <p class="text-slate-500 text-sm mb-5">Crie sua conta gratuitamente agora e ganhe agilidade extrema em suas produções.</p>
             <ul class="text-left space-y-3 mb-6">
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <strong>Locação profissional</strong> com credibilidade para o setor de saúde</li>
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <strong>Roteiro promocional grátis</strong> — destacamos suas ofertas</li>
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <strong>Trilhas comerciais adequadas</strong> com licença inclusa</li>
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <strong>Entrega no mesmo dia</strong> — seu spot pronto rapidamente</li>
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <strong>Ideal para:</strong> farmácias, drogarias e redes farmacêuticas</li>
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <strong>Estimula a compra</strong> de perfumaria, cosméticos e conveniência</li>
+                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-cyan-500 mt-0.5"></i> <span><strong>Painel online 24h:</strong> Orçamentos de texto na hora</span></li>
+                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-cyan-500 mt-0.5"></i> <span><strong>Casting com +300 Vozes:</strong> Veja quem está online</span></li>
+                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-cyan-500 mt-0.5"></i> <span><strong>Plantão ativo de gravação:</strong> Inclusive aos finais de semana</span></li>
+                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-cyan-500 mt-0.5"></i> <span><strong>Acompanhamento em tempo real:</strong> Baixe quando quiser</span></li>
             </ul>
-            <a href="#" onclick="closeAdvantagesPopup(); return safeRedirectWA('https://wa.me/5527996529832?text=Quero%20spots%20profissionais%20para%20aumentar%20as%20vendas%20da%20minha%20farm%C3%A1cia!', 'WA_CLICK', 'WhatsApp', 'Popup_Vantagens')" class="flex items-center justify-center w-full bg-premium-purple text-white py-3 rounded-xl font-bold gap-2 hover:bg-premium-purple/90 transition">
-                <i class="fab fa-whatsapp text-xl"></i> QUERO MEUS SPOTS AGORA
+            <a href="#" onclick="closeAdvantagesPopup(); return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_POPUP_CLICK', 'Plataforma', 'Popup_Cadastro')" class="flex items-center justify-center w-full bg-premium-purple text-white py-3 rounded-xl font-bold gap-2 hover:bg-premium-purple/90 transition">
+                <i class="fas fa-user-plus"></i> QUERO ACESSAR O PAINEL AGORA
             </a>
-            <p class="text-[10px] text-slate-400 mt-3">Clientes compram mais itens de conveniência quando ouvem um áudio profissional na loja</p>
         </div>
     </div>
 
-    <!-- Leadster -->
     <script>(function(a,b,c,d){try{var e=b.head||b.getElementsByTagName("head")[0];var f=b.createElement("script");f.setAttribute("src",c);f.setAttribute("charset","UTF-8");f.defer=true;a.neuroleadId=d;e.appendChild(f)}catch(g){}})(window,document,"https://cdn.leadster.com.br/neurolead/neurolead.min.js","suuyuh5U3EkKnzksGWBUMxBly")</script>
 
     <script>
@@ -718,12 +439,10 @@
             } 
         });
         
-        // Close popup on overlay click
         document.getElementById('advantages-popup')?.addEventListener('click', function(e) { 
             if(e.target === this) closeAdvantagesPopup(); 
         });
         
-        // Close popup on Escape
         document.addEventListener('keydown', function(e) { 
             if(e.key === 'Escape' && document.getElementById('advantages-popup')?.classList.contains('active')) 
                 closeAdvantagesPopup(); 
