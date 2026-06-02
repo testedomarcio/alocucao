@@ -5,24 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Event snippet for Visualização de página conversion page -->
-<script>
-  gtag('event', 'conversion', {
-      'send_to': 'AW-18093304718/2fWbCJOH0JwcEI7Xx7ND',
-      'value': 1.0,
-      'currency': 'BRL'
-  });
-</script>
+    <script>
+        gtag('event', 'conversion', {
+            'send_to': 'AW-18093304718/2fWbCJOH0JwcEI7Xx7ND',
+            'value': 1.0,
+            'currency': 'BRL'
+        });
+    </script>
 
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKKDKPVDDH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-TKKDKPVDDH');
-</script>
-
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKKDKPVDDH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-TKKDKPVDDH');
+    </script>
     
     <!-- SEO & Meta Tags -->
     <title>Cadastro | Estúdio A Locução - Criar Conta</title>
@@ -31,10 +29,10 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093304718"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-18093304718');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-18093304718');
     </script>
     
     <!-- Tailwind CSS -->
@@ -67,14 +65,13 @@
             font-family: 'Inter', sans-serif; 
             margin: 0;
             padding: 0;
-            height: 100vh; /* Ocupa 100% da altura da tela */
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow: hidden; /* Impede scroll na página pai para focar 100% no iframe */
-            background-color: #f8fafc;
+            overflow: hidden;
+            background-color: #0f172a;
         }
         
-        /* Glassmorphism Header */
         .glass-header {
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(12px);
@@ -101,7 +98,6 @@
             padding: 0 1.5rem;
         }
 
-        /* Animação de Loading super moderna */
         .loader-container {
             position: absolute;
             inset: 0;
@@ -109,14 +105,14 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: #f8fafc;
+            background-color: #0f172a;
             z-index: 10;
             transition: opacity 0.5s ease, visibility 0.5s ease;
         }
         .loader {
             width: 48px;
             height: 48px;
-            border: 4px solid #e2e8f0;
+            border: 4px solid #1e293b;
             border-bottom-color: #22d3ee;
             border-radius: 50%;
             display: inline-block;
@@ -128,7 +124,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Mobile menu transitions */
         #mobile-menu {
             max-height: 0;
             overflow: hidden;
@@ -138,20 +133,16 @@
             max-height: 600px;
         }
 
-        /* Iframe Styles */
         .iframe-wrapper {
-            flex-grow: 1;
             position: relative;
             width: 100%;
             height: 100%;
+            border: none;
         }
         .iframe-wrapper iframe {
-            position: absolute;
-            inset: 0;
             width: 100%;
             height: 100%;
             border: none;
-            z-index: 20;
             opacity: 0;
             transition: opacity 0.5s ease;
         }
@@ -160,13 +151,12 @@
         }
     </style>
 </head>
-<body class="text-slate-800 antialiased selection:bg-cyan-200 selection:text-slate-900">
+<body class="text-slate-200 antialiased selection:bg-cyan-200 selection:text-slate-900">
 
-    <!-- Header Glassmorphism (Compacto para não roubar espaço do iframe) -->
+    <!-- Header -->
     <header class="flex-none glass-header text-white shadow-md relative z-50">
         <nav class="container-custom py-2.5 sm:py-3">
             <div class="flex justify-between items-center">
-                
                 <!-- Logo -->
                 <div class="flex items-center gap-2">
                     <a href="https://www.alocucao.com.br/">
@@ -183,14 +173,9 @@
 
                 <!-- Botões de Ação Desktop -->
                 <div class="flex items-center gap-3">
-                    <a href="javascript:location.reload();" class="hidden sm:inline-block text-xs font-bold text-cyan-400 border border-cyan-400/50 px-4 py-2 rounded-full hover:bg-cyan-400/10 transition-all uppercase tracking-wider">
-                        Atualizar Página
-                    </a>
                     <a href="https://www.alocucao.com.br/login" class="hidden sm:flex btn-primary text-slate-900 font-bold px-5 py-2 rounded-full shadow-lg text-xs uppercase tracking-wider items-center gap-2">
-                        Fazer Login <i class="fas fa-sign-in-alt"></i>
+                        Já tenho conta <i class="fas fa-sign-in-alt"></i>
                     </a>
-                    
-                    <!-- Mobile Toggle -->
                     <button id="menu-toggle" aria-label="Abrir menu" class="lg:hidden text-2xl text-cyan-400 focus:outline-none p-1 ml-2">
                         <i class="fas fa-bars"></i>
                     </button>
@@ -203,44 +188,91 @@
                     <a href="https://www.alocucao.com.br/" class="text-slate-200 hover:text-cyan-400 py-3 px-4 rounded-lg hover:bg-slate-800 transition text-sm font-bold uppercase tracking-wider">Início</a>
                     <a href="https://www.alocucao.com.br/vozes" class="text-slate-200 hover:text-cyan-400 py-3 px-4 rounded-lg hover:bg-slate-800 transition text-sm font-bold uppercase tracking-wider">Locutores</a>
                     <a href="https://www.alocucao.com.br/tutoriais" class="text-slate-200 hover:text-cyan-400 py-3 px-4 rounded-lg hover:bg-slate-800 transition text-sm font-bold uppercase tracking-wider">Tutoriais</a>
-                    
-                    <div class="grid grid-cols-2 gap-3 mt-4 pt-4 border-t border-slate-800">
-                        <a href="javascript:location.reload();" class="border border-slate-600 text-white text-center py-3 rounded-xl font-bold uppercase text-xs tracking-wider">Atualizar</a>
-                        <a href="https://www.alocucao.com.br/login" class="btn-primary text-slate-900 text-center py-3 rounded-xl font-bold uppercase text-xs tracking-wider">Fazer Login</a>
+                    <div class="pt-4 border-t border-slate-800 m-2">
+                        <a href="https://www.alocucao.com.br/login" class="block btn-primary text-slate-900 text-center py-3 rounded-xl font-bold uppercase text-xs tracking-wider">Já tenho conta</a>
                     </div>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- Área Principal - Iframe com Loader -->
-    <main class="iframe-wrapper">
+    <!-- Layout Dividido (Vantagens + Iframe) -->
+    <div class="flex flex-col lg:flex-row flex-grow overflow-hidden w-full">
         
-        <!-- Estado de Carregamento (Spinner Premium) -->
-        <div id="iframe-loader" class="loader-container">
-            <span class="loader"></span>
-            <p class="text-slate-400 font-bold text-sm uppercase tracking-widest mt-4">Carregando Formulário...</p>
-        </div>
+        <!-- Bloco de Vantagens (Topo no mobile / Lateral no desktop) -->
+        <section class="w-full lg:w-[420px] bg-slate-900 p-5 lg:p-8 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-slate-800 flex-none overflow-y-auto">
+            <div class="max-w-md mx-auto lg:mx-0">
+                <span class="text-cyan-400 text-xs font-bold uppercase tracking-widest block mb-2">Plataforma Exclusiva</span>
+                <h1 class="text-xl lg:text-2xl font-black text-white leading-tight mb-4">Crie sua conta e ganhe agilidade instantânea</h1>
+                <p class="text-slate-400 text-xs lg:text-sm mb-6 leading-relaxed">Não perca tempo esperando atendimento! Através do nosso painel automatizado, você gerencia seus áudios com total autonomia.</p>
+                
+                <!-- Benefícios com Ícones -->
+                <ul class="space-y-3.5 text-xs lg:text-sm font-medium">
+                    <li class="flex items-start gap-3">
+                        <div class="flex-none w-5 h-5 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center mt-0.5"><i class="fas fa-history text-[10px]"></i></div>
+                        <div><strong class="text-white">Painel 24 Horas:</strong> Faça orçamentos e envie pedidos a qualquer hora do dia ou da noite.</div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="flex-none w-5 h-5 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center mt-0.5"><i class="fas fa-bolt text-[10px]"></i></div>
+                        <div><strong class="text-white">Plantão de Locutores:</strong> Gravações diárias (inclusive sábados, domingos e feriados) das <span class="text-cyan-400">06h às 22h</span>.</div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="flex-none w-5 h-5 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center mt-0.5"><i class="fas fa-users text-[10px]"></i></div>
+                        <div><strong class="text-white">Mais de 300 Locutores:</strong> Filtre estilos e veja quem está online gravando rápido no momento.</div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="flex-none w-5 h-5 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center mt-0.5"><i class="fas fa-eye text-[10px]"></i></div>
+                        <div><strong class="text-white">Status em Tempo Real:</strong> Acompanhe cada etapa da produção e baixe o áudio direto da plataforma.</div>
+                    </li>
+                </ul>
 
-        <!-- Iframe do Painel de Cadastro -->
-        <iframe 
-            id="painel-iframe"
-            src="https://paineldegravacao.com.br/comerciaistop/cadastro" 
-            title="Painel de Cadastro Estúdio A Locução"
-            allow="autoplay; clipboard-write; microphone"
-            loading="lazy">
-        </iframe>
-        
-    </main>
+                <!-- Área de Suporte e Contatos -->
+                <div class="mt-6 pt-4 border-t border-slate-800/60 text-xs text-slate-400">
+                    <p class="flex items-center gap-1.5 font-medium mb-2">
+                        <i class="fas fa-info-circle text-cyan-400"></i> Tem alguma dificuldade para se cadastrar? 
+                    </p>
+                    <p class="text-slate-500 pl-5 mb-3">Use o botão flutuante ou nossos canais diretos abaixo:</p>
+                    
+                    <!-- Contatos por Texto -->
+                    <div class="pl-5 font-semibold text-slate-300 flex flex-col gap-1 tracking-wide">
+                        <a href="https://wa.me/5527996529832" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+                            <i class="fab fa-whatsapp text-[#25D366]"></i> (27) 99652-9832
+                        </a>
+                        <a href="mailto:suporte@alocucao.com.br" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+                            <i class="fas fa-envelope text-slate-400"></i> suporte@alocucao.com.br
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Botão Flutuante WhatsApp -->
-    <a href="https://wa.me/5527996529832" target="_blank" rel="noopener noreferrer" 
+        <!-- Área do Iframe -->
+        <main class="iframe-wrapper flex-grow bg-slate-950">
+            <!-- Estado de Carregamento -->
+            <div id="iframe-loader" class="loader-container">
+                <span class="loader"></span>
+                <p class="text-slate-500 font-bold text-xs uppercase tracking-widest mt-4">Carregando Painel de Cadastro...</p>
+            </div>
+
+            <!-- Iframe do Painel de Cadastro -->
+            <iframe 
+                id="painel-iframe"
+                src="https://paineldegravacao.com.br/comerciaistop/cadastro" 
+                title="Painel de Cadastro Estúdio A Locução"
+                allow="autoplay; clipboard-write; microphone"
+                loading="lazy">
+            </iframe>
+        </main>
+    </div>
+
+    <!-- Botão Flutuante WhatsApp com Texto de Ajuda (CTA Modificado) -->
+    <a href="https://wa.me/5527996529832?text=Olá,%20estou%20com%20uma%20dúvida%20ou%20dificuldade%20para%20me%20cadastrar%20no%20painel." target="_blank" rel="noopener noreferrer" 
        class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-3xl shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:scale-110 hover:-translate-y-2 transition-all duration-300 z-50 group"
-       aria-label="Atendimento via WhatsApp">
+       aria-label="Precisa de ajuda com o cadastro?">
         <i class="fab fa-whatsapp"></i>
-        <!-- Tooltip -->
-        <span class="absolute right-full mr-4 bg-slate-900 text-white text-xs font-bold px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-            Suporte Rápido
+        <!-- Tooltip estendida explicando o suporte -->
+        <span class="absolute right-full mr-4 bg-slate-900 text-white text-xs font-bold px-3 py-2 rounded-lg opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-xl border border-slate-800">
+            Dúvidas no Cadastro? Fale Comigo 👍
         </span>
     </a>
 
@@ -265,12 +297,10 @@
         const iframe = document.getElementById('painel-iframe');
         const loader = document.getElementById('iframe-loader');
 
-        // Quando o iframe terminar de carregar, escondemos o loader e mostramos o painel suavemente
         iframe.onload = function() {
             loader.style.opacity = '0';
             iframe.classList.add('loaded');
             
-            // Remove o loader do DOM após a transição para não interferir em cliques
             setTimeout(() => {
                 loader.style.visibility = 'hidden';
             }, 500);
