@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     
-    <!-- SEO & Meta Tags -->
-    <title>Banco de Vozes Online | Contrate Locutores Profissionais | A Locução</title>
-    <meta name="description" content="Banco de vozes online com casting selecionado de locutores profissionais. Contrate locução comercial, institucional ou off 100% online. Envie o roteiro, escolha a voz e receba o áudio no mesmo dia. A partir de R$29,90.">
+    <title>Banco de Vozes Online | Casting Automatizado de Locutores | A Locução</title>
+    <meta name="description" content="Acesse o maior banco de vozes digitais humanas do mercado. Filtre centenas de locutores profissionais, simule o custo por caracteres e envie seu roteiro 24h via painel.">
     
-    <!-- Preconnect para Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
-    <!-- Google Tag -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093304718"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -21,16 +18,21 @@
       gtag('js', new Date());
       gtag('config', 'AW-18093304718');
 
-      function safeRedirectWA(url, conversionLabel, eventCategory, eventLabel) {
+      function safeRedirectPanel(url, conversionLabel, eventCategory, eventLabel) {
           gtag('event', 'conversion', {
               'send_to': 'AW-18093304718/' + conversionLabel,
               'event_category': eventCategory,
               'event_label': eventLabel
           });
           setTimeout(function() {
-              window.open(url, '_blank');
+              window.location.href = url;
           }, 300);
           return false;
+      }
+
+      // Fallback seguro caso o script original chame safeRedirectWA antiga
+      function safeRedirectWA(url, conversionLabel, eventCategory, eventLabel) {
+          return safeRedirectPanel('https://www.alocucao.com.br/cadastro', conversionLabel, eventCategory, eventLabel);
       }
 
       function trackAudioPlay(name) {
@@ -55,13 +57,10 @@
       }
     </script>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <script>
@@ -81,14 +80,10 @@
                     },
                     animation: {
                         'scroll': 'scroll 40s linear infinite',
-                        'fade-in-up': 'fadeInUp 0.6s ease-out',
-                        'float': 'float 3s ease-in-out infinite',
                         'pulse-digital': 'pulseDigital 2.5s ease-in-out infinite',
                     },
                     keyframes: {
                         scroll: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
-                        fadeInUp: { 'from': { opacity: '0', transform: 'translateY(20px)' }, 'to': { opacity: '1', transform: 'translateY(0)' } },
-                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
                         pulseDigital: { '0%, 100%': { boxShadow: '0 0 0 0 rgba(59, 130, 246, 0.3)' }, '50%': { boxShadow: '0 0 0 18px rgba(59, 130, 246, 0)' } }
                     }
                 }
@@ -98,203 +93,51 @@
 
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #faf9f8; scroll-behavior: smooth; }
-        
-        .glass-header {
-            background: rgba(15, 23, 42, 0.96);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
+        .glass-header { background: rgba(15, 23, 42, 0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
         audio { height: 40px; width: 100%; border-radius: 60px; background: #f1f5f9; }
         audio::-webkit-media-controls-panel { background-color: #f8fafc; }
-        
-        details > summary { list-style: none; }
-        details > summary::-webkit-details-marker { display: none; }
-        
-        img { max-width: 100%; height: auto; }
-
-        .locutor-card {
-            transition: all 0.25s ease;
-            border: 1px solid #e9e8e6;
-            cursor: pointer;
-        }
-        .locutor-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-            border-color: #5B3A8C;
-        }
-        .locutor-img {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #e2e8f0;
-        }
-
+        .locutor-card { transition: all 0.25s ease; border: 1px solid #e9e8e6; }
+        .locutor-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); border-color: #5B3A8C; }
+        .locutor-img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid #e2e8f0; }
         .anchor-section { scroll-margin-top: 80px; }
         @media (max-width: 768px) { .anchor-section { scroll-margin-top: 70px; } }
-        
-        .diferencial-card {
-            transition: all 0.3s ease;
-            border: 1px solid #f0efed;
-        }
-        .diferencial-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
-            border-color: #5B3A8C;
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 10px;
-        }
-        .whatsapp-tooltip {
-            background: white;
-            color: #1e293b;
-            padding: 14px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-            position: relative;
-            white-space: nowrap;
-            max-width: 280px;
-            text-align: center;
-        }
-        .whatsapp-tooltip::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            right: 40px;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-top: 10px solid white;
-        }
-        .whatsapp-button {
-            width: 65px;
-            height: 65px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            color: white;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            animation: float 3s ease-in-out infinite;
-        }
-        .whatsapp-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
-            background: #1fb855;
-        }
-        @media (max-width: 640px) {
-            .whatsapp-float { bottom: 20px; right: 20px; }
-            .whatsapp-button { width: 55px; height: 55px; font-size: 28px; }
-            .whatsapp-tooltip { font-size: 12px; padding: 10px 14px; max-width: 220px; }
-        }
-        
-        .elegant-badge {
-            background: linear-gradient(135deg, rgba(91,58,140,0.15) 0%, rgba(91,58,140,0.08) 100%);
-            border: 1px solid rgba(91,58,140,0.25);
-        }
-
-        .digital-badge {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(6, 182, 212, 0.08) 100%);
-            border: 2px solid rgba(59, 130, 246, 0.35);
-            animation: pulseDigital 2.5s ease-in-out infinite;
-        }
-
-        .service-card {
-            transition: all 0.35s ease;
-            border: 1px solid #e9e8e6;
-            background: white;
-        }
-        .service-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            border-color: #5B3A8C;
-        }
-
-        .filter-tag {
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-        .filter-tag:hover {
-            background: #5B3A8C;
-            color: white;
-            border-color: #5B3A8C;
-        }
-        .filter-tag.active {
-            background: #5B3A8C;
-            color: white;
-            border-color: #5B3A8C;
-        }
-
-        /* Pop-up Vantagens */
-        #advantages-popup {
-            display: none;
-        }
-        #advantages-popup.active {
-            display: flex;
-        }
-        .popup-content {
-            animation: slideUp 0.5s ease-out;
-        }
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        /* Estilo do fluxo de contratação */
-        .step-arrow {
-            position: relative;
-        }
-        .step-arrow:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            right: -20px;
-            top: 50%;
-            width: 16px;
-            height: 16px;
-            border-top: 2px solid #5B3A8C;
-            border-right: 2px solid #5B3A8C;
-            transform: translateY(-50%) rotate(45deg);
+        .diferencial-card { transition: all 0.3s ease; border: 1px solid #f0efed; }
+        .diferencial-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.05); border-color: #5B3A8C; }
+        .service-card { transition: all 0.35s ease; border: 1px solid #e9e8e6; background: white; }
+        .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: #5B3A8C; }
+        .digital-badge { background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(6, 182, 212, 0.08) 100%); border: 2px solid rgba(59, 130, 246, 0.35); animation: pulseDigital 2.5s ease-in-out infinite; }
+        #advantages-popup { display: none; }
+        #advantages-popup.active { display: flex; }
+        .popup-content { animation: slideUp 0.5s ease-out; }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .step-arrow { position: relative; }
+        @media (min-width: 640px) {
+            .step-arrow:not(:last-child)::after {
+                content: ''; position: absolute; right: -24px; top: 50%; width: 14px; height: 14px;
+                border-top: 2px solid #5B3A8C; border-right: 2px solid #5B3A8C; transform: translateY(-50%) rotate(45deg); z-index: 20;
+            }
         }
     </style>
 </head>
 <body class="font-sans antialiased text-slate-700">
 
-    <!-- WhatsApp Flutuante -->
-    <div class="whatsapp-float">
-        <div class="whatsapp-tooltip">
-            <i class="fas fa-headset mr-1" style="color: #25D366;"></i> 
-            Contrate um locutor online agora!
+    <div class="fixed bottom-6 right-6 z-[9999] flex flex-col align-end items-end gap-2">
+        <div class="bg-white text-slate-800 text-xs font-bold px-4 py-2.5 rounded-xl shadow-xl border border-slate-100 hidden sm:block">
+            <i class="fas fa-headset text-[#25D366] mr-1"></i> Suporte de Recargas e Plataforma Online
         </div>
-        <a href="#" 
-           onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20contratar%20um%20locutor%20profissional%20online!', 'WA_FLOAT_CLICK', 'WhatsApp', 'Botao_Flutuante')"
-           target="_blank" 
-           class="whatsapp-button" 
-           title="Fale com nosso time">
+        <a href="https://wa.me/5527996529832?text=Olá!%20Estou%20na%20página%20do%20banco%20de%20vozes%20e%20gostaria%20de%20uma%20informação%20técnica%20sobre%20o%20funcionamento%20do%20painel%20ou%20créditos." 
+           target="_blank" rel="noopener noreferrer"
+           class="w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] rounded-full flex items-center justify-center text-3xl text-white shadow-[0_8px_25px_rgba(37,211,102,0.4)] hover:scale-110 transition-all duration-300">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
 
-    <!-- HEADER -->
     <header class="fixed w-full top-0 z-50 glass-header text-white transition-all py-2 sm:py-3">
         <div class="bg-slate-800/40 border-b border-slate-700/30">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-center sm:justify-between items-center py-1.5 text-[10px] sm:text-xs text-slate-400">
                 <span class="hidden sm:flex items-center gap-2"><i class="fas fa-envelope text-slate-500"></i> contato@alocucao.com.br</span>
-                <span class="flex items-center gap-2"><i class="fab fa-whatsapp text-green-500"></i> (27) 99652-9832</span>
-                <span class="hidden sm:flex items-center gap-1"><i class="fas fa-clock text-slate-500"></i> Seg a Sex 08h-18h | Sáb 08h-12h</span>
+                <span class="flex items-center gap-2"><i class="fas fa-microchip text-cyan-400"></i> Ecossistema Digital Unificado: Elenco Humano sob Comando Eletrônico 24h</span>
+                <span class="hidden sm:flex items-center gap-1"><i class="fas fa-clock text-slate-500"></i> Atividade de Cabine: Todos os dias das 06h às 22h</span>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center py-2">
@@ -302,392 +145,257 @@
                 <img src="https://testedomarcio.github.io/meuadio/logo.webp" alt="Estúdio A Locução - Banco de Vozes" class="h-8 sm:h-10 w-auto" width="120" height="40">
             </a>
             <div class="flex items-center gap-3 sm:gap-4">
-                <span class="hidden lg:flex items-center gap-2 text-blue-400 text-xs font-bold border-r border-slate-700 pr-4">
-                    <i class="fas fa-cloud-upload-alt text-blue-400 text-xs"></i> 100% online: envie, escolha, receba
+                <span class="hidden lg:flex items-center gap-2 text-cyan-400 text-xs font-bold border-r border-slate-700 pr-4">
+                    <i class="fas fa-cloud text-cyan-400 text-xs"></i> Gerenciamento e simulação imediata por caracteres
                 </span>
-                <a href="#" 
-                   onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20contratar%20uma%20locu%C3%A7%C3%A3o%20online!', 'WA_CLICK', 'WhatsApp', 'Header')"
-                   class="bg-action-green hover:bg-action-green-hover text-white font-bold flex items-center gap-2 transition-colors text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-md">
-                    <i class="fab fa-whatsapp text-base"></i> <span class="hidden sm:inline">CONTRATAR LOCUTOR →</span><span class="sm:hidden">WhatsApp</span>
+                <a href="https://www.alocucao.com.br/cadastro"
+                   class="bg-gradient-to-r from-premium-purple to-indigo-600 text-white font-bold flex items-center gap-2 transition-colors text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-md">
+                    <i class="fas fa-desktop"></i> <span>ENTRAR NO PAINEL →</span>
                 </a>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section - Foco em Banco de Vozes e Contratação Online -->
         <section id="home" class="anchor-section bg-darkBg pt-32 sm:pt-36 lg:pt-40 pb-16 lg:pb-20 relative overflow-hidden text-white">
             <div class="absolute inset-0 bg-gradient-to-br from-digital-blue/10 via-premium-purple/10 to-digital-cyan/5 pointer-events-none"></div>
             
             <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center text-center">
-                
-                <!-- Badge Digital -->
-                <div class="inline-flex items-center gap-2 digital-badge text-blue-300 px-5 py-2 rounded-full text-xs font-bold tracking-wide mb-6 shadow-lg">
-                    <i class="fas fa-cloud-upload-alt text-sm"></i>
-                    BANCO DE VOZES DIGITAL • CONTRATAÇÃO 100% ONLINE
+                <div class="inline-flex items-center gap-2 digital-badge text-cyan-300 px-5 py-2 rounded-full text-xs font-bold tracking-wide mb-6 shadow-lg">
+                    <i class="fas fa-server text-sm"></i> PLATAFORMA CORPORATIVA • INFRAESTRUTURA DE AUDIOPRODUÇÃO EM NUVEM
                 </div>
                 
                 <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight mb-4 max-w-5xl">
-                    Sua Agência de Vozes Online: <span class="text-premium-gold">Contrate Locutores Sem Burocracia</span>
+                    Banco de Vozes Humano <br class="hidden sm:block"> Gerenciado em <span class="text-cyan-400">Tempo Real</span>
                 </h1>
                 
                 <p class="text-slate-300 text-lg lg:text-2xl mb-4 leading-relaxed max-w-3xl font-medium">
-                    Banco de vozes selecionadas com dezenas de locutores profissionais.<br>
-                    <span class="text-blue-300 font-bold">Envie o roteiro → Escolha a voz → Receba o áudio. Tudo online, rápido e seguro.</span>
+                    Centralize suas demandas de locução promocional, institucional ou comercial. Cadastre-se na plataforma, insira as métricas do seu projeto e acione profissionais de estúdio de forma direta.
                 </p>
 
-                <!-- Fluxo de Contratação (3 Passos Visuais) -->
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-8 mt-4 max-w-3xl mx-auto">
-                    <div class="step-arrow bg-slate-800/60 backdrop-blur-sm rounded-2xl p-5 text-center border border-slate-700/50 w-full sm:w-1/3">
-                        <div class="w-12 h-12 bg-digital-blue/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <i class="fas fa-paper-plane text-blue-400 text-xl"></i>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-8 mt-6 w-full max-w-4xl mx-auto">
+                    <div class="step-arrow bg-slate-900/60 backdrop-blur-sm rounded-2xl p-5 text-center border border-slate-800/80">
+                        <div class="w-12 h-12 bg-cyan-500/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-keyboard text-cyan-400 text-xl"></i>
                         </div>
-                        <p class="text-white font-bold text-sm mb-1">1. Envie o Roteiro</p>
-                        <p class="text-slate-400 text-xs">Pelo WhatsApp ou e-mail</p>
+                        <p class="text-white font-bold text-sm mb-1">1. Cole o Texto</p>
+                        <p class="text-slate-400 text-xs">O simulador calcula automaticamente o número exato de blocos do seu roteiro</p>
                     </div>
-                    <div class="step-arrow bg-slate-800/60 backdrop-blur-sm rounded-2xl p-5 text-center border border-slate-700/50 w-full sm:w-1/3">
-                        <div class="w-12 h-12 bg-premium-purple/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <i class="fas fa-user-check text-premium-purple text-xl"></i>
+                    <div class="step-arrow bg-slate-900/60 backdrop-blur-sm rounded-2xl p-5 text-center border border-slate-800/80">
+                        <div class="w-12 h-12 bg-purple-500/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-sliders text-premium-purple text-xl"></i>
                         </div>
-                        <p class="text-white font-bold text-sm mb-1">2. Escolha a Voz</p>
-                        <p class="text-slate-400 text-xs">Ouça amostras e decida</p>
+                        <p class="text-white font-bold text-sm mb-1">2. Filtre e Selecione</p>
+                        <p class="text-slate-400 text-xs">Filtre por estilos e ouça amostras reais das vozes conectadas na cabine</p>
                     </div>
-                    <div class="bg-slate-800/60 backdrop-blur-sm rounded-2xl p-5 text-center border border-slate-700/50 w-full sm:w-1/3">
-                        <div class="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <i class="fas fa-download text-green-400 text-xl"></i>
+                    <div class="bg-slate-900/60 backdrop-blur-sm rounded-2xl p-5 text-center border border-slate-800/80">
+                        <div class="w-12 h-12 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-circle-down text-emerald-400 text-xl"></i>
                         </div>
-                        <p class="text-white font-bold text-sm mb-1">3. Receba o Áudio</p>
-                        <p class="text-slate-400 text-xs">Pronto no mesmo dia</p>
+                        <p class="text-white font-bold text-sm mb-1">3. Baixe o Áudio Master</p>
+                        <p class="text-slate-400 text-xs">Acompanhe as atualizações e faça o download direto em formato WAV limpo</p>
                     </div>
                 </div>
 
-                <!-- Preço principal -->
                 <div class="flex flex-col items-center justify-center gap-4 mb-6">
-                    <div class="bg-gradient-to-br from-digital-blue/20 to-premium-purple/25 backdrop-blur-sm rounded-2xl px-8 py-5 border-2 border-premium-gold/40">
-                        <p class="text-sm text-premium-gold font-semibold uppercase tracking-wide">Gravações Profissionais Online</p>
-                        <p class="text-5xl sm:text-6xl font-black text-white">a partir de R$ 29<small class="text-2xl font-normal text-slate-300">,90</small></p>
-                        <p class="text-sm text-slate-300 font-medium mt-1">por bloco de até 40 segundos de áudio</p>
-                    </div>
-                </div>
-
-                <!-- DESTAQUE 100% ONLINE -->
-                <div class="bg-slate-800/60 rounded-lg p-3 mb-6 text-center max-w-lg mx-auto border border-digital-blue/30">
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        <i class="fas fa-globe text-blue-400 mr-1"></i> 
-                        <strong class="text-white">Processo 100% online.</strong>
-                        <br><span class="text-slate-400">Sem necessidade de deslocamento. Contrate de onde estiver, receba no WhatsApp ou e-mail.</span>
-                    </p>
-                </div>
-                
-                <!-- Grid de diferenciais digitais -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-5 w-full max-w-4xl mb-8">
-                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-blue-400/50 transition-all">
-                        <i class="fas fa-cloud text-blue-400 text-2xl mb-2"></i>
-                        <p class="text-sm font-bold text-white">Casting 100% Online</p>
-                        <p class="text-xs text-slate-400">Dezenas de vozes masculinas, femininas e estilos prontos para seu projeto</p>
-                    </div>
-                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-blue-400/50 transition-all">
-                        <i class="fas fa-rocket text-blue-400 text-2xl mb-2"></i>
-                        <p class="text-sm font-bold text-white">Entrega Expressa</p>
-                        <p class="text-xs text-slate-400">Receba seu áudio gravado e editado no WhatsApp ou e-mail no mesmo dia</p>
-                    </div>
-                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-blue-400/50 transition-all">
-                        <i class="fas fa-headset text-blue-400 text-2xl mb-2"></i>
-                        <p class="text-sm font-bold text-white">Suporte Humanizado</p>
-                        <p class="text-xs text-slate-400">Nossa equipe ajuda a escolher a voz ideal e revisa seu roteiro sem custo</p>
-                    </div>
-                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-blue-400/50 transition-all">
-                        <i class="fas fa-wave-square text-blue-400 text-2xl mb-2"></i>
-                        <p class="text-sm font-bold text-white">Gravação de Alta Linha</p>
-                        <p class="text-xs text-slate-400">Áudios em alta definição, limpos, tratados e prontos para uso</p>
+                    <div class="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-sm rounded-2xl px-8 py-5 border border-cyan-500/30 shadow-2xl">
+                        <p class="text-sm text-cyan-400 font-semibold uppercase tracking-wide">Gravações de Alta Resolução via Painel</p>
+                        <p class="text-5xl sm:text-6xl font-black text-white">R$ 14<small class="text-2xl font-normal text-slate-300">,00</small></p>
+                        <p class="text-sm text-slate-400 font-medium mt-1">valor por bloco base de até 40 segundos de áudio</p>
+                        <div class="mt-2.5 pt-2 border-t border-slate-700/50">
+                            <p class="text-xs text-emerald-400 font-bold"><i class="fas fa-sparkles"></i> Economia progressiva na carteira logada: Blocos por até R$ 10,00</p>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- CTA Principal -->
                 <div class="flex flex-col items-center w-full max-w-2xl">
-                    <a href="#" 
-                       onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20contratar%20uma%20locu%C3%A7%C3%A3o%20profissional.%20Segue%20meu%20roteiro!', 'WA_CLICK', 'WhatsApp', 'Hero_Online')"
-                       class="w-full sm:w-auto bg-premium-purple hover:bg-premium-purple/90 text-white px-10 py-5 sm:py-6 rounded-2xl font-bold text-lg sm:text-xl flex items-center justify-center gap-4 shadow-[0_20px_40px_rgba(91,58,140,0.3)] hover:-translate-y-1 transition-all duration-300">
-                        <i class="fab fa-whatsapp text-2xl sm:text-3xl"></i> CONTRATAR LOCUTOR AGORA
+                    <a href="https://www.alocucao.com.br/cadastro" 
+                       onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_CASTING_HERO', 'Plataforma', 'Hero_Casting')"
+                       class="w-full sm:w-auto bg-gradient-to-r from-premium-purple to-indigo-700 hover:opacity-95 text-white px-10 py-5 sm:py-6 rounded-2xl font-bold text-lg sm:text-xl flex items-center justify-center gap-4 shadow-[0_20px_40px_rgba(91,58,140,0.3)] hover:-translate-y-1 transition-all duration-300">
+                        <i class="fas fa-cubes text-2xl sm:text-3xl"></i> ACESSAR PAINEL E EXECUTAR GRAVAÇÃO
                         <i class="fas fa-arrow-right text-sm opacity-80"></i>
                     </a>
-                    <p class="text-slate-400 text-xs mt-4"><i class="fas fa-shield-alt text-premium-gold text-xs"></i> Pagamento via PIX | Atendimento online | Correções incluídas para erros do locutor</p>
+                    <p class="text-slate-400 text-xs mt-4"><i class="fas fa-info-circle text-cyan-400"></i> Registro imediato e livre de anuidades | Injeções automáticas via PIX | Garantia técnica de correção</p>
                 </div>
             </div>
         </section>
 
-        <!-- Diferenciais em Detalhe (Foco Digital) -->
         <section class="py-16 bg-white border-b border-slate-100">
             <div class="max-w-6xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-10">
-                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Como Funciona Nosso Banco de Vozes</span>
+                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Autonomia Digital Integrada</span>
                     <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4 text-slate-900">
-                        Contrate um <span class="text-premium-purple">Locutor Profissional</span> Sem Sair de Casa
+                        A Infraestrutura Acústica Ideal Para Suas Campanhas
                     </h2>
                     <p class="text-slate-500 text-lg max-w-2xl mx-auto">
-                        Nosso estúdio digital conecta você aos melhores locutores do Brasil. Tudo online, com segurança, agilidade e qualidade profissional.
+                        Esqueça e-mails paralelos, trocas manuais de arquivos e ausência de padronização técnica. Nosso painel processa as demandas em tempo real.
                     </p>
                 </div>
                 <div class="grid md:grid-cols-3 gap-6">
                     <div class="diferencial-card bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
-                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-microphone-alt text-blue-600 text-2xl"></i>
+                        <div class="w-16 h-16 bg-cyan-100 text-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-filter text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-800 mb-2">Casting Curado</h3>
-                        <p class="text-slate-500 text-sm">Navegue por dezenas de vozes selecionadas. Cada locutor do nosso banco é avaliado e aprovado pela nossa equipe de produção.</p>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Busca Parametrizada</h3>
+                        <p class="text-slate-500 text-sm">Filtre centenas de vozes qualificadas pelas características estruturais do projeto: gênero de voz, sotaques locais, faixa de tom interpretativo e estilos focados em conversão ou narrativa sóbria.</p>
                     </div>
                     <div class="diferencial-card bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
-                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-robot text-premium-purple text-2xl"></i>
+                        <div class="w-16 h-16 bg-purple-100 text-premium-purple rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-calculator text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-800 mb-2">Processo Descomplicado</h3>
-                        <p class="text-slate-500 text-sm">Nada de burocracia. Você envia o texto, escolhe a voz que mais combina com seu projeto e recebe o áudio finalizado. Simples assim.</p>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Orçamento Antecipado</h3>
+                        <p class="text-slate-500 text-sm">O motor eletrônico de contagem de palavras analisa seu texto na hora. Você sabe o custo em frações de segundos, permitindo precificar projetos aos seus clientes com total segurança financeira.</p>
                     </div>
                     <div class="diferencial-card bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
-                        <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-shield-alt text-amber-600 text-2xl"></i>
+                        <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-microphone-lines text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-800 mb-2">Segurança e Qualidade</h3>
-                        <p class="text-slate-500 text-sm">Áudios entregues em alta definição, com qualidade de estúdio profissional. Correções incluídas e suporte humano em todas as etapas.</p>
-                    </div>
-                </div>
-                <div class="mt-8 flex flex-wrap justify-center gap-4">
-                    <div class="flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full border border-blue-200">
-                        <i class="fas fa-credit-card text-blue-600"></i>
-                        <span class="text-sm text-slate-700 font-medium">PIX • Cartão • Boleto</span>
-                    </div>
-                    <div class="flex items-center gap-2 bg-purple-50 px-4 py-2 rounded-full border border-purple-200">
-                        <i class="fas fa-check-circle text-premium-purple"></i>
-                        <span class="text-sm text-slate-700 font-medium">Roteiro revisado gratuitamente</span>
-                    </div>
-                    <div class="flex items-center gap-2 bg-green-50 px-4 py-2 rounded-full border border-green-200">
-                        <i class="fas fa-whatsapp text-green-600"></i>
-                        <span class="text-sm text-slate-700 font-medium">Atendimento online via WhatsApp</span>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Fidelidade Humana Pura</h3>
+                        <p class="text-slate-500 text-sm">Garantia absoluta de captações executadas por locutores reais de mercado em ambientes acusticamente tratados. Rigorosamente livre de clonagem neural ou inteligência artificial.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Banco de Vozes / Casting Completo -->
         <section id="vozes" class="anchor-section py-16 lg:py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-10">
-                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Nosso Banco de Vozes</span>
+                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Vitrine de Amostra Corporativa</span>
                     <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4 text-slate-900">
-                        Navegue pelo <span class="text-premium-purple">Casting</span> e Escolha sua Voz
+                        Perfis Estruturais do Banco de Vozes
                     </h2>
                     <p class="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed">
-                        Ouça amostras reais dos nossos locutores. Encontre a voz perfeita para seu projeto comercial, institucional, narração ou conteúdo digital.
+                        Ouça alguns exemplos de gravações limpas executadas pelo nosso corpo técnico. No painel completo logado, você tem acesso a ferramentas avançadas de cruzamento de estilos para refinar sua busca.
                     </p>
-                    
-                    <!-- BANNER DO BANCO DE VOZES -->
-                    <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-4 py-2 mt-4">
-                        <i class="fas fa-database text-blue-600 text-sm"></i>
-                        <span class="text-blue-700 text-xs font-medium">🎙️ <strong class="text-blue-800">Banco com dezenas de vozes</strong> | Comerciais, institucionais, jovens, coloquiais e muito mais</span>
+                    <div class="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-full px-4 py-2 mt-4 text-xs text-slate-600">
+                        <i class="fas fa-headphones text-premium-purple"></i> Acesse a plataforma unificada para visualizar a lista em tempo real de locutores ativos em cabine.
                     </div>
                 </div>
 
-                <!-- Filtros do Banco de Vozes -->
-                <div class="flex flex-wrap justify-center gap-2 mb-8">
-                    <span class="filter-tag active bg-premium-purple text-white border border-premium-purple px-4 py-2 rounded-full text-xs font-semibold cursor-pointer" onclick="trackCategoriaClick('Todas')">Todas as Vozes</span>
-                    <span class="filter-tag bg-white text-slate-600 border border-slate-200 px-4 py-2 rounded-full text-xs font-semibold cursor-pointer hover:bg-premium-purple hover:text-white hover:border-premium-purple transition-all" onclick="trackCategoriaClick('Comercial')">Comercial</span>
-                    <span class="filter-tag bg-white text-slate-600 border border-slate-200 px-4 py-2 rounded-full text-xs font-semibold cursor-pointer hover:bg-premium-purple hover:text-white hover:border-premium-purple transition-all" onclick="trackCategoriaClick('Institucional')">Institucional</span>
-                    <span class="filter-tag bg-white text-slate-600 border border-slate-200 px-4 py-2 rounded-full text-xs font-semibold cursor-pointer hover:bg-premium-purple hover:text-white hover:border-premium-purple transition-all" onclick="trackCategoriaClick('Jovem')">Jovem / Coloquial</span>
-                    <span class="filter-tag bg-white text-slate-600 border border-slate-200 px-4 py-2 rounded-full text-xs font-semibold cursor-pointer hover:bg-premium-purple hover:text-white hover:border-premium-purple transition-all" onclick="trackCategoriaClick('Narracao')">Narração</span>
-                </div>
-
-                <!-- AVISO SOBRE MAIS VOZES -->
-                <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-4 mb-8 text-center border border-blue-100">
-                    <p class="text-slate-700 text-sm">
-                        <i class="fas fa-headphones text-blue-600 mr-1"></i> 
-                        <strong>Estas são algumas amostras do nosso banco de vozes.</strong> 
-                        <span class="text-blue-600 font-medium">Temos dezenas de opções! Fale conosco para ouvir mais perfis e encontrar a voz ideal para seu projeto.</span>
-                    </p>
-                </div>
-                
-                <!-- Vozes Femininas -->
                 <div class="mb-12">
-                    <h3 class="text-md font-semibold text-slate-500 uppercase tracking-wide mb-5 flex items-center gap-2 border-b pb-2"><i class="fas fa-female text-premium-purple"></i> Vozes Femininas</h3>
+                    <h3 class="text-md font-semibold text-slate-500 uppercase tracking-wide mb-5 flex items-center gap-2 border-b pb-2"><i class="fas fa-female text-premium-purple"></i> Banco Feminino (Amostras Técnicas)</h3>
                     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4" onclick="trackAudioPlay('Lindy')"><img src="https://testedomarcio.github.io/meuadio/lindy.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Lindy</h4><p class="text-xs text-slate-400 mb-1">Voz Comercial Feminina · Energética</p><audio controls preload="none" onplay="trackAudioPlay('Lindy')"><source src="https://testedomarcio.github.io/meuadio/Lindy.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4" onclick="trackAudioPlay('Elissandra')"><img src="https://testedomarcio.github.io/meuadio/Elissandra.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Elissandra</h4><p class="text-xs text-slate-400 mb-1">Voz Institucional · Acolhedora</p><audio controls preload="none" onplay="trackAudioPlay('Elissandra')"><source src="https://testedomarcio.github.io/meuadio/elissandra.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4" onclick="trackAudioPlay('Silvia')"><img src="https://testedomarcio.github.io/meuadio/Silvia.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Silvia</h4><p class="text-xs text-slate-400 mb-1">Voz Corporativa · Sofisticada</p><audio controls preload="none" onplay="trackAudioPlay('Silvia')"><source src="https://testedomarcio.github.io/meuadio/Silvia.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4" onclick="trackAudioPlay('Tati')"><img src="https://testedomarcio.github.io/meuadio/Tati.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Tati</h4><p class="text-xs text-slate-400 mb-1">Voz Jovem · Coloquial</p><audio controls preload="none" onplay="trackAudioPlay('Tati')"><source src="https://testedomarcio.github.io/meuadio/tati.mp3" type="audio/mpeg"></audio></div></div>
-                    </div>
-                </div>
-                <!-- Vozes Masculinas -->
-                <div class="mb-10">
-                    <h3 class="text-md font-semibold text-slate-500 uppercase tracking-wide mb-5 flex items-center gap-2 border-b pb-2"><i class="fas fa-male text-premium-purple"></i> Vozes Masculinas</h3>
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4" onclick="trackAudioPlay('Celso')"><img src="https://testedomarcio.github.io/meuadio/celso.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Celso</h4><p class="text-xs text-slate-400 mb-1">Voz Comercial Masculina · Impactante</p><audio controls preload="none" onplay="trackAudioPlay('Celso')"><source src="https://testedomarcio.github.io/meuadio/Celso.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4" onclick="trackAudioPlay('Charles')"><img src="https://testedomarcio.github.io/meuadio/charles.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Charles</h4><p class="text-xs text-slate-400 mb-1">Voz Institucional Sóbria</p><audio controls preload="none" onplay="trackAudioPlay('Charles')"><source src="https://testedomarcio.github.io/meuadio/Charles.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4" onclick="trackAudioPlay('Cristian_Jr')"><img src="https://testedomarcio.github.io/meuadio/Cristian.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Cristian Jr</h4><p class="text-xs text-slate-400 mb-1">Voz Jovem · Moderna</p><audio controls preload="none" onplay="trackAudioPlay('Cristian_Jr')"><source src="https://testedomarcio.github.io/meuadio/Cristian.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4" onclick="trackAudioPlay('Leandro')"><img src="https://testedomarcio.github.io/meuadio/Leandro.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Leandro</h4><p class="text-xs text-slate-400 mb-1">Voz Narração · Versátil</p><audio controls preload="none" onplay="trackAudioPlay('Leandro')"><source src="https://testedomarcio.github.io/meuadio/Leandro.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/lindy.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Lindy</h4><p class="text-xs text-slate-400 mb-1">Coloquial · Dinâmica / Redes Sociais</p><audio controls preload="none" onplay="trackAudioPlay('Lindy')"><source src="https://testedomarcio.github.io/meuadio/Lindy.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Elissandra.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Elissandra</h4><p class="text-xs text-slate-400 mb-1">Institucional · Nobre / Corporativo</p><audio controls preload="none" onplay="trackAudioPlay('Elissandra')"><source src="https://testedomarcio.github.io/meuadio/elissandra.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Silvia.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Silvia</h4><p class="text-xs text-slate-400 mb-1">Elegante · Manifesto / Narrativas</p><audio controls preload="none" onplay="trackAudioPlay('Silvia')"><source src="https://testedomarcio.github.io/meuadio/Silvia.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Tati.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Tati</h4><p class="text-xs text-slate-400 mb-1">Jovem · Varejo e Ofertas</p><audio controls preload="none" onplay="trackAudioPlay('Tati')"><source src="https://testedomarcio.github.io/meuadio/tati.mp3" type="audio/mpeg"></audio></div></div>
                     </div>
                 </div>
 
-                <!-- BOTÃO PARA ACESSAR BANCO COMPLETO -->
+                <div class="mb-10">
+                    <h3 class="text-md font-semibold text-slate-500 uppercase tracking-wide mb-5 flex items-center gap-2 border-b pb-2"><i class="fas fa-male text-premium-purple"></i> Banco Masculino (Amostras Técnicas)</h3>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/celso.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Celso</h4><p class="text-xs text-slate-400 mb-1">Grave Impactante · Varejo Forte</p><audio controls preload="none" onplay="trackAudioPlay('Celso')"><source src="https://testedomarcio.github.io/meuadio/Celso.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/charles.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Charles</h4><p class="text-xs text-slate-400 mb-1">Narrativo Sóbrio · Institucional</p><audio controls preload="none" onplay="trackAudioPlay('Charles')"><source src="https://testedomarcio.github.io/meuadio/Charles.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Cristian.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Cristian Jr</h4><p class="text-xs text-slate-400 mb-1">Coloquial · Jovem Redes Sociais</p><audio controls preload="none" onplay="trackAudioPlay('Cristian_Jr')"><source src="https://testedomarcio.github.io/meuadio/Cristian.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Leandro.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Leandro</h4><p class="text-xs text-slate-400 mb-1">Versátil · Comercial e Campanhas</p><audio controls preload="none" onplay="trackAudioPlay('Leandro')"><source src="https://testedomarcio.github.io/meuadio/Leandro.mp3" type="audio/mpeg"></audio></div></div>
+                    </div>
+                </div>
+
                 <div class="text-center mt-8">
-                    <a href="#" 
-                       onclick="trackVozesClick(); return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20navegar%20pelo%20banco%20de%20vozes%20completo%20e%20escolher%20meu%20locutor!', 'WA_CLICK', 'WhatsApp', 'Acessar_Banco_Vozes')"
+                    <a href="https://www.alocucao.com.br/cadastro" 
+                       onclick="trackVozesClick(); return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_CASTING_VITRINE', 'Plataforma', 'Casting_Completo')"
                        class="inline-flex items-center gap-3 bg-slate-800 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-slate-700 transition-all duration-300">
-                        <i class="fas fa-play-circle text-premium-gold text-lg"></i> OUVIR BANCO DE VOZES COMPLETO
-                        <i class="fab fa-whatsapp text-xl ml-2 text-green-400"></i>
+                        <i class="fas fa-magnifying-glass text-cyan-400 text-lg"></i> ENTRAR NO PAINEL E FILTRAR MAIS DE 300 VOZES
+                        <i class="fas fa-arrow-right text-sm ml-2 text-cyan-400"></i>
                     </a>
-                    <p class="text-slate-400 text-sm mt-3">Fale com um especialista e ouça mais amostras de vozes para seu projeto específico</p>
                 </div>
             </div>
         </section>
 
-        <!-- Modelo de Contratação (Cards de Serviços) -->
         <section id="servicos" class="anchor-section py-20 bg-slate-50">
             <div class="max-w-5xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-12">
-                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Modelos de Contratação</span>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">Escolha o <span class="text-premium-purple">Formato</span> Ideal para seu Projeto</h2>
-                    <p class="text-slate-500 mt-2">Da locução comercial rápida ao projeto institucional premium. Tudo online, com orçamento transparente.</p>
+                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Segmentação de Engenharia Acústica</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">Arquitetura de Gravação do Sistema</h2>
+                    <p class="text-slate-500 mt-2">Formatos de entrega parametrizados por blocos de consumo de até 40 segundos, adequados a sua esteira de áudio.</p>
                 </div>
                 
                 <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
-                    
-                    <!-- Card 1: Locução Comercial / Varejo -->
-                    <div class="service-card rounded-3xl shadow-lg p-6 relative">
-                        <div class="text-center">
-                            <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-bullhorn text-blue-600 text-2xl"></i>
+                    <div class="service-card rounded-3xl shadow-lg p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="text-center">
+                                <div class="w-14 h-14 bg-cyan-100 text-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-wave-square text-xl"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-800 mb-1">Locução OFF / Voz Seca</h3>
+                                <p class="text-slate-500 text-xs mb-4 leading-relaxed">Áudio bruto isolado de alta resolução. Perfeito para editores que aplicam suas próprias cadeias de processamento, compressores e trilhas.</p>
                             </div>
-                            <h3 class="text-xl font-bold text-slate-800 mb-2">Locução Comercial / Varejo</h3>
-                            <p class="text-slate-500 text-sm mb-4 leading-relaxed">
-                                Spots comerciais, anúncios de lojas, redes sociais e chamadas rápidas de até 40 segundos.
-                            </p>
+                            <div class="bg-slate-50 rounded-xl p-3 mb-4 text-center border border-slate-200">
+                                <p class="text-2xl font-black text-slate-900">R$ 14,00</p>
+                                <p class="text-[10px] text-slate-400">por unidade de bloco (até 40s)</p>
+                            </div>
                         </div>
-                        <div class="bg-blue-50 rounded-2xl p-4 mb-5 text-center">
-                            <p class="text-sm text-slate-500">A partir de</p>
-                            <p class="text-3xl font-black text-blue-600">R$ 29,90</p>
-                            <p class="text-xs text-slate-400">por bloco de até 40s</p>
-                        </div>
-                        <ul class="space-y-2 mb-6 text-sm">
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-blue-500 mt-0.5"></i> <span>Locução profissional com trilha e efeitos</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-blue-500 mt-0.5"></i> <span>Roteiro revisado gratuitamente</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-blue-500 mt-0.5"></i> <span>Entrega no mesmo dia útil</span></li>
-                        </ul>
-                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20contratar%20uma%20LOCU%C3%87%C3%83O%20COMERCIAL!', 'WA_CLICK', 'WhatsApp', 'Servico_Comercial')" class="block w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition text-center text-sm">
-                            <i class="fab fa-whatsapp mr-2"></i> CONTRATAR AGORA
+                        <a href="https://www.alocucao.com.br/cadastro" onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_CASTING_PRICE_OFF', 'Plataforma', 'Precos_Off')" class="block w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition text-center text-xs tracking-wider">
+                            ENVIAR OFF NO PAINEL
                         </a>
                     </div>
 
-                    <!-- Card 2: Locução Off / Voz Limpa -->
-                    <div class="service-card rounded-3xl shadow-xl p-6 relative border-2 border-premium-purple">
-                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-premium-purple text-white font-bold text-xs uppercase tracking-widest px-6 py-2 rounded-full shadow-lg z-20">
-                            <i class="fas fa-star mr-1"></i> MAIS PROCURADO
+                    <div class="service-card rounded-3xl shadow-xl p-6 border-2 border-premium-purple flex flex-col justify-between relative">
+                        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-premium-purple text-white font-bold text-[10px] uppercase tracking-widest px-4 py-1 rounded-full shadow-md z-20">
+                            Alta Demanda
                         </div>
-                        <div class="text-center mt-4">
-                            <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-microphone-alt text-premium-purple text-2xl"></i>
+                        <div>
+                            <div class="text-center mt-2">
+                                <div class="w-14 h-14 bg-purple-100 text-premium-purple rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-sliders text-xl"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-800 mb-1">Spot Comercial Mixado</h3>
+                                <p class="text-slate-500 text-xs mb-4 leading-relaxed">Produção finalizada com inserção de trilha de fundo branca regulamentada e efeitos de transição acústica. Pronto para reprodução direta.</p>
                             </div>
-                            <h3 class="text-xl font-bold text-slate-800 mb-2">Locução Off / Voz Limpa</h3>
-                            <p class="text-slate-500 text-sm mb-4 leading-relaxed">
-                                Voz gravada em estúdio, perfeitamente limpa. Ideal para produtoras e editores que fazem a própria mixagem.
-                            </p>
+                            <div class="bg-purple-50 rounded-xl p-3 mb-4 text-center border border-purple-200">
+                                <p class="text-2xl font-black text-premium-purple">R$ 29,90</p>
+                                <p class="text-[10px] text-slate-500">por unidade de bloco (até 40s)</p>
+                            </div>
                         </div>
-                        <div class="bg-premium-purple/5 rounded-2xl p-4 mb-5 text-center">
-                            <p class="text-sm text-slate-500">Sob Consulta</p>
-                            <p class="text-3xl font-black text-premium-purple">Orçamento</p>
-                            <p class="text-xs text-slate-400">Personalizado via WhatsApp</p>
-                        </div>
-                        <ul class="space-y-2 mb-6 text-sm">
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-premium-purple mt-0.5"></i> <span>Voz limpa, sem trilha e sem efeitos</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-premium-purple mt-0.5"></i> <span>Arquivos WAV/MP3 de alta qualidade</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-premium-purple mt-0.5"></i> <span>Ideal para produtoras de vídeo e editores</span></li>
-                        </ul>
-                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20contratar%20LOCU%C3%87%C3%83O%20OFF%20VOZ%20LIMPA!', 'WA_CLICK', 'WhatsApp', 'Servico_Off')" class="block w-full py-3 bg-premium-purple hover:bg-premium-purple/90 text-white font-bold rounded-xl transition text-center text-sm shadow-lg">
-                            <i class="fab fa-whatsapp mr-2"></i> SOLICITAR ORÇAMENTO
+                        <a href="https://www.alocucao.com.br/cadastro" onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_CASTING_PRICE_SPOT', 'Plataforma', 'Precos_Spot')" class="block w-full py-2.5 bg-premium-purple hover:bg-premium-purple/95 text-white font-bold rounded-xl transition text-center text-xs tracking-wider shadow-md">
+                            ENVIAR SPOT NO PAINEL
                         </a>
                     </div>
 
-                    <!-- Card 3: Locução Institucional / Vídeos -->
-                    <div class="service-card rounded-3xl shadow-lg p-6 relative">
-                        <div class="text-center">
-                            <div class="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-film text-amber-600 text-2xl"></i>
+                    <div class="service-card rounded-3xl shadow-lg p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="text-center">
+                                <div class="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-layer-group text-xl"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-800 mb-1">Projetos Customizados</h3>
+                                <p class="text-slate-500 text-xs mb-4 leading-relaxed">Textos de longa duração, e-learning corporativo estruturado, audiobooks integrados e projetos especiais com consistência de tom de voz.</p>
                             </div>
-                            <h3 class="text-xl font-bold text-slate-800 mb-2">Locução Institucional / Vídeos</h3>
-                            <p class="text-slate-500 text-sm mb-4 leading-relaxed">
-                                E-learning, manifestos de marca, documentários e vídeos corporativos com interpretação premium.
-                            </p>
+                            <div class="bg-slate-50 rounded-xl p-3 mb-4 text-center border border-slate-200">
+                                <p class="text-2xl font-black text-slate-900">Sob Demanda</p>
+                                <p class="text-[10px] text-slate-400">múltiplos blocos agrupados</p>
+                            </div>
                         </div>
-                        <div class="bg-amber-50 rounded-2xl p-4 mb-5 text-center">
-                            <p class="text-sm text-slate-500">Sob Consulta</p>
-                            <p class="text-3xl font-black text-amber-600">Orçamento</p>
-                            <p class="text-xs text-slate-400">Personalizado via WhatsApp</p>
-                        </div>
-                        <ul class="space-y-2 mb-6 text-sm">
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span>Interpretação profissional com técnica de atuação</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span>Qualidade broadcast para TV, cinema e web</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span>Projetos de longa duração com consistência de tom</span></li>
-                        </ul>
-                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20contratar%20LOCU%C3%87%C3%83O%20INSTITUCIONAL%20para%20meu%20v%C3%ADdeo!', 'WA_CLICK', 'WhatsApp', 'Servico_Institucional')" class="block w-full py-3 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold rounded-xl transition text-center text-sm">
-                            <i class="fab fa-whatsapp mr-2"></i> SOLICITAR ORÇAMENTO
+                        <a href="https://www.alocucao.com.br/cadastro" onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_CASTING_PRICE_CUSTOM', 'Plataforma', 'Precos_Custom')" class="block w-full py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold rounded-xl transition text-center text-xs tracking-wider">
+                            SIMULAR TEXTO LONGO
                         </a>
                     </div>
                 </div>
 
-                <!-- NOTA SOBRE CONTRATAÇÃO ONLINE -->
-                <div class="text-center mt-8 bg-white rounded-xl p-5 max-w-2xl mx-auto border border-slate-200">
-                    <p class="text-xs text-slate-500 mb-2">
-                        <i class="fas fa-globe text-premium-purple"></i> 
-                        <strong>Contratação 100% online:</strong> Envie seu roteiro, escolha a voz no nosso banco e receba o áudio finalizado no WhatsApp ou e-mail.
-                    </p>
-                    <p class="text-xs text-slate-500 mb-2">
-                        <i class="fas fa-credit-card text-premium-purple"></i>
-                        <strong>Pagamento facilitado:</strong> PIX, cartão de crédito ou boleto. Tudo resolvido de forma digital e segura.
-                    </p>
-                    <p class="text-xs text-slate-500">
-                        <i class="fas fa-clock text-premium-purple"></i>
-                        <strong>Horário de produção:</strong> Segunda a Sexta das 08h às 18h | Sábados das 08h às 12h. Pedidos aprovados no expediente são entregues no mesmo dia.
-                    </p>
+                <div class="text-center mt-10 bg-white rounded-xl p-4 max-w-2xl mx-auto border border-slate-200 text-xs text-slate-500">
+                    <p class="mb-1.5"><i class="fas fa-circle-nodes text-premium-purple"></i> <strong>Saldos Flexíveis:</strong> Suas recargas são convertidas em créditos unificados dentro do painel corporativo, não possuem data de expiração e podem ser fracionadas entre diferentes locutores do banco.</p>
+                    <p><i class="fas fa-clock text-premium-purple"></i> <strong>Operação de Cabines:</strong> A submissão de roteiros é ininterrupta 24h. As escalas de gravação dos profissionais ocorrem das 06h às 22h, de segunda a domingo. Triagens técnicas ocorrem de Seg a Sex (08h-18h) e Sáb (08h-12h).</p>
                 </div>
             </div>
         </section>
 
-        <!-- Marcas / Empresas que confiam -->
-        <section class="py-8 bg-white border-t border-slate-100 overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4">
-                <p class="text-center text-xs font-semibold text-slate-400 uppercase tracking-widest mb-4">Criadores, agências e empresas que contratam pelo nosso banco de vozes</p>
-                <div class="relative flex overflow-hidden">
-                    <div class="flex whitespace-nowrap gap-8 items-center animate-scroll">
-                        <span class="text-slate-400 font-medium text-sm">Agência Criativa Web</span><span class="text-slate-300">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Produtora de Vídeo Frame</span><span class="text-slate-300">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Canal YouTube Top</span><span class="text-slate-300">•</span>
-                        <span class="text-slate-400 font-medium text-sm">EAD Corporativo Brasil</span><span class="text-slate-300">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Podcast Vozes Reais</span><span class="text-slate-300">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Agência de Marketing Digital</span><span class="text-slate-300">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Estúdio de Games Online</span><span class="text-slate-300">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Rádio Web Conexão</span><span class="text-slate-300">•</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Final (Foco em Comodidade Digital) -->
-        <section id="whatsapp" class="anchor-section py-20 bg-darkBg text-white text-center">
+        <section id="cta-final" class="anchor-section py-20 bg-darkBg text-white text-center">
             <div class="max-w-3xl mx-auto px-4">
-                <div class="inline-flex items-center gap-2 bg-digital-blue/10 border border-digital-blue/30 rounded-full px-5 py-2 mb-6">
-                    <i class="fas fa-laptop-house text-blue-400"></i>
-                    <span class="text-blue-300 text-sm font-medium">Contrate um locutor profissional sem sair de casa ou do escritório</span>
+                <div class="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 rounded-full px-5 py-2 mb-6">
+                    <i class="fas fa-server text-cyan-400"></i>
+                    <span class="text-cyan-400 text-sm font-medium">Gerenciamento eletrônico de locutores profissionais</span>
                 </div>
-                <h2 class="text-3xl sm:text-5xl font-bold mb-5">Pronto para dar <span class="text-premium-gold">voz ao seu projeto?</span></h2>
-                <p class="text-slate-300 text-lg mb-10">Envie seu roteiro agora mesmo, escolha a voz ideal no nosso banco de vozes e receba seu áudio profissional no mesmo dia. Tudo online, rápido e sem burocracia.</p>
-                <a href="#" 
-                   onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20contratar%20um%20locutor.%20Segue%20meu%20roteiro%20para%20or%C3%A7amento!', 'WA_CLICK', 'WhatsApp', 'Final_CTA_Online')"
+                <h2 class="text-3xl sm:text-5xl font-bold mb-5">Modernize a produção de <span class="text-cyan-400">áudio da sua empresa</span></h2>
+                <p class="text-slate-300 text-lg mb-10">Centralize seu fluxo de trabalho em uma plataforma robusta. Monitore o andamento das suas gravações pela internet, faça simulações exatas instantaneamente por caracteres e tenha acesso contínuo a mais de 300 locutores reais.</p>
+                <a href="https://www.alocucao.com.br/cadastro" 
+                   onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_CASTING_FINAL_CTA', 'Plataforma', 'Final_CTA_Cadastro')"
                    class="inline-flex items-center gap-4 bg-premium-purple hover:bg-premium-purple/90 text-white px-12 py-5 rounded-2xl font-bold text-xl hover:-translate-y-1 transition-all shadow-[0_20px_40px_rgba(91,58,140,0.3)]">
-                    <i class="fab fa-whatsapp text-3xl"></i> ENVIAR ROTEIRO E CONTRATAR
+                    <i class="fas fa-user-plus text-3xl"></i> ABRIR CONTA CORPORATIVA GRATUITA
                 </a>
-                <p class="text-slate-400 text-sm mt-6"><i class="fas fa-shield-alt text-premium-gold"></i> Atendimento online via WhatsApp | Orçamento rápido | Correções incluídas</p>
-                <p class="text-xs text-slate-600 mt-8"><i class="fab fa-whatsapp"></i> (27) 99652-9832 · contato@alocucao.com.br</p>
-                <p class="text-xs text-slate-600 mt-1">Estúdio A Locução © 2012-2026 · Banco de Vozes Online</p>
+                <p class="text-xs text-slate-600 mt-12">Estúdio A Locução © 2012-2026 · Soluções Tecnológicas de Engenharia Computacional e Acústica</p>
                 <div style="text-align: center; margin-top: 15px; padding-bottom: 20px;">
-                    <p style="font-size: 11px; color: #94a3b8; font-style: italic; margin: 0;">
+                    <p style="font-size: 11px; color: #64748b; font-style: italic; margin: 0;">
                         "Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos." — Provérbios 16:3
                     </p>
                 </div>
@@ -695,31 +403,26 @@
         </section>
     </main>
 
-    <!-- POP-UP DE VANTAGENS (Adaptado para Contratação Online) -->
     <div id="advantages-popup" class="fixed inset-0 bg-black/80 z-[99999] hidden items-center justify-center p-4">
         <div class="popup-content bg-white p-6 md:p-8 rounded-2xl max-w-md w-full text-center shadow-2xl relative">
             <button onclick="closeAdvantagesPopup()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600"><i class="fas fa-times text-xl"></i></button>
-            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i class="fas fa-cloud-upload-alt text-blue-600 text-2xl"></i>
+            <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                <i class="fas fa-microchip"></i>
             </div>
-            <h3 class="text-2xl font-bold text-slate-800 mb-2">Contrate um locutor sem sair de casa!</h3>
-            <p class="text-slate-500 text-sm mb-5">Nosso banco de vozes online conecta você aos melhores profissionais com agilidade e segurança.</p>
+            <h3 class="text-2xl font-bold text-slate-800 mb-2">Acesso Imediato ao Casting</h3>
+            <p class="text-slate-500 text-sm mb-5">Abra sua conta digital corporativa e experimente o simulador de texto por caracteres em tempo real.</p>
             <ul class="text-left space-y-3 mb-6">
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-blue-500 mt-0.5"></i> <strong>Banco de vozes selecionadas</strong> — ouça e escolha</li>
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-blue-500 mt-0.5"></i> <strong>Processo 100% online</strong> — sem deslocamento</li>
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-blue-500 mt-0.5"></i> <strong>Entrega expressa</strong> no WhatsApp ou e-mail</li>
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-blue-500 mt-0.5"></i> <strong>Suporte humanizado</strong> na escolha da voz</li>
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-blue-500 mt-0.5"></i> <strong>Roteiro revisado</strong> gratuitamente</li>
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-blue-500 mt-0.5"></i> <strong>Áudio em alta definição</strong> pronto para uso</li>
+                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-cyan-500 mt-0.5"></i> <span><strong>Simulação Eletrônica:</strong> Saiba os custos na hora</span></li>
+                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-cyan-500 mt-0.5"></i> <span><strong>Filtros Avançados:</strong> Escolha entre mais de 300 timbres</span></li>
+                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-cyan-500 mt-0.5"></i> <span><strong>Gestão Sem Assinatura:</strong> Consuma saldos sob demanda</span></li>
+                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-cyan-500 mt-0.5"></i> <span><strong>Plantão Unificado:</strong> Gravações diárias das 06h às 22h</span></li>
             </ul>
-            <a href="#" onclick="closeAdvantagesPopup(); return safeRedirectWA('https://wa.me/5527996529832?text=Quero%20contratar%20um%20locutor%20online%20agora%20mesmo!', 'WA_CLICK', 'WhatsApp', 'Popup_Vantagens')" class="flex items-center justify-center w-full bg-premium-purple text-white py-3 rounded-xl font-bold gap-2 hover:bg-premium-purple/90 transition">
-                <i class="fab fa-whatsapp text-xl"></i> CONTRATAR LOCUTOR AGORA
+            <a href="https://www.alocucao.com.br/cadastro" onclick="closeAdvantagesPopup(); return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_CASTING_POPUP', 'Plataforma', 'Popup_Cadastro')" class="flex items-center justify-center w-full bg-premium-purple text-white py-3 rounded-xl font-bold gap-2 hover:bg-premium-purple/90 transition">
+                <i class="fas fa-laptop-code"></i> ENTRAR NO PAINEL DIGITAL
             </a>
-            <p class="text-[10px] text-slate-400 mt-3">Contrate com segurança e receba seu áudio profissional no mesmo dia</p>
         </div>
     </div>
 
-    <!-- Leadster -->
     <script>(function(a,b,c,d){try{var e=b.head||b.getElementsByTagName("head")[0];var f=b.createElement("script");f.setAttribute("src",c);f.setAttribute("charset","UTF-8");f.defer=true;a.neuroleadId=d;e.appendChild(f)}catch(g){}})(window,document,"https://cdn.leadster.com.br/neurolead/neurolead.min.js","suuyuh5U3EkKnzksGWBUMxBly")</script>
 
     <script>
@@ -740,15 +443,6 @@
         audios.forEach(audio => {
             audio.addEventListener('play', () => {
                 audios.forEach(other => { if (other !== audio) other.pause(); });
-            });
-        });
-
-        // Filtros do Banco de Vozes
-        const filterTags = document.querySelectorAll('.filter-tag');
-        filterTags.forEach(tag => {
-            tag.addEventListener('click', function() {
-                filterTags.forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
             });
         });
 
@@ -791,17 +485,6 @@
             if(e.key === 'Escape' && document.getElementById('advantages-popup')?.classList.contains('active')) 
                 closeAdvantagesPopup(); 
         });
-
-        // Hide tooltip after 10 seconds
-        setTimeout(function() {
-            const tooltip = document.querySelector('.whatsapp-tooltip');
-            if (tooltip) {
-                tooltip.style.opacity = '0';
-                tooltip.style.transition = 'opacity 0.5s ease';
-                setTimeout(() => { if (tooltip) tooltip.style.display = 'none'; }, 500);
-            }
-        }, 10000);
     </script>
-    
 </body>
 </html>
