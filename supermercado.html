@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     
-    <!-- SEO & Meta Tags -->
     <title>Gravação de Spot para Supermercado | Propaganda de Ofertas | A Locução</title>
-    <meta name="description" content="Gravação de spots e propagandas para supermercados, mercados, atacadões e hortifrútis. Locução de varejo com impacto, trilha agitada e efeitos. Produção completa a partir de R$29,90. Entrega no mesmo dia.">
+    <meta name="description" content="Gravação de spots e propagandas para supermercados, mercados, atacadões e hortifrútis. Locução de varejo com impacto, trilha agitada e efeitos. Produção completa via painel inteligente 24h.">
     
-    <!-- Preconnect para Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
-    <!-- Google Tag -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093304718"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -21,16 +18,21 @@
       gtag('js', new Date());
       gtag('config', 'AW-18093304718');
 
-      function safeRedirectWA(url, conversionLabel, eventCategory, eventLabel) {
+      function safeRedirectPanel(url, conversionLabel, eventCategory, eventLabel) {
           gtag('event', 'conversion', {
               'send_to': 'AW-18093304718/' + conversionLabel,
               'event_category': eventCategory,
               'event_label': eventLabel
           });
           setTimeout(function() {
-              window.open(url, '_blank');
+              window.location.href = url;
           }, 300);
           return false;
+      }
+
+      // Fallback seguro caso rotinas antigas chamem safeRedirectWA
+      function safeRedirectWA(url, conversionLabel, eventCategory, eventLabel) {
+          return safeRedirectPanel('https://www.alocucao.com.br/cadastro', conversionLabel, eventCategory, eventLabel);
       }
 
       function trackAudioPlay(name) {
@@ -48,13 +50,10 @@
       }
     </script>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <script>
@@ -74,14 +73,10 @@
                     },
                     animation: {
                         'scroll': 'scroll 40s linear infinite',
-                        'fade-in-up': 'fadeInUp 0.6s ease-out',
-                        'float': 'float 3s ease-in-out infinite',
                         'pulse-offer': 'pulseOffer 1.5s ease-in-out infinite',
                     },
                     keyframes: {
                         scroll: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
-                        fadeInUp: { 'from': { opacity: '0', transform: 'translateY(20px)' }, 'to': { opacity: '1', transform: 'translateY(0)' } },
-                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
                         pulseOffer: { '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(245, 158, 11, 0.6)' }, '50%': { transform: 'scale(1.03)', boxShadow: '0 0 0 20px rgba(245, 158, 11, 0)' } }
                     }
                 }
@@ -91,198 +86,52 @@
 
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #faf9f8; scroll-behavior: smooth; }
-        
-        .glass-header {
-            background: rgba(15, 23, 42, 0.96);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
+        .glass-header { background: rgba(15, 23, 42, 0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
         audio { height: 40px; width: 100%; border-radius: 60px; background: #f1f5f9; }
         audio::-webkit-media-controls-panel { background-color: #f8fafc; }
-        
-        details > summary { list-style: none; }
-        details > summary::-webkit-details-marker { display: none; }
-        
-        img { max-width: 100%; height: auto; }
-
-        .locutor-card {
-            transition: all 0.25s ease;
-            border: 1px solid #e9e8e6;
-        }
-        .locutor-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-            border-color: #d4d2cf;
-        }
-        .locutor-img {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #e2e8f0;
-        }
-
+        .locutor-card { transition: all 0.25s ease; border: 1px solid #e9e8e6; }
+        .locutor-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); border-color: #5B3A8C; }
+        .locutor-img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid #e2e8f0; }
         .anchor-section { scroll-margin-top: 80px; }
         @media (max-width: 768px) { .anchor-section { scroll-margin-top: 70px; } }
-        
-        .diferencial-card {
-            transition: all 0.3s ease;
-            border: 1px solid #f0efed;
-        }
-        .diferencial-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
-            border-color: #d4d2cf;
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 10px;
-        }
-        .whatsapp-tooltip {
-            background: white;
-            color: #1e293b;
-            padding: 14px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-            position: relative;
-            white-space: nowrap;
-            max-width: 280px;
-            text-align: center;
-        }
-        .whatsapp-tooltip::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            right: 40px;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-top: 10px solid white;
-        }
-        .whatsapp-button {
-            width: 65px;
-            height: 65px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            color: white;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            animation: float 3s ease-in-out infinite;
-        }
-        .whatsapp-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
-            background: #1fb855;
-        }
-        @media (max-width: 640px) {
-            .whatsapp-float { bottom: 20px; right: 20px; }
-            .whatsapp-button { width: 55px; height: 55px; font-size: 28px; }
-            .whatsapp-tooltip { font-size: 12px; padding: 10px 14px; max-width: 220px; }
-        }
-        
-        .elegant-badge {
-            background: linear-gradient(135deg, rgba(91,58,140,0.15) 0%, rgba(91,58,140,0.08) 100%);
-            border: 1px solid rgba(91,58,140,0.25);
-        }
-
-        .offer-badge {
-            background: linear-gradient(135deg, rgba(220, 38, 38, 0.15) 0%, rgba(245, 158, 11, 0.1) 100%);
-            border: 2px solid rgba(245, 158, 11, 0.5);
-            animation: pulseOffer 1.5s ease-in-out infinite;
-        }
-
-        .price-card {
-            transition: all 0.3s ease;
-            border: 1px solid #e9e8e6;
-        }
-        .price-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-        }
-        .price-card.destaque {
-            border: 2px solid #5B3A8C;
-            box-shadow: 0 15px 35px rgba(91,58,140,0.1);
-        }
-
-        .price-tag-varejo {
-            background: linear-gradient(135deg, #DC2626, #F59E0B);
-            color: white;
-        }
-
-        /* Pop-up Vantagens */
-        #advantages-popup {
-            display: none;
-        }
-        #advantages-popup.active {
-            display: flex;
-        }
-        .popup-content {
-            animation: slideUp 0.5s ease-out;
-        }
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .highlight-border {
-            position: relative;
-        }
+        .diferencial-card { transition: all 0.3s ease; border: 1px solid #f0efed; }
+        .diferencial-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.05); border-color: #5B3A8C; }
+        .price-card { transition: all 0.3s ease; border: 1px solid #e9e8e6; flex-direction: column; justify-content: space-between; display: flex; }
+        .price-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: #5B3A8C; }
+        .price-card.destaque { border: 2px solid #5B3A8C; box-shadow: 0 15px 35px rgba(91,58,140,0.1); }
+        .offer-badge { background: linear-gradient(135deg, rgba(220, 38, 38, 0.15) 0%, rgba(245, 158, 11, 0.1) 100%); border: 2px solid rgba(245, 158, 11, 0.5); animation: pulseOffer 1.5s ease-in-out infinite; }
+        #advantages-popup { display: none; }
+        #advantages-popup.active { display: flex; }
+        .popup-content { animation: slideUp 0.5s ease-out; }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .highlight-border { position: relative; }
         .highlight-border::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 1rem;
-            padding: 2px;
+            content: ''; position: absolute; inset: 0; border-radius: 1rem; padding: 2px;
             background: linear-gradient(135deg, #F59E0B, #DC2626, #F59E0B);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            animation: borderGlow 3s ease-in-out infinite;
-        }
-        @keyframes borderGlow {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
+            -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0.8;
         }
     </style>
 </head>
 <body class="font-sans antialiased text-slate-700">
 
-    <!-- WhatsApp Flutuante -->
-    <div class="whatsapp-float">
-        <div class="whatsapp-tooltip">
-            <i class="fas fa-headset mr-1" style="color: #25D366;"></i> 
-            Grave seu spot promocional agora!
+    <div class="fixed bottom-6 right-6 z-[9999] flex flex-col align-end items-end gap-2">
+        <div class="bg-white text-slate-800 text-xs font-bold px-4 py-2.5 rounded-xl shadow-xl border border-slate-100 hidden sm:block">
+            <i class="fas fa-headset text-[#25D366] mr-1"></i> Suporte de Recargas e Conta Online
         </div>
-        <a href="#" 
-           onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20preciso%20de%20um%20spot%20promocional%20para%20minhas%20ofertas!', 'WA_FLOAT_CLICK', 'WhatsApp', 'Botao_Flutuante')"
-           target="_blank" 
-           class="whatsapp-button" 
-           title="Fale com nosso time">
+        <a href="https://wa.me/5527996529832?text=Olá!%20Tenho%20um%20supermercado%20e%20gostaria%20de%20esclarecer%20uma%20dúvida%20técnica%20sobre%20as%20recargas%20ou%20o%20funcionamento%20do%20painel%20de%20spots." 
+           target="_blank" rel="noopener noreferrer"
+           class="w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] rounded-full flex items-center justify-center text-3xl text-white shadow-[0_8px_25px_rgba(37,211,102,0.4)] hover:scale-110 transition-all duration-300">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
 
-    <!-- HEADER -->
     <header class="fixed w-full top-0 z-50 glass-header text-white transition-all py-2 sm:py-3">
         <div class="bg-slate-800/40 border-b border-slate-700/30">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-center sm:justify-between items-center py-1.5 text-[10px] sm:text-xs text-slate-400">
                 <span class="hidden sm:flex items-center gap-2"><i class="fas fa-envelope text-slate-500"></i> contato@alocucao.com.br</span>
-                <span class="flex items-center gap-2"><i class="fab fa-whatsapp text-green-500"></i> (27) 99652-9832</span>
-                <span class="hidden sm:flex items-center gap-1"><i class="fas fa-clock text-slate-500"></i> Seg a Sex 08h-18h | Sáb 08h-12h</span>
+                <span class="flex items-center gap-2"><i class="fas fa-bolt text-amber-400"></i> Automação de Encartes: Cole seu texto de ofertas e gere o áudio no painel</span>
+                <span class="hidden sm:flex items-center gap-1"><i class="fas fa-clock text-slate-500"></i> Plantão de Locutores: Todos os dias das 06h às 22h</span>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center py-2">
@@ -291,374 +140,283 @@
             </a>
             <div class="flex items-center gap-3 sm:gap-4">
                 <span class="hidden lg:flex items-center gap-2 text-amber-400 text-xs font-bold border-r border-slate-700 pr-4">
-                    <i class="fas fa-bullhorn text-premium-gold text-xs"></i> Spots que vendem — produção no mesmo dia
+                    <i class="fas fa-bullhorn text-premium-gold text-xs"></i> Chamadas promocionais e ofertas rápidas sem burocracia
                 </span>
-                <a href="#" 
-                   onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20um%20spot%20para%20minhas%20promo%C3%A7%C3%B5es!', 'WA_CLICK', 'WhatsApp', 'Header')"
-                   class="bg-action-green hover:bg-action-green-hover text-white font-bold flex items-center gap-2 transition-colors text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-md">
-                    <i class="fab fa-whatsapp text-base"></i> <span class="hidden sm:inline">SOLICITAR SPOT →</span><span class="sm:hidden">WhatsApp</span>
+                <a href="https://www.alocucao.com.br/cadastro"
+                   class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold flex items-center gap-2 transition-colors text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-md">
+                    <i class="fas fa-desktop"></i> <span>ENTRAR NO PAINEL →</span>
                 </a>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section - Foco em Varejo e Supermercados -->
         <section id="home" class="anchor-section bg-darkBg pt-32 sm:pt-36 lg:pt-40 pb-16 lg:pb-20 relative overflow-hidden text-white">
             <div class="absolute inset-0 bg-gradient-to-br from-red-900/20 via-premium-purple/10 to-amber-900/10 pointer-events-none"></div>
             
             <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center text-center">
-                
-                <!-- Badge de Oferta / Varejo -->
                 <div class="inline-flex items-center gap-2 offer-badge text-premium-gold px-5 py-2 rounded-full text-xs font-bold tracking-wide mb-6 shadow-lg">
-                    <i class="fas fa-bullhorn text-sm"></i>
-                    SPOTS E PROPAGANDAS PARA SUPERMERCADOS, ATACADÕES E HORTIFRÚTIS
+                    <i class="fas fa-shopping-basket text-sm"></i> ENCARTES, OFERTAS SEMANAIS, ATACADÕES E HORTIFRÚTIS
                 </div>
                 
                 <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight mb-4 max-w-5xl">
-                    Venda Muito Mais com <span class="text-premium-gold">Áudios de Ofertas Profissionais</span>
+                    Grave Seus Spots de Ofertas <br class="hidden sm:block"> com <span class="text-premium-gold">Mecânica de Varejo Líquida</span>
                 </h1>
                 
                 <p class="text-slate-300 text-lg lg:text-2xl mb-4 leading-relaxed max-w-3xl font-medium">
-                    Gravação de Spots, Vinhetas e Propagandas para seu Comércio.<br>
-                    <span class="text-premium-gold font-bold">Produção Completa: Locução Varejo de Alto Impacto + Trilha Sonora Agitada + Efeitos de Promoção.</span>
+                    Insira sua lista de produtos direto na plataforma digital. O simulador calcula o volume exato de blocos e aciona o plantão de locutores de varejo de forma automática.
                 </p>
 
-                <!-- Preço principal: Produção Completa de Spot -->
                 <div class="flex flex-col items-center justify-center gap-4 mb-6">
-                    <div class="bg-gradient-to-br from-red-900/40 to-premium-purple/30 backdrop-blur-sm rounded-2xl px-8 py-5 border-2 border-premium-gold/50 highlight-border">
-                        <p class="text-sm text-premium-gold font-semibold uppercase tracking-wide">Produção Completa de Spot Promocional</p>
+                    <div class="bg-gradient-to-br from-red-900/40 to-premium-purple/30 backdrop-blur-sm rounded-2xl px-8 py-5 border border-amber-500/30 highlight-border shadow-2xl">
+                        <p class="text-sm text-premium-gold font-semibold uppercase tracking-wide">Produção Comercial de Varejo com Trilhas</p>
                         <p class="text-6xl sm:text-7xl font-black text-white">R$ 29<small class="text-3xl font-normal text-slate-300">,90</small></p>
-                        <p class="text-sm text-slate-300 font-medium mt-1">por bloco de até 40 segundos de áudio</p>
+                        <p class="text-sm text-slate-300 font-medium mt-1">valor unificado por bloco de até 40 segundos de áudio masterizado</p>
                     </div>
                 </div>
 
-                <!-- DESTAQUE DA REGRA DE BLOCO -->
-                <div class="bg-slate-800/60 rounded-lg p-3 mb-6 text-center max-w-lg mx-auto border border-slate-700/50">
+                <div class="bg-slate-900/60 rounded-lg p-3.5 mb-6 text-center max-w-xl mx-auto border border-slate-800/80">
                     <p class="text-xs text-slate-300 leading-relaxed">
                         <i class="fas fa-info-circle text-premium-gold mr-1"></i> 
-                        <strong class="text-white">Valor por bloco de até 40 segundos de áudio gravado e produzido.</strong>
-                        <br><span class="text-slate-400">Ideal para encartes e ofertas semanais. Inclui locução de varejo, trilha agitada e efeitos sonoros de promoção.</span>
+                        <strong>Controle por blocos lineares de até 40 segundos.</strong> 
+                        <br><span class="text-slate-400">A cubagem perfeita para divulgar de 4 a 6 itens com preços impactantes. Inclui mixagem com trilhas brancas comerciais de ritmo acelerado e efeitos promocionais.</span>
                     </p>
                 </div>
                 
-                <!-- Grid de diferenciais para varejo -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-5 w-full max-w-4xl mb-8">
-                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-premium-gold/50 transition-all">
+                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-premium-gold/40 transition-all">
                         <i class="fas fa-volume-up text-premium-gold text-2xl mb-2"></i>
-                        <p class="text-sm font-bold text-white">Voz Varejo de Impacto</p>
-                        <p class="text-xs text-slate-400">Locutores especialistas em chamadas de ofertas e promoções</p>
+                        <p class="text-sm font-bold text-white">Voz de Varejo Pura</p>
+                        <p class="text-xs text-slate-400">Profissionais humanos focados na conversão imediata de gondola</p>
                     </div>
-                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-premium-gold/50 transition-all">
-                        <i class="fas fa-truck-fast text-premium-gold text-2xl mb-2"></i>
-                        <p class="text-sm font-bold text-white">Entrega Rápida</p>
-                        <p class="text-xs text-slate-400">Anúncios prontos no mesmo dia para sua loja ou rádio interna</p>
+                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-premium-gold/40 transition-all">
+                        <i class="fas fa-bolt text-premium-gold text-2xl mb-2"></i>
+                        <p class="text-sm font-bold text-white">Esteira Expressa</p>
+                        <p class="text-xs text-slate-400">Áudios entregues prontos no mesmo dia para alimentar seu sistema de som</p>
                     </div>
-                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-premium-gold/50 transition-all">
+                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-premium-gold/40 transition-all">
                         <i class="fas fa-sliders-h text-premium-gold text-2xl mb-2"></i>
-                        <p class="text-sm font-bold text-white">Produção Completa</p>
-                        <p class="text-xs text-slate-400">Roteiro, voz, trilhas comerciais agitadas e efeitos inclusos</p>
+                        <p class="text-sm font-bold text-white">Trilhas Agitadas</p>
+                        <p class="text-xs text-slate-400">Efeitos acústicos de impacto que chamam a atenção de quem está passando</p>
                     </div>
-                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-premium-gold/50 transition-all">
-                        <i class="fas fa-file-alt text-premium-gold text-2xl mb-2"></i>
-                        <p class="text-sm font-bold text-white">Roteiro Promocional</p>
-                        <p class="text-xs text-slate-400">Ajudamos a estruturar suas ofertas para o áudio vender mais</p>
+                    <div class="bg-slate-800/40 rounded-xl p-4 text-center border border-slate-700/50 backdrop-blur-sm hover:border-premium-gold/40 transition-all">
+                        <i class="fas fa-microchip text-premium-gold text-2xl mb-2"></i>
+                        <p class="text-sm font-bold text-white">Gestão Autônoma</p>
+                        <p class="text-xs text-slate-400">Crie, pague via PIX automático e monitore a gravação 24h sem intermediários</p>
                     </div>
                 </div>
                 
-                <!-- COMO FUNCIONA (3 PASSOS) -->
-                <div class="max-w-2xl mx-auto mb-8 pt-4 border-t border-slate-700/50">
-                    <p class="text-slate-400 text-sm mb-4"><i class="fas fa-play-circle text-premium-gold"></i> Em 3 passos seu spot está no ar:</p>
+                <div class="max-w-2xl mx-auto mb-8 pt-4 border-t border-slate-800">
+                    <p class="text-slate-400 text-sm mb-4"><i class="fas fa-circle-nodes text-premium-gold"></i> Automação imediata de ponta a ponta:</p>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
                         <div class="flex items-start gap-3">
-                            <span class="w-6 h-6 bg-premium-purple text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0">1</span>
-                            <p class="text-slate-300 text-xs">Envie suas <strong class="text-white">ofertas e produtos</strong> pelo WhatsApp</p>
+                            <span class="w-6 h-6 bg-slate-800 border border-slate-700 text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0">1</span>
+                            <p class="text-slate-300 text-xs">Cole sua lista de ofertas diretamente no **simulador eletrônico**</p>
                         </div>
                         <div class="flex items-start gap-3">
-                            <span class="w-6 h-6 bg-premium-purple text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0">2</span>
-                            <p class="text-slate-300 text-xs"><strong class="text-white">Criamos o roteiro</strong> e produzimos o spot completo</p>
+                            <span class="w-6 h-6 bg-slate-800 border border-slate-700 text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0">2</span>
+                            <p class="text-slate-300 text-xs">Filtre o casting de **locutores promocionais** conectados online</p>
                         </div>
                         <div class="flex items-start gap-3">
-                            <span class="w-6 h-6 bg-premium-purple text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0">3</span>
-                            <p class="text-slate-300 text-xs">Receba o <strong class="text-white">áudio pronto</strong> para tocar na sua loja</p>
+                            <span class="w-6 h-6 bg-slate-800 border border-slate-700 text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0">3</span>
+                            <p class="text-slate-300 text-xs">Baixe o arquivo master em **alta definição** direto pelo seu painel</p>
                         </div>
                     </div>
                 </div>
                 
-                <!-- CTA Principal -->
                 <div class="flex flex-col items-center w-full max-w-2xl">
-                    <a href="#" 
-                       onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20preciso%20de%20um%20spot%20promocional%20para%20minhas%20ofertas%20do%20supermercado!', 'WA_CLICK', 'WhatsApp', 'Hero_Spot')"
-                       class="w-full sm:w-auto bg-premium-purple hover:bg-premium-purple/90 text-white px-10 py-5 sm:py-6 rounded-2xl font-bold text-lg sm:text-xl flex items-center justify-center gap-4 shadow-[0_20px_40px_rgba(91,58,140,0.3)] hover:-translate-y-1 transition-all duration-300">
-                        <i class="fab fa-whatsapp text-2xl sm:text-3xl"></i> QUERO MEU SPOT PROMOCIONAL
+                    <a href="https://www.alocucao.com.br/cadastro" 
+                       onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_SUPER_HERO', 'Plataforma', 'Hero_Supermercado')"
+                       class="w-full sm:w-auto bg-gradient-to-r from-premium-purple to-indigo-700 hover:opacity-95 text-white px-10 py-5 sm:py-6 rounded-2xl font-bold text-lg sm:text-xl flex items-center justify-center gap-4 shadow-[0_20px_40px_rgba(91,58,140,0.3)] hover:-translate-y-1 transition-all duration-300">
+                        <i class="fas fa-desktop text-2xl sm:text-3xl"></i> ACESSAR SIMULADOR E SUBMETER ENCARTE
                         <i class="fas fa-arrow-right text-sm opacity-80"></i>
                     </a>
-                    <p class="text-slate-400 text-xs mt-4"><i class="fas fa-shield-alt text-premium-gold text-xs"></i> Pagamento via PIX | Roteiro incluso | Correções gratuitas para erros do locutor</p>
+                    <p class="text-slate-400 text-xs mt-4"><i class="fas fa-shield-alt text-premium-gold text-xs"></i> Créditos rotativos sem validade | Processamento imediato PIX | Garantia técnica de fidelidade acústica</p>
                 </div>
             </div>
         </section>
 
-        <!-- Diferenciais em Detalhe (Foco Varejo) -->
         <section class="py-16 bg-white border-b border-slate-100">
             <div class="max-w-6xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-10">
-                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Por que os mercados escolhem a gente?</span>
+                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Engenharia de Conversão de Gondola</span>
                     <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4 text-slate-900">
-                        Spots que <span class="text-premium-purple">realmente vendem</span> na porta da loja
+                        Áudio de Alta Performance na Fachada e no Sistema Interno
                     </h2>
                     <p class="text-slate-500 text-lg max-w-2xl mx-auto">
-                        Um áudio profissional no ambiente interno ou na fachada faz o cliente comprar produtos que não estavam na lista. Nós sabemos como fazer isso acontecer.
+                        A sonorização profissional ativa estímulos psicológicos imediatos no consumidor. Nosso sistema foi projetado para entregar dinamismo absoluto ao varejo alimentício.
                     </p>
                 </div>
                 <div class="grid md:grid-cols-3 gap-6">
                     <div class="diferencial-card bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
-                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-bullhorn text-red-600 text-2xl"></i>
+                        <div class="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-bolt-lightning text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-800 mb-2">Locução de Varejo</h3>
-                        <p class="text-slate-500 text-sm">Locutores especializados em voz de oferta e promoção. O tom certo para fazer o cliente parar e comprar. Energia e credibilidade na medida certa.</p>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Locuções com Pegada de Venda</h3>
+                        <p class="text-slate-500 text-sm">Timbres humanos com a inflexão exata e ritmo acelerado de ofertas. Locutores treinados para transmitir a urgência indispensável às campanhas de supermercados e hortifrútis.</p>
                     </div>
                     <div class="diferencial-card bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
-                        <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-pen-fancy text-amber-600 text-2xl"></i>
+                        <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-spell-check text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-800 mb-2">Roteiro que Converte</h3>
-                        <p class="text-slate-500 text-sm">Nossa equipe ajuda a estruturar suas ofertas no formato ideal para áudio. Destacamos preços, condições e chamadas de urgência que geram resultados.</p>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Simulador Digital de Caracteres</h3>
+                        <p class="text-slate-500 text-sm">O motor inteligente avalia a minutagem do seu texto de forma eletrônica. Saiba na hora o consumo exato de blocos do seu encarte promocional antes de enviar para a cabine.</p>
                     </div>
                     <div class="diferencial-card bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
-                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-music text-green-600 text-2xl"></i>
+                        <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-circle-nodes text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-800 mb-2">Trilhas Agitadas</h3>
-                        <p class="text-slate-500 text-sm">Trilhas sonoras comerciais e efeitos de promoção que criam atmosfera de oferta imperdível. Tudo com licença de uso comercial inclusa.</p>
-                    </div>
-                </div>
-                <div class="mt-8 flex flex-wrap justify-center gap-4">
-                    <div class="flex items-center gap-2 bg-green-50 px-4 py-2 rounded-full border border-green-200">
-                        <i class="fas fa-credit-card text-green-600"></i>
-                        <span class="text-sm text-slate-700 font-medium">PIX • Cartão • Boleto</span>
-                    </div>
-                    <div class="flex items-center gap-2 bg-purple-50 px-4 py-2 rounded-full border border-purple-200">
-                        <i class="fas fa-check-circle text-premium-purple"></i>
-                        <span class="text-sm text-slate-700 font-medium">Roteiro promocional incluso</span>
-                    </div>
-                    <div class="flex items-center gap-2 bg-amber-50 px-4 py-2 rounded-full border border-amber-200">
-                        <i class="fas fa-store text-amber-600"></i>
-                        <span class="text-sm text-slate-700 font-medium">Para loja, rádio interna ou carro de som</span>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Sonorização Licenciada</h3>
+                        <p class="text-slate-500 text-sm">As trilhas sonoras de fundo possuem licenças comerciais absolutas. Sua loja livre de qualquer notificação ou problemas de direitos autorais em carros de som ou ambiente.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Casting de Vozes para Varejo -->
         <section id="vozes" class="anchor-section py-16 lg:py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-10">
-                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Casting de Vozes para Varejo</span>
+                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Vitrine Tecnológica de Timbres</span>
                     <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4 text-slate-900">
-                        Vozes que <span class="text-premium-purple">Vendem</span> no Varejo
+                        Amostras Técnicas de Locutores de Varejo
                     </h2>
                     <p class="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed">
-                        Conheça alguns exemplos do nosso casting de locutores especializados em spots, ofertas e propaganda comercial.
-                    </p>
-                    
-                    <!-- BANNER DO CASTING VAREJO -->
-                    <div class="inline-flex items-center gap-2 bg-purple-50 border border-purple-200 rounded-full px-4 py-2 mt-4">
-                        <i class="fas fa-store-alt text-purple-600 text-sm"></i>
-                        <span class="text-purple-700 text-xs font-medium">🎙️ <strong class="text-purple-800">Casting Varejo</strong> | Vozes de oferta, impacto, promocional e institucional para mercados</span>
-                    </div>
-                </div>
-
-                <!-- AVISO SOBRE MAIS VOZES -->
-                <div class="bg-gradient-to-r from-purple-50 to-red-50 rounded-2xl p-4 mb-8 text-center border border-purple-100">
-                    <p class="text-slate-700 text-sm">
-                        <i class="fas fa-headphones text-purple-600 mr-1"></i> 
-                        <strong>Estas são apenas algumas sugestões do nosso casting de varejo.</strong> 
-                        <span class="text-purple-600 font-medium">Não encontrou o perfil ideal para seu mercado? Fale conosco e escolha a voz perfeita para suas campanhas.</span>
+                        Ouça o padrão técnico de entrega dos nossos profissionais. Criando sua conta gratuita, você terá acesso a ferramentas completas de triagem com mais de 300 vozes ativas.
                     </p>
                 </div>
                 
-                <!-- Vozes Femininas -->
                 <div class="mb-12">
-                    <h3 class="text-md font-semibold text-slate-500 uppercase tracking-wide mb-5 flex items-center gap-2 border-b pb-2"><i class="fas fa-female text-premium-purple"></i> Femininas (Perfis Varejo)</h3>
+                    <h3 class="text-md font-semibold text-slate-500 uppercase tracking-wide mb-5 flex items-center gap-2 border-b pb-2"><i class="fas fa-female text-premium-purple"></i> Banco Feminino (Amostras Promocionais)</h3>
                     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/lindy.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Lindy</h4><p class="text-xs text-slate-400 mb-1">Voz Varejo · Energética</p><audio controls preload="none" onplay="trackAudioPlay('Lindy')"><source src="https://testedomarcio.github.io/meuadio/Lindy.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Elissandra.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Elissandra</h4><p class="text-xs text-slate-400 mb-1">Voz de Ofertas · Acolhedora</p><audio controls preload="none" onplay="trackAudioPlay('Elissandra')"><source src="https://testedomarcio.github.io/meuadio/elissandra.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Silvia.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Silvia</h4><p class="text-xs text-slate-400 mb-1">Voz Promocional · Elegante</p><audio controls preload="none" onplay="trackAudioPlay('Silvia')"><source src="https://testedomarcio.github.io/meuadio/Silvia.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Tati.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Tati</h4><p class="text-xs text-slate-400 mb-1">Voz Jovem · Descontraída</p><audio controls preload="none" onplay="trackAudioPlay('Tati')"><source src="https://testedomarcio.github.io/meuadio/tati.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/lindy.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Lindy</h4><p class="text-xs text-slate-400 mb-1">Varejo Rápido · Alta Energia</p><audio controls preload="none" onplay="trackAudioPlay('Lindy')"><source src="https://testedomarcio.github.io/meuadio/Lindy.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Elissandra.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Elissandra</h4><p class="text-xs text-slate-400 mb-1">Ofertas Semanais · Envolvente</p><audio controls preload="none" onplay="trackAudioPlay('Elissandra')"><source src="https://testedomarcio.github.io/meuadio/elissandra.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Silvia.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Silvia</h4><p class="text-xs text-slate-400 mb-1">Promocional · Padrão Elegante</p><audio controls preload="none" onplay="trackAudioPlay('Silvia')"><source src="https://testedomarcio.github.io/meuadio/Silvia.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Tati.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Tati</h4><p class="text-xs text-slate-400 mb-1">Jovem · Descontraída e Direta</p><audio controls preload="none" onplay="trackAudioPlay('Tati')"><source src="https://testedomarcio.github.io/meuadio/tati.mp3" type="audio/mpeg"></audio></div></div>
                     </div>
                 </div>
-                <!-- Vozes Masculinas -->
                 <div class="mb-10">
-                    <h3 class="text-md font-semibold text-slate-500 uppercase tracking-wide mb-5 flex items-center gap-2 border-b pb-2"><i class="fas fa-male text-premium-purple"></i> Masculinas (Perfis Varejo)</h3>
+                    <h3 class="text-md font-semibold text-slate-500 uppercase tracking-wide mb-5 flex items-center gap-2 border-b pb-2"><i class="fas fa-male text-premium-purple"></i> Banco Masculino (Amostras Promocionais)</h3>
                     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/celso.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Celso</h4><p class="text-xs text-slate-400 mb-1">Voz Impacto · Promoção</p><audio controls preload="none" onplay="trackAudioPlay('Celso')"><source src="https://testedomarcio.github.io/meuadio/Celso.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/charles.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Charles</h4><p class="text-xs text-slate-400 mb-1">Voz Institucional · Mercado</p><audio controls preload="none" onplay="trackAudioPlay('Charles')"><source src="https://testedomarcio.github.io/meuadio/Charles.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Cristian.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Cristian Jr</h4><p class="text-xs text-slate-400 mb-1">Voz Varejo · Dinâmico</p><audio controls preload="none" onplay="trackAudioPlay('Cristian_Jr')"><source src="https://testedomarcio.github.io/meuadio/Cristian.mp3" type="audio/mpeg"></audio></div></div>
-                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Leandro.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Leandro</h4><p class="text-xs text-slate-400 mb-1">Voz Ofertas · Persuasiva</p><audio controls preload="none" onplay="trackAudioPlay('Leandro')"><source src="https://testedomarcio.github.io/meuadio/Leandro.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/celso.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Celso</h4><p class="text-xs text-slate-400 mb-1">Grave Varejo · Alto Impacto</p><audio controls preload="none" onplay="trackAudioPlay('Celso')"><source src="https://testedomarcio.github.io/meuadio/Celso.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/charles.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Charles</h4><p class="text-xs text-slate-400 mb-1">Institucional · Fortes Campanhas</p><audio controls preload="none" onplay="trackAudioPlay('Charles')"><source src="https://testedomarcio.github.io/meuadio/Charles.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Cristian.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Cristian Jr</h4><p class="text-xs text-slate-400 mb-1">Dinamismo Moderno · Ofertas</p><audio controls preload="none" onplay="trackAudioPlay('Cristian_Jr')"><source src="https://testedomarcio.github.io/meuadio/Cristian.mp3" type="audio/mpeg"></audio></div></div>
+                        <div class="locutor-card bg-white rounded-2xl p-4 flex items-center gap-4"><img src="https://testedomarcio.github.io/meuadio/Leandro.webp" class="locutor-img shrink-0" loading="lazy"><div><h4 class="font-bold text-slate-800 text-sm">Leandro</h4><p class="text-xs text-slate-400 mb-1">Persuasivo · Chamadas de Urgência</p><audio controls preload="none" onplay="trackAudioPlay('Leandro')"><source src="https://testedomarcio.github.io/meuadio/Leandro.mp3" type="audio/mpeg"></audio></div></div>
                     </div>
                 </div>
 
-                <!-- BOTÃO PARA MAIS VOZES -->
                 <div class="text-center mt-8">
-                    <a href="#" 
-                       onclick="trackVozesClick(); return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20conhecer%20mais%20vozes%20para%20os%20spots%20do%20meu%20mercado!', 'WA_CLICK', 'WhatsApp', 'Conhecer_Casting_Varejo')"
+                    <a href="https://www.alocucao.com.br/cadastro" 
+                       onclick="trackVozesClick(); return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_SUPER_VITRINE', 'Plataforma', 'Casting_Super_Acessar')"
                        class="inline-flex items-center gap-3 bg-slate-800 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-slate-700 transition-all duration-300">
-                        <i class="fas fa-star-of-life text-premium-gold text-lg"></i> ESCOLHER A VOZ PARA MEU SPOT
-                        <i class="fab fa-whatsapp text-xl ml-2 text-green-400"></i>
+                        <i class="fas fa-magnifying-glass text-premium-gold text-lg"></i> ENTRAR NO PAINEL E FILTRAR FILTRO DE ACESSO COMPLETO
+                        <i class="fas fa-arrow-right text-sm opacity-60 ml-2"></i>
                     </a>
-                    <p class="text-slate-400 text-sm mt-3">Nosso especialista ajuda você a escolher o perfil ideal para suas campanhas de ofertas</p>
                 </div>
             </div>
         </section>
 
-        <!-- Tabela de Preços - Foco em Spots para Supermercados -->
         <section id="precos" class="anchor-section py-20 bg-slate-50">
             <div class="max-w-5xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-12">
-                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Pacotes para Seu Comércio</span>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">Spots e <span class="text-premium-purple">Propagandas</span> que Vendem</h2>
-                    <p class="text-slate-500 mt-2">Produção completa com roteiro, locução de varejo, trilha agitada e efeitos. Pronto para tocar na sua loja.</p>
-                    <p class="text-xs text-slate-400 mt-2"><i class="fas fa-info-circle"></i> Todos os valores por bloco de até 40 segundos de áudio | Ideal para ofertas semanais</p>
+                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Métricas de Consumo do Painel</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">Soluções em Créditos para Varejo</h2>
+                    <p class="text-slate-500 mt-2">Escolha o volume ideal para suprir a demanda de encartes do seu comércio. Produções de alta definição prontas para uso.</p>
                 </div>
                 
                 <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
-                    
-                    <!-- Card 1: Spot Promocional Avulso -->
                     <div class="price-card bg-white rounded-3xl shadow-lg border border-slate-200 p-6 relative hover:-translate-y-2 transition-all duration-300">
-                        <div class="text-center">
-                            <span class="text-xs font-semibold text-slate-500 uppercase tracking-widest bg-slate-100 px-4 py-1 rounded-full">AVULSO</span>
-                            <h3 class="text-xl font-bold text-slate-800 mt-3 mb-1">Spot Promocional</h3>
-                            <p class="text-slate-500 text-sm mb-4">Para a oferta da semana ou campanha sazonal</p>
+                        <div>
+                            <div class="text-center">
+                                <span class="text-xs font-semibold text-slate-500 uppercase tracking-widest bg-slate-100 px-4 py-1 rounded-full">DEMANDA AVULSA</span>
+                                <h3 class="text-xl font-bold text-slate-800 mt-3 mb-1">Spot Promocional</h3>
+                                <p class="text-slate-500 text-sm mb-4">Ideal para campanhas específicas ou ofertas de fim de semana isoladas.</p>
+                            </div>
+                            <div class="bg-slate-50 rounded-2xl p-4 mb-5 text-center border border-slate-200">
+                                <p class="text-4xl font-black text-slate-900">R$ 29<small class="text-xl font-normal text-slate-500">,90</small></p>
+                                <p class="text-xs text-slate-400">por bloco base de até 40s</p>
+                            </div>
+                            <ul class="space-y-2 mb-6 text-sm">
+                                <li class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <span>Locução humana de varejo inclusa</span></li>
+                                <li class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <span>Trilha comercial e efeitos inclusos</span></li>
+                                <li class="flex items-start gap-2"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <span>Triagem do texto via painel inteligente</span></li>
+                            </ul>
                         </div>
-                        <div class="bg-slate-50 rounded-2xl p-4 mb-5 text-center border border-slate-200">
-                            <p class="text-4xl font-black text-slate-900">R$ 29<small class="text-xl font-normal text-slate-500">,90</small></p>
-                            <p class="text-xs text-slate-400">por bloco de até 40s</p>
-                        </div>
-                        <ul class="space-y-2 mb-6 text-sm">
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Locação varejo</strong> de alto impacto</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Trilha comercial agitada</strong> de fundo</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Efeitos sonoros</strong> de promoção</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Criação ou ajuste</strong> de roteiro grátis</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Arquivo em alta qualidade</strong> WAV/MP3</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Trilhas com licença</strong> comercial inclusa</span></li>
-                        </ul>
-                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20um%20SPOT%20PROMOCIONAL%20AVULSO%20para%20minha%20loja!', 'WA_CLICK', 'WhatsApp', 'Precos_Avulso')" class="block w-full py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition text-center text-sm">
-                            <i class="fab fa-whatsapp mr-2"></i> SOLICITAR SPOT AVULSO
+                        <a href="https://www.alocucao.com.br/cadastro" onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_SUPER_PRICE_AVULSO', 'Plataforma', 'Precos_Avulso')" class="block w-full py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition text-center text-sm mt-auto">
+                            GRAVAR SPOT AVULSO →
                         </a>
                     </div>
 
-                    <!-- Card 2: Combo Varejo 3 Spots (DESTAQUE) -->
                     <div class="price-card destaque bg-white rounded-3xl shadow-xl p-6 relative hover:-translate-y-2 transition-all duration-300">
-                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-premium-purple text-white font-bold text-xs uppercase tracking-widest px-6 py-2 rounded-full shadow-lg z-20">
-                            <i class="fas fa-star mr-1"></i> CAMPEÃO DE VENDAS
+                        <div>
+                            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-premium-purple text-white font-bold text-xs uppercase tracking-widest px-6 py-2 rounded-full shadow-lg z-20">
+                                <i class="fas fa-fire mr-1"></i> RECOMENDADO PARA ENCARTES
+                            </div>
+                            <div class="text-center mt-4">
+                                <span class="text-xs font-semibold text-premium-purple uppercase tracking-widest bg-purple-100 px-4 py-1 rounded-full">COMBO ECONOMIA</span>
+                                <h3 class="text-xl font-bold text-slate-800 mt-3 mb-1">Pacote 3 Spots</h3>
+                                <p class="text-slate-500 text-sm mb-4">Setores fracionados: ideal para separar ofertas de Hortifrúti, Carnes e Mercearia.</p>
+                            </div>
+                            <div class="bg-premium-purple/5 rounded-2xl p-4 mb-5 text-center border-2 border-premium-purple/20">
+                                <p class="text-4xl font-black text-premium-purple">R$ 79<small class="text-xl font-normal text-slate-500">,90</small></p>
+                                <p class="text-xs text-slate-400">3 blocos unificados (até 40s cada)</p>
+                            </div>
+                            <ul class="space-y-2 mb-6 text-sm">
+                                <li class="flex items-start gap-2"><i class="fas fa-check-circle text-purple-500 mt-0.5"></i> <span>3 produções completas com trilhas</span></li>
+                                <li class="flex items-start gap-2"><i class="fas fa-check-circle text-purple-500 mt-0.5"></i> <span>Créditos rotativos: use quando quiser</span></li>
+                                <li class="flex items-start gap-2"><i class="fas fa-check-circle text-purple-500 mt-0.5"></i> <span>Variação de locutores do banco varejo</span></li>
+                            </ul>
                         </div>
-                        <div class="text-center mt-4">
-                            <span class="text-xs font-semibold text-premium-purple uppercase tracking-widest bg-purple-100 px-4 py-1 rounded-full">COMBO VAREJO</span>
-                            <h3 class="text-xl font-bold text-slate-800 mt-3 mb-1">Pacote 3 Spots</h3>
-                            <p class="text-slate-500 text-sm mb-4">Promoções diferentes na semana</p>
-                        </div>
-                        <div class="bg-premium-purple/5 rounded-2xl p-4 mb-5 text-center border-2 border-premium-purple/20">
-                            <p class="text-4xl font-black text-premium-purple">R$ 79<small class="text-xl font-normal text-slate-500">,90</small></p>
-                            <p class="text-xs text-slate-400">3 blocos de até 40s cada</p>
-                            <p class="text-xs text-green-600 font-medium mt-1">Economia de R$ 9,80</p>
-                        </div>
-                        <ul class="space-y-2 mb-6 text-sm">
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>3 spots completos</strong> para campanhas</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Ideal para:</strong> Hortifrúti + Carnes + Mercearia</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Trilhas diferentes</strong> para cada spot</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Roteiro incluso</strong> para todos os áudios</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Arquivos WAV/MP3</strong> de alta qualidade</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span class="text-amber-700"><strong>Prioridade na produção</strong></span></li>
-                        </ul>
-                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20o%20COMBO%20VAREJO%203%20SPOTS%20para%20minhas%20promo%C3%A7%C3%B5es!', 'WA_CLICK', 'WhatsApp', 'Precos_Combo3')" class="block w-full py-3 bg-premium-purple hover:bg-premium-purple/90 text-white font-bold rounded-xl transition text-center text-sm shadow-lg">
-                            <i class="fab fa-whatsapp mr-2"></i> COMPRAR COMBO 3 SPOTS
+                        <a href="https://www.alocucao.com.br/cadastro" onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_SUPER_PRICE_COMBO', 'Plataforma', 'Precos_Combo3')" class="block w-full py-3 bg-premium-purple hover:bg-premium-purple/90 text-white font-bold rounded-xl transition text-center text-sm shadow-lg mt-auto">
+                            ADQUIRIR COMBO NO PAINEL →
                         </a>
                     </div>
 
-                    <!-- Card 3: Pacote Mensal 5 Spots -->
                     <div class="price-card bg-white rounded-3xl shadow-lg border border-slate-200 p-6 relative hover:-translate-y-2 transition-all duration-300">
-                        <div class="text-center">
-                            <span class="text-xs font-semibold text-amber-600 uppercase tracking-widest bg-amber-50 px-4 py-1 rounded-full">MELHOR CUSTO</span>
-                            <h3 class="text-xl font-bold text-slate-800 mt-3 mb-1">Pacote Mensal 5</h3>
-                            <p class="text-slate-500 text-sm mb-4">Campanhas do mês inteiro garantidas</p>
+                        <div>
+                            <div class="text-center">
+                                <span class="text-xs font-semibold text-amber-600 uppercase tracking-widest bg-amber-50 px-4 py-1 rounded-full">FLUXO CORPORATIVO</span>
+                                <h3 class="text-xl font-bold text-slate-800 mt-3 mb-1">Pacote Mensal 5</h3>
+                                <p class="text-slate-500 text-sm mb-4">Garante a cobertura de todas as viradas de encarte e campanhas do mês.</p>
+                            </div>
+                            <div class="bg-amber-50 rounded-2xl p-4 mb-5 text-center border border-amber-200">
+                                <p class="text-4xl font-black text-amber-600">R$ 120<small class="text-xl font-normal text-slate-500">,00</small></p>
+                                <p class="text-xs text-slate-400">5 blocos de créditos para uso livre</p>
+                            </div>
+                            <ul class="space-y-2 mb-6 text-sm">
+                                <li class="flex items-start gap-2"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span>Máxima prioridade na fila de cabine</span></li>
+                                <li class="flex items-start gap-2"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span>Gestão de múltiplos encartes em paralelo</span></li>
+                                <li class="flex items-start gap-2"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span>Trilhas comerciais exclusivas por spot</span></li>
+                            </ul>
                         </div>
-                        <div class="bg-amber-50 rounded-2xl p-4 mb-5 text-center border border-amber-200">
-                            <p class="text-4xl font-black text-amber-600">R$ 120<small class="text-xl font-normal text-slate-500">,00</small></p>
-                            <p class="text-xs text-slate-400">5 blocos de até 40s cada</p>
-                            <p class="text-xs text-green-600 font-medium mt-1">Economia de R$ 29,50</p>
-                        </div>
-                        <ul class="space-y-2 mb-6 text-sm">
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>5 spots completos</strong> para o mês</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Todas as campanhas</strong> do mês cobertas</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Roteiro incluso</strong> em todos os spots</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Trilhas variadas</strong> para cada campanha</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <span><strong>Arquivos WAV/MP3</strong> otimizados</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span class="text-amber-700"><strong>Prioridade máxima</strong> na produção</span></li>
-                        </ul>
-                        <a href="#" onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1,%20quero%20o%20PACOTE%20MENSAL%205%20SPOTS%20para%20minhas%20campanhas!', 'WA_CLICK', 'WhatsApp', 'Precos_Pacote5')" class="block w-full py-3 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold rounded-xl transition text-center text-sm">
-                            <i class="fab fa-whatsapp mr-2"></i> COMPRAR PACOTE MENSAL
+                        <a href="https://www.alocucao.com.br/cadastro" onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_SUPER_PRICE_MENSAL', 'Plataforma', 'Precos_Pacote5')" class="block w-full py-3 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold rounded-xl transition text-center text-sm mt-auto">
+                            ADQUIRIR COBERTURA MENSAL →
                         </a>
                     </div>
                 </div>
 
-                <!-- OBSERVAÇÃO IMPORTANTE -->
-                <div class="text-center mt-8 bg-white rounded-xl p-5 max-w-2xl mx-auto border border-slate-200">
-                    <p class="text-xs text-slate-500 mb-2">
-                        <i class="fas fa-info-circle text-premium-purple"></i> 
-                        <strong>Política de correções:</strong> Ajustes gratuitos apenas se houver erro do locutor na gravação. 
-                        Alterações de texto ou mudança de produtos após aprovação podem ter custo adicional.
-                    </p>
-                    <p class="text-xs text-slate-500 mb-2">
-                        <i class="fas fa-music text-premium-purple"></i>
-                        <strong>Trilhas e efeitos:</strong> Todas as trilhas sonoras e efeitos utilizados possuem licença de uso comercial. Seu comércio não terá problemas com direitos autorais.
-                    </p>
-                    <p class="text-xs text-slate-500">
-                        <i class="fas fa-clock text-premium-purple"></i>
-                        <strong>Horário de produção:</strong> Segunda a Sexta das 08h às 18h | Sábados das 08h às 12h. Pedidos aprovados no expediente são entregues no mesmo dia.
-                    </p>
+                <div class="text-center mt-8 bg-white rounded-xl p-5 max-w-2xl mx-auto border border-slate-200 text-xs text-slate-500">
+                    <p class="mb-1.5"><i class="fas fa-circle-exclamation text-premium-purple"></i> <strong>Rigor Técnico das Correções:</strong> Refações sem custo são aplicadas estritamente em casos de erros cometidos pelo locutor na interpretação ou leitura do texto aprovado. Mudanças estruturais de produtos ou valores pós-gravação exigem o acionamento de um novo bloco de crédito.</p>
+                    <p><i class="fas fa-clock text-premium-purple"></i> <strong>Prazos e Escala das Cabines:</strong> O painel digital funciona 24h. Os locutores executam as captações de domingo a domingo das 06h às 22h. Os processos de mixagem, suporte operacional e controle técnico de qualidade concentram-se de Seg a Sex (08h-18h) e Sáb (08h-12h).</p>
                 </div>
             </div>
         </section>
 
-        <!-- Marcas / Comércios que confiam -->
-        <section class="py-8 bg-white border-t border-slate-100 overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4">
-                <p class="text-center text-xs font-semibold text-slate-400 uppercase tracking-widest mb-4">Comércios que aumentam as vendas com nossos spots</p>
-                <div class="relative flex overflow-hidden">
-                    <div class="flex whitespace-nowrap gap-8 items-center animate-scroll">
-                        <span class="text-slate-400 font-medium text-sm">Super Mais Supermercado</span><span class="text-slate-300">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Hortifrúti Bom Preço</span><span class="text-slate-300">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Atacadão da Economia</span><span class="text-slate-300">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Açougue Boi Nobre</span><span class="text-slate-300">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Mercado São José</span><span class="text-slate-300">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Supermercado Família</span><span class="text-slate-300">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Hortifrúti Terra Verde</span><span class="text-slate-300">•</span>
-                        <span class="text-slate-400 font-medium text-sm">Atacadão Preço Certo</span><span class="text-slate-300">•</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Final (Foco em Resultados de Venda) -->
-        <section id="whatsapp" class="anchor-section py-20 bg-darkBg text-white text-center">
+        <section class="anchor-section py-20 bg-darkBg text-white text-center">
             <div class="max-w-3xl mx-auto px-4">
-                <div class="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/30 rounded-full px-5 py-2 mb-6">
-                    <i class="fas fa-fire text-red-400"></i>
-                    <span class="text-red-300 text-sm font-medium">Spots que fazem o cliente comprar produtos que não estavam na lista</span>
+                <div class="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 rounded-full px-5 py-2 mb-6">
+                    <i class="fas fa-chart-line text-premium-gold"></i>
+                    <span class="text-slate-300 text-sm font-medium">Spots que geram desejo de compra e aceleram o giro de gôndola</span>
                 </div>
-                <h2 class="text-3xl sm:text-5xl font-bold mb-5">Chega de ofertas <span class="text-premium-gold">sem resultado!</span></h2>
-                <p class="text-slate-300 text-lg mb-10">Um spot profissional na porta ou no ambiente interno do seu mercado transforma ofertas em vendas reais. Fale conosco e comece a vender mais ainda hoje.</p>
-                <a href="#" 
-                   onclick="return safeRedirectWA('https://wa.me/5527996529832?text=Ol%C3%A1%2C%20quero%20aumentar%20minhas%20vendas%20com%20spots%20promocionais%20profissionais!', 'WA_CLICK', 'WhatsApp', 'Final_CTA_Spot')"
+                <h2 class="text-3xl sm:text-5xl font-bold mb-5">Elimine o atraso na divulgação das <span class="text-premium-gold">suas ofertas</span></h2>
+                <p class="text-slate-300 text-lg mb-10">Mantenha a rádio interna do seu mercado ou hortifrúti sempre atualizada. Tenha o controle total das suas campanhas promocionais de forma direta, transparente e profissional pelo painel eletrônico.</p>
+                <a href="https://www.alocucao.com.br/cadastro" 
+                   onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_SUPER_FINAL_CTA', 'Plataforma', 'Final_CTA_Cadastro')"
                    class="inline-flex items-center gap-4 bg-premium-purple hover:bg-premium-purple/90 text-white px-12 py-5 rounded-2xl font-bold text-xl hover:-translate-y-1 transition-all shadow-[0_20px_40px_rgba(91,58,140,0.3)]">
-                    <i class="fab fa-whatsapp text-3xl"></i> QUERO VENDER MAIS COM SPOTS
+                    <i class="fas fa-user-plus text-3xl"></i> CRIAR CONTA E ACESSAR SIMULADOR DE ENCARTES
                 </a>
-                <p class="text-slate-400 text-sm mt-6"><i class="fas fa-shield-alt text-premium-gold"></i> Roteiro incluso | Trilhas licenciadas | Produção no mesmo dia</p>
-                <p class="text-xs text-slate-600 mt-8"><i class="fab fa-whatsapp"></i> (27) 99652-9832 · contato@alocucao.com.br</p>
-                <p class="text-xs text-slate-600 mt-1">Estúdio A Locução © 2012-2026 · Produção com excelência</p>
+                <p class="text-xs text-slate-600 mt-12">Estúdio A Locução © 2012-2026 · Soluções Tecnológicas em Áudio de Varejo</p>
                 <div style="text-align: center; margin-top: 15px; padding-bottom: 20px;">
-                    <p style="font-size: 11px; color: #94a3b8; font-style: italic; margin: 0;">
+                    <p style="font-size: 11px; color: #64748b; font-style: italic; margin: 0;">
                         "Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos." — Provérbios 16:3
                     </p>
                 </div>
@@ -666,31 +424,26 @@
         </section>
     </main>
 
-    <!-- POP-UP DE VANTAGENS (Adaptado para Varejo de Alimentos) -->
     <div id="advantages-popup" class="fixed inset-0 bg-black/80 z-[99999] hidden items-center justify-center p-4">
         <div class="popup-content bg-white p-6 md:p-8 rounded-2xl max-w-md w-full text-center shadow-2xl relative">
             <button onclick="closeAdvantagesPopup()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600"><i class="fas fa-times text-xl"></i></button>
-            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i class="fas fa-bullhorn text-red-600 text-2xl"></i>
+            <div class="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                <i class="fas fa-shopping-cart"></i>
             </div>
-            <h3 class="text-2xl font-bold text-slate-800 mb-2">Espere! Suas ofertas merecem um spot profissional!</h3>
-            <p class="text-slate-500 text-sm mb-5">Um áudio bem produzido na porta da loja faz toda diferença nas vendas.</p>
+            <h3 class="text-2xl font-bold text-slate-800 mb-2">Seus spots no ar no mesmo dia!</h3>
+            <p class="text-slate-500 text-sm mb-5">Abra sua conta digital gratuita e experimente o simulador de minutagem de ofertas por caracteres.</p>
             <ul class="text-left space-y-3 mb-6">
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <strong>Locação de varejo</strong> que gera impacto e vendas</li>
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <strong>Roteiro promocional grátis</strong> — estruturamos suas ofertas</li>
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <strong>Trilhas agitadas</strong> com licença comercial inclusa</li>
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <strong>Entrega no mesmo dia</strong> — seu spot pronto rapidamente</li>
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <strong>Ideal para:</strong> supermercados, hortifrútis e açougues</li>
-                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-green-500 mt-0.5"></i> <strong>Áudio em alta qualidade</strong> para sistema de som ou rádio</li>
+                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-purple-500 mt-0.5"></i> <span><strong>Locução de Impacto:</strong> Foco em conversão de vendas</span></li>
+                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-purple-500 mt-0.5"></i> <span><strong>Simulador de Palavras:</strong> Orçamentos automáticos na hora</span></li>
+                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-purple-500 mt-0.5"></i> <span><strong>Plantão Ininterrupto:</strong> Cabines gravando de domingo a domingo</span></li>
+                <li class="flex items-start gap-2 text-sm text-slate-700"><i class="fas fa-check-circle text-purple-500 mt-0.5"></i> <span><strong>Trilhas com Licença Comercial:</strong> Segurança jurídica para sua loja</span></li>
             </ul>
-            <a href="#" onclick="closeAdvantagesPopup(); return safeRedirectWA('https://wa.me/5527996529832?text=Quero%20um%20spot%20profissional%20para%20aumentar%20minhas%20vendas!', 'WA_CLICK', 'WhatsApp', 'Popup_Vantagens')" class="flex items-center justify-center w-full bg-premium-purple text-white py-3 rounded-xl font-bold gap-2 hover:bg-premium-purple/90 transition">
-                <i class="fab fa-whatsapp text-xl"></i> QUERO MEU SPOT AGORA
+            <a href="https://www.alocucao.com.br/cadastro" onclick="closeAdvantagesPopup(); return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_SUPER_POPUP', 'Plataforma', 'Popup_Cadastro')" class="flex items-center justify-center w-full bg-premium-purple text-white py-3 rounded-xl font-bold gap-2 hover:bg-premium-purple/90 transition">
+                <i class="fas fa-laptop-code"></i> ENTRAR NO PAINEL E SIMULAR TEXTO
             </a>
-            <p class="text-[10px] text-slate-400 mt-3">Clientes compram mais quando ouvem um áudio profissional na loja</p>
         </div>
     </div>
 
-    <!-- Leadster -->
     <script>(function(a,b,c,d){try{var e=b.head||b.getElementsByTagName("head")[0];var f=b.createElement("script");f.setAttribute("src",c);f.setAttribute("charset","UTF-8");f.defer=true;a.neuroleadId=d;e.appendChild(f)}catch(g){}})(window,document,"https://cdn.leadster.com.br/neurolead/neurolead.min.js","suuyuh5U3EkKnzksGWBUMxBly")</script>
 
     <script>
@@ -743,27 +496,14 @@
             } 
         });
         
-        // Close popup on overlay click
         document.getElementById('advantages-popup')?.addEventListener('click', function(e) { 
             if(e.target === this) closeAdvantagesPopup(); 
         });
         
-        // Close popup on Escape
         document.addEventListener('keydown', function(e) { 
             if(e.key === 'Escape' && document.getElementById('advantages-popup')?.classList.contains('active')) 
                 closeAdvantagesPopup(); 
         });
-
-        // Hide tooltip after 10 seconds
-        setTimeout(function() {
-            const tooltip = document.querySelector('.whatsapp-tooltip');
-            if (tooltip) {
-                tooltip.style.opacity = '0';
-                tooltip.style.transition = 'opacity 0.5s ease';
-                setTimeout(() => { if (tooltip) tooltip.style.display = 'none'; }, 500);
-            }
-        }, 10000);
     </script>
-    
 </body>
 </html>
