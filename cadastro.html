@@ -1,309 +1,34 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Event snippet for Visualização de página conversion page -->
-    <script>
-        gtag('event', 'conversion', {
-            'send_to': 'AW-18093304718/2fWbCJOH0JwcEI7Xx7ND',
-            'value': 1.0,
-            'currency': 'BRL'
-        });
-    </script>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKKDKPVDDH"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-TKKDKPVDDH');
-    </script>
-    
-    <!-- SEO & Meta Tags -->
-    <title>Cadastro | Estúdio A Locução - Criar Conta</title>
-    <meta name="description" content="Crie sua conta no painel de gravação do Estúdio A Locução. Acesso imediato ao maior banco de vozes do Brasil.">
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093304718"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'AW-18093304718');
-    </script>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- Configurações Customizadas Tailwind baseadas no Azul do Painel -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], },
-                    colors: {
-                        primary: '#22d3ee', // Cyan para detalhes de destaque
-                        panelBlue: '#1a418a', // Tom marinho integrado para harmonizar com o iframe
-                        panelDark: '#122d61', // Tom mais escuro para o cabeçalho e profundidade
-                    }
-                }
-            }
-        }
-    </script>
-
+    <title>A Locução - Cadastro</title>
     <style>
-        body { 
-            font-family: 'Inter', sans-serif; 
+        * {
             margin: 0;
             padding: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            background-color: #1a418a; /* Fundo idêntico ao tom do iframe */
+            box-sizing: border-box;
         }
         
-        .glass-header {
-            background: #122d61;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .btn-outline-cyan { 
-            border: 2px solid #22d3ee;
-            color: #22d3ee;
-            transition: all 0.3s ease; 
-        }
-        .btn-outline-cyan:hover { 
-            background: rgba(34, 211, 238, 0.1);
-            transform: translateY(-1px);
-        }
-
-        .logo-img { max-height: 40px; width: auto; transition: transform 0.3s ease; }
-        .logo-img:hover { transform: scale(1.05); }
-
-        .container-custom {
+        body, html {
             width: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .loader-container {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: #1a418a;
-            z-index: 10;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-        .loader {
-            width: 48px;
-            height: 48px;
-            border: 4px solid rgba(255, 255, 255, 0.1);
-            border-bottom-color: #22d3ee;
-            border-radius: 50%;
-            display: inline-block;
-            box-sizing: border-box;
-            animation: rotation 1s linear infinite;
-        }
-        @keyframes rotation {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        #mobile-menu {
-            max-height: 0;
+            height: 100%;
             overflow: hidden;
-            transition: max-height 0.4s ease-in-out;
         }
-        #mobile-menu.active {
-            max-height: 600px;
-        }
-
-        .iframe-wrapper {
-            position: relative;
-            width: 100%;
-            height: 100%;
+        
+        iframe {
+            width: 100vw;
+            height: 100vh;
             border: none;
-        }
-        .iframe-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        .iframe-wrapper iframe.loaded {
-            opacity: 1;
+            display: block;
         }
     </style>
 </head>
-<body class="text-slate-100 antialiased selection:bg-cyan-500/30 selection:text-white">
-
-    <!-- Header Harmonizado -->
-    <header class="flex-none glass-header text-white shadow-md relative z-50">
-        <nav class="container-custom py-2.5 sm:py-3">
-            <div class="flex justify-between items-center">
-                <!-- Logo -->
-                <div class="flex items-center gap-2">
-                    <a href="https://www.alocucao.com.br/">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_sBFI94b0Jhnsl6DY4UwsTOpsmltn1MNvF5n6zcrkdLUd7oqFJfxF5NAtCEwBchu-b65jEsMXi60X2SlPb04XheC1fuEaG-sRzEbENAbN4eMSX5YHbdk6oGhfGTHQOPR1tZJn_GwXOAjUL6UX4ZvpVITZOL6is83xruSEkk343d-9VEx5osefurjX8aY/s1600/logo.png" alt="Estúdio A Locução" class="logo-img">
-                    </a>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden lg:flex items-center space-x-6 font-semibold text-xs uppercase tracking-wider">
-                    <a href="https://www.alocucao.com.br/" class="text-slate-200 hover:text-cyan-400 transition-colors">Início</a>
-                    <a href="https://www.alocucao.com.br/vozes" class="text-slate-200 hover:text-cyan-400 transition-colors">Locutores</a>
-                    <a href="https://www.alocucao.com.br/tutoriais" class="text-slate-200 hover:text-cyan-400 transition-colors">Tutoriais</a>
-                </div>
-
-                <!-- Botão Suave (Evita brigar com o formulário principal) -->
-                <div class="flex items-center gap-3">
-                    <a href="https://www.alocucao.com.br/login" class="hidden sm:flex btn-outline-cyan font-bold px-5 py-2 rounded-full text-xs uppercase tracking-wider items-center gap-2">
-                        Já tenho conta <i class="fas fa-sign-in-alt"></i>
-                    </a>
-                    <button id="menu-toggle" aria-label="Abrir menu" class="lg:hidden text-2xl text-cyan-400 focus:outline-none p-1 ml-2">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Mobile Menu Dropdown -->
-            <div id="mobile-menu" class="lg:hidden w-full absolute left-0 top-full bg-slate-900 border-t border-slate-800 shadow-2xl">
-                <div class="flex flex-col space-y-1 p-4">
-                    <a href="https://www.alocucao.com.br/" class="text-slate-200 hover:text-cyan-400 py-3 px-4 rounded-lg hover:bg-slate-800 transition text-sm font-bold uppercase tracking-wider">Início</a>
-                    <a href="https://www.alocucao.com.br/vozes" class="text-slate-200 hover:text-cyan-400 py-3 px-4 rounded-lg hover:bg-slate-800 transition text-sm font-bold uppercase tracking-wider">Locutores</a>
-                    <a href="https://www.alocucao.com.br/tutoriais" class="text-slate-200 hover:text-cyan-400 py-3 px-4 rounded-lg hover:bg-slate-800 transition text-sm font-bold uppercase tracking-wider">Tutoriais</a>
-                    <div class="pt-4 border-t border-slate-800 m-2">
-                        <a href="https://www.alocucao.com.br/login" class="block border border-cyan-400 text-cyan-400 text-center py-3 rounded-xl font-bold uppercase text-xs tracking-wider">Já tenho conta</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Layout Dividido com Cores Integradas (Adeus divisão brusca) -->
-    <div class="flex flex-col lg:flex-row flex-grow overflow-hidden w-full">
-        
-        <!-- Bloco de Vantagens (Fundo panelDark para contraste sutil) -->
-        <section class="w-full lg:w-[420px] bg-gradient-to-b from-panelDark to-panelBlue p-5 lg:p-8 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/10 flex-none overflow-y-auto">
-            <div class="max-w-md mx-auto lg:mx-0">
-                <span class="text-cyan-300 text-xs font-bold uppercase tracking-widest block mb-2">Plataforma Exclusiva</span>
-                <h1 class="text-xl lg:text-2xl font-black text-white leading-tight mb-4">Crie sua conta e ganhe agilidade instantânea</h1>
-                <p class="text-slate-300 text-xs lg:text-sm mb-6 leading-relaxed">Não perca tempo esperando atendimento! Através do nosso painel automatizado, você gerencia seus áudios com total autonomia.</p>
-                
-                <!-- Benefícios com Ícones -->
-                <ul class="space-y-4 text-xs lg:text-sm font-medium text-slate-200">
-                    <li class="flex items-start gap-3">
-                        <div class="flex-none w-5 h-5 rounded-full bg-cyan-400/20 text-cyan-300 flex items-center justify-center mt-0.5"><i class="fas fa-history text-[10px]"></i></div>
-                        <div><strong class="text-white">Painel 24 Horas:</strong> Faça orçamentos e envie pedidos a qualquer hora do dia ou da noite.</div>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <div class="flex-none w-5 h-5 rounded-full bg-cyan-400/20 text-cyan-300 flex items-center justify-center mt-0.5"><i class="fas fa-bolt text-[10px]"></i></div>
-                        <div><strong class="text-white">Plantão de Locutores:</strong> Gravações diárias (inclusive sábados, domingos e feriados) das <span class="text-cyan-300 font-bold">06h às 22h</span>.</div>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <div class="flex-none w-5 h-5 rounded-full bg-cyan-400/20 text-cyan-300 flex items-center justify-center mt-0.5"><i class="fas fa-users text-[10px]"></i></div>
-                        <div><strong class="text-white">Mais de 300 Locutores:</strong> Filtre estilos e veja quem está online gravando rápido no momento.</div>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <div class="flex-none w-5 h-5 rounded-full bg-cyan-400/20 text-cyan-300 flex items-center justify-center mt-0.5"><i class="fas fa-eye text-[10px]"></i></div>
-                        <div><strong class="text-white">Status em Tempo Real:</strong> Acompanhe cada etapa da produção e baixe o áudio direto da plataforma.</div>
-                    </li>
-                </ul>
-
-                <!-- Área de Suporte e Contatos -->
-                <div class="mt-6 pt-5 border-t border-white/10 text-xs text-slate-300">
-                    <p class="flex items-center gap-1.5 font-medium mb-1">
-                        <i class="fas fa-info-circle text-cyan-300"></i> Tem alguma dificuldade para se cadastrar? 
-                    </p>
-                    <p class="text-slate-400 pl-5 mb-3">Use o botão flutuante ou nossos canais diretos abaixo:</p>
-                    
-                    <!-- Contatos por Texto -->
-                    <div class="pl-5 font-semibold text-white flex flex-col gap-1.5 tracking-wide">
-                        <a href="https://wa.me/5527996529832" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-300 transition-colors flex items-center gap-2">
-                            <i class="fab fa-whatsapp text-[#25D366] text-sm"></i> (27) 99652-9832
-                        </a>
-                        <a href="mailto:suporte@alocucao.com.br" class="hover:text-cyan-300 transition-colors flex items-center gap-2 text-slate-200">
-                            <i class="fas fa-envelope text-slate-300 text-xs"></i> suporte@alocucao.com.br
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Área do Iframe Integrada -->
-        <main class="iframe-wrapper flex-grow bg-panelBlue">
-            <!-- Estado de Carregamento -->
-            <div id="iframe-loader" class="loader-container">
-                <span class="loader"></span>
-                <p class="text-slate-300 font-bold text-xs uppercase tracking-widest mt-4">Carregando Painel de Cadastro...</p>
-            </div>
-
-            <!-- Link do Iframe Corrigido Conforme Solicitado -->
-            <iframe 
-                id="painel-iframe"
-                src="https://paineldegravacao.com.br/comerciaistop/cadastro" 
-                title="Painel de Cadastro Estúdio A Locução"
-                allow="autoplay; clipboard-write; microphone"
-                loading="lazy">
-            </iframe>
-        </main>
-    </div>
-
-    <!-- Botão Flutuante do WhatsApp Subido para Evitar Sobreposição -->
-    <a href="https://wa.me/5527996529832?text=Olá,%20estou%20com%20uma%20dúvida%20ou%20dificuldade%20para%20me%20cadastrar%20no%20painel." target="_blank" rel="noopener noreferrer" 
-       class="fixed bottom-20 right-6 bg-[#25D366] text-white w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-3xl shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:scale-110 hover:-translate-y-1 transition-all duration-300 z-50 group"
-       aria-label="Precisa de ajuda com o cadastro?">
-        <i class="fab fa-whatsapp"></i>
-        <!-- Tooltip -->
-        <span class="absolute right-full mr-4 bg-slate-900 text-white text-xs font-bold px-3 py-2 rounded-lg opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-xl">
-            Dúvidas no Cadastro? Fale Comigo 👍
-        </span>
-    </a>
-
-    <script>
-        // Lógica do Menu Mobile
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const icon = menuToggle.querySelector('i');
-
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            if (mobileMenu.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-
-        // Lógica do Loader do Iframe
-        const iframe = document.getElementById('painel-iframe');
-        const loader = document.getElementById('iframe-loader');
-
-        iframe.onload = function() {
-            loader.style.opacity = '0';
-            iframe.classList.add('loaded');
-            
-            setTimeout(() => {
-                loader.style.visibility = 'hidden';
-            }, 500);
-        };
-    </script>
+<body>
+    <iframe 
+        src="https://paineldegravacao.com.br/comerciaistop/cadastro" 
+        title="Cadastro Comerciais Top">
+    </iframe>
 </body>
 </html>
