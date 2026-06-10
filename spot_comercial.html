@@ -12,15 +12,15 @@
     <link rel="dns-prefetch" href="https://www.alocucao.com.br">
     
     <!-- SEO & Meta Tags Otimizados -->
-    <title>Painel de Gravação 24h para Spots Comerciais | Orçamento Automático | A Locução</title>
-    <meta name="description" content="Produza spots comerciais profissionais pelo nosso painel automatizado 24 horas. +300 locutores, orçamento online instantâneo, PIX automático e entrega expressa. Experimente agora.">
+    <title>Spot Comercial Rápido e Barato | Orçamento Online em 2 Minutos | A Locução</title>
+    <meta name="description" content="Precisa de um spot comercial rápido? Produza online com +300 locutores, entrega expressa e preço a partir de R$29,90. Sem burocracia, 100% online.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.alocucao.com.br/spot-comercial">
     
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Painel de Gravação 24h para Spots Comerciais | A Locução">
-    <meta property="og:description" content="Orçamento automático, +300 locutores, PIX e entrega rápida. Tudo pelo painel online.">
+    <meta property="og:title" content="Precisa de um spot comercial rápido? | A Locução">
+    <meta property="og:description" content="Produza seu spot profissional online. +300 vozes, entrega rápida, a partir de R$29,90. Sem burocracia.">
     <meta property="og:url" content="https://www.alocucao.com.br/spot-comercial">
     
     <!-- Google Tag (mantido como está) -->
@@ -243,54 +243,73 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 1280px;
+            max-width: 900px; /* REFINAMENTO: Mais estreito para melhor leitura */
             margin: 0 auto;
             padding: 0 1rem;
         }
 
-        .hero-badge {
+        /* REFINAMENTO 1: Badge de urgência reposicionado como elemento principal */
+        .hero-urgency-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: linear-gradient(135deg, rgba(88,28,135,0.4), rgba(8,145,178,0.4));
-            border: 1px solid rgba(6,182,212,0.3);
-            color: #22d3ee;
+            background: rgba(220, 38, 38, 0.15);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            color: #fca5a5;
             padding: 0.5rem 1.25rem;
             border-radius: 9999px;
             font-size: 0.75rem;
             font-weight: 700;
-            letter-spacing: 0.05em;
             margin-bottom: 1.5rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            animation: pulse-border 2s infinite;
+        }
+        @keyframes pulse-border {
+            0%, 100% { border-color: rgba(220, 38, 38, 0.3); }
+            50% { border-color: rgba(220, 38, 38, 0.6); }
         }
 
+        /* REFINAMENTO 1: Headline focada na dor - MAIOR e mais impactante */
         .hero-title {
-            font-size: 2.25rem;
+            font-size: 2.5rem;
             font-weight: 900;
             line-height: 1.1;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-            max-width: 900px;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.25rem;
+            max-width: 800px;
         }
 
         @media (min-width: 640px) {
-            .hero-title { font-size: 3.5rem; }
+            .hero-title { font-size: 3.75rem; }
         }
 
         @media (min-width: 1024px) {
-            .hero-title { font-size: 4rem; }
+            .hero-title { font-size: 4.5rem; }
         }
 
         .hero-title-highlight {
             color: var(--premium-gold);
+            position: relative;
+        }
+        /* Sublinhado dourado para destaque extra */
+        .hero-title-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--premium-gold);
+            border-radius: 2px;
+            opacity: 0.5;
         }
 
+        /* REFINAMENTO 1: Subheadline com benefício + preço integrado */
         .hero-subtitle {
             color: var(--slate-300);
             font-size: 1.125rem;
             line-height: 1.7;
-            margin-bottom: 1rem;
-            max-width: 700px;
+            margin-bottom: 0.5rem;
+            max-width: 650px;
             font-weight: 500;
         }
 
@@ -298,70 +317,56 @@
             .hero-subtitle { font-size: 1.375rem; }
         }
 
-        /* Price Badge */
-        .price-badge {
-            background: linear-gradient(135deg, rgba(30,41,59,0.8), rgba(15,23,42,0.9));
-            backdrop-filter: blur(8px);
-            border: 2px solid rgba(6,182,212,0.3);
-            border-radius: 1rem;
-            padding: 1.25rem 2rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
-        }
-
-        .price-badge-label {
+        /* REFINAMENTO 1: Linha de reforço com urgência - NOVA */
+        .hero-urgency-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
             font-size: 0.8125rem;
-            color: #22d3ee;
+            color: #fbbf24;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            flex-wrap: wrap;
+        }
+        .hero-urgency-line span {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            background: rgba(251, 191, 36, 0.1);
+            padding: 0.375rem 0.875rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(251, 191, 36, 0.2);
+        }
+        .hero-urgency-line i {
+            color: #fbbf24;
+            font-size: 0.75rem;
         }
 
-        .price-badge-amount {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--white);
-            line-height: 1;
-        }
+        /* Price Badge - REFINAMENTO: Removido para evitar redundância no topo */
+        /* O preço agora aparece integrado na subheadline e será reforçado depois com ancoragem */
 
-        @media (min-width: 640px) {
-            .price-badge-amount { font-size: 4.5rem; }
-        }
-
-        .price-badge-amount small {
-            font-size: 2rem;
-            font-weight: 400;
-            color: var(--slate-300);
-        }
-
-        .price-badge-note {
-            font-size: 0.875rem;
-            color: var(--slate-300);
-            font-weight: 500;
-            margin-top: 0.25rem;
-        }
-
-        /* Feature Grid */
+        /* Feature Grid - REFINAMENTO: Cards mais compactos e focados */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 0.75rem;
             width: 100%;
-            max-width: 900px;
+            max-width: 800px;
             margin-bottom: 2rem;
         }
 
         @media (min-width: 640px) {
             .features-grid {
                 grid-template-columns: repeat(4, 1fr);
-                gap: 1.25rem;
+                gap: 1rem;
             }
         }
 
         .feature-card {
             background: rgba(30,41,59,0.4);
             border-radius: 0.75rem;
-            padding: 1rem;
+            padding: 1rem 0.75rem;
             text-align: center;
             border: 1px solid rgba(51,65,85,0.5);
             backdrop-filter: blur(4px);
@@ -391,7 +396,7 @@
             line-height: 1.4;
         }
 
-        /* CTA Principal */
+        /* CTA Principal - REFINAMENTO 7: Mais direto e com shimmer de urgência */
         .cta-hero {
             display: inline-flex;
             align-items: center;
@@ -407,6 +412,22 @@
             transition: all var(--transition-normal);
             width: 100%;
             justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 2s infinite;
+        }
+        @keyframes shimmer {
+            100% { left: 100%; }
         }
 
         @media (min-width: 640px) {
@@ -426,10 +447,53 @@
             font-size: 2rem;
         }
 
+        /* REFINAMENTO 8: Microcopy de fricção zero abaixo do CTA */
         .hero-note {
             color: var(--slate-400);
             font-size: 0.75rem;
             margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* REFINAMENTO 1 e 8: Microcopy de urgência e simplicidade */
+        .micro-urgency {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            color: var(--slate-400);
+            flex-wrap: wrap;
+        }
+        .micro-urgency span {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .micro-urgency i {
+            color: #22c55e;
+        }
+
+        /* REFINAMENTO 5: Prova social inline */
+        .social-proof-inline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            color: var(--slate-400);
+        }
+        .social-proof-inline i {
+            color: #fbbf24;
+        }
+        .social-proof-inline strong {
+            color: var(--white);
+            font-weight: 700;
         }
 
         /* Section Styles */
@@ -553,6 +617,17 @@
             line-height: 1.6;
         }
 
+        .step-time-badge {
+            display: inline-block;
+            background: #fef3c7;
+            color: #d97706;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            margin-top: 0.75rem;
+        }
+
         /* Voice Cards */
         .voices-section {
             max-width: 1280px;
@@ -600,12 +675,29 @@
             gap: 1rem;
             border: 1px solid #e9e8e6;
             transition: all var(--transition-normal);
+            position: relative;
         }
 
         .voice-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(0,0,0,0.06);
             border-color: #d4d2cf;
+        }
+
+        .voice-availability {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            width: 10px;
+            height: 10px;
+            background: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
 
         .voice-img {
@@ -800,6 +892,13 @@
             margin-top: 0.125rem;
         }
 
+        .price-card-savings {
+            font-size: 0.6875rem;
+            color: #22c55e;
+            font-weight: 700;
+            margin-top: 0.25rem;
+        }
+
         .price-card-features {
             list-style: none;
             text-align: left;
@@ -860,6 +959,39 @@
         .price-card:nth-child(3) .btn-price:hover {
             background: #d97706;
             color: var(--white);
+        }
+
+        /* REFINAMENTO 3: Ancoragem de valor - NOVA seção */
+        .value-anchor {
+            background: var(--white);
+            border-radius: 1rem;
+            padding: 1.5rem 2rem;
+            max-width: 650px;
+            margin: 2rem auto 0;
+            border: 2px dashed #fde68a;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+        .value-anchor p {
+            font-size: 0.875rem;
+            color: var(--slate-600);
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        .value-anchor p:last-child {
+            margin-bottom: 0;
+        }
+        .value-anchor .comparison-highlight {
+            display: inline-block;
+            background: #fef3c7;
+            color: #d97706;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+        .value-anchor strong {
+            color: var(--premium-purple);
         }
 
         /* Footer Note */
@@ -1163,10 +1295,10 @@
     <!-- WhatsApp Flutuante -->
     <div class="whatsapp-float">
         <div class="whatsapp-tooltip hidden-mobile">
-            <i class="fas fa-question-circle" style="color: var(--action-green); margin-right: 0.25rem;"></i> Dúvidas com o Painel? Fale Comigo 👍
+            <i class="fas fa-question-circle" style="color: var(--action-green); margin-right: 0.25rem;"></i> Dúvida rápida? Fale com a gente
         </div>
-        <a href="https://wa.me/5527996529832?text=Olá!%20Estou%20no%20site%20e%20fiquei%20com%20uma%20dúvida%20sobre%20como%20usar%20ou%20me%20cadastrar%20no%20Painel." 
-           target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Falar no WhatsApp">
+        <a href="https://wa.me/5527996529832?text=Olá!%20Estou%20no%20site%20e%20preciso%20de%20uma%20ajuda%20rápida." 
+           target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Suporte no WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
@@ -1176,8 +1308,8 @@
         <div class="header-top-bar">
             <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
                 <span class="hidden-mobile"><i class="fas fa-envelope" style="color: var(--slate-500); margin-right: 0.25rem;"></i> contato@alocucao.com.br</span>
-                <span style="display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-shield-alt" style="color: #22d3ee;"></i> Plataforma Oficial Automatizada 24 Horas</span>
-                <span class="hidden-mobile"><i class="fas fa-clock" style="color: var(--slate-500); margin-right: 0.25rem;"></i> Plantão: Todos os dias 06h às 22h</span>
+                <span style="display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-shield-alt" style="color: #22d3ee;"></i> Spot Comercial Online • Entrega Rápida</span>
+                <span class="hidden-mobile"><i class="fas fa-clock" style="color: var(--slate-500); margin-right: 0.25rem;"></i> Atendimento: 06h às 22h (todos os dias)</span>
             </div>
         </div>
         <div class="container header-main">
@@ -1185,55 +1317,60 @@
                 <img src="https://testedomarcio.github.io/meuadio/logo.webp" alt="Estúdio A Locução" class="logo-img" width="120" height="40">
             </a>
             <a href="https://www.alocucao.com.br/cadastro" class="btn btn-gradient">
-                <i class="fas fa-user-plus"></i> CRIAR CONTA GRATUITA
+                <i class="fas fa-play"></i> COMEÇAR MEU SPOT
             </a>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
+        <!-- REFINAMENTO 1: HERO SECTION REESTRUTURADA -->
         <section id="home" class="hero anchor-section">
             <div class="hero-bg-gradient"></div>
             <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-bolt" style="color: #fbbf24;"></i> PLATAFORMA DE LOCUÇÃO AUTOMATIZADA COM TOTAL AUTONOMIA
+                
+                <!-- Badge de urgência com animação -->
+                <div class="hero-urgency-badge">
+                    <i class="fas fa-bolt" style="color: #fca5a5;"></i> Produção imediata • Locutores disponíveis agora
                 </div>
                 
+                <!-- Headline focada na DOR do cliente -->
                 <h1 class="hero-title">
-                    Grave Seus Spots Comerciais no <span class="hero-title-highlight">Produtora de áudio Online 24h</span>
+                    Precisa de um <span class="hero-title-highlight">spot comercial rápido</span>?
                 </h1>
                 
+                <!-- Subheadline com benefício + preço integrado (sem repetir) -->
                 <p class="hero-subtitle">
-                    Simule orçamentos automáticos, escolha entre mais de 300 locutores e envie seu pedido a qualquer hora do dia ou da noite, sem burocracias.
+                    Produza seu spot profissional online com entrega rápida e sem complicação. A partir de <strong style="color: #fbbf24; font-weight: 700;">R$ 29,90</strong> com mais de 300 locutores disponíveis.
                 </p>
 
-                <div class="price-badge">
-                    <p class="price-badge-label">Produção Completa Via Painel</p>
-                    <p class="price-badge-amount">R$ 29<small>,90</small></p>
-                    <p class="price-badge-note">por bloco de até 40 segundos com liberação imediata via PIX</p>
+                <!-- Linha de reforço com urgência (NOVA) -->
+                <div class="hero-urgency-line">
+                    <span><i class="fas fa-clock"></i> Leva menos de 2 minutos</span>
+                    <span><i class="fas fa-headphones"></i> Locutores disponíveis agora</span>
+                    <span><i class="fas fa-download"></i> Receba hoje mesmo</span>
                 </div>
 
-                <!-- Diferenciais -->
+                <!-- Diferenciais compactos -->
                 <div class="features-grid">
                     <div class="feature-card">
                         <i class="fas fa-clock"></i>
-                        <h4>Autonomia 24h/7</h4>
-                        <p>Orçamentos e pedidos a qualquer hora, sem esperar atendimento</p>
+                        <h4>Rápido e Sem Espera</h4>
+                        <p>Orçamento e pedido em 2 minutos</p>
                     </div>
                     <div class="feature-card">
-                        <i class="fas fa-calendar-check"></i>
-                        <h4>Plantão de Locutores</h4>
-                        <p>Gravações todos os dias, inclusive finais de semana e feriados</p>
+                        <i class="fas fa-headphones"></i>
+                        <h4>Ouça Antes de Contratar</h4>
+                        <p>Veja quem está disponível agora</p>
                     </div>
                     <div class="feature-card">
-                        <i class="fas fa-users"></i>
-                        <h4>+300 Locutores</h4>
-                        <p>Filtragem dinâmica por perfil e acesso a quem está online</p>
+                        <i class="fas fa-piggy-bank"></i>
+                        <h4>Muito Mais Barato</h4>
+                        <p>A partir de R$ 29,90 por spot completo</p>
                     </div>
                     <div class="feature-card">
-                        <i class="fas fa-eye"></i>
-                        <h4>Status em Tempo Real</h4>
-                        <p>Acompanhe as etapas e baixe seus áudios quando quiser</p>
+                        <i class="fas fa-download"></i>
+                        <h4>Receba Hoje Mesmo</h4>
+                        <p>Spot finalizado e pronto para usar</p>
                     </div>
                 </div>
                 
@@ -1241,56 +1378,70 @@
                 <a href="#" 
                    onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_HERO_CLICK', 'Plataforma', 'Hero_Cadastro')"
                    class="cta-hero">
-                    <i class="fas fa-laptop-code"></i> CRIAR CONTA E ENVIAR ÁUDIO AGORA
+                    <i class="fas fa-play-circle"></i> COMEÇAR MEU SPOT AGORA
                     <i class="fas fa-arrow-right" style="font-size: 0.875rem; opacity: 0.8;"></i>
                 </a>
                 <p class="hero-note">
-                    <i class="fas fa-info-circle" style="color: #22d3ee;"></i> Liberação imediata de créditos via PIX | Roteiros analisados por especialistas
+                    <i class="fas fa-lock" style="color: #22c55e;"></i> Pagamento via PIX • Receba ainda hoje
                 </p>
+                <!-- REFINAMENTO 8: Microcopy de fricção zero -->
+                <div class="micro-urgency">
+                    <span><i class="fas fa-check-circle"></i> Leva menos de 2 minutos</span>
+                    <span><i class="fas fa-check-circle"></i> Sem precisar falar com ninguém</span>
+                </div>
+                <!-- REFINAMENTO 5: Prova social -->
+                <div class="social-proof-inline">
+                    <i class="fas fa-star"></i>
+                    <span>Mais de <strong>1.000 clientes</strong> já produziram seus spots conosco</span>
+                </div>
             </div>
         </section>
 
         <!-- Como funciona -->
         <section class="section section-white">
             <div class="container">
-                <span class="section-label">Agilidade Profissional</span>
-                <h2 class="section-title">Como funciona o nosso <span class="section-title-highlight">Painel Inteligente</span>?</h2>
+                <span class="section-label">Simples e Rápido</span>
+                <h2 class="section-title">Como criar seu spot em <span class="section-title-highlight">menos de 2 minutos</span>?</h2>
                 <p class="section-subtitle">
-                    Esqueça a demora dos atendimentos tradicionais. Veja como é simples gerenciar seus comerciais em poucos cliques.
+                    Esqueça orçamentos demorados e telefonemas. Veja como é simples ter seu comercial no ar.
                 </p>
                 <div class="steps-grid">
                     <div class="step-card">
                         <div class="step-number">1</div>
-                        <h3>Simule e Adicione Crédito</h3>
-                        <p>Crie sua conta em segundos, digite seu roteiro e veja o valor na hora. Adicione créditos instantaneamente via PIX automático, sem precisar falar com ninguém.</p>
+                        <h3>Conte seu Roteiro</h3>
+                        <p>Escreva ou cole seu texto. Em segundos, o valor aparece na tela. Adicione crédito via PIX e pronto.</p>
+                        <span class="step-time-badge"><i class="fas fa-bolt"></i> Leva 30 segundos</span>
                     </div>
                     <div class="step-card">
                         <div class="step-number">2</div>
-                        <h3>Filtre e Escolha a Voz</h3>
-                        <p>Navegue pela vitrine dinâmica com mais de 300 locutores profissionais. Veja em tempo real quem está online e disponível para gravar seu spot rapidamente.</p>
+                        <h3>Escolha a Voz Ideal</h3>
+                        <p>Ouça mais de 300 locutores. Veja quem está online e escolha a voz perfeita para sua campanha.</p>
+                        <span class="step-time-badge"><i class="fas fa-bolt"></i> Leva 1 minuto</span>
                     </div>
                     <div class="step-card">
                         <div class="step-number">3</div>
-                        <h3>Acompanhe e Baixe</h3>
-                        <p>Receba notificações do status da sua gravação. O áudio finalizado, editado com trilhas licenciadas, fica disponível para download direto no seu painel.</p>
+                        <h3>Receba seu Spot Pronto</h3>
+                        <p>Acompanhe o status e baixe seu áudio finalizado com trilha e efeitos. Tudo online.</p>
+                        <span class="step-time-badge"><i class="fas fa-bolt"></i> Receba hoje mesmo</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Amostra de Vozes -->
+        <!-- REFINAMENTO 4: Amostra de Vozes com título otimizado -->
         <section id="vozes" class="section section-white anchor-section">
             <div class="container voices-section">
-                <span class="section-label">Demonstração de Qualidade</span>
-                <h2 class="section-title">Conheça Alguns de Nossos Locutores Campeões de Venda</h2>
+                <span class="section-label">Ouça Antes de Contratar</span>
+                <h2 class="section-title">Ouça exemplos reais antes de criar seu spot</h2>
                 <p class="section-subtitle">
-                    Estas são apenas 8 opções rápidas. Criando sua conta, você terá acesso completo a mais de 300 vozes de alto impacto.
+                    Estas são apenas 8 opções rápidas. Ao se cadastrar, você terá acesso completo a todos os profissionais e poderá ver quem está online agora.
                 </p>
                 
                 <!-- Vozes Femininas -->
-                <p class="voice-category-title"><i class="fas fa-female"></i> Femininas (Sugestões Rápidas)</p>
+                <p class="voice-category-title"><i class="fas fa-female"></i> Femininas <span style="font-size: 0.6875rem; color: #22c55e; font-weight: 400;">• Locutores disponíveis agora</span></p>
                 <div class="voices-grid">
                     <div class="voice-card">
+                        <span class="voice-availability" title="Disponível agora"></span>
                         <img src="https://testedomarcio.github.io/meuadio/lindy.webp" class="voice-img" alt="Lindy" loading="lazy" width="56" height="56">
                         <div class="voice-info">
                             <h4>Lindy</h4>
@@ -1299,6 +1450,7 @@
                         </div>
                     </div>
                     <div class="voice-card">
+                        <span class="voice-availability" title="Disponível agora"></span>
                         <img src="https://testedomarcio.github.io/meuadio/Elissandra.webp" class="voice-img" alt="Elissandra" loading="lazy" width="56" height="56">
                         <div class="voice-info">
                             <h4>Elissandra</h4>
@@ -1307,6 +1459,7 @@
                         </div>
                     </div>
                     <div class="voice-card">
+                        <span class="voice-availability" title="Disponível agora"></span>
                         <img src="https://testedomarcio.github.io/meuadio/Silvia.webp" class="voice-img" alt="Silvia" loading="lazy" width="56" height="56">
                         <div class="voice-info">
                             <h4>Silvia</h4>
@@ -1315,6 +1468,7 @@
                         </div>
                     </div>
                     <div class="voice-card">
+                        <span class="voice-availability" title="Disponível agora"></span>
                         <img src="https://testedomarcio.github.io/meuadio/Tati.webp" class="voice-img" alt="Tati" loading="lazy" width="56" height="56">
                         <div class="voice-info">
                             <h4>Tati</h4>
@@ -1325,9 +1479,10 @@
                 </div>
                 
                 <!-- Vozes Masculinas -->
-                <p class="voice-category-title"><i class="fas fa-male"></i> Masculinas (Sugestões Rápidas)</p>
+                <p class="voice-category-title"><i class="fas fa-male"></i> Masculinas <span style="font-size: 0.6875rem; color: #22c55e; font-weight: 400;">• Locutores disponíveis agora</span></p>
                 <div class="voices-grid">
                     <div class="voice-card">
+                        <span class="voice-availability" title="Disponível agora"></span>
                         <img src="https://testedomarcio.github.io/meuadio/celso.webp" class="voice-img" alt="Celso" loading="lazy" width="56" height="56">
                         <div class="voice-info">
                             <h4>Celso</h4>
@@ -1336,6 +1491,7 @@
                         </div>
                     </div>
                     <div class="voice-card">
+                        <span class="voice-availability" title="Disponível agora"></span>
                         <img src="https://testedomarcio.github.io/meuadio/charles.webp" class="voice-img" alt="Charles" loading="lazy" width="56" height="56">
                         <div class="voice-info">
                             <h4>Charles</h4>
@@ -1344,6 +1500,7 @@
                         </div>
                     </div>
                     <div class="voice-card">
+                        <span class="voice-availability" title="Disponível agora"></span>
                         <img src="https://testedomarcio.github.io/meuadio/Cristian.webp" class="voice-img" alt="Cristian Jr" loading="lazy" width="56" height="56">
                         <div class="voice-info">
                             <h4>Cristian Jr</h4>
@@ -1352,6 +1509,7 @@
                         </div>
                     </div>
                     <div class="voice-card">
+                        <span class="voice-availability" title="Disponível agora"></span>
                         <img src="https://testedomarcio.github.io/meuadio/Leandro.webp" class="voice-img" alt="Leandro" loading="lazy" width="56" height="56">
                         <div class="voice-info">
                             <h4>Leandro</h4>
@@ -1365,7 +1523,7 @@
                     <a href="#" 
                        onclick="trackVozesClick(); return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_CASTING_CLICK', 'Plataforma', 'Casting_Acessar')"
                        class="cta-casting">
-                        <i class="fas fa-headphones-simple"></i> ENTRAR NO PAINEL E OUVIR MAIS DE 300 VOZES
+                        <i class="fas fa-headphones-simple"></i> OUVIR MAIS DE 300 VOZES E ESCOLHER A MINHA
                         <i class="fas fa-arrow-right" style="font-size: 0.875rem; opacity: 0.6;"></i>
                     </a>
                 </div>
@@ -1375,73 +1533,83 @@
         <!-- Tabela de Preços -->
         <section id="precos" class="section section-gray anchor-section">
             <div class="container">
-                <span class="section-label">Tabela Geral de Valores</span>
-                <h2 class="section-title">Formatos Disponíveis no Painel Inteligente</h2>
-                <p class="section-subtitle">Escolha a melhor solução para sua campanha. Roteiros e trilhas licenciadas com alta definição.</p>
+                <span class="section-label">Preços Que Cabem no Seu Bolso</span>
+                <h2 class="section-title">Qualidade Profissional Por Muito Menos do Que Você Imagina</h2>
+                <p class="section-subtitle">Sem mensalidades, sem taxas escondidas. Pague apenas pelo que usar.</p>
                 
                 <div class="pricing-grid">
                     <!-- Card 1: Locução Off -->
                     <div class="price-card">
-                        <span class="price-card-tag">VOZ CRUA</span>
+                        <span class="price-card-tag">APENAS A VOZ</span>
                         <h3>Locução Off</h3>
-                        <p class="price-card-desc">Apenas a voz limpa gravada pelo locutor. Perfeito se você já edita.</p>
+                        <p class="price-card-desc">A voz limpa e tratada, ideal para quem já tem um editor.</p>
                         <div class="price-card-amount-wrapper">
                             <p class="price-card-amount">R$ 14<small>,90</small></p>
                             <p class="price-card-unit">por bloco de até 40s</p>
+                            <p class="price-card-savings"><i class="fas fa-piggy-bank"></i> 90% mais barato que estúdio</p>
                         </div>
                         <ul class="price-card-features">
-                            <li><i class="fas fa-check-circle"></i> Voz crua perfeitamente tratada</li>
-                            <li><i class="fas fa-check-circle"></i> Sem músicas ou efeitos de fundo</li>
-                            <li><i class="fas fa-check-circle"></i> Ideal para agências e produtoras</li>
+                            <li><i class="fas fa-check-circle"></i> Voz profissional tratada</li>
+                            <li><i class="fas fa-check-circle"></i> Sem música ou efeitos</li>
+                            <li><i class="fas fa-check-circle"></i> Perfeito para agências</li>
                         </ul>
                         <a href="#" onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_PRICE_OFF', 'Plataforma', 'Precos_Off')" class="btn-price">
-                            GRAVAR LOCUÇÃO OFF →
+                            COMEÇAR POR R$ 14,90 →
                         </a>
                     </div>
 
                     <!-- Card 2: Spot Comercial (Destaque) -->
                     <div class="price-card featured">
-                        <span class="price-card-tag">PRODUÇÃO COMPLETA</span>
-                        <h3>Spot Comercial</h3>
-                        <p class="price-card-desc">Áudio completo pronto para uso em rádio, carros e redes sociais.</p>
+                        <span class="price-card-tag">MAIS VENDIDO</span>
+                        <h3>Spot Comercial Completo</h3>
+                        <p class="price-card-desc">Áudio pronto para rádio, TV, carro de som e redes sociais.</p>
                         <div class="price-card-amount-wrapper">
                             <p class="price-card-amount">R$ 29<small>,90</small></p>
                             <p class="price-card-unit">por bloco de até 40s</p>
+                            <p class="price-card-savings"><i class="fas fa-piggy-bank"></i> 80% mais barato que produtora</p>
                         </div>
                         <ul class="price-card-features">
-                            <li><i class="fas fa-check-circle"></i> Locução comercial de alto impacto</li>
-                            <li><i class="fas fa-check-circle"></i> Trilha sonora licenciada inclusa</li>
-                            <li><i class="fas fa-check-circle"></i> Efeitos de impacto de varejo</li>
+                            <li><i class="fas fa-check-circle"></i> Locução de alto impacto</li>
+                            <li><i class="fas fa-check-circle"></i> Trilha sonora licenciada</li>
+                            <li><i class="fas fa-check-circle"></i> Efeitos de varejo inclusos</li>
                         </ul>
                         <a href="#" onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_PRICE_SPOT', 'Plataforma', 'Precos_Spot')" class="btn-price">
-                            PRODUZIR SPOT COMPLETO →
+                            QUERO MEU SPOT PRONTO →
                         </a>
                     </div>
 
                     <!-- Card 3: Combo Promocional -->
                     <div class="price-card">
-                        <span class="price-card-tag">ECONOMIA</span>
+                        <span class="price-card-tag">MELHOR CUSTO-BENEFÍCIO</span>
                         <h3>Combo 3 Spots</h3>
-                        <p class="price-card-desc">Economize comprando blocos de créditos rotativos para usar quando quiser.</p>
+                        <p class="price-card-desc">Ideal para campanhas. Economize comprando em quantidade.</p>
                         <div class="price-card-amount-wrapper">
                             <p class="price-card-amount">R$ 79<small>,90</small></p>
-                            <p class="price-card-unit">3 blocos de até 40s cada</p>
+                            <p class="price-card-unit">3 blocos de até 40s</p>
+                            <p class="price-card-savings"><i class="fas fa-piggy-bank"></i> Menos de R$ 27 por spot</p>
                         </div>
                         <ul class="price-card-features">
-                            <li><i class="fas fa-check-circle"></i> 3 produções completas no painel</li>
-                            <li><i class="fas fa-check-circle"></i> Use os créditos quando quiser</li>
-                            <li><i class="fas fa-check-circle"></i> Trilhas diferentes inclusas</li>
+                            <li><i class="fas fa-check-circle"></i> 3 produções completas</li>
+                            <li><i class="fas fa-check-circle"></i> Use quando precisar</li>
+                            <li><i class="fas fa-check-circle"></i> Trilhas diferentes para cada</li>
                         </ul>
                         <a href="#" onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_PRICE_COMBO', 'Plataforma', 'Precos_Combo')" class="btn-price">
-                            ADQUIRIR COMBO NO PAINEL →
+                            ECONOMIZAR COM O COMBO →
                         </a>
                     </div>
                 </div>
 
+                <!-- REFINAMENTO 3: Ancoragem de valor - NOVA -->
+                <div class="value-anchor">
+                    <p><i class="fas fa-chart-bar" style="color: var(--premium-purple);"></i> <strong>Comparação de mercado:</strong></p>
+                    <p>Produtoras tradicionais podem cobrar de <span class="comparison-highlight">R$ 150 a R$ 500</span> por um único spot comercial.</p>
+                    <p>Aqui você produz o mesmo spot profissional por <strong>até 90% menos</strong>, sem perder qualidade.</p>
+                </div>
+
                 <!-- Rodapé Técnico -->
                 <div class="footer-note">
-                    <p><i class="fas fa-music" style="color: var(--premium-purple);"></i> <strong>Direitos Autorais Seguros:</strong> Todas as trilhas e efeitos de fundo possuem licenças comerciais vitalícias.</p>
-                    <p><i class="fas fa-clock" style="color: var(--premium-purple);"></i> <strong>Dinâmica de Prazos:</strong> O painel recebe pedidos 24h. O plantão ativo grava das 06h às 22h. As edições completas são finalizadas em tempo recorde dentro do horário comercial (Seg a Sex 08h-18h e Sáb 08h-12h).</p>
+                    <p><i class="fas fa-music" style="color: var(--premium-purple);"></i> <strong>Trilhas 100% Licenciadas:</strong> Use em rádio, TV, streaming ou internet sem preocupação com direitos autorais.</p>
+                    <p><i class="fas fa-clock" style="color: var(--premium-purple);"></i> <strong>Horários de Gravação:</strong> Pedidos 24h por dia. Gravações de 06h às 22h, todos os dias. Edição e finalização em horário comercial.</p>
                 </div>
             </div>
         </section>
@@ -1449,17 +1617,22 @@
         <!-- CTA Final -->
         <section class="cta-final anchor-section">
             <div class="container">
-                <h2 class="cta-final-title">Sua estrutura de áudio automatizada e <span>disponível 24h</span></h2>
-                <p class="cta-final-text">Mude a forma de gerenciar seus comerciais. Tenha autonomia total de prazos, simulações de valores e escolha de profissionais diretamente pelo painel digital.</p>
+                <h2 class="cta-final-title">Seu Spot Comercial Está a <span>Um Clique de Distância</span></h2>
+                <p class="cta-final-text">Comece agora, escolha a voz ideal e receba seu áudio pronto ainda hoje. Sem complicação, sem burocracia.</p>
                 
+                <!-- REFINAMENTO 7: CTA final mais direto -->
                 <a href="#" 
                    onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_FINAL_CTA', 'Plataforma', 'Final_CTA_Cadastro')"
                    class="cta-final-btn">
-                    <i class="fas fa-user-plus"></i> CRIAR CONTA E ACESSAR PAINEL AGORA
+                    <i class="fas fa-play-circle"></i> GERAR MEU SPOT EM 2 MINUTOS
                 </a>
+                <!-- REFINAMENTO 8: Microcopy de fricção zero -->
+                <p style="color: var(--slate-400); font-size: 0.75rem; margin-top: 1rem;">
+                    <i class="fas fa-lock" style="color: #22c55e;"></i> Processo 100% online • Sem compromisso • Cancele quando quiser
+                </p>
                 
                 <p class="footer-verse">"Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos." — Provérbios 16:3</p>
-                <p class="footer-copyright">Estúdio A Locução © 2012-2026 · Produção com excelência tecnológica</p>
+                <p class="footer-copyright">Estúdio A Locução © 2012-2026 · Qualidade e Rapidez em Produção de Áudio</p>
             </div>
         </section>
     </main>
@@ -1469,19 +1642,22 @@
         <div class="popup-content">
             <button onclick="closeAdvantagesPopup()" class="popup-close" aria-label="Fechar"><i class="fas fa-times"></i></button>
             <div class="popup-icon">
-                <i class="fas fa-laptop-house"></i>
+                <i class="fas fa-calculator"></i>
             </div>
-            <h3 class="popup-title">Espere! Não saia sem conhecer o painel.</h3>
-            <p class="popup-text">Crie sua conta gratuitamente e veja como é simples produzir spots profissionais.</p>
+            <h3 class="popup-title">Quer ver quanto seu spot vai custar em 2 minutos?</h3>
+            <p class="popup-text">Simule o valor agora, ouça vozes e resolva tudo online. Sem compromisso.</p>
             <ul class="popup-list">
-                <li><i class="fas fa-check-circle"></i> <strong>Painel online 24h:</strong> Orçamento automático na hora</li>
-                <li><i class="fas fa-check-circle"></i> <strong>Casting com +300 Vozes:</strong> Veja quem está online</li>
-                <li><i class="fas fa-check-circle"></i> <strong>Plantão ativo:</strong> Gravação inclusive aos finais de semana</li>
-                <li><i class="fas fa-check-circle"></i> <strong>Acompanhamento em tempo real:</strong> Baixe quando quiser</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Orçamento instantâneo:</strong> sem esperar atendimento</li>
+                <li><i class="fas fa-check-circle"></i> <strong>+300 vozes para ouvir:</strong> veja quem está online</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Preço muito menor que produtoras tradicionais</strong></li>
+                <li><i class="fas fa-check-circle"></i> <strong>Tudo online:</strong> sem reunião, sem telefone</li>
             </ul>
             <a href="#" onclick="closeAdvantagesPopup(); return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'PANEL_POPUP_CLICK', 'Plataforma', 'Popup_Cadastro')" class="btn-popup">
-                <i class="fas fa-user-plus"></i> QUERO ACESSAR O PAINEL AGORA
+                <i class="fas fa-calculator"></i> SIMULAR MEU ORÇAMENTO AGORA
             </a>
+            <p style="font-size: 0.6875rem; color: var(--slate-400); margin-top: 0.75rem;">
+                <i class="fas fa-lock" style="color: #22c55e;"></i> Sem compromisso • Leva menos de 2 minutos
+            </p>
         </div>
     </div>
 
