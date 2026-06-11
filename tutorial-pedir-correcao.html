@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    
+    <title>Como Pedir Correção no Painel de Gravação | Tutorial Passo a Passo | A Locução</title>
+    <meta name="description" content="Aprenda como solicitar correção de locução no painel de gravação. Tutorial com exemplos práticos: saiba quando e como pedir correção de off, spot e vinheta.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093304718"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18093304718');
+
+      function safeRedirectPanel(url, conversionLabel, eventCategory, eventLabel) {
+          gtag('event', 'conversion', {
+              'send_to': 'AW-18093304718/' + conversionLabel,
+              'event_category': eventCategory,
+              'event_label': eventLabel
+          });
+          setTimeout(function() {
+              window.location.href = url;
+          }, 300);
+          return false;
+      }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        'brand-blue': '#1e3a5f',
+                        'darkBg': '#0f172a',
+                        'action-green': '#25D366',
+                        'action-green-hover': '#1fb855',
+                        'premium-purple': '#5B3A8C',
+                        'premium-gold': '#F59E0B',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #faf9f8; scroll-behavior: smooth; }
+        .glass-header { background: rgba(15, 23, 42, 0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .step-card { transition: all 0.3s ease; border-left: 4px solid #5B3A8C; }
+        .step-card:hover { transform: translateX(4px); box-shadow: 0 8px 24px rgba(91,58,140,0.08); }
+        .step-number { background: linear-gradient(135deg, #5B3A8C, #7C3AED); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; flex-shrink: 0; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .tip-box { background: linear-gradient(135deg, #FEF3C7, #FDE68A); border: 1px solid #F59E0B; border-radius: 12px; }
+        .highlight-box { background: linear-gradient(135deg, #EDE9FE, #DDD6FE); border: 1px solid #7C3AED; border-radius: 12px; }
+        .info-box { background: linear-gradient(135deg, #DBEAFE, #BFDBFE); border: 1px solid #3B82F6; border-radius: 12px; }
+        .success-box { background: linear-gradient(135deg, #D1FAE5, #A7F3D0); border: 1px solid #10B981; border-radius: 12px; }
+        .warning-box { background: linear-gradient(135deg, #FEE2E2, #FECACA); border: 1px solid #EF4444; border-radius: 12px; }
+        .example-box { background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 12px; }
+        .comparison-card { transition: all 0.3s ease; }
+        .comparison-card:hover { transform: translateY(-4px); }
+        .anchor-section { scroll-margin-top: 80px; }
+        @media (max-width: 768px) { .anchor-section { scroll-margin-top: 70px; } }
+    </style>
+</head>
+<body class="font-sans antialiased text-slate-700">
+
+    <!-- WhatsApp Fixo -->
+    <div class="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-2">
+        <div class="bg-white text-slate-800 text-xs font-bold px-4 py-2.5 rounded-xl shadow-xl border border-slate-100 hidden sm:block">
+            <i class="fas fa-question-circle text-premium-purple mr-1"></i> Dúvidas sobre correção? Fale conosco
+        </div>
+        <a href="https://wa.me/5527996529832?text=Olá!%20Estou%20na%20página%20de%20tutorial%20de%20correção%20e%20gostaria%20de%20tirar%20uma%20dúvida" 
+           target="_blank" rel="noopener noreferrer"
+           class="w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] rounded-full flex items-center justify-center text-3xl text-white shadow-[0_8px_25px_rgba(37,211,102,0.4)] hover:scale-110 transition-all duration-300">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 glass-header text-white transition-all py-2 sm:py-3">
+        <div class="bg-slate-800/40 border-b border-slate-700/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-center sm:justify-between items-center py-1.5 text-[10px] sm:text-xs text-slate-400">
+                <span class="hidden sm:flex items-center gap-2"><i class="fas fa-envelope text-slate-500"></i> contato@alocucao.com.br</span>
+                <span class="flex items-center gap-2"><i class="fas fa-graduation-cap text-cyan-400"></i> Tutorial: Como Pedir Correção no Painel de Gravação</span>
+                <span class="hidden sm:flex items-center gap-1"><i class="fas fa-shield-alt text-slate-500"></i> Proteção de revisão inclusa para erros do locutor</span>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center py-2">
+            <a href="#" class="shrink-0">
+                <img src="https://testedomarcio.github.io/meuadio/logo.webp" alt="Estúdio A Locução" class="h-8 sm:h-10 w-auto" width="120" height="40">
+            </a>
+            <div class="flex items-center gap-3 sm:gap-4">
+                <span class="hidden lg:flex items-center gap-2 text-cyan-400 text-xs font-bold border-r border-slate-700 pr-4">
+                    <i class="fas fa-handshake text-cyan-400 text-xs"></i> Seu parceiro em locução profissional
+                </span>
+                <a href="https://www.alocucao.com.br/cadastro"
+                   class="bg-gradient-to-r from-premium-purple to-indigo-600 text-white font-bold flex items-center gap-2 transition-colors text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-md hover:opacity-95">
+                    <i class="fas fa-sign-in-alt"></i> <span>ENVIAR PROJETO AGORA →</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="anchor-section bg-darkBg pt-32 sm:pt-36 lg:pt-40 pb-12 lg:pb-16 relative overflow-hidden text-white">
+            <div class="absolute inset-0 bg-gradient-to-br from-premium-purple/10 via-brand-blue/5 to-transparent pointer-events-none"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+                <div class="text-center mb-8">
+                    <div class="inline-flex items-center gap-2 bg-slate-900/50 border border-cyan-500/30 text-cyan-400 px-5 py-2 rounded-full text-xs font-bold tracking-wide mb-6 shadow-lg">
+                        <i class="fas fa-play-circle text-sm"></i> TUTORIAL · SOLICITAÇÃO DE CORREÇÃO
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-4">
+                        Como Pedir <span class="text-cyan-400">Correção</span> no Painel de Gravação
+                    </h1>
+                    
+                    <p class="text-slate-300 text-lg lg:text-xl mb-6 leading-relaxed max-w-3xl mx-auto font-medium">
+                        Aprenda o processo correto para solicitar ajustes nas suas locuções. Tutorial com exemplos práticos para garantir que sua correção seja aceita rapidamente.
+                    </p>
+
+                    <div class="flex items-center justify-center gap-3 text-sm text-slate-400">
+                        <span class="flex items-center gap-1"><i class="fas fa-shield-alt text-cyan-400"></i> Proteção inclusa</span>
+                        <span class="text-slate-600">|</span>
+                        <span class="flex items-center gap-1"><i class="fas fa-bolt text-cyan-400"></i> Resposta ágil</span>
+                        <span class="text-slate-600">|</span>
+                        <span class="flex items-center gap-1"><i class="fas fa-check-circle text-cyan-400"></i> Sem custo adicional</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vídeo em Destaque -->
+        <section class="py-10 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <div class="video-container mb-6">
+                    <iframe 
+                        src="https://www.youtube.com/embed/EVe93pP0Fjk" 
+                        title="Tutorial: Como Pedir Correção no Painel de Gravação" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        loading="lazy">
+                    </iframe>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-slate-500 text-sm mb-6">
+                        <i class="fas fa-info-circle text-premium-purple mr-1"></i> 
+                        Assista ao vídeo e confira abaixo o guia completo com exemplos práticos de como solicitar correções.
+                    </p>
+                    
+                    <a href="https://www.alocucao.com.br/cadastro" 
+                       onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'TUTORIAL_CORRECAO_HERO', 'Tutorial', 'Hero_Correcao')"
+                       class="inline-flex items-center gap-3 bg-premium-purple hover:bg-premium-purple/90 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-[0_12px_30px_rgba(91,58,140,0.25)] hover:-translate-y-1 transition-all duration-300">
+                        <i class="fas fa-user-plus text-xl"></i> CRIAR CONTA E COMEÇAR A USAR O PAINEL
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Regra de Ouro: Quando Pedir Correção -->
+        <section class="py-12 bg-slate-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-10">
+                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Regra Fundamental</span>
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900">
+                        Quando Você Pode (e Não Pode) Pedir Correção
+                    </h2>
+                    <p class="text-slate-500 text-lg mt-2">Entender esta regra evita que seu pedido de correção seja recusado.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- PODE pedir correção -->
+                    <div class="comparison-card bg-white rounded-2xl p-6 sm:p-8 border-2 border-emerald-200 shadow-sm">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-2xl">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-emerald-700">Pode Pedir Correção</h3>
+                                <p class="text-xs text-emerald-600">Quando o erro NÃO foi seu</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 text-sm text-slate-600">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-emerald-500 mt-0.5"></i>
+                                <span><strong>Locutor errou a pronúncia</strong> de uma palavra</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-emerald-500 mt-0.5"></i>
+                                <span><strong>Locutor pulou ou trocou</strong> parte do texto</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-emerald-500 mt-0.5"></i>
+                                <span><strong>Produtor aplicou efeito errado</strong> ou equalização incorreta</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-emerald-500 mt-0.5"></i>
+                                <span><strong>Arquivo veio com ruído</strong> ou problema técnico</span>
+                            </li>
+                        </ul>
+                        <div class="success-box p-3 mt-4 text-xs">
+                            <p class="text-emerald-700"><strong>Proteção inclusa:</strong> Correções por erro do locutor ou produtor são gratuitas.</p>
+                        </div>
+                    </div>
+
+                    <!-- NÃO PODE pedir correção -->
+                    <div class="comparison-card bg-white rounded-2xl p-6 sm:p-8 border-2 border-red-200 shadow-sm">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-2xl">
+                                <i class="fas fa-times-circle"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-red-700">Não Pode Pedir Correção</h3>
+                                <p class="text-xs text-red-600">Quando o erro FOI seu</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 text-sm text-slate-600">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-times text-red-400 mt-0.5"></i>
+                                <span><strong>Você enviou o texto com erro</strong> de digitação</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-times text-red-400 mt-0.5"></i>
+                                <span><strong>Você mudou de ideia</strong> sobre o texto após o envio</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-times text-red-400 mt-0.5"></i>
+                                <span><strong>Você esqueceu de mencionar</strong> alguma instrução importante</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-times text-red-400 mt-0.5"></i>
+                                <span><strong>Você escolheu o estilo errado</strong> de locução</span>
+                            </li>
+                        </ul>
+                        <div class="warning-box p-3 mt-4 text-xs">
+                            <p class="text-red-700"><strong>Atenção:</strong> Nestes casos, será necessário solicitar uma nova gravação e comprar novos créditos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box p-5 mt-6 text-sm text-center">
+                    <p class="text-purple-800 font-bold flex items-center justify-center gap-2 mb-1">
+                        <i class="fas fa-lightbulb"></i> Resumo da regra:
+                    </p>
+                    <p class="text-purple-700">
+                        <strong>Erro do locutor ou produtor = correção gratuita.</strong> 
+                        <strong>Erro de quem enviou o texto = nova gravação.</strong> 
+                        Por isso, revise sempre o texto antes de enviar!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Passo a Passo Detalhado -->
+        <section class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12">
+                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Guia Passo a Passo</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+                        Como Solicitar uma Correção
+                    </h2>
+                    <p class="text-slate-500 text-lg mt-2">Siga cada etapa com atenção para que sua correção seja processada sem problemas.</p>
+                </div>
+
+                <!-- ETAPA 1: Localizar o Botão de Correção -->
+                <div class="bg-slate-50 rounded-2xl p-6 sm:p-8 mb-6 step-card shadow-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="step-number">1</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-slate-800 mb-3">Localizar o Pedido e o Botão de Correção</h3>
+                            <p class="text-slate-600 mb-4">Vá até o pedido onde ocorreu o erro que precisa ser corrigido.</p>
+                            
+                            <div class="bg-white rounded-xl p-4 border border-slate-200">
+                                <h4 class="font-semibold text-slate-700 mb-2 flex items-center gap-2">
+                                    <i class="fas fa-list-check text-premium-purple"></i> O que fazer:
+                                </h4>
+                                <ul class="space-y-2 text-sm text-slate-600">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span>Acesse seu painel e encontre o pedido com erro</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span>Clique no <strong>botão com exclamação (!)</strong> localizado no pedido</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="info-box p-4 mt-4 text-sm">
+                                <p class="font-bold text-blue-800 flex items-center gap-2 mb-1">
+                                    <i class="fas fa-info-circle"></i> Onde encontrar:
+                                </p>
+                                <p class="text-blue-700">
+                                    O botão de correção fica visível em cada pedido concluído no seu painel. É um ícone de <strong>exclamação (!)</strong> que indica "Reportar Problema".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ETAPA 2: Selecionar o Tipo de Erro -->
+                <div class="bg-slate-50 rounded-2xl p-6 sm:p-8 mb-6 step-card shadow-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="step-number">2</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-slate-800 mb-3">Selecionar o Tipo de Erro</h3>
+                            <p class="text-slate-600 mb-4">Escolha a categoria correta do erro para direcionar sua solicitação ao responsável.</p>
+                            
+                            <div class="bg-white rounded-xl p-4 border border-slate-200">
+                                <h4 class="font-semibold text-slate-700 mb-2 flex items-center gap-2">
+                                    <i class="fas fa-list-check text-premium-purple"></i> Opções de tipo de erro:
+                                </h4>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex items-center gap-3 bg-purple-50 rounded-lg p-3 border border-purple-100">
+                                        <div class="w-8 h-8 bg-premium-purple text-white rounded-full flex items-center justify-center text-xs shrink-0">
+                                            <i class="fas fa-microphone"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-slate-700">Erro na Gravação do Off</p>
+                                            <p class="text-xs text-slate-500">Quando o locutor errou pronúncia, entonação ou pulou texto</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3 bg-amber-50 rounded-lg p-3 border border-amber-100">
+                                        <div class="w-8 h-8 bg-amber-500 text-white rounded-full flex items-center justify-center text-xs shrink-0">
+                                            <i class="fas fa-sliders"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-slate-700">Erro na Produção</p>
+                                            <p class="text-xs text-slate-500">Quando houve problema na mixagem, trilha ou efeitos</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tip-box p-4 mt-4 text-sm">
+                                <p class="font-bold text-amber-800 flex items-center gap-2 mb-1">
+                                    <i class="fas fa-lightbulb"></i> Exemplo do vídeo:
+                                </p>
+                                <p class="text-amber-700">
+                                    Se o erro foi <strong>no off, na locução</strong>, clique em <strong>"Erro na Gravação do Off"</strong>. Se foi na mixagem ou trilha, selecione "Erro na Produção".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ETAPA 3: Descrever o Erro -->
+                <div class="bg-slate-50 rounded-2xl p-6 sm:p-8 mb-6 step-card shadow-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="step-number">3</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-slate-800 mb-3">Descrever o Erro com Clareza</h3>
+                            <p class="text-slate-600 mb-4">Esta é a etapa mais importante. Seja o mais específico possível para que o locutor entenda exatamente o que corrigir.</p>
+                            
+                            <div class="bg-white rounded-xl p-4 border border-slate-200 mb-4">
+                                <h4 class="font-semibold text-slate-700 mb-2 flex items-center gap-2">
+                                    <i class="fas fa-list-check text-premium-purple"></i> O que fazer:
+                                </h4>
+                                <ul class="space-y-2 text-sm text-slate-600">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span>No campo indicado, <strong>diga qual foi o erro</strong> de forma clara e objetiva</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span><strong>Cole a parte do texto</strong> onde houve o erro</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span><strong>Destaque a palavra</strong> que o locutor errou ou o trecho problemático</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Exemplo Prático -->
+                            <div class="example-box p-5">
+                                <h4 class="font-bold text-slate-700 mb-3 flex items-center gap-2">
+                                    <i class="fas fa-file-alt text-premium-purple"></i> Exemplo prático de como descrever o erro:
+                                </h4>
+                                <div class="space-y-3 text-sm">
+                                    <div class="bg-white rounded-lg p-3 border border-slate-200">
+                                        <p class="text-xs text-slate-400 uppercase font-semibold mb-1">Descrição do erro:</p>
+                                        <p class="text-slate-700">"O locutor pronunciou a palavra 'estratégia' como 'estratégica'. A pronúncia correta é es-tra-té-gi-a (com ênfase no 'té')."</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3 border border-slate-200">
+                                        <p class="text-xs text-slate-400 uppercase font-semibold mb-1">Trecho do texto com erro:</p>
+                                        <p class="text-slate-700">"Nossa <mark class="bg-red-100 text-red-700 px-1 rounded">estratégia</mark> de mercado para 2026..."</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tip-box p-4 mt-4 text-sm">
+                                <p class="font-bold text-amber-800 flex items-center gap-2 mb-1">
+                                    <i class="fas fa-lightbulb"></i> Dica valiosa:
+                                </p>
+                                <p class="text-amber-700">
+                                    Quanto mais clara for sua explicação, mais rápida será a correção. Se possível, grave um áudio curto com a pronúncia correta e anexe ao pedido.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ETAPA 4: Confirmar e Acompanhar -->
+                <div class="bg-slate-50 rounded-2xl p-6 sm:p-8 mb-6 step-card shadow-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="step-number">4</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-slate-800 mb-3">Confirmar o Pedido de Correção</h3>
+                            <p class="text-slate-600 mb-4">Revise se a explicação está clara e envie o pedido.</p>
+                            
+                            <div class="bg-white rounded-xl p-4 border border-slate-200">
+                                <h4 class="font-semibold text-slate-700 mb-2 flex items-center gap-2">
+                                    <i class="fas fa-list-check text-premium-purple"></i> O que fazer:
+                                </h4>
+                                <ul class="space-y-2 text-sm text-slate-600">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span>Verifique se a <strong>explicação ficou clara</strong></span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span>Clique em <strong>"Confirmar"</strong> para enviar o pedido de correção</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="success-box p-4 mt-4 text-sm">
+                                <p class="font-bold text-emerald-800 flex items-center gap-2 mb-1">
+                                    <i class="fas fa-check-circle"></i> Pedido enviado!
+                                </p>
+                                <p class="text-emerald-700">
+                                    Você pode ver no painel que o <strong>pedido de correção foi enviado</strong>. Agora é só aguardar o locutor ou produtor processar a correção. O prazo é rápido e você receberá uma notificação quando estiver pronto.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Checklist Rápido da Correção -->
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 text-white mt-8">
+                    <h3 class="text-2xl font-bold mb-6 text-center">Checklist da Correção Perfeita</h3>
+                    <div class="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+                        <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                            <div class="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-lg shrink-0">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-sm">Erro é do locutor/produtor?</p>
+                                <p class="text-xs text-slate-300">Confirme antes de abrir a solicitação</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                            <div class="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-lg shrink-0">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-sm">Tipo de erro correto?</p>
+                                <p class="text-xs text-slate-300">Off (locução) ou Produção (mixagem)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                            <div class="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-lg shrink-0">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-sm">Explicação clara?</p>
+                                <p class="text-xs text-slate-300">Descreva o erro e destaque a palavra</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                            <div class="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-lg shrink-0">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-sm">Confirmou o envio?</p>
+                                <p class="text-xs text-slate-300">Clique em confirmar e aguarde a notificação</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Intermediário -->
+                <div class="bg-gradient-to-br from-premium-purple to-indigo-700 rounded-2xl p-8 text-white text-center mt-10">
+                    <h3 class="text-2xl font-bold mb-3">Precisa de Correção em um Pedido?</h3>
+                    <p class="text-purple-100 mb-6 max-w-2xl mx-auto">
+                        Acesse seu painel e siga o passo a passo acima. Lembre-se: correções por erro do locutor ou produtor são gratuitas e processadas com agilidade.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="https://www.alocucao.com.br/cadastro" 
+                           onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'TUTORIAL_CORRECAO_MEIO', 'Tutorial', 'Meio_Correcao')"
+                           class="inline-flex items-center gap-3 bg-white text-premium-purple px-8 py-4 rounded-2xl font-bold text-lg hover:-translate-y-1 transition-all shadow-lg">
+                            <i class="fas fa-sign-in-alt text-xl"></i> ACESSAR MEU PAINEL
+                        </a>
+                        <a href="https://wa.me/5527996529832?text=Olá!%20Preciso%20de%20ajuda%20para%20solicitar%20uma%20correção%20no%20painel" 
+                           target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#1fb855] text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all">
+                            <i class="fab fa-whatsapp"></i> PRECISO DE AJUDA
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dúvidas Frequentes -->
+        <section class="py-16 bg-slate-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-2">Dúvidas Sobre Correções</h2>
+                    <p class="text-slate-500">Respostas rápidas para as perguntas mais comuns</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-white rounded-xl p-5 shadow-sm">
+                        <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                            <i class="fas fa-question-circle text-premium-purple"></i> A correção tem custo adicional?
+                        </h4>
+                        <p class="text-sm text-slate-600"><strong>Não!</strong> Correções por erros do locutor ou produtor são <strong>totalmente gratuitas</strong>. Você só paga por uma nova gravação se o erro for seu (texto enviado com problema).</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-5 shadow-sm">
+                        <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                            <i class="fas fa-question-circle text-premium-purple"></i> Quanto tempo leva para a correção ficar pronta?
+                        </h4>
+                        <p class="text-sm text-slate-600">Correções são tratadas com <strong>prioridade</strong>. O prazo exato depende da complexidade do erro, mas geralmente são processadas no mesmo dia dentro do horário do plantão (06h às 22h).</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-5 shadow-sm">
+                        <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                            <i class="fas fa-question-circle text-premium-purple"></i> Posso pedir mais de uma correção no mesmo pedido?
+                        </h4>
+                        <p class="text-sm text-slate-600">Sim! Se houver múltiplos erros do locutor no mesmo áudio, <strong>relate todos na mesma solicitação</strong> para que sejam corrigidos de uma só vez. Seja claro e liste cada erro separadamente.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-5 shadow-sm">
+                        <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                            <i class="fas fa-question-circle text-premium-purple"></i> O que acontece se meu pedido de correção for recusado?
+                        </h4>
+                        <p class="text-sm text-slate-600">Se o erro foi seu (texto enviado incorretamente), o locutor recusará a correção. Neste caso, você precisará <strong>solicitar uma nova gravação</strong> com o texto correto e adquirir novos créditos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Outros Tutoriais -->
+        <section class="py-12 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+                <h3 class="text-xl font-bold text-slate-800 mb-4">Explore Todos os Tutoriais</h3>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <a href="/tutorial-cadastro-painel" class="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-full px-5 py-2.5 text-sm font-medium text-slate-700 hover:border-premium-purple hover:text-premium-purple transition-all">
+                        <i class="fas fa-play-circle text-premium-purple"></i> Como Fazer Cadastro
+                    </a>
+                    <a href="/tutorial-comprar-creditos" class="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-full px-5 py-2.5 text-sm font-medium text-slate-700 hover:border-premium-purple hover:text-premium-purple transition-all">
+                        <i class="fas fa-play-circle text-premium-purple"></i> Como Adquirir Créditos
+                    </a>
+                    <a href="/tutorial-painel-gravacao" class="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-full px-5 py-2.5 text-sm font-medium text-slate-700 hover:border-premium-purple hover:text-premium-purple transition-all">
+                        <i class="fas fa-play-circle text-premium-purple"></i> Tutorial Completo do Painel
+                    </a>
+                    <a href="/tutorial-solicitar-vinhetas" class="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-full px-5 py-2.5 text-sm font-medium text-slate-700 hover:border-premium-purple hover:text-premium-purple transition-all">
+                        <i class="fas fa-play-circle text-premium-purple"></i> Como Solicitar Vinhetas
+                    </a>
+                    <a href="/tutorial-pedir-correcao" class="inline-flex items-center gap-2 bg-premium-purple text-white rounded-full px-5 py-2.5 text-sm font-medium">
+                        <i class="fas fa-exclamation-circle"></i> Como Pedir Correção
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="py-16 bg-darkBg text-white text-center">
+            <div class="max-w-3xl mx-auto px-4">
+                <div class="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 rounded-full px-5 py-2 mb-6">
+                    <i class="fas fa-shield-alt text-cyan-400"></i>
+                    <span class="text-cyan-400 text-sm font-medium">Proteção de revisão inclusa para erros do locutor</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-5">Tenha Tranquilidade com Nossa <span class="text-cyan-400">Garantia de Correção</span></h2>
+                <p class="text-slate-300 text-lg mb-8">Crie sua conta gratuita e tenha a segurança de que erros dos nossos locutores são corrigidos sem custo adicional. Trabalhamos com seriedade e compromisso com seu projeto.</p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://www.alocucao.com.br/cadastro" 
+                       onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'TUTORIAL_CORRECAO_FINAL', 'Tutorial', 'Final_Correcao')"
+                       class="inline-flex items-center gap-3 bg-premium-purple hover:bg-premium-purple/90 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all">
+                        <i class="fas fa-user-plus"></i> CRIAR CONTA GRÁTIS
+                    </a>
+                    <a href="https://wa.me/5527996529832?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20política%20de%20correções%20do%20painel" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#1fb855] text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all">
+                        <i class="fab fa-whatsapp"></i> FALAR NO WHATSAPP
+                    </a>
+                </div>
+                
+                <p class="text-xs text-slate-600 mt-10">Estúdio A Locução © 2012-2026 · Atendendo produtores e agências em todo o Brasil</p>
+                <div style="text-align: center; margin-top: 15px; padding-bottom: 20px;">
+                    <p style="font-size: 11px; color: #94a3b8; font-style: italic; margin: 0;">
+                        "Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos." — Provérbios 16:3
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Header scroll effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.style.background = 'rgba(15, 23, 42, 0.98)';
+                header.classList.add('shadow-md');
+            } else {
+                header.style.background = 'rgba(15, 23, 42, 0.96)';
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
