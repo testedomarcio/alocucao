@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    
+    <title>Como Baixar Vinheta e Spot Comercial no Painel | Tutorial Rápido | A Locução</title>
+    <meta name="description" content="Aprenda como baixar seus áudios de vinheta e spot comercial no painel de gravação. Tutorial simples e direto para fazer o download dos seus arquivos em WAV e MP3.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093304718"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18093304718');
+
+      function safeRedirectPanel(url, conversionLabel, eventCategory, eventLabel) {
+          gtag('event', 'conversion', {
+              'send_to': 'AW-18093304718/' + conversionLabel,
+              'event_category': eventCategory,
+              'event_label': eventLabel
+          });
+          setTimeout(function() {
+              window.location.href = url;
+          }, 300);
+          return false;
+      }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        'brand-blue': '#1e3a5f',
+                        'darkBg': '#0f172a',
+                        'action-green': '#25D366',
+                        'action-green-hover': '#1fb855',
+                        'premium-purple': '#5B3A8C',
+                        'premium-gold': '#F59E0B',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #faf9f8; scroll-behavior: smooth; }
+        .glass-header { background: rgba(15, 23, 42, 0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .step-card { transition: all 0.3s ease; border-left: 4px solid #5B3A8C; }
+        .step-card:hover { transform: translateX(4px); box-shadow: 0 8px 24px rgba(91,58,140,0.08); }
+        .step-number { background: linear-gradient(135deg, #5B3A8C, #7C3AED); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; flex-shrink: 0; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .tip-box { background: linear-gradient(135deg, #FEF3C7, #FDE68A); border: 1px solid #F59E0B; border-radius: 12px; }
+        .highlight-box { background: linear-gradient(135deg, #EDE9FE, #DDD6FE); border: 1px solid #7C3AED; border-radius: 12px; }
+        .info-box { background: linear-gradient(135deg, #DBEAFE, #BFDBFE); border: 1px solid #3B82F6; border-radius: 12px; }
+        .success-box { background: linear-gradient(135deg, #D1FAE5, #A7F3D0); border: 1px solid #10B981; border-radius: 12px; }
+        .download-card { transition: all 0.3s ease; border: 2px solid #e9e8e6; }
+        .download-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.08); border-color: #5B3A8C; }
+        .anchor-section { scroll-margin-top: 80px; }
+        @media (max-width: 768px) { .anchor-section { scroll-margin-top: 70px; } }
+    </style>
+</head>
+<body class="font-sans antialiased text-slate-700">
+
+    <!-- WhatsApp Fixo -->
+    <div class="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-2">
+        <div class="bg-white text-slate-800 text-xs font-bold px-4 py-2.5 rounded-xl shadow-xl border border-slate-100 hidden sm:block">
+            <i class="fas fa-question-circle text-premium-purple mr-1"></i> Dúvidas sobre download? Fale conosco
+        </div>
+        <a href="https://wa.me/5527996529832?text=Olá!%20Estou%20na%20página%20de%20tutorial%20de%20download%20e%20gostaria%20de%20tirar%20uma%20dúvida" 
+           target="_blank" rel="noopener noreferrer"
+           class="w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] rounded-full flex items-center justify-center text-3xl text-white shadow-[0_8px_25px_rgba(37,211,102,0.4)] hover:scale-110 transition-all duration-300">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 glass-header text-white transition-all py-2 sm:py-3">
+        <div class="bg-slate-800/40 border-b border-slate-700/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-center sm:justify-between items-center py-1.5 text-[10px] sm:text-xs text-slate-400">
+                <span class="hidden sm:flex items-center gap-2"><i class="fas fa-envelope text-slate-500"></i> contato@alocucao.com.br</span>
+                <span class="flex items-center gap-2"><i class="fas fa-graduation-cap text-cyan-400"></i> Tutorial: Como Baixar Vinheta e Spot Comercial</span>
+                <span class="hidden sm:flex items-center gap-1"><i class="fas fa-download text-slate-500"></i> Download em WAV e MP3</span>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center py-2">
+            <a href="#" class="shrink-0">
+                <img src="https://testedomarcio.github.io/meuadio/logo.webp" alt="Estúdio A Locução" class="h-8 sm:h-10 w-auto" width="120" height="40">
+            </a>
+            <div class="flex items-center gap-3 sm:gap-4">
+                <span class="hidden lg:flex items-center gap-2 text-cyan-400 text-xs font-bold border-r border-slate-700 pr-4">
+                    <i class="fas fa-handshake text-cyan-400 text-xs"></i> Seu parceiro em locução profissional
+                </span>
+                <a href="https://www.alocucao.com.br/cadastro"
+                   class="bg-gradient-to-r from-premium-purple to-indigo-600 text-white font-bold flex items-center gap-2 transition-colors text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-md hover:opacity-95">
+                    <i class="fas fa-sign-in-alt"></i> <span>ENVIAR PROJETO AGORA →</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="anchor-section bg-darkBg pt-32 sm:pt-36 lg:pt-40 pb-12 lg:pb-16 relative overflow-hidden text-white">
+            <div class="absolute inset-0 bg-gradient-to-br from-premium-purple/10 via-brand-blue/5 to-transparent pointer-events-none"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+                <div class="text-center mb-8">
+                    <div class="inline-flex items-center gap-2 bg-slate-900/50 border border-cyan-500/30 text-cyan-400 px-5 py-2 rounded-full text-xs font-bold tracking-wide mb-6 shadow-lg">
+                        <i class="fas fa-play-circle text-sm"></i> TUTORIAL · DOWNLOAD DE ÁUDIOS
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-4">
+                        Como Baixar Sua <span class="text-cyan-400">Vinheta e Spot Comercial</span>
+                    </h1>
+                    
+                    <p class="text-slate-300 text-lg lg:text-xl mb-6 leading-relaxed max-w-3xl mx-auto font-medium">
+                        O processo mais simples do painel. Em apenas um clique, baixe seus áudios finalizados em formato WAV e MP3 de alta qualidade. Tutorial rápido e direto.
+                    </p>
+
+                    <div class="flex items-center justify-center gap-3 text-sm text-slate-400">
+                        <span class="flex items-center gap-1"><i class="fas fa-mouse-pointer text-cyan-400"></i> 1 clique</span>
+                        <span class="text-slate-600">|</span>
+                        <span class="flex items-center gap-1"><i class="fas fa-file-audio text-cyan-400"></i> WAV + MP3</span>
+                        <span class="text-slate-600">|</span>
+                        <span class="flex items-center gap-1"><i class="fas fa-cloud-arrow-down text-cyan-400"></i> Download direto</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vídeo em Destaque -->
+        <section class="py-10 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <div class="video-container mb-6">
+                    <iframe 
+                        src="https://www.youtube.com/embed/RwHR7iilUpA" 
+                        title="Tutorial: Como Baixar Vinheta e Spot Comercial no Painel" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        loading="lazy">
+                    </iframe>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-slate-500 text-sm mb-6">
+                        <i class="fas fa-info-circle text-premium-purple mr-1"></i> 
+                        O download é a etapa final e mais simples. Assista ao vídeo e confira o guia abaixo.
+                    </p>
+                    
+                    <a href="https://www.alocucao.com.br/cadastro" 
+                       onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'TUTORIAL_DOWNLOAD_HERO', 'Tutorial', 'Hero_Download')"
+                       class="inline-flex items-center gap-3 bg-premium-purple hover:bg-premium-purple/90 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-[0_12px_30px_rgba(91,58,140,0.25)] hover:-translate-y-1 transition-all duration-300">
+                        <i class="fas fa-user-plus text-xl"></i> CRIAR CONTA E COMEÇAR A BAIXAR
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formatos de Download -->
+        <section class="py-12 bg-slate-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-10">
+                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Seus Arquivos</span>
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900">
+                        Formatos de Áudio Disponíveis para Download
+                    </h2>
+                    <p class="text-slate-500 text-lg mt-2">Todos os pedidos incluem os dois formatos para máxima flexibilidade no seu projeto.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- WAV -->
+                    <div class="download-card bg-white rounded-2xl p-6 sm:p-8 text-center">
+                        <div class="w-16 h-16 bg-cyan-100 text-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                            <i class="fas fa-wave-square"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Formato WAV</h3>
+                        <span class="inline-block bg-cyan-100 text-cyan-700 text-xs font-bold px-3 py-1 rounded-full mb-3">Qualidade Broadcast</span>
+                        <p class="text-slate-500 text-sm mb-4">
+                            Arquivo de áudio sem compressão, com a mais alta fidelidade sonora. Ideal para edição profissional, mixagem e masterização.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-500 text-left">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-cyan-500 mt-0.5"></i>
+                                <span>Áudio não comprimido (lossless)</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-cyan-500 mt-0.5"></i>
+                                <span>Qualidade profissional de estúdio</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-cyan-500 mt-0.5"></i>
+                                <span>Ideal para edição e pós-produção</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- MP3 -->
+                    <div class="download-card bg-white rounded-2xl p-6 sm:p-8 text-center">
+                        <div class="w-16 h-16 bg-purple-100 text-premium-purple rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                            <i class="fas fa-file-audio"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Formato MP3</h3>
+                        <span class="inline-block bg-purple-100 text-premium-purple text-xs font-bold px-3 py-1 rounded-full mb-3">Alta Compatibilidade</span>
+                        <p class="text-slate-500 text-sm mb-4">
+                            Arquivo compactado com excelente qualidade. Perfeito para compartilhamento rápido, upload em plataformas e uso imediato.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-500 text-left">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-premium-purple mt-0.5"></i>
+                                <span>Tamanho reduzido e prático</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-premium-purple mt-0.5"></i>
+                                <span>Compatível com todos os players</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-premium-purple mt-0.5"></i>
+                                <span>Ideal para preview e compartilhamento</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tip-box p-5 mt-6 text-sm text-center">
+                    <p class="font-bold text-amber-800 flex items-center justify-center gap-2 mb-1">
+                        <i class="fas fa-lightbulb"></i> Dica de profissional:
+                    </p>
+                    <p class="text-amber-700">
+                        Baixe sempre o <strong>WAV para edição</strong> e o <strong>MP3 para aprovação</strong> com clientes. 
+                        Assim você mantém a máxima qualidade no projeto final e agilidade na comunicação.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Passo a Passo -->
+        <section class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12">
+                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Guia Passo a Passo</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+                        Como Baixar Seus Áudios
+                    </h2>
+                    <p class="text-slate-500 text-lg mt-2">O processo mais rápido de todo o painel. Siga estes passos simples.</p>
+                </div>
+
+                <!-- ETAPA ÚNICA DETALHADA -->
+                <div class="bg-slate-50 rounded-2xl p-6 sm:p-8 mb-6 step-card shadow-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="step-number">1</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-slate-800 mb-3">Acessar "Meus Pedidos" e Clicar para Baixar</h3>
+                            <p class="text-slate-600 mb-4">Quando seu áudio estiver pronto, o download é feito em apenas um clique diretamente no painel.</p>
+                            
+                            <div class="bg-white rounded-xl p-5 border border-slate-200 mb-4">
+                                <h4 class="font-semibold text-slate-700 mb-3 flex items-center gap-2">
+                                    <i class="fas fa-list-check text-premium-purple"></i> Passo a passo:
+                                </h4>
+                                <div class="space-y-4">
+                                    <!-- Sub-passo 1 -->
+                                    <div class="flex items-start gap-3">
+                                        <div class="bg-premium-purple text-white w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">1</div>
+                                        <div>
+                                            <p class="font-medium text-slate-700">Acesse a seção <strong>"Meus Pedidos"</strong> no painel</p>
+                                            <p class="text-xs text-slate-400 mt-0.5">É onde ficam listados todos os seus pedidos concluídos e em andamento</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Sub-passo 2 -->
+                                    <div class="flex items-start gap-3">
+                                        <div class="bg-premium-purple text-white w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">2</div>
+                                        <div>
+                                            <p class="font-medium text-slate-700">Localize o pedido concluído</p>
+                                            <p class="text-xs text-slate-400 mt-0.5">O pedido estará marcado como finalizado e pronto para download</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Sub-passo 3 -->
+                                    <div class="flex items-start gap-3">
+                                        <div class="bg-premium-purple text-white w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">3</div>
+                                        <div>
+                                            <p class="font-medium text-slate-700">Clique no <strong>botão de download</strong> do pedido</p>
+                                            <p class="text-xs text-slate-400 mt-0.5">É o botão indicado para baixar o áudio finalizado</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Ilustração Visual do Processo -->
+                            <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-6 text-white text-center">
+                                <p class="text-sm text-slate-300 mb-4">Fluxo completo em 3 passos:</p>
+                                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
+                                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 flex-1 w-full">
+                                        <div class="w-10 h-10 bg-cyan-500 rounded-full flex items-center justify-center mx-auto mb-2 text-lg">
+                                            <i class="fas fa-list"></i>
+                                        </div>
+                                        <p class="font-bold text-sm">Meus Pedidos</p>
+                                        <p class="text-xs text-slate-400">Acesse a seção</p>
+                                    </div>
+                                    <div class="text-cyan-400 text-2xl hidden sm:block">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                    <div class="text-cyan-400 text-2xl sm:hidden">
+                                        <i class="fas fa-arrow-down"></i>
+                                    </div>
+                                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 flex-1 w-full">
+                                        <div class="w-10 h-10 bg-cyan-500 rounded-full flex items-center justify-center mx-auto mb-2 text-lg">
+                                            <i class="fas fa-search"></i>
+                                        </div>
+                                        <p class="font-bold text-sm">Localizar Pedido</p>
+                                        <p class="text-xs text-slate-400">Encontre o concluído</p>
+                                    </div>
+                                    <div class="text-cyan-400 text-2xl hidden sm:block">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                    <div class="text-cyan-400 text-2xl sm:hidden">
+                                        <i class="fas fa-arrow-down"></i>
+                                    </div>
+                                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 flex-1 w-full">
+                                        <div class="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-2 text-lg">
+                                            <i class="fas fa-download"></i>
+                                        </div>
+                                        <p class="font-bold text-sm">Baixar Áudio</p>
+                                        <p class="text-xs text-slate-400">Clique no botão</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Box de Sucesso -->
+                            <div class="success-box p-5 mt-6 text-sm text-center">
+                                <p class="font-bold text-emerald-800 flex items-center justify-center gap-2 mb-1 text-lg">
+                                    <i class="fas fa-check-circle text-xl"></i> Pronto! Seu áudio foi baixado!
+                                </p>
+                                <p class="text-emerald-700">
+                                    O arquivo será salvo no seu computador ou dispositivo. Agora é só usar na sua edição.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Onde Encontrar os Arquivos -->
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 mt-8">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4 text-center flex items-center justify-center gap-2">
+                        <i class="fas fa-folder-open text-premium-purple"></i> Onde os Arquivos Ficam Salvos
+                    </h3>
+                    <div class="grid sm:grid-cols-3 gap-4 text-center">
+                        <div class="bg-slate-50 rounded-xl p-4">
+                            <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-2 text-lg">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-700 text-sm mb-1">Computador</h4>
+                            <p class="text-xs text-slate-500">Pasta de Downloads ou local escolhido no navegador</p>
+                        </div>
+                        <div class="bg-slate-50 rounded-xl p-4">
+                            <div class="w-10 h-10 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-2 text-lg">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-700 text-sm mb-1">Celular</h4>
+                            <p class="text-xs text-slate-500">Pasta de Downloads ou arquivos do navegador</p>
+                        </div>
+                        <div class="bg-slate-50 rounded-xl p-4">
+                            <div class="w-10 h-10 bg-purple-100 text-premium-purple rounded-full flex items-center justify-center mx-auto mb-2 text-lg">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-700 text-sm mb-1">Nuvem do Painel</h4>
+                            <p class="text-xs text-slate-500">Histórico sempre disponível para novo download</p>
+                        </div>
+                    </div>
+
+                    <div class="info-box p-4 mt-6 text-sm">
+                        <p class="font-bold text-blue-800 flex items-center gap-2 mb-1">
+                            <i class="fas fa-info-circle"></i> Histórico de downloads:
+                        </p>
+                        <p class="text-blue-700">
+                            Seus áudios ficam salvos na nuvem do painel. Se precisar baixar novamente no futuro, basta acessar "Meus Pedidos" e repetir o processo. <strong>Seus arquivos não são perdidos.</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Dicas Rápidas -->
+                <div class="highlight-box p-6 mt-8">
+                    <h3 class="text-lg font-bold text-purple-800 mb-3 flex items-center gap-2">
+                        <i class="fas fa-star"></i> Dicas Rápidas para Download
+                    </h3>
+                    <div class="grid sm:grid-cols-2 gap-3 text-sm text-purple-700">
+                        <div class="flex items-start gap-2">
+                            <i class="fas fa-check-circle text-purple-500 mt-0.5"></i>
+                            <span>Verifique sua conexão antes de baixar arquivos WAV (são maiores)</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <i class="fas fa-check-circle text-purple-500 mt-0.5"></i>
+                            <span>Organize seus áudios em pastas por projeto ou cliente</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <i class="fas fa-check-circle text-purple-500 mt-0.5"></i>
+                            <span>Renomeie o arquivo após baixar para facilitar a identificação</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <i class="fas fa-check-circle text-purple-500 mt-0.5"></i>
+                            <span>Baixe o WAV para editar e o MP3 para enviar para aprovação</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Intermediário -->
+                <div class="bg-gradient-to-br from-premium-purple to-indigo-700 rounded-2xl p-8 text-white text-center mt-10">
+                    <h3 class="text-2xl font-bold mb-3">Pronto para Baixar Seus Áudios?</h3>
+                    <p class="text-purple-100 mb-6 max-w-2xl mx-auto">
+                        Crie sua conta gratuita, solicite sua primeira locução e em poucos passos você estará fazendo o download dos seus áudios profissionais.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="https://www.alocucao.com.br/cadastro" 
+                           onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'TUTORIAL_DOWNLOAD_MEIO', 'Tutorial', 'Meio_Download')"
+                           class="inline-flex items-center gap-3 bg-white text-premium-purple px-8 py-4 rounded-2xl font-bold text-lg hover:-translate-y-1 transition-all shadow-lg">
+                            <i class="fas fa-rocket text-xl"></i> CRIAR CONTA GRÁTIS
+                        </a>
+                        <a href="https://wa.me/5527996529832?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20como%20funciona%20o%20download%20dos%20áudios" 
+                           target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#1fb855] text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all">
+                            <i class="fab fa-whatsapp"></i> FALAR NO WHATSAPP
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dúvidas Frequentes -->
+        <section class="py-16 bg-slate-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-2">Dúvidas Sobre Download</h2>
+                    <p class="text-slate-500">Respostas rápidas para as perguntas mais comuns</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-white rounded-xl p-5 shadow-sm">
+                        <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                            <i class="fas fa-question-circle text-premium-purple"></i> Posso baixar o áudio mais de uma vez?
+                        </h4>
+                        <p class="text-sm text-slate-600">Sim! Seus arquivos ficam salvos no histórico do painel. Você pode <strong>baixar quantas vezes quiser</strong>, sem limite de downloads.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-5 shadow-sm">
+                        <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                            <i class="fas fa-question-circle text-premium-purple"></i> Qual formato devo baixar para editar?
+                        </h4>
+                        <p class="text-sm text-slate-600">Recomendamos o <strong>WAV</strong> para edição profissional, pois é um arquivo sem compressão. Use o <strong>MP3</strong> para previews, aprovações e compartilhamento rápido.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-5 shadow-sm">
+                        <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                            <i class="fas fa-question-circle text-premium-purple"></i> O download expira depois de um tempo?
+                        </h4>
+                        <p class="text-sm text-slate-600"><strong>Não!</strong> Seus áudios ficam disponíveis para download permanentemente na nuvem do painel. Acesse quando precisar.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-5 shadow-sm">
+                        <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                            <i class="fas fa-question-circle text-premium-purple"></i> Como sei que o áudio está pronto para baixar?
+                        </h4>
+                        <p class="text-sm text-slate-600">Você receberá uma <strong>notificação no painel</strong> quando seu pedido for concluído. O status mudará para "Finalizado" e o botão de download ficará disponível.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Outros Tutoriais -->
+        <section class="py-12 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+                <h3 class="text-xl font-bold text-slate-800 mb-4">Explore Todos os Tutoriais</h3>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <a href="/tutorial-cadastro-painel" class="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-full px-5 py-2.5 text-sm font-medium text-slate-700 hover:border-premium-purple hover:text-premium-purple transition-all">
+                        <i class="fas fa-play-circle text-premium-purple"></i> Como Fazer Cadastro
+                    </a>
+                    <a href="/tutorial-comprar-creditos" class="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-full px-5 py-2.5 text-sm font-medium text-slate-700 hover:border-premium-purple hover:text-premium-purple transition-all">
+                        <i class="fas fa-play-circle text-premium-purple"></i> Como Adquirir Créditos
+                    </a>
+                    <a href="/tutorial-painel-gravacao" class="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-full px-5 py-2.5 text-sm font-medium text-slate-700 hover:border-premium-purple hover:text-premium-purple transition-all">
+                        <i class="fas fa-play-circle text-premium-purple"></i> Tutorial Completo do Painel
+                    </a>
+                    <a href="/tutorial-solicitar-vinhetas" class="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-full px-5 py-2.5 text-sm font-medium text-slate-700 hover:border-premium-purple hover:text-premium-purple transition-all">
+                        <i class="fas fa-play-circle text-premium-purple"></i> Como Solicitar Vinhetas
+                    </a>
+                    <a href="/tutorial-baixar-audio" class="inline-flex items-center gap-2 bg-premium-purple text-white rounded-full px-5 py-2.5 text-sm font-medium">
+                        <i class="fas fa-download"></i> Como Baixar Áudios
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="py-16 bg-darkBg text-white text-center">
+            <div class="max-w-3xl mx-auto px-4">
+                <div class="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 rounded-full px-5 py-2 mb-6">
+                    <i class="fas fa-cloud-arrow-down text-cyan-400"></i>
+                    <span class="text-cyan-400 text-sm font-medium">Download simples e direto em WAV + MP3</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-5">Receba Áudios <span class="text-cyan-400">Prontos para Usar</span> com Um Clique</h2>
+                <p class="text-slate-300 text-lg mb-8">Crie sua conta gratuita e tenha acesso a um fluxo completo: do pedido ao download. Simples, rápido e sem burocracia.</p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://www.alocucao.com.br/cadastro" 
+                       onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'TUTORIAL_DOWNLOAD_FINAL', 'Tutorial', 'Final_Download')"
+                       class="inline-flex items-center gap-3 bg-premium-purple hover:bg-premium-purple/90 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all">
+                        <i class="fas fa-user-plus"></i> CRIAR CONTA GRÁTIS
+                    </a>
+                    <a href="https://wa.me/5527996529832?text=Olá!%20Quero%20começar%20a%20solicitar%20locuções%20e%20baixar%20meus%20áudios" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#1fb855] text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all">
+                        <i class="fab fa-whatsapp"></i> FALAR NO WHATSAPP
+                    </a>
+                </div>
+                
+                <p class="text-xs text-slate-600 mt-10">Estúdio A Locução © 2012-2026 · Atendendo produtores e agências em todo o Brasil</p>
+                <div style="text-align: center; margin-top: 15px; padding-bottom: 20px;">
+                    <p style="font-size: 11px; color: #94a3b8; font-style: italic; margin: 0;">
+                        "Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos." — Provérbios 16:3
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Header scroll effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.style.background = 'rgba(15, 23, 42, 0.98)';
+                header.classList.add('shadow-md');
+            } else {
+                header.style.background = 'rgba(15, 23, 42, 0.96)';
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
