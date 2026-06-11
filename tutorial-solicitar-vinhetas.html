@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    
+    <title>Como Solicitar Vinhetas no Painel de Gravação | Tutorial Completo | A Locução</title>
+    <meta name="description" content="Aprenda o passo a passo para solicitar vinhetas personalizadas no painel de gravação. Tutorial em vídeo com instruções detalhadas para criar vinhetas curtas com qualidade profissional.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093304718"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18093304718');
+
+      function safeRedirectPanel(url, conversionLabel, eventCategory, eventLabel) {
+          gtag('event', 'conversion', {
+              'send_to': 'AW-18093304718/' + conversionLabel,
+              'event_category': eventCategory,
+              'event_label': eventLabel
+          });
+          setTimeout(function() {
+              window.location.href = url;
+          }, 300);
+          return false;
+      }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        'brand-blue': '#1e3a5f',
+                        'darkBg': '#0f172a',
+                        'action-green': '#25D366',
+                        'action-green-hover': '#1fb855',
+                        'premium-purple': '#5B3A8C',
+                        'premium-gold': '#F59E0B',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #faf9f8; scroll-behavior: smooth; }
+        .glass-header { background: rgba(15, 23, 42, 0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .step-card { transition: all 0.3s ease; border-left: 4px solid #5B3A8C; }
+        .step-card:hover { transform: translateX(4px); box-shadow: 0 8px 24px rgba(91,58,140,0.08); }
+        .step-number { background: linear-gradient(135deg, #5B3A8C, #7C3AED); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; flex-shrink: 0; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .tip-box { background: linear-gradient(135deg, #FEF3C7, #FDE68A); border: 1px solid #F59E0B; border-radius: 12px; }
+        .highlight-box { background: linear-gradient(135deg, #EDE9FE, #DDD6FE); border: 1px solid #7C3AED; border-radius: 12px; }
+        .info-box { background: linear-gradient(135deg, #DBEAFE, #BFDBFE); border: 1px solid #3B82F6; border-radius: 12px; }
+        .anchor-section { scroll-margin-top: 80px; }
+        @media (max-width: 768px) { .anchor-section { scroll-margin-top: 70px; } }
+    </style>
+</head>
+<body class="font-sans antialiased text-slate-700">
+
+    <!-- WhatsApp Fixo -->
+    <div class="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-2">
+        <div class="bg-white text-slate-800 text-xs font-bold px-4 py-2.5 rounded-xl shadow-xl border border-slate-100 hidden sm:block">
+            <i class="fas fa-question-circle text-premium-purple mr-1"></i> Dúvidas sobre vinhetas? Fale conosco
+        </div>
+        <a href="https://wa.me/5527996529832?text=Olá!%20Estou%20na%20página%20de%20tutorial%20de%20vinhetas%20e%20gostaria%20de%20tirar%20uma%20dúvida" 
+           target="_blank" rel="noopener noreferrer"
+           class="w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] rounded-full flex items-center justify-center text-3xl text-white shadow-[0_8px_25px_rgba(37,211,102,0.4)] hover:scale-110 transition-all duration-300">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 glass-header text-white transition-all py-2 sm:py-3">
+        <div class="bg-slate-800/40 border-b border-slate-700/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-center sm:justify-between items-center py-1.5 text-[10px] sm:text-xs text-slate-400">
+                <span class="hidden sm:flex items-center gap-2"><i class="fas fa-envelope text-slate-500"></i> contato@alocucao.com.br</span>
+                <span class="flex items-center gap-2"><i class="fas fa-graduation-cap text-cyan-400"></i> Tutorial: Como Solicitar Suas Vinhetas no Painel</span>
+                <span class="hidden sm:flex items-center gap-1"><i class="fas fa-clock text-slate-500"></i> Plantão de Locutores: Todos os dias das 06h às 22h</span>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center py-2">
+            <a href="#" class="shrink-0">
+                <img src="https://testedomarcio.github.io/meuadio/logo.webp" alt="Estúdio A Locução" class="h-8 sm:h-10 w-auto" width="120" height="40">
+            </a>
+            <div class="flex items-center gap-3 sm:gap-4">
+                <span class="hidden lg:flex items-center gap-2 text-cyan-400 text-xs font-bold border-r border-slate-700 pr-4">
+                    <i class="fas fa-handshake text-cyan-400 text-xs"></i> Seu parceiro em locução profissional
+                </span>
+                <a href="https://www.alocucao.com.br/cadastro"
+                   class="bg-gradient-to-r from-premium-purple to-indigo-600 text-white font-bold flex items-center gap-2 transition-colors text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-md hover:opacity-95">
+                    <i class="fas fa-sign-in-alt"></i> <span>ENVIAR PROJETO AGORA →</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="anchor-section bg-darkBg pt-32 sm:pt-36 lg:pt-40 pb-12 lg:pb-16 relative overflow-hidden text-white">
+            <div class="absolute inset-0 bg-gradient-to-br from-premium-purple/10 via-brand-blue/5 to-transparent pointer-events-none"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+                <div class="text-center mb-8">
+                    <div class="inline-flex items-center gap-2 bg-slate-900/50 border border-cyan-500/30 text-cyan-400 px-5 py-2 rounded-full text-xs font-bold tracking-wide mb-6 shadow-lg">
+                        <i class="fas fa-play-circle text-sm"></i> TUTORIAL 04 · SOLICITAÇÃO DE VINHETAS
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-4">
+                        Como Solicitar Suas <span class="text-cyan-400">Vinhetas Personalizadas</span> no Painel
+                    </h1>
+                    
+                    <p class="text-slate-300 text-lg lg:text-xl mb-6 leading-relaxed max-w-3xl mx-auto font-medium">
+                        Aprenda a criar vinhetas curtas e impactantes para seus projetos. Cada crédito dá direito a 4 vinhetas. Tutorial rápido e prático para produtores e editores.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vídeo em Destaque -->
+        <section class="py-10 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <div class="video-container mb-6">
+                    <iframe 
+                        src="https://www.youtube.com/embed/anwnP0u18l8" 
+                        title="Tutorial 04: Como Solicitar Suas Vinhetas no Painel de Gravação" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        loading="lazy">
+                    </iframe>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-slate-500 text-sm mb-6">
+                        <i class="fas fa-info-circle text-premium-purple mr-1"></i> 
+                        Assista ao vídeo e acompanhe o guia detalhado abaixo com cada etapa do processo.
+                    </p>
+                    
+                    <a href="https://www.alocucao.com.br/cadastro" 
+                       onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'TUTORIAL_VINHETAS_HERO', 'Tutorial', 'Hero_Vinhetas')"
+                       class="inline-flex items-center gap-3 bg-premium-purple hover:bg-premium-purple/90 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-[0_12px_30px_rgba(91,58,140,0.25)] hover:-translate-y-1 transition-all duration-300">
+                        <i class="fas fa-user-plus text-xl"></i> CRIAR CONTA E COMEÇAR A CRIAR VINHETAS
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Passo a Passo Detalhado -->
+        <section class="py-16 bg-slate-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12">
+                    <span class="text-premium-purple font-semibold uppercase tracking-widest text-xs mb-2 block">Guia Passo a Passo</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+                        Como Solicitar Vinhetas no Painel
+                    </h2>
+                    <p class="text-slate-500 text-lg mt-2">Siga cada etapa para garantir que suas vinhetas sejam criadas exatamente como você precisa.</p>
+                </div>
+
+                <!-- ETAPA 1: Acessar o Menu -->
+                <div class="bg-white rounded-2xl p-6 sm:p-8 mb-6 step-card shadow-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="step-number">1</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-slate-800 mb-3">Acessar o Menu de Pedidos</h3>
+                            <p class="text-slate-600 mb-4">O primeiro passo é navegar até a seção correta dentro do painel de gravação.</p>
+                            
+                            <div class="bg-slate-50 rounded-xl p-4">
+                                <h4 class="font-semibold text-slate-700 mb-2 flex items-center gap-2">
+                                    <i class="fas fa-list-check text-premium-purple"></i> O que fazer:
+                                </h4>
+                                <ul class="space-y-2 text-sm text-slate-600">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span>Após entrar no painel, clique em <strong>"Pedir"</strong> na aba do lado esquerdo</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span>No menu que se abre, clique em <strong>"Pedir Off"</strong></span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span><strong>Digite o nome do pedido</strong> para identificá-lo facilmente depois</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="info-box p-4 mt-4 text-sm">
+                                <p class="font-bold text-blue-800 flex items-center gap-2 mb-1">
+                                    <i class="fas fa-info-circle"></i> Por que "Pedir Off"?
+                                </p>
+                                <p class="text-blue-700">As vinhetas são solicitadas dentro da seção de off, mas você ativará a opção específica de vinheta no próximo passo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ETAPA 2: Ativar Modo Vinheta -->
+                <div class="bg-white rounded-2xl p-6 sm:p-8 mb-6 step-card shadow-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="step-number">2</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-slate-800 mb-3">Ativar a Opção de Vinheta e Definir Quantidade</h3>
+                            <p class="text-slate-600 mb-4">Este é o passo que transforma seu pedido comum em um pedido de vinhetas.</p>
+                            
+                            <div class="bg-slate-50 rounded-xl p-4 mb-4">
+                                <h4 class="font-semibold text-slate-700 mb-2 flex items-center gap-2">
+                                    <i class="fas fa-list-check text-premium-purple"></i> O que fazer:
+                                </h4>
+                                <ul class="space-y-2 text-sm text-slate-600">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span>Clique na <strong>aba "Vinheta"</strong> que está sendo indicada no formulário</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span><strong>Defina a quantidade de vinhetas</strong> desejada para este pedido</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="highlight-box p-4 text-sm">
+                                <p class="font-bold text-purple-800 flex items-center gap-2 mb-1">
+                                    <i class="fas fa-tags"></i> Informação importante sobre créditos:
+                                </p>
+                                <p class="text-purple-700">
+                                    <strong>Cada crédito dá direito a 4 vinhetas curtas.</strong> Planeje seu pedido considerando essa proporção para otimizar seu investimento.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ETAPA 3: Escolher Estilo e Locutor -->
+                <div class="bg-white rounded-2xl p-6 sm:p-8 mb-6 step-card shadow-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="step-number">3</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-slate-800 mb-3">Escolher o Estilo e o Locutor</h3>
+                            <p class="text-slate-600 mb-4">A escolha do estilo e do locutor define o tom e a personalidade das suas vinhetas.</p>
+                            
+                            <div class="bg-slate-50 rounded-xl p-4 mb-4">
+                                <h4 class="font-semibold text-slate-700 mb-2 flex items-center gap-2">
+                                    <i class="fas fa-list-check text-premium-purple"></i> O que fazer:
+                                </h4>
+                                <ul class="space-y-2 text-sm text-slate-600">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span><strong>Escolha o estilo de locução</strong> que deseja para suas vinhetas</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span><strong>Escolha seu locutor preferido</strong> entre os disponíveis</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span><strong>Observe as informações de gravação</strong> de cada locutor</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span>No botão ao lado, <strong>verifique o horário de gravação</strong> do locutor escolhido</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="tip-box p-4 text-sm">
+                                <p class="font-bold text-amber-800 flex items-center gap-2 mb-1">
+                                    <i class="fas fa-lightbulb"></i> Dica para vinhetas:
+                                </p>
+                                <p class="text-amber-700">Para vinhetas de programas, podcasts ou canais, escolha um locutor com timbre marcante e estilo que combine com a identidade do seu projeto.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ETAPA 4: Digitar os Textos -->
+                <div class="bg-white rounded-2xl p-6 sm:p-8 mb-6 step-card shadow-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="step-number">4</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-slate-800 mb-3">Digitar os Textos das Vinhetas</h3>
+                            <p class="text-slate-600 mb-4">Este é o momento de inserir o conteúdo que será gravado. Atenção à formatação e pontuação.</p>
+                            
+                            <div class="bg-slate-50 rounded-xl p-4 mb-4">
+                                <h4 class="font-semibold text-slate-700 mb-2 flex items-center gap-2">
+                                    <i class="fas fa-list-check text-premium-purple"></i> O que fazer:
+                                </h4>
+                                <ul class="space-y-2 text-sm text-slate-600">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span>Nos espaços abaixo, <strong>digite somente os textos a serem gravados</strong> pelo locutor</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span>Escreva <strong>sem abreviações</strong> e com as <strong>devidas pontuações</strong> necessárias</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span>Ao digitar, uma <strong>contagem com previsão de duração</strong> do texto é iniciada abaixo</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span>A contagem indica <strong>a quantidade de créditos que será cobrada</strong></span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="tip-box p-4 text-sm">
+                                <p class="font-bold text-amber-800 flex items-center gap-2 mb-1">
+                                    <i class="fas fa-lightbulb"></i> Dica para textos de vinheta:
+                                </p>
+                                <p class="text-amber-700">Vinhetas são curtas por natureza. Seja objetivo e use frases de impacto. Lembre-se: cada crédito rende 4 vinhetas curtas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ETAPA 5: Adicionar Informações Complementares -->
+                <div class="bg-white rounded-2xl p-6 sm:p-8 mb-6 step-card shadow-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="step-number">5</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-slate-800 mb-3">Adicionar Áudio Guia e Observações</h3>
+                            <p class="text-slate-600 mb-4">Campos opcionais que fazem diferença na qualidade final da sua vinheta.</p>
+                            
+                            <div class="bg-slate-50 rounded-xl p-4">
+                                <h4 class="font-semibold text-slate-700 mb-2 flex items-center gap-2">
+                                    <i class="fas fa-list-check text-premium-purple"></i> O que fazer:
+                                </h4>
+                                <ul class="space-y-2 text-sm text-slate-600">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span>Se houver <strong>palavras de difícil pronúncia</strong>, utilize o espaço para anexar um áudio guia gravado por você</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span>No espaço de observações, <strong>adicione o máximo de informações necessárias</strong></span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span>As observações podem ser direcionadas ao <strong>locutor ou à equipe de produção</strong></span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="highlight-box p-4 mt-4 text-sm">
+                                <h4 class="font-bold text-purple-800 flex items-center gap-2 mb-1">
+                                    <i class="fas fa-paperclip"></i> Exemplos de observações úteis:
+                                </h4>
+                                <ul class="space-y-1 text-purple-700">
+                                    <li>• "A vinheta deve ter tom animado e energético"</li>
+                                    <li>• "Pronunciar o nome da marca pausadamente: Au-dio-MAX"</li>
+                                    <li>• "Velocidade mais rápida nas vinhetas de passagem"</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ETAPA 6: Revisar e Confirmar -->
+                <div class="bg-white rounded-2xl p-6 sm:p-8 mb-6 step-card shadow-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="step-number">6</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-slate-800 mb-3">Revisar, Confirmar e Aguardar a Gravação</h3>
+                            <p class="text-slate-600 mb-4">A etapa final antes de enviar seu pedido para a fila de gravação.</p>
+                            
+                            <div class="bg-slate-50 rounded-xl p-4">
+                                <h4 class="font-semibold text-slate-700 mb-2 flex items-center gap-2">
+                                    <i class="fas fa-list-check text-premium-purple"></i> O que fazer:
+                                </h4>
+                                <ul class="space-y-2 text-sm text-slate-600">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span><strong>Verifique todas as informações preenchidas</strong> para garantir que não haja erros</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-chevron-right text-premium-purple mt-0.5 text-xs"></i>
+                                        <span>Clique no botão abaixo <strong>aceitando os termos e condições</strong> do pedido</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="tip-box p-4 mt-4 text-sm">
+                                <p class="font-bold text-amber-800 flex items-center gap-2 mb-1">
+                                    <i class="fas fa-check-circle"></i> Pronto!
+                                </p>
+                                <p class="text-amber-700">
+                                    Caso já tenha <strong>créditos disponíveis</strong>, é só aguardar sua gravação. Se não, <strong>efetue o pagamento</strong> referente ao pedido realizado para que seja enviado ao locutor.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumo Visual do Fluxo -->
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 text-white mt-10">
+                    <h3 class="text-2xl font-bold mb-6 text-center">Resumo do Fluxo de Solicitação de Vinhetas</h3>
+                    <div class="grid sm:grid-cols-3 gap-4">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center">
+                            <div class="w-12 h-12 bg-premium-purple rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold">1</div>
+                            <h4 class="font-bold mb-2">Acesse e Configure</h4>
+                            <p class="text-sm text-slate-300">Pedir → Pedir Off → Nome do pedido → Aba Vinheta → Quantidade</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center">
+                            <div class="w-12 h-12 bg-premium-purple rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold">2</div>
+                            <h4 class="font-bold mb-2">Escolha e Escreva</h4>
+                            <p class="text-sm text-slate-300">Estilo → Locutor → Textos → Áudio guia → Observações</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center">
+                            <div class="w-12 h-12 bg-cyan-500 rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold">3</div>
+                            <h4 class="font-bold mb-2">Revise e Confirme</h4>
+                            <p class="text-sm text-slate-300">Verificar dados → Aceitar termos → Pagar (se necessário) → Aguardar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Intermediário -->
+                <div class="bg-gradient-to-br from-premium-purple to-indigo-700 rounded-2xl p-8 text-white text-center mt-10">
+                    <h3 class="text-2xl font-bold mb-3">Pronto para Criar Suas Vinhetas?</h3>
+                    <p class="text-purple-100 mb-6 max-w-2xl mx-auto">
+                        Agora que você sabe exatamente como solicitar vinhetas, crie sua conta gratuita e comece a produzir conteúdo com identidade profissional.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="https://www.alocucao.com.br/cadastro" 
+                           onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'TUTORIAL_VINHETAS_MEIO', 'Tutorial', 'Meio_Vinhetas')"
+                           class="inline-flex items-center gap-3 bg-white text-premium-purple px-8 py-4 rounded-2xl font-bold text-lg hover:-translate-y-1 transition-all shadow-lg">
+                            <i class="fas fa-rocket text-xl"></i> CRIAR CONTA GRÁTIS
+                        </a>
+                        <a href="https://wa.me/5527996529832?text=Olá!%20Vi%20o%20tutorial%20de%20vinhetas%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20estilos%20disponíveis" 
+                           target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#1fb855] text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all">
+                            <i class="fab fa-whatsapp"></i> FALAR NO WHATSAPP
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dúvidas Frequentes -->
+        <section class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-2">Dúvidas Sobre Vinhetas</h2>
+                    <p class="text-slate-500">Respostas rápidas para as perguntas mais comuns</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-slate-50 rounded-xl p-5">
+                        <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                            <i class="fas fa-question-circle text-premium-purple"></i> O que é considerado uma vinheta curta?
+                        </h4>
+                        <p class="text-sm text-slate-600">São áudios de curta duração, geralmente de 5 a 15 segundos, usados para aberturas, passagens e encerramentos de programas, podcasts e vídeos.</p>
+                    </div>
+                    
+                    <div class="bg-slate-50 rounded-xl p-5">
+                        <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                            <i class="fas fa-question-circle text-premium-purple"></i> Quantas vinhetas posso pedir por vez?
+                        </h4>
+                        <p class="text-sm text-slate-600">Você define a quantidade no momento do pedido. Cada crédito dá direito a 4 vinhetas curtas. Você pode solicitar múltiplos créditos para mais vinhetas.</p>
+                    </div>
+                    
+                    <div class="bg-slate-50 rounded-xl p-5">
+                        <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                            <i class="fas fa-question-circle text-premium-purple"></i> Posso usar o mesmo locutor de outros pedidos?
+                        </h4>
+                        <p class="text-sm text-slate-600">Sim! Se você já tem um locutor preferido para seus projetos, pode selecioná-lo também para as vinhetas, mantendo a consistência da identidade sonora.</p>
+                    </div>
+                    
+                    <div class="bg-slate-50 rounded-xl p-5">
+                        <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                            <i class="fas fa-question-circle text-premium-purple"></i> Vinhetas incluem produção com trilha?
+                        </h4>
+                        <p class="text-sm text-slate-600">As vinhetas solicitadas por este fluxo são de voz seca. Se precisar de produção com trilha sonora e efeitos, utilize a opção "Pedir Produção" no menu.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Outros Tutoriais -->
+        <section class="py-12 bg-slate-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+                <h3 class="text-xl font-bold text-slate-800 mb-4">Veja Também Outros Tutoriais</h3>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <a href="/tutorial-painel-gravacao" class="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-full px-5 py-2.5 text-sm font-medium text-slate-700 hover:border-premium-purple hover:text-premium-purple transition-all">
+                        <i class="fas fa-play-circle text-premium-purple"></i> Tutorial Completo do Painel
+                    </a>
+                    <a href="/tutorial-solicitar-vinhetas" class="inline-flex items-center gap-2 bg-premium-purple text-white rounded-full px-5 py-2.5 text-sm font-medium">
+                        <i class="fas fa-play-circle"></i> Como Solicitar Vinhetas
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="py-16 bg-darkBg text-white text-center">
+            <div class="max-w-3xl mx-auto px-4">
+                <div class="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 rounded-full px-5 py-2 mb-6">
+                    <i class="fas fa-handshake text-cyan-400"></i>
+                    <span class="text-cyan-400 text-sm font-medium">Seu parceiro em locução profissional</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-5">Crie Vinhetas que <span class="text-cyan-400">Marcam Sua Marca</span></h2>
+                <p class="text-slate-300 text-lg mb-8">Crie sua conta gratuita agora e tenha acesso a mais de 300 locutores para produzir vinhetas profissionais que fortalecem a identidade do seu projeto.</p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://www.alocucao.com.br/cadastro" 
+                       onclick="return safeRedirectPanel('https://www.alocucao.com.br/cadastro', 'TUTORIAL_VINHETAS_FINAL', 'Tutorial', 'Final_Vinhetas')"
+                       class="inline-flex items-center gap-3 bg-premium-purple hover:bg-premium-purple/90 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all">
+                        <i class="fas fa-user-plus"></i> CRIAR CONTA GRÁTIS
+                    </a>
+                    <a href="https://wa.me/5527996529832?text=Olá!%20Gostaria%20de%20solicitar%20vinhetas%20para%20meu%20projeto" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#1fb855] text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all">
+                        <i class="fab fa-whatsapp"></i> SOLICITAR VINHETAS AGORA
+                    </a>
+                </div>
+                
+                <p class="text-xs text-slate-600 mt-10">Estúdio A Locução © 2012-2026 · Atendendo produtores e agências em todo o Brasil</p>
+                <div style="text-align: center; margin-top: 15px; padding-bottom: 20px;">
+                    <p style="font-size: 11px; color: #94a3b8; font-style: italic; margin: 0;">
+                        "Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos." — Provérbios 16:3
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Header scroll effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.style.background = 'rgba(15, 23, 42, 0.98)';
+                header.classList.add('shadow-md');
+            } else {
+                header.style.background = 'rgba(15, 23, 42, 0.96)';
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
