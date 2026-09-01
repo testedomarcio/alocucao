@@ -1,18 +1,15 @@
 <!doctype html>
 <html lang="pt-BR">
-<head
-
- <!-- Google tag (gtag.js) -->
+<head>
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18420702149"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'AW-18420702149');
 </script>
 
- 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Locução Off Profissional a partir de R$ 15 | A Locução</title>
@@ -512,6 +509,11 @@ Pode me orientar para fazer o pedido?${source()}`;
 
  document.querySelectorAll(".js-wa").forEach(a=>a.addEventListener("click",()=>{
    window.dataLayer.push({event:"whatsapp_click",package_name:a.dataset.package||selectedPackage,package_price:a.dataset.price||selectedPrice,landing_page:"locucao_off_google_ads_v2",...tracking});
+   if (typeof gtag === "function") {
+     gtag("event", "conversion", {
+       "send_to": "AW-18420702149/U2s-CMSAyOscEMW31s9E"
+     });
+   }
  }));
  document.querySelectorAll(".js-voice").forEach(a=>a.addEventListener("click",()=>{
    window.dataLayer.push({event:"voice_bank_click",landing_page:"locucao_off_google_ads_v2",...tracking});
