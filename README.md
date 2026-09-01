@@ -7,6 +7,7 @@ Site institucional e páginas de conversão da A Locução, publicado no GitHub 
 - `index.html`: página inicial.
 - `locucao-off/`: landing page de locução off.
 - `spot-comercial/`: landing page de produção de spot comercial.
+- `calculadora/`: estimador público de palavras, duração e blocos de até 40 segundos.
 - `sobre/`: apresentação e contato.
 - `politica-de-privacidade/` e `termos-de-uso/`: páginas de confiança e conformidade.
 - `assets/`: scripts compartilhados e estilos das páginas institucionais.
