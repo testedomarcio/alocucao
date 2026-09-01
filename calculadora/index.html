@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
+  <script src="/assets/tracking.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Calculadora de tempo de locução | A Locução</title>
@@ -49,5 +50,6 @@
       document.getElementById("calculate").addEventListener("click",calculate);document.getElementById("clear").addEventListener("click",()=>{text.value="";results.classList.remove("show");empty.style.display="block";empty.innerHTML="<h2>Seu resultado aparecerá aqui</h2><p>Para uma estimativa melhor, escolha o ritmo que mais combina com a interpretação desejada.</p>";text.focus()});text.addEventListener("keydown",event=>{if((event.ctrlKey||event.metaKey)&&event.key==="Enter")calculate()});
     })();
   </script>
+  <script src="/assets/privacy.js"></script>
 </body>
 </html>
