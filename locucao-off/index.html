@@ -125,7 +125,7 @@ section{padding:70px 0}
 .price-intro{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;max-width:900px;margin:0 auto 27px;padding:21px;border:1px solid var(--line);border-radius:18px;background:#fff}
 .price-intro strong{font-size:1.2rem;color:var(--navy)}
 .price-intro p{margin:5px 0 0;color:#667588}
-.package-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.package-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .package{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;position:relative;cursor:pointer;transition:.18s}
 .package:hover,.package.selected{border-color:var(--teal);box-shadow:0 12px 35px rgba(11,23,38,.08);transform:translateY(-2px)}
 .package.best:before{content:"MELHOR VALOR";position:absolute;top:-11px;left:18px;background:var(--gold);color:#4a3305;padding:5px 8px;border-radius:999px;font-size:.68rem;font-weight:950;letter-spacing:.05em}
@@ -213,7 +213,7 @@ footer a{color:#fff;text-decoration:underline;margin:0 6px}
    "@type":"AggregateOffer",
    "priceCurrency":"BRL",
    "lowPrice":"15.00",
-   "highPrice":"250.00",
+   "highPrice":"100.00",
    "offerCount":"4"
  }
 }
@@ -231,7 +231,7 @@ footer a{color:#fff;text-decoration:underline;margin:0 6px}
 
 <header class="header">
  <div class="container">
-   <a class="brand" href="https://alocucao.com.br/">
+   <a class="brand" href="/">
      <span class="mark" aria-hidden="true">
        <svg viewBox="0 0 64 64" fill="none">
          <path d="M9 36c6-14 12-14 18 0s12 14 18 0 8-10 10-10" stroke="white" stroke-width="6" stroke-linecap="round"/>
@@ -332,19 +332,14 @@ footer a{color:#fff;text-decoration:underline;margin:0 6px}
        <div class="qty">01 Off</div><div class="price">R$ 15</div><div class="per">R$ 15,00 por off</div>
        <button class="btn btn-dark js-package">Escolher</button>
      </article>
-     <article class="package" data-package="05 Offs" data-price="R$ 50,00">
-       <div class="qty">05 Offs</div><div class="price">R$ 50</div><div class="per">R$ 10,00 por off</div>
-       <span class="save">Economize R$ 25 vs. avulso</span>
+     <article class="package" data-package="05 Offs" data-price="R$ 60,00">
+       <div class="qty">05 Offs</div><div class="price">R$ 60</div><div class="per">R$ 12,00 por off</div>
+       <span class="save">Economize R$ 15 vs. avulso</span>
        <button class="btn btn-dark js-package">Escolher</button>
      </article>
-     <article class="package" data-package="25 Offs" data-price="R$ 150,00">
-       <div class="qty">25 Offs</div><div class="price">R$ 150</div><div class="per">R$ 6,00 por off</div>
-       <span class="save">Economize R$ 225 vs. avulso</span>
-       <button class="btn btn-dark js-package">Escolher</button>
-     </article>
-     <article class="package best" data-package="50 Offs" data-price="R$ 250,00">
-       <div class="qty">50 Offs</div><div class="price">R$ 250</div><div class="per">R$ 5,00 por off</div>
-       <span class="save">Economize R$ 500 vs. avulso</span>
+     <article class="package best" data-package="10 Offs" data-price="R$ 100,00">
+       <div class="qty">10 Offs</div><div class="price">R$ 100</div><div class="per">R$ 10,00 por off</div>
+       <span class="save">Economize R$ 50 vs. avulso</span>
        <button class="btn btn-wa js-package">Melhor valor</button>
      </article>
    </div>
@@ -374,14 +369,14 @@ footer a{color:#fff;text-decoration:underline;margin:0 6px}
    <div class="section-head">
      <span class="eyebrow">Ouvir locutores</span>
      <h2>Escolha a voz antes de fazer o pedido</h2>
-     <p>Ouça os profissionais disponíveis e veja a estimativa de gravação exibida para cada um.</p>
+     <p>Ouça uma seleção de locutores e locutoras humanos antes de fazer seu pedido.</p>
    </div>
 
    <div class="voice-card">
      <div>
        <h3>Banco de vozes da A Locução</h3>
-       <p style="color:#647487">Há vozes com estimativas exibidas como “gravando em 10 minutos”, “30 minutos” ou “online — em até 5 horas”, conforme disponibilidade.</p>
-       <a class="btn btn-dark js-voice" href="https://painel.audio.net.br/Vozes/alocucao" target="_blank" rel="noopener">Ouvir locutores agora</a>
+       <p style="color:#647487">Compare vozes humanas masculinas e femininas sem sair do site.</p>
+       <a class="btn btn-dark js-voice" href="/vozes/">Ouvir locutores agora</a>
      </div>
      <div class="voice-visual">
        <h3>Compare antes de escolher</h3>
@@ -422,19 +417,19 @@ footer a{color:#fff;text-decoration:underline;margin:0 6px}
  </div>
 </section>
 
-<section id="cadastro">
+<section id="outros-servicos">
  <div class="container">
    <div class="section-head">
-     <span class="eyebrow">Criar cadastro</span>
-     <h2>Quer fazer seus pedidos pelo painel?</h2>
-     <p>Crie sua conta e tenha acesso ao ambiente de pedidos da A Locução.</p>
+     <span class="eyebrow">Outros serviços</span>
+     <h2>Também fazemos vinhetas, URA e narração de vídeo</h2>
+     <p>Contrate somente a voz ou peça uma produção completa com trilha, efeitos e finalização.</p>
    </div>
    <div class="signup">
      <div>
-       <h3>Cadastro online</h3>
-       <p>Faça seu cadastro para acessar o painel e utilizar seus créditos quando precisar.</p>
+       <h3>Voz humana para diferentes projetos</h3>
+       <p>Atendimento também à noite, nos finais de semana e feriados, conforme a disponibilidade da voz escolhida.</p>
      </div>
-     <a class="btn btn-dark js-signup" href="https://painel.audio.net.br/cadastro/alocucao" target="_blank" rel="noopener">Criar cadastro</a>
+     <a class="btn btn-dark" href="/servicos/">Conhecer os serviços</a>
    </div>
  </div>
 </section>
@@ -462,9 +457,10 @@ footer a{color:#fff;text-decoration:underline;margin:0 6px}
      <h2>Antes de fazer seu pedido</h2>
    </div>
 
-   <details open><summary>Quanto custa uma locução off?</summary><p>O off avulso custa R$ 15,00 para até aproximadamente 40 segundos. Também existem pacotes de 5, 25 e 50 offs.</p></details>
+   <details open><summary>Quanto custa uma locução off?</summary><p>O off avulso custa R$ 15,00 para até aproximadamente 40 segundos. Também existem pacotes de 5 e 10 offs.</p></details>
    <details><summary>Posso escolher o locutor?</summary><p>Sim. Você pode ouvir os profissionais disponíveis no banco de vozes e consultar a estimativa de gravação exibida para cada um.</p></details>
-   <details><summary>Quanto tempo demora?</summary><p>Depende do locutor escolhido. O painel pode exibir estimativas como 10 minutos, 30 minutos ou em até 5 horas. Há locutores disponíveis todos os dias, inclusive domingos e feriados, até 22h.</p></details>
+   <details><summary>Quanto tempo demora?</summary><p>Depende do locutor escolhido. Há vozes disponíveis à noite, nos finais de semana e feriados; confirmamos a estimativa no atendimento antes de liberar o pedido.</p></details>
+   <details><summary>As vozes são humanas?</summary><p>Sim. Trabalhamos com locutores e locutoras humanos, com gravação profissional.</p></details>
    <details><summary>Os créditos expiram?</summary><p>Não. Os créditos adquiridos não expiram.</p></details>
    <details><summary>E se o texto tiver mais de 40 segundos?</summary><p>O tempo é aproximado. Textos maiores podem consumir créditos adicionais conforme o cálculo da plataforma.</p></details>
    <details><summary>Posso alterar o texto depois que o locutor gravar?</summary><p>Alterações de texto ou orientação após a gravação exigem novo crédito. Correções sem custo se aplicam quando houver erro comprovado na gravação.</p></details>
