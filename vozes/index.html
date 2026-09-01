@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
+  <script src="/assets/tracking.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Vozes humanas profissionais | A Locução</title>
@@ -41,5 +42,6 @@
     function render(list,target,label){const root=document.getElementById(target);list.forEach(([name,src])=>{const button=document.createElement("button");button.className="voice";button.type="button";button.innerHTML=`<span class="play">▶</span><strong>${name}</strong><span>Voz ${label} humana</span>`;button.addEventListener("click",()=>{document.querySelectorAll(".voice").forEach(item=>item.classList.remove("active"));button.classList.add("active");player.src=src;title.textContent=name;detail.textContent=`Demonstração de voz ${label} profissional`;player.play().catch(()=>{});document.querySelector(".player-wrap").scrollIntoView({behavior:"smooth",block:"center"})});root.appendChild(button)})}
     render(female,"female-voices","feminina");render(male,"male-voices","masculina");
   </script>
+  <script src="/assets/privacy.js"></script>
 </body>
 </html>
