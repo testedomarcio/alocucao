@@ -1,0 +1,34 @@
+:root{--navy:#0d1b2a;--ink:#17202a;--muted:#5d6b7b;--paper:#f7f9fc;--white:#fff;--teal:#0b7874;--gold:#f2b84b;--line:#dfe7ef;--max:920px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);line-height:1.65;background:var(--paper)}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.container{width:min(var(--max),calc(100% - 36px));margin:auto}
+header{background:var(--navy);color:#fff}
+nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:900;font-size:1.15rem}
+.mark{width:38px;height:38px;border-radius:12px;background:var(--teal);display:grid;place-items:center}
+.mark svg{width:24px}
+.nav-links{display:flex;gap:16px;flex-wrap:wrap}
+.nav-links a{color:#dce7f0;text-decoration:none;font-weight:700;font-size:.9rem}
+.hero{background:linear-gradient(180deg,#eef8f7,#fff);border-bottom:1px solid var(--line);padding:64px 0 48px}
+.eyebrow{display:inline-block;background:#dff4f2;color:#075d59;border-radius:999px;padding:6px 10px;font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.05em}
+h1,h2,h3{color:var(--navy);line-height:1.15;letter-spacing:-.03em}
+h1{font-size:clamp(2.25rem,5vw,4rem);margin:14px 0}
+h2{font-size:clamp(1.55rem,3vw,2.25rem);margin-top:36px}
+p,li{color:var(--muted)}
+main{background:#fff}
+.content{padding:46px 0 72px}
+.lead{font-size:1.12rem;max-width:760px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:28px 0}
+.card{border:1px solid var(--line);border-radius:18px;padding:22px;background:#fff}
+.card h2,.card h3{margin-top:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border-radius:12px;background:var(--teal);color:#fff;text-decoration:none;font-weight:900;margin:8px 8px 0 0}
+.btn.alt{background:var(--navy)}
+.note{background:#fff8e7;border:1px solid #ecd89e;border-radius:14px;padding:16px;color:#684d12}
+footer{background:#08131f;color:#aebdca;padding:30px 0}
+footer a{color:#fff}
+footer .container{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+@media(max-width:680px){.grid{grid-template-columns:1fr}.nav-links{display:none}.hero{padding:48px 0 36px}}
+

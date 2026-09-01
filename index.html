@@ -2,13 +2,31 @@
 <html lang="pt-BR">
 <head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18420702149"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    analytics_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    wait_for_update: 500
+  });
+  try {
+    if (localStorage.getItem('alocucao_consent') === 'accepted') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'denied'
+      });
+    }
+  } catch (error) {}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18420702149"></script>
+<script>
   gtag('js', new Date());
-
   gtag('config', 'AW-18420702149');
 </script>
   
@@ -27,7 +45,7 @@
   <meta property="og:url" content="https://alocucao.com.br/">
   <meta property="og:site_name" content="A Locução">
 
-  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="A Locução | Locução Profissional e Produção de Spot">
   <meta name="twitter:description" content="Locução off e produção completa para todo o Brasil. Pacotes de créditos que não expiram.">
 
@@ -41,7 +59,7 @@
       --muted:#64748b;
       --paper:#f7f9fc;
       --white:#ffffff;
-      --cyan:#1aa7a1;
+      --cyan:#0b7874;
       --cyan-dark:#0f827d;
       --gold:#f2b84b;
       --border:#dfe7ef;
@@ -59,7 +77,10 @@
       line-height:1.6;
     }
     a{color:inherit}
+    a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
     img,svg{max-width:100%}
+    .skip-link{position:fixed;left:16px;top:-80px;z-index:200;background:var(--navy);color:white;padding:11px 15px;border-radius:10px;text-decoration:none}
+    .skip-link:focus{top:12px}
     .container{width:min(var(--max),calc(100% - 36px));margin:auto}
     .topbar{background:#08131f;color:#d9e7f4;font-size:.88rem}
     .topbar .container{display:flex;justify-content:center;gap:24px;padding:8px 0;flex-wrap:wrap}
@@ -81,6 +102,7 @@
     .menu{display:flex;align-items:center;gap:24px}
     .menu a{text-decoration:none;font-weight:650;font-size:.95rem;color:#334155}
     .menu a:hover{color:var(--cyan-dark)}
+    .menu a.btn-dark,.menu a.btn-dark:hover{color:white}
     .btn{
       display:inline-flex;align-items:center;justify-content:center;gap:8px;
       border:0;border-radius:12px;padding:13px 18px;
@@ -148,6 +170,8 @@
     .service-card{background:white;border:1px solid var(--border);border-radius:26px;padding:32px}
     .service-card ul{padding-left:20px;color:#526174}
     .service-card li{margin:8px 0}
+    .service-more{margin:16px 0 0}
+    .service-more a{color:var(--cyan-dark);font-weight:800}
     .service-tag{display:inline-block;background:#eef7ff;color:#245985;padding:5px 9px;border-radius:999px;font-weight:800;font-size:.78rem;margin-bottom:16px}
     .service-tag.green{background:#e8f8f7;color:var(--cyan-dark)}
     .pricing{background:white}
@@ -189,7 +213,7 @@
     .cta-box p{color:#d6e0ea;margin-bottom:0}
     .cta-actions{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap}
     footer{background:#08131f;color:#aebdca;padding:48px 0 30px}
-    .footer-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:32px}
+    .footer-grid{display:grid;grid-template-columns:1.2fr repeat(3,.8fr);gap:32px}
     footer h3{color:white;font-size:1rem;letter-spacing:0;margin-bottom:12px}
     footer a{color:#c7d4df;text-decoration:none;display:block;margin:7px 0}
     .copyright{border-top:1px solid rgba(255,255,255,.08);margin-top:34px;padding-top:22px;font-size:.88rem}
@@ -207,6 +231,7 @@
       .menu{display:none;position:absolute;top:74px;left:0;right:0;background:white;padding:20px 24px;border-bottom:1px solid var(--border);flex-direction:column;align-items:flex-start}
       .menu.open{display:flex}
       .mobile-toggle{display:block}
+      .footer-grid{grid-template-columns:1fr 1fr}
     }
     @media(max-width:620px){
       .hero{padding:62px 0 52px}
@@ -281,6 +306,7 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <div class="topbar">
     <div class="container">
       <span>✓ Atendimento em todo o Brasil</span>
@@ -301,8 +327,8 @@
           </span>
           <span>A Locução</span>
         </a>
-        <button class="mobile-toggle" aria-label="Abrir menu" onclick="document.querySelector('.menu').classList.toggle('open')">☰</button>
-        <div class="menu">
+        <button class="mobile-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">☰</button>
+        <div class="menu" id="menu-principal">
           <a href="#servicos">Serviços</a>
           <a href="#precos">Preços</a>
           <a href="#como-funciona">Como funciona</a>
@@ -314,7 +340,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="conteudo">
     <section class="hero">
       <div class="container hero-grid">
         <div>
@@ -396,6 +422,7 @@
               <li>1 crédito corresponde a até aproximadamente 40 segundos</li>
             </ul>
             <a class="btn btn-primary" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20contratar%20locu%C3%A7%C3%A3o%20OFF%20pela%20A%20Locu%C3%A7%C3%A3o." target="_blank" rel="noopener">Quero locução off</a>
+            <p class="service-more"><a href="/locucao-off/">Ver detalhes, pacotes e dúvidas sobre locução off →</a></p>
           </article>
 
           <article class="service-card">
@@ -410,6 +437,7 @@
               <li>Você recebe o off + arquivo finalizado</li>
             </ul>
             <a class="btn btn-primary" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20contratar%20uma%20PRODU%C3%87%C3%83O%20COMPLETA%20pela%20A%20Locu%C3%A7%C3%A3o." target="_blank" rel="noopener">Quero meu spot pronto</a>
+            <p class="service-more"><a href="/spot-comercial/">Ver detalhes, pacotes e dúvidas sobre spot comercial →</a></p>
           </article>
         </div>
       </div>
@@ -572,8 +600,8 @@
         </div>
         <div>
           <h3>Serviços</h3>
-          <a href="#servicos">Locução Off</a>
-          <a href="#servicos">Produção Completa</a>
+          <a href="/locucao-off/">Locução Off</a>
+          <a href="/spot-comercial/">Spot Comercial</a>
           <a href="https://painel.audio.net.br/Vozes/alocucao" target="_blank" rel="noopener">Banco de Vozes</a>
         </div>
         <div>
@@ -582,6 +610,12 @@
           <a href="https://painel.audio.net.br/cadastro/alocucao" target="_blank" rel="noopener">Criar cadastro</a>
           <a href="https://wa.me/5527996529832" target="_blank" rel="noopener">WhatsApp</a>
         </div>
+        <div>
+          <h3>Institucional</h3>
+          <a href="/sobre/">Sobre e contato</a>
+          <a href="/politica-de-privacidade/">Política de Privacidade</a>
+          <a href="/termos-de-uso/">Termos de Uso</a>
+        </div>
       </div>
       <div class="copyright">© <span id="year"></span> A Locução. Todos os direitos reservados.</div>
     </div>
@@ -589,9 +623,8 @@
 
   <a class="whatsapp-float" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Vim%20pelo%20site%20A%20Locu%C3%A7%C3%A3o." target="_blank" rel="noopener" aria-label="Falar com A Locução pelo WhatsApp">☎</a>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.menu').classList.remove('open')));
-  </script>
+  <script src="/assets/site.js"></script>
+  <script src="/assets/privacy.js"></script>
 </body>
 </html>
+
