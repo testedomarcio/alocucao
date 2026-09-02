@@ -35,6 +35,8 @@
       --white:#ffffff;
       --cyan:#0b7874;
       --cyan-dark:#0f827d;
+      --green:#20b85a;
+      --green-dark:#118542;
       --gold:#f2b84b;
       --border:#dfe7ef;
       --shadow:0 18px 50px rgba(13,27,42,.10);
@@ -84,8 +86,8 @@
       transition:.2s transform,.2s box-shadow,.2s background;
     }
     .btn:hover{transform:translateY(-1px)}
-    .btn-primary{background:var(--cyan);color:white;box-shadow:0 10px 25px rgba(26,167,161,.22)}
-    .btn-primary:hover{background:var(--cyan-dark)}
+    .btn-primary{background:var(--green);color:white;box-shadow:0 10px 25px rgba(32,184,90,.22)}
+    .btn-primary:hover{background:var(--green-dark)}
     .btn-dark{background:var(--navy);color:white}
     .btn-light{background:white;border:1px solid var(--border);color:var(--navy)}
     .hero{
@@ -94,7 +96,7 @@
         radial-gradient(circle at 80% 20%, rgba(26,167,161,.18), transparent 34%),
         radial-gradient(circle at 20% 100%, rgba(242,184,75,.12), transparent 30%),
         linear-gradient(180deg,#f8fbfd 0%,#fff 100%);
-      padding:88px 0 76px;
+      padding:70px 0 62px;
     }
     .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:58px;align-items:center}
     .eyebrow{
@@ -103,7 +105,7 @@
       font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;
     }
     h1,h2,h3{line-height:1.12;margin:0 0 16px;color:var(--navy);letter-spacing:-.035em}
-    h1{font-size:clamp(2.65rem,5.2vw,5.2rem);max-width:850px}
+    h1{font-size:clamp(2.65rem,5vw,4.65rem);max-width:850px}
     h2{font-size:clamp(2rem,3.5vw,3.35rem)}
     h3{font-size:1.35rem}
     .hero p{font-size:1.15rem;color:#526174;max-width:710px;margin:0 0 28px}
@@ -120,15 +122,48 @@
     }
     .hero-card h2{color:white;font-size:1.9rem}
     .hero-card p{color:#c8d6e5;font-size:1rem}
-    .audio-bars{display:flex;align-items:flex-end;gap:6px;height:82px;margin:26px 0}
-    .audio-bars i{display:block;width:9px;border-radius:9px;background:linear-gradient(var(--cyan),#8ae5df)}
-    .audio-bars i:nth-child(1){height:25%}.audio-bars i:nth-child(2){height:60%}.audio-bars i:nth-child(3){height:38%}
-    .audio-bars i:nth-child(4){height:82%}.audio-bars i:nth-child(5){height:48%}.audio-bars i:nth-child(6){height:70%}
-    .audio-bars i:nth-child(7){height:30%}.audio-bars i:nth-child(8){height:92%}.audio-bars i:nth-child(9){height:52%}
-    .audio-bars i:nth-child(10){height:74%}.audio-bars i:nth-child(11){height:35%}.audio-bars i:nth-child(12){height:62%}
-    .microcard{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:20px}
-    .microcard div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.09);padding:14px;border-radius:15px}
-    .microcard strong{display:block;font-size:1.15rem;color:white}
+    .decision-list{display:grid;gap:12px;margin:24px 0 18px}
+    .decision-option{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:17px;border:1px solid rgba(255,255,255,.15);border-radius:16px;background:rgba(255,255,255,.07);text-decoration:none;transition:.2s}
+    .decision-option:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.32);transform:translateY(-1px)}
+    .decision-option strong{display:block;color:white;font-size:1.06rem}
+    .decision-option span{color:#c8d6e5;font-size:.88rem}
+    .decision-price{font-weight:900;color:#8ae5df!important;white-space:nowrap}
+    .decision-help{font-size:.9rem!important;margin:0!important}
+    .decision-help a{color:white;font-weight:850}
+    .proof-strip{background:#08131f;color:white;padding:20px 0}
+    .proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .proof-item{border-left:1px solid rgba(255,255,255,.18);padding-left:18px}
+    .proof-item:first-child{border-left:0;padding-left:0}
+    .proof-item strong{display:block;font-size:1.15rem;color:white}
+    .proof-item span{font-size:.85rem;color:#b9c9d8}
+    .voice-proof{background:var(--white);padding:72px 0}
+    .voice-proof-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:42px;align-items:center}
+    .voice-proof-copy p{color:var(--muted);font-size:1.05rem}
+    .voice-samples{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .voice-sample{border:1px solid var(--border);border-radius:18px;padding:17px;background:var(--paper)}
+    .voice-sample-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:11px}
+    .voice-sample strong{color:var(--navy)}
+    .voice-sample span{font-size:.76rem;color:var(--cyan-dark);font-weight:850;text-transform:uppercase;letter-spacing:.03em}
+    .voice-sample audio{display:block;width:100%;height:38px}
+    .conversion-form{background:linear-gradient(135deg,#f0fbfa,#f7fbff);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .form-shell{display:grid;grid-template-columns:.72fr 1.28fr;gap:46px;align-items:center}
+    .form-shell p{color:var(--muted)}
+    .brief-form{background:white;border:1px solid var(--border);border-radius:24px;padding:26px;box-shadow:var(--shadow)}
+    .form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .field{display:grid;gap:7px}
+    .field.full{grid-column:1/-1}
+    .full-action{grid-column:1/-1;min-height:52px}
+    .field label{font-weight:800;color:var(--navy);font-size:.92rem}
+    .field select,.field input{width:100%;min-height:49px;border:1px solid #cfd9e4;border-radius:11px;background:white;padding:0 13px;font:inherit;color:var(--ink)}
+    .field select:focus,.field input:focus{outline:3px solid rgba(11,120,116,.18);border-color:var(--cyan)}
+    .form-privacy{font-size:.78rem;color:var(--muted);margin:11px 0 0!important}
+    .comparison{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:28px}
+    .compare-card{border:1px solid var(--border);border-radius:20px;padding:24px;background:white}
+    .compare-card.highlight{border:2px solid var(--cyan);box-shadow:0 12px 35px rgba(11,120,116,.1)}
+    .compare-card ul{padding-left:20px;color:var(--muted)}
+    .compare-card li{margin:7px 0}
+    .low-risk{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:22px;color:#475569;font-weight:750;font-size:.9rem}
+    .mobile-conversion-bar{display:none}
     section{padding:88px 0}
     .section-head{max-width:760px;margin:0 auto 44px;text-align:center}
     .section-head p{color:var(--muted);font-size:1.06rem}
@@ -198,7 +233,7 @@
     }
     .mobile-toggle{display:none;background:none;border:0;font-size:1.6rem}
     @media(max-width:920px){
-      .hero-grid,.price-wrap,.cta-box{grid-template-columns:1fr}
+      .hero-grid,.price-wrap,.cta-box,.voice-proof-grid,.form-shell{grid-template-columns:1fr}
       .cards{grid-template-columns:1fr 1fr}
       .steps,.aud-grid{grid-template-columns:1fr 1fr}
       .cta-actions{justify-content:flex-start}
@@ -215,6 +250,13 @@
       .hero-card{padding:25px}
       .cta-box{padding:28px}
       h1{font-size:2.7rem}
+      .proof-grid{grid-template-columns:repeat(2,1fr)}
+      .proof-item:nth-child(3){border-left:0;padding-left:0}
+      .voice-samples,.form-grid,.comparison{grid-template-columns:1fr}
+      body{padding-bottom:70px}
+      .whatsapp-float{display:none}
+      .mobile-conversion-bar{position:fixed;display:flex;left:0;right:0;bottom:0;z-index:80;padding:10px 14px;background:white;border-top:1px solid var(--border);box-shadow:0 -8px 24px rgba(13,27,42,.10)}
+      .mobile-conversion-bar .btn{width:100%;min-height:50px}
     }
   </style>
 
@@ -320,33 +362,107 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <span class="eyebrow">Locução profissional para todo o Brasil</span>
-          <h1>Sua mensagem com a voz certa. Sem complicação.</h1>
-          <p>Vozes humanas profissionais e produção de áudio para comerciais, vinhetas, URA, anúncios e narrações de vídeo. Escolha a voz e fale diretamente com nosso atendimento.</p>
+          <span class="eyebrow">Vozes humanas profissionais • Todo o Brasil</span>
+          <h1>Escolha a voz. Envie o texto. Receba seu áudio.</h1>
+          <p>Locução humana a partir de R$ 15 ou anúncio completo a partir de R$ 40. Ouça antes de escolher e comece pelo WhatsApp, sem formulário longo.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Vim%20pelo%20site%20A%20Locu%C3%A7%C3%A3o%20e%20quero%20fazer%20um%20or%C3%A7amento." target="_blank" rel="noopener">Falar no WhatsApp</a>
-            <a class="btn btn-light" href="/vozes/">Ouvir e escolher vozes</a>
+            <a class="btn btn-primary" data-cta="hero_pedido" href="#pedido-rapido">Quero meu áudio</a>
+            <a class="btn btn-light" data-cta="hero_vozes" href="#ouvir-vozes">Ouvir vozes grátis</a>
           </div>
           <div class="trust-row">
-            <span>● Vozes humanas masculinas e femininas</span>
-            <span>● Pacotes sem validade</span>
-            <span>● Compra 100% online</span>
+            <span>✓ Mais de 300 vozes sob consulta</span>
+            <span>✓ Prazo confirmado antes do pagamento</span>
+            <span>✓ Créditos não expiram</span>
           </div>
         </div>
 
-        <aside class="hero-card" aria-label="Destaques do serviço">
-          <h2>Do texto ao áudio pronto.</h2>
-          <p>Você pode contratar somente a voz ou receber o comercial completo, com locução, trilha e efeitos.</p>
-          <div class="audio-bars" aria-hidden="true">
-            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        <aside class="hero-card" aria-label="Escolha o tipo de serviço">
+          <h2>O que você precisa receber?</h2>
+          <p>Escolha pela forma como você vai usar o arquivo. Se ainda tiver dúvida, nós orientamos.</p>
+          <div class="decision-list">
+            <a class="decision-option" data-cta="hero_off" href="/locucao-off/">
+              <span><strong>Só a voz profissional</strong><span>Para quem já faz a própria edição</span></span>
+              <span class="decision-price">R$ 15</span>
+            </a>
+            <a class="decision-option" data-cta="hero_spot" href="/spot-comercial/">
+              <span><strong>Anúncio completo</strong><span>Voz + trilha + efeitos, pronto para usar</span></span>
+              <span class="decision-price">R$ 40</span>
+            </a>
           </div>
-          <div class="microcard">
-            <div><strong>A partir de R$ 15</strong><span>locução off</span></div>
-            <div><strong>A partir de R$ 40</strong><span>produção completa</span></div>
-            <div><strong>Até 40 s</strong><span>por crédito</span></div>
-            <div><strong>Sem expirar</strong><span>use quando precisar</span></div>
-          </div>
+          <p class="decision-help">Não sabe qual escolher? <a class="js-wa" data-cta="hero_ajuda" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Preciso%20de%20um%20%C3%A1udio%2C%20mas%20n%C3%A3o%20sei%20se%20devo%20pedir%20locu%C3%A7%C3%A3o%20off%20ou%20produ%C3%A7%C3%A3o%20completa.%20Pode%20me%20orientar%3F" target="_blank" rel="noopener">Pergunte no WhatsApp →</a></p>
         </aside>
+      </div>
+    </section>
+
+    <div class="proof-strip" aria-label="Diferenciais da A Locução">
+      <div class="container proof-grid">
+        <div class="proof-item"><strong>100% humanas</strong><span>Vozes de locutores reais</span></div>
+        <div class="proof-item"><strong>+300 opções</strong><span>Masculinas e femininas</span></div>
+        <div class="proof-item"><strong>A partir de R$ 15</strong><span>Comece com apenas um off</span></div>
+        <div class="proof-item"><strong>Até 22h*</strong><span>Há vozes também fora do horário comercial</span></div>
+      </div>
+    </div>
+
+    <section class="voice-proof" id="ouvir-vozes">
+      <div class="container voice-proof-grid">
+        <div class="voice-proof-copy">
+          <span class="eyebrow">Ouça antes de escolher</span>
+          <h2>Não compre uma voz no escuro.</h2>
+          <p>Estas são quatro das demonstrações disponíveis. Compare estilos e, quando encontrar uma voz que combine com seu projeto, envie o nome junto com o texto.</p>
+          <a class="btn btn-dark" data-cta="amostras_todas" href="/vozes/">Ouvir todas as 20 demonstrações</a>
+        </div>
+        <div class="voice-samples">
+          <article class="voice-sample"><div class="voice-sample-head"><strong>Elissandra</strong><span>Voz feminina</span></div><audio controls preload="none" data-voice="Elissandra" aria-label="Demonstração da voz de Elissandra"><source src="/Vozes%20Femininas/ELISSANDRA.mp3" type="audio/mpeg"></audio></article>
+          <article class="voice-sample"><div class="voice-sample-head"><strong>Ediane Zanella</strong><span>Voz feminina</span></div><audio controls preload="none" data-voice="Ediane Zanella" aria-label="Demonstração da voz de Ediane Zanella"><source src="/Vozes%20Femininas/EDIANE%20ZANELLA.mp3" type="audio/mpeg"></audio></article>
+          <article class="voice-sample"><div class="voice-sample-head"><strong>Marcus Vinícius</strong><span>Voz masculina</span></div><audio controls preload="none" data-voice="Marcus Vinícius" aria-label="Demonstração da voz de Marcus Vinícius"><source src="/Vozes%20Masculinas/MARCUS%20VIN%C3%8DCIUS.mp3" type="audio/mpeg"></audio></article>
+          <article class="voice-sample"><div class="voice-sample-head"><strong>Douglas Lima</strong><span>Voz masculina</span></div><audio controls preload="none" data-voice="Douglas Lima" aria-label="Demonstração da voz de Douglas Lima"><source src="/Vozes%20Masculinas/DOUGLAS%20LIMA.mp3" type="audio/mpeg"></audio></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="conversion-form" id="pedido-rapido">
+      <div class="container form-shell">
+        <div>
+          <span class="eyebrow">Pedido rápido</span>
+          <h2>Conte o essencial. Nós orientamos o restante.</h2>
+          <p>Três escolhas simples montam uma mensagem completa para o atendimento. Nenhuma informação é enviada antes de você abrir e confirmar a conversa no WhatsApp.</p>
+        </div>
+        <form class="brief-form" id="brief-form">
+          <div class="form-grid">
+            <div class="field">
+              <label for="brief-service">O que você precisa?</label>
+              <select id="brief-service" name="service" required>
+                <option value="">Escolha uma opção</option>
+                <option value="Locução off — somente a voz">Somente a voz (off)</option>
+                <option value="Spot completo — voz, trilha e efeitos">Anúncio completo</option>
+                <option value="Vinheta">Vinheta</option>
+                <option value="URA ou narração de vídeo">URA ou narração</option>
+                <option value="Preciso de orientação">Ainda não sei</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="brief-deadline">Para quando?</label>
+              <select id="brief-deadline" name="deadline" required>
+                <option value="">Escolha o prazo</option>
+                <option value="Preciso confirmar possibilidade para hoje">Se possível, hoje</option>
+                <option value="Nas próximas 24 horas">Nas próximas 24 horas</option>
+                <option value="Nos próximos dias">Nos próximos dias</option>
+                <option value="Sem urgência">Sem urgência</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="brief-text">Seu texto está pronto?</label>
+              <select id="brief-text" name="text_ready" required>
+                <option value="">Escolha uma opção</option>
+                <option value="Sim, meu texto está pronto">Sim, está pronto</option>
+                <option value="Ainda estou preparando o texto">Ainda estou preparando</option>
+                <option value="Preciso de ajuda com o texto">Preciso de orientação</option>
+              </select>
+            </div>
+            <button class="btn btn-primary full-action" type="submit">Continuar no WhatsApp</button>
+          </div>
+          <p class="form-privacy">Você poderá revisar a mensagem antes de enviá-la. Sem cadastro e sem compromisso.</p>
+        </form>
       </div>
     </section>
 
@@ -633,7 +749,8 @@
     </div>
   </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Vim%20pelo%20site%20A%20Locu%C3%A7%C3%A3o." target="_blank" rel="noopener" aria-label="Falar com A Locução pelo WhatsApp">☎</a>
+  <a class="whatsapp-float" data-cta="botao_flutuante" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Vim%20pelo%20site%20A%20Locu%C3%A7%C3%A3o." target="_blank" rel="noopener" aria-label="Falar com A Locução pelo WhatsApp">☎</a>
+  <div class="mobile-conversion-bar"><a class="btn btn-primary" data-cta="barra_mobile" href="#pedido-rapido">Montar meu pedido</a></div>
 
   <script src="/assets/site.js"></script>
   <script src="/assets/privacy.js"></script>
