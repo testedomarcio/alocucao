@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Locução Profissional e Spot Comercial | A Locução</title>
-  <meta name="description" content="Vozes humanas para locução off, spots, vinhetas, URA, anúncios e narração de vídeo. Atendimento à noite, nos finais de semana e feriados.">
+  <meta name="description" content="Vozes humanas para locução off, spots, vinhetas, URA, anúncios e narração de vídeo. Atendimento online em todo o Brasil.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <link rel="canonical" href="https://alocucao.com.br/">
   <meta name="theme-color" content="#0d1b2a">
@@ -15,13 +15,13 @@
   <meta property="og:locale" content="pt_BR">
   <meta property="og:type" content="website">
   <meta property="og:title" content="A Locução | Locução Profissional e Produção de Spot">
-  <meta property="og:description" content="Escolha a voz, envie seu texto e receba sua locução ou spot comercial com agilidade. Créditos sem validade.">
+  <meta property="og:description" content="Escolha a voz, envie seu texto e receba sua locução ou spot comercial com orientação humana.">
   <meta property="og:url" content="https://alocucao.com.br/">
   <meta property="og:site_name" content="A Locução">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="A Locução | Locução Profissional e Produção de Spot">
-  <meta name="twitter:description" content="Locução off e produção completa para todo o Brasil. Pacotes de créditos que não expiram.">
+  <meta name="twitter:description" content="Locução off e produção completa com vozes humanas para todo o Brasil.">
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
@@ -137,14 +137,22 @@
     .proof-item strong{display:block;font-size:1.15rem;color:white}
     .proof-item span{font-size:.85rem;color:#b9c9d8}
     .voice-proof{background:var(--white);padding:72px 0}
-    .voice-proof-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:42px;align-items:center}
+    .voice-proof-grid{display:block}
+    .voice-proof-copy{max-width:790px;margin:0 auto 32px;text-align:center}
     .voice-proof-copy p{color:var(--muted);font-size:1.05rem}
-    .voice-samples{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .voice-sample{border:1px solid var(--border);border-radius:18px;padding:17px;background:var(--paper)}
+    .voice-samples{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .voice-sample{border:1px solid var(--border);border-radius:18px;padding:17px;background:var(--paper);display:grid;gap:10px;min-width:0}
     .voice-sample-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:11px}
     .voice-sample strong{color:var(--navy)}
-    .voice-sample span{font-size:.76rem;color:var(--cyan-dark);font-weight:850;text-transform:uppercase;letter-spacing:.03em}
+    .voice-sample small{display:block;color:var(--muted);font-size:.75rem;margin-top:2px}
     .voice-sample audio{display:block;width:100%;height:38px}
+    .home-availability{display:inline-flex;align-items:center;align-self:flex-start;white-space:nowrap;border:1px solid #b8e7c5;background:#eaf9ef;color:#17652f;border-radius:999px;padding:4px 7px;font-size:.66rem;font-weight:900}
+    .home-availability.off{border-color:#d9e1e9;background:#fff;color:#667588}
+    .home-voice-tags{display:flex;gap:5px;flex-wrap:wrap}
+    .home-voice-tags span{background:#e7f8f7;color:var(--cyan-dark);padding:4px 7px;border-radius:999px;font-size:.67rem;font-weight:850}
+    .home-voice-region,.home-voice-schedule{margin:0!important;color:var(--muted)!important;font-size:.76rem!important}
+    .home-voice-schedule{font-weight:800}
+    .home-voice-choice{display:flex;align-items:center;justify-content:center;min-height:40px;border-radius:11px;background:var(--navy);color:#fff;text-decoration:none;font-weight:850;font-size:.8rem}
     .conversion-form{background:linear-gradient(135deg,#f0fbfa,#f7fbff);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
     .form-shell{display:grid;grid-template-columns:.72fr 1.28fr;gap:46px;align-items:center}
     .form-shell p{color:var(--muted)}
@@ -241,6 +249,7 @@
       .menu.open{display:flex}
       .mobile-toggle{display:block}
       .footer-grid{grid-template-columns:1fr 1fr}
+      .voice-samples{grid-template-columns:repeat(2,1fr)}
     }
     @media(max-width:620px){
       .hero{padding:62px 0 52px}
@@ -298,13 +307,13 @@
         "mainEntity":[
           {
             "@type":"Question",
-            "name":"Quanto tempo corresponde a um crédito?",
-            "acceptedAnswer":{"@type":"Answer","text":"Cada crédito corresponde a uma locução de até aproximadamente 40 segundos. Textos maiores podem consumir mais créditos conforme o cálculo da plataforma."}
+            "name":"Qual duração está incluída no valor inicial?",
+            "acceptedAnswer":{"@type":"Answer","text":"O valor inicial considera uma locução de até aproximadamente 40 segundos. Textos maiores recebem orçamento conforme a duração e o formato do projeto."}
           },
           {
             "@type":"Question",
-            "name":"Os créditos expiram?",
-            "acceptedAnswer":{"@type":"Answer","text":"Não. Os créditos adquiridos não expiram."}
+            "name":"Preciso comprar um pacote?",
+            "acceptedAnswer":{"@type":"Answer","text":"Não. Você pode começar com uma única locução ou produção e escolher um pacote apenas quando fizer sentido para sua demanda."}
           },
           {
             "@type":"Question",
@@ -327,7 +336,7 @@
   <div class="topbar">
     <div class="container">
       <span>✓ Atendimento em todo o Brasil</span>
-      <span>✓ Créditos não expiram</span>
+      <span>✓ Curadoria de vozes humanas</span>
       <span>✓ Pagamento antecipado via PIX</span>
     </div>
   </div>
@@ -352,7 +361,7 @@
           <a href="#como-funciona">Como funciona</a>
           <a href="#duvidas">Dúvidas</a>
           <a href="/vozes/">Ouvir vozes</a>
-          <a class="btn btn-dark" href="https://painel.audio.net.br/cliente/alocucao" target="_blank" rel="noopener">Acessar painel</a>
+          <a class="btn btn-dark" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20na%20A%20Locu%C3%A7%C3%A3o." target="_blank" rel="noopener">Fazer pedido</a>
         </div>
       </nav>
     </div>
@@ -370,9 +379,9 @@
             <a class="btn btn-light" data-cta="hero_vozes" href="#ouvir-vozes">Ouvir vozes grátis</a>
           </div>
           <div class="trust-row">
-            <span>✓ Mais de 300 vozes sob consulta</span>
+            <span>✓ 20 vozes selecionadas</span>
             <span>✓ Prazo confirmado antes do pagamento</span>
-            <span>✓ Créditos não expiram</span>
+            <span>✓ Atendimento humano</span>
           </div>
         </div>
 
@@ -397,9 +406,9 @@
     <div class="proof-strip" aria-label="Diferenciais da A Locução">
       <div class="container proof-grid">
         <div class="proof-item"><strong>100% humanas</strong><span>Vozes de locutores reais</span></div>
-        <div class="proof-item"><strong>+300 opções</strong><span>Masculinas e femininas</span></div>
+        <div class="proof-item"><strong>20 selecionadas</strong><span>Masculinas e femininas</span></div>
         <div class="proof-item"><strong>A partir de R$ 15</strong><span>Comece com apenas um off</span></div>
-        <div class="proof-item"><strong>Até 22h*</strong><span>Há vozes também fora do horário comercial</span></div>
+        <div class="proof-item"><strong>Prazo claro</strong><span>Confirmado antes do pagamento</span></div>
       </div>
     </div>
 
@@ -407,23 +416,18 @@
       <div class="container voice-proof-grid">
         <div class="voice-proof-copy">
           <span class="eyebrow">Ouça antes de escolher</span>
-          <h2>Não compre uma voz no escuro.</h2>
-          <p>Estas são quatro das demonstrações disponíveis. Compare estilos e, quando encontrar uma voz que combine com seu projeto, envie o nome junto com o texto.</p>
-          <a class="btn btn-dark" data-cta="amostras_todas" href="/vozes/">Ouvir todas as 20 demonstrações</a>
+          <h2>20 vozes selecionadas para você comparar</h2>
+          <p>Ouça as demonstrações, veja estilos, região e a agenda habitual de hoje. O selo de disponibilidade usa o horário de Brasília; a confirmação final é feita no atendimento.</p>
+          <a class="btn btn-dark" data-cta="amostras_todas" href="/vozes/">Abrir busca avançada de vozes</a>
         </div>
-        <div class="voice-samples">
-          <article class="voice-sample"><div class="voice-sample-head"><strong>Elissandra</strong><span>Voz feminina</span></div><audio controls preload="none" data-voice="Elissandra" aria-label="Demonstração da voz de Elissandra"><source src="/Vozes%20Femininas/ELISSANDRA.mp3" type="audio/mpeg"></audio></article>
-          <article class="voice-sample"><div class="voice-sample-head"><strong>Ediane Zanella</strong><span>Voz feminina</span></div><audio controls preload="none" data-voice="Ediane Zanella" aria-label="Demonstração da voz de Ediane Zanella"><source src="/Vozes%20Femininas/EDIANE%20ZANELLA.mp3" type="audio/mpeg"></audio></article>
-          <article class="voice-sample"><div class="voice-sample-head"><strong>Marcus Vinícius</strong><span>Voz masculina</span></div><audio controls preload="none" data-voice="Marcus Vinícius" aria-label="Demonstração da voz de Marcus Vinícius"><source src="/Vozes%20Masculinas/MARCUS%20VIN%C3%8DCIUS.mp3" type="audio/mpeg"></audio></article>
-          <article class="voice-sample"><div class="voice-sample-head"><strong>Douglas Lima</strong><span>Voz masculina</span></div><audio controls preload="none" data-voice="Douglas Lima" aria-label="Demonstração da voz de Douglas Lima"><source src="/Vozes%20Masculinas/DOUGLAS%20LIMA.mp3" type="audio/mpeg"></audio></article>
-        </div>
+        <div class="voice-samples" id="home-voice-grid" aria-live="polite"></div>
       </div>
     </section>
 
     <section class="conversion-form" id="pedido-rapido">
       <div class="container form-shell">
         <div>
-          <span class="eyebrow">Pedido rápido</span>
+          <span class="eyebrow">Briefing inicial</span>
           <h2>Conte o essencial. Nós orientamos o restante.</h2>
           <p>Três escolhas simples montam uma mensagem completa para o atendimento. Nenhuma informação é enviada antes de você abrir e confirmar a conversa no WhatsApp.</p>
         </div>
@@ -444,9 +448,9 @@
               <label for="brief-deadline">Para quando?</label>
               <select id="brief-deadline" name="deadline" required>
                 <option value="">Escolha o prazo</option>
-                <option value="Preciso confirmar possibilidade para hoje">Se possível, hoje</option>
-                <option value="Nas próximas 24 horas">Nas próximas 24 horas</option>
-                <option value="Nos próximos dias">Nos próximos dias</option>
+                <option value="Nesta semana">Nesta semana</option>
+                <option value="Na próxima semana">Na próxima semana</option>
+                <option value="Tenho uma data específica">Tenho uma data específica</option>
                 <option value="Sem urgência">Sem urgência</option>
               </select>
             </div>
@@ -461,7 +465,7 @@
             </div>
             <button class="btn btn-primary full-action" type="submit">Continuar no WhatsApp</button>
           </div>
-          <p class="form-privacy">Você poderá revisar a mensagem antes de enviá-la. Sem cadastro e sem compromisso.</p>
+          <p class="form-privacy">Você poderá revisar a mensagem antes de enviá-la. Nada é enviado automaticamente.</p>
         </form>
       </div>
     </section>
@@ -481,13 +485,13 @@
           </article>
           <article class="card">
             <div class="icon">⚡</div>
-            <h3>Agilidade de verdade</h3>
-            <p>Há profissionais disponíveis também à noite, nos finais de semana e feriados. O prazo é confirmado no atendimento.</p>
+            <h3>Agilidade com clareza</h3>
+            <p>A previsão é confirmada conforme a voz, o texto e o tipo de produção, antes do pagamento.</p>
           </article>
           <article class="card">
             <div class="icon">∞</div>
-            <h3>Créditos sem validade</h3>
-            <p>Compre o pacote que faz sentido para sua rotina e utilize os créditos quando precisar. Eles não expiram.</p>
+            <h3>Atendimento humano</h3>
+            <p>Você recebe orientação para escolher a voz e o formato mais adequado ao objetivo da mensagem.</p>
           </article>
         </div>
       </div>
@@ -510,8 +514,8 @@
               <li>Ideal para editores, rádios, TVs e produtoras</li>
               <li>Também indicado para revendedores e carros de som</li>
               <li>Escolha do locutor pelo banco de vozes</li>
-              <li>Locutores disponíveis inclusive domingos e feriados, até 22h</li>
-              <li>1 crédito corresponde a até aproximadamente 40 segundos</li>
+              <li>Prazo confirmado conforme a voz escolhida</li>
+              <li>Valor inicial para textos de até aproximadamente 40 segundos</li>
             </ul>
             <a class="btn btn-primary" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20contratar%20locu%C3%A7%C3%A3o%20OFF%20pela%20A%20Locu%C3%A7%C3%A3o." target="_blank" rel="noopener">Quero locução off</a>
             <p class="service-more"><a href="/locucao-off/">Ver detalhes, pacotes e dúvidas sobre locução off →</a></p>
@@ -552,7 +556,7 @@
             <ul>
               <li>Ideal para supermercados, padarias e lojas</li>
               <li>Também para barbearias, salões e comércio em geral</li>
-              <li>Um spot costuma exigir de 30 a 60 minutos de produção</li>
+              <li>Direção e acabamento alinhados à finalidade do anúncio</li>
               <li>Prazo total confirmado conforme a voz e a complexidade</li>
               <li>Você recebe o off + arquivo finalizado</li>
             </ul>
@@ -568,7 +572,7 @@
         <div class="section-head">
           <span class="eyebrow">Preços transparentes</span>
           <h2>Escolha seu pacote</h2>
-          <p>Sem assinatura mensal e sem validade dos créditos. Quanto maior o pacote, menor o custo por áudio.</p>
+          <p>Você pode começar com um único áudio. Para demandas recorrentes, os pacotes reduzem o custo por produção.</p>
         </div>
 
         <div class="price-wrap">
@@ -581,7 +585,7 @@
               <div class="price-row"><span>01 Off</span><strong>R$ 15,00</strong></div>
               <div class="price-row"><span>05 Offs</span><strong>R$ 60,00</strong></div>
               <div class="price-row"><span>10 Offs</span><strong>R$ 100,00</strong></div>
-              <a class="btn btn-dark" style="width:100%;margin-top:16px" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20comprar%20cr%C3%A9ditos%20de%20LOCU%C3%87%C3%83O%20OFF.%20Pode%20me%20orientar%3F" target="_blank" rel="noopener">Comprar pelo WhatsApp</a>
+              <a class="btn btn-dark" style="width:100%;margin-top:16px" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20contratar%20um%20pacote%20de%20LOCU%C3%87%C3%83O%20OFF.%20Pode%20me%20orientar%3F" target="_blank" rel="noopener">Contratar pelo WhatsApp</a>
             </div>
           </article>
 
@@ -594,12 +598,12 @@
               <div class="price-row"><span>01 Produção</span><strong>R$ 40,00</strong></div>
               <div class="price-row"><span>05 Produções</span><strong>R$ 175,00</strong></div>
               <div class="price-row"><span>10 Produções</span><strong>R$ 320,00</strong></div>
-              <a class="btn btn-primary" style="width:100%;margin-top:16px" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20comprar%20cr%C3%A9ditos%20de%20PRODU%C3%87%C3%83O%20COMPLETA.%20Pode%20me%20orientar%3F" target="_blank" rel="noopener">Comprar pelo WhatsApp</a>
+              <a class="btn btn-primary" style="width:100%;margin-top:16px" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20contratar%20um%20pacote%20de%20PRODU%C3%87%C3%83O%20COMPLETA.%20Pode%20me%20orientar%3F" target="_blank" rel="noopener">Contratar pelo WhatsApp</a>
             </div>
           </article>
         </div>
 
-        <div class="price-note">✓ Seus créditos não expiram. Pagamento antecipado via PIX.</div>
+        <div class="price-note">✓ Pagamento antecipado via PIX. O pedido é confirmado no atendimento.</div>
       </div>
     </section>
 
@@ -607,14 +611,14 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Como funciona</span>
-          <h2>Quatro passos e pronto</h2>
-          <p>Você pode começar pelo WhatsApp e receber orientação para escolher a voz e o serviço.</p>
+          <h2>Do texto à entrega, com atendimento pelo WhatsApp</h2>
+          <p>Você conversa diretamente com a A Locução durante todas as etapas do pedido.</p>
         </div>
         <div class="steps">
-          <div class="step"><h3>Escolha o serviço</h3><p>Defina se precisa apenas do off ou da produção completa.</p></div>
-          <div class="step"><h3>Escolha a voz</h3><p>Ouça os locutores e confira o prazo estimado de gravação.</p></div>
-          <div class="step"><h3>Envie o texto</h3><p>Revise nomes, telefones, datas, valores e instruções antes de liberar.</p></div>
-          <div class="step"><h3>Receba o áudio</h3><p>Acompanhe o pedido e faça o download do material pelo painel.</p></div>
+          <div class="step"><h3>Envie o texto</h3><p>Conte pelo WhatsApp onde o áudio será usado e, se quiser, indique uma voz.</p></div>
+          <div class="step"><h3>Receba o orçamento</h3><p>Confirmamos valor, voz, formato e previsão antes de qualquer cobrança.</p></div>
+          <div class="step"><h3>Confirme o pagamento</h3><p>Após a confirmação do PIX, o pedido é liberado para gravação e produção.</p></div>
+          <div class="step"><h3>Receba o áudio</h3><p>O material é conferido e enviado diretamente pelo canal combinado.</p></div>
         </div>
         <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px">
           <a class="btn btn-primary" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20come%C3%A7ar%20um%20pedido%20pela%20A%20Locu%C3%A7%C3%A3o." target="_blank" rel="noopener">Começar pelo WhatsApp</a>
@@ -628,11 +632,11 @@
         <div class="section-head">
           <span class="eyebrow">Feito para diferentes negócios</span>
           <h2>Da produção de áudio ao comércio local</h2>
-          <p>A mesma plataforma atende quem trabalha diariamente com áudio e quem precisa de uma campanha pronta para divulgar.</p>
+          <p>A mesma estrutura atende quem trabalha diariamente com áudio e quem precisa de uma campanha pronta para divulgar.</p>
         </div>
         <div class="aud-grid">
           <div class="aud-item"><h3>Rádios e TVs</h3><p>Chamadas, anúncios, vinhetas e conteúdos comerciais.</p></div>
-          <div class="aud-item"><h3>Revendedores</h3><p>Pacotes de créditos para atender sua própria carteira de clientes.</p></div>
+          <div class="aud-item"><h3>Revendedores</h3><p>Pacotes de locuções para atender sua própria carteira de clientes.</p></div>
           <div class="aud-item"><h3>Carros de som</h3><p>Locuções comerciais para campanhas locais e divulgações.</p></div>
           <div class="aud-item"><h3>Produtores</h3><p>Receba o off e faça a edição no seu próprio fluxo de trabalho.</p></div>
           <div class="aud-item"><h3>Supermercados</h3><p>Ofertas, campanhas de preço, datas sazonais e institucionais.</p></div>
@@ -651,28 +655,28 @@
         </div>
 
         <details open>
-          <summary>Quanto tempo corresponde a um crédito?</summary>
-          <p>Cada crédito corresponde a uma locução de até aproximadamente 40 segundos. Se o texto ultrapassar esse limite, a plataforma poderá indicar a necessidade de créditos adicionais.</p>
+          <summary>Qual duração está incluída no valor inicial?</summary>
+          <p>O valor inicial considera uma locução de até aproximadamente 40 segundos. Se o texto ultrapassar esse limite, confirmamos o orçamento conforme a duração e o formato do projeto.</p>
         </details>
         <details>
-          <summary>Os créditos expiram?</summary>
-          <p>Não. Os créditos adquiridos não expiram, então você pode comprar um pacote e utilizá-lo conforme sua necessidade.</p>
+          <summary>Preciso comprar um pacote?</summary>
+          <p>Não. Você pode começar com uma única locução ou produção. Os pacotes são opcionais para demandas recorrentes.</p>
         </details>
         <details>
           <summary>Posso escolher o locutor ou a locutora?</summary>
-          <p>Sim. Pelo banco de vozes você pode ouvir os profissionais disponíveis e conferir a estimativa de gravação exibida para cada um.</p>
+          <p>Sim. No banco de vozes você pode comparar profissionais, estilos e regiões. A disponibilidade é confirmada no atendimento.</p>
         </details>
         <details>
           <summary>Qual é o prazo para a locução?</summary>
-          <p>A estimativa varia conforme o profissional escolhido. No banco de vozes podem aparecer opções como “gravando em 10 minutos”, “gravando em 30 minutos” ou “online — gravando em até 5 horas”.</p>
+          <p>A previsão varia conforme o profissional, o tamanho do texto e a interpretação desejada. Confirmamos o prazo antes do pagamento.</p>
         </details>
         <details>
           <summary>E a produção completa?</summary>
-          <p>Um spot costuma exigir de 30 a 60 minutos de produção após a gravação. O prazo total depende da disponibilidade da voz e da complexidade do material e é confirmado no atendimento.</p>
+          <p>O prazo total depende da disponibilidade da voz, da duração e da complexidade do material. A previsão é confirmada no atendimento antes do pagamento.</p>
         </details>
         <details>
           <summary>Posso pedir alteração depois que a locução foi gravada?</summary>
-          <p>Antes de enviar, confira cuidadosamente texto, nomes, telefones, datas, valores e instruções. Correções sem custo se aplicam quando houver erro comprovado na gravação ou no material entregue. Alterações de texto ou uma nova orientação após a gravação exigem novo crédito.</p>
+          <p>Antes de enviar, confira cuidadosamente texto, nomes, telefones, datas, valores e instruções. Correções sem custo se aplicam quando houver erro comprovado na gravação ou no material entregue. Alterações de texto ou uma nova orientação após a gravação podem exigir uma nova contratação.</p>
         </details>
         <details>
           <summary>Como é feito o pagamento?</summary>
@@ -687,8 +691,8 @@
           <p>Sim. O repertório apresentado no site é formado por locutores e locutoras humanos, com gravação profissional.</p>
         </details>
         <details>
-          <summary>Há atendimento à noite, nos finais de semana e feriados?</summary>
-          <p>Sim. Há vozes disponíveis também nesses períodos. O prazo de gravação e de produção depende da disponibilidade do profissional e da complexidade do pedido, por isso confirmamos a previsão no atendimento.</p>
+          <summary>Como confirmo a disponibilidade da voz?</summary>
+          <p>Escolha uma voz no repertório e envie o nome pelo WhatsApp. Confirmaremos a disponibilidade e a previsão antes de liberar o pedido.</p>
         </details>
       </div>
     </section>
@@ -732,11 +736,12 @@
           <a href="/vozes/">Banco de Vozes</a>
           <a href="/blog/">Blog de Locução</a>
           <a href="/calculadora/">Calculadora de Texto</a>
+          <a href="/avaliacoes/">Avaliações de Clientes</a>
         </div>
         <div>
-          <h3>Área do cliente</h3>
-          <a href="https://painel.audio.net.br/cliente/alocucao" target="_blank" rel="noopener">Acessar painel</a>
-          <a href="https://painel.audio.net.br/cadastro/alocucao" target="_blank" rel="noopener">Criar cadastro</a>
+          <h3>Atendimento</h3>
+          <a href="/vozes/">Escolher uma voz</a>
+          <a href="/calculadora/">Calcular o texto</a>
           <a href="https://wa.me/5527996529832" target="_blank" rel="noopener">WhatsApp</a>
         </div>
         <div>
@@ -744,6 +749,7 @@
           <a href="/sobre/">Sobre e contato</a>
           <a href="/politica-de-privacidade/">Política de Privacidade</a>
           <a href="/termos-de-uso/">Termos de Uso</a>
+          <a href="/avaliacoes/">Enviar uma avaliação</a>
         </div>
       </div>
       <div class="copyright">© <span id="year"></span> A Locução. Todos os direitos reservados.</div>
@@ -753,6 +759,7 @@
   <a class="whatsapp-float" data-cta="botao_flutuante" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Vim%20pelo%20site%20A%20Locu%C3%A7%C3%A3o." target="_blank" rel="noopener" aria-label="Falar com A Locução pelo WhatsApp">☎</a>
   <div class="mobile-conversion-bar"><a class="btn btn-primary" data-cta="barra_mobile" href="#pedido-rapido">Montar meu pedido</a></div>
 
+  <script src="/assets/home-voices.js"></script>
   <script src="/assets/site.js"></script>
   <script src="/assets/privacy.js"></script>
 </body>

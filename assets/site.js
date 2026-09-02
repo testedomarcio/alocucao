@@ -32,23 +32,24 @@
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({event: "page_view_context", page_type: pageType, ...tracking});
 
-  document.querySelectorAll('a[href^="https://wa.me/"]').forEach(link => {
-    link.addEventListener("click", () => {
-      const ctaLocation = link.dataset.cta || link.textContent.trim().toLowerCase().replace(/\s+/g, "_").slice(0, 60);
-      window.dataLayer.push({event: "whatsapp_click", page_type: pageType, cta_location: ctaLocation, cta_text: link.textContent.trim(), ...tracking});
-      window.dataLayer.push({event: "generate_lead", method: "whatsapp", page_type: pageType, cta_location: ctaLocation, ...tracking});
-      if (typeof window.gtag === "function") {
-        window.gtag("event", "conversion", {send_to: "AW-18420702149/U2s-CMSAyOscEMW31s9E"});
-      }
-    });
+  document.addEventListener("click", event => {
+    const link = event.target.closest('a[href^="https://wa.me/"]');
+    if (!link) return;
+    const ctaLocation = link.dataset.cta || link.textContent.trim().toLowerCase().replace(/\s+/g, "_").slice(0, 60);
+    window.dataLayer.push({event: "whatsapp_click", page_type: pageType, cta_location: ctaLocation, cta_text: link.textContent.trim(), ...tracking});
+    window.dataLayer.push({event: "generate_lead", method: "whatsapp", page_type: pageType, cta_location: ctaLocation, ...tracking});
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "conversion", {send_to: "AW-18420702149/U2s-CMSAyOscEMW31s9E"});
+    }
   });
 
   document.querySelectorAll("audio").forEach(audio => {
-    let counted = false;
+    const countedVoices = new Set();
     audio.addEventListener("play", () => {
-      if (counted) return;
-      counted = true;
-      window.dataLayer.push({event: "voice_sample_play", page_type: pageType, voice_name: audio.dataset.voice || audio.getAttribute("aria-label") || "unknown", ...tracking});
+      const voiceName = audio.dataset.voice || audio.getAttribute("aria-label") || "unknown";
+      if (countedVoices.has(voiceName)) return;
+      countedVoices.add(voiceName);
+      window.dataLayer.push({event: "voice_sample_play", page_type: pageType, voice_name: voiceName, ...tracking});
     });
   });
 
@@ -64,7 +65,7 @@
       event.preventDefault();
       const data = new FormData(briefForm);
       const message = [
-        "Olá! Vim pelo pedido rápido do site A Locução.",
+        "Olá! Vim pelo briefing inicial do site A Locução.",
         "",
         `Serviço: ${data.get("service")}`,
         `Prazo: ${data.get("deadline")}`,

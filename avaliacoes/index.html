@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <script src="/assets/tracking.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Avaliações de clientes | A Locução</title>
+  <meta name="description" content="Avalie sua experiência com a A Locução e leia depoimentos autorizados de clientes de locução e produção de áudio.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://alocucao.com.br/avaliacoes/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/content.css">
+  <style>
+    .review-shell{display:grid;grid-template-columns:1fr .78fr;gap:26px;align-items:start}
+    .review-form{border:1px solid #dfe7ef;border-radius:22px;background:#fff;padding:26px;box-shadow:0 16px 45px rgba(11,23,38,.08)}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:grid;gap:7px}.field.full{grid-column:1/-1}
+    label{font-weight:850;color:#0b1726}input,select,textarea{width:100%;font:inherit;border:1px solid #cbd7e3;border-radius:11px;padding:12px;background:#fff;color:#132033}textarea{min-height:180px;resize:vertical}input:focus,select:focus,textarea:focus{outline:3px solid rgba(24,163,156,.18);border-color:#18a39c}
+    .counter{text-align:right;color:#607084;font-size:.78rem;margin-top:-2px}.check-field{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start}.check-field input{width:18px;height:18px;margin-top:3px}.check-field label{font-weight:600;color:#475569;font-size:.9rem}
+    .review-note{border-radius:18px;background:#0b1726;color:#fff;padding:24px}.review-note h2{color:#fff;margin-top:0}.review-note p,.review-note li{color:#d2dce6}.review-note ul{padding-left:20px}.moderation{margin-top:18px;border:1px solid #ecd89e;background:#fff8e7;border-radius:15px;padding:16px;color:#674d14}
+    .reviews-public{margin-top:52px}.empty-reviews{border:1px dashed #aebdcc;border-radius:18px;padding:28px;text-align:center;background:#f7f9fc;color:#607084}
+    @media(max-width:800px){.review-shell,.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}}
+  </style>
+</head>
+<body>
+  <header><div class="container"><nav aria-label="Navegação principal"><a class="brand" href="/"><span class="mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><path d="M9 36c6-14 12-14 18 0s12 14 18 0 8-10 10-10" stroke="white" stroke-width="6" stroke-linecap="round"/></svg></span>A Locução</a><div class="nav-links"><a href="/vozes/">Ouvir vozes</a><a href="/servicos/">Serviços</a><a href="/">Início</a></div></nav></div></header>
+  <main>
+    <section class="hero"><div class="container"><span class="eyebrow">Experiência de clientes</span><h1>Conte como foi seu atendimento</h1><p class="lead">Sua avaliação ajuda outras pessoas a contratar com mais segurança e mostra o que a A Locução pode continuar melhorando.</p></div></section>
+    <div class="container content">
+      <div class="review-shell">
+        <form class="review-form" id="review-form">
+          <h2>Enviar uma avaliação</h2>
+          <p>Todos os campos marcados são obrigatórios. Escreva sobre sua experiência real, seja ela positiva ou crítica.</p>
+          <div class="form-grid">
+            <div class="field"><label for="review-name">Seu nome *</label><input id="review-name" name="name" autocomplete="name" maxlength="80" required></div>
+            <div class="field"><label for="review-city">Cidade/UF</label><input id="review-city" name="city" maxlength="80" placeholder="Ex.: Vitória/ES"></div>
+            <div class="field"><label for="review-service">Serviço utilizado *</label><select id="review-service" name="service" required><option value="">Selecione</option><option>Locução Off</option><option>Spot Comercial</option><option>Vinheta</option><option>URA</option><option>Narração de vídeo</option><option>Outro serviço</option></select></div>
+            <div class="field"><label for="review-rating">Sua nota *</label><select id="review-rating" name="rating" required><option value="">Selecione</option><option value="5">5 — Excelente</option><option value="4">4 — Muito bom</option><option value="3">3 — Bom</option><option value="2">2 — Pode melhorar</option><option value="1">1 — Ruim</option></select></div>
+            <div class="field full"><label for="review-comment">Seu comentário *</label><textarea id="review-comment" name="comment" minlength="80" maxlength="1200" required placeholder="Conte o que você contratou, como foi o atendimento e o resultado recebido. Mínimo de 80 caracteres."></textarea><div class="counter"><span id="review-count">0</span>/1200 · mínimo 80</div></div>
+            <div class="field full check-field"><input id="review-client" name="client_confirm" type="checkbox" required><label for="review-client">Declaro que utilizei um serviço da A Locução e que esta avaliação descreve minha experiência real. *</label></div>
+            <div class="field full check-field"><input id="review-consent" name="public_consent" type="checkbox" required><label for="review-consent">Autorizo a A Locução a publicar meu nome, cidade, serviço, nota e comentário neste site e em materiais da marca. Sei que posso solicitar correção ou remoção pelo WhatsApp. *</label></div>
+            <button class="btn full" type="submit">Enviar avaliação pelo WhatsApp</button>
+          </div>
+          <div class="moderation"><strong>Importante:</strong> a avaliação não aparece automaticamente. Ela é conferida para remover spam, dados sensíveis e conteúdo ofensivo. O sentido de críticas legítimas não será alterado.</div>
+        </form>
+        <aside class="review-note"><h2>O que torna uma avaliação útil?</h2><ul><li>Diga qual áudio você contratou.</li><li>Comente sobre atendimento, voz, qualidade e entrega.</li><li>Evite informar telefones, endereços ou dados de terceiros.</li><li>Se algo não ficou bom, explique com clareza. Críticas também ajudam.</li></ul><p>Depois de revisar a mensagem, o WhatsApp será aberto. Nada é enviado sem sua confirmação.</p></aside>
+      </div>
+      <section class="reviews-public" aria-labelledby="public-title"><h2 id="public-title">Avaliações publicadas</h2><div class="empty-reviews"><strong>Os primeiros depoimentos autorizados serão publicados aqui.</strong><br>Somente avaliações de clientes conferidos serão exibidas.</div></section>
+    </div>
+  </main>
+  <footer><div class="container"><span>© 2026 A Locução</span><span><a href="/politica-de-privacidade/">Privacidade</a> · <a href="/termos-de-uso/">Termos</a></span></div></footer>
+  <script>
+    (()=>{const form=document.getElementById("review-form"),comment=document.getElementById("review-comment"),count=document.getElementById("review-count");comment.addEventListener("input",()=>count.textContent=comment.value.length);form.addEventListener("submit",event=>{event.preventDefault();if(!form.reportValidity())return;const data=new FormData(form),message=["Olá! Quero enviar uma avaliação para a A Locução.","",`Nome: ${data.get("name")}`,`Cidade/UF: ${data.get("city")||"Não informado"}`,`Serviço: ${data.get("service")}`,`Nota: ${data.get("rating")}/5`,"",`Comentário: ${data.get("comment")}`,"","Confirmo que sou cliente e autorizo a publicação dos dados e do comentário acima. Sei que posso solicitar correção ou remoção pelo WhatsApp."].join("\n");window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:"review_submit_intent",service:data.get("service"),rating:data.get("rating")});window.open(`https://wa.me/5527996529832?text=${encodeURIComponent(message)}`,"_blank","noopener")})})();
+  </script>
+  <script src="/assets/privacy.js"></script>
+</body>
+</html>
