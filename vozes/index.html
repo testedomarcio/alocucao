@@ -39,9 +39,10 @@
       ["Dianer Toledo","/Vozes%20Masculinas/DIANER%20TOLEDO.mp3"],["Douglas Lima","/Vozes%20Masculinas/DOUGLAS%20LIMA.mp3"],["Francisco Carlos","/Vozes%20Masculinas/FRANCISCO%20CARLOS.mp3"],["Manoel","/Vozes%20Masculinas/MANOEL.mp3"],["Marcelo Ferraz","/Vozes%20Masculinas/MARCELO%20FERRAZ.mp3"],["Marcus Vinícius","/Vozes%20Masculinas/MARCUS%20VIN%C3%8DCIUS.mp3"],["Neto","/Vozes%20Masculinas/NETO.mp3"],["Robson Muniz","/Vozes%20Masculinas/ROBSON%20MUNIZ.mp3"],["Silva Junior","/Vozes%20Masculinas/SILVA%20%20JUNIOR.mp3"],["Wel Lima","/Vozes%20Masculinas/WEL%20LIMA.mp3"]
     ];
     const player=document.getElementById("voice-player"),title=document.getElementById("now-title"),detail=document.getElementById("now-detail");
-    function render(list,target,label){const root=document.getElementById(target);list.forEach(([name,src])=>{const button=document.createElement("button");button.className="voice";button.type="button";button.innerHTML=`<span class="play">▶</span><strong>${name}</strong><span>Voz ${label} humana</span>`;button.addEventListener("click",()=>{document.querySelectorAll(".voice").forEach(item=>item.classList.remove("active"));button.classList.add("active");player.src=src;title.textContent=name;detail.textContent=`Demonstração de voz ${label} profissional`;player.play().catch(()=>{});document.querySelector(".player-wrap").scrollIntoView({behavior:"smooth",block:"center"})});root.appendChild(button)})}
+    function render(list,target,label){const root=document.getElementById(target);list.forEach(([name,src])=>{const button=document.createElement("button");button.className="voice";button.type="button";button.innerHTML=`<span class="play">▶</span><strong>${name}</strong><span>Voz ${label} humana</span>`;button.addEventListener("click",()=>{document.querySelectorAll(".voice").forEach(item=>item.classList.remove("active"));button.classList.add("active");player.src=src;player.dataset.voice=name;title.textContent=name;detail.textContent=`Demonstração de voz ${label} profissional`;player.play().catch(()=>{});document.querySelector(".player-wrap").scrollIntoView({behavior:"smooth",block:"center"})});root.appendChild(button)})}
     render(female,"female-voices","feminina");render(male,"male-voices","masculina");
   </script>
+  <script src="/assets/site.js"></script>
   <script src="/assets/privacy.js"></script>
 </body>
 </html>
