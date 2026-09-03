@@ -81,5 +81,45 @@
       window.open(`https://wa.me/5527996529832?text=${encodeURIComponent(message)}`, "_blank", "noopener");
     });
   }
-})();
 
+  // Mantém páginas antigas sincronizadas com a tabela comercial vigente.
+  const path = location.pathname.replace(/\/+$/, "") || "/";
+  const replaceText = (root, pairs) => {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(node => {
+      let text = node.nodeValue;
+      pairs.forEach(([from, to]) => { text = text.split(from).join(to); });
+      node.nodeValue = text;
+    });
+  };
+
+  if (path === "/locucao-off") {
+    document.title = "Locução Off Profissional a partir de R$ 12 | A Locução";
+    const desc = document.querySelector('meta[name="description"]');
+    if (desc) desc.content = "Locução off profissional com mais de 150 vozes humanas. A partir de R$ 12. Pacotes de 10, 25 e 50 offs. Pedidos por WhatsApp ou Área de Pedidos 24h.";
+    replaceText(document.body, [
+      ["R$ 15,00", "R$ 12,00"],
+      ["R$ 15", "R$ 12"],
+      ["05 Offs", "25 Offs"],
+      ["R$ 60,00", "R$ 150,00"],
+      ["R$ 60", "R$ 150"]
+    ]);
+  }
+
+  if (path === "/spot-comercial") {
+    document.title = "Produção de Spot Comercial a partir de R$ 25 | A Locução";
+    const desc = document.querySelector('meta[name="description"]');
+    if (desc) desc.content = "Produção completa de spot comercial a partir de R$ 25. Pacotes de 5, 15 e 30 produções. Atendimento humano e pedidos online.";
+    replaceText(document.body, [
+      ["R$ 40,00", "R$ 25,00"],
+      ["R$ 40", "R$ 25"],
+      ["R$ 175,00", "R$ 115,00"],
+      ["R$ 175", "R$ 115"],
+      ["10 Produções", "15 Produções"],
+      ["R$ 320,00", "R$ 225,00"],
+      ["R$ 320", "R$ 225"]
+    ]);
+  }
+})();
