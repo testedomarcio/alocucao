@@ -18,19 +18,25 @@
 
   const path=location.pathname.replace(/\/+$/,"")||"/";
   const replaceText=(root,pairs)=>{const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);nodes.forEach(node=>{let text=node.nodeValue;pairs.forEach(([from,to])=>text=text.split(from).join(to));node.nodeValue=text})};
-  const wa="https://wa.me/5527996529832?text=";
-  const pkg=(qty,price,per,msg,best=false)=>`<article class="package${best?" best":""}"><div class="qty">${qty}</div><div class="price">${price}</div><div class="per">${per}</div><a class="btn btn-dark" href="${wa+encodeURIComponent(msg)}" target="_blank" rel="noopener">Quero este pacote</a></article>`;
 
   if(path==="/locucao-off"){
     document.title="Locução Off Profissional a partir de R$ 12 | A Locução";
     const desc=document.querySelector('meta[name="description"]');if(desc)desc.content="Locução off profissional com mais de 150 vozes humanas. A partir de R$ 12. Pacotes de 10, 25 e 50 offs. Pedidos por WhatsApp ou Área de Pedidos 24h.";
-    replaceText(document.body,[["R$ 15,00","R$ 12,00"],["R$ 15","R$ 12"]]);
-    const grid=document.querySelector(".package-grid");if(grid){grid.innerHTML=[pkg("01 Off","R$ 12,00","R$ 12,00 por off","Olá! Quero comprar 1 Off por R$ 12,00."),pkg("10 Offs","R$ 100,00","R$ 10,00 por off","Olá! Quero comprar o pacote de 10 Offs por R$ 100,00."),pkg("25 Offs","R$ 150,00","R$ 6,00 por off","Olá! Quero comprar o pacote de 25 Offs por R$ 150,00."),pkg("50 Offs","R$ 250,00","R$ 5,00 por off","Olá! Quero comprar o pacote de 50 Offs por R$ 250,00.",true)].join("");grid.style.gridTemplateColumns="repeat(4,1fr)"}
   }
   if(path==="/spot-comercial"){
     document.title="Produção de Spot Comercial a partir de R$ 25 | A Locução";
     const desc=document.querySelector('meta[name="description"]');if(desc)desc.content="Produção completa de spot comercial a partir de R$ 25. Pacotes de 5, 15 e 30 produções. Atendimento humano e pedidos online.";
-    replaceText(document.body,[["R$ 40,00","R$ 25,00"],["R$ 40","R$ 25"]]);
-    const grid=document.querySelector(".package-grid");if(grid){grid.innerHTML=[pkg("01 Produção","R$ 25,00","R$ 25,00 por produção","Olá! Quero comprar 1 Produção por R$ 25,00."),pkg("05 Produções","R$ 115,00","R$ 23,00 por produção","Olá! Quero comprar o pacote de 5 Produções por R$ 115,00."),pkg("15 Produções","R$ 225,00","R$ 15,00 por produção","Olá! Quero comprar o pacote de 15 Produções por R$ 225,00."),pkg("30 Produções","R$ 300,00","R$ 10,00 por produção","Olá! Quero comprar o pacote de 30 Produções por R$ 300,00.",true)].join("");grid.style.gridTemplateColumns="repeat(4,1fr)"}
+  }
+
+  // Faixa comercial global: reforça os principais diferenciais nas páginas que usam o JS comum do site.
+  if(!document.querySelector('.al-global-sales') && !['/','/locucao-off','/spot-comercial'].includes(path)){
+    const style=document.createElement('style');
+    style.textContent='.al-global-sales{background:#0b1726;color:#fff;padding:16px 18px;font-family:Inter,system-ui,sans-serif}.al-global-sales .inner{max-width:1160px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}.al-global-sales strong{font-size:1rem}.al-global-sales span{color:#d5e0ea;font-size:.88rem}.al-global-sales .links{display:flex;gap:9px;flex-wrap:wrap}.al-global-sales a{display:inline-flex;align-items:center;min-height:40px;padding:0 13px;border-radius:10px;text-decoration:none;font-weight:850}.al-global-sales .wa{background:#25d366;color:#052911}.al-global-sales .area{background:#fff;color:#0b1726}@media(max-width:650px){.al-global-sales .inner{display:grid}.al-global-sales .links a{flex:1;justify-content:center}}';
+    document.head.appendChild(style);
+    const bar=document.createElement('div');
+    bar.className='al-global-sales';
+    bar.innerHTML='<div class="inner"><div><strong>Mais de 150 vozes humanas • gravações até 23h</strong><br><span>Opções a partir de 10 e 30 min • finais de semana e feriados • pacotes em até 12x com juros</span></div><div class="links"><a class="wa" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20na%20A%20Locu%C3%A7%C3%A3o." target="_blank" rel="noopener">Pedir pelo WhatsApp</a><a class="area" href="https://painel.audio.net.br/cliente/alocucao" target="_blank" rel="noopener">Área de Pedidos 24h</a></div></div>';
+    const header=document.querySelector('header');
+    if(header) header.insertAdjacentElement('afterend',bar); else document.body.insertAdjacentElement('afterbegin',bar);
   }
 })();
