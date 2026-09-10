@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://alocucao.com.br/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://alocucao.com.br/locucao-off/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://alocucao.com.br/</loc><lastmod>2026-09-10</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://alocucao.com.br/locucao-off/</loc><lastmod>2026-09-10</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://alocucao.com.br/spot-comercial/</loc><lastmod>2026-09-10</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://alocucao.com.br/spot-para-carro-de-som/</loc><lastmod>2026-09-10</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://alocucao.com.br/locucao-campanha-politica/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -9,7 +9,7 @@
   <url><loc>https://alocucao.com.br/servicos/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://alocucao.com.br/calculadora/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://alocucao.com.br/avaliacoes/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://alocucao.com.br/blog/</loc><lastmod>2026-09-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alocucao.com.br/blog/</loc><lastmod>2026-09-10</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://alocucao.com.br/blog/locucao-off-o-que-e/</loc><lastmod>2026-09-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://alocucao.com.br/blog/agencia-de-vozes-locucao-comercial/</loc><lastmod>2026-09-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://alocucao.com.br/blog/como-fazer-roteiro-para-carro-de-som/</loc><lastmod>2026-09-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -18,4 +18,3 @@
   <url><loc>https://alocucao.com.br/politica-de-privacidade/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://alocucao.com.br/termos-de-uso/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
-
