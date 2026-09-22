@@ -1,0 +1,93 @@
+name: Avisar Bing via IndexNow
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o site
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Enviar URLs alteradas ao IndexNow
+        shell: bash
+        env:
+          INDEXNOW_KEY: d07c165653d139273289c6b0e7e67ed1
+        run: |
+          set -euo pipefail
+
+          if git rev-parse HEAD^ >/dev/null 2>&1; then
+            mapfile -t files < <(git diff --name-only --diff-filter=ACDMRT HEAD^ HEAD)
+          else
+            mapfile -t files < <(git ls-files)
+          fi
+
+          urls=()
+          add_url() {
+            local candidate="$1"
+            local existing
+            for existing in "${urls[@]:-}"; do
+              [[ "$existing" == "$candidate" ]] && return
+            done
+            urls+=("$candidate")
+          }
+
+          for file in "${files[@]}"; do
+            case "$file" in
+              index.html)
+                add_url "https://alocucao.com.br/"
+                ;;
+              */index.html)
+                add_url "https://alocucao.com.br/${file%index.html}"
+                ;;
+              *.html)
+                add_url "https://alocucao.com.br/$file"
+                ;;
+              sitemap.xml|robots.txt)
+                add_url "https://alocucao.com.br/"
+                ;;
+              assets/*|favicon.svg)
+                add_url "https://alocucao.com.br/"
+                ;;
+            esac
+          done
+
+          if [[ ${#urls[@]} -eq 0 ]]; then
+            echo "Nenhuma URL pública relevante mudou."
+            exit 0
+          fi
+
+          key_url="https://alocucao.com.br/${INDEXNOW_KEY}.txt"
+          for attempt in {1..20}; do
+            if [[ "$(curl --silent --show-error --location --max-time 15 "$key_url" || true)" == "$INDEXNOW_KEY" ]]; then
+              break
+            fi
+            if [[ "$attempt" -eq 20 ]]; then
+              echo "A chave IndexNow ainda não está publicada em $key_url."
+              exit 1
+            fi
+            sleep 15
+          done
+
+          printf '%s\n' "${urls[@]}"
+          url_json=$(printf '%s\n' "${urls[@]}" | jq -R . | jq -s .)
+          payload=$(jq -n \
+            --arg host "alocucao.com.br" \
+            --arg key "$INDEXNOW_KEY" \
+            --arg keyLocation "$key_url" \
+            --argjson urlList "$url_json" \
+            '{host:$host,key:$key,keyLocation:$keyLocation,urlList:$urlList}')
+
+          curl --fail-with-body --retry 3 \
+            --request POST \
+            --header "Content-Type: application/json; charset=utf-8" \
+            --data "$payload" \
+            https://api.indexnow.org/indexnow
