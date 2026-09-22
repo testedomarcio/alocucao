@@ -5,6 +5,22 @@
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
 
+  let googleTagLoaded = false;
+
+  function loadGoogleTag() {
+    if (googleTagLoaded) return;
+    googleTagLoaded = true;
+
+    const loader = document.createElement("script");
+    loader.async = true;
+    loader.src = `https://www.googletagmanager.com/gtag/js?id=${ADS_ID}`;
+    document.head.appendChild(loader);
+
+    window.gtag("js", new Date());
+    window.gtag("config", ADS_ID);
+    window.gtag("config", ANALYTICS_ID);
+  }
+
   window.gtag("consent", "default", {
     ad_storage: "denied",
     analytics_storage: "denied",
@@ -21,17 +37,13 @@
         ad_user_data: "granted",
         ad_personalization: "denied"
       });
+      loadGoogleTag();
     }
   } catch (error) {}
 
-  const loader = document.createElement("script");
-  loader.async = true;
-  loader.src = `https://www.googletagmanager.com/gtag/js?id=${ADS_ID}`;
-  document.head.appendChild(loader);
-
-  window.gtag("js", new Date());
-  window.gtag("config", ADS_ID);
-  window.gtag("config", ANALYTICS_ID);
+  window.addEventListener("alocucao:consent", (event) => {
+    if (event.detail?.value === "accepted") loadGoogleTag();
+  });
 
   function cleanLabel(value) {
     return String(value || "")
@@ -103,6 +115,15 @@
       traffic_source: attribution.source,
       traffic_medium: attribution.medium,
       campaign_name: attribution.campaign
+    });
+    window.gtag("event", "generate_lead", {
+      method: "whatsapp",
+      page_path: window.location.pathname,
+      service_name: serviceFromPath(window.location.pathname),
+      cta_id: cleanLabel(link.dataset.cta || link.id || "whatsapp_link")
+    });
+    window.gtag("event", "conversion", {
+      send_to: "AW-18420702149/U2s-CMSAyOscEMW31s9E"
     });
   });
 })();

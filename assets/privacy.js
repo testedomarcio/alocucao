@@ -11,6 +11,7 @@
         ad_personalization: "denied"
       });
     }
+    window.dispatchEvent(new CustomEvent("alocucao:consent", { detail: { value } }));
   }
 
   if (saved === "accepted" || saved === "rejected") {
