@@ -57,6 +57,6 @@
   <script>
     (()=>{const form=document.getElementById("review-form"),comment=document.getElementById("review-comment"),count=document.getElementById("review-count");comment.addEventListener("input",()=>count.textContent=comment.value.length);form.addEventListener("submit",event=>{event.preventDefault();if(!form.reportValidity())return;const data=new FormData(form),message=["Olá! Quero enviar uma avaliação para a A Locução.","",`Nome: ${data.get("name")}`,`Cidade/UF: ${data.get("city")||"Não informado"}`,`Serviço: ${data.get("service")}`,`Nota: ${data.get("rating")}/5`,"",`Comentário: ${data.get("comment")}`,"","Confirmo que sou cliente e autorizo a publicação dos dados e do comentário acima. Sei que posso solicitar correção ou remoção pelo WhatsApp."].join("\n");window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:"review_submit_intent",service:data.get("service"),rating:data.get("rating")});window.open(`https://wa.me/5527996529832?text=${encodeURIComponent(message)}`,"_blank","noopener")})})();
   </script>
-  <script src="/assets/privacy.js"></script>
+  <script src="/assets/site.js"></script><script src="/assets/privacy.js"></script>
 </body>
 </html>
