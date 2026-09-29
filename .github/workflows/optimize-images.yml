@@ -1,0 +1,52 @@
+name: Otimizar e Converter Imagens
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.jpg'
+      - '**.jpeg'
+      - '**.png'
+      - '**.webp'
+  pull_request:
+    branches: [main]
+    paths:
+      - '**.jpg'
+      - '**.jpeg'
+      - '**.png'
+      - '**.webp'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  build:
+    name: Otimizar Imagens
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Instalar WebP e converter imagens JPG/PNG para WebP
+        shell: bash
+        run: |
+          sudo apt-get update && sudo apt-get install -y webp
+          echo "Convertendo imagens JPG/PNG para WebP..."
+          find . -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) ! -path "*/node_modules/*" ! -path "*/.git/*" | while read -r img; do
+            webp_file="${img%.*}.webp"
+            echo "Convertendo $img -> $webp_file"
+            cwebp -q 85 "$img" -o "$webp_file"
+          done
+
+      - name: Comprimir Imagens via Calibre
+        uses: calibreapp/image-actions@main
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          compressOnly: true
+
+      - name: Commitar imagens otimizadas
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: otimização e conversão de imagens para WebP [skip ci]"
+          file_pattern: "*.webp *.jpg *.jpeg *.png"
