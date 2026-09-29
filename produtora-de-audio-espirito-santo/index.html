@@ -43,9 +43,10 @@
     .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:28px 0}
     .service-card{border:1px solid var(--line);border-radius:20px;padding:24px;background:#fff;box-shadow:0 8px 25px rgba(11,23,38,.03);display:flex;flex-direction:column;justify-content:space-between}.service-card h3{margin:0 0 10px;color:var(--navy);font-size:1.2rem}.service-card p{margin:0;font-size:.98rem;color:#405060}
     .benefits-list{background:var(--bg);border:1px solid var(--line);border-radius:24px;padding:32px;margin:32px 0}
+    .steps-list{background:var(--soft);border-radius:24px;padding:32px;margin:32px 0}
     .callout-box{background:var(--soft);border-left:4px solid var(--teal);border-radius:12px;padding:20px 24px;margin:28px 0}
 
-    footer{background:#07111d;color:#aebdcc;padding:30px 16px 90px;font-size:.84rem}.footer-inner{width:min(var(--max),calc(100% - 34px));margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-links{display:flex;gap:15px;flex-wrap:wrap}.footer-links a{color:#dce8f4}.sticky-mobile{display:none}
+    footer{background:#07111d;color:#aebdcc;padding:30px 16px 90px;font-size:.84rem}.footer-inner{width:min(var(--max),calc(100% - 34px));margin:auto;display:flex;justify-space-between;gap:20px;flex-wrap:wrap}.footer-links{display:flex;gap:15px;flex-wrap:wrap}.footer-links a{color:#dce8f4}.sticky-mobile{display:none}
 
     @media(max-width:920px){.nav-links a:not(.btn){display:none}}
     @media(max-width:650px){.hero{padding:36px 0 28px}.cta-card{padding:24px}.cta-actions{flex-direction:column}.cta-actions .btn{width:100%}.sticky-mobile{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:10px 13px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -9px 30px rgba(11,23,38,.1)}.sticky-mobile .btn{width:100%}}
@@ -58,7 +59,7 @@
       {
         "@type": ["LocalBusiness", "ProfessionalService"],
         "@id": "https://alocucao.com.br/produtora-de-audio-espirito-santo/#business",
-        "name": "A Locução - Produtora de Áudio no Espírito Santo",
+        "name": "A Locução - Produtora de Áudio em Espírito Santo",
         "url": "https://alocucao.com.br/produtora-de-audio-espirito-santo/",
         "telephone": "+5527996529832",
         "priceRange": "$$",
@@ -68,12 +69,24 @@
           "addressRegion": "ES",
           "addressCountry": "BR"
         },
-        "areaServed": "Espírito Santo"
+        "areaServed": [
+  "Espírito Santo",
+  "Vitória",
+  "Vila Velha",
+  "Serra",
+  "Cariacica",
+  "Cachoeiro de Itapemirim",
+  "Linhares",
+  "Colatina",
+  "Guarapari",
+  "São Mateus",
+  "Aracruz"
+]
       },
       {
         "@type": "Service",
         "@id": "https://alocucao.com.br/produtora-de-audio-espirito-santo/#service",
-        "name": "Estúdio de Gravação e Locução no Espírito Santo (ES)",
+        "name": "Gravação de Spot Comercial e Locução em Espírito Santo",
         "url": "https://alocucao.com.br/produtora-de-audio-espirito-santo/",
         "description": "Produtora de áudio para o comércio capixaba. Gravamos spots comerciais, vinhetas e espera telefônica com entrega rápida para todo o Espírito Santo.",
         "provider": {
@@ -81,11 +94,11 @@
         },
         "areaServed": "Espírito Santo",
         "serviceType": [
-          "Propaganda de Rua e Carro de Som",
-          "Áudio para Rádio e Spotify",
-          "Espera Telefônica Corporativa (URA)",
-          "Vídeos para Internet e Redes Sociais",
-          "Locução Comercial"
+          "Spot Comercial",
+          "Locução Profissional",
+          "Gravação para Carro de Som",
+          "Vídeos Institucionais",
+          "Espera Telefônica e URA"
         ]
       },
       {
@@ -99,7 +112,7 @@
         "@type": "BreadcrumbList",
         "itemListElement": [
           {"@type": "ListItem", "position": 1, "name": "A Locução", "item": "https://alocucao.com.br/"},
-          {"@type": "ListItem", "position": 2, "name": "Produtora de Áudio no Espírito Santo", "item": "https://alocucao.com.br/produtora-de-audio-espirito-santo/"}
+          {"@type": "ListItem", "position": 2, "name": "Produtora de Áudio em Espírito Santo", "item": "https://alocucao.com.br/produtora-de-audio-espirito-santo/"}
         ]
       }
     ]
@@ -109,9 +122,9 @@
 <body>
 <div class="topbar">
   <div class="container">
-    <span>✓ Estúdio de Áudio Online para o Espírito Santo (ES)</span>
-    <span>✓ Atendimento Agilizado no WhatsApp</span>
-    <span>✓ Entrega Rápida em MP3 ou WAV</span>
+    <span>✓ Estúdio de Áudio Online para Espírito Santo (ES)</span>
+    <span>✓ Entrega Rápida</span>
+    <span>✓ Atendimento via WhatsApp</span>
   </div>
 </div>
 
@@ -127,10 +140,10 @@
       <span>A Locução</span>
     </a>
     <div class="nav-links">
-      <a href="#gravamos">O Que Gravamos</a>
-      <a href="#por-que-fechar">Por Que Fechar</a>
-      <a href="#atendimento">Atendimento ES</a>
-      <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20do%20ES%20e%20quero%20um%20or%C3%A7amento%20de%20locu%C3%A7%C3%A3o." target="_blank" rel="noopener">Falar com Atendimento Local</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#diferenciais">Por que escolher</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Esp%C3%ADrito%20Santo%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicitar Orçamento Rápido via WhatsApp</a>
     </div>
   </div>
 </header>
@@ -140,77 +153,93 @@
     <div class="container">
       <span class="eyebrow">Atendimento Completo para todo o Espírito Santo</span>
       <h1>Produtora de Áudio e Locução para o Comércio Capixaba</h1>
-      <p>O mercado do Espírito Santo é dinâmico. Do polo turístico e empresarial da Grande Vitória até a força do comércio e da indústria no interior, destacar a sua marca exige uma comunicação direta e profissional.</p>
-      <p>No estúdio <strong>A Locução</strong>, nós entendemos o ritmo do estado. Oferecemos soluções de áudio de alta performance para empresas que precisam vender mais, anunciar com credibilidade e conversar diretamente com o consumidor local.</p>
+      <p>O mercado do Espírito Santo é dinâmico. Do polo turístico e empresarial da Grande Vitória até a força do comércio e da indústria no interior, destacar a sua marca exige uma comunicação direta e profissional. No estúdio A Locução, oferecemos soluções de áudio de alta performance para empresas capixabas.</p>
+      <p>Nosso foco para <strong>Espírito Santo</strong> atende especialmente às demandas de <strong>comércio capixaba e turismo</strong>, unindo qualidade de estúdio com a agilidade que o mercado local exige.</p>
 
-      <!-- CTA BANNER 1 -->
+      <!-- CTA BANNER INÍCIO -->
       <div class="cta-card">
-        <h3>Quer destacar a sua marca no Espírito Santo?</h3>
-        <p>Fale diretamente com nossa equipe e receba um orçamento personalizado para a sua campanha.</p>
+        <h3>Peça seu orçamento de áudio para Espírito Santo</h3>
+        <p>Receba atendimento direto no WhatsApp com rapidez e o melhor custo-benefício para a sua campanha.</p>
         <div class="cta-actions">
-          <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20do%20ES%20e%20quero%20um%20or%C3%A7amento%20de%20locu%C3%A7%C3%A3o." target="_blank" rel="noopener">Solicitar Orçamento no WhatsApp</a>
-          <a class="btn btn-light" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20do%20ES%20e%20quero%20um%20or%C3%A7amento%20de%20locu%C3%A7%C3%A3o." target="_blank" rel="noopener">Falar com Atendimento Local</a>
+          <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Esp%C3%ADrito%20Santo%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicitar Orçamento Rápido via WhatsApp</a>
+          <a class="btn btn-light" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Esp%C3%ADrito%20Santo%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Ouvir Vozes e Fazer Orçamento</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="content-section" id="gravamos">
+  <section class="content-section" id="servicos">
     <div class="container">
-      <h2>O Que Gravamos para a Sua Empresa?</h2>
-      <p>Nossa estrutura permite atender desde o pequeno lojista até grandes redes varejistas com a mesma qualidade de estúdio:</p>
-
-      <ul style="list-style:none;padding-left:0;">
-        <li style="margin-bottom:18px;"><strong>Propaganda de Rua e Carro de Som:</strong> Textos vibrantes para movimentar o comércio, ideais para anúncios em bairros, centros movimentados e inaugurações de lojas.</li>
-        <li style="margin-bottom:18px;"><strong>Áudio para Rádio e Spotify:</strong> Produção completa (voz, efeitos e trilha) para <a href="/spot-comercial/">comerciais de 15, 30 ou 60 segundos</a>, prontos para veiculação nas principais emissoras de FM capixabas.</li>
-        <li style="margin-bottom:18px;"><strong>Espera Telefônica Corporativa (URA):</strong> Recepcione seus clientes com uma voz acolhedora e profissional enquanto eles aguardam atendimento na linha.</li>
-        <li style="margin-bottom:18px;"><strong>Vídeos para Internet e Redes Sociais:</strong> Locuções dinâmicas para vídeos no Instagram, YouTube ou apresentações de serviços.</li>
+      <h2>Nossos Serviços de Áudio para o Mercado de Espírito Santo</h2>
+      <ul>
+        <li><strong>Spot Comercial para Rádio e Spotify:</strong> Produção completa com trilha, efeitos e masterização para a sua campanha veicular com máxima qualidade nas emissoras de Espírito Santo e mídias digitais.</li>
+        <li><strong>Gravação para Carro de Som e Porta de Loja:</strong> Locução varejista de alto impacto para atrair clientes em centros comerciais, ruas movimentadas e promoções de rua em Espírito Santo.</li>
+        <li><strong>Vídeos Institucionais e Corporativos:</strong> Vozes padrão, humanizadas e conversacionais direcionadas a empresas, indústrias e marcas do setor de comércio capixaba e turismo.</li>
+        <li><strong>Espera Telefônica e URA:</strong> Profissionalize o atendimento telefônico da sua empresa com locuções claras e acolhedoras para clientes de Espírito Santo.</li>
       </ul>
     </div>
   </section>
 
-  <section class="content-section" id="por-que-fechar">
+  <section class="content-section" id="diferenciais">
     <div class="container">
-      <h2>Por Que Fechar com A Locução?</h2>
-      <p>A grande vantagem do nosso serviço é a soma de qualidade técnica com atendimento humanizado e rápido:</p>
+      <h2>Por que escolher A Locução para a sua campanha em Espírito Santo?</h2>
+      <p>Atendemos Vitória, Vila Velha, Serra, Cariacica, Cachoeiro de Itapemirim, Linhares, Colatina e todas as cidades capixabas com gravações comerciais, áudio para rádio, carro de som e vídeos corporativos.</p>
+      <p>Com forte ênfase em <strong>comércio capixaba e turismo</strong>, oferecemos um serviço ágil e sem burocracia:</p>
 
       <div class="benefits-list">
         <ol>
-          <li><strong>Agilidade na Entrega:</strong> Sabemos que ações de vendas precisam ir para a rua rápido. Entregamos seu material finalizado em poucas horas.</li>
-          <li><strong>Qualidade Premium:</strong> Áudio sem ruídos, masterizado e com locutores de excelência.</li>
-          <li><strong>Custo-Benefício:</strong> <a href="/precos/">Planos e preços transparentes</a> que cabem no orçamento da sua campanha, sem taxas ocultas.</li>
+          <li>
+            <strong>Entrega Expressa:</strong> Se você necessita de uma <a href="/locucao-urgente-entrega-rapida/">locução urgente com entrega rápida</a>, receba seu áudio em poucas horas para não perder o timing das vendas.
+          </li>
+          <li>
+            <strong>Banco de Vozes Diversificado:</strong> Locutores masculinos e femininos com diversos estilos e timbres (jovem, clássico, impacto, institucional e varejo).
+          </li>
+          <li>
+            <strong>Preço Justo e Sem Burocracia:</strong> Consulte nossos <a href="/precos/">preços e planos transparentes</a>. Orçamento direto, pagamento facilitado via Pix e produção imediata.
+          </li>
         </ol>
       </div>
 
-      <!-- CTA BANNER 2 -->
+      <!-- CTA BANNER MEIO -->
       <div class="cta-card">
-        <h3>Pronto para produzir o áudio da sua empresa?</h3>
-        <p>Envie sua ideia ou roteiro no WhatsApp e receba a estimativa de gravação agora mesmo.</p>
+        <h3>Quer produzir o seu áudio hoje mesmo em Espírito Santo?</h3>
+        <p>Envie o seu texto pelo WhatsApp e escolha a voz ideal para o seu projeto.</p>
         <div class="cta-actions">
-          <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20do%20ES%20e%20quero%20um%20or%C3%A7amento%20de%20locu%C3%A7%C3%A3o." target="_blank" rel="noopener">Solicitar Orçamento no WhatsApp</a>
-          <a class="btn btn-light" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20do%20ES%20e%20quero%20um%20or%C3%A7amento%20de%20locu%C3%A7%C3%A3o." target="_blank" rel="noopener">Falar com Atendimento Local</a>
+          <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Esp%C3%ADrito%20Santo%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicitar Orçamento Rápido via WhatsApp</a>
+          <a class="btn btn-light" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Esp%C3%ADrito%20Santo%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Ouvir Vozes e Fazer Orçamento</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="content-section" id="atendimento">
+  <section class="content-section" id="como-funciona">
     <div class="container">
-      <h2>Atendimento em Todo o Estado do ES</h2>
-      <p>Nosso processo é digital e prático. Você envia o seu texto, nós gravamos e enviamos o áudio pronto. Atendemos Vitória, Vila Velha, Serra, Cariacica, Linhares, Colatina, Cachoeiro de Itapemirim, Brejetuba e todas as demais cidades do Espírito Santo.</p>
+      <h2>Como funciona para gravar seu Spot em Espírito Santo?</h2>
+      <p>O processo é 100% digital, prático e ágil:</p>
 
-      <div class="callout-box">
-        <p style="margin:0;font-size:1.1rem;color:var(--navy)"><strong>Sua marca precisa de voz?</strong></p>
-        <p style="margin:8px 0 0;color:#405060">Clique no botão abaixo, envie o seu roteiro pelo WhatsApp e receba nossa estimativa de gravação agora mesmo.</p>
+      <div class="steps-list">
+        <ol>
+          <li>Você envia o seu texto (roteiro) pelo nosso WhatsApp. Para saber o tempo exato do seu texto antes de gravar, você pode consultar nossa <a href="/calculadora/">calculadora de tempo de locução</a>.</li>
+          <li>Escolhe a voz ideal no nosso banco de locutores (<a href="/vozes/">conheça nossas vozes</a>).</li>
+          <li>Nós gravamos, editamos e entregamos o áudio pronto para ir ao ar em alta qualidade (MP3/WAV).</li>
+        </ol>
       </div>
+    </div>
+  </section>
 
-      <!-- CTA BANNER 3 -->
+  <section class="content-section">
+    <div class="container">
+      <h2>Faça seu orçamento agora para Espírito Santo!</h2>
+      <p>Não perca tempo. Fale diretamente com nossa equipe de produção, envie seu roteiro e receba uma estimativa de valor em poucos minutos.</p>
+      <p><strong>Cidades e regiões atendidas em Espírito Santo:</strong> Vitória, Vila Velha, Serra, Cariacica, Cachoeiro de Itapemirim, Linhares, Colatina, Guarapari, São Mateus, Aracruz.</p>
+
+      <!-- CTA BANNER FIM -->
       <div class="cta-card">
-        <h3>Atendimento para todo o Espírito Santo</h3>
-        <p>Receba sua locução gravada e masterizada por profissionais de áudio.</p>
+        <h3>Fale com a nossa equipe de produção em Espírito Santo</h3>
+        <p>Atendimento imediato via WhatsApp para empresas de todo o estado de Espírito Santo.</p>
         <div class="cta-actions">
-          <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20do%20ES%20e%20quero%20um%20or%C3%A7amento%20de%20locu%C3%A7%C3%A3o." target="_blank" rel="noopener">Solicitar Orçamento no WhatsApp</a>
-          <a class="btn btn-light" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20do%20ES%20e%20quero%20um%20or%C3%A7amento%20de%20locu%C3%A7%C3%A3o." target="_blank" rel="noopener">Falar com Atendimento Local</a>
+          <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Esp%C3%ADrito%20Santo%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicitar Orçamento Rápido via WhatsApp</a>
+          <a class="btn btn-light" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Esp%C3%ADrito%20Santo%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Ouvir Vozes e Fazer Orçamento</a>
         </div>
       </div>
     </div>
@@ -219,7 +248,7 @@
 
 <footer>
   <div class="footer-inner">
-    <span>© <span id="year"></span> A Locução • Produtora de Áudio para o Espírito Santo e Todo o Brasil</span>
+    <span>© <span id="year"></span> A Locução • Produtora de Áudio para Espírito Santo e Todo o Brasil</span>
     <span class="footer-links">
       <a href="/">Início</a>
       <a href="/spot-comercial/">Spot Comercial</a>
@@ -232,10 +261,9 @@
 </footer>
 
 <div class="sticky-mobile">
-  <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20do%20ES%20e%20quero%20um%20or%C3%A7amento%20de%20locu%C3%A7%C3%A3o." target="_blank" rel="noopener">Solicitar Orçamento no WhatsApp</a>
+  <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Esp%C3%ADrito%20Santo%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicitar Orçamento Rápido via WhatsApp</a>
 </div>
 
-<script src="/assets/tracking.js" defer></script>
 <script src="/assets/site.js"></script>
 <script src="/assets/privacy.js"></script>
 <script>
