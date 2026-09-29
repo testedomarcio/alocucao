@@ -2,27 +2,12 @@
   const container = document.getElementById("home-voice-grid");
   if (!container) return;
 
+  // Only 4 champion voice demos (Impacto, Varejo, Institucional) for PageSpeed optimization
   const voices = [
-    {name:"Elissandra",type:"Feminina",region:"Rio Grande do Norte",styles:["Padrão","Impacto","Animada","Varejo","VSL"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/ELISSANDRA.mp3"},
-    {name:"Patricia Vieira",type:"Feminina",region:"Minas Gerais",styles:["Padrão","Impacto","Animada","Varejo","Política","VSL","Vídeo"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/PATRICIA%20VIEIRA%20.mp3"},
-    {name:"Kassia Renostro",type:"Feminina",region:"Santa Catarina",styles:["Caricata","Padrão","Impacto","Animada","Varejo","Política","VSL"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/KASSIA%20RENOSTRO.mp3"},
-    {name:"Lindy",type:"Feminina",region:"Bahia",styles:["Caricata","Padrão","Animada","Varejo"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/LINDY.mp3"},
-    {name:"Absamira Santos",type:"Feminina",region:"São Paulo",styles:["Caricata","Padrão","Impacto","Animada","Varejo","Política","VSL"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/ABSAMIRA%20SANTOS.mp3"},
-    {name:"Sunshine",type:"Feminina",region:"Ceará",styles:["Padrão","Impacto","Animada","Varejo","Política","VSL"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/SUNSHINE.mp3"},
-    {name:"Zanhe Moura",type:"Feminina",region:"Rio Grande do Sul",styles:["Padrão","Animada","Varejo","Política","VSL"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/ZANHE%20MOURA.mp3"},
-    {name:"Patricia Souza",type:"Feminina",region:"Santa Catarina",styles:["Caricata","Padrão","Impacto","Animada","Varejo","Política","VSL"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/PATRICIA%20SOUZA%20%20.mp3"},
-    {name:"Josi de Oliveira",type:"Feminina",region:"São Paulo",styles:["Caricata","Padrão","Impacto","Animada","Varejo","VSL"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/JOSI%20DE%20OLIVEIRA.mp3"},
-    {name:"Janaina Hanauer",type:"Feminina",region:"Santa Catarina",styles:["Padrão","Animada","Varejo","Política"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/JANAINA%20HANAUER%20.mp3"},
-    {name:"Marcelo Ferraz",type:"Masculina",region:"São Paulo",styles:["Padrão","Impacto","Animada","Varejo","Política","VSL","Vídeo"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/MARCELO%20FERRAZ.mp3"},
-    {name:"Pablo Siqueira",type:"Masculina",region:"Goiás",styles:["Caricata","Padrão","Impacto","Animada","Varejo","Política","VSL"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/PABLO%20SIQUEIRA.mp3"},
-    {name:"Marcio",type:"Masculina",region:"São Paulo",styles:["Padrão","Impacto","Animada","Varejo","Política","VSL","Vídeo"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/MARCIO.mp3"},
-    {name:"Anderson Henrique",type:"Masculina",region:"Minas Gerais",styles:["Caricata","Padrão","Impacto","Animada","Varejo","Política","VSL"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/ANDERSON%20HENRIQUE.mp3"},
-    {name:"Tito",type:"Masculina",region:"Bahia",styles:["Padrão","Impacto","Animada","Varejo","Vídeo"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/TITO.mp3"},
-    {name:"Flávio",type:"Masculina",region:"Rio de Janeiro",styles:["Caricata","Padrão","Animada","Varejo","VSL"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/FL%C3%81VIO.mp3"},
-    {name:"Alan Fernandes",type:"Masculina",region:"Rio de Janeiro",styles:["Padrão","Impacto","Animada","Varejo","Política","VSL"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/ALAN%20FERNANDES.mp3"},
-    {name:"Vinicius Silveira",type:"Masculina",region:"Rio Grande do Sul",styles:["Padrão","Animada","Varejo","Política","VSL"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/VINICIUS%20SILVEIRA.mp3"},
-    {name:"Charles Helfer",type:"Masculina",region:"Santa Catarina",styles:["Caricata","Padrão","Impacto","Animada","Varejo","Política","VSL","Vídeo"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/CHARLES%20HELFER.mp3"},
-    {name:"Douglas Camargo",type:"Masculina",region:"Paraná",styles:["Caricata","Padrão","Impacto","Animada","Varejo","Política","VSL"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/DOUGLAS%20CAMARGO.mp3"}
+    {name:"Marcelo Ferraz",type:"Masculina",region:"São Paulo",styles:["Impacto","Varejo","Institucional","Vídeo"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/MARCELO%20FERRAZ.mp3"},
+    {name:"Elissandra",type:"Feminina",region:"Rio Grande do Norte",styles:["Institucional","Varejo","Impacto"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/ELISSANDRA.mp3"},
+    {name:"Pablo Siqueira",type:"Masculina",region:"Goiás",styles:["Varejo","Impacto","Animada"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/PABLO%20SIQUEIRA.mp3"},
+    {name:"Patricia Vieira",type:"Feminina",region:"Minas Gerais",styles:["Padrão","Institucional","Varejo"],audio:"https://storageoffs.offsbrasil.com.br/uploadifive/masculino/PATRICIA%20VIEIRA%20.mp3"}
   ];
 
   const schedules = {
