@@ -1,0 +1,12 @@
+{
+  "name": "alocucao-website",
+  "version": "1.0.0",
+  "description": "A Locução - Site institucional e gerador de páginas de SEO local",
+  "main": "scripts/generate-seo-pages.js",
+  "scripts": {
+    "build": "node scripts/generate-seo-pages.js",
+    "generate-seo": "node scripts/generate-seo-pages.js"
+  },
+  "author": "A Locução",
+  "license": "ISC"
+}
