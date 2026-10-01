@@ -117,14 +117,5 @@
       traffic_medium: attribution.medium,
       campaign_name: attribution.campaign
     });
-    window.gtag("event", "generate_lead", {
-      method: "whatsapp",
-      page_path: window.location.pathname,
-      service_name: serviceFromPath(window.location.pathname),
-      cta_id: cleanLabel(link.dataset.cta || link.id || "whatsapp_link")
-    });
-    window.gtag("event", "conversion", {
-      send_to: "AW-18420702149/U2s-CMSAyOscEMW31s9E"
-    });
   });
 })();

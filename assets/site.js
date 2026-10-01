@@ -4,6 +4,7 @@
   const menu = document.querySelector(".menu");
   if (menuButton && menu) {
     const setMenu = open => { menu.classList.toggle("open", open); menuButton.setAttribute("aria-expanded", String(open)); menuButton.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu"); };
+    menuButton.setAttribute("aria-expanded", "false");
     menuButton.addEventListener("click", () => setMenu(!menu.classList.contains("open")));
     menu.querySelectorAll("a").forEach(link => link.addEventListener("click", () => setMenu(false)));
   }
@@ -191,8 +192,31 @@
     initGlobal();
   }
 
-  document.querySelectorAll("audio").forEach(audio=>{const countedVoices=new Set();audio.addEventListener("play",()=>{const voiceName=audio.dataset.voice||audio.getAttribute("aria-label")||"unknown";if(countedVoices.has(voiceName))return;countedVoices.add(voiceName);window.dataLayer.push({event:"voice_sample_play",page_type:pageType,voice_name:voiceName,...tracking})})});
+  document.querySelectorAll("audio").forEach(audio=>{
+    const countedVoices=new Set();
+    audio.addEventListener("play",()=>{
+      const voiceName=audio.dataset.voice||audio.getAttribute("aria-label")||"unknown";
+      if(countedVoices.has(voiceName))return;
+      countedVoices.add(voiceName);
+      const payload={page_type:pageType,voice_name:voiceName,...tracking};
+      window.dataLayer.push({event:"voice_sample_play",...payload});
+      if(typeof window.gtag==="function"){
+        window.gtag("event","voice_sample_play",payload);
+      }
+    });
+  });
   document.querySelectorAll("[data-cta]:not([href^='https://wa.me/'])").forEach(link=>link.addEventListener("click",()=>window.dataLayer.push({event:"cta_click",page_type:pageType,cta_location:link.dataset.cta,...tracking})));
-  const briefForm=document.getElementById("brief-form"); if(briefForm)briefForm.addEventListener("submit",event=>{event.preventDefault();const data=new FormData(briefForm);const message=["Olá! Vim pelo briefing inicial do site A Locução.","",`Serviço: ${data.get("service")}`,`Prazo: ${data.get("deadline")}`,`Texto: ${data.get("text_ready")}`,"","Pode confirmar o valor, a disponibilidade e me orientar sobre a voz?"].join("\n");window.dataLayer.push({event:"brief_completed",page_type:pageType,service:data.get("service"),deadline:data.get("deadline"),...tracking});window.open(`https://wa.me/5527996529832?text=${encodeURIComponent(message)}`,"_blank","noopener")});
+  const briefForm=document.getElementById("brief-form");
+  if(briefForm)briefForm.addEventListener("submit",event=>{
+    event.preventDefault();
+    const data=new FormData(briefForm);
+    const message=["Olá! Vim pelo briefing inicial do site A Locução.","",`Serviço: ${data.get("service")}`,`Prazo: ${data.get("deadline")}`,`Texto: ${data.get("text_ready")}`,"","Pode confirmar o valor, a disponibilidade e me orientar sobre a voz?"].join("\n");
+    const payload={page_type:pageType,service:data.get("service"),deadline:data.get("deadline"),...tracking};
+    window.dataLayer.push({event:"brief_completed",...payload});
+    if(typeof window.gtag==="function"){
+      window.gtag("event","brief_completed",payload);
+    }
+    window.open(`https://wa.me/5527996529832?text=${encodeURIComponent(message)}`,"_blank","noopener");
+  });
 
 })();
