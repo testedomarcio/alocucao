@@ -54,58 +54,7 @@
   </style>
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://alocucao.com.br/#organization",
-        "name": "A Locução",
-        "url": "https://alocucao.com.br/",
-        "logo": "https://alocucao.com.br/favicon.svg",
-        "telephone": "+5527996529832",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+5527996529832",
-          "contactType": "customer service",
-          "areaServed": "BR",
-          "availableLanguage": "pt-BR"
-        }
-      },
-      {
-        "@type": "Service",
-        "@id": "{{canonicalUrl}}#service",
-        "name": "Gravação de Spot Comercial e Locução {{stateIn}}",
-        "url": "{{canonicalUrl}}",
-        "description": "{{metaDescription}}",
-        "provider": {
-          "@id": "https://alocucao.com.br/#organization"
-        },
-        "areaServed": {{areaServedSchemaJson}},
-        "serviceType": [
-          "Spot Comercial",
-          "Locução Profissional",
-          "Gravação para Carro de Som",
-          "Vídeos Institucionais",
-          "Espera Telefônica e URA"
-        ]
-      },
-      {
-        "@type": "WebPage",
-        "@id": "{{canonicalUrl}}#webpage",
-        "url": "{{canonicalUrl}}",
-        "name": "{{pageTitle}}",
-        "description": "{{metaDescription}}"
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {"@type": "ListItem", "position": 1, "name": "A Locução", "item": "https://alocucao.com.br/"},
-          {"@type": "ListItem", "position": 2, "name": "Produtora de Áudio {{stateIn}}", "item": "{{canonicalUrl}}"}
-        ]
-      }
-    ]
-  }
+{"@context": "https://schema.org", "@type": "Organization", "@id": "https://alocucao.com.br/#organization", "name": "A Locução", "url": "https://alocucao.com.br/"}
   </script>
 </head>
 <body>
@@ -225,7 +174,7 @@
       <!-- CTA BANNER FIM -->
       <div class="cta-card">
         <h3>Atendimento online para empresas {{stateOf}}.</h3>
-        <p>Atendimento imediato via WhatsApp para empresas de todo o estado {{stateOf}}.</p>
+        <p>Consulte disponibilidade e prazo pelo WhatsApp para empresas de todo o estado {{stateOf}}.</p>
         <div class="cta-actions">
           <a class="btn btn-wa" href="{{whatsappUrl}}" target="_blank" rel="noopener">Solicitar Orçamento Rápido via WhatsApp</a>
           <a class="btn btn-light" href="{{whatsappUrl}}" target="_blank" rel="noopener">Ouvir Vozes e Fazer Orçamento</a>
@@ -260,3 +209,4 @@
 </script>
 </body>
 </html>
+

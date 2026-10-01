@@ -1,6 +1,7 @@
 (() => {
   const STORAGE_KEY = "alocucao_consent";
-  const saved = localStorage.getItem(STORAGE_KEY);
+  let saved;
+  try { saved = localStorage.getItem(STORAGE_KEY); } catch (error) {}
 
   function updateConsent(value) {
     if (typeof window.gtag === "function") {
@@ -41,7 +42,7 @@
   banner.querySelectorAll("[data-consent]").forEach(button => {
     button.addEventListener("click", () => {
       const value = button.dataset.consent;
-      localStorage.setItem(STORAGE_KEY, value);
+      try { localStorage.setItem(STORAGE_KEY, value); } catch (error) {}
       updateConsent(value);
       banner.remove();
     });

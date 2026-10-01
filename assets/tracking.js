@@ -6,6 +6,14 @@
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
 
   let googleTagLoaded = false;
+  let analyticsConsent = false;
+
+  // Custom interactions belong to GA4 and are sent only after analytics consent.
+  window.alocucaoTrackEvent = (name, parameters = {}) => {
+    if (!analyticsConsent) return false;
+    window.gtag("event", name, { ...parameters, send_to: ANALYTICS_ID });
+    return true;
+  };
 
   function loadGoogleTag() {
     if (googleTagLoaded) return;
@@ -31,6 +39,7 @@
 
   try {
     if (localStorage.getItem("alocucao_consent") === "accepted") {
+      analyticsConsent = true;
       window.gtag("consent", "update", {
         ad_storage: "granted",
         analytics_storage: "granted",
@@ -42,7 +51,8 @@
   } catch (error) {}
 
   window.addEventListener("alocucao:consent", (event) => {
-    if (event.detail?.value === "accepted") loadGoogleTag();
+    analyticsConsent = event.detail?.value === "accepted";
+    if (analyticsConsent) loadGoogleTag();
   });
 
   function cleanLabel(value) {
@@ -88,7 +98,7 @@
   const attribution = firstTouch();
 
   document.addEventListener("click", (event) => {
-    const link = event.target.closest("a[href]");
+    const link = event.target instanceof Element ? event.target.closest("a[href]") : null;
     if (!link) return;
 
     let url;
@@ -105,7 +115,7 @@
 
     if (!isWhatsApp) return;
 
-    window.gtag("event", "whatsapp_click", {
+    window.alocucaoTrackEvent("whatsapp_click", {
       event_category: "conversion",
       contact_method: "whatsapp",
       page_path: window.location.pathname,

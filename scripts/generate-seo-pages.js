@@ -26,6 +26,9 @@ function generatePages() {
   regions.forEach((region) => {
     const rawSlug = region.slug.trim().toLowerCase();
     const cleanSlug = rawSlug.replace(/^produtora-de-audio-/, '');
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(cleanSlug)) {
+      throw new Error(`Invalid regional slug: ${region.slug}`);
+    }
     const folderName = `produtora-de-audio-${cleanSlug}`;
     const outputDir = path.join(ROOT_DIR, folderName);
 
@@ -49,15 +52,13 @@ function generatePages() {
     const areaServedArray = Array.isArray(region.cities)
       ? [region.stateName, ...region.cities]
       : [region.stateName];
-    const areaServedSchemaJson = JSON.stringify(areaServedArray, null, 2);
 
-    const safeReplace = (str, pattern, replacement) => {
-      const val = typeof replacement === 'string' ? sanitizeReplacement(replacement) : replacement;
-      return str.replaceAll(pattern, val);
-    };
+    // HTML values and JSON-LD have different escaping rules.
+    const safeReplace = (str, pattern, replacement) =>
+      str.replaceAll(pattern, () => escapeHtml(String(replacement ?? "")));
 
     let pageHtml = templateHtml;
-    pageHtml = safeReplace(pageHtml, '<meta name="robots" content="noindex">', '<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">');
+    pageHtml = pageHtml.replace('<meta name="robots" content="noindex">', '<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">');
     pageHtml = safeReplace(pageHtml, '{{stateName}}', region.stateName);
     pageHtml = safeReplace(pageHtml, '{{stateAbbr}}', region.stateAbbr);
     pageHtml = safeReplace(pageHtml, '{{stateIn}}', region.stateIn || `em ${region.stateName}`);
@@ -74,8 +75,39 @@ function generatePages() {
     pageHtml = safeReplace(pageHtml, '{{heroParagraph}}', region.heroParagraph);
     pageHtml = safeReplace(pageHtml, '{{regionalFocus}}', region.regionalFocus);
     pageHtml = safeReplace(pageHtml, '{{citiesListFormatted}}', citiesListFormatted);
-    pageHtml = safeReplace(pageHtml, '{{areaServedSchemaJson}}', areaServedSchemaJson);
     pageHtml = safeReplace(pageHtml, '{{whatsappUrl}}', whatsappUrl);
+
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization", "@id": "https://alocucao.com.br/#organization",
+          name: "A Locução", url: "https://alocucao.com.br/", logo: "https://alocucao.com.br/favicon.svg",
+          telephone: "+5527996529832",
+          contactPoint: { "@type": "ContactPoint", telephone: "+5527996529832",
+            contactType: "customer service", areaServed: "BR", availableLanguage: "pt-BR" }
+        },
+        {
+          "@type": "Service", "@id": canonicalUrl + "#service",
+          name: `Gravação de Spot Comercial e Locução ${region.stateIn || `em ${region.stateName}`}`,
+          url: canonicalUrl, description: region.metaDescription,
+          provider: { "@id": "https://alocucao.com.br/#organization" },
+          areaServed: areaServedArray,
+          serviceType: ["Spot Comercial", "Locução Profissional", "Gravação para Carro de Som",
+            "Vídeos Institucionais", "Espera Telefônica e URA"]
+        },
+        { "@type": "WebPage", "@id": canonicalUrl + "#webpage", url: canonicalUrl,
+          name: region.pageTitle, description: region.metaDescription },
+        { "@type": "BreadcrumbList", itemListElement: [
+          { "@type": "ListItem", position: 1, name: "A Locução", item: "https://alocucao.com.br/" },
+          { "@type": "ListItem", position: 2,
+            name: `Produtora de Áudio ${region.stateIn || `em ${region.stateName}`}`, item: canonicalUrl }
+        ] }
+      ]
+    };
+    const schemaJson = JSON.stringify(structuredData, null, 2).replace(/</g, "\\u003c");
+    pageHtml = pageHtml.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/,
+      () => `<script type="application/ld+json">\n${schemaJson}\n  </script>`);
 
     const outputPath = path.join(outputDir, 'index.html');
 
@@ -94,9 +126,9 @@ function generatePages() {
   });
 }
 
-function sanitizeReplacement(str) {
-  if (typeof str !== 'string') return str;
-  return str.replace(/\$/g, '$$$$');
+function escapeHtml(value) {
+  return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
 function updateSitemapForUrl(url, todayDate, isModified) {

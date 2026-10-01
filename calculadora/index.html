@@ -157,6 +157,7 @@
       const formatBRL=val=>`R$ ${val.toFixed(2).replace(".",",")}`;
       const words=value=>{try{return value.match(/[\p{L}\p{N}]+(?:['’\-][\p{L}\p{N}]+)*/gu)||[]}catch(error){return value.trim()?value.trim().split(/\s+/):[]}};
 
+      let calculationTracked = false, calculationTimer;
       function calculate(){
         const value=text.value.trim();
         if(!value){
@@ -179,7 +180,13 @@
         empty.style.display="none";
         results.classList.add("show");
 
-        if(window.gtag)window.gtag("event","calculator_use",{page_path:window.location.pathname,word_count:count,estimated_seconds:Math.round(estimated),estimated_blocks:blocks,reading_speed:wpm});
+        clearTimeout(calculationTimer);
+        if (!calculationTracked) calculationTimer = setTimeout(() => {
+          if (text.value.trim() && window.alocucaoTrackEvent?.("calculator_use", {
+            page_path: window.location.pathname, word_count: count,
+            estimated_seconds: Math.round(estimated), estimated_blocks: blocks, reading_speed: wpm
+          })) calculationTracked = true;
+        }, 750);
       }
 
       function handleManualCalculate(){
@@ -243,3 +250,4 @@
   <script src="/assets/site.js"></script>
 </body>
 </html>
+

@@ -42,6 +42,9 @@ jobs:
 
           for file in "${files[@]}"; do
             case "$file" in
+              templates/*|scripts/*|data/*|404.html)
+                continue
+                ;;
               index.html)
                 add_url "https://alocucao.com.br/"
                 ;;

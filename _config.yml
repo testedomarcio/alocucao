@@ -1,0 +1,14 @@
+# Internal build inputs must not be published as website pages.
+exclude:
+  - templates
+  - scripts
+  - data
+  - node_modules
+  - package.json
+  - package-lock.json
+  - generate-seo-pages.js
+  - README.md
+  - SEO-AUDITORIA-SEMANA-1.md
+  - SEO-MAPA-CLUSTER-CARRO-DE-SOM.md
+  - SEO-SEARCH-CONSOLE-BASELINE-2026-09-11.md
+  - REVISAO-2026-10-01.md

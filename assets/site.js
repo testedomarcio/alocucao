@@ -10,7 +10,14 @@
   }
   const year = document.getElementById("year"); if (year) year.textContent = new Date().getFullYear();
   const params = new URLSearchParams(location.search); const tracking = {};
-  ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","gclid"].forEach(key => { const value=params.get(key); if(value){tracking[key]=value;sessionStorage.setItem("alocucao_"+key,value)}else{const saved=sessionStorage.getItem("alocucao_"+key);if(saved)tracking[key]=saved}});
+  ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","gclid"].forEach(key => {
+    const value = params.get(key);
+    if (value) tracking[key] = value;
+    try {
+      if (value) sessionStorage.setItem("alocucao_" + key, value);
+      else { const saved = sessionStorage.getItem("alocucao_" + key); if (saved) tracking[key] = saved; }
+    } catch (error) {}
+  });
   window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:"page_view_context",page_type:pageType,...tracking});
 
   // Global WhatsApp Floating Widget Component
@@ -115,15 +122,27 @@
         .whatsapp-float {
           display: none !important;
         }
+        .wa-float-button:focus-visible,
+        .wa-mobile-conversion-bar a:focus-visible {
+          outline: 3px solid #0b7874;
+          outline-offset: 3px;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .wa-float-button { animation: none; transition: none; }
+        }
         @media (max-width: 767px) {
           .wa-float-widget {
             display: none;
           }
           body.has-mobile-bar {
-            padding-bottom: var(--wa-mobile-bar-height, 80px) !important;
+            padding-bottom: calc(var(--wa-mobile-bar-height, 80px) + var(--wa-player-height, 0px)) !important;
           }
           html {
-            scroll-padding-bottom: var(--wa-mobile-bar-height, 80px);
+            scroll-padding-bottom: calc(var(--wa-mobile-bar-height, 80px) + var(--wa-player-height, 0px));
+          }
+          .player-dock {
+            bottom: calc(var(--wa-mobile-bar-height, 80px) + 10px);
+            z-index: 21;
           }
           .wa-mobile-conversion-bar {
             display: flex !important;
@@ -179,10 +198,17 @@
       document.documentElement.style.setProperty(
         "--wa-mobile-bar-height", `${Math.ceil(mobileBar.getBoundingClientRect().height)}px`
       );
+      const player = document.querySelector(".player-dock.open");
+      document.documentElement.style.setProperty(
+        "--wa-player-height", player ? `${Math.ceil(player.getBoundingClientRect().height) + 10}px` : "0px"
+      );
     };
     updateMobileBarSpace();
     if ("ResizeObserver" in window) {
-      new ResizeObserver(updateMobileBarSpace).observe(mobileBar);
+      const observer = new ResizeObserver(updateMobileBarSpace);
+      observer.observe(mobileBar);
+      const player = document.querySelector(".player-dock");
+      if (player) observer.observe(player);
     } else {
       window.addEventListener("resize", updateMobileBarSpace);
     }
@@ -255,19 +281,21 @@
     initGlobal();
   }
 
-  document.querySelectorAll("audio").forEach(audio=>{
-    const countedVoices=new Set();
-    audio.addEventListener("play",()=>{
-      const voiceName=audio.dataset.voice||audio.getAttribute("aria-label")||"unknown";
-      if(countedVoices.has(voiceName))return;
+  // Capture also covers audio controls created after the shared script loads.
+  const countedAudio = new WeakMap();
+  document.addEventListener("play", event => {
+    const audio = event.target;
+    if (!(audio instanceof HTMLAudioElement)) return;
+    const voiceName = audio.dataset.voice || audio.getAttribute("aria-label") || "unknown";
+    const countedVoices = countedAudio.get(audio) || new Set();
+    if (countedVoices.has(voiceName)) return;
+    const payload = { page_type: pageType, voice_name: voiceName, ...tracking };
+    if (window.alocucaoTrackEvent?.("voice_sample_play", payload)) {
       countedVoices.add(voiceName);
-      const payload={page_type:pageType,voice_name:voiceName,...tracking};
-      window.dataLayer.push({event:"voice_sample_play",...payload});
-      if(typeof window.gtag==="function"){
-        window.gtag("event","voice_sample_play",payload);
-      }
-    });
-  });
+      countedAudio.set(audio, countedVoices);
+      window.dataLayer.push({ event: "voice_sample_play", ...payload });
+    }
+  }, true);
   document.querySelectorAll("[data-cta]:not([href^='https://wa.me/'])").forEach(link=>link.addEventListener("click",()=>window.dataLayer.push({event:"cta_click",page_type:pageType,cta_location:link.dataset.cta,...tracking})));
   const briefForm=document.getElementById("brief-form");
   if(briefForm)briefForm.addEventListener("submit",event=>{
@@ -276,9 +304,7 @@
     const message=["Olá! Vim pelo briefing inicial do site A Locução.","",`Serviço: ${data.get("service")}`,`Prazo: ${data.get("deadline")}`,`Texto: ${data.get("text_ready")}`,"","Pode confirmar o valor, a disponibilidade e me orientar sobre a voz?"].join("\n");
     const payload={page_type:pageType,service:data.get("service"),deadline:data.get("deadline"),...tracking};
     window.dataLayer.push({event:"brief_completed",...payload});
-    if(typeof window.gtag==="function"){
-      window.gtag("event","brief_completed",payload);
-    }
+    window.alocucaoTrackEvent?.("brief_completed", payload);
     window.open(`https://wa.me/5527996529832?text=${encodeURIComponent(message)}`,"_blank","noopener");
   });
 

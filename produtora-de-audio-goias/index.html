@@ -54,70 +54,80 @@
   </style>
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://alocucao.com.br/#organization",
-        "name": "A Locução",
-        "url": "https://alocucao.com.br/",
-        "logo": "https://alocucao.com.br/favicon.svg",
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://alocucao.com.br/#organization",
+      "name": "A Locução",
+      "url": "https://alocucao.com.br/",
+      "logo": "https://alocucao.com.br/favicon.svg",
+      "telephone": "+5527996529832",
+      "contactPoint": {
+        "@type": "ContactPoint",
         "telephone": "+5527996529832",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+5527996529832",
-          "contactType": "customer service",
-          "areaServed": "BR",
-          "availableLanguage": "pt-BR"
-        }
-      },
-      {
-        "@type": "Service",
-        "@id": "https://alocucao.com.br/produtora-de-audio-goias/#service",
-        "name": "Gravação de Spot Comercial e Locução em Goiás",
-        "url": "https://alocucao.com.br/produtora-de-audio-goias/",
-        "description": "Produtora de áudio em Goiás. Gravação de spots comerciais para rádio, carro de som e agronegócio com qualidade profissional e entrega rápida.",
-        "provider": {
-          "@id": "https://alocucao.com.br/#organization"
-        },
-        "areaServed": [
-  "Goiás",
-  "Goiânia",
-  "Aparecida de Goiânia",
-  "Anápolis",
-  "Rio Verde",
-  "Luziânia",
-  "Águas Lindas de Goiás",
-  "Valparaíso de Goiás",
-  "Trindade",
-  "Formosa",
-  "Itumbiara"
-],
-        "serviceType": [
-          "Spot Comercial",
-          "Locução Profissional",
-          "Gravação para Carro de Som",
-          "Vídeos Institucionais",
-          "Espera Telefônica e URA"
-        ]
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://alocucao.com.br/produtora-de-audio-goias/#webpage",
-        "url": "https://alocucao.com.br/produtora-de-audio-goias/",
-        "name": "Produtora de Áudio em Goiás (GO): Spots Comerciais e Locução",
-        "description": "Produtora de áudio em Goiás. Gravação de spots comerciais para rádio, carro de som e agronegócio com qualidade profissional e entrega rápida."
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {"@type": "ListItem", "position": 1, "name": "A Locução", "item": "https://alocucao.com.br/"},
-          {"@type": "ListItem", "position": 2, "name": "Produtora de Áudio em Goiás", "item": "https://alocucao.com.br/produtora-de-audio-goias/"}
-        ]
+        "contactType": "customer service",
+        "areaServed": "BR",
+        "availableLanguage": "pt-BR"
       }
-    ]
-  }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://alocucao.com.br/produtora-de-audio-goias/#service",
+      "name": "Gravação de Spot Comercial e Locução em Goiás",
+      "url": "https://alocucao.com.br/produtora-de-audio-goias/",
+      "description": "Produtora de áudio em Goiás. Gravação de spots comerciais para rádio, carro de som e agronegócio com qualidade profissional e entrega rápida.",
+      "provider": {
+        "@id": "https://alocucao.com.br/#organization"
+      },
+      "areaServed": [
+        "Goiás",
+        "Goiânia",
+        "Aparecida de Goiânia",
+        "Anápolis",
+        "Rio Verde",
+        "Luziânia",
+        "Águas Lindas de Goiás",
+        "Valparaíso de Goiás",
+        "Trindade",
+        "Formosa",
+        "Itumbiara"
+      ],
+      "serviceType": [
+        "Spot Comercial",
+        "Locução Profissional",
+        "Gravação para Carro de Som",
+        "Vídeos Institucionais",
+        "Espera Telefônica e URA"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://alocucao.com.br/produtora-de-audio-goias/#webpage",
+      "url": "https://alocucao.com.br/produtora-de-audio-goias/",
+      "name": "Produtora de Áudio em Goiás (GO): Spots Comerciais e Locução",
+      "description": "Produtora de áudio em Goiás. Gravação de spots comerciais para rádio, carro de som e agronegócio com qualidade profissional e entrega rápida."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "A Locução",
+          "item": "https://alocucao.com.br/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Produtora de Áudio em Goiás",
+          "item": "https://alocucao.com.br/produtora-de-audio-goias/"
+        }
+      ]
+    }
+  ]
+}
   </script>
 </head>
 <body>
@@ -144,7 +154,7 @@
       <a href="#servicos">Serviços</a>
       <a href="#diferenciais">Por que escolher</a>
       <a href="#como-funciona">Como funciona</a>
-      <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Goi%C3%A1s%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicitar Orçamento Rápido via WhatsApp</a>
+      <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5527996529832&amp;text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Goi%C3%A1s%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicitar Orçamento Rápido via WhatsApp</a>
     </div>
   </div>
 </header>
@@ -162,8 +172,8 @@
         <h3>Peça seu orçamento de áudio para Goiás</h3>
         <p>Receba atendimento direto no WhatsApp com rapidez e o melhor custo-benefício para a sua campanha.</p>
         <div class="cta-actions">
-          <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Goi%C3%A1s%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicitar Orçamento Rápido via WhatsApp</a>
-          <a class="btn btn-light" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Goi%C3%A1s%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Ouvir Vozes e Fazer Orçamento</a>
+          <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5527996529832&amp;text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Goi%C3%A1s%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicitar Orçamento Rápido via WhatsApp</a>
+          <a class="btn btn-light" href="https://api.whatsapp.com/send?phone=5527996529832&amp;text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Goi%C3%A1s%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Ouvir Vozes e Fazer Orçamento</a>
         </div>
       </div>
     </div>
@@ -206,8 +216,8 @@
         <h3>Quer produzir o seu áudio hoje mesmo em Goiás?</h3>
         <p>Envie o seu texto pelo WhatsApp e escolha a voz ideal para o seu projeto.</p>
         <div class="cta-actions">
-          <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Goi%C3%A1s%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicitar Orçamento Rápido via WhatsApp</a>
-          <a class="btn btn-light" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Goi%C3%A1s%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Ouvir Vozes e Fazer Orçamento</a>
+          <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5527996529832&amp;text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Goi%C3%A1s%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicitar Orçamento Rápido via WhatsApp</a>
+          <a class="btn btn-light" href="https://api.whatsapp.com/send?phone=5527996529832&amp;text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Goi%C3%A1s%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Ouvir Vozes e Fazer Orçamento</a>
         </div>
       </div>
     </div>
@@ -237,10 +247,10 @@
       <!-- CTA BANNER FIM -->
       <div class="cta-card">
         <h3>Atendimento online para empresas de Goiás.</h3>
-        <p>Atendimento imediato via WhatsApp para empresas de todo o estado de Goiás.</p>
+        <p>Consulte disponibilidade e prazo pelo WhatsApp para empresas de todo o estado de Goiás.</p>
         <div class="cta-actions">
-          <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Goi%C3%A1s%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicitar Orçamento Rápido via WhatsApp</a>
-          <a class="btn btn-light" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Goi%C3%A1s%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Ouvir Vozes e Fazer Orçamento</a>
+          <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5527996529832&amp;text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Goi%C3%A1s%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicitar Orçamento Rápido via WhatsApp</a>
+          <a class="btn btn-light" href="https://api.whatsapp.com/send?phone=5527996529832&amp;text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Goi%C3%A1s%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Ouvir Vozes e Fazer Orçamento</a>
         </div>
       </div>
     </div>
@@ -262,7 +272,7 @@
 </footer>
 
 <div class="sticky-mobile">
-  <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5527996529832&text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Goi%C3%A1s%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicitar Orçamento Rápido via WhatsApp</a>
+  <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5527996529832&amp;text=Ol%C3%A1!%20Acessei%20a%20p%C3%A1gina%20de%20Goi%C3%A1s%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicitar Orçamento Rápido via WhatsApp</a>
 </div>
 
 <script src="/assets/site.js"></script>
@@ -272,3 +282,4 @@
 </script>
 </body>
 </html>
+
