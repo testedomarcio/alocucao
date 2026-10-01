@@ -58,17 +58,28 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["LocalBusiness", "ProfessionalService"],
-        "@id": "https://alocucao.com.br/produtora-de-audio-rio-grande-do-sul/#business",
-        "name": "A Locução - Produtora de Áudio em Rio Grande do Sul",
-        "url": "https://alocucao.com.br/produtora-de-audio-rio-grande-do-sul/",
+        "@type": "Organization",
+        "@id": "https://alocucao.com.br/#organization",
+        "name": "A Locução",
+        "url": "https://alocucao.com.br/",
+        "logo": "https://alocucao.com.br/favicon.svg",
         "telephone": "+5527996529832",
-        "priceRange": "$$",
-        "image": "https://alocucao.com.br/favicon.svg",
-        "address": {
-          "@type": "PostalAddress",
-          "addressRegion": "RS",
-          "addressCountry": "BR"
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+5527996529832",
+          "contactType": "customer service",
+          "areaServed": "BR",
+          "availableLanguage": "pt-BR"
+        }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://alocucao.com.br/produtora-de-audio-rio-grande-do-sul/#service",
+        "name": "Gravação de Spot Comercial e Locução no Rio Grande do Sul",
+        "url": "https://alocucao.com.br/produtora-de-audio-rio-grande-do-sul/",
+        "description": "Produtora de áudio no Rio Grande do Sul. Gravamos comerciais de rádio, spots para varejo e locução publicitária com agilidade para gaúchos.",
+        "provider": {
+          "@id": "https://alocucao.com.br/#organization"
         },
         "areaServed": [
   "Rio Grande do Sul",
@@ -82,18 +93,7 @@
   "Passo Fundo",
   "Rio Grande",
   "Bento Gonçalves"
-]
-      },
-      {
-        "@type": "Service",
-        "@id": "https://alocucao.com.br/produtora-de-audio-rio-grande-do-sul/#service",
-        "name": "Gravação de Spot Comercial e Locução em Rio Grande do Sul",
-        "url": "https://alocucao.com.br/produtora-de-audio-rio-grande-do-sul/",
-        "description": "Produtora de áudio no Rio Grande do Sul. Gravamos comerciais de rádio, spots para varejo e locução publicitária com agilidade para gaúchos.",
-        "provider": {
-          "@id": "https://alocucao.com.br/produtora-de-audio-rio-grande-do-sul/#business"
-        },
-        "areaServed": "Rio Grande do Sul",
+],
         "serviceType": [
           "Spot Comercial",
           "Locução Profissional",
@@ -113,7 +113,7 @@
         "@type": "BreadcrumbList",
         "itemListElement": [
           {"@type": "ListItem", "position": 1, "name": "A Locução", "item": "https://alocucao.com.br/"},
-          {"@type": "ListItem", "position": 2, "name": "Produtora de Áudio em Rio Grande do Sul", "item": "https://alocucao.com.br/produtora-de-audio-rio-grande-do-sul/"}
+          {"@type": "ListItem", "position": 2, "name": "Produtora de Áudio no Rio Grande do Sul", "item": "https://alocucao.com.br/produtora-de-audio-rio-grande-do-sul/"}
         ]
       }
     ]

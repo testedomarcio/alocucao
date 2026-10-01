@@ -58,17 +58,28 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["LocalBusiness", "ProfessionalService"],
-        "@id": "https://alocucao.com.br/produtora-de-audio-minas-gerais/#business",
-        "name": "A Locução - Produtora de Áudio em Minas Gerais",
-        "url": "https://alocucao.com.br/produtora-de-audio-minas-gerais/",
+        "@type": "Organization",
+        "@id": "https://alocucao.com.br/#organization",
+        "name": "A Locução",
+        "url": "https://alocucao.com.br/",
+        "logo": "https://alocucao.com.br/favicon.svg",
         "telephone": "+5527996529832",
-        "priceRange": "$$",
-        "image": "https://alocucao.com.br/favicon.svg",
-        "address": {
-          "@type": "PostalAddress",
-          "addressRegion": "MG",
-          "addressCountry": "BR"
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+5527996529832",
+          "contactType": "customer service",
+          "areaServed": "BR",
+          "availableLanguage": "pt-BR"
+        }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://alocucao.com.br/produtora-de-audio-minas-gerais/#service",
+        "name": "Gravação de Spot Comercial e Locução em Minas Gerais",
+        "url": "https://alocucao.com.br/produtora-de-audio-minas-gerais/",
+        "description": "Produtora de áudio em Minas Gerais. Locução comercial para rádio, supermercados, agronegócio e empresas em todo o estado mineiro. Peça seu orçamento!",
+        "provider": {
+          "@id": "https://alocucao.com.br/#organization"
         },
         "areaServed": [
   "Minas Gerais",
@@ -82,18 +93,7 @@
   "Governador Valadares",
   "Ipatinga",
   "Divinópolis"
-]
-      },
-      {
-        "@type": "Service",
-        "@id": "https://alocucao.com.br/produtora-de-audio-minas-gerais/#service",
-        "name": "Gravação de Spot Comercial e Locução em Minas Gerais",
-        "url": "https://alocucao.com.br/produtora-de-audio-minas-gerais/",
-        "description": "Produtora de áudio em Minas Gerais. Locução comercial para rádio, supermercados, agronegócio e empresas em todo o estado mineiro. Peça seu orçamento!",
-        "provider": {
-          "@id": "https://alocucao.com.br/produtora-de-audio-minas-gerais/#business"
-        },
-        "areaServed": "Minas Gerais",
+],
         "serviceType": [
           "Spot Comercial",
           "Locução Profissional",
