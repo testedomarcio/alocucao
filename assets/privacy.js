@@ -15,11 +15,6 @@
     window.dispatchEvent(new CustomEvent("alocucao:consent", { detail: { value } }));
   }
 
-  if (saved === "accepted" || saved === "rejected") {
-    updateConsent(saved);
-    return;
-  }
-
   const style = document.createElement("style");
   style.textContent = [
     ".privacy-banner{position:fixed;z-index:999;left:16px;right:16px;bottom:16px;max-width:760px;margin:auto;background:#fff;color:#17202a;border:1px solid #dfe7ef;border-radius:16px;box-shadow:0 18px 55px rgba(13,27,42,.2);padding:18px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}",
@@ -33,19 +28,34 @@
   ].join("");
   document.head.appendChild(style);
 
-  const banner = document.createElement("aside");
-  banner.className = "privacy-banner";
-  banner.setAttribute("aria-label", "Preferências de privacidade");
-  banner.innerHTML = '<p>Usamos cookies opcionais para medir o desempenho do site e dos anúncios. Você pode aceitar ou recusar. Veja a <a href="/politica-de-privacidade/">Política de Privacidade</a>.</p><div class="privacy-actions"><button type="button" data-consent="rejected">Recusar opcionais</button><button type="button" class="accept" data-consent="accepted">Aceitar</button></div>';
-  document.body.appendChild(banner);
-
-  banner.querySelectorAll("[data-consent]").forEach(button => {
-    button.addEventListener("click", () => {
-      const value = button.dataset.consent;
-      try { localStorage.setItem(STORAGE_KEY, value); } catch (error) {}
-      updateConsent(value);
-      banner.remove();
+  function showPreferences() {
+    if (document.querySelector(".privacy-banner")) return;
+    const banner = document.createElement("aside");
+    banner.className = "privacy-banner";
+    banner.setAttribute("aria-label", "Preferências de privacidade");
+    banner.innerHTML = '<p>Usamos cookies opcionais para medir o desempenho do site e dos anúncios. Você pode aceitar ou recusar. Veja a <a href="/politica-de-privacidade/">Política de Privacidade</a>.</p><div class="privacy-actions"><button type="button" data-consent="rejected">Recusar opcionais</button><button type="button" class="accept" data-consent="accepted">Aceitar</button></div>';
+    document.body.appendChild(banner);
+  
+    banner.querySelectorAll("[data-consent]").forEach(button => {
+      button.addEventListener("click", () => {
+        const value = button.dataset.consent;
+        try { localStorage.setItem(STORAGE_KEY, value); } catch (error) {}
+        updateConsent(value);
+        banner.remove();
+      });
     });
-  });
+  }
+
+  const footer = document.querySelector("footer .container") || document.querySelector("footer");
+  if (footer) {
+    const preferences = document.createElement("button");
+    preferences.type = "button";
+    preferences.textContent = "Preferências de cookies";
+    preferences.style.cssText = "background:transparent;border:0;color:inherit;font:inherit;text-decoration:underline;cursor:pointer;min-height:44px;padding:8px 0";
+    preferences.addEventListener("click", showPreferences);
+    footer.appendChild(preferences);
+  }
+  if (saved === "accepted" || saved === "rejected") updateConsent(saved);
+  else showPreferences();
 })();
 
