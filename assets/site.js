@@ -25,7 +25,7 @@
           position: fixed;
           right: 20px;
           bottom: 20px;
-          z-index: 9999;
+          z-index: 20;
           display: flex;
           align-items: center;
           gap: 12px;
@@ -110,18 +110,81 @@
             height: 28px;
           }
         }
-        @media (max-width: 620px) {
-          body:has(.mobile-conversion-bar, .mobile-bar) .wa-float-widget,
-          body.has-mobile-bar .wa-float-widget {
-            bottom: 75px;
+        /* One persistent WhatsApp CTA per viewport; menus and dialogs stay above it. */
+        .wa-mobile-conversion-bar,
+        .whatsapp-float {
+          display: none !important;
+        }
+        @media (max-width: 767px) {
+          .wa-float-widget {
+            display: none;
+          }
+          body.has-mobile-bar {
+            padding-bottom: var(--wa-mobile-bar-height, 80px) !important;
+          }
+          html {
+            scroll-padding-bottom: var(--wa-mobile-bar-height, 80px);
+          }
+          .wa-mobile-conversion-bar {
+            display: flex !important;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 20 !important;
+            box-sizing: border-box;
+            padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+            background: #fff;
+            border-top: 1px solid #dfe7ef;
+            box-shadow: 0 -8px 24px rgba(13, 27, 42, .1);
+          }
+          .wa-mobile-conversion-bar a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 48px;
+            box-sizing: border-box;
+            padding: 12px 16px;
+            border-radius: 12px;
+            background: #25d366;
+            color: #0d1b2a !important;
+            font-weight: 800;
+            line-height: 1.4;
+            text-align: center;
+            text-decoration: none;
+            white-space: normal;
           }
         }
       `;
       document.head.appendChild(style);
     }
 
-    if (document.querySelector(".mobile-conversion-bar, .mobile-bar")) {
-      document.body.classList.add("has-mobile-bar");
+    let mobileBar = document.querySelector(
+      ".mobile-conversion-bar, .mobile-bar, .sticky-mobile, body > .mobile"
+    );
+    if (!mobileBar) {
+      mobileBar = document.createElement("div");
+      mobileBar.className = "mobile-conversion-bar";
+      mobileBar.innerHTML = `<a href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento."
+        target="_blank" rel="noopener noreferrer" data-cta="barra_mobile_global">
+        Pedir orçamento pelo WhatsApp</a>`;
+      document.body.appendChild(mobileBar);
+    }
+    mobileBar.classList.add("wa-mobile-conversion-bar");
+    document.body.classList.add("has-mobile-bar");
+
+    // Measure wrapped text and safe-area padding instead of assuming a fixed height.
+    const updateMobileBarSpace = () => {
+      document.documentElement.style.setProperty(
+        "--wa-mobile-bar-height", `${Math.ceil(mobileBar.getBoundingClientRect().height)}px`
+      );
+    };
+    updateMobileBarSpace();
+    if ("ResizeObserver" in window) {
+      new ResizeObserver(updateMobileBarSpace).observe(mobileBar);
+    } else {
+      window.addEventListener("resize", updateMobileBarSpace);
     }
 
     const widget = document.createElement("div");
