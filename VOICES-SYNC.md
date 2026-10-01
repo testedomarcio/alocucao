@@ -4,7 +4,7 @@ A página /vozes/ utiliza HTML, CSS, JavaScript sem framework e JSON no próprio
 
 ## Sincronização
 
-O workflow Atualizar banco de vozes consulta a página pública https://painel.audio.net.br/Vozes/alocucao a cada hora, no minuto 17, e também aceita workflow_dispatch. A consulta usa um identificador explícito A-Locucao-Catalog-Sync, sem cookies ou senha. Não é uma API oficial do fornecedor: é um adaptador para a tabela pública. Alterações no HTML podem exigir manutenção.
+O workflow Atualizar banco de vozes consulta a página pública https://painel.audio.net.br/Vozes/alocucao a cada 15 minutos, nos minutos 02, 17, 32 e 47 de cada hora, e também aceita workflow_dispatch. A consulta usa um identificador explícito A-Locucao-Catalog-Sync, sem cookies ou senha. Não é uma API oficial do fornecedor: é um adaptador para a tabela pública. Alterações no HTML podem exigir manutenção.
 
 O parser HTML5 é necessário para reproduzir a correção de estrutura que o navegador aplica à tabela de origem. A primeira tentativa com html.parser não extraiu todas as linhas; essa versão foi substituída antes da troca da interface. A versão validada extraiu 164 locutores e verificou que a quantidade de registros corresponde à de demos.
 
