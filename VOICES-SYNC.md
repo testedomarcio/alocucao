@@ -1,0 +1,33 @@
+# Banco de vozes — operação e manutenção
+
+A página /vozes/ utiliza HTML, CSS, JavaScript sem framework e JSON no próprio domínio. Não baixa MP3 antes do clique. Uma única tag audio serve para todas as demos. Favoritos ficam no navegador; a comparação aceita até três vozes. Não há classificações por estrelas inventadas ou agenda presumida.
+
+## Sincronização
+
+O workflow Atualizar banco de vozes consulta a página pública https://painel.audio.net.br/Vozes/alocucao a cada hora, no minuto 17, e também aceita workflow_dispatch. A consulta usa um identificador explícito A-Locucao-Catalog-Sync, sem cookies ou senha. Não é uma API oficial do fornecedor: é um adaptador para a tabela pública. Alterações no HTML podem exigir manutenção.
+
+O parser HTML5 é necessário para reproduzir a correção de estrutura que o navegador aplica à tabela de origem. A primeira tentativa com html.parser não extraiu todas as linhas; essa versão foi substituída antes da troca da interface. A versão validada extraiu 164 locutores e verificou que a quantidade de registros corresponde à de demos.
+
+O resultado fica em assets/voices-catalog.json, com fetchedAt, contentUpdatedAt, hash e lista completa. O script atualiza também o ItemList e a lista noscript. A página contém apenas 24 cartões inicialmente e adiciona mais 24 por ação, para limitar o custo de renderização.
+
+A atualização é periódica, sujeita ao tempo de execução e publicação do GitHub. Não é um webhook nem uma promessa de atualização instantânea. A página consulta novamente seu JSON a cada 15 minutos enquanto está visível e ao voltar de outra aba. O cache do site também pode introduzir atraso.
+
+O workflow tem publicação própria com Jekyll e deploy-pages: commits do GITHUB_TOKEN não devem ser usados como garantia de disparo automático do build padrão. Apenas scripts e artefatos validados são adicionados ao commit, com rebase antes do push.
+
+## Falhas e dados vencidos
+
+403, timeout, tabela ausente, URL inesperada, duplicidade, catálogo vazio, extração incompleta ou redução acima de 35% interrompem a sincronização. O último JSON válido permanece. O GitHub Actions mostra a falha. Verifique Actions → Atualizar banco de vozes e consulte o suporte do fornecedor quando necessário; não contorne restrições de acesso.
+
+Após três horas sem consulta válida, a interface troca os status por Disponibilidade sob consulta. Demos e filtros restantes continuam funcionando. Offline/indisponível são estados do catálogo, não disponibilidade calculada por horário habitual. Nenhum status confirma prazo contratual: isso continua sendo combinado no atendimento.
+
+## Dados externos
+
+Áudios aceitos: HTTPS em storageoffs.offsbrasil.com.br. Perfis: perfillocutor.com.br ou www.perfillocutor.com.br. IDs são slugs do perfil, não IDs oficiais garantidos. Gênero vem dos marcadores da linha; a pasta masculino dos MP3 também contém demos femininas. O marcador paulista é normalizado para São Paulo. Campos de nome e estilo são renderizados com textContent. Não copiar HTML da fonte para o DOM.
+
+O parâmetro nocache é de cache, não uma chave de API. O player usa a data da consulta para renovar o cache de demos com o mesmo caminho. Não renomear os MP3 a partir do nome de exibição.
+
+## Verificação
+
+Foram testados busca sem acento, filtros, favoritos, limite de comparação, carregamento progressivo, player único, nenhum MP3 antes do clique, oito larguras entre 320 e 1440 px, CTAs responsivos, dados vencidos, armazenamento bloqueado, texto externo com marcação e mídia inválida. Os eventos de reprodução e WhatsApp usam os scripts compartilhados e dependem do consentimento; não há promessa de contato recebido ou venda a partir do clique.
+
+Se o fornecedor oferecer API/feed oficial ou webhook, substituir a etapa de coleta preservando o formato JSON e a interface. Se o catálogo crescer ou diminuir legitimamente acima do limite, conferir a fonte e ajustar o limite com evidência, em vez de remover a proteção.
