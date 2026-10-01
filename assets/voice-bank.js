@@ -6,6 +6,13 @@
   const fields = {search:$('voice-search'),type:$('voice-type'),style:$('voice-style'),language:$('voice-language'),region:$('voice-region'),status:$('voice-status')};
   let catalog, shown = 24, favoriteView = false, compareView = false, playingId = null, loading = false;
   const selected = new Set();
+  let layout = 'list';
+  try { if(localStorage.getItem('alocucao_voice_layout') === 'grid') layout = 'grid'; } catch (_) {}
+  function updateLayout() {
+    grid.classList.toggle('list-view', layout === 'list');
+    $('view-list').setAttribute('aria-pressed', String(layout === 'list'));
+    $('view-grid').setAttribute('aria-pressed', String(layout === 'grid'));
+  }
   let favorites = new Set();
   try { const saved = JSON.parse(localStorage.getItem('alocucao_voice_favorites') || '[]'); if (Array.isArray(saved)) favorites = new Set(saved.filter(x => typeof x === 'string').slice(0,500)); } catch (_) {}
   const fresh = () => catalog && Date.now() - Date.parse(catalog.fetchedAt) >= 0 && Date.now() - Date.parse(catalog.fetchedAt) < 3 * 60 * 60 * 1000;
@@ -48,6 +55,7 @@
     const top = element('div','voice-top');
     const initials = voice.name.split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('');
     const avatar = element('span','avatar',initials); avatar.setAttribute('aria-hidden','true');
+    if(voice.photo) { const photo = element('img'); photo.src = voice.photo; photo.alt = ''; photo.width = 160; photo.height = 160; photo.loading = 'lazy'; photo.decoding = 'async'; photo.addEventListener('error',()=>photo.remove(),{once:true}); avatar.append(photo); }
     const identity = element('div','voice-identity'); identity.append(element('h3','',voice.name),element('p','voice-type',voice.type ? 'Voz '+voice.type.toLowerCase() : 'Voz humana'));
     const favorite = element('button','favorite-button',favorites.has(voice.id)?'♥':'♡'); favorite.type='button'; favorite.setAttribute('aria-label','Salvar '+voice.name+' nos favoritos'); favorite.setAttribute('aria-pressed',String(favorites.has(voice.id))); favorite.addEventListener('click',()=>saveFavorite(voice.id,favorite));
     top.append(avatar,identity,favorite);
@@ -77,7 +85,7 @@
     $('result-count').textContent = `${list.length} ${list.length===1?'voz encontrada':'vozes encontradas'}`+(compareView?' · comparação':'');
     $('shown-count').textContent = list.length ? `Mostrando ${visible.length} de ${list.length}` : '';
     $('empty-state').hidden = list.length > 0; $('load-more').hidden = shown >= list.length;
-    updateTotals();updatePlaying();
+    updateTotals();updatePlaying();updateLayout();
     $('status-note').textContent=fresh()?'Status informados pelo catálogo na última consulta. Confirme a disponibilidade e o prazo no atendimento.':'Os status estão sob consulta porque a última atualização tem mais de três horas. As demos continuam disponíveis.';
   }
   function reset() {
@@ -93,6 +101,7 @@
     const ids=new Set();
     for(const v of data.voices){
       if(typeof v.id!=='string'||ids.has(v.id)||typeof v.name!=='string'||typeof v.status!=='string'||typeof v.statusLabel!=='string'||!Array.isArray(v.styles)||!v.styles.every(x=>typeof x==='string')||!Array.isArray(v.languages)||!v.languages.every(x=>typeof x==='string'))throw Error('Invalid voice');
+      if(v.photo && !/^\/assets\/voice-photos\/[A-Za-z0-9_-]+\.webp$/.test(v.photo))throw Error('Invalid photo');
       const media=new URL(v.audio);if(media.protocol!=='https:'||media.hostname!=='storageoffs.offsbrasil.com.br'||media.username||media.password)throw Error('Invalid media');ids.add(v.id);
     }
     return data;
@@ -100,7 +109,7 @@
   async function load() {
     if(loading)return;loading=true;
     try {
-      const response=await fetch('/assets/voices-catalog.json?v='+Math.floor(Date.now()/600000),{signal:AbortSignal.timeout(15000)}); if(!response.ok)throw Error('Catalog unavailable');
+      const response=await fetch('/assets/voices-catalog.json?v='+Math.floor(Date.now()/600000),{cache:'no-cache',signal:AbortSignal.timeout(15000)}); if(!response.ok)throw Error('Catalog unavailable');
       catalog=validate(await response.json());
       const existing=new Set(catalog.voices.map(v=>v.id));for(const id of selected)if(!existing.has(id))selected.delete(id);for(const id of favorites)if(!existing.has(id))favorites.delete(id);
       options(fields.style,catalog.voices.flatMap(v=>v.styles));options(fields.region,catalog.voices.map(v=>v.region));options(fields.language,catalog.voices.flatMap(v=>v.languages));
@@ -115,6 +124,8 @@
   Object.values(fields).forEach(field=>field.addEventListener(field===fields.search?'input':'change',()=>{clearTimeout(debounce);debounce=setTimeout(()=>{shown=24;render()},field===fields.search?120:0)}));
   document.querySelectorAll('[data-style]').forEach(b=>b.addEventListener('click',()=>{fields.style.value=b.dataset.style;shown=24;render()}));
   $('voice-sort').addEventListener('change',render);
+  for(const mode of ['list','grid']) $('view-'+mode).addEventListener('click',()=>{layout=mode;try{localStorage.setItem('alocucao_voice_layout',mode)}catch(_){}updateLayout()});
+  updateLayout();
   $('favorites-toggle').addEventListener('click',()=>{favoriteView=!favoriteView;compareView=false;shown=24;render()});
   $('compare-toggle').addEventListener('click',()=>{compareView=!compareView;favoriteView=false;if(compareView)Object.values(fields).forEach(f=>f.value='');shown=24;render()});
   $('clear-filters').addEventListener('click',reset);$('empty-reset').addEventListener('click',()=>catalog?reset():load());

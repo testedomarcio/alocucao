@@ -31,3 +31,7 @@ O parâmetro nocache é de cache, não uma chave de API. O player usa a data da 
 Foram testados busca sem acento, filtros, favoritos, limite de comparação, carregamento progressivo, player único, nenhum MP3 antes do clique, oito larguras entre 320 e 1440 px, CTAs responsivos, dados vencidos, armazenamento bloqueado, texto externo com marcação e mídia inválida. Os eventos de reprodução e WhatsApp usam os scripts compartilhados e dependem do consentimento; não há promessa de contato recebido ou venda a partir do clique.
 
 Se o fornecedor oferecer API/feed oficial ou webhook, substituir a etapa de coleta preservando o formato JSON e a interface. Se o catálogo crescer ou diminuir legitimamente acima do limite, conferir a fonte e ajustar o limite com evidência, em vez de remover a proteção.
+
+## Lista e fotos
+
+A exibição padrão é lista; o usuário pode alternar para cartões. A preferência é local. Fotos vêm do campo imgPerfil no perfil público, e são importadas como WebP de até 160px, com leitura da imagem limitada a 6MB. A página carrega as miniaturas com loading=lazy e decoding=async. Onde não houver imagem, as iniciais permanecem; nenhuma foto é gerada. Perfis são conferidos no máximo uma vez por dia, com duas consultas concorrentes. Falhas não impedem a sincronização de status e preservam a foto anterior. Não são usadas credenciais; três falhas iniciais interrompem as consultas restantes de fotos.
