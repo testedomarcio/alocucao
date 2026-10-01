@@ -4,6 +4,7 @@ import concurrent.futures
 import io
 import json
 import os
+import re
 import time
 import urllib.error
 import urllib.request
@@ -19,7 +20,8 @@ CACHE = Path('data/voice-photos-cache.json')
 DEST = Path('assets/voice-photos')
 HEADERS = {'User-Agent':'A-Locucao-Catalog-Sync/1.0 (+https://alocucao.com.br/)'}
 PROFILE_HOSTS = {'perfillocutor.com.br','www.perfillocutor.com.br'}
-PHOTO_HOSTS = {'locutort.offsbrasil.com.br'}
+PHOTO_HOSTS = {'locutor.offsbrasil.com.br','locutort.offsbrasil.com.br'}
+PHOTO_SOURCE_VERSION = 2
 MAX_IMAGE = 6_000_000
 Image.MAX_IMAGE_PIXELS = 20_000_000
 
@@ -39,7 +41,7 @@ def request(url, headers=None):
 def process(voice, old, now):
     voice_id = voice['id']
     local = DEST / (voice_id+'.webp')
-    if old and now-old.get('checkedAt',0) < 86400 and (not old.get('photo') or local.exists()):
+    if old and old.get('sourceVersion') == PHOTO_SOURCE_VERSION and now-old.get('checkedAt',0) < 86400 and (not old.get('photo') or local.exists()):
         return voice_id, old, False
     time.sleep(.6)
     try:
@@ -51,7 +53,11 @@ def process(voice, old, now):
             if len(html)>1_000_000:
                 raise ValueError('Profile too large')
         soup = BeautifulSoup(html,'html5lib')
-        candidates = [i.get('src','') for i in soup.find_all('img')]
+        candidates = []
+        for img in soup.find_all('img'):
+            # The vendor declares its secondary image host in an onerror URL.
+            fallbacks = re.findall(r"https://[^'\"]+", img.get('onerror',''))
+            candidates.extend(fallbacks + [img.get('src','')])
         url = next((u for u in candidates if urlsplit(u).scheme=='https' and urlsplit(u).hostname in PHOTO_HOSTS and '/imgPerfil/' in urlsplit(u).path), None)
         if not url:
             return voice_id, {'checkedAt':now,'photo':None}, False
@@ -92,17 +98,17 @@ def main():
     (DEST/'.gitkeep').touch(exist_ok=True)
     now=int(time.time());failures=0
     # Confirm access on a small group before consulting all profiles.
-    pending=[v for v in catalog['voices'] if now-cache.get(v['id'],{}).get('checkedAt',0)>=86400]
+    pending=[v for v in catalog['voices'] if cache.get(v['id'],{}).get('sourceVersion') != PHOTO_SOURCE_VERSION or now-cache.get(v['id'],{}).get('checkedAt',0)>=86400]
     first=pending[:3]
     outcomes=[process(v,cache.get(v['id']),now) for v in first]
-    for voice_id,result,failed in outcomes:cache[voice_id]=result;failures+=failed
+    for voice_id,result,failed in outcomes:cache[voice_id]={**result,'sourceVersion':PHOTO_SOURCE_VERSION};failures+=failed
     if len(first)==3 and failures==3:
         print('Photo source unavailable: retaining initials/previous thumbnails; remaining requests skipped')
     else:
         with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
             futures=[pool.submit(process,v,cache.get(v['id']),now) for v in pending[3:]]
             for future in concurrent.futures.as_completed(futures):
-                voice_id,result,failed=future.result();cache[voice_id]=result;failures+=failed
+                voice_id,result,failed=future.result();cache[voice_id]={**result,'sourceVersion':PHOTO_SOURCE_VERSION};failures+=failed
     for voice in catalog['voices']:
         entry=cache.get(voice['id'],{})
         photo=entry.get('photo')
