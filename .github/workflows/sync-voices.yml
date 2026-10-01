@@ -32,7 +32,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Instalar parser
-        run: pip install beautifulsoup4==4.13.4
+        run: pip install beautifulsoup4==4.13.4 html5lib==1.1
       - name: Consultar e validar catálogo público
         run: python scripts/sync-voices.py
       - name: Registrar catálogo validado

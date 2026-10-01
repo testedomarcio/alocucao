@@ -26,11 +26,13 @@ def safe_url(value, hosts):
 
 
 def parse_catalog(html):
-    soup = BeautifulSoup(html, 'html.parser')
+    soup = BeautifulSoup(html, 'html5lib')
     table = soup.select_one('table#example')
     if not table:
         raise ValueError('Catalog table missing; preserving last valid catalog')
     voices, seen = [], set()
+    from collections import Counter
+    print('Source diagnostics:', len(table.select('audio')), 'audio elements;', dict(Counter(len(r.find_all('td', recursive=False)) for r in table.select('tr'))))
     for row in table.select('tr'):
         cells = row.find_all('td', recursive=False)
         if len(cells) != 4:
@@ -75,6 +77,8 @@ def parse_catalog(html):
         if 'paulista' in tokens:
             region = 'São Paulo'
         voices.append({'id': voice_id, 'name': name, 'type': 'Feminina' if 'Feminino' in tokens else 'Masculina' if 'Masculino' in tokens else None, 'region': region, 'styles': styles, 'languages': ['Português'] + [x for x in ['Inglês','Espanhol'] if x in tokens], 'status': status, 'statusLabel': label or 'Disponibilidade sob consulta', 'audio': media, 'profile': profile})
+    if len(voices) != len(table.select('audio')):
+        raise ValueError('Incomplete extraction; preserving previous catalog')
     if len(voices) < 40:
         raise ValueError('Unexpectedly small catalog; manual review required')
     return sorted(voices, key=lambda v: v['id'])
