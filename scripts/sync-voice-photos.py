@@ -21,7 +21,7 @@ DEST = Path('assets/voice-photos')
 HEADERS = {'User-Agent':'A-Locucao-Catalog-Sync/1.0 (+https://alocucao.com.br/)'}
 PROFILE_HOSTS = {'perfillocutor.com.br','www.perfillocutor.com.br'}
 PHOTO_HOSTS = {'locutor.offsbrasil.com.br','locutort.offsbrasil.com.br'}
-PHOTO_SOURCE_VERSION = 2
+PHOTO_SOURCE_VERSION = 3
 MAX_IMAGE = 6_000_000
 Image.MAX_IMAGE_PIXELS = 20_000_000
 
@@ -38,11 +38,42 @@ def request(url, headers=None):
     return urllib.request.build_opener(SafeRedirect).open(urllib.request.Request(url, headers={**HEADERS, **(headers or {})}), timeout=15)
 
 
+
+def parse_schedule(soup):
+    panel = soup.select_one('#captain')
+    if not panel:
+        return []
+    days = ['Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado','Domingo']
+    schedule = []
+    current = None
+    for row in panel.select('tr'):
+        heading = row.find('b')
+        if heading:
+            label = heading.get_text(' ', strip=True).replace('(Hoje)', '').strip().casefold()
+            current = next((day for day in days if day.casefold() == label), None)
+            continue
+        if not current:
+            continue
+        text = row.get_text(' ', strip=True)
+        intervals = []
+        for start, end in re.findall(r'([0-2]\d:[0-5]\d)\s*(?:até|a|-)\s*([0-2]\d:[0-5]\d)', text):
+            if int(start[:2]) < 24 and int(end[:2]) < 24:
+                intervals.append({'start':start, 'end':end})
+        if intervals:
+            existing = next((entry for entry in schedule if entry['day'] == current), None)
+            if existing:
+                existing['intervals'].extend(x for x in intervals if x not in existing['intervals'])
+            else:
+                schedule.append({'day':current,'intervals':intervals})
+    return schedule
+
+
 def process(voice, old, now):
     voice_id = voice['id']
     local = DEST / (voice_id+'.webp')
     if old and old.get('sourceVersion') == PHOTO_SOURCE_VERSION and now-old.get('checkedAt',0) < 86400 and (not old.get('photo') or local.exists()):
         return voice_id, old, False
+    entry = {**(old or {}), 'checkedAt':now}
     time.sleep(.6)
     try:
         parsed = urlsplit(voice['profile'])
@@ -53,6 +84,7 @@ def process(voice, old, now):
             if len(html)>1_000_000:
                 raise ValueError('Profile too large')
         soup = BeautifulSoup(html,'html5lib')
+        entry.update({'schedule':parse_schedule(soup),'scheduleCheckedAt':now})
         candidates = []
         for img in soup.find_all('img'):
             # The vendor declares its secondary image host in an onerror URL.
@@ -60,7 +92,7 @@ def process(voice, old, now):
             candidates.extend(fallbacks + [img.get('src','')])
         url = next((u for u in candidates if urlsplit(u).scheme=='https' and urlsplit(u).hostname in PHOTO_HOSTS and '/imgPerfil/' in urlsplit(u).path), None)
         if not url:
-            return voice_id, {'checkedAt':now,'photo':None}, False
+            return voice_id, {**entry,'photo':None}, False
         # The source adds a date query; the actual image pathname is preserved.
         url = quote(url.split('?',1)[0], safe=':/%')
         conditional = {}
@@ -75,7 +107,7 @@ def process(voice, old, now):
                 etag = response.headers.get('ETag');modified = response.headers.get('Last-Modified')
         except urllib.error.HTTPError as error:
             if error.code==304 and old and local.exists():
-                return voice_id,{**old,'checkedAt':now},False
+                return voice_id,entry,False
             raise
         with Image.open(io.BytesIO(raw)) as original:
             image = ImageOps.exif_transpose(original).convert('RGB')
@@ -84,11 +116,11 @@ def process(voice, old, now):
         data=out.getvalue()
         if not local.exists() or local.read_bytes()!=data:
             temporary=local.with_suffix('.tmp');temporary.write_bytes(data);os.replace(temporary,local)
-        return voice_id,{'source':url,'photo':'/'+local.as_posix(),'checkedAt':now,'etag':etag,'lastModified':modified},False
+        return voice_id,{**entry,'source':url,'photo':'/'+local.as_posix(),'etag':etag,'lastModified':modified},False
     except Exception as error:
         # No credential fallback, bypass or alternate-source guessing.
         print(f'Photo unavailable for {voice_id}: {type(error).__name__}')
-        return voice_id,{**(old or {}),'checkedAt':now},True
+        return voice_id,entry,True
 
 
 def main():
@@ -114,6 +146,8 @@ def main():
         photo=entry.get('photo')
         if photo and Path(photo.lstrip('/')).exists():voice['photo']=photo
         else:voice.pop('photo',None)
+        voice['schedule'] = entry.get('schedule', [])
+        if entry.get('scheduleCheckedAt'):voice['scheduleCheckedAt'] = entry['scheduleCheckedAt']
     CACHE.write_text(json.dumps(cache,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
     CATALOG.write_text(json.dumps(catalog,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
     print(f'Public thumbnails: {sum(bool(v.get("photo")) for v in catalog["voices"])}/{len(catalog["voices"])}; failed profile requests: {failures}')

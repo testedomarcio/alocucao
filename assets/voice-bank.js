@@ -57,6 +57,7 @@
     const avatar = element('span','avatar',initials); avatar.setAttribute('aria-hidden','true');
     if(voice.photo) { const photo = element('img'); photo.src = voice.photo; photo.alt = ''; photo.width = 160; photo.height = 160; photo.loading = 'lazy'; photo.decoding = 'async'; photo.addEventListener('error',()=>photo.remove(),{once:true}); avatar.append(photo); }
     const identity = element('div','voice-identity'); identity.append(element('h3','',voice.name),element('p','voice-type',voice.type ? 'Voz '+voice.type.toLowerCase() : 'Voz humana'));
+    if(voice.profilePublished && voice.localProfile) { const profile = element('a','voice-profile-link','Ver perfil'); profile.href=voice.localProfile; profile.setAttribute('aria-label','Ver perfil de '+voice.name); identity.append(profile); }
     const favorite = element('button','favorite-button',favorites.has(voice.id)?'♥':'♡'); favorite.type='button'; favorite.setAttribute('aria-label','Salvar '+voice.name+' nos favoritos'); favorite.setAttribute('aria-pressed',String(favorites.has(voice.id))); favorite.addEventListener('click',()=>saveFavorite(voice.id,favorite));
     top.append(avatar,identity,favorite);
     const label = fresh() ? voice.statusLabel : 'Disponibilidade sob consulta';
@@ -73,7 +74,16 @@
       check.checked?selected.add(voice.id):selected.delete(voice.id);updateTotals();announce(selected.size+' vozes selecionadas para comparar.');if(compareView)render();
     });
     compareLabel.append(check,document.createTextNode('Adicionar à comparação'));
-    article.append(top,status,tags,meta,actions,compareLabel); return article;
+    article.append(top,status,tags,meta,actions,compareLabel);
+    if(voice.schedule?.length) {
+      const schedule = element('details','voice-schedule');
+      const summary = element('summary','','Horários de gravação');
+      const list = element('ul','schedule-days');
+      voice.schedule.forEach(day=>{const row=element('li');row.append(element('strong','',day.day),element('span','',day.intervals.map(i=>i.start+'–'+i.end).join(' · ')));list.append(row)});
+      const note = element('p','schedule-note','Agenda informada no perfil. Confirme o fuso e o prazo no atendimento.');
+      schedule.append(summary,list,note);article.append(schedule);
+    }
+    return article;
   }
   function filtered() {
     const terms = normalize(fields.search.value.trim()).split(/\s+/).filter(Boolean);
@@ -101,6 +111,9 @@
     const ids=new Set();
     for(const v of data.voices){
       if(typeof v.id!=='string'||ids.has(v.id)||typeof v.name!=='string'||typeof v.status!=='string'||typeof v.statusLabel!=='string'||!Array.isArray(v.styles)||!v.styles.every(x=>typeof x==='string')||!Array.isArray(v.languages)||!v.languages.every(x=>typeof x==='string'))throw Error('Invalid voice');
+      if(v.localProfile && !/^\/perfil-locutor-[a-z0-9][a-z0-9-]*\/$/.test(v.localProfile))throw Error('Invalid local profile');
+      if(v.profilePublished !== undefined && typeof v.profilePublished !== 'boolean')throw Error('Invalid profile flag');
+      if(v.schedule !== undefined && (!Array.isArray(v.schedule)||v.schedule.length>7||!v.schedule.every(d=>['Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado','Domingo'].includes(d.day)&&Array.isArray(d.intervals)&&d.intervals.length>0&&d.intervals.length<=8&&d.intervals.every(i=>/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(i.start)&&/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(i.end)))))throw Error('Invalid schedule');
       if(v.photo && !/^\/assets\/voice-photos\/[A-Za-z0-9_-]+\.webp$/.test(v.photo))throw Error('Invalid photo');
       const media=new URL(v.audio);if(media.protocol!=='https:'||media.hostname!=='storageoffs.offsbrasil.com.br'||media.username||media.password)throw Error('Invalid media');ids.add(v.id);
     }

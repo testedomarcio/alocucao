@@ -6,6 +6,7 @@ import os
 import re
 import tempfile
 import urllib.request
+import unicodedata
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -84,6 +85,25 @@ def parse_catalog(html):
     return sorted(voices, key=lambda v: v['id'])
 
 
+
+def attach_local_profiles(voices):
+    routes_file = Path('data/voice-profile-routes.json')
+    existing = json.loads(routes_file.read_text(encoding='utf-8')) if routes_file.exists() else []
+    previous = {item['id']:item['path'] for item in existing if isinstance(item,dict) and re.fullmatch(r'/perfil-locutor-[a-z0-9][a-z0-9-]*/',item.get('path','')) and isinstance(item.get('id'),str)}
+    groups = {}
+    for voice in voices:
+        plain = unicodedata.normalize('NFKD',voice['name']).encode('ascii','ignore').decode().lower()
+        slug = re.sub(r'[^a-z0-9]+','-',plain).strip('-') or voice['id'].lower()
+        groups.setdefault(slug, []).append(voice)
+    for slug, members in groups.items():
+        for voice in members:
+            suffix = '-'+voice['id'].lower() if len(members)>1 else ''
+            route = previous.get(voice['id'], '/perfil-locutor-'+slug+suffix+'/')
+            voice['localProfile'] = route
+            folder = Path(route.strip('/'))
+            voice['profilePublished'] = (folder/'index.html').is_file()
+
+
 def atomic_write(path, text):
     path.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile('w', encoding='utf-8', dir=path.parent, delete=False) as temp:
@@ -95,11 +115,11 @@ def atomic_write(path, text):
 def update_schema(voices):
     page = Path('vozes/index.html')
     html = page.read_text(encoding='utf-8')
-    schema = {'@context':'https://schema.org', '@type':'ItemList', 'name':'Banco de vozes da A Locução', 'numberOfItems':len(voices), 'itemListElement':[{'@type':'ListItem','position':i+1,'item':{'@type':'Person','name':v['name'],'url':v['profile'],'jobTitle':'Profissional de locução'}} for i,v in enumerate(voices)]}
+    schema = {'@context':'https://schema.org', '@type':'ItemList', 'name':'Banco de vozes da A Locução', 'numberOfItems':len(voices), 'itemListElement':[{'@type':'ListItem','position':i+1,'item':{'@type':'Person','name':v['name'],'url':'https://alocucao.com.br'+v['localProfile'] if v.get('profilePublished') else v['profile'],'jobTitle':'Profissional de locução'}} for i,v in enumerate(voices)]}
     data = json.dumps(schema, ensure_ascii=False, separators=(',', ':')).replace('<', '\\u003c')
     html = re.sub(r'(<script id="voices-schema" type="application/ld\+json">).*?(</script>)', lambda m: m[1]+data+m[2], html, flags=re.S)
     import html as escaping
-    fallback = '<ul class="fallback-list">' + ''.join('<li>'+escaping.escape(v['name'])+' — '+escaping.escape(v['type'] or 'Voz humana')+'</li>' for v in voices) + '</ul>'
+    fallback = '<ul class="fallback-list">' + ''.join('<li>'+('<a href="'+escaping.escape(v['localProfile'],quote=True)+'">'+escaping.escape(v['name'])+'</a>' if v.get('profilePublished') else escaping.escape(v['name']))+' — '+escaping.escape(v['type'] or 'Voz humana')+'</li>' for v in voices) + '</ul>'
     html = re.sub(r'<!-- voices-fallback:start -->.*?<!-- voices-fallback:end -->', lambda _: '<!-- voices-fallback:start -->'+fallback+'<!-- voices-fallback:end -->', html, flags=re.S)
     if html != page.read_text(encoding='utf-8'):
         atomic_write(page, html)
@@ -117,6 +137,8 @@ def main():
     previous = json.loads(OUTPUT.read_text(encoding='utf-8')) if OUTPUT.exists() else None
     if previous and len(voices) < len(previous['voices']) * .65:
         raise ValueError('Large catalog shrink; preserving previous catalog')
+    attach_local_profiles(voices)
+    atomic_write(Path('data/voice-profile-routes.json'),json.dumps([{'id':v['id'],'name':v['name'],'path':v['localProfile'],'url':'https://alocucao.com.br'+v['localProfile'],'published':v['profilePublished']} for v in voices],ensure_ascii=False,indent=2)+'\n')
     now = datetime.now(timezone.utc).isoformat(timespec='seconds')
     content_hash = hashlib.sha256(json.dumps(voices, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
     catalog = {'schemaVersion':1, 'source':SOURCE, 'fetchedAt':now, 'contentUpdatedAt':previous['contentUpdatedAt'] if previous and previous.get('contentHash') == content_hash else now, 'contentHash':content_hash, 'count':len(voices), 'voices':voices}

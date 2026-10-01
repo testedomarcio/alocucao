@@ -35,3 +35,12 @@ Se o fornecedor oferecer API/feed oficial ou webhook, substituir a etapa de cole
 ## Lista e fotos
 
 A exibição padrão é lista; o usuário pode alternar para cartões. A preferência é local. Fotos vêm do campo imgPerfil no perfil público, e são importadas como WebP de até 160px, com leitura da imagem limitada a 6MB. A página carrega as miniaturas com loading=lazy e decoding=async. Onde não houver imagem, as iniciais permanecem; nenhuma foto é gerada. Perfis são conferidos no máximo uma vez por dia, com duas consultas concorrentes. Falhas não impedem a sincronização de status e preservam a foto anterior. Não são usadas credenciais; três falhas iniciais interrompem as consultas restantes de fotos.
+
+
+## Horários de gravação e perfis locais
+
+O importador de fotos também lê a tabela pública #captain de cada perfil. Não realiza requisições extras no navegador: a agenda é texto no mesmo JSON. Os perfis são consultados diariamente; os status continuam no ciclo de 15 minutos. O parser reconhece os sete dias e intervalos HH:MM, remove o marcador Hoje, valida horas e não presume folga nos dias ausentes. Não calcula online/offline a partir da agenda e não presume o fuso horário. Falha na foto preserva os horários que foram lidos; falha na consulta do perfil mantém a última agenda válida.
+
+Cada locutor recebe localProfile e profilePublished. As rotas planejadas ficam em data/voice-profile-routes.json. São geradas do nome sem acentos e com hífens; o identificador resolve nomes duplicados. Uma rota já registrada é mantida quando o nome muda. O link discreto Ver perfil aparece somente quando existe perfil-locutor-<slug>/index.html. O ItemList e a lista HTML de fallback também passam a apontar ao perfil local publicado. O workflow é disparado por publicações nessas pastas e também confere a existência no ciclo periódico.
+
+Consulte PERFIS-LOCUTORES-JULES.md antes de criar os perfis. Não publicar páginas vazias para tornar os links visíveis.
