@@ -58,17 +58,28 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["LocalBusiness", "ProfessionalService"],
-        "@id": "https://alocucao.com.br/produtora-de-audio-espirito-santo/#business",
-        "name": "A Locução - Produtora de Áudio em Espírito Santo",
-        "url": "https://alocucao.com.br/produtora-de-audio-espirito-santo/",
+        "@type": "Organization",
+        "@id": "https://alocucao.com.br/#organization",
+        "name": "A Locução",
+        "url": "https://alocucao.com.br/",
+        "logo": "https://alocucao.com.br/favicon.svg",
         "telephone": "+5527996529832",
-        "priceRange": "$$",
-        "image": "https://alocucao.com.br/favicon.svg",
-        "address": {
-          "@type": "PostalAddress",
-          "addressRegion": "ES",
-          "addressCountry": "BR"
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+5527996529832",
+          "contactType": "customer service",
+          "areaServed": "BR",
+          "availableLanguage": "pt-BR"
+        }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://alocucao.com.br/produtora-de-audio-espirito-santo/#service",
+        "name": "Gravação de Spot Comercial e Locução no Espírito Santo",
+        "url": "https://alocucao.com.br/produtora-de-audio-espirito-santo/",
+        "description": "Produtora de áudio para o comércio capixaba. Gravamos spots comerciais, vinhetas e espera telefônica com entrega rápida para todo o Espírito Santo.",
+        "provider": {
+          "@id": "https://alocucao.com.br/#organization"
         },
         "areaServed": [
   "Espírito Santo",
@@ -82,18 +93,7 @@
   "Guarapari",
   "São Mateus",
   "Aracruz"
-]
-      },
-      {
-        "@type": "Service",
-        "@id": "https://alocucao.com.br/produtora-de-audio-espirito-santo/#service",
-        "name": "Gravação de Spot Comercial e Locução em Espírito Santo",
-        "url": "https://alocucao.com.br/produtora-de-audio-espirito-santo/",
-        "description": "Produtora de áudio para o comércio capixaba. Gravamos spots comerciais, vinhetas e espera telefônica com entrega rápida para todo o Espírito Santo.",
-        "provider": {
-          "@id": "https://alocucao.com.br/produtora-de-audio-espirito-santo/#business"
-        },
-        "areaServed": "Espírito Santo",
+],
         "serviceType": [
           "Spot Comercial",
           "Locução Profissional",
@@ -113,7 +113,7 @@
         "@type": "BreadcrumbList",
         "itemListElement": [
           {"@type": "ListItem", "position": 1, "name": "A Locução", "item": "https://alocucao.com.br/"},
-          {"@type": "ListItem", "position": 2, "name": "Produtora de Áudio em Espírito Santo", "item": "https://alocucao.com.br/produtora-de-audio-espirito-santo/"}
+          {"@type": "ListItem", "position": 2, "name": "Produtora de Áudio no Espírito Santo", "item": "https://alocucao.com.br/produtora-de-audio-espirito-santo/"}
         ]
       }
     ]

@@ -58,17 +58,28 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["LocalBusiness", "ProfessionalService"],
-        "@id": "https://alocucao.com.br/produtora-de-audio-goias/#business",
-        "name": "A Locução - Produtora de Áudio em Goiás",
-        "url": "https://alocucao.com.br/produtora-de-audio-goias/",
+        "@type": "Organization",
+        "@id": "https://alocucao.com.br/#organization",
+        "name": "A Locução",
+        "url": "https://alocucao.com.br/",
+        "logo": "https://alocucao.com.br/favicon.svg",
         "telephone": "+5527996529832",
-        "priceRange": "$$",
-        "image": "https://alocucao.com.br/favicon.svg",
-        "address": {
-          "@type": "PostalAddress",
-          "addressRegion": "GO",
-          "addressCountry": "BR"
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+5527996529832",
+          "contactType": "customer service",
+          "areaServed": "BR",
+          "availableLanguage": "pt-BR"
+        }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://alocucao.com.br/produtora-de-audio-goias/#service",
+        "name": "Gravação de Spot Comercial e Locução em Goiás",
+        "url": "https://alocucao.com.br/produtora-de-audio-goias/",
+        "description": "Produtora de áudio em Goiás. Gravação de spots comerciais para rádio, carro de som e agronegócio com qualidade profissional e entrega rápida.",
+        "provider": {
+          "@id": "https://alocucao.com.br/#organization"
         },
         "areaServed": [
   "Goiás",
@@ -82,18 +93,7 @@
   "Trindade",
   "Formosa",
   "Itumbiara"
-]
-      },
-      {
-        "@type": "Service",
-        "@id": "https://alocucao.com.br/produtora-de-audio-goias/#service",
-        "name": "Gravação de Spot Comercial e Locução em Goiás",
-        "url": "https://alocucao.com.br/produtora-de-audio-goias/",
-        "description": "Produtora de áudio em Goiás. Gravação de spots comerciais para rádio, carro de som e agronegócio com qualidade profissional e entrega rápida.",
-        "provider": {
-          "@id": "https://alocucao.com.br/produtora-de-audio-goias/#business"
-        },
-        "areaServed": "Goiás",
+],
         "serviceType": [
           "Spot Comercial",
           "Locução Profissional",

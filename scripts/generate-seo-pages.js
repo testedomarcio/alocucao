@@ -78,11 +78,20 @@ function generatePages() {
     pageHtml = safeReplace(pageHtml, '{{whatsappUrl}}', whatsappUrl);
 
     const outputPath = path.join(outputDir, 'index.html');
-    fs.writeFileSync(outputPath, pageHtml, 'utf8');
-    console.log(`Generated: ${folderName}/index.html`);
-  });
 
-  updateSitemap(generatedUrls, today);
+    let isModified = true;
+    if (fs.existsSync(outputPath)) {
+      const existingContent = fs.readFileSync(outputPath, 'utf8');
+      if (existingContent === pageHtml) {
+        isModified = false;
+      }
+    }
+
+    fs.writeFileSync(outputPath, pageHtml, 'utf8');
+    console.log(`Generated: ${folderName}/index.html ${isModified ? '(updated)' : '(unchanged)'}`);
+
+    updateSitemapForUrl(canonicalUrl, today, isModified);
+  });
 }
 
 function sanitizeReplacement(str) {
@@ -90,25 +99,28 @@ function sanitizeReplacement(str) {
   return str.replace(/\$/g, '$$$$');
 }
 
-function updateSitemap(urls, todayDate) {
+function updateSitemapForUrl(url, todayDate, isModified) {
   if (!fs.existsSync(SITEMAP_PATH)) {
     console.warn(`Sitemap not found at ${SITEMAP_PATH}, skipping sitemap update.`);
     return;
   }
 
   let sitemapContent = fs.readFileSync(SITEMAP_PATH, 'utf8');
+  const locTag = `<loc>${url}</loc>`;
 
-  urls.forEach((url) => {
-    const locTag = `<loc>${url}</loc>`;
-    if (!sitemapContent.includes(locTag)) {
-      // Insert new URL before </urlset>
-      const newEntry = `  <url><loc>${url}</loc><lastmod>${todayDate}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>\n`;
-      sitemapContent = sitemapContent.replace('</urlset>', `${newEntry}</urlset>`);
+  if (!sitemapContent.includes(locTag)) {
+    // Insert new URL before </urlset>
+    const newEntry = `  <url><loc>${url}</loc><lastmod>${todayDate}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>\n`;
+    sitemapContent = sitemapContent.replace('</urlset>', `${newEntry}</urlset>`);
+    fs.writeFileSync(SITEMAP_PATH, sitemapContent, 'utf8');
+  } else if (isModified) {
+    // Update existing <lastmod> for this url if content was actually modified
+    const urlBlockRegex = new RegExp(`(<url>\\s*<loc>${escapeRegExp(url)}</loc>\\s*<lastmod>)[^<]+(</lastmod>)`);
+    if (urlBlockRegex.test(sitemapContent)) {
+      sitemapContent = sitemapContent.replace(urlBlockRegex, `$1${todayDate}$2`);
+      fs.writeFileSync(SITEMAP_PATH, sitemapContent, 'utf8');
     }
-  });
-
-  fs.writeFileSync(SITEMAP_PATH, sitemapContent, 'utf8');
-  console.log(`Verified sitemap.xml for ${urls.length} regional URLs.`);
+  }
 }
 
 function escapeRegExp(string) {

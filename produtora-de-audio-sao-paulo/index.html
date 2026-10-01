@@ -58,17 +58,28 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["LocalBusiness", "ProfessionalService"],
-        "@id": "https://alocucao.com.br/produtora-de-audio-sao-paulo/#business",
-        "name": "A Locução - Produtora de Áudio em São Paulo",
-        "url": "https://alocucao.com.br/produtora-de-audio-sao-paulo/",
+        "@type": "Organization",
+        "@id": "https://alocucao.com.br/#organization",
+        "name": "A Locução",
+        "url": "https://alocucao.com.br/",
+        "logo": "https://alocucao.com.br/favicon.svg",
         "telephone": "+5527996529832",
-        "priceRange": "$$",
-        "image": "https://alocucao.com.br/favicon.svg",
-        "address": {
-          "@type": "PostalAddress",
-          "addressRegion": "SP",
-          "addressCountry": "BR"
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+5527996529832",
+          "contactType": "customer service",
+          "areaServed": "BR",
+          "availableLanguage": "pt-BR"
+        }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://alocucao.com.br/produtora-de-audio-sao-paulo/#service",
+        "name": "Gravação de Spot Comercial e Locução em São Paulo",
+        "url": "https://alocucao.com.br/produtora-de-audio-sao-paulo/",
+        "description": "Procurando produtora de áudio em São Paulo? Gravamos spots comerciais para rádio, carro de som, varejo e vídeos institucionais com entrega rápida. Peça um orçamento!",
+        "provider": {
+          "@id": "https://alocucao.com.br/#organization"
         },
         "areaServed": [
   "São Paulo",
@@ -82,18 +93,7 @@
   "Bauru",
   "Piracicaba",
   "São José do Rio Preto"
-]
-      },
-      {
-        "@type": "Service",
-        "@id": "https://alocucao.com.br/produtora-de-audio-sao-paulo/#service",
-        "name": "Gravação de Spot Comercial e Locução em São Paulo",
-        "url": "https://alocucao.com.br/produtora-de-audio-sao-paulo/",
-        "description": "Procurando produtora de áudio em São Paulo? Gravamos spots comerciais para rádio, carro de som, varejo e vídeos institucionais com entrega rápida. Peça um orçamento!",
-        "provider": {
-          "@id": "https://alocucao.com.br/produtora-de-audio-sao-paulo/#business"
-        },
-        "areaServed": "São Paulo",
+],
         "serviceType": [
           "Spot Comercial",
           "Locução Profissional",
