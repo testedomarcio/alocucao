@@ -7,6 +7,7 @@ on:
     branches: [main]
     paths:
       - scripts/sync-voices.py
+      - scripts/sync-voice-photos.py
       - .github/workflows/sync-voices.yml
       - assets/voice-bank.js
       - vozes/index.html
@@ -18,7 +19,7 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     permissions:
       contents: write
     outputs:
@@ -32,9 +33,11 @@ jobs:
         with:
           python-version: '3.12'
       - name: Instalar parser
-        run: pip install beautifulsoup4==4.13.4 html5lib==1.1
+        run: pip install beautifulsoup4==4.13.4 html5lib==1.1 Pillow==11.3.0
       - name: Consultar e validar catálogo público
         run: python scripts/sync-voices.py
+      - name: Atualizar fotos públicas em miniaturas leves
+        run: python scripts/sync-voice-photos.py
       - name: Registrar catálogo validado
         id: commit
         shell: bash
@@ -42,7 +45,7 @@ jobs:
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add assets/voices-catalog.json vozes/index.html
+          git add assets/voices-catalog.json assets/voice-photos data/voice-photos-cache.json vozes/index.html
           if ! git diff --cached --quiet; then
             git commit -m 'chore: sincroniza catálogo de vozes'
             git pull --rebase origin main
