@@ -21,7 +21,10 @@
       "Bauru",
       "Piracicaba",
       "São José do Rio Preto"
-    ]
+    ],
+    "stateIn": "em São Paulo",
+    "stateOf": "de São Paulo",
+    "stateFor": "para São Paulo"
   },
   {
     "stateName": "Rio de Janeiro",
@@ -45,7 +48,10 @@
       "Cabo Frio",
       "Campos dos Goytacazes",
       "Macaé"
-    ]
+    ],
+    "stateIn": "no Rio de Janeiro",
+    "stateOf": "do Rio de Janeiro",
+    "stateFor": "para o Rio de Janeiro"
   },
   {
     "stateName": "Minas Gerais",
@@ -69,7 +75,10 @@
       "Governador Valadares",
       "Ipatinga",
       "Divinópolis"
-    ]
+    ],
+    "stateIn": "em Minas Gerais",
+    "stateOf": "de Minas Gerais",
+    "stateFor": "para Minas Gerais"
   },
   {
     "stateName": "Espírito Santo",
@@ -93,7 +102,10 @@
       "Guarapari",
       "São Mateus",
       "Aracruz"
-    ]
+    ],
+    "stateIn": "no Espírito Santo",
+    "stateOf": "do Espírito Santo",
+    "stateFor": "para o Espírito Santo"
   },
   {
     "stateName": "Paraná",
@@ -117,7 +129,10 @@
       "Guarapuava",
       "Paranaguá",
       "Toledo"
-    ]
+    ],
+    "stateIn": "no Paraná",
+    "stateOf": "do Paraná",
+    "stateFor": "para o Paraná"
   },
   {
     "stateName": "Rio Grande do Sul",
@@ -141,7 +156,10 @@
       "Passo Fundo",
       "Rio Grande",
       "Bento Gonçalves"
-    ]
+    ],
+    "stateIn": "no Rio Grande do Sul",
+    "stateOf": "do Rio Grande do Sul",
+    "stateFor": "para o Rio Grande do Sul"
   },
   {
     "stateName": "Santa Catarina",
@@ -165,7 +183,10 @@
       "Jaraguá do Sul",
       "Lages",
       "Palhoça"
-    ]
+    ],
+    "stateIn": "em Santa Catarina",
+    "stateOf": "de Santa Catarina",
+    "stateFor": "para Santa Catarina"
   },
   {
     "stateName": "Bahia",
@@ -189,7 +210,10 @@
       "Porto Seguro",
       "Barreiras",
       "Lauro de Freitas"
-    ]
+    ],
+    "stateIn": "na Bahia",
+    "stateOf": "da Bahia",
+    "stateFor": "para a Bahia"
   },
   {
     "stateName": "Goiás",
@@ -213,7 +237,10 @@
       "Trindade",
       "Formosa",
       "Itumbiara"
-    ]
+    ],
+    "stateIn": "em Goiás",
+    "stateOf": "de Goiás",
+    "stateFor": "para Goiás"
   },
   {
     "stateName": "Distrito Federal",
@@ -237,6 +264,9 @@
       "Sobradinho",
       "Guará",
       "Santa Maria"
-    ]
+    ],
+    "stateIn": "no Distrito Federal",
+    "stateOf": "do Distrito Federal",
+    "stateFor": "para o Distrito Federal"
   }
 ]

@@ -51,22 +51,31 @@ function generatePages() {
       : [region.stateName];
     const areaServedSchemaJson = JSON.stringify(areaServedArray, null, 2);
 
-    let pageHtml = templateHtml
-      .replaceAll('{{stateName}}', region.stateName)
-      .replaceAll('{{stateAbbr}}', region.stateAbbr)
-      .replaceAll('{{slug}}', cleanSlug)
-      .replaceAll('{{pagePath}}', folderName)
-      .replaceAll('{{canonicalUrl}}', canonicalUrl)
-      .replaceAll('{{pageTitle}}', region.pageTitle)
-      .replaceAll('{{metaDescription}}', region.metaDescription)
-      .replaceAll('{{eyebrow}}', region.eyebrow)
-      .replaceAll('{{h1Title}}', region.h1Title)
-      .replaceAll('{{nicheEmphasis}}', region.nicheEmphasis)
-      .replaceAll('{{heroParagraph}}', region.heroParagraph)
-      .replaceAll('{{regionalFocus}}', region.regionalFocus)
-      .replaceAll('{{citiesListFormatted}}', citiesListFormatted)
-      .replaceAll('{{areaServedSchemaJson}}', areaServedSchemaJson)
-      .replaceAll('{{whatsappUrl}}', whatsappUrl);
+    const safeReplace = (str, pattern, replacement) => {
+      const val = typeof replacement === 'string' ? sanitizeReplacement(replacement) : replacement;
+      return str.replaceAll(pattern, val);
+    };
+
+    let pageHtml = templateHtml;
+    pageHtml = safeReplace(pageHtml, '<meta name="robots" content="noindex">', '<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">');
+    pageHtml = safeReplace(pageHtml, '{{stateName}}', region.stateName);
+    pageHtml = safeReplace(pageHtml, '{{stateAbbr}}', region.stateAbbr);
+    pageHtml = safeReplace(pageHtml, '{{stateIn}}', region.stateIn || `em ${region.stateName}`);
+    pageHtml = safeReplace(pageHtml, '{{stateOf}}', region.stateOf || `de ${region.stateName}`);
+    pageHtml = safeReplace(pageHtml, '{{stateFor}}', region.stateFor || `para ${region.stateName}`);
+    pageHtml = safeReplace(pageHtml, '{{slug}}', cleanSlug);
+    pageHtml = safeReplace(pageHtml, '{{pagePath}}', folderName);
+    pageHtml = safeReplace(pageHtml, '{{canonicalUrl}}', canonicalUrl);
+    pageHtml = safeReplace(pageHtml, '{{pageTitle}}', region.pageTitle);
+    pageHtml = safeReplace(pageHtml, '{{metaDescription}}', region.metaDescription);
+    pageHtml = safeReplace(pageHtml, '{{eyebrow}}', region.eyebrow);
+    pageHtml = safeReplace(pageHtml, '{{h1Title}}', region.h1Title);
+    pageHtml = safeReplace(pageHtml, '{{nicheEmphasis}}', region.nicheEmphasis);
+    pageHtml = safeReplace(pageHtml, '{{heroParagraph}}', region.heroParagraph);
+    pageHtml = safeReplace(pageHtml, '{{regionalFocus}}', region.regionalFocus);
+    pageHtml = safeReplace(pageHtml, '{{citiesListFormatted}}', citiesListFormatted);
+    pageHtml = safeReplace(pageHtml, '{{areaServedSchemaJson}}', areaServedSchemaJson);
+    pageHtml = safeReplace(pageHtml, '{{whatsappUrl}}', whatsappUrl);
 
     const outputPath = path.join(outputDir, 'index.html');
     fs.writeFileSync(outputPath, pageHtml, 'utf8');
@@ -74,6 +83,11 @@ function generatePages() {
   });
 
   updateSitemap(generatedUrls, today);
+}
+
+function sanitizeReplacement(str) {
+  if (typeof str !== 'string') return str;
+  return str.replace(/\$/g, '$$$$');
 }
 
 function updateSitemap(urls, todayDate) {
@@ -86,25 +100,7 @@ function updateSitemap(urls, todayDate) {
 
   urls.forEach((url) => {
     const locTag = `<loc>${url}</loc>`;
-    if (sitemapContent.includes(locTag)) {
-      // Update existing lastmod
-      const urlRegex = new RegExp(
-        `(<url>\\s*<loc>${escapeRegExp(url)}<\/loc>(?:(?!<\/url>)[\\s\\S])*?<lastmod>)([^<]+)(<\/lastmod>)`,
-        'g'
-      );
-      if (urlRegex.test(sitemapContent)) {
-        sitemapContent = sitemapContent.replace(
-          urlRegex,
-          `$1${todayDate}$3`
-        );
-      } else {
-        // If lastmod tag is missing in this <url> block
-        sitemapContent = sitemapContent.replace(
-          locTag,
-          `${locTag}<lastmod>${todayDate}</lastmod>`
-        );
-      }
-    } else {
+    if (!sitemapContent.includes(locTag)) {
       // Insert new URL before </urlset>
       const newEntry = `  <url><loc>${url}</loc><lastmod>${todayDate}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>\n`;
       sitemapContent = sitemapContent.replace('</urlset>', `${newEntry}</urlset>`);
@@ -112,7 +108,7 @@ function updateSitemap(urls, todayDate) {
   });
 
   fs.writeFileSync(SITEMAP_PATH, sitemapContent, 'utf8');
-  console.log(`Updated sitemap.xml with ${urls.length} regional URLs.`);
+  console.log(`Verified sitemap.xml for ${urls.length} regional URLs.`);
 }
 
 function escapeRegExp(string) {

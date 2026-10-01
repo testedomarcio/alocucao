@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>{{pageTitle}}</title>
   <meta name="description" content="{{metaDescription}}">
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="robots" content="noindex">
   <link rel="canonical" href="{{canonicalUrl}}">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <meta property="og:locale" content="pt_BR">
@@ -158,19 +158,19 @@
 
   <section class="content-section" id="servicos">
     <div class="container">
-      <h2>Nossos Serviços de Áudio para o Mercado de {{stateName}}</h2>
+      <h2>Nossos Serviços de Áudio para o Mercado {{stateOf}}</h2>
       <ul>
-        <li><strong>Spot Comercial para Rádio e Spotify:</strong> Produção completa com trilha, efeitos e masterização para a sua campanha veicular com máxima qualidade nas emissoras de {{stateName}} e mídias digitais.</li>
-        <li><strong>Gravação para Carro de Som e Porta de Loja:</strong> Locução varejista de alto impacto para atrair clientes em centros comerciais, ruas movimentadas e promoções de rua em {{stateName}}.</li>
+        <li><strong>Spot Comercial para Rádio e Spotify:</strong> Produção completa com trilha, efeitos e masterização para a sua campanha veicular com máxima qualidade nas emissoras {{stateOf}} e mídias digitais.</li>
+        <li><strong>Gravação para Carro de Som e Porta de Loja:</strong> Locução varejista de alto impacto para atrair clientes em centros comerciais, ruas movimentadas e promoções de rua {{stateIn}}.</li>
         <li><strong>Vídeos Institucionais e Corporativos:</strong> Vozes padrão, humanizadas e conversacionais direcionadas a empresas, indústrias e marcas do setor de {{nicheEmphasis}}.</li>
-        <li><strong>Espera Telefônica e URA:</strong> Profissionalize o atendimento telefônico da sua empresa com locuções claras e acolhedoras para clientes de {{stateName}}.</li>
+        <li><strong>Espera Telefônica e URA:</strong> Profissionalize o atendimento telefônico da sua empresa com locuções claras e acolhedoras para clientes {{stateOf}}.</li>
       </ul>
     </div>
   </section>
 
   <section class="content-section" id="diferenciais">
     <div class="container">
-      <h2>Por que escolher A Locução para a sua campanha em {{stateName}}?</h2>
+      <h2>Por que escolher A Locução para a sua campanha {{stateIn}}?</h2>
       <p>{{regionalFocus}}</p>
       <p>Com forte ênfase em <strong>{{nicheEmphasis}}</strong>, oferecemos um serviço ágil e sem burocracia:</p>
 
@@ -190,7 +190,7 @@
 
       <!-- CTA BANNER MEIO -->
       <div class="cta-card">
-        <h3>Quer produzir o seu áudio hoje mesmo em {{stateName}}?</h3>
+        <h3>Quer produzir o seu áudio hoje mesmo {{stateIn}}?</h3>
         <p>Envie o seu texto pelo WhatsApp e escolha a voz ideal para o seu projeto.</p>
         <div class="cta-actions">
           <a class="btn btn-wa" href="{{whatsappUrl}}" target="_blank" rel="noopener">Solicitar Orçamento Rápido via WhatsApp</a>
@@ -202,7 +202,7 @@
 
   <section class="content-section" id="como-funciona">
     <div class="container">
-      <h2>Como funciona para gravar seu Spot em {{stateName}}?</h2>
+      <h2>Como funciona para gravar seu Spot {{stateIn}}?</h2>
       <p>O processo é 100% digital, prático e ágil:</p>
 
       <div class="steps-list">
@@ -217,14 +217,14 @@
 
   <section class="content-section">
     <div class="container">
-      <h2>Faça seu orçamento agora para {{stateName}}!</h2>
+      <h2>Faça seu orçamento agora {{stateFor}}!</h2>
       <p>Não perca tempo. Fale diretamente com nossa equipe de produção, envie seu roteiro e receba uma estimativa de valor em poucos minutos.</p>
-      <p><strong>Cidades e regiões atendidas em {{stateName}}:</strong> {{citiesListFormatted}}.</p>
+      <p><strong>Cidades e regiões atendidas {{stateIn}}:</strong> {{citiesListFormatted}}.</p>
 
       <!-- CTA BANNER FIM -->
       <div class="cta-card">
-        <h3>Fale com a nossa equipe de produção em {{stateName}}</h3>
-        <p>Atendimento imediato via WhatsApp para empresas de todo o estado de {{stateName}}.</p>
+        <h3>Fale com a nossa equipe de produção {{stateIn}}</h3>
+        <p>Atendimento imediato via WhatsApp para empresas de todo o estado {{stateOf}}.</p>
         <div class="cta-actions">
           <a class="btn btn-wa" href="{{whatsappUrl}}" target="_blank" rel="noopener">Solicitar Orçamento Rápido via WhatsApp</a>
           <a class="btn btn-light" href="{{whatsappUrl}}" target="_blank" rel="noopener">Ouvir Vozes e Fazer Orçamento</a>
@@ -236,7 +236,7 @@
 
 <footer>
   <div class="footer-inner">
-    <span>© <span id="year"></span> A Locução • Produtora de Áudio para {{stateName}} e Todo o Brasil</span>
+    <span>© <span id="year"></span> A Locução • Produtora de Áudio {{stateFor}} e Todo o Brasil</span>
     <span class="footer-links">
       <a href="/">Início</a>
       <a href="/spot-comercial/">Spot Comercial</a>
