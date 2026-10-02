@@ -168,3 +168,6 @@ function escapeRegExp(string) {
 }
 
 generatePages();
+
+// Preserve shared navigation and panel purchase links in regenerated regional pages.
+require("child_process").execFileSync("python3", [path.join(__dirname, "standardize-layout.py")], {stdio: "inherit"});
