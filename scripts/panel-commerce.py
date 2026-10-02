@@ -56,6 +56,8 @@ def normalize_page(text):
     text=re.sub(r'<div class="(?:panel-actions|hero-actions)">.*?</div>',support_action,text,flags=re.S)
     text=text.replace('Preciso de ajuda pelo WhatsApp','Pedir ou tirar dúvidas pelo WhatsApp')
     text=re.sub(r'<a class="panel-help-link"[^>]*>.*?</a>',FLOAT_LINK,text,flags=re.S)
+    if '<body' in text and 'class="panel-help-link"' not in text:
+        text=text.replace('</body>',FLOAT_LINK+'\n</body>')
     return text
 
 def main():
