@@ -30,7 +30,7 @@ def standardize_page(text):
     text = text.replace('</body>', JS + '\n</body>')
     text = run_path(str(ROOT / "scripts/panel-commerce.py"))["normalize_page"](text)
     text = re.sub(r'<link\b[^>]*href=["\']/assets/panel-commerce\.css[^"\']*["\'][^>]*>\s*', '', text)
-    text = text.replace("</head>", '<link rel="stylesheet" href="/assets/panel-commerce.css?v=20261002-1">\n</head>')
+    text = text.replace("</head>", '<link rel="stylesheet" href="/assets/panel-commerce.css?v=20261002-compras-3">\n</head>')
     text = re.sub(r'/assets/voice-bank.js(?:\?[^"\s<>]+)?', '/assets/voice-bank.js?v=20261002-lb-2', text)
     text = re.sub(r'/assets/featured-voices.js(?:\?[^"\s<>]+)?', '/assets/featured-voices.js?v=20261002-lb', text)
     text = re.sub(r'/assets/voice-profile.js(?:\?[^"\s<>]+)?', '/assets/voice-profile.js?v=20261002-lb', text)

@@ -59,7 +59,7 @@
   </script>
   <meta property="og:image" content="https://alocucao.com.br/favicon.svg">
 <link rel="stylesheet" href="/assets/site-layout.css?v=20261002">
-<link rel="stylesheet" href="/assets/panel-commerce.css?v=20261002-1">
+<link rel="stylesheet" href="/assets/panel-commerce.css?v=20261002-compras-3">
 </head>
 <body>
   <!-- site-header:start -->
@@ -79,7 +79,7 @@
     <section class="calculator"><div class="container calc-grid">
       <div class="panel">
         <label for="script-text">Cole ou digite o texto da locução</label>
-        <textarea id="script-text" maxlength="12000" placeholder="Exemplo: Atenção! Neste fim de semana, ofertas especiais esperam por você..."></textarea><p class="panel-note">Estimativa pela tabela: Off R$ 11,90 e Produção R$ 24,40 por fração de 40 segundos, sem a taxa de pagamento. Confira o total no painel. Copie seu roteiro para enviá-lo na sua conta; ele não é transferido automaticamente.</p>
+        <textarea id="script-text" maxlength="12000" placeholder="Exemplo: Atenção! Neste fim de semana, ofertas especiais esperam por você..."></textarea><p class="panel-note">Estimativa pela tabela: Off R$ 11,90 e Produção R$ 24,90 por fração de 40 segundos, sem a taxa de pagamento. Confira o total no painel. Copie seu roteiro para enviá-lo na sua conta; ele não é transferido automaticamente.</p>
         <div class="controls"><div class="field"><label for="voice-speed">Ritmo de leitura</label><select id="voice-speed"><option value="120">Calmo ou institucional</option><option value="140" selected>Natural ou comercial</option><option value="160">Dinâmico ou varejo</option></select></div></div>
         <div class="actions"><button class="btn btn-dark" id="calculate" type="button">Calcular duração</button><button class="btn btn-light" id="clear" type="button">Limpar</button></div>
         <p class="privacy">🔒 O texto não é enviado nem armazenado pela A Locução. O cálculo é feito somente neste dispositivo.</p>
@@ -189,7 +189,7 @@
           return;
         }
         const count=words(value).length,wpm=Number(speed.value),commas=(value.match(/[,;:]/g)||[]).length,endings=(value.match(/[.!?]/g)||[]).length,breaks=(value.match(/\n/g)||[]).length,estimated=(count/wpm)*60+commas*.18+endings*.42+breaks*.28,low=estimated*.9,high=estimated*1.12,blocks=Math.max(1,Math.ceil(high/40));
-        const priceOff=blocks*1190/100,priceSpot=blocks*2440/100;
+        const priceOff=blocks*1190/100,priceSpot=blocks*2490/100;
 
         document.getElementById("duration").textContent=format(estimated);
         document.getElementById("blocks").textContent=blocks;
@@ -270,8 +270,10 @@
       text.addEventListener("keydown",event=>{if((event.ctrlKey||event.metaKey)&&event.key==="Enter")handleManualCalculate()});
     })();
   </script>
-  <script src="/assets/site.js?v=20261002-painel-2"></script>
-<a class="panel-help-link" data-panel-support href="https://wa.me/5527996529832" target="_blank" rel="noopener" aria-label="Ajuda pelo WhatsApp, segunda a sexta das 08h às 18h">Ajuda no WhatsApp</a>
+  <script src="/assets/site.js?v=20261002-compras-3"></script>
+<a class="panel-help-link" data-panel-support data-cta="whatsapp_flutuante" href="https://wa.me/5527996529832" target="_blank" rel="noopener" aria-label="Pedir ou falar pelo WhatsApp, segunda a sexta das 08h às 18h"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M18.403 5.592A9.002 9.002 0 003.111 16.29L1.87 20.83a.6.6 0 00.732.732l4.54-1.241A9.002 9.002 0 0018.403 5.592zM12.004 2.2a9.792 9.792 0 00-8.48 14.691l-1.3 4.757a1.2 1.2 0 001.465 1.465l4.757-1.3A9.794 9.794 0 1012.004 2.2zm4.846 12.191c-.225-.113-1.328-.655-1.534-.73-.205-.075-.355-.113-.505.113-.15.225-.58.73-.711.88-.131.15-.262.169-.487.056a6.126 6.126 0 01-1.802-1.112 6.757 6.757 0 01-1.248-1.554c-.131-.225-.014-.347.098-.459.1-.1.225-.262.338-.394.113-.131.15-.225.225-.375.075-.15.038-.281-.019-.394-.056-.113-.505-1.218-.692-1.668-.182-.438-.367-.378-.505-.386l-.43-.008a.83.83 0 00-.6.281c-.206.225-.787.769-.787 1.875 0 1.106.806 2.175.918 2.325.113.15 1.587 2.423 3.845 3.398.537.232.956.37 1.283.474.54.172 1.03.148 1.418.09.432-.065 1.328-.543 1.516-1.068.188-.525.188-.975.131-1.068-.056-.094-.206-.15-.431-.263z" fill="currentColor"/>
+        </svg><span>Fale pelo WhatsApp<small>Seg–sex · 08h às 18h</small></span></a>
 <script src="/assets/site-layout.js?v=20261002" defer></script>
 </body>
 </html>
