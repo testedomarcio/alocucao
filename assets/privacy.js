@@ -4,14 +4,7 @@
   try { saved = localStorage.getItem(STORAGE_KEY); } catch (error) {}
 
   function updateConsent(value) {
-    if (typeof window.gtag === "function") {
-      window.gtag("consent", "update", {
-        ad_storage: value === "accepted" ? "granted" : "denied",
-        analytics_storage: value === "accepted" ? "granted" : "denied",
-        ad_user_data: value === "accepted" ? "granted" : "denied",
-        ad_personalization: "denied"
-      });
-    }
+    window.alocucaoConsent = value;
     window.dispatchEvent(new CustomEvent("alocucao:consent", { detail: { value } }));
   }
 

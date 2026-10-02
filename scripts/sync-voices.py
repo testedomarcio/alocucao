@@ -121,6 +121,13 @@ def update_schema(voices):
     import html as escaping
     fallback = '<ul class="fallback-list">' + ''.join('<li>'+('<a href="'+escaping.escape(v['localProfile'],quote=True)+'">'+escaping.escape(v['name'])+'</a>' if v.get('profilePublished') else escaping.escape(v['name']))+' — '+escaping.escape(v['type'] or 'Voz humana')+'</li>' for v in voices) + '</ul>'
     html = re.sub(r'<!-- voices-fallback:start -->.*?<!-- voices-fallback:end -->', lambda _: '<!-- voices-fallback:start -->'+fallback+'<!-- voices-fallback:end -->', html, flags=re.S)
+    directory = '<!-- voices-directory:start --><details class="profile-directory"><summary>Ver todos os perfis de locutores</summary>' + fallback + '</details><!-- voices-directory:end -->'
+    if '<!-- voices-directory:start -->' in html:
+        html = re.sub(r'<!-- voices-directory:start -->.*?<!-- voices-directory:end -->', lambda _: directory, html, flags=re.S)
+    else:
+        html = html.replace('</noscript>', '</noscript>\n' + directory, 1)
+    if '/assets/contextual-cta.css' not in html:
+        html = html.replace('</head>', '<link rel="stylesheet" href="/assets/contextual-cta.css">\n</head>', 1)
     if html != page.read_text(encoding='utf-8'):
         atomic_write(page, html)
 

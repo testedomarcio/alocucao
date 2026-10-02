@@ -21,7 +21,7 @@
 
     const loader = document.createElement("script");
     loader.async = true;
-    loader.src = `https://www.googletagmanager.com/gtag/js?id=${ADS_ID}`;
+    loader.src = `https://www.googletagmanager.com/gtag/js?id=${ANALYTICS_ID}`;
     document.head.appendChild(loader);
 
     window.gtag("js", new Date());
@@ -37,23 +37,21 @@
     wait_for_update: 500
   });
 
-  try {
-    if (localStorage.getItem("alocucao_consent") === "accepted") {
-      analyticsConsent = true;
-      window.gtag("consent", "update", {
-        ad_storage: "granted",
-        analytics_storage: "granted",
-        ad_user_data: "granted",
-        ad_personalization: "denied"
-      });
-      loadGoogleTag();
-    }
-  } catch (error) {}
-
-  window.addEventListener("alocucao:consent", (event) => {
-    analyticsConsent = event.detail?.value === "accepted";
+  function applyConsent(value) {
+    analyticsConsent = value === "accepted";
+    window.gtag("consent", "update", {
+      ad_storage: analyticsConsent ? "granted" : "denied",
+      analytics_storage: analyticsConsent ? "granted" : "denied",
+      ad_user_data: analyticsConsent ? "granted" : "denied",
+      ad_personalization: "denied"
+    });
     if (analyticsConsent) loadGoogleTag();
-  });
+  }
+
+  window.addEventListener("alocucao:consent", (event) => applyConsent(event.detail?.value));
+  let initialConsent = window.alocucaoConsent;
+  try { initialConsent = initialConsent || localStorage.getItem("alocucao_consent"); } catch (error) {}
+  if (initialConsent === "accepted" || initialConsent === "rejected") applyConsent(initialConsent);
 
   function cleanLabel(value) {
     return String(value || "")
@@ -64,6 +62,15 @@
 
   function serviceFromPath(pathname) {
     const path = String(pathname || "").toLowerCase();
+    if (path.includes("perfil-locutor-")) return "perfil_locutor";
+    if (path.includes("produtora-de-audio-")) return "servico_regional";
+    if (path.includes("black-friday")) return "spot_black_friday";
+    if (path.includes("natal")) return "spot_natal";
+    if (path.includes("vinheta") || path.includes("podcast")) return "vinhetas";
+    if (path.includes("video-institucional")) return "video_institucional";
+    if (path.includes("telefonica") || path.includes("ura")) return "ura_telefonica";
+    if (path.includes("agencias-revenda")) return "agencias_revenda";
+    if (path.includes("voz-infantil")) return "voz_infantil";
     if (path.includes("spot-para-carro-de-som")) return "spot_carro_de_som";
     if (path.includes("spot-comercial") || path.includes("quanto-custa-um-spot")) return "spot_comercial";
     if (path.includes("locucao-off") || path.includes("locucao_off")) return "locucao_off";
@@ -95,7 +102,6 @@
     return current;
   }
 
-  const attribution = firstTouch();
 
   document.addEventListener("click", (event) => {
     const link = event.target instanceof Element ? event.target.closest("a[href]") : null;
@@ -113,10 +119,11 @@
       url.hostname === "api.whatsapp.com" ||
       url.hostname === "web.whatsapp.com";
 
-    if (!isWhatsApp) return;
+    if (!isWhatsApp || !analyticsConsent) return;
+    const attribution = firstTouch();
 
     window.alocucaoTrackEvent("whatsapp_click", {
-      event_category: "conversion",
+      event_category: "contact",
       contact_method: "whatsapp",
       page_path: window.location.pathname,
       page_title: cleanLabel(document.title),
