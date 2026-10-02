@@ -21,3 +21,17 @@ t.consent('rejected');t.click();assert.equal(t.calls().filter(x=>x[0]==='event')
 assert.equal(setup({saved:'accepted'}).tags.length,1);assert.equal(setup({memory:'accepted',blocked:true}).tags.length,1);assert.equal(setup({saved:'rejected'}).tags.length,0);
 for(const [path,service] of [['/produtora-de-audio-sao-paulo/','servico_regional'],['/spot-black-friday/','spot_black_friday'],['/espera-telefonica-ura/','ura_telefonica'],['/locucao-off/','locucao_off']]){const x=setup({saved:'accepted',path});x.click();assert.equal(x.calls().find(c=>c[0]==='event')[2].service_name,service);}
 console.log('PASS: consent denied/granted/revoked, saved consent, blocked storage, single loader, single WhatsApp event, hostname allowlist and service classification.');
+const panel=setup();
+panel.click('https://paineldegravacao.com.br/comerciaistop/cadastro');
+assert.equal(panel.calls().filter(c=>c[0]==='event').length,0);
+panel.consent('accepted');
+panel.click('https://paineldegravacao.com.br/comerciaistop/cadastro');
+panel.click('https://paineldegravacao.com.br/comerciaistop');
+const exits=panel.calls().filter(c=>c[0]==='event');
+assert.equal(exits.length,2);assert.equal(exits[0][1],'panel_click');
+assert.equal(exits[0][2].panel_action,'register');assert.equal(exits[1][2].panel_action,'login');
+panel.click('https://paineldegravacao.com.br.evil.example/comerciaistop/cadastro');
+assert.equal(panel.calls().filter(c=>c[0]==='event').length,2);
+panel.consent('rejected');panel.click('https://paineldegravacao.com.br/comerciaistop/cadastro');
+assert.equal(panel.calls().filter(c=>c[0]==='event').length,2);
+console.log('PASS: panel register/login exits respect consent and exact hostname; no purchase event is inferred.');

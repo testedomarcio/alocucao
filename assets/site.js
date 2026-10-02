@@ -185,9 +185,9 @@
     if (!mobileBar) {
       mobileBar = document.createElement("div");
       mobileBar.className = "mobile-conversion-bar";
-      mobileBar.innerHTML = `<a href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento."
+      mobileBar.innerHTML = `<a href="https://paineldegravacao.com.br/comerciaistop/cadastro"
         target="_blank" rel="noopener noreferrer" data-cta="barra_mobile_global">
-        Pedir orçamento pelo WhatsApp</a>`;
+        Cadastrar grátis e fazer pedido</a>`;
       document.body.appendChild(mobileBar);
     }
     mobileBar.classList.add("wa-mobile-conversion-bar");
@@ -305,7 +305,7 @@
     const payload={page_type:pageType,service:data.get("service"),deadline:data.get("deadline"),...tracking};
     window.dataLayer.push({event:"brief_completed",...payload});
     window.alocucaoTrackEvent?.("brief_completed", payload);
-    window.open(`https://wa.me/5527996529832?text=${encodeURIComponent(message)}`,"_blank","noopener");
+    window.open("https://paineldegravacao.com.br/comerciaistop/cadastro","_blank","noopener");
   });
 
 })();

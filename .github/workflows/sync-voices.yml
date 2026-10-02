@@ -11,6 +11,8 @@ on:
       - scripts/generate-voice-profiles.py
       - scripts/generate-featured-voices.py
       - scripts/standardize-layout.py
+      - scripts/panel-commerce.py
+      - assets/panel-commerce.css
       - templates/site-header.html
       - templates/site-footer.html
       - assets/site-layout.css

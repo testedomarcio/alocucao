@@ -80,7 +80,7 @@
     const meta = element('div','voice-meta'); meta.append(element('span','',voice.region || 'Região não informada'),element('span','',voice.languages.join(' · ')));
     const actions = element('div','voice-actions');
     const listen = element('button','listen','▶ Ouvir demo'); listen.type='button'; listen.setAttribute('aria-label','Ouvir demonstração de '+voice.name); listen.setAttribute('aria-pressed','false'); listen.addEventListener('click',()=>play(voice));
-    const choose = element('a','choose','Escolher ↗'); choose.href='https://wa.me/5527996529832?text='+encodeURIComponent(`Olá! Ouvi a voz de ${voice.name} no banco da A Locução. Quero verificar a disponibilidade para meu projeto.`); choose.target='_blank'; choose.rel='noopener'; choose.dataset.cta='escolher_'+voice.id;
+    const choose = element('a','choose','Cadastrar e ver vozes ↗'); choose.href='https://paineldegravacao.com.br/comerciaistop/cadastro'; choose.target='_blank'; choose.rel='noopener'; choose.dataset.cta='escolher_'+voice.id;
     actions.append(listen,choose);
     const compareLabel = element('label','compare-check'); const check = element('input'); check.type='checkbox'; check.checked=selected.has(voice.id); check.setAttribute('aria-label','Comparar '+voice.name);
     check.addEventListener('change',()=>{

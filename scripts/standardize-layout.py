@@ -2,6 +2,7 @@
 """Shared static navigation: usable and crawlable without JavaScript."""
 from pathlib import Path
 import re
+from runpy import run_path
 
 ROOT = Path(__file__).resolve().parent.parent
 HEADER = (ROOT / 'templates/site-header.html').read_text().strip()
@@ -27,6 +28,9 @@ def standardize_page(text):
     text = text.replace('</head>', CSS + '\n</head>')
     text = re.sub(r'<script\b[^>]*src=["\']/assets/site-layout\.js[^"\']*["\'][^>]*>\s*</script>\s*', '', text)
     text = text.replace('</body>', JS + '\n</body>')
+    text = run_path(str(ROOT / "scripts/panel-commerce.py"))["normalize_page"](text)
+    text = re.sub(r'<link\b[^>]*href=["\']/assets/panel-commerce\.css[^"\']*["\'][^>]*>\s*', '', text)
+    text = text.replace("</head>", '<link rel="stylesheet" href="/assets/panel-commerce.css?v=20261002-1">\n</head>')
     return text
 
 def main():
