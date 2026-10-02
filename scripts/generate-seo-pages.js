@@ -48,10 +48,8 @@ function generatePages() {
       ? region.cities.join(', ')
       : region.cities || region.stateName;
 
-    // Area Served JSON
-    const areaServedArray = Array.isArray(region.cities)
-      ? [region.stateName, ...region.cities]
-      : [region.stateName];
+    // Remote service coverage; this does not represent a physical office.
+    const areaServedArray = [{ "@type": "AdministrativeArea", name: region.stateName }];
 
     // HTML values and JSON-LD have different escaping rules.
     const safeReplace = (str, pattern, replacement) =>
@@ -74,6 +72,9 @@ function generatePages() {
     pageHtml = safeReplace(pageHtml, '{{nicheEmphasis}}', region.nicheEmphasis);
     pageHtml = safeReplace(pageHtml, '{{heroParagraph}}', region.heroParagraph);
     pageHtml = safeReplace(pageHtml, '{{regionalFocus}}', region.regionalFocus);
+    pageHtml = safeReplace(pageHtml, '{{exampleTitle}}', region.exampleTitle);
+    pageHtml = safeReplace(pageHtml, '{{exampleScript}}', region.exampleScript);
+    pageHtml = safeReplace(pageHtml, '{{briefingTip}}', region.briefingTip);
     pageHtml = safeReplace(pageHtml, '{{citiesListFormatted}}', citiesListFormatted);
     pageHtml = safeReplace(pageHtml, '{{whatsappUrl}}', whatsappUrl);
 
@@ -89,10 +90,11 @@ function generatePages() {
         },
         {
           "@type": "Service", "@id": canonicalUrl + "#service",
-          name: `Gravação de Spot Comercial e Locução ${region.stateIn || `em ${region.stateName}`}`,
+          name: `Locução e produção de áudio online ${region.stateFor || `para ${region.stateName}`}`,
           url: canonicalUrl, description: region.metaDescription,
           provider: { "@id": "https://alocucao.com.br/#organization" },
           areaServed: areaServedArray,
+          availableChannel: { "@type": "ServiceChannel", serviceUrl: canonicalUrl, availableLanguage: "pt-BR" },
           serviceType: ["Spot Comercial", "Locução Profissional", "Gravação para Carro de Som",
             "Vídeos Institucionais", "Espera Telefônica e URA"]
         },
@@ -100,8 +102,8 @@ function generatePages() {
           name: region.pageTitle, description: region.metaDescription },
         { "@type": "BreadcrumbList", itemListElement: [
           { "@type": "ListItem", position: 1, name: "A Locução", item: "https://alocucao.com.br/" },
-          { "@type": "ListItem", position: 2,
-            name: `Produtora de Áudio ${region.stateIn || `em ${region.stateName}`}`, item: canonicalUrl }
+          { "@type": "ListItem", position: 2, name: "Atendimento online", item: "https://alocucao.com.br/servicos/" },
+          { "@type": "ListItem", position: 3, name: region.stateName, item: canonicalUrl }
         ] }
       ]
     };
