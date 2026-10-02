@@ -9,6 +9,7 @@ on:
       - scripts/sync-voices.py
       - scripts/sync-voice-photos.py
       - scripts/generate-voice-profiles.py
+      - scripts/generate-featured-voices.py
       - assets/voice-profile.js
       - assets/voice-profile.css
       - .github/workflows/sync-voices.yml
@@ -44,6 +45,8 @@ jobs:
         run: python scripts/sync-voice-photos.py
       - name: Gerar perfis com dados reais
         run: python scripts/generate-voice-profiles.py
+      - name: Atualizar seleção de vozes nas páginas
+        run: python scripts/generate-featured-voices.py
       - name: Registrar catálogo validado
         id: commit
         shell: bash
@@ -51,7 +54,7 @@ jobs:
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add assets/voices-catalog.json assets/voice-photos data/voice-photos-cache.json data/voice-profile-routes.json vozes/index.html sitemap.xml 'perfil-locutor-*/index.html'
+          git add '*.html' assets/featured-voices.json assets/voices-catalog.json assets/voice-photos data/voice-photos-cache.json data/voice-profile-routes.json vozes/index.html sitemap.xml 'perfil-locutor-*/index.html'
           if ! git diff --cached --quiet; then
             git commit -m 'chore: sincroniza catálogo de vozes'
             git pull --rebase origin main
@@ -95,3 +98,4 @@ jobs:
         id: deployment_retry
         if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@v4
+
