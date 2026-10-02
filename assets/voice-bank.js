@@ -6,6 +6,20 @@
   const fields = {search:$('voice-search'),type:$('voice-type'),style:$('voice-style'),language:$('voice-language'),region:$('voice-region'),status:$('voice-status')};
   let catalog, shown = 24, favoriteView = false, compareView = false, playingId = null, loading = false;
   const selected = new Set();
+  // A new random order per page opening, stable while filtering or refreshing status.
+  const randomOrder = new Map();
+  function registerRandomOrder(voices) {
+    voices.forEach(voice => {
+      if (!randomOrder.has(voice.id)) randomOrder.set(voice.id, Math.random());
+    });
+  }
+  function compareVoices(a, b) {
+    if ($('voice-sort').value === 'availability') {
+      return Number(recording(b)) - Number(recording(a)) ||
+        randomOrder.get(a.id) - randomOrder.get(b.id) || a.name.localeCompare(b.name, 'pt-BR');
+    }
+    return a.name.localeCompare(b.name, 'pt-BR');
+  }
   let layout = 'list';
   try { if(localStorage.getItem('alocucao_voice_layout') === 'grid') layout = 'grid'; } catch (_) {}
   function updateLayout() {
@@ -87,7 +101,7 @@
   }
   function filtered() {
     const terms = normalize(fields.search.value.trim()).split(/\s+/).filter(Boolean);
-    return catalog.voices.filter(v=> (!favoriteView || favorites.has(v.id)) && (!compareView || selected.has(v.id)) && (!fields.type.value || v.type===fields.type.value) && (!fields.style.value || v.styles.includes(fields.style.value)) && (!fields.language.value || v.languages.includes(fields.language.value)) && (!fields.region.value || v.region===fields.region.value) && (!fields.status.value || (fields.status.value==='recording'?recording(v):fresh() && v.status===fields.status.value)) && terms.every(t=>normalize([v.name,v.region,...v.styles,...v.languages].join(' ')).includes(t))).sort((a,b)=>($('voice-sort').value==='availability' ? Number(recording(b))-Number(recording(a)) : 0) || a.name.localeCompare(b.name,'pt-BR'));
+    return catalog.voices.filter(v=> (!favoriteView || favorites.has(v.id)) && (!compareView || selected.has(v.id)) && (!fields.type.value || v.type===fields.type.value) && (!fields.style.value || v.styles.includes(fields.style.value)) && (!fields.language.value || v.languages.includes(fields.language.value)) && (!fields.region.value || v.region===fields.region.value) && (!fields.status.value || (fields.status.value==='recording'?recording(v):fresh() && v.status===fields.status.value)) && terms.every(t=>normalize([v.name,v.region,...v.styles,...v.languages].join(' ')).includes(t))).sort(compareVoices);
   }
   function render() {
     if(!catalog)return;
@@ -124,6 +138,7 @@
     try {
       const response=await fetch('/assets/voices-catalog.json?v='+Math.floor(Date.now()/600000),{cache:'no-cache',signal:AbortSignal.timeout(15000)}); if(!response.ok)throw Error('Catalog unavailable');
       catalog=validate(await response.json());
+      registerRandomOrder(catalog.voices);
       const existing=new Set(catalog.voices.map(v=>v.id));for(const id of selected)if(!existing.has(id))selected.delete(id);for(const id of favorites)if(!existing.has(id))favorites.delete(id);
       options(fields.style,catalog.voices.flatMap(v=>v.styles));options(fields.region,catalog.voices.map(v=>v.region));options(fields.language,catalog.voices.flatMap(v=>v.languages));
       const stamp=new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}).format(new Date(catalog.fetchedAt));
