@@ -27,6 +27,7 @@ def normalize_page(text):
     text=text.replace('por 1 produção completa','por fração de 40 segundos').replace('por 1 locução off de até 40 segundos','por fração de 40 segundos')
     text=text.replace('Gravações até 22h','Pedidos online 24h').replace('Alguns locutores trabalham em horário ampliado. A disponibilidade é confirmada antes do pedido.','Faça pedidos a qualquer hora pelo painel. A gravação depende da disponibilidade e do prazo do locutor escolhido.')
     text=text.replace('peça pelo WhatsApp','faça seu pedido no Painel de Gravação').replace('Peça pelo WhatsApp','Faça seu pedido no Painel de Gravação').replace('envie seu texto pelo WhatsApp','cadastre-se grátis e envie seu texto no painel').replace('Enviar roteiro pelo WhatsApp','Enviar roteiro no painel').replace('contratação pelo WhatsApp','contratação pelo Painel de Gravação')
+    text=re.sub(r'src=(["\'])/assets/site\.js(?:\?[^"\']*)?\1', lambda m: 'src='+m.group(1)+'/assets/site.js?v=20261002-painel-2'+m.group(1),text)
     return text
 
 def main():
