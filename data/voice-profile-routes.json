@@ -1,1150 +1,1437 @@
 [
   {
-    "id": "absamirasantos",
-    "name": "ABSAMIRA SANTOS",
-    "path": "/perfil-locutor-absamira-santos/",
-    "url": "https://alocucao.com.br/perfil-locutor-absamira-santos/",
-    "published": true
-  },
-  {
-    "id": "alan",
-    "name": "ALAN",
-    "path": "/perfil-locutor-alan/",
-    "url": "https://alocucao.com.br/perfil-locutor-alan/",
-    "published": true
-  },
-  {
-    "id": "alanfernandes",
-    "name": "ALAN FERNANDES",
-    "path": "/perfil-locutor-alan-fernandes/",
-    "url": "https://alocucao.com.br/perfil-locutor-alan-fernandes/",
-    "published": true
-  },
-  {
-    "id": "albertinguigo",
-    "name": "ALBERTIN (GUIGO)",
-    "path": "/perfil-locutor-albertin-guigo/",
-    "url": "https://alocucao.com.br/perfil-locutor-albertin-guigo/",
-    "published": true
-  },
-  {
-    "id": "alessandropeixoto",
-    "name": "ALESSANDRO PEIXOTO",
-    "path": "/perfil-locutor-alessandro-peixoto/",
-    "url": "https://alocucao.com.br/perfil-locutor-alessandro-peixoto/",
-    "published": true
-  },
-  {
-    "id": "alexandredreger",
-    "name": "ALEXANDRE DREGER",
-    "path": "/perfil-locutor-alexandre-dreger/",
-    "url": "https://alocucao.com.br/perfil-locutor-alexandre-dreger/",
-    "published": true
-  },
-  {
-    "id": "alexjunior",
-    "name": "ALEX JUNIOR",
-    "path": "/perfil-locutor-alex-junior/",
-    "url": "https://alocucao.com.br/perfil-locutor-alex-junior/",
-    "published": true
-  },
-  {
-    "id": "alexwilian",
-    "name": "ALEX WILIAN",
-    "path": "/perfil-locutor-alex-wilian/",
-    "url": "https://alocucao.com.br/perfil-locutor-alex-wilian/",
-    "published": true
-  },
-  {
-    "id": "alicecorrea",
-    "name": "ALICE CORREA",
-    "path": "/perfil-locutor-alice-correa/",
-    "url": "https://alocucao.com.br/perfil-locutor-alice-correa/",
-    "published": true
-  },
-  {
-    "id": "alvaroxavier",
-    "name": "ALVARO XAVIER",
-    "path": "/perfil-locutor-alvaro-xavier/",
-    "url": "https://alocucao.com.br/perfil-locutor-alvaro-xavier/",
-    "published": true
-  },
-  {
-    "id": "alvesgarcia",
-    "name": "ALVES GARCIA",
-    "path": "/perfil-locutor-alves-garcia/",
-    "url": "https://alocucao.com.br/perfil-locutor-alves-garcia/",
-    "published": true
-  },
-  {
-    "id": "alvesneto",
-    "name": "ALVES NETO",
-    "path": "/perfil-locutor-alves-neto/",
-    "url": "https://alocucao.com.br/perfil-locutor-alves-neto/",
-    "published": true
-  },
-  {
-    "id": "andersonhenrique",
-    "name": "ANDERSON HENRIQUE",
-    "path": "/perfil-locutor-anderson-henrique/",
-    "url": "https://alocucao.com.br/perfil-locutor-anderson-henrique/",
-    "published": true
-  },
-  {
-    "id": "andersonnardele",
-    "name": "ANDERSON NARDELE",
-    "path": "/perfil-locutor-anderson-nardele/",
-    "url": "https://alocucao.com.br/perfil-locutor-anderson-nardele/",
-    "published": true
-  },
-  {
-    "id": "andreaguiar",
-    "name": "ANDRÉ AGUIAR",
-    "path": "/perfil-locutor-andre-aguiar/",
-    "url": "https://alocucao.com.br/perfil-locutor-andre-aguiar/",
-    "published": true
-  },
-  {
-    "id": "andregonzaga",
-    "name": "ANDRÉ GONZAGA",
-    "path": "/perfil-locutor-andre-gonzaga/",
-    "url": "https://alocucao.com.br/perfil-locutor-andre-gonzaga/",
-    "published": true
-  },
-  {
-    "id": "andreiarodrigues",
-    "name": "ANDREIA RODRIGUES",
-    "path": "/perfil-locutor-andreia-rodrigues/",
-    "url": "https://alocucao.com.br/perfil-locutor-andreia-rodrigues/",
-    "published": true
-  },
-  {
-    "id": "andrewilliam",
-    "name": "ANDRE WILLIAM",
-    "path": "/perfil-locutor-andre-william/",
-    "url": "https://alocucao.com.br/perfil-locutor-andre-william/",
-    "published": true
-  },
-  {
-    "id": "anielecristina",
-    "name": "ANIELE CRISTINA",
-    "path": "/perfil-locutor-aniele-cristina/",
-    "url": "https://alocucao.com.br/perfil-locutor-aniele-cristina/",
-    "published": true
-  },
-  {
-    "id": "arturterra",
-    "name": "ARTUR TERRA",
-    "path": "/perfil-locutor-artur-terra/",
-    "url": "https://alocucao.com.br/perfil-locutor-artur-terra/",
-    "published": true
-  },
-  {
-    "id": "azevedojunior",
-    "name": "AZEVEDO JUNIOR",
-    "path": "/perfil-locutor-azevedo-junior/",
-    "url": "https://alocucao.com.br/perfil-locutor-azevedo-junior/",
-    "published": true
-  },
-  {
-    "id": "banana",
-    "name": "BANANA",
-    "path": "/perfil-locutor-banana/",
-    "url": "https://alocucao.com.br/perfil-locutor-banana/",
-    "published": true
-  },
-  {
-    "id": "bettozaira",
-    "name": "BETTO ZAIRA",
-    "path": "/perfil-locutor-betto-zaira/",
-    "url": "https://alocucao.com.br/perfil-locutor-betto-zaira/",
-    "published": true
-  },
-  {
-    "id": "brunocorrea",
-    "name": "BRUNO CORREA",
-    "path": "/perfil-locutor-bruno-correa/",
-    "url": "https://alocucao.com.br/perfil-locutor-bruno-correa/",
-    "published": true
-  },
-  {
-    "id": "brunorocha",
-    "name": "BRUNO ROCHA",
-    "path": "/perfil-locutor-bruno-rocha/",
-    "url": "https://alocucao.com.br/perfil-locutor-bruno-rocha/",
-    "published": true
-  },
-  {
-    "id": "brunozen",
-    "name": "BRUNO ZEN",
-    "path": "/perfil-locutor-bruno-zen/",
-    "url": "https://alocucao.com.br/perfil-locutor-bruno-zen/",
-    "published": true
-  },
-  {
-    "id": "carolpedroso",
-    "name": "CAROL PEDROSO",
-    "path": "/perfil-locutor-carol-pedroso/",
-    "url": "https://alocucao.com.br/perfil-locutor-carol-pedroso/",
-    "published": true
-  },
-  {
-    "id": "cauebilharvas",
-    "name": "CAUE BILHARVAS",
-    "path": "/perfil-locutor-caue-bilharvas/",
-    "url": "https://alocucao.com.br/perfil-locutor-caue-bilharvas/",
-    "published": true
-  },
-  {
-    "id": "celso",
-    "name": "CELSO",
-    "path": "/perfil-locutor-celso/",
-    "url": "https://alocucao.com.br/perfil-locutor-celso/",
-    "published": true
-  },
-  {
-    "id": "charleshelfer",
-    "name": "CHARLES HELFER",
-    "path": "/perfil-locutor-charles-helfer/",
-    "url": "https://alocucao.com.br/perfil-locutor-charles-helfer/",
-    "published": true
-  },
-  {
-    "id": "christianvinicius",
-    "name": "CHRISTIAN VINICIUS",
-    "path": "/perfil-locutor-christian-vinicius/",
-    "url": "https://alocucao.com.br/perfil-locutor-christian-vinicius/",
-    "published": true
-  },
-  {
-    "id": "ciceroalves",
-    "name": "CICERO ALVES",
-    "path": "/perfil-locutor-cicero-alves/",
-    "url": "https://alocucao.com.br/perfil-locutor-cicero-alves/",
-    "published": true
-  },
-  {
-    "id": "cleberramos",
-    "name": "CLEBER RAMOS",
-    "path": "/perfil-locutor-cleber-ramos/",
-    "url": "https://alocucao.com.br/perfil-locutor-cleber-ramos/",
-    "published": true
-  },
-  {
-    "id": "crismarques",
-    "name": "CRIS MARQUES",
-    "path": "/perfil-locutor-cris-marques/",
-    "url": "https://alocucao.com.br/perfil-locutor-cris-marques/",
-    "published": true
-  },
-  {
-    "id": "cristianjunior",
-    "name": "CRISTIAN JUNIOR",
-    "path": "/perfil-locutor-cristian-junior/",
-    "url": "https://alocucao.com.br/perfil-locutor-cristian-junior/",
-    "published": true
-  },
-  {
-    "id": "cristianocorrea",
-    "name": "CRISTIANO CORRÊA",
-    "path": "/perfil-locutor-cristiano-correa/",
-    "url": "https://alocucao.com.br/perfil-locutor-cristiano-correa/",
-    "published": true
-  },
-  {
-    "id": "cristianopassarelli",
-    "name": "CRISTIANO PASSARELLI",
-    "path": "/perfil-locutor-cristiano-passarelli/",
-    "url": "https://alocucao.com.br/perfil-locutor-cristiano-passarelli/",
-    "published": true
-  },
-  {
-    "id": "cristianoramos",
-    "name": "CRISTIANO RAMOS",
-    "path": "/perfil-locutor-cristiano-ramos/",
-    "url": "https://alocucao.com.br/perfil-locutor-cristiano-ramos/",
-    "published": true
-  },
-  {
-    "id": "davidvilanova",
-    "name": "DAVID VILANOVA",
-    "path": "/perfil-locutor-david-vilanova/",
-    "url": "https://alocucao.com.br/perfil-locutor-david-vilanova/",
-    "published": true
-  },
-  {
-    "id": "deborasantos",
-    "name": "DÉBORA SANTOS",
-    "path": "/perfil-locutor-debora-santos/",
-    "url": "https://alocucao.com.br/perfil-locutor-debora-santos/",
-    "published": true
-  },
-  {
-    "id": "denilsonsoares",
-    "name": "DENILSON SOARES",
-    "path": "/perfil-locutor-denilson-soares/",
-    "url": "https://alocucao.com.br/perfil-locutor-denilson-soares/",
-    "published": true
-  },
-  {
-    "id": "deummurygomes",
-    "name": "DEUMMURY GOMES",
-    "path": "/perfil-locutor-deummury-gomes/",
-    "url": "https://alocucao.com.br/perfil-locutor-deummury-gomes/",
-    "published": true
-  },
-  {
-    "id": "diane",
-    "name": "DIANE",
-    "path": "/perfil-locutor-diane/",
-    "url": "https://alocucao.com.br/perfil-locutor-diane/",
-    "published": true
-  },
-  {
-    "id": "dianertoledo",
-    "name": "DIANER TOLEDO",
-    "path": "/perfil-locutor-dianer-toledo/",
-    "url": "https://alocucao.com.br/perfil-locutor-dianer-toledo/",
-    "published": true
-  },
-  {
-    "id": "diego",
-    "name": "DIEGO",
-    "path": "/perfil-locutor-diego/",
-    "url": "https://alocucao.com.br/perfil-locutor-diego/",
-    "published": true
-  },
-  {
-    "id": "dionatan",
-    "name": "DIONATAN",
-    "path": "/perfil-locutor-dionatan/",
-    "url": "https://alocucao.com.br/perfil-locutor-dionatan/",
-    "published": true
-  },
-  {
-    "id": "douglascamargo",
-    "name": "DOUGLAS CAMARGO",
-    "path": "/perfil-locutor-douglas-camargo/",
-    "url": "https://alocucao.com.br/perfil-locutor-douglas-camargo/",
-    "published": true
-  },
-  {
-    "id": "douglaslima",
-    "name": "DOUGLAS LIMA",
-    "path": "/perfil-locutor-douglas-lima/",
-    "url": "https://alocucao.com.br/perfil-locutor-douglas-lima/",
-    "published": true
-  },
-  {
-    "id": "eber",
-    "name": "EBER",
+    "id": "lb-20",
+    "name": "Eber",
     "path": "/perfil-locutor-eber/",
     "url": "https://alocucao.com.br/perfil-locutor-eber/",
     "published": true
   },
   {
-    "id": "ederluiz",
-    "name": "EDER LUIZ",
-    "path": "/perfil-locutor-eder-luiz/",
-    "url": "https://alocucao.com.br/perfil-locutor-eder-luiz/",
+    "id": "lb-22",
+    "name": "Fernando R",
+    "path": "/perfil-locutor-fernando-r/",
+    "url": "https://alocucao.com.br/perfil-locutor-fernando-r/",
     "published": true
   },
   {
-    "id": "edianezanella",
-    "name": "EDIANE ZANELLA",
-    "path": "/perfil-locutor-ediane-zanella/",
-    "url": "https://alocucao.com.br/perfil-locutor-ediane-zanella/",
+    "id": "lb-24",
+    "name": "Flavio F",
+    "path": "/perfil-locutor-flavio-f/",
+    "url": "https://alocucao.com.br/perfil-locutor-flavio-f/",
     "published": true
   },
   {
-    "id": "edsonkazama",
-    "name": "EDSON KAZAMA",
-    "path": "/perfil-locutor-edson-kazama/",
-    "url": "https://alocucao.com.br/perfil-locutor-edson-kazama/",
+    "id": "lb-37",
+    "name": "Anderson O",
+    "path": "/perfil-locutor-anderson-o/",
+    "url": "https://alocucao.com.br/perfil-locutor-anderson-o/",
     "published": true
   },
   {
-    "id": "edsonrech",
-    "name": "EDSON RECH",
-    "path": "/perfil-locutor-edson-rech/",
-    "url": "https://alocucao.com.br/perfil-locutor-edson-rech/",
+    "id": "lb-43",
+    "name": "Luiz",
+    "path": "/perfil-locutor-luiz/",
+    "url": "https://alocucao.com.br/perfil-locutor-luiz/",
     "published": true
   },
   {
-    "id": "eduardadasilva",
-    "name": "EDUARDA DA SILVA",
-    "path": "/perfil-locutor-eduarda-da-silva/",
-    "url": "https://alocucao.com.br/perfil-locutor-eduarda-da-silva/",
+    "id": "lb-46",
+    "name": "Diane",
+    "path": "/perfil-locutor-diane/",
+    "url": "https://alocucao.com.br/perfil-locutor-diane/",
     "published": true
   },
   {
-    "id": "elieldesouza",
-    "name": "ELIEL DE SOUZA",
-    "path": "/perfil-locutor-eliel-de-souza/",
-    "url": "https://alocucao.com.br/perfil-locutor-eliel-de-souza/",
+    "id": "lb-57",
+    "name": "Bobby",
+    "path": "/perfil-locutor-bobby/",
+    "url": "https://alocucao.com.br/perfil-locutor-bobby/",
     "published": true
   },
   {
-    "id": "elissandra",
-    "name": "ELISSANDRA",
+    "id": "lb-61",
+    "name": "Fernanda P",
+    "path": "/perfil-locutor-fernanda-p/",
+    "url": "https://alocucao.com.br/perfil-locutor-fernanda-p/",
+    "published": true
+  },
+  {
+    "id": "lb-69",
+    "name": "Rogério",
+    "path": "/perfil-locutor-rogerio/",
+    "url": "https://alocucao.com.br/perfil-locutor-rogerio/",
+    "published": true
+  },
+  {
+    "id": "lb-92",
+    "name": "Genildo",
+    "path": "/perfil-locutor-genildo/",
+    "url": "https://alocucao.com.br/perfil-locutor-genildo/",
+    "published": true
+  },
+  {
+    "id": "lb-106",
+    "name": "Tony",
+    "path": "/perfil-locutor-tony/",
+    "url": "https://alocucao.com.br/perfil-locutor-tony/",
+    "published": true
+  },
+  {
+    "id": "lb-124",
+    "name": "Sabrina",
+    "path": "/perfil-locutor-sabrina/",
+    "url": "https://alocucao.com.br/perfil-locutor-sabrina/",
+    "published": true
+  },
+  {
+    "id": "lb-146",
+    "name": "Fernanda C",
+    "path": "/perfil-locutor-fernanda-c/",
+    "url": "https://alocucao.com.br/perfil-locutor-fernanda-c/",
+    "published": true
+  },
+  {
+    "id": "lb-173",
+    "name": "Edson",
+    "path": "/perfil-locutor-edson/",
+    "url": "https://alocucao.com.br/perfil-locutor-edson/",
+    "published": true
+  },
+  {
+    "id": "lb-206",
+    "name": "Donizeti",
+    "path": "/perfil-locutor-donizeti/",
+    "url": "https://alocucao.com.br/perfil-locutor-donizeti/",
+    "published": true
+  },
+  {
+    "id": "lb-214",
+    "name": "Amorim",
+    "path": "/perfil-locutor-amorim/",
+    "url": "https://alocucao.com.br/perfil-locutor-amorim/",
+    "published": true
+  },
+  {
+    "id": "lb-226",
+    "name": "Kássia",
+    "path": "/perfil-locutor-kassia/",
+    "url": "https://alocucao.com.br/perfil-locutor-kassia/",
+    "published": true
+  },
+  {
+    "id": "lb-234",
+    "name": "Leandrinho",
+    "path": "/perfil-locutor-leandrinho/",
+    "url": "https://alocucao.com.br/perfil-locutor-leandrinho/",
+    "published": true
+  },
+  {
+    "id": "lb-267",
+    "name": "Lindy",
+    "path": "/perfil-locutor-lindy/",
+    "url": "https://alocucao.com.br/perfil-locutor-lindy/",
+    "published": true
+  },
+  {
+    "id": "lb-272",
+    "name": "Josi de Oliveira",
+    "path": "/perfil-locutor-josi-de-oliveira/",
+    "url": "https://alocucao.com.br/perfil-locutor-josi-de-oliveira/",
+    "published": true
+  },
+  {
+    "id": "lb-304",
+    "name": "Francisco",
+    "path": "/perfil-locutor-francisco/",
+    "url": "https://alocucao.com.br/perfil-locutor-francisco/",
+    "published": true
+  },
+  {
+    "id": "lb-329",
+    "name": "Suzana",
+    "path": "/perfil-locutor-suzana/",
+    "url": "https://alocucao.com.br/perfil-locutor-suzana/",
+    "published": true
+  },
+  {
+    "id": "lb-330",
+    "name": "Guigo",
+    "path": "/perfil-locutor-guigo/",
+    "url": "https://alocucao.com.br/perfil-locutor-guigo/",
+    "published": true
+  },
+  {
+    "id": "lb-331",
+    "name": "Luizvan",
+    "path": "/perfil-locutor-luizvan/",
+    "url": "https://alocucao.com.br/perfil-locutor-luizvan/",
+    "published": true
+  },
+  {
+    "id": "lb-348",
+    "name": "Renato",
+    "path": "/perfil-locutor-renato/",
+    "url": "https://alocucao.com.br/perfil-locutor-renato/",
+    "published": true
+  },
+  {
+    "id": "lb-350",
+    "name": "Volnei",
+    "path": "/perfil-locutor-volnei/",
+    "url": "https://alocucao.com.br/perfil-locutor-volnei/",
+    "published": true
+  },
+  {
+    "id": "lb-400",
+    "name": "R Silva",
+    "path": "/perfil-locutor-r-silva/",
+    "url": "https://alocucao.com.br/perfil-locutor-r-silva/",
+    "published": true
+  },
+  {
+    "id": "lb-425",
+    "name": "Lindomar",
+    "path": "/perfil-locutor-lindomar/",
+    "url": "https://alocucao.com.br/perfil-locutor-lindomar/",
+    "published": true
+  },
+  {
+    "id": "lb-431",
+    "name": "Anderson Nardele",
+    "path": "/perfil-locutor-anderson-nardele/",
+    "url": "https://alocucao.com.br/perfil-locutor-anderson-nardele/",
+    "published": true
+  },
+  {
+    "id": "lb-466",
+    "name": "Junior C",
+    "path": "/perfil-locutor-junior-c/",
+    "url": "https://alocucao.com.br/perfil-locutor-junior-c/",
+    "published": true
+  },
+  {
+    "id": "lb-484",
+    "name": "Mauro",
+    "path": "/perfil-locutor-mauro/",
+    "url": "https://alocucao.com.br/perfil-locutor-mauro/",
+    "published": true
+  },
+  {
+    "id": "lb-510",
+    "name": "Sunshine",
+    "path": "/perfil-locutor-sunshine/",
+    "url": "https://alocucao.com.br/perfil-locutor-sunshine/",
+    "published": true
+  },
+  {
+    "id": "lb-511",
+    "name": "Paulo",
+    "path": "/perfil-locutor-paulo/",
+    "url": "https://alocucao.com.br/perfil-locutor-paulo/",
+    "published": true
+  },
+  {
+    "id": "lb-543",
+    "name": "Alan",
+    "path": "/perfil-locutor-alan/",
+    "url": "https://alocucao.com.br/perfil-locutor-alan/",
+    "published": true
+  },
+  {
+    "id": "lb-544",
+    "name": "Patricia S",
+    "path": "/perfil-locutor-patricia-s/",
+    "url": "https://alocucao.com.br/perfil-locutor-patricia-s/",
+    "published": true
+  },
+  {
+    "id": "lb-549",
+    "name": "Tales",
+    "path": "/perfil-locutor-tales/",
+    "url": "https://alocucao.com.br/perfil-locutor-tales/",
+    "published": true
+  },
+  {
+    "id": "lb-597",
+    "name": "Sandro",
+    "path": "/perfil-locutor-sandro/",
+    "url": "https://alocucao.com.br/perfil-locutor-sandro/",
+    "published": true
+  },
+  {
+    "id": "lb-612",
+    "name": "Marquinhos",
+    "path": "/perfil-locutor-marquinhos/",
+    "url": "https://alocucao.com.br/perfil-locutor-marquinhos/",
+    "published": true
+  },
+  {
+    "id": "lb-617",
+    "name": "Josiane",
+    "path": "/perfil-locutor-josiane/",
+    "url": "https://alocucao.com.br/perfil-locutor-josiane/",
+    "published": true
+  },
+  {
+    "id": "lb-621",
+    "name": "Juliano",
+    "path": "/perfil-locutor-juliano/",
+    "url": "https://alocucao.com.br/perfil-locutor-juliano/",
+    "published": true
+  },
+  {
+    "id": "lb-631",
+    "name": "Celso",
+    "path": "/perfil-locutor-celso/",
+    "url": "https://alocucao.com.br/perfil-locutor-celso/",
+    "published": true
+  },
+  {
+    "id": "lb-662",
+    "name": "Kleber",
+    "path": "/perfil-locutor-kleber/",
+    "url": "https://alocucao.com.br/perfil-locutor-kleber/",
+    "published": true
+  },
+  {
+    "id": "lb-671",
+    "name": "Rodinei",
+    "path": "/perfil-locutor-rodinei/",
+    "url": "https://alocucao.com.br/perfil-locutor-rodinei/",
+    "published": true
+  },
+  {
+    "id": "lb-803",
+    "name": "Tati",
+    "path": "/perfil-locutor-tati/",
+    "url": "https://alocucao.com.br/perfil-locutor-tati/",
+    "published": true
+  },
+  {
+    "id": "lb-820",
+    "name": "Moretti",
+    "path": "/perfil-locutor-moretti/",
+    "url": "https://alocucao.com.br/perfil-locutor-moretti/",
+    "published": true
+  },
+  {
+    "id": "lb-854",
+    "name": "Renatinho",
+    "path": "/perfil-locutor-renatinho/",
+    "url": "https://alocucao.com.br/perfil-locutor-renatinho/",
+    "published": true
+  },
+  {
+    "id": "lb-878",
+    "name": "Elissandra",
     "path": "/perfil-locutor-elissandra/",
     "url": "https://alocucao.com.br/perfil-locutor-elissandra/",
     "published": true
   },
   {
-    "id": "elton",
-    "name": "ELTON",
-    "path": "/perfil-locutor-elton/",
-    "url": "https://alocucao.com.br/perfil-locutor-elton/",
+    "id": "lb-900",
+    "name": "Betto Zaira",
+    "path": "/perfil-locutor-betto-zaira/",
+    "url": "https://alocucao.com.br/perfil-locutor-betto-zaira/",
     "published": true
   },
   {
-    "id": "elzaribeiro",
-    "name": "ELZA RIBEIRO",
-    "path": "/perfil-locutor-elza-ribeiro/",
-    "url": "https://alocucao.com.br/perfil-locutor-elza-ribeiro/",
+    "id": "lb-919",
+    "name": "Paulo Isaias",
+    "path": "/perfil-locutor-paulo-isaias/",
+    "url": "https://alocucao.com.br/perfil-locutor-paulo-isaias/",
     "published": true
   },
   {
-    "id": "esteniofranklin",
-    "name": "ESTÊNIO FRANKLIN",
-    "path": "/perfil-locutor-estenio-franklin/",
-    "url": "https://alocucao.com.br/perfil-locutor-estenio-franklin/",
+    "id": "lb-955",
+    "name": "Carlos",
+    "path": "/perfil-locutor-carlos/",
+    "url": "https://alocucao.com.br/perfil-locutor-carlos/",
     "published": true
   },
   {
-    "id": "eudes",
-    "name": "EUDES",
-    "path": "/perfil-locutor-eudes/",
-    "url": "https://alocucao.com.br/perfil-locutor-eudes/",
+    "id": "lb-965",
+    "name": "Antônio",
+    "path": "/perfil-locutor-antonio/",
+    "url": "https://alocucao.com.br/perfil-locutor-antonio/",
     "published": true
   },
   {
-    "id": "felipesousa",
-    "name": "FELIPE SOUSA",
-    "path": "/perfil-locutor-felipe-sousa/",
-    "url": "https://alocucao.com.br/perfil-locutor-felipe-sousa/",
+    "id": "lb-985",
+    "name": "Charles",
+    "path": "/perfil-locutor-charles/",
+    "url": "https://alocucao.com.br/perfil-locutor-charles/",
     "published": true
   },
   {
-    "id": "fernandinho",
-    "name": "FERNANDINHO",
-    "path": "/perfil-locutor-fernandinho/",
-    "url": "https://alocucao.com.br/perfil-locutor-fernandinho/",
+    "id": "lb-986",
+    "name": "Ediane",
+    "path": "/perfil-locutor-ediane/",
+    "url": "https://alocucao.com.br/perfil-locutor-ediane/",
     "published": true
   },
   {
-    "id": "fernandobetoli",
-    "name": "FERNANDO BETOLI",
-    "path": "/perfil-locutor-fernando-betoli/",
-    "url": "https://alocucao.com.br/perfil-locutor-fernando-betoli/",
+    "id": "lb-1020",
+    "name": "Aerci Elton Gris",
+    "path": "/perfil-locutor-aerci-elton-gris/",
+    "url": "https://alocucao.com.br/perfil-locutor-aerci-elton-gris/",
     "published": true
   },
   {
-    "id": "flavio",
-    "name": "FLÁVIO",
-    "path": "/perfil-locutor-flavio/",
-    "url": "https://alocucao.com.br/perfil-locutor-flavio/",
+    "id": "lb-1118",
+    "name": "Lezinho",
+    "path": "/perfil-locutor-lezinho/",
+    "url": "https://alocucao.com.br/perfil-locutor-lezinho/",
     "published": true
   },
   {
-    "id": "fonsecafilho",
-    "name": "FONSECA FILHO",
-    "path": "/perfil-locutor-fonseca-filho/",
-    "url": "https://alocucao.com.br/perfil-locutor-fonseca-filho/",
+    "id": "lb-1183",
+    "name": "Cris",
+    "path": "/perfil-locutor-cris/",
+    "url": "https://alocucao.com.br/perfil-locutor-cris/",
     "published": true
   },
   {
-    "id": "franciscobernardo",
-    "name": "FRANCISCO BERNARDO",
-    "path": "/perfil-locutor-francisco-bernardo/",
-    "url": "https://alocucao.com.br/perfil-locutor-francisco-bernardo/",
+    "id": "lb-1262",
+    "name": "Patricia V",
+    "path": "/perfil-locutor-patricia-v/",
+    "url": "https://alocucao.com.br/perfil-locutor-patricia-v/",
     "published": true
   },
   {
-    "id": "franciscocarlos",
-    "name": "FRANCISCO CARLOS",
-    "path": "/perfil-locutor-francisco-carlos/",
-    "url": "https://alocucao.com.br/perfil-locutor-francisco-carlos/",
+    "id": "lb-1292",
+    "name": "Anderson H",
+    "path": "/perfil-locutor-anderson-h/",
+    "url": "https://alocucao.com.br/perfil-locutor-anderson-h/",
     "published": true
   },
   {
-    "id": "gabrieljoas",
-    "name": "GABRIEL JOÁS",
-    "path": "/perfil-locutor-gabriel-joas/",
-    "url": "https://alocucao.com.br/perfil-locutor-gabriel-joas/",
+    "id": "lb-1319",
+    "name": "Eyjanne",
+    "path": "/perfil-locutor-eyjanne/",
+    "url": "https://alocucao.com.br/perfil-locutor-eyjanne/",
     "published": true
   },
   {
-    "id": "gabrielzamboni",
-    "name": "GABRIEL ZAMBONI",
+    "id": "lb-1350",
+    "name": "Adriano",
+    "path": "/perfil-locutor-adriano/",
+    "url": "https://alocucao.com.br/perfil-locutor-adriano/",
+    "published": true
+  },
+  {
+    "id": "lb-1391",
+    "name": "Lula",
+    "path": "/perfil-locutor-lula/",
+    "url": "https://alocucao.com.br/perfil-locutor-lula/",
+    "published": true
+  },
+  {
+    "id": "lb-1804",
+    "name": "Alex P",
+    "path": "/perfil-locutor-alex-p/",
+    "url": "https://alocucao.com.br/perfil-locutor-alex-p/",
+    "published": true
+  },
+  {
+    "id": "lb-1927",
+    "name": "Jean",
+    "path": "/perfil-locutor-jean/",
+    "url": "https://alocucao.com.br/perfil-locutor-jean/",
+    "published": true
+  },
+  {
+    "id": "lb-2131",
+    "name": "Walter",
+    "path": "/perfil-locutor-walter/",
+    "url": "https://alocucao.com.br/perfil-locutor-walter/",
+    "published": true
+  },
+  {
+    "id": "lb-2159",
+    "name": "Marcio H",
+    "path": "/perfil-locutor-marcio-h/",
+    "url": "https://alocucao.com.br/perfil-locutor-marcio-h/",
+    "published": true
+  },
+  {
+    "id": "lb-2164",
+    "name": "Edson G",
+    "path": "/perfil-locutor-edson-g/",
+    "url": "https://alocucao.com.br/perfil-locutor-edson-g/",
+    "published": true
+  },
+  {
+    "id": "lb-2173",
+    "name": "Sérgio Pinheiro",
+    "path": "/perfil-locutor-sergio-pinheiro/",
+    "url": "https://alocucao.com.br/perfil-locutor-sergio-pinheiro/",
+    "published": true
+  },
+  {
+    "id": "lb-2444",
+    "name": "Dell",
+    "path": "/perfil-locutor-dell/",
+    "url": "https://alocucao.com.br/perfil-locutor-dell/",
+    "published": true
+  },
+  {
+    "id": "lb-2587",
+    "name": "Marcos V",
+    "path": "/perfil-locutor-marcos-v/",
+    "url": "https://alocucao.com.br/perfil-locutor-marcos-v/",
+    "published": true
+  },
+  {
+    "id": "lb-2635",
+    "name": "Emerson C",
+    "path": "/perfil-locutor-emerson-c/",
+    "url": "https://alocucao.com.br/perfil-locutor-emerson-c/",
+    "published": true
+  },
+  {
+    "id": "lb-2819",
+    "name": "Donato",
+    "path": "/perfil-locutor-donato/",
+    "url": "https://alocucao.com.br/perfil-locutor-donato/",
+    "published": true
+  },
+  {
+    "id": "lb-2841",
+    "name": "Alan F",
+    "path": "/perfil-locutor-alan-f/",
+    "url": "https://alocucao.com.br/perfil-locutor-alan-f/",
+    "published": true
+  },
+  {
+    "id": "lb-3117",
+    "name": "Pedro",
+    "path": "/perfil-locutor-pedro/",
+    "url": "https://alocucao.com.br/perfil-locutor-pedro/",
+    "published": true
+  },
+  {
+    "id": "lb-3121",
+    "name": "Bruno R",
+    "path": "/perfil-locutor-bruno-r/",
+    "url": "https://alocucao.com.br/perfil-locutor-bruno-r/",
+    "published": true
+  },
+  {
+    "id": "lb-3199",
+    "name": "Rafael B",
+    "path": "/perfil-locutor-rafael-b/",
+    "url": "https://alocucao.com.br/perfil-locutor-rafael-b/",
+    "published": true
+  },
+  {
+    "id": "lb-3228",
+    "name": "Patrine",
+    "path": "/perfil-locutor-patrine/",
+    "url": "https://alocucao.com.br/perfil-locutor-patrine/",
+    "published": true
+  },
+  {
+    "id": "lb-3385",
+    "name": "Pablo",
+    "path": "/perfil-locutor-pablo/",
+    "url": "https://alocucao.com.br/perfil-locutor-pablo/",
+    "published": true
+  },
+  {
+    "id": "lb-4172",
+    "name": "Eli Holanda",
+    "path": "/perfil-locutor-eli-holanda/",
+    "url": "https://alocucao.com.br/perfil-locutor-eli-holanda/",
+    "published": true
+  },
+  {
+    "id": "lb-4185",
+    "name": "Glauber",
+    "path": "/perfil-locutor-glauber/",
+    "url": "https://alocucao.com.br/perfil-locutor-glauber/",
+    "published": true
+  },
+  {
+    "id": "lb-5204",
+    "name": "Ed Pan",
+    "path": "/perfil-locutor-ed-pan/",
+    "url": "https://alocucao.com.br/perfil-locutor-ed-pan/",
+    "published": true
+  },
+  {
+    "id": "lb-5284",
+    "name": "Diego",
+    "path": "/perfil-locutor-diego/",
+    "url": "https://alocucao.com.br/perfil-locutor-diego/",
+    "published": true
+  },
+  {
+    "id": "lb-5289",
+    "name": "Alexandre MG",
+    "path": "/perfil-locutor-alexandre-mg/",
+    "url": "https://alocucao.com.br/perfil-locutor-alexandre-mg/",
+    "published": true
+  },
+  {
+    "id": "lb-5290",
+    "name": "Johnnys Moura",
+    "path": "/perfil-locutor-johnnys-moura/",
+    "url": "https://alocucao.com.br/perfil-locutor-johnnys-moura/",
+    "published": true
+  },
+  {
+    "id": "lb-5454",
+    "name": "Fernando Black",
+    "path": "/perfil-locutor-fernando-black/",
+    "url": "https://alocucao.com.br/perfil-locutor-fernando-black/",
+    "published": true
+  },
+  {
+    "id": "lb-5650",
+    "name": "Ezequias",
+    "path": "/perfil-locutor-ezequias/",
+    "url": "https://alocucao.com.br/perfil-locutor-ezequias/",
+    "published": true
+  },
+  {
+    "id": "lb-6289",
+    "name": "André Gonzaga",
+    "path": "/perfil-locutor-andre-gonzaga/",
+    "url": "https://alocucao.com.br/perfil-locutor-andre-gonzaga/",
+    "published": true
+  },
+  {
+    "id": "lb-6757",
+    "name": "Welton s",
+    "path": "/perfil-locutor-welton-s/",
+    "url": "https://alocucao.com.br/perfil-locutor-welton-s/",
+    "published": true
+  },
+  {
+    "id": "lb-7662",
+    "name": "JC",
+    "path": "/perfil-locutor-jc/",
+    "url": "https://alocucao.com.br/perfil-locutor-jc/",
+    "published": true
+  },
+  {
+    "id": "lb-7711",
+    "name": "Fonseca",
+    "path": "/perfil-locutor-fonseca/",
+    "url": "https://alocucao.com.br/perfil-locutor-fonseca/",
+    "published": true
+  },
+  {
+    "id": "lb-7822",
+    "name": "Gessica",
+    "path": "/perfil-locutor-gessica/",
+    "url": "https://alocucao.com.br/perfil-locutor-gessica/",
+    "published": true
+  },
+  {
+    "id": "lb-7952",
+    "name": "Gabriel Zamboni",
     "path": "/perfil-locutor-gabriel-zamboni/",
     "url": "https://alocucao.com.br/perfil-locutor-gabriel-zamboni/",
     "published": true
   },
   {
-    "id": "genildofernandes",
-    "name": "GENILDO FERNANDES",
-    "path": "/perfil-locutor-genildo-fernandes/",
-    "url": "https://alocucao.com.br/perfil-locutor-genildo-fernandes/",
+    "id": "lb-8750",
+    "name": "Fernando H",
+    "path": "/perfil-locutor-fernando-h/",
+    "url": "https://alocucao.com.br/perfil-locutor-fernando-h/",
     "published": true
   },
   {
-    "id": "gessicasousa",
-    "name": "GESSICA SOUSA",
-    "path": "/perfil-locutor-gessica-sousa/",
-    "url": "https://alocucao.com.br/perfil-locutor-gessica-sousa/",
+    "id": "lb-9377",
+    "name": "Jean P",
+    "path": "/perfil-locutor-jean-p/",
+    "url": "https://alocucao.com.br/perfil-locutor-jean-p/",
     "published": true
   },
   {
-    "id": "gilmarsilva",
-    "name": "GILMAR SILVA",
-    "path": "/perfil-locutor-gilmar-silva/",
-    "url": "https://alocucao.com.br/perfil-locutor-gilmar-silva/",
+    "id": "lb-9962",
+    "name": "Ricardo C",
+    "path": "/perfil-locutor-ricardo-c/",
+    "url": "https://alocucao.com.br/perfil-locutor-ricardo-c/",
     "published": true
   },
   {
-    "id": "giovaniantunes",
-    "name": "GIOVANI ANTUNES",
-    "path": "/perfil-locutor-giovani-antunes/",
-    "url": "https://alocucao.com.br/perfil-locutor-giovani-antunes/",
+    "id": "lb-9967",
+    "name": "Big Boy",
+    "path": "/perfil-locutor-big-boy/",
+    "url": "https://alocucao.com.br/perfil-locutor-big-boy/",
     "published": true
   },
   {
-    "id": "giovanironcato",
-    "name": "GIOVANI RONCATO",
-    "path": "/perfil-locutor-giovani-roncato/",
-    "url": "https://alocucao.com.br/perfil-locutor-giovani-roncato/",
+    "id": "lb-10302",
+    "name": "Freire",
+    "path": "/perfil-locutor-freire/",
+    "url": "https://alocucao.com.br/perfil-locutor-freire/",
     "published": true
   },
   {
-    "id": "girelli",
-    "name": "GIRELLI",
-    "path": "/perfil-locutor-girelli/",
-    "url": "https://alocucao.com.br/perfil-locutor-girelli/",
+    "id": "lb-10623",
+    "name": "Cassio",
+    "path": "/perfil-locutor-cassio/",
+    "url": "https://alocucao.com.br/perfil-locutor-cassio/",
     "published": true
   },
   {
-    "id": "heltonbarbosa",
-    "name": "HELTON BARBOSA",
-    "path": "/perfil-locutor-helton-barbosa/",
-    "url": "https://alocucao.com.br/perfil-locutor-helton-barbosa/",
+    "id": "lb-10980",
+    "name": "Alessandra G",
+    "path": "/perfil-locutor-alessandra-g/",
+    "url": "https://alocucao.com.br/perfil-locutor-alessandra-g/",
     "published": true
   },
   {
-    "id": "iniscafe",
-    "name": "INIS CAFÉ",
-    "path": "/perfil-locutor-inis-cafe/",
-    "url": "https://alocucao.com.br/perfil-locutor-inis-cafe/",
+    "id": "lb-11038",
+    "name": "Fernando L",
+    "path": "/perfil-locutor-fernando-l/",
+    "url": "https://alocucao.com.br/perfil-locutor-fernando-l/",
     "published": true
   },
   {
-    "id": "janainahanauer",
-    "name": "JANAINA HANAUER",
-    "path": "/perfil-locutor-janaina-hanauer/",
-    "url": "https://alocucao.com.br/perfil-locutor-janaina-hanauer/",
+    "id": "lb-11051",
+    "name": "Silva Jr",
+    "path": "/perfil-locutor-silva-jr/",
+    "url": "https://alocucao.com.br/perfil-locutor-silva-jr/",
     "published": true
   },
   {
-    "id": "jefersonrodrigues",
-    "name": "JEFERSON RODRIGUES",
-    "path": "/perfil-locutor-jeferson-rodrigues/",
-    "url": "https://alocucao.com.br/perfil-locutor-jeferson-rodrigues/",
+    "id": "lb-11067",
+    "name": "CELLYANE",
+    "path": "/perfil-locutor-cellyane/",
+    "url": "https://alocucao.com.br/perfil-locutor-cellyane/",
     "published": true
   },
   {
-    "id": "joaocordeiro",
-    "name": "JOAO CORDEIRO",
-    "path": "/perfil-locutor-joao-cordeiro/",
-    "url": "https://alocucao.com.br/perfil-locutor-joao-cordeiro/",
+    "id": "lb-11068",
+    "name": "Clayton",
+    "path": "/perfil-locutor-clayton/",
+    "url": "https://alocucao.com.br/perfil-locutor-clayton/",
     "published": true
   },
   {
-    "id": "jocasantos",
+    "id": "lb-12023",
+    "name": "Valber Silva",
+    "path": "/perfil-locutor-valber-silva/",
+    "url": "https://alocucao.com.br/perfil-locutor-valber-silva/",
+    "published": true
+  },
+  {
+    "id": "lb-12335",
+    "name": "FABIO SANTOS",
+    "path": "/perfil-locutor-fabio-santos/",
+    "url": "https://alocucao.com.br/perfil-locutor-fabio-santos/",
+    "published": true
+  },
+  {
+    "id": "lb-12461",
+    "name": "Souza D",
+    "path": "/perfil-locutor-souza-d/",
+    "url": "https://alocucao.com.br/perfil-locutor-souza-d/",
+    "published": true
+  },
+  {
+    "id": "lb-12518",
+    "name": "Vinicius Silveira",
+    "path": "/perfil-locutor-vinicius-silveira/",
+    "url": "https://alocucao.com.br/perfil-locutor-vinicius-silveira/",
+    "published": true
+  },
+  {
+    "id": "lb-12566",
+    "name": "Cristian Jr.",
+    "path": "/perfil-locutor-cristian-jr/",
+    "url": "https://alocucao.com.br/perfil-locutor-cristian-jr/",
+    "published": true
+  },
+  {
+    "id": "lb-12678",
+    "name": "Maria Clara Top",
+    "path": "/perfil-locutor-maria-clara-top/",
+    "url": "https://alocucao.com.br/perfil-locutor-maria-clara-top/",
+    "published": true
+  },
+  {
+    "id": "lb-12972",
+    "name": "Marcos Claudino",
+    "path": "/perfil-locutor-marcos-claudino/",
+    "url": "https://alocucao.com.br/perfil-locutor-marcos-claudino/",
+    "published": true
+  },
+  {
+    "id": "lb-13114",
+    "name": "FELIPE BONFIM",
+    "path": "/perfil-locutor-felipe-bonfim/",
+    "url": "https://alocucao.com.br/perfil-locutor-felipe-bonfim/",
+    "published": true
+  },
+  {
+    "id": "lb-13164",
+    "name": "Paulo Lima",
+    "path": "/perfil-locutor-paulo-lima/",
+    "url": "https://alocucao.com.br/perfil-locutor-paulo-lima/",
+    "published": true
+  },
+  {
+    "id": "lb-13300",
+    "name": "Diogo Meira",
+    "path": "/perfil-locutor-diogo-meira/",
+    "url": "https://alocucao.com.br/perfil-locutor-diogo-meira/",
+    "published": true
+  },
+  {
+    "id": "lb-13357",
+    "name": "Kazama",
+    "path": "/perfil-locutor-kazama/",
+    "url": "https://alocucao.com.br/perfil-locutor-kazama/",
+    "published": true
+  },
+  {
+    "id": "lb-13358",
+    "name": "Cauê Bilharvas",
+    "path": "/perfil-locutor-caue-bilharvas/",
+    "url": "https://alocucao.com.br/perfil-locutor-caue-bilharvas/",
+    "published": true
+  },
+  {
+    "id": "lb-13384",
+    "name": "Marconi",
+    "path": "/perfil-locutor-marconi/",
+    "url": "https://alocucao.com.br/perfil-locutor-marconi/",
+    "published": true
+  },
+  {
+    "id": "lb-13399",
+    "name": "Leonardo Araújo",
+    "path": "/perfil-locutor-leonardo-araujo/",
+    "url": "https://alocucao.com.br/perfil-locutor-leonardo-araujo/",
+    "published": true
+  },
+  {
+    "id": "lb-13413",
+    "name": "Tito",
+    "path": "/perfil-locutor-tito/",
+    "url": "https://alocucao.com.br/perfil-locutor-tito/",
+    "published": true
+  },
+  {
+    "id": "lb-13482",
+    "name": "Amancio Santos",
+    "path": "/perfil-locutor-amancio-santos/",
+    "url": "https://alocucao.com.br/perfil-locutor-amancio-santos/",
+    "published": true
+  },
+  {
+    "id": "lb-13499",
+    "name": "Sandro Souza",
+    "path": "/perfil-locutor-sandro-souza/",
+    "url": "https://alocucao.com.br/perfil-locutor-sandro-souza/",
+    "published": true
+  },
+  {
+    "id": "lb-13660",
+    "name": "Jansen",
+    "path": "/perfil-locutor-jansen/",
+    "url": "https://alocucao.com.br/perfil-locutor-jansen/",
+    "published": true
+  },
+  {
+    "id": "lb-13734",
+    "name": "Dani Nascimento",
+    "path": "/perfil-locutor-dani-nascimento/",
+    "url": "https://alocucao.com.br/perfil-locutor-dani-nascimento/",
+    "published": true
+  },
+  {
+    "id": "lb-13831",
+    "name": "Moza Pereira",
+    "path": "/perfil-locutor-moza-pereira/",
+    "url": "https://alocucao.com.br/perfil-locutor-moza-pereira/",
+    "published": true
+  },
+  {
+    "id": "lb-15054",
+    "name": "SAMIRA SANTOS",
+    "path": "/perfil-locutor-samira-santos/",
+    "url": "https://alocucao.com.br/perfil-locutor-samira-santos/",
+    "published": true
+  },
+  {
+    "id": "lb-16307",
+    "name": "JONAS MOREIRA",
+    "path": "/perfil-locutor-jonas-moreira/",
+    "url": "https://alocucao.com.br/perfil-locutor-jonas-moreira/",
+    "published": true
+  },
+  {
+    "id": "lb-18595",
+    "name": "Fernando Betoli",
+    "path": "/perfil-locutor-fernando-betoli/",
+    "url": "https://alocucao.com.br/perfil-locutor-fernando-betoli/",
+    "published": true
+  },
+  {
+    "id": "lb-18625",
+    "name": "David",
+    "path": "/perfil-locutor-david/",
+    "url": "https://alocucao.com.br/perfil-locutor-david/",
+    "published": true
+  },
+  {
+    "id": "lb-18823",
+    "name": "Andre William",
+    "path": "/perfil-locutor-andre-william/",
+    "url": "https://alocucao.com.br/perfil-locutor-andre-william/",
+    "published": true
+  },
+  {
+    "id": "lb-18826",
+    "name": "Silvia",
+    "path": "/perfil-locutor-silvia/",
+    "url": "https://alocucao.com.br/perfil-locutor-silvia/",
+    "published": true
+  },
+  {
+    "id": "lb-18977",
+    "name": "Eber Campos",
+    "path": "/perfil-locutor-eber-campos/",
+    "url": "https://alocucao.com.br/perfil-locutor-eber-campos/",
+    "published": true
+  },
+  {
+    "id": "lb-19279",
+    "name": "ADEMYR VOX",
+    "path": "/perfil-locutor-ademyr-vox/",
+    "url": "https://alocucao.com.br/perfil-locutor-ademyr-vox/",
+    "published": true
+  },
+  {
+    "id": "lb-19463",
+    "name": "Paulinho Sam",
+    "path": "/perfil-locutor-paulinho-sam/",
+    "url": "https://alocucao.com.br/perfil-locutor-paulinho-sam/",
+    "published": true
+  },
+  {
+    "id": "lb-19466",
+    "name": "Paulo Guido",
+    "path": "/perfil-locutor-paulo-guido/",
+    "url": "https://alocucao.com.br/perfil-locutor-paulo-guido/",
+    "published": true
+  },
+  {
+    "id": "lb-19473",
+    "name": "Marcelo",
+    "path": "/perfil-locutor-marcelo/",
+    "url": "https://alocucao.com.br/perfil-locutor-marcelo/",
+    "published": true
+  },
+  {
+    "id": "lb-19517",
+    "name": "Netinho",
+    "path": "/perfil-locutor-netinho/",
+    "url": "https://alocucao.com.br/perfil-locutor-netinho/",
+    "published": true
+  },
+  {
+    "id": "lb-19602",
+    "name": "Valdir Bezerra",
+    "path": "/perfil-locutor-valdir-bezerra/",
+    "url": "https://alocucao.com.br/perfil-locutor-valdir-bezerra/",
+    "published": true
+  },
+  {
+    "id": "lb-19736",
+    "name": "Borges",
+    "path": "/perfil-locutor-borges/",
+    "url": "https://alocucao.com.br/perfil-locutor-borges/",
+    "published": true
+  },
+  {
+    "id": "lb-19931",
+    "name": "Aorione Campos",
+    "path": "/perfil-locutor-aorione-campos/",
+    "url": "https://alocucao.com.br/perfil-locutor-aorione-campos/",
+    "published": true
+  },
+  {
+    "id": "lb-20176",
+    "name": "Robson Costa",
+    "path": "/perfil-locutor-robson-costa/",
+    "url": "https://alocucao.com.br/perfil-locutor-robson-costa/",
+    "published": true
+  },
+  {
+    "id": "lb-20595",
+    "name": "Borginha",
+    "path": "/perfil-locutor-borginha/",
+    "url": "https://alocucao.com.br/perfil-locutor-borginha/",
+    "published": true
+  },
+  {
+    "id": "lb-21411",
+    "name": "Dany Alexandre",
+    "path": "/perfil-locutor-dany-alexandre/",
+    "url": "https://alocucao.com.br/perfil-locutor-dany-alexandre/",
+    "published": true
+  },
+  {
+    "id": "lb-21794",
+    "name": "Tom Barbosa",
+    "path": "/perfil-locutor-tom-barbosa/",
+    "url": "https://alocucao.com.br/perfil-locutor-tom-barbosa/",
+    "published": true
+  },
+  {
+    "id": "lb-21848",
+    "name": "Aslei F",
+    "path": "/perfil-locutor-aslei-f/",
+    "url": "https://alocucao.com.br/perfil-locutor-aslei-f/",
+    "published": true
+  },
+  {
+    "id": "lb-22700",
+    "name": "Denilson Soares",
+    "path": "/perfil-locutor-denilson-soares/",
+    "url": "https://alocucao.com.br/perfil-locutor-denilson-soares/",
+    "published": true
+  },
+  {
+    "id": "lb-22754",
+    "name": "Luciene Soares",
+    "path": "/perfil-locutor-luciene-soares/",
+    "url": "https://alocucao.com.br/perfil-locutor-luciene-soares/",
+    "published": true
+  },
+  {
+    "id": "lb-29108",
+    "name": "Luiz Souza",
+    "path": "/perfil-locutor-luiz-souza/",
+    "url": "https://alocucao.com.br/perfil-locutor-luiz-souza/",
+    "published": true
+  },
+  {
+    "id": "lb-29191",
+    "name": "Julinho Guedes",
+    "path": "/perfil-locutor-julinho-guedes/",
+    "url": "https://alocucao.com.br/perfil-locutor-julinho-guedes/",
+    "published": true
+  },
+  {
+    "id": "lb-30252",
+    "name": "Brandão",
+    "path": "/perfil-locutor-brandao/",
+    "url": "https://alocucao.com.br/perfil-locutor-brandao/",
+    "published": true
+  },
+  {
+    "id": "lb-31646",
+    "name": "Douglas Camargo",
+    "path": "/perfil-locutor-douglas-camargo/",
+    "url": "https://alocucao.com.br/perfil-locutor-douglas-camargo/",
+    "published": true
+  },
+  {
+    "id": "lb-31647",
+    "name": "Alisson Junior",
+    "path": "/perfil-locutor-alisson-junior/",
+    "url": "https://alocucao.com.br/perfil-locutor-alisson-junior/",
+    "published": true
+  },
+  {
+    "id": "lb-31649",
+    "name": "Thiago Augusto",
+    "path": "/perfil-locutor-thiago-augusto/",
+    "url": "https://alocucao.com.br/perfil-locutor-thiago-augusto/",
+    "published": true
+  },
+  {
+    "id": "lb-31650",
+    "name": "Adriana Almeida",
+    "path": "/perfil-locutor-adriana-almeida/",
+    "url": "https://alocucao.com.br/perfil-locutor-adriana-almeida/",
+    "published": true
+  },
+  {
+    "id": "lb-31654",
+    "name": "Mario Voice",
+    "path": "/perfil-locutor-mario-voice/",
+    "url": "https://alocucao.com.br/perfil-locutor-mario-voice/",
+    "published": true
+  },
+  {
+    "id": "lb-31687",
+    "name": "Robson Ferreira",
+    "path": "/perfil-locutor-robson-ferreira/",
+    "url": "https://alocucao.com.br/perfil-locutor-robson-ferreira/",
+    "published": true
+  },
+  {
+    "id": "lb-33306",
+    "name": "Vinicius Roberto",
+    "path": "/perfil-locutor-vinicius-roberto/",
+    "url": "https://alocucao.com.br/perfil-locutor-vinicius-roberto/",
+    "published": true
+  },
+  {
+    "id": "lb-34948",
+    "name": "CAMARGO",
+    "path": "/perfil-locutor-camargo/",
+    "url": "https://alocucao.com.br/perfil-locutor-camargo/",
+    "published": true
+  },
+  {
+    "id": "lb-36194",
+    "name": "Carol Pedroso",
+    "path": "/perfil-locutor-carol-pedroso/",
+    "url": "https://alocucao.com.br/perfil-locutor-carol-pedroso/",
+    "published": true
+  },
+  {
+    "id": "lb-37173",
+    "name": "Jonatha Melonio",
+    "path": "/perfil-locutor-jonatha-melonio/",
+    "url": "https://alocucao.com.br/perfil-locutor-jonatha-melonio/",
+    "published": true
+  },
+  {
+    "id": "lb-39017",
+    "name": "Nascimento",
+    "path": "/perfil-locutor-nascimento/",
+    "url": "https://alocucao.com.br/perfil-locutor-nascimento/",
+    "published": true
+  },
+  {
+    "id": "lb-39038",
+    "name": "Rodrigo Santoss",
+    "path": "/perfil-locutor-rodrigo-santoss/",
+    "url": "https://alocucao.com.br/perfil-locutor-rodrigo-santoss/",
+    "published": true
+  },
+  {
+    "id": "lb-39056",
+    "name": "MAXIMUS",
+    "path": "/perfil-locutor-maximus/",
+    "url": "https://alocucao.com.br/perfil-locutor-maximus/",
+    "published": true
+  },
+  {
+    "id": "lb-39060",
     "name": "JOCA SANTOS",
     "path": "/perfil-locutor-joca-santos/",
     "url": "https://alocucao.com.br/perfil-locutor-joca-santos/",
     "published": true
   },
   {
-    "id": "joeldesonneves",
-    "name": "JOELDESON NEVES",
-    "path": "/perfil-locutor-joeldeson-neves/",
-    "url": "https://alocucao.com.br/perfil-locutor-joeldeson-neves/",
+    "id": "lb-39071",
+    "name": "Alberto Araujo",
+    "path": "/perfil-locutor-alberto-araujo/",
+    "url": "https://alocucao.com.br/perfil-locutor-alberto-araujo/",
     "published": true
   },
   {
-    "id": "jonathaspereira",
-    "name": "JONATHAS PEREIRA",
-    "path": "/perfil-locutor-jonathas-pereira/",
-    "url": "https://alocucao.com.br/perfil-locutor-jonathas-pereira/",
+    "id": "lb-39084",
+    "name": "DougMix",
+    "path": "/perfil-locutor-dougmix/",
+    "url": "https://alocucao.com.br/perfil-locutor-dougmix/",
     "published": true
   },
   {
-    "id": "jorge",
-    "name": "JORGE",
-    "path": "/perfil-locutor-jorge/",
-    "url": "https://alocucao.com.br/perfil-locutor-jorge/",
+    "id": "lb-39103",
+    "name": "Debora",
+    "path": "/perfil-locutor-debora/",
+    "url": "https://alocucao.com.br/perfil-locutor-debora/",
     "published": true
   },
   {
-    "id": "josecarlos",
-    "name": "JOSE CARLOS",
-    "path": "/perfil-locutor-jose-carlos/",
-    "url": "https://alocucao.com.br/perfil-locutor-jose-carlos/",
+    "id": "lb-39168",
+    "name": "Dinho",
+    "path": "/perfil-locutor-dinho/",
+    "url": "https://alocucao.com.br/perfil-locutor-dinho/",
     "published": true
   },
   {
-    "id": "josemarsouza",
-    "name": "JOSEMAR SOUZA",
-    "path": "/perfil-locutor-josemar-souza/",
-    "url": "https://alocucao.com.br/perfil-locutor-josemar-souza/",
+    "id": "lb-39188",
+    "name": "Priscila Santos",
+    "path": "/perfil-locutor-priscila-santos/",
+    "url": "https://alocucao.com.br/perfil-locutor-priscila-santos/",
     "published": true
   },
   {
-    "id": "josiane",
-    "name": "JOSIANE",
-    "path": "/perfil-locutor-josiane/",
-    "url": "https://alocucao.com.br/perfil-locutor-josiane/",
+    "id": "lb-39347",
+    "name": "Douglas Lima",
+    "path": "/perfil-locutor-douglas-lima/",
+    "url": "https://alocucao.com.br/perfil-locutor-douglas-lima/",
     "published": true
   },
   {
-    "id": "josideoliveira",
-    "name": "JOSI DE OLIVEIRA",
-    "path": "/perfil-locutor-josi-de-oliveira/",
-    "url": "https://alocucao.com.br/perfil-locutor-josi-de-oliveira/",
+    "id": "lb-39372",
+    "name": "Hyarley",
+    "path": "/perfil-locutor-hyarley/",
+    "url": "https://alocucao.com.br/perfil-locutor-hyarley/",
     "published": true
   },
   {
-    "id": "julianomartinazzo",
-    "name": "JULIANO MARTINAZZO",
-    "path": "/perfil-locutor-juliano-martinazzo/",
-    "url": "https://alocucao.com.br/perfil-locutor-juliano-martinazzo/",
+    "id": "lb-40804",
+    "name": "Hellen Reis",
+    "path": "/perfil-locutor-hellen-reis/",
+    "url": "https://alocucao.com.br/perfil-locutor-hellen-reis/",
     "published": true
   },
   {
-    "id": "julinhoguedes",
-    "name": "JULINHO GUEDES",
-    "path": "/perfil-locutor-julinho-guedes/",
-    "url": "https://alocucao.com.br/perfil-locutor-julinho-guedes/",
+    "id": "lb-41669",
+    "name": "Cleber Ramos",
+    "path": "/perfil-locutor-cleber-ramos/",
+    "url": "https://alocucao.com.br/perfil-locutor-cleber-ramos/",
     "published": true
   },
   {
-    "id": "kassiarenostro",
-    "name": "KASSIA RENOSTRO",
-    "path": "/perfil-locutor-kassia-renostro/",
-    "url": "https://alocucao.com.br/perfil-locutor-kassia-renostro/",
+    "id": "lb-44299",
+    "name": "Marcelo Fábio",
+    "path": "/perfil-locutor-marcelo-fabio/",
+    "url": "https://alocucao.com.br/perfil-locutor-marcelo-fabio/",
     "published": true
   },
   {
-    "id": "kleberlucas",
-    "name": "KLEBER LUCAS",
-    "path": "/perfil-locutor-kleber-lucas/",
-    "url": "https://alocucao.com.br/perfil-locutor-kleber-lucas/",
+    "id": "lb-46213",
+    "name": "Regina Souza",
+    "path": "/perfil-locutor-regina-souza/",
+    "url": "https://alocucao.com.br/perfil-locutor-regina-souza/",
     "published": true
   },
   {
-    "id": "leandrocruz",
-    "name": "LEANDRO CRUZ",
-    "path": "/perfil-locutor-leandro-cruz/",
-    "url": "https://alocucao.com.br/perfil-locutor-leandro-cruz/",
+    "id": "lb-52934",
+    "name": "Francisco Carlos",
+    "path": "/perfil-locutor-francisco-carlos/",
+    "url": "https://alocucao.com.br/perfil-locutor-francisco-carlos/",
     "published": true
   },
   {
-    "id": "leomenezes",
-    "name": "LEO MENEZES",
-    "path": "/perfil-locutor-leo-menezes/",
-    "url": "https://alocucao.com.br/perfil-locutor-leo-menezes/",
+    "id": "lb-53014",
+    "name": "Thalis Silva",
+    "path": "/perfil-locutor-thalis-silva/",
+    "url": "https://alocucao.com.br/perfil-locutor-thalis-silva/",
     "published": true
   },
   {
-    "id": "leomoura",
-    "name": "LEO MOURA",
-    "path": "/perfil-locutor-leo-moura/",
-    "url": "https://alocucao.com.br/perfil-locutor-leo-moura/",
+    "id": "lb-54237",
+    "name": "Cassiane",
+    "path": "/perfil-locutor-cassiane/",
+    "url": "https://alocucao.com.br/perfil-locutor-cassiane/",
     "published": true
   },
   {
-    "id": "lindy",
-    "name": "LINDY",
-    "path": "/perfil-locutor-lindy/",
-    "url": "https://alocucao.com.br/perfil-locutor-lindy/",
+    "id": "lb-54278",
+    "name": "Vagner Carvalho",
+    "path": "/perfil-locutor-vagner-carvalho/",
+    "url": "https://alocucao.com.br/perfil-locutor-vagner-carvalho/",
     "published": true
   },
   {
-    "id": "luansantos",
-    "name": "LUAN SANTOS",
-    "path": "/perfil-locutor-luan-santos/",
-    "url": "https://alocucao.com.br/perfil-locutor-luan-santos/",
+    "id": "lb-54389",
+    "name": "LUIZ BORGES",
+    "path": "/perfil-locutor-luiz-borges/",
+    "url": "https://alocucao.com.br/perfil-locutor-luiz-borges/",
     "published": true
   },
   {
-    "id": "lucaslima",
-    "name": "LUCAS LIMA",
-    "path": "/perfil-locutor-lucas-lima/",
-    "url": "https://alocucao.com.br/perfil-locutor-lucas-lima/",
+    "id": "lb-54456",
+    "name": "Walter Mendes",
+    "path": "/perfil-locutor-walter-mendes/",
+    "url": "https://alocucao.com.br/perfil-locutor-walter-mendes/",
     "published": true
   },
   {
-    "id": "luisgustavo",
-    "name": "LUIS GUSTAVO",
-    "path": "/perfil-locutor-luis-gustavo/",
-    "url": "https://alocucao.com.br/perfil-locutor-luis-gustavo/",
+    "id": "lb-55882",
+    "name": "Zahne M",
+    "path": "/perfil-locutor-zahne-m/",
+    "url": "https://alocucao.com.br/perfil-locutor-zahne-m/",
     "published": true
   },
   {
-    "id": "luizsouza",
-    "name": "LUIZ SOUZA",
-    "path": "/perfil-locutor-luiz-souza/",
-    "url": "https://alocucao.com.br/perfil-locutor-luiz-souza/",
+    "id": "lb-56154",
+    "name": "Cassio G",
+    "path": "/perfil-locutor-cassio-g/",
+    "url": "https://alocucao.com.br/perfil-locutor-cassio-g/",
     "published": true
   },
   {
-    "id": "lulamuniz",
-    "name": "LULA MUNIZ",
-    "path": "/perfil-locutor-lula-muniz/",
-    "url": "https://alocucao.com.br/perfil-locutor-lula-muniz/",
+    "id": "lb-56856",
+    "name": "Thales S",
+    "path": "/perfil-locutor-thales-s/",
+    "url": "https://alocucao.com.br/perfil-locutor-thales-s/",
     "published": true
   },
   {
-    "id": "manoel",
-    "name": "MANOEL",
-    "path": "/perfil-locutor-manoel/",
-    "url": "https://alocucao.com.br/perfil-locutor-manoel/",
+    "id": "lb-59569",
+    "name": "Paulo Cesar",
+    "path": "/perfil-locutor-paulo-cesar/",
+    "url": "https://alocucao.com.br/perfil-locutor-paulo-cesar/",
     "published": true
   },
   {
-    "id": "marcelobarros",
-    "name": "MARCELO BARROS",
-    "path": "/perfil-locutor-marcelo-barros/",
-    "url": "https://alocucao.com.br/perfil-locutor-marcelo-barros/",
+    "id": "lb-59572",
+    "name": "Alessandro Peixoto",
+    "path": "/perfil-locutor-alessandro-peixoto/",
+    "url": "https://alocucao.com.br/perfil-locutor-alessandro-peixoto/",
     "published": true
   },
   {
-    "id": "marcelocordeiro",
-    "name": "MARCELO CORDEIRO",
-    "path": "/perfil-locutor-marcelo-cordeiro/",
-    "url": "https://alocucao.com.br/perfil-locutor-marcelo-cordeiro/",
+    "id": "lb-59929",
+    "name": "Fox P",
+    "path": "/perfil-locutor-fox-p/",
+    "url": "https://alocucao.com.br/perfil-locutor-fox-p/",
     "published": true
   },
   {
-    "id": "marceloferraz",
-    "name": "MARCELO FERRAZ",
-    "path": "/perfil-locutor-marcelo-ferraz/",
-    "url": "https://alocucao.com.br/perfil-locutor-marcelo-ferraz/",
+    "id": "lb-59940",
+    "name": "LUCIANO G",
+    "path": "/perfil-locutor-luciano-g/",
+    "url": "https://alocucao.com.br/perfil-locutor-luciano-g/",
     "published": true
   },
   {
-    "id": "marcelogomes",
-    "name": "MARCELO GOMES",
-    "path": "/perfil-locutor-marcelo-gomes/",
-    "url": "https://alocucao.com.br/perfil-locutor-marcelo-gomes/",
+    "id": "lb-60080",
+    "name": "Kleber Marcel",
+    "path": "/perfil-locutor-kleber-marcel/",
+    "url": "https://alocucao.com.br/perfil-locutor-kleber-marcel/",
     "published": true
   },
   {
-    "id": "marcio",
-    "name": "MARCIO",
-    "path": "/perfil-locutor-marcio/",
-    "url": "https://alocucao.com.br/perfil-locutor-marcio/",
+    "id": "lb-60269",
+    "name": "Diniz",
+    "path": "/perfil-locutor-diniz/",
+    "url": "https://alocucao.com.br/perfil-locutor-diniz/",
     "published": true
   },
   {
-    "id": "marcosamaral",
-    "name": "MARCOS AMARAL",
-    "path": "/perfil-locutor-marcos-amaral/",
-    "url": "https://alocucao.com.br/perfil-locutor-marcos-amaral/",
+    "id": "lb-60317",
+    "name": "Guto Avila",
+    "path": "/perfil-locutor-guto-avila/",
+    "url": "https://alocucao.com.br/perfil-locutor-guto-avila/",
     "published": true
   },
   {
-    "id": "marcossantos",
-    "name": "MARCOS SANTOS",
-    "path": "/perfil-locutor-marcos-santos/",
-    "url": "https://alocucao.com.br/perfil-locutor-marcos-santos/",
+    "id": "lb-60558",
+    "name": "Kleber Salles (ks)",
+    "path": "/perfil-locutor-kleber-salles-ks/",
+    "url": "https://alocucao.com.br/perfil-locutor-kleber-salles-ks/",
     "published": true
   },
   {
-    "id": "marcosvinicius",
-    "name": "MARCOS VINICIUS",
-    "path": "/perfil-locutor-marcos-vinicius/",
-    "url": "https://alocucao.com.br/perfil-locutor-marcos-vinicius/",
+    "id": "lb-60883",
+    "name": "Leandro Rovea",
+    "path": "/perfil-locutor-leandro-rovea/",
+    "url": "https://alocucao.com.br/perfil-locutor-leandro-rovea/",
     "published": true
   },
   {
-    "id": "marcusvinicius",
-    "name": "MARCUS VINÍCIUS",
-    "path": "/perfil-locutor-marcus-vinicius/",
-    "url": "https://alocucao.com.br/perfil-locutor-marcus-vinicius/",
+    "id": "lb-61119",
+    "name": "Cesar sann",
+    "path": "/perfil-locutor-cesar-sann/",
+    "url": "https://alocucao.com.br/perfil-locutor-cesar-sann/",
     "published": true
   },
   {
-    "id": "maurocontti",
-    "name": "MAURO CONTTI",
-    "path": "/perfil-locutor-mauro-contti/",
-    "url": "https://alocucao.com.br/perfil-locutor-mauro-contti/",
-    "published": true
-  },
-  {
-    "id": "maximo",
-    "name": "MAXIMO",
-    "path": "/perfil-locutor-maximo/",
-    "url": "https://alocucao.com.br/perfil-locutor-maximo/",
-    "published": true
-  },
-  {
-    "id": "moreira",
-    "name": "Moreira",
-    "path": "/perfil-locutor-moreira/",
-    "url": "https://alocucao.com.br/perfil-locutor-moreira/",
-    "published": true
-  },
-  {
-    "id": "moreti",
-    "name": "MORETI",
-    "path": "/perfil-locutor-moreti/",
-    "url": "https://alocucao.com.br/perfil-locutor-moreti/",
-    "published": true
-  },
-  {
-    "id": "nanda",
-    "name": "NANDA",
-    "path": "/perfil-locutor-nanda/",
-    "url": "https://alocucao.com.br/perfil-locutor-nanda/",
-    "published": true
-  },
-  {
-    "id": "nascimento",
-    "name": "NASCIMENTO",
-    "path": "/perfil-locutor-nascimento/",
-    "url": "https://alocucao.com.br/perfil-locutor-nascimento/",
-    "published": true
-  },
-  {
-    "id": "neto",
-    "name": "NETO",
-    "path": "/perfil-locutor-neto/",
-    "url": "https://alocucao.com.br/perfil-locutor-neto/",
-    "published": true
-  },
-  {
-    "id": "nilogomes",
-    "name": "NILO GOMES",
-    "path": "/perfil-locutor-nilo-gomes/",
-    "url": "https://alocucao.com.br/perfil-locutor-nilo-gomes/",
-    "published": true
-  },
-  {
-    "id": "ninamorena",
-    "name": "NINA MORENA",
-    "path": "/perfil-locutor-nina-morena/",
-    "url": "https://alocucao.com.br/perfil-locutor-nina-morena/",
-    "published": true
-  },
-  {
-    "id": "orione",
-    "name": "ORIONE",
-    "path": "/perfil-locutor-orione/",
-    "url": "https://alocucao.com.br/perfil-locutor-orione/",
-    "published": true
-  },
-  {
-    "id": "pablosiqueira",
-    "name": "PABLO SIQUEIRA",
-    "path": "/perfil-locutor-pablo-siqueira/",
-    "url": "https://alocucao.com.br/perfil-locutor-pablo-siqueira/",
-    "published": true
-  },
-  {
-    "id": "patriciasouza",
-    "name": "PATRICIA SOUZA",
-    "path": "/perfil-locutor-patricia-souza/",
-    "url": "https://alocucao.com.br/perfil-locutor-patricia-souza/",
-    "published": true
-  },
-  {
-    "id": "patriciatrezzi",
-    "name": "PATRÍCIA TREZZI",
-    "path": "/perfil-locutor-patricia-trezzi/",
-    "url": "https://alocucao.com.br/perfil-locutor-patricia-trezzi/",
-    "published": true
-  },
-  {
-    "id": "patriciavieira",
-    "name": "PATRICIA VIEIRA",
-    "path": "/perfil-locutor-patricia-vieira/",
-    "url": "https://alocucao.com.br/perfil-locutor-patricia-vieira/",
-    "published": true
-  },
-  {
-    "id": "patrinesbardelotto",
-    "name": "PATRINE SBARDELOTTO",
-    "path": "/perfil-locutor-patrine-sbardelotto/",
-    "url": "https://alocucao.com.br/perfil-locutor-patrine-sbardelotto/",
-    "published": true
-  },
-  {
-    "id": "patyribeiro",
-    "name": "PATY RIBEIRO",
-    "path": "/perfil-locutor-paty-ribeiro/",
-    "url": "https://alocucao.com.br/perfil-locutor-paty-ribeiro/",
-    "published": true
-  },
-  {
-    "id": "paulinho",
-    "name": "PAULINHO",
-    "path": "/perfil-locutor-paulinho/",
-    "url": "https://alocucao.com.br/perfil-locutor-paulinho/",
-    "published": true
-  },
-  {
-    "id": "paulinhoortiz",
-    "name": "PAULINHO ORTIZ",
-    "path": "/perfil-locutor-paulinho-ortiz/",
-    "url": "https://alocucao.com.br/perfil-locutor-paulinho-ortiz/",
-    "published": true
-  },
-  {
-    "id": "paulohenrique",
-    "name": "PAULO HENRIQUE",
-    "path": "/perfil-locutor-paulo-henrique/",
-    "url": "https://alocucao.com.br/perfil-locutor-paulo-henrique/",
-    "published": true
-  },
-  {
-    "id": "priscila",
-    "name": "PRISCILA",
-    "path": "/perfil-locutor-priscila/",
-    "url": "https://alocucao.com.br/perfil-locutor-priscila/",
-    "published": true
-  },
-  {
-    "id": "priscilaferreira",
-    "name": "PRISCILA FERREIRA",
-    "path": "/perfil-locutor-priscila-ferreira/",
-    "url": "https://alocucao.com.br/perfil-locutor-priscila-ferreira/",
-    "published": true
-  },
-  {
-    "id": "rafaelmonson",
-    "name": "RAFAEL MONSON",
-    "path": "/perfil-locutor-rafael-monson/",
-    "url": "https://alocucao.com.br/perfil-locutor-rafael-monson/",
-    "published": true
-  },
-  {
-    "id": "raqueltozi",
-    "name": "RAQUEL TOZI",
-    "path": "/perfil-locutor-raquel-tozi/",
-    "url": "https://alocucao.com.br/perfil-locutor-raquel-tozi/",
-    "published": true
-  },
-  {
-    "id": "renatoalessandro",
-    "name": "RENATO ALESSANDRO",
-    "path": "/perfil-locutor-renato-alessandro/",
-    "url": "https://alocucao.com.br/perfil-locutor-renato-alessandro/",
-    "published": true
-  },
-  {
-    "id": "ricardoalexandre",
-    "name": "RICARDO ALEXANDRE",
-    "path": "/perfil-locutor-ricardo-alexandre/",
-    "url": "https://alocucao.com.br/perfil-locutor-ricardo-alexandre/",
-    "published": true
-  },
-  {
-    "id": "ricardocosta",
-    "name": "RICARDO COSTA",
+    "id": "lb-63037",
+    "name": "Ricardo Costa",
     "path": "/perfil-locutor-ricardo-costa/",
     "url": "https://alocucao.com.br/perfil-locutor-ricardo-costa/",
     "published": true
   },
   {
-    "id": "robsoncosta",
-    "name": "ROBSON COSTA",
-    "path": "/perfil-locutor-robson-costa/",
-    "url": "https://alocucao.com.br/perfil-locutor-robson-costa/",
-    "published": true
-  },
-  {
-    "id": "robsonferreira",
-    "name": "ROBSON FERREIRA",
-    "path": "/perfil-locutor-robson-ferreira/",
-    "url": "https://alocucao.com.br/perfil-locutor-robson-ferreira/",
-    "published": true
-  },
-  {
-    "id": "robsonmuniz",
-    "name": "ROBSON MUNIZ",
-    "path": "/perfil-locutor-robson-muniz/",
-    "url": "https://alocucao.com.br/perfil-locutor-robson-muniz/",
-    "published": true
-  },
-  {
-    "id": "rodrigosouza",
-    "name": "RODRIGO SOUZA",
-    "path": "/perfil-locutor-rodrigo-souza/",
-    "url": "https://alocucao.com.br/perfil-locutor-rodrigo-souza/",
-    "published": true
-  },
-  {
-    "id": "rodrigues",
-    "name": "RODRIGUES",
-    "path": "/perfil-locutor-rodrigues/",
-    "url": "https://alocucao.com.br/perfil-locutor-rodrigues/",
-    "published": true
-  },
-  {
-    "id": "rogeriobrito",
-    "name": "ROGERIO BRITO",
-    "path": "/perfil-locutor-rogerio-brito/",
-    "url": "https://alocucao.com.br/perfil-locutor-rogerio-brito/",
-    "published": true
-  },
-  {
-    "id": "ronaldosantana",
-    "name": "RONALDO SANTANA",
-    "path": "/perfil-locutor-ronaldo-santana/",
-    "url": "https://alocucao.com.br/perfil-locutor-ronaldo-santana/",
-    "published": true
-  },
-  {
-    "id": "ronamdeoliveira",
-    "name": "RONAM DE OLIVEIRA",
-    "path": "/perfil-locutor-ronam-de-oliveira/",
-    "url": "https://alocucao.com.br/perfil-locutor-ronam-de-oliveira/",
-    "published": true
-  },
-  {
-    "id": "santiago",
-    "name": "SANTIAGO",
-    "path": "/perfil-locutor-santiago/",
-    "url": "https://alocucao.com.br/perfil-locutor-santiago/",
-    "published": true
-  },
-  {
-    "id": "saraluiza",
-    "name": "SARA LUIZA",
-    "path": "/perfil-locutor-sara-luiza/",
-    "url": "https://alocucao.com.br/perfil-locutor-sara-luiza/",
-    "published": true
-  },
-  {
-    "id": "silvajunior",
-    "name": "SILVA  JUNIOR",
-    "path": "/perfil-locutor-silva-junior/",
-    "url": "https://alocucao.com.br/perfil-locutor-silva-junior/",
-    "published": true
-  },
-  {
-    "id": "silviafogaca",
-    "name": "SILVIA FOGAÇA",
-    "path": "/perfil-locutor-silvia-fogaca/",
-    "url": "https://alocucao.com.br/perfil-locutor-silvia-fogaca/",
-    "published": true
-  },
-  {
-    "id": "sunshine",
-    "name": "SUNSHINE",
-    "path": "/perfil-locutor-sunshine/",
-    "url": "https://alocucao.com.br/perfil-locutor-sunshine/",
-    "published": true
-  },
-  {
-    "id": "thiagoaugusto",
-    "name": "THIAGO AUGUSTO",
-    "path": "/perfil-locutor-thiago-augusto/",
-    "url": "https://alocucao.com.br/perfil-locutor-thiago-augusto/",
-    "published": true
-  },
-  {
-    "id": "thiagomachado",
-    "name": "THIAGO MACHADO",
+    "id": "lb-63343",
+    "name": "Thiago Machado",
     "path": "/perfil-locutor-thiago-machado/",
     "url": "https://alocucao.com.br/perfil-locutor-thiago-machado/",
     "published": true
   },
   {
-    "id": "tito",
-    "name": "TITO",
-    "path": "/perfil-locutor-tito/",
-    "url": "https://alocucao.com.br/perfil-locutor-tito/",
+    "id": "lb-64249",
+    "name": "Giovani A",
+    "path": "/perfil-locutor-giovani-a/",
+    "url": "https://alocucao.com.br/perfil-locutor-giovani-a/",
     "published": true
   },
   {
-    "id": "valmir",
-    "name": "VALMIR",
-    "path": "/perfil-locutor-valmir/",
-    "url": "https://alocucao.com.br/perfil-locutor-valmir/",
+    "id": "lb-64439",
+    "name": "Vanessa",
+    "path": "/perfil-locutor-vanessa/",
+    "url": "https://alocucao.com.br/perfil-locutor-vanessa/",
     "published": true
   },
   {
-    "id": "vilson",
-    "name": "VILSON",
-    "path": "/perfil-locutor-vilson/",
-    "url": "https://alocucao.com.br/perfil-locutor-vilson/",
+    "id": "lb-64518",
+    "name": "Fabiano Farias",
+    "path": "/perfil-locutor-fabiano-farias/",
+    "url": "https://alocucao.com.br/perfil-locutor-fabiano-farias/",
     "published": true
   },
   {
-    "id": "viniciussilveira",
-    "name": "VINICIUS SILVEIRA",
-    "path": "/perfil-locutor-vinicius-silveira/",
-    "url": "https://alocucao.com.br/perfil-locutor-vinicius-silveira/",
+    "id": "lb-64646",
+    "name": "Caio R",
+    "path": "/perfil-locutor-caio-r/",
+    "url": "https://alocucao.com.br/perfil-locutor-caio-r/",
     "published": true
   },
   {
-    "id": "volnei",
-    "name": "VOLNEI",
-    "path": "/perfil-locutor-volnei/",
-    "url": "https://alocucao.com.br/perfil-locutor-volnei/",
+    "id": "lb-64681",
+    "name": "Amanda B",
+    "path": "/perfil-locutor-amanda-b/",
+    "url": "https://alocucao.com.br/perfil-locutor-amanda-b/",
     "published": true
   },
   {
-    "id": "wagneraraujo",
-    "name": "WAGNER ARAUJO",
-    "path": "/perfil-locutor-wagner-araujo/",
-    "url": "https://alocucao.com.br/perfil-locutor-wagner-araujo/",
+    "id": "lb-64726",
+    "name": "Leonardo D",
+    "path": "/perfil-locutor-leonardo-d/",
+    "url": "https://alocucao.com.br/perfil-locutor-leonardo-d/",
     "published": true
   },
   {
-    "id": "welintonseimetz",
-    "name": "WELINTON SEIMETZ",
-    "path": "/perfil-locutor-welinton-seimetz/",
-    "url": "https://alocucao.com.br/perfil-locutor-welinton-seimetz/",
+    "id": "lb-64733",
+    "name": "Renan O",
+    "path": "/perfil-locutor-renan-o/",
+    "url": "https://alocucao.com.br/perfil-locutor-renan-o/",
     "published": true
   },
   {
-    "id": "wellima",
-    "name": "WEL LIMA",
-    "path": "/perfil-locutor-wel-lima/",
-    "url": "https://alocucao.com.br/perfil-locutor-wel-lima/",
+    "id": "lb-64754",
+    "name": "Azevedo Jr",
+    "path": "/perfil-locutor-azevedo-jr/",
+    "url": "https://alocucao.com.br/perfil-locutor-azevedo-jr/",
     "published": true
   },
   {
-    "id": "wellingtondesouza",
-    "name": "WELLINGTON DE SOUZA",
-    "path": "/perfil-locutor-wellington-de-souza/",
-    "url": "https://alocucao.com.br/perfil-locutor-wellington-de-souza/",
+    "id": "lb-64924",
+    "name": "BARONE",
+    "path": "/perfil-locutor-barone/",
+    "url": "https://alocucao.com.br/perfil-locutor-barone/",
     "published": true
   },
   {
-    "id": "wesley",
-    "name": "WESLEY",
-    "path": "/perfil-locutor-wesley/",
-    "url": "https://alocucao.com.br/perfil-locutor-wesley/",
+    "id": "lb-64925",
+    "name": "Marcelo Cordeiro",
+    "path": "/perfil-locutor-marcelo-cordeiro/",
+    "url": "https://alocucao.com.br/perfil-locutor-marcelo-cordeiro/",
     "published": true
   },
   {
-    "id": "xeniapinheiro",
-    "name": "XENIA PINHEIRO",
-    "path": "/perfil-locutor-xenia-pinheiro/",
-    "url": "https://alocucao.com.br/perfil-locutor-xenia-pinheiro/",
+    "id": "lb-64930",
+    "name": "Leo Menezes",
+    "path": "/perfil-locutor-leo-menezes/",
+    "url": "https://alocucao.com.br/perfil-locutor-leo-menezes/",
     "published": true
   },
   {
-    "id": "zanhemoura",
-    "name": "ZANHE MOURA",
-    "path": "/perfil-locutor-zanhe-moura/",
-    "url": "https://alocucao.com.br/perfil-locutor-zanhe-moura/",
+    "id": "lb-66018",
+    "name": "Dany Alves",
+    "path": "/perfil-locutor-dany-alves/",
+    "url": "https://alocucao.com.br/perfil-locutor-dany-alves/",
     "published": true
   }
 ]

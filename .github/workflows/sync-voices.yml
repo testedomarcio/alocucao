@@ -8,6 +8,7 @@ on:
     paths:
       - scripts/sync-voices.py
       - scripts/sync-voice-photos.py
+      - data/provider-voice-aliases.json
       - scripts/generate-voice-profiles.py
       - scripts/generate-featured-voices.py
       - scripts/standardize-layout.py
@@ -44,11 +45,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Instalar parser
-        run: pip install beautifulsoup4==4.13.4 html5lib==1.1 Pillow==11.3.0
+      - name: Validar integração do novo fornecedor
+        run: python scripts/test-voice-migration.py
       - name: Consultar e validar catálogo público
         run: python scripts/sync-voices.py
-      - name: Atualizar fotos públicas em miniaturas leves
+      - name: Atualizar horários e fotos do catálogo
         run: python scripts/sync-voice-photos.py
       - name: Gerar perfis com dados reais
         run: python scripts/generate-voice-profiles.py

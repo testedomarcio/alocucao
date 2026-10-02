@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 from urllib.parse import quote
 
-IDS = ('alvesneto', 'lindy', 'gabrielzamboni', 'elissandra')
+IDS = ('lb-631', 'lb-267', 'lb-7952', 'lb-878')
 START = '<!-- featured-voices:start -->'
 END = '<!-- featured-voices:end -->'
 
@@ -24,11 +24,11 @@ def markup(voices):
 <p class="featured-styles">{esc(styles)}</p>
 <audio controls preload="none" data-featured-audio data-voice="{esc(voice['name'])}" aria-label="Ouvir demonstração de {esc(name)}" src="{esc(voice['audio'])}"><a href="{esc(voice['audio'])}">Ouvir demonstração</a></audio>
 <p class="featured-error" hidden>Não foi possível tocar a demo. <a href="{esc(voice['audio'])}" target="_blank" rel="noopener" data-featured-fallback>Abra o áudio em outra aba</a> ou peça orientação.</p>
-<a class="featured-choose" href="https://paineldegravacao.com.br/comerciaistop/cadastro" target="_blank" rel="noopener" data-cta="voz_destaque_{esc(voice['id'])}">Cadastrar e ver vozes ↗</a>
+<a class="featured-choose" href="https://paineldegravacao.com.br/comerciaistop/cadastro" target="_blank" rel="noopener" data-cta="voz_destaque_{esc(voice['id'])}">Cadastrar grátis e pedir ↗</a>
 </article>''')
     return START + '''<div class="featured-voices" data-featured-voices>
 <p class="featured-label">Entre os mais pedidos</p>
-<p class="panel-catalog-note">Demonstrações do catálogo anterior. Confira as vozes, a disponibilidade e o prazo no Painel de Gravação antes de contratar.</p><div class="featured-list">''' + '\n'.join(cards) + '''</div>
+<div class="featured-list">''' + '\n'.join(cards) + '''</div>
 <p class="featured-sync" data-featured-sync>Consulte a disponibilidade e o prazo no atendimento.</p>
 <a class="featured-all" href="/vozes/#voice-grid" data-cta="vozes_destaque_banco_completo">Ouça todas as vozes <span aria-hidden="true">→</span></a>
 <noscript><p>As demonstrações funcionam sem JavaScript. Para confirmar o status atual, fale com o atendimento.</p></noscript>

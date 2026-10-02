@@ -7,8 +7,8 @@
  function personalizeWhatsApp(){
   const choose=document.querySelector('[data-cta="perfil_escolher"]');if(!choose)return;
   const bar=document.querySelector('.wa-mobile-conversion-bar a'),floating=document.querySelector('.wa-float-button');
-  if(bar){bar.href=choose.href;bar.textContent=choose.textContent.replace(' ↗','')+' pelo WhatsApp';bar.dataset.cta='perfil_barra_mobile';}
-  if(floating){floating.href=choose.href;floating.setAttribute('aria-label',choose.textContent.replace(' ↗','')+' pelo WhatsApp');floating.dataset.cta='perfil_balao';}
+  if(bar){bar.href=choose.href;bar.textContent=choose.textContent.replace(' ↗','')+' no painel';bar.dataset.cta='perfil_barra_mobile';}
+  if(floating){floating.href=choose.href;floating.setAttribute('aria-label',choose.textContent.replace(' ↗','')+' no painel');floating.dataset.cta='perfil_balao';}
  }
  personalizeWhatsApp();
  if(document.readyState!=='complete')document.addEventListener('DOMContentLoaded',personalizeWhatsApp,{once:true});
@@ -23,13 +23,13 @@
    const age=Date.now()-Date.parse(data.fetchedAt),fresh=age>=0&&age<3*60*60*1000;
    status.textContent=fresh&&typeof voice.statusLabel==='string'?voice.statusLabel:'Disponibilidade sob consulta';
    stamp.textContent='Consulta do catálogo: '+format.format(new Date(data.fetchedAt))+' (Brasília)';
-   const source=new URL(voice.audio);if(source.protocol!=='https:'||source.hostname!=='storageoffs.offsbrasil.com.br'||source.username||source.password)throw Error('Invalid audio');
-   if(audio.paused&&!audio.currentTime){source.searchParams.set('nocache',String(Date.parse(data.fetchedAt)));audio.src=source.href;}
+   const source=new URL(voice.audio);if(source.protocol!=='https:'||source.hostname!=='hd.paineldegravacao.com.br'||source.username||source.password)throw Error('Invalid audio');
+   if(audio.paused&&!audio.currentTime){if(audio.getAttribute('src')!==source.href)audio.src=source.href;}
    if(Array.isArray(voice.schedule)&&voice.schedule.length<=7){
     const valid=voice.schedule.every(d=>days.includes(d.day)&&Array.isArray(d.intervals)&&d.intervals.length<=8&&d.intervals.every(i=>/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(i.start)&&/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(i.end)));
     if(valid){
      if(voice.schedule.length){const list=document.createElement('ul');list.className='profile-hours';voice.schedule.forEach(d=>{const row=document.createElement('li');row.append(el('strong',d.day),el('span',d.intervals.map(i=>i.start+'–'+i.end).join(' · ')));list.append(row)});schedule.replaceChildren(list);}
-     else schedule.replaceChildren(el('p','O perfil de origem não informou uma agenda de gravação válida. Confirme os horários no atendimento.'));
+     else schedule.replaceChildren(el('p','O perfil de origem não informou uma agenda de gravação válida. Confirme os horários no painel.'));
     }
    }
   }catch(_){status.textContent='Disponibilidade sob consulta';stamp.textContent='Atualização temporariamente indisponível';}

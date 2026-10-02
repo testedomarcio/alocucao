@@ -49,7 +49,7 @@
   }
   function play(voice) {
     if(playingId === voice.id && !player.paused) { player.pause(); return; }
-    if(playingId !== voice.id) { player.pause(); const media = new URL(voice.audio); media.searchParams.set('nocache', String(Date.parse(catalog.fetchedAt))); player.src = media.href; playingId = voice.id; }
+    if(playingId !== voice.id) { player.pause(); const media = new URL(voice.audio); player.src = media.href; playingId = voice.id; }
     player.dataset.voice = voice.name;
     $('player-name').textContent = voice.name;
     $('player-detail').textContent = [voice.type ? 'Voz '+voice.type.toLowerCase() : 'Voz humana', ...voice.styles.slice(0,2)].join(' · ');
@@ -80,7 +80,7 @@
     const meta = element('div','voice-meta'); meta.append(element('span','',voice.region || 'Região não informada'),element('span','',voice.languages.join(' · ')));
     const actions = element('div','voice-actions');
     const listen = element('button','listen','▶ Ouvir demo'); listen.type='button'; listen.setAttribute('aria-label','Ouvir demonstração de '+voice.name); listen.setAttribute('aria-pressed','false'); listen.addEventListener('click',()=>play(voice));
-    const choose = element('a','choose','Cadastrar e ver vozes ↗'); choose.href='https://paineldegravacao.com.br/comerciaistop/cadastro'; choose.target='_blank'; choose.rel='noopener'; choose.dataset.cta='escolher_'+voice.id;
+    const choose = element('a','choose','Cadastrar grátis e pedir ↗'); choose.href='https://paineldegravacao.com.br/comerciaistop/cadastro'; choose.target='_blank'; choose.rel='noopener'; choose.dataset.cta='escolher_'+voice.id;
     actions.append(listen,choose);
     const compareLabel = element('label','compare-check'); const check = element('input'); check.type='checkbox'; check.checked=selected.has(voice.id); check.setAttribute('aria-label','Comparar '+voice.name);
     check.addEventListener('change',()=>{
@@ -110,7 +110,7 @@
     $('shown-count').textContent = list.length ? `Mostrando ${visible.length} de ${list.length}` : '';
     $('empty-state').hidden = list.length > 0; $('load-more').hidden = shown >= list.length;
     updateTotals();updatePlaying();updateLayout();
-    $('status-note').textContent=fresh()?'Status informados pelo catálogo na última consulta. Confirme a disponibilidade e o prazo no atendimento.':'Os status estão sob consulta porque a última atualização tem mais de três horas. As demos continuam disponíveis.';
+    $('status-note').textContent=fresh()?'Status informados pelo catálogo na última consulta. Confira disponibilidade e prazo no painel antes de enviar o pedido.':'Os status estão sob consulta porque a última atualização tem mais de três horas. As demos continuam disponíveis.';
   }
   function reset() {
     Object.values(fields).forEach(f=>f.value='');favoriteView=false;compareView=false;shown=24;render();
@@ -128,8 +128,8 @@
       if(v.localProfile && !/^\/perfil-locutor-[a-z0-9][a-z0-9-]*\/$/.test(v.localProfile))throw Error('Invalid local profile');
       if(v.profilePublished !== undefined && typeof v.profilePublished !== 'boolean')throw Error('Invalid profile flag');
       if(v.schedule !== undefined && (!Array.isArray(v.schedule)||v.schedule.length>7||!v.schedule.every(d=>['Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado','Domingo'].includes(d.day)&&Array.isArray(d.intervals)&&d.intervals.length>0&&d.intervals.length<=8&&d.intervals.every(i=>/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(i.start)&&/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(i.end)))))throw Error('Invalid schedule');
-      if(v.photo && !/^\/assets\/voice-photos\/[A-Za-z0-9_-]+\.webp$/.test(v.photo))throw Error('Invalid photo');
-      const media=new URL(v.audio);if(media.protocol!=='https:'||media.hostname!=='storageoffs.offsbrasil.com.br'||media.username||media.password)throw Error('Invalid media');ids.add(v.id);
+      if(v.photo) { const photo=new URL(v.photo,location.origin); if(photo.protocol!=='https:'||photo.hostname!=='hd.paineldegravacao.com.br'||!photo.pathname.startsWith('/perfil/')||photo.username||photo.password)throw Error('Invalid photo'); }
+      const media=new URL(v.audio);if(media.protocol!=='https:'||media.hostname!=='hd.paineldegravacao.com.br'||media.username||media.password)throw Error('Invalid media');ids.add(v.id);
     }
     return data;
   }
@@ -139,6 +139,9 @@
       const response=await fetch('/assets/voices-catalog.json?v='+Math.floor(Date.now()/600000),{cache:'no-cache',signal:AbortSignal.timeout(15000)}); if(!response.ok)throw Error('Catalog unavailable');
       catalog=validate(await response.json());
       registerRandomOrder(catalog.voices);
+      // Preserve favorites only for explicit catalog matches and the confirmed Celso alias.
+      favorites = new Set([...favorites].map(id=>catalog.idAliases?.[id] || id));
+      try { localStorage.setItem('alocucao_voice_favorites', JSON.stringify([...favorites])); } catch (_) {}
       const existing=new Set(catalog.voices.map(v=>v.id));for(const id of selected)if(!existing.has(id))selected.delete(id);for(const id of favorites)if(!existing.has(id))favorites.delete(id);
       options(fields.style,catalog.voices.flatMap(v=>v.styles));options(fields.region,catalog.voices.map(v=>v.region));options(fields.language,catalog.voices.flatMap(v=>v.languages));
       const stamp=new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}).format(new Date(catalog.fetchedAt));

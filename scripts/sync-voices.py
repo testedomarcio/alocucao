@@ -11,9 +11,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlsplit
 
-from bs4 import BeautifulSoup
 
-SOURCE = 'https://painel.audio.net.br/Vozes/alocucao'
+SOURCE = 'https://paineldegravacao.com.br/lista-locutores'
+API = 'https://paineldegravacao.com.br/!/t_horarios_locutores/?nIDs='
+PROVIDER = 'locucao-brasil'
 OUTPUT = Path('assets/voices-catalog.json')
 STATES = ['Acre','Alagoas','Amapá','Amazonas','Bahia','Ceará','Distrito Federal','Espírito Santo','Goiás','Maranhão','Mato Grosso','Mato Grosso do Sul','Minas Gerais','Pará','Paraíba','Paraná','Pernambuco','Piauí','Rio de Janeiro','Rio Grande do Norte','Rio Grande do Sul','Rondônia','Roraima','Santa Catarina','São Paulo','Sergipe','Tocantins']
 STYLES = ['Caricata','Padrão','Impacto','Animada','Varejo','Política','VSL']
@@ -26,82 +27,83 @@ def safe_url(value, hosts):
     return value
 
 
-def parse_catalog(html):
-    soup = BeautifulSoup(html, 'html5lib')
-    table = soup.select_one('table#example')
-    if not table:
-        raise ValueError('Catalog table missing; preserving last valid catalog')
-    voices, seen = [], set()
-    from collections import Counter
-    print('Source diagnostics:', len(table.select('audio')), 'audio elements;', dict(Counter(len(r.find_all('td', recursive=False)) for r in table.select('tr'))))
-    for row in table.select('tr'):
-        cells = row.find_all('td', recursive=False)
-        if len(cells) != 4:
-            continue
-        name = ' '.join(str(t).strip() for t in cells[0].find_all(string=True, recursive=False)).strip()
-        audio = cells[2].find('audio')
-        link = cells[3].find('a', href=True)
-        if not name or not audio or not link:
-            raise ValueError('Incomplete voice row')
-        profile = safe_url(link['href'], {'perfillocutor.com.br','www.perfillocutor.com.br'})
-        voice_id = urlsplit(profile).path.strip('/')
-        if not re.fullmatch(r'[A-Za-z0-9_-]+', voice_id) or voice_id in seen:
-            raise ValueError('Invalid or duplicate voice identifier')
-        seen.add(voice_id)
-        media = safe_url(audio.get('src'), {'storageoffs.offsbrasil.com.br'})
-        # nocache is a transport cache marker, not a version or API key.
-        if re.fullmatch(r'nocache=\d+', urlsplit(media).query):
-            media = media.split('?', 1)[0]
-        media = media.replace(' ', '%20')
-        tokens = [s.get_text(strip=True) for s in cells[2].find_all('span')]
-        status_cell = BeautifulSoup(str(cells[1]), 'html.parser')
-        for span in status_cell.select('span'):
-            span.decompose()
-        label = status_cell.get_text(' ', strip=True)
-        lower = label.lower()
-        if 'offline' in lower:
-            status = 'offline'
-        elif 'indispon' in lower:
-            status = 'unavailable'
-        elif '10 minutos' in lower:
-            status = 'recording_10min'
-        elif '30 minutos' in lower:
-            status = 'recording_30min'
-        elif '5 horas' in lower:
-            status = 'recording_1to5h'
-        else:
-            status = 'unknown'
-        styles = [x for x in STYLES if x in tokens]
-        if 'vvideo' in tokens:
-            styles.append('Vídeo')
-        region = next((x for x in STATES if x in tokens), None)
-        if 'paulista' in tokens:
-            region = 'São Paulo'
-        voices.append({'id': voice_id, 'name': name, 'type': 'Feminina' if 'Feminino' in tokens else 'Masculina' if 'Masculino' in tokens else None, 'region': region, 'styles': styles, 'languages': ['Português'] + [x for x in ['Inglês','Espanhol'] if x in tokens], 'status': status, 'statusLabel': label or 'Disponibilidade sob consulta', 'audio': media, 'profile': profile})
-    if len(voices) != len(table.select('audio')):
-        raise ValueError('Incomplete extraction; preserving previous catalog')
-    if len(voices) < 40:
-        raise ValueError('Unexpectedly small catalog; manual review required')
-    return sorted(voices, key=lambda v: v['id'])
+def plain_html(value):
+    import html
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", str(value or "")))).strip()
 
+
+def normalize_name(value):
+    text=unicodedata.normalize('NFKD',value).encode('ascii','ignore').decode().lower()
+    return re.sub(r'[^a-z0-9]+',' ',text).strip()
+
+
+def media_url(filename, folder):
+    from urllib.parse import quote
+    if not isinstance(filename,str) or not re.fullmatch(r'[A-Za-z0-9_. -]+\.(?:mp3|mpeg|wav|jpg|jpeg|png|webp)',filename,re.I) or '..' in filename:
+        raise ValueError('Invalid public media filename')
+    return 'https://hd.paineldegravacao.com.br/'+folder+'/'+quote(filename)
+
+
+def parse_catalog(payload):
+    data=json.loads(payload) if isinstance(payload,(str,bytes)) else payload
+    if not isinstance(data,dict) or not isinstance(data.get('data'),list):raise ValueError('Missing public catalog')
+    rows=data['data']
+    if len(rows)<40 or len(rows)>1500 or int(data.get('recordsTotal',-1))!=len(rows) or int(data.get('recordsFiltered',-1))!=len(rows):
+        raise ValueError('Incomplete or unexpectedly sized public catalog')
+    voices=[];seen=set()
+    for row in rows:
+        native_id=row.get('ID');name=plain_html(row.get('nome'))
+        if not isinstance(native_id,int) or native_id<=0 or native_id in seen or not name:raise ValueError('Invalid voice identifier')
+        seen.add(native_id)
+        raw_styles=str(row.get('estilos') or '')
+        parts=re.split(r'<br\s*/?>\s*<b>Informações adicionais:</b>',raw_styles,maxsplit=1,flags=re.I)
+        style_text=plain_html(parts[0]);styles=[]
+        labels={'PADRAO':'Padrão','IMPACTO':'Impacto','JOVEM':'Jovem','VAREJO':'Varejo','PRA CIMA':'Animada','UP FESTAS':'Animada','UP-FESTAS':'Animada','ALEGRE':'Animada','INSTITUCIONAL':'Institucional','JORNALISTICO':'Jornalística','CARICATO':'Caricata','CARICATA':'Caricata','POLITICO':'Política','POLITICA':'Política','VSL':'VSL','VIDEO':'Vídeo'}
+        for token in style_text.split(','):
+            key=normalize_name(token).upper();label=labels.get(key)
+            if not label and key not in {'','MASCULINA','FEMININA','MASCULINO','FEMININO','INFANTIL'}:label=plain_html(token).title()
+            if label and label not in styles:styles.append(label)
+        details=plain_html(parts[1])[:2500] if len(parts)>1 else ''
+        demos=[]
+        try:
+            groups=json.loads(row.get('demos') or '{}')
+            for group in groups.values():
+                if not isinstance(group,dict):continue
+                for key,demo in group.items():
+                    if isinstance(demo,dict) and demo.get('demo'):
+                        demos.append({'style':plain_html(demo.get('estilo',key)), 'audio':media_url(demo['demo'],'demos')})
+        except (ValueError,TypeError):raise ValueError('Invalid public demo list')
+        filename=row.get('demo');audio=media_url(filename,'demos') if filename else next((d['audio'] for d in demos if d['style']=='padrao'),demos[0]['audio'] if demos else None)
+        if not audio:raise ValueError('Voice without a playable public demo')
+        title=plain_html(row.get('status_titulo'));extra=plain_html(row.get('status_texto'));label=' · '.join(x for x in [title,extra] if x)
+        lower=normalize_name(title)
+        if lower=='10 min':status='recording_10min'
+        elif lower=='30 min':status='recording_30min'
+        elif lower=='online':status='recording_online'
+        elif lower=='offline':status='offline'
+        elif lower.startswith('volto'):status='returning'
+        elif lower in ['indisponivel','ferias']:status='unavailable'
+        else:status='unknown'
+        tokens=str(row.get('filtro','')).lower().split()
+        kind='Infantil' if 'infantil' in tokens else 'Feminina' if 'feminina' in tokens else 'Masculina' if 'masculina' in tokens else None
+        region=plain_html(row.get('estado')) or None
+        voice={'id':'lb-'+str(native_id),'providerId':native_id,'name':name,'type':kind,'region':region,'styles':styles,'languages':['Português'],'status':status,'statusLabel':label or 'Disponibilidade sob consulta','audio':audio,'audioMime':'audio/wav' if audio.lower().endswith('.wav') else 'audio/mpeg','profile':SOURCE,'recordingInfo':details,'schedule':[]}
+        if row.get('imagem'):voice['sourcePhoto']=voice['photo']=media_url(row['imagem'],'perfil')
+        voices.append(voice)
+    return sorted(voices,key=lambda v:v['providerId'])
 
 
 def attach_local_profiles(voices):
-    routes_file = Path('data/voice-profile-routes.json')
-    existing = json.loads(routes_file.read_text(encoding='utf-8')) if routes_file.exists() else []
-    previous = {item['id']:item['path'] for item in existing if isinstance(item,dict) and re.fullmatch(r'/perfil-locutor-[a-z0-9][a-z0-9-]*/',item.get('path','')) and isinstance(item.get('id'),str)}
-    groups = {}
+    routes_file=Path('data/voice-profile-routes.json')
+    existing=json.loads(routes_file.read_text()) if routes_file.exists() else []
+    valid=[x for x in existing if isinstance(x,dict) and re.fullmatch(r'/perfil-locutor-[a-z0-9][a-z0-9-]*/',x.get('path',''))]
+    by_id={x['id']:x['path'] for x in valid};by_name={normalize_name(x.get('name','')):x['path'] for x in valid}
+    used=set()
     for voice in voices:
-        plain = unicodedata.normalize('NFKD',voice['name']).encode('ascii','ignore').decode().lower()
-        slug = re.sub(r'[^a-z0-9]+','-',plain).strip('-') or voice['id'].lower()
-        groups.setdefault(slug, []).append(voice)
-    for slug, members in groups.items():
-        for voice in members:
-            suffix = '-'+voice['id'].lower() if len(members)>1 else ''
-            route = previous.get(voice['id'], '/perfil-locutor-'+slug+suffix+'/')
-            voice['localProfile'] = route
-            folder = Path(route.strip('/'))
-            voice['profilePublished'] = (folder/'index.html').is_file()
+        slug=normalize_name(voice['name']).replace(' ','-') or voice['id']
+        route=by_id.get(voice['id']) or by_name.get(normalize_name(voice['name'])) or '/perfil-locutor-'+slug+'/'
+        if route in used:route='/perfil-locutor-'+slug+'-'+voice['id']+'/'
+        used.add(route);voice['localProfile']=route;voice['profilePublished']=(Path(route.strip('/'))/'index.html').is_file()
 
 
 def atomic_write(path, text):
@@ -133,22 +135,22 @@ def update_schema(voices):
 
 
 def main():
-    request = urllib.request.Request(SOURCE, headers={'User-Agent':'A-Locucao-Catalog-Sync/1.0 (+https://alocucao.com.br/)', 'Accept':'text/html'})
+    request = urllib.request.Request(API, headers={'User-Agent':'A-Locucao-Catalog-Sync/1.0 (+https://alocucao.com.br/)', 'Accept':'application/json'})
     with urllib.request.urlopen(request, timeout=40) as response:
-        if urlsplit(response.url).hostname != 'painel.audio.net.br':
+        if urlsplit(response.url).hostname != 'paineldegravacao.com.br':
             raise ValueError('Unexpected redirect')
         html = response.read(4_000_001)
         if len(html) > 4_000_000:
             raise ValueError('Catalog response too large')
         voices = parse_catalog(html)
     previous = json.loads(OUTPUT.read_text(encoding='utf-8')) if OUTPUT.exists() else None
-    if previous and len(voices) < len(previous['voices']) * .65:
+    if previous and previous.get('provider')==PROVIDER and len(voices) < len(previous['voices']) * .65:
         raise ValueError('Large catalog shrink; preserving previous catalog')
     attach_local_profiles(voices)
     atomic_write(Path('data/voice-profile-routes.json'),json.dumps([{'id':v['id'],'name':v['name'],'path':v['localProfile'],'url':'https://alocucao.com.br'+v['localProfile'],'published':v['profilePublished']} for v in voices],ensure_ascii=False,indent=2)+'\n')
     now = datetime.now(timezone.utc).isoformat(timespec='seconds')
     content_hash = hashlib.sha256(json.dumps(voices, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
-    catalog = {'schemaVersion':1, 'source':SOURCE, 'fetchedAt':now, 'contentUpdatedAt':previous['contentUpdatedAt'] if previous and previous.get('contentHash') == content_hash else now, 'contentHash':content_hash, 'count':len(voices), 'voices':voices}
+    catalog = {'schemaVersion':1, 'provider':PROVIDER, 'source':SOURCE, 'fetchedAt':now, 'contentUpdatedAt':previous['contentUpdatedAt'] if previous and previous.get('contentHash') == content_hash else now, 'contentHash':content_hash, 'count':len(voices), 'idAliases':json.loads(Path('data/provider-voice-aliases.json').read_text()) if Path('data/provider-voice-aliases.json').exists() else {}, 'voices':voices}
     atomic_write(OUTPUT, json.dumps(catalog, ensure_ascii=False, separators=(',', ':'))+'\n')
     update_schema(voices)
     print(f'Validated {len(voices)} voices; catalog refreshed at {now}')
