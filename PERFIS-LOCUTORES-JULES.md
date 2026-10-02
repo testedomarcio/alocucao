@@ -1,3 +1,7 @@
+# Atualização: perfis agora gerados automaticamente
+
+O usuário solicitou a criação dos perfis pela IA. As páginas são geradas por scripts/generate-voice-profiles.py e atualizadas pelo workflow. Consulte VOICES-SYNC.md para manutenção; não recriar os arquivos ou as rotas abaixo. As instruções originais permanecem como referência de qualidade.
+
 # Perfis de locutores — instruções para o Jules
 
 ## Objetivo e rotas

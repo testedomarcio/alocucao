@@ -44,3 +44,16 @@ O importador de fotos também lê a tabela pública #captain de cada perfil. Nã
 Cada locutor recebe localProfile e profilePublished. As rotas planejadas ficam em data/voice-profile-routes.json. São geradas do nome sem acentos e com hífens; o identificador resolve nomes duplicados. Uma rota já registrada é mantida quando o nome muda. O link discreto Ver perfil aparece somente quando existe perfil-locutor-<slug>/index.html. O ItemList e a lista HTML de fallback também passam a apontar ao perfil local publicado. O workflow é disparado por publicações nessas pastas e também confere a existência no ciclo periódico.
 
 Consulte PERFIS-LOCUTORES-JULES.md antes de criar os perfis. Não publicar páginas vazias para tornar os links visíveis.
+
+
+## Perfis individuais publicados
+
+scripts/generate-voice-profiles.py gera uma página estática útil por locutor, no localProfile registrado. Os dados principais, horários disponíveis, estilos, região, idiomas, demo e links existem no HTML. Os 164 perfis iniciais foram gerados a partir do catálogo validado. A região é a informada pela fonte; não representa endereço de estúdio, sotaque garantido ou presença física da A Locução.
+
+O workflow gera os perfis depois de atualizar fotos e horários. Acrescenta as URLs ao sitemap, ativa Ver perfil no catálogo e aponta os dados estruturados para os perfis locais. Os perfis atualizam status e agenda pelo JSON local, com o mesmo intervalo de consulta visível do banco. O WhatsApp dos perfis, inclusive barra mobile e balão desktop, identifica o locutor escolhido.
+
+A geração preserva conteúdo já idêntico, não reescreve páginas editadas manualmente que tenham removido o marcador de geração e mantém as rotas estáveis. Para mudanças comuns, edite o gerador e os assets voice-profile; para uma edição manual específica, remova o comentário de geração da página antes de personalizar. Nunca inventar biografia, avaliações, sotaques, experiência ou clientes.
+
+Foram conferidos todos os 164 canonicals, dados estruturados, CTAs, sitemap e 492 links entre perfis. Testes funcionais em cinco perfis representativos e seis larguras verificaram responsividade, personalização do WhatsApp e ausência de downloads de MP3 antes da reprodução. Os testes do catálogo também foram executados novamente. Dados estruturados não prometem resultados especiais e a indexação deve ser acompanhada no Search Console.
+
+Uma publicação simultânea padrão do GitHub Pages pode bloquear a criação de outro deploy. O workflow possui uma segunda tentativa após 30 segundos para esse conflito temporário; falha persistente permanece visível no Actions.
