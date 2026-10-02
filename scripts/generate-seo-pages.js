@@ -111,6 +111,12 @@ function generatePages() {
     pageHtml = pageHtml.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/,
       () => `<script type="application/ld+json">\n${schemaJson}\n  </script>`);
 
+    // Read the same shared fragments used by every static page.
+    for (const part of ['header', 'footer']) {
+      const fragment = fs.readFileSync(path.join(ROOT_DIR, 'templates', `site-${part}.html`), 'utf8').trim();
+      pageHtml = pageHtml.replace(new RegExp(`<!-- site-${part}:start -->[\\s\\S]*?<!-- site-${part}:end -->`), () => fragment);
+    }
+
     const outputPath = path.join(outputDir, 'index.html');
 
     let isModified = true;

@@ -52,10 +52,22 @@
   </script>
 <link rel="stylesheet" href="/assets/contextual-cta.css">
 <link rel="stylesheet" href="/assets/featured-voices.css?v=20261002">
+<link rel="stylesheet" href="/assets/site-layout.css?v=20261002">
 </head>
 <body>
 <div class="topbar"><div class="container"><span>✓ Vozes humanas profissionais</span><span>✓ Atendimento pelo WhatsApp</span><span>✓ Áudio limpo e tratado</span></div></div>
-<header class="header"><div class="container nav"><a class="brand" href="/"><span class="brand-mark"><svg viewBox="0 0 64 64" fill="none"><path d="M10 35c6-14 12-14 18 0s12 14 18 0 8-10 8-10" stroke="white" stroke-width="6" stroke-linecap="round"/><circle cx="14" cy="19" r="5" fill="white" opacity=".85"/></svg></span><span>A Locução</span></a><div class="nav-links"><a href="/vozes/">Banco de Vozes</a><a href="/calculadora/">Calculadora</a><a href="#como-funciona">Como funciona</a><a href="#duvidas">Dúvidas</a><a class="btn btn-wa" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20fazer%20um%20or%C3%A7amento%20de%20locu%C3%A7%C3%A3o%20para%20URA%20e%20Espera%20Telef%C3%B4nica." target="_blank" rel="noopener" data-cta="ura_header_whatsapp">Ouvir Vozes / Fazer Orçamento</a></div></div></header>
+<!-- site-header:start -->
+<header class="al-header">
+  <nav class="al-shell al-nav" aria-label="Navegação principal">
+    <a class="al-brand" href="/" aria-label="A Locução — início"><img src="/favicon.svg" width="42" height="42" alt=""><span>A Locução</span></a>
+    <button class="al-menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="al-main-menu"><span aria-hidden="true">☰</span><span>Menu</span></button>
+    <div class="al-menu" id="al-main-menu">
+      <a href="/servicos/">Serviços</a><a href="/locucao-off/">Locução Off</a><a href="/spot-comercial/">Spot Comercial</a><a href="/vozes/">Banco de Vozes</a><a href="/precos/">Preços</a><a href="/blog/">Blog</a><a href="/sobre/">Sobre</a>
+      <a class="al-header-cta" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20para%20meu%20projeto.%20Vou%20enviar%20o%20texto." target="_blank" rel="noopener" data-cta="cabecalho_orcamento">Pedir orçamento ↗</a>
+    </div>
+  </nav>
+</header>
+<!-- site-header:end -->
 
 <main>
 <section class="hero">
@@ -260,19 +272,17 @@
 <!-- contextual-final:start --><nav class="contextual-links" aria-label="Próximos passos"><a href="/vozes/" data-cta="servico_final_principal">Ouvir os locutores disponíveis</a><a href="/precos/" data-cta="servico_final_precos">Consultar preços</a></nav><!-- contextual-final:end -->
 </main>
 
-<footer>
-  <div class="footer-inner">
-    <span>© <span id="year"></span> A Locução • Produção de áudio e locução profissional</span>
-    <span class="footer-links">
-      <a href="/">Início</a>
-      <a href="/vozes/">Painel de Vozes</a>
-      <a href="/calculadora/">Calculadora de Texto</a>
-      <a href="/locucao-off/">Locução Off</a>
-      <a href="/spot-comercial/">Spot Comercial</a>
-      <a href="/blog/">Blog</a>
-    </span>
+<!-- site-footer:start -->
+<footer class="al-footer">
+  <div class="al-shell al-footer-grid">
+    <div class="al-footer-about"><a class="al-brand" href="/" aria-label="A Locução — início"><img src="/favicon.svg" width="42" height="42" alt=""><span>A Locução</span></a><p>Vozes humanas para mensagens que conectam. Locução off e produção de áudio com atendimento online em todo o Brasil.</p></div>
+    <div><h2>Serviços</h2><a href="/locucao-off/">Locução Off</a><a href="/spot-comercial/">Spot Comercial</a><a href="/vinhetas-para-podcast-e-radio/">Vinhetas</a><a href="/espera-telefonica-ura/">URA e espera telefônica</a><a href="/servicos/">Todos os serviços</a></div>
+    <div><h2>Ouça e planeje</h2><a href="/vozes/">Banco de Vozes</a><a href="/portfolio/">Portfólio</a><a href="/precos/">Preços e pacotes</a><a href="/calculadora/">Calculadora de texto</a><a href="/blog/">Blog</a></div>
+    <div><h2>Atendimento</h2><a href="/sobre/">Sobre e contato</a><a href="https://wa.me/5527996529832" target="_blank" rel="noopener" data-cta="rodape_whatsapp">WhatsApp: (27) 99652-9832</a><a href="https://painel.audio.net.br/cliente/alocucao" target="_blank" rel="noopener">Área de pedidos ↗</a><a href="/avaliacoes/">Depoimentos</a><p>Atendimento humano: segunda a sexta, das 8h às 18h.</p></div>
   </div>
+  <div class="al-shell al-footer-bottom"><span>© <span id="year">2026</span> A Locução. Todos os direitos reservados.</span><div><a href="/politica-de-privacidade/">Política de privacidade</a><a href="/termos-de-uso/">Termos de uso</a></div></div>
 </footer>
+<!-- site-footer:end -->
 
 <div class="sticky-mobile">
   <a class="btn btn-wa" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20or%C3%A7amento%20para%20URA%20e%20Espera%20Telef%C3%B4nica." target="_blank" rel="noopener" data-cta="ura_barra_mobile">Ouvir Vozes para URA / Orçamento</a>
@@ -281,5 +291,6 @@
 <script src="/assets/site.js"></script>
 <script>const y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();</script>
 <script src="/assets/featured-voices.js?v=20261002" defer></script>
+<script src="/assets/site-layout.js?v=20261002" defer></script>
 </body>
 </html>

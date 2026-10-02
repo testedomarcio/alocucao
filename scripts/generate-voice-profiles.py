@@ -84,7 +84,7 @@ def main():
         if not re.fullmatch(r'/perfil-locutor-[a-z0-9][a-z0-9-]*/',path):raise ValueError('Invalid profile route')
         dest=Path(path.strip('/'))/'index.html';existing=dest.read_text(encoding='utf-8') if dest.exists() else None
         if existing is None or MARKER in existing:
-            output=render(voice,voices)+'\n';dest.parent.mkdir(parents=True,exist_ok=True)
+            output=run_path('scripts/standardize-layout.py')['standardize_page'](render(voice,voices))+'\n';dest.parent.mkdir(parents=True,exist_ok=True)
             if output!=existing:
                 dest.write_text(output,encoding='utf-8');changed.add(BASE+voice['localProfile'])
             generated+=1

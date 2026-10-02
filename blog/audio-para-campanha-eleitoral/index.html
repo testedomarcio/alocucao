@@ -61,19 +61,23 @@
   </script>
   <meta property="og:image" content="https://alocucao.com.br/favicon.svg">
 <link rel="stylesheet" href="/assets/contextual-cta.css">
+<link rel="stylesheet" href="/assets/site-layout.css?v=20261002">
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <div class="topbar"><div class="container"><span>✓ Vozes humanas</span><span>✓ Locução off e produção completa</span><span>✓ Atendimento em todo o Brasil</span></div></div>
-  <header>
-    <div class="container">
-      <nav aria-label="Navegação principal">
-        <a class="brand" href="/" aria-label="A Locução - Página inicial"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><path d="M10 35c6-14 12-14 18 0s12 14 18 0 8-10 8-10" stroke="white" stroke-width="6" stroke-linecap="round"/><circle cx="14" cy="19" r="5" fill="white" opacity=".85"/></svg></span><span>A Locução</span></a>
-        <button class="mobile-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">☰</button>
-        <div class="menu" id="menu-principal"><a href="/servicos/">Serviços</a><a href="/vozes/">Ouvir vozes</a><a href="/calculadora/">Calcular texto</a><a href="/blog/">Blog</a><a class="btn btn-dark" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Li%20o%20artigo%20sobre%20%C3%A1udio%20para%20campanha%20eleitoral%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" data-cta="artigo_politica_header">Pedir orçamento</a></div>
-      </nav>
+  <!-- site-header:start -->
+<header class="al-header">
+  <nav class="al-shell al-nav" aria-label="Navegação principal">
+    <a class="al-brand" href="/" aria-label="A Locução — início"><img src="/favicon.svg" width="42" height="42" alt=""><span>A Locução</span></a>
+    <button class="al-menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="al-main-menu"><span aria-hidden="true">☰</span><span>Menu</span></button>
+    <div class="al-menu" id="al-main-menu">
+      <a href="/servicos/">Serviços</a><a href="/locucao-off/">Locução Off</a><a href="/spot-comercial/">Spot Comercial</a><a href="/vozes/">Banco de Vozes</a><a href="/precos/">Preços</a><a href="/blog/">Blog</a><a href="/sobre/">Sobre</a>
+      <a class="al-header-cta" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20para%20meu%20projeto.%20Vou%20enviar%20o%20texto." target="_blank" rel="noopener" data-cta="cabecalho_orcamento">Pedir orçamento ↗</a>
     </div>
-  </header>
+  </nav>
+</header>
+<!-- site-header:end -->
 
   <main id="conteudo">
     <div class="container"><div class="breadcrumb" aria-label="Caminho da página"><a href="/">Início</a><span>›</span><a href="/blog/">Blog</a><span>›</span>Áudio para campanha eleitoral</div></div>
@@ -196,18 +200,19 @@
     </div>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div><a class="brand" href="/"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><path d="M10 35c6-14 12-14 18 0s12 14 18 0 8-10 8-10" stroke="white" stroke-width="6" stroke-linecap="round"/></svg></span><span>A Locução</span></a><p>Locução profissional e produção de áudio para todo o Brasil.</p></div>
-        <div><h2>Serviços</h2><a href="/locucao-off/">Locução Off</a><a href="/spot-comercial/">Spot Comercial</a><a href="/vozes/">Banco de Vozes</a></div>
-        <div><h2>Conteúdo</h2><a href="/blog/">Blog</a><a href="/calculadora/">Calculadora de Texto</a><a href="/servicos/">Todos os serviços</a></div>
-        <div><h2>Institucional</h2><a href="/sobre/">Sobre e contato</a><a href="/politica-de-privacidade/">Privacidade</a><a href="/termos-de-uso/">Termos de Uso</a></div>
-      </div>
-      <div class="copyright">© <span id="year"></span> A Locução. Todos os direitos reservados.</div>
-    </div>
-  </footer>
+  <!-- site-footer:start -->
+<footer class="al-footer">
+  <div class="al-shell al-footer-grid">
+    <div class="al-footer-about"><a class="al-brand" href="/" aria-label="A Locução — início"><img src="/favicon.svg" width="42" height="42" alt=""><span>A Locução</span></a><p>Vozes humanas para mensagens que conectam. Locução off e produção de áudio com atendimento online em todo o Brasil.</p></div>
+    <div><h2>Serviços</h2><a href="/locucao-off/">Locução Off</a><a href="/spot-comercial/">Spot Comercial</a><a href="/vinhetas-para-podcast-e-radio/">Vinhetas</a><a href="/espera-telefonica-ura/">URA e espera telefônica</a><a href="/servicos/">Todos os serviços</a></div>
+    <div><h2>Ouça e planeje</h2><a href="/vozes/">Banco de Vozes</a><a href="/portfolio/">Portfólio</a><a href="/precos/">Preços e pacotes</a><a href="/calculadora/">Calculadora de texto</a><a href="/blog/">Blog</a></div>
+    <div><h2>Atendimento</h2><a href="/sobre/">Sobre e contato</a><a href="https://wa.me/5527996529832" target="_blank" rel="noopener" data-cta="rodape_whatsapp">WhatsApp: (27) 99652-9832</a><a href="https://painel.audio.net.br/cliente/alocucao" target="_blank" rel="noopener">Área de pedidos ↗</a><a href="/avaliacoes/">Depoimentos</a><p>Atendimento humano: segunda a sexta, das 8h às 18h.</p></div>
+  </div>
+  <div class="al-shell al-footer-bottom"><span>© <span id="year">2026</span> A Locução. Todos os direitos reservados.</span><div><a href="/politica-de-privacidade/">Política de privacidade</a><a href="/termos-de-uso/">Termos de uso</a></div></div>
+</footer>
+<!-- site-footer:end -->
   <div class="mobile-conversion-bar"><a class="btn btn-primary" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Li%20o%20artigo%20sobre%20%C3%A1udio%20para%20campanha%20eleitoral%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" data-cta="artigo_politica_mobile">Pedir orçamento</a></div>
   <script src="/assets/site.js"></script>
+<script src="/assets/site-layout.js?v=20261002" defer></script>
 </body>
 </html>

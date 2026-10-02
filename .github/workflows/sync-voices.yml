@@ -10,6 +10,11 @@ on:
       - scripts/sync-voice-photos.py
       - scripts/generate-voice-profiles.py
       - scripts/generate-featured-voices.py
+      - scripts/standardize-layout.py
+      - templates/site-header.html
+      - templates/site-footer.html
+      - assets/site-layout.css
+      - assets/site-layout.js
       - assets/voice-profile.js
       - assets/voice-profile.css
       - .github/workflows/sync-voices.yml
@@ -47,6 +52,8 @@ jobs:
         run: python scripts/generate-voice-profiles.py
       - name: Atualizar seleção de vozes nas páginas
         run: python scripts/generate-featured-voices.py
+      - name: Preservar navegação padronizada
+        run: python scripts/standardize-layout.py
       - name: Registrar catálogo validado
         id: commit
         shell: bash

@@ -58,9 +58,21 @@
   ]}
   </script>
   <meta property="og:image" content="https://alocucao.com.br/favicon.svg">
+<link rel="stylesheet" href="/assets/site-layout.css?v=20261002">
 </head>
 <body>
-  <header><div class="container"><nav aria-label="Navegação principal"><a class="brand" href="/">A Locução</a><div class="navlinks"><a href="/servicos/">Serviços</a><a href="/vozes/">Ouvir vozes</a><a class="btn btn-dark" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Usei%20a%20calculadora%20e%20quero%20orienta%C3%A7%C3%A3o%20para%20meu%20projeto." target="_blank" rel="noopener" data-cta="calculadora_header_orientacao">Pedir orientação</a></div></nav></div></header>
+  <!-- site-header:start -->
+<header class="al-header">
+  <nav class="al-shell al-nav" aria-label="Navegação principal">
+    <a class="al-brand" href="/" aria-label="A Locução — início"><img src="/favicon.svg" width="42" height="42" alt=""><span>A Locução</span></a>
+    <button class="al-menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="al-main-menu"><span aria-hidden="true">☰</span><span>Menu</span></button>
+    <div class="al-menu" id="al-main-menu">
+      <a href="/servicos/">Serviços</a><a href="/locucao-off/">Locução Off</a><a href="/spot-comercial/">Spot Comercial</a><a href="/vozes/">Banco de Vozes</a><a href="/precos/">Preços</a><a href="/blog/">Blog</a><a href="/sobre/">Sobre</a>
+      <a class="al-header-cta" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20para%20meu%20projeto.%20Vou%20enviar%20o%20texto." target="_blank" rel="noopener" data-cta="cabecalho_orcamento">Pedir orçamento ↗</a>
+    </div>
+  </nav>
+</header>
+<!-- site-header:end -->
   <main>
     <section class="hero"><div class="container"><span class="eyebrow">Ferramenta gratuita</span><h1>Calculadora de tempo de locução: quanto dura seu texto?</h1><p class="lead">Cole o roteiro abaixo e descubra a duração estimada da narração, o orçamento automático e os créditos necessários. O cálculo acontece de forma privada no seu próprio navegador.</p></div></section>
     <section class="calculator"><div class="container calc-grid">
@@ -148,7 +160,17 @@
       </div>
     </div></section>
   </main>
-  <footer><div class="container foot"><strong>A Locução</strong><div class="footer-links"><a href="/locucao-off/">Locução Off</a><a href="/spot-comercial/">Spot Comercial</a><a href="/vozes/">Banco de Vozes</a><a href="/blog/">Blog</a></div><span>Vozes humanas e produção de áudio para todo o Brasil.</span></div></footer>
+  <!-- site-footer:start -->
+<footer class="al-footer">
+  <div class="al-shell al-footer-grid">
+    <div class="al-footer-about"><a class="al-brand" href="/" aria-label="A Locução — início"><img src="/favicon.svg" width="42" height="42" alt=""><span>A Locução</span></a><p>Vozes humanas para mensagens que conectam. Locução off e produção de áudio com atendimento online em todo o Brasil.</p></div>
+    <div><h2>Serviços</h2><a href="/locucao-off/">Locução Off</a><a href="/spot-comercial/">Spot Comercial</a><a href="/vinhetas-para-podcast-e-radio/">Vinhetas</a><a href="/espera-telefonica-ura/">URA e espera telefônica</a><a href="/servicos/">Todos os serviços</a></div>
+    <div><h2>Ouça e planeje</h2><a href="/vozes/">Banco de Vozes</a><a href="/portfolio/">Portfólio</a><a href="/precos/">Preços e pacotes</a><a href="/calculadora/">Calculadora de texto</a><a href="/blog/">Blog</a></div>
+    <div><h2>Atendimento</h2><a href="/sobre/">Sobre e contato</a><a href="https://wa.me/5527996529832" target="_blank" rel="noopener" data-cta="rodape_whatsapp">WhatsApp: (27) 99652-9832</a><a href="https://painel.audio.net.br/cliente/alocucao" target="_blank" rel="noopener">Área de pedidos ↗</a><a href="/avaliacoes/">Depoimentos</a><p>Atendimento humano: segunda a sexta, das 8h às 18h.</p></div>
+  </div>
+  <div class="al-shell al-footer-bottom"><span>© <span id="year">2026</span> A Locução. Todos os direitos reservados.</span><div><a href="/politica-de-privacidade/">Política de privacidade</a><a href="/termos-de-uso/">Termos de uso</a></div></div>
+</footer>
+<!-- site-footer:end -->
   <script>
     (()=>{
       const text=document.getElementById("script-text"),speed=document.getElementById("voice-speed"),empty=document.getElementById("result-empty"),results=document.getElementById("results");
@@ -248,6 +270,7 @@
     })();
   </script>
   <script src="/assets/site.js"></script>
+<script src="/assets/site-layout.js?v=20261002" defer></script>
 </body>
 </html>
 
