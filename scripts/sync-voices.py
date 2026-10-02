@@ -57,12 +57,28 @@ def parse_catalog(payload):
         seen.add(native_id)
         raw_styles=str(row.get('estilos') or '')
         parts=re.split(r'<br\s*/?>\s*<b>Informações adicionais:</b>',raw_styles,maxsplit=1,flags=re.I)
-        style_text=plain_html(parts[0]);styles=[]
-        labels={'PADRAO':'Padrão','IMPACTO':'Impacto','JOVEM':'Jovem','VAREJO':'Varejo','PRA CIMA':'Animada','UP FESTAS':'Animada','UP-FESTAS':'Animada','ALEGRE':'Animada','INSTITUCIONAL':'Institucional','JORNALISTICO':'Jornalística','CARICATO':'Caricata','CARICATA':'Caricata','POLITICO':'Política','POLITICA':'Política','VSL':'VSL','VIDEO':'Vídeo'}
-        for token in style_text.split(','):
-            key=normalize_name(token).upper();label=labels.get(key)
-            if not label and key not in {'','MASCULINA','FEMININA','MASCULINO','FEMININO','INFANTIL'}:label=plain_html(token).title()
-            if label and label not in styles:styles.append(label)
+        style_text=plain_html(parts[0]);styles=[];languages=['Português']
+        # Free-text source descriptions are not suitable as hundreds of filter categories.
+        patterns=[
+            ('Padrão',r'\b(?:padrao|padao)\b'),('Impacto',r'\bimpacto\b'),
+            ('Jovem',r'\b(?:jovem|jove)\b'),('Varejo',r'\bvarejo\b'),
+            ('Animada',r'\b(?:animad[ao]|alegre|algre|pra cima|up(?: festas?| fest)?|festas?)\b'),
+            ('Institucional',r'\b(?:institucional|intitucional|instucional|insitucional|insittucional|insitituciona|instituciona|insititucional)\b'),
+            ('Jornalística',r'\b(?:jornalistico|jornalistica|jornalismo|jornalisico|jornalisitico|jornarlistico|josnalistico)\b'),
+            ('Caricata',r'\b(?:caricat[ao]s?|personagens?|papai noel|caipira)\b'),
+            ('Política',r'\bpolitic[ao]\b'),('VSL',r'\b(?:vsl|vls)\b'),
+            ('Vídeo',r'\bvideo\b'),('Narração',r'\b(?:narracao|narrativ[ao]s?|documentarios?)\b'),
+            ('Infantil',r'\b(?:infantil|infantiu|infatil|crianca)\b'),
+            ('Religiosa',r'\b(?:religioso|igreja)\b'),('Esportiva',r'\b(?:esporte|futebol)\b'),
+            ('URA',r'\bura\b'),('Vinhetas',r'\bvinhetas?\b'),
+            ('Natural',r'\b(?:natural|coloquial|suave)\b'),('Emotiva',r'\b(?:emotiv[ao]|motivacional)\b'),
+            ('Promocional',r'\bpromocional\b'),('Carro de som',r'\bcarro de som\b')
+        ]
+        normalized=normalize_name(style_text)
+        for label,pattern in patterns:
+            if re.search(pattern,normalized):styles.append(label)
+        if re.search(r'\bingles\b',normalized):languages.append('Inglês')
+        if re.search(r'\bespanhol\b',normalized):languages.append('Espanhol')
         details=plain_html(parts[1])[:2500] if len(parts)>1 else ''
         demos=[]
         try:
@@ -87,7 +103,7 @@ def parse_catalog(payload):
         tokens=str(row.get('filtro','')).lower().split()
         kind='Infantil' if 'infantil' in tokens else 'Feminina' if 'feminina' in tokens else 'Masculina' if 'masculina' in tokens else None
         region=plain_html(row.get('estado')) or None
-        voice={'id':'lb-'+str(native_id),'providerId':native_id,'name':name,'type':kind,'region':region,'styles':styles,'languages':['Português'],'status':status,'statusLabel':label or 'Disponibilidade sob consulta','audio':audio,'audioMime':'audio/wav' if audio.lower().endswith('.wav') else 'audio/mpeg','profile':SOURCE,'recordingInfo':details,'schedule':[]}
+        voice={'id':'lb-'+str(native_id),'providerId':native_id,'name':name,'type':kind,'region':region,'styles':styles,'languages':languages,'status':status,'statusLabel':label or 'Disponibilidade sob consulta','audio':audio,'audioMime':'audio/wav' if audio.lower().endswith('.wav') else 'audio/mpeg','profile':SOURCE,'recordingInfo':details,'schedule':[]}
         if row.get('imagem'):voice['sourcePhoto']=voice['photo']=media_url(row['imagem'],'perfil')
         voices.append(voice)
     return sorted(voices,key=lambda v:v['providerId'])

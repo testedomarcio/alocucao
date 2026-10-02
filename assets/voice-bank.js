@@ -143,6 +143,7 @@
       favorites = new Set([...favorites].map(id=>catalog.idAliases?.[id] || id));
       try { localStorage.setItem('alocucao_voice_favorites', JSON.stringify([...favorites])); } catch (_) {}
       const existing=new Set(catalog.voices.map(v=>v.id));for(const id of selected)if(!existing.has(id))selected.delete(id);for(const id of favorites)if(!existing.has(id))favorites.delete(id);
+      options(fields.type,catalog.voices.map(v=>v.type));
       options(fields.style,catalog.voices.flatMap(v=>v.styles));options(fields.region,catalog.voices.map(v=>v.region));options(fields.language,catalog.voices.flatMap(v=>v.languages));
       const stamp=new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}).format(new Date(catalog.fetchedAt));
       $('sync-info').textContent=`${catalog.count} vozes · última consulta ${stamp} (Brasília)`;render();
