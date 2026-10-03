@@ -185,8 +185,7 @@
     if (!mobileBar) {
       mobileBar = document.createElement("div");
       mobileBar.className = "mobile-conversion-bar";
-      mobileBar.innerHTML = `<a href="https://paineldegravacao.com.br/comerciaistop/cadastro"
-        target="_blank" rel="noopener noreferrer" data-cta="barra_mobile_global">
+      mobileBar.innerHTML = `<a href="/cadastro/" data-cta="barra_mobile_global">
         Criar conta grátis</a>`;
       document.body.appendChild(mobileBar);
     }
@@ -240,7 +239,7 @@
         help.style.setProperty("--wa-support-clearance", "0px");
         const original = help.getBoundingClientRect();
         let top = original.top, extra = 0;
-        const actions = [...document.querySelectorAll('main a[href*="paineldegravacao.com.br"], .player-dock.open')]
+        const actions = [...document.querySelectorAll('main a[href="/painel/"], main a[href="/cadastro/"], .player-dock.open')]
           .map(el => el.getBoundingClientRect())
           .filter(r => r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight);
         for (let pass = 0; pass < actions.length; pass++) {
@@ -331,7 +330,7 @@
     const payload={page_type:pageType,service:data.get("service"),deadline:data.get("deadline"),...tracking};
     window.dataLayer.push({event:"brief_completed",...payload});
     window.alocucaoTrackEvent?.("brief_completed", payload);
-    window.open("https://paineldegravacao.com.br/comerciaistop/cadastro","_blank","noopener");
+    window.location.assign("/cadastro/");
   });
 
 })();

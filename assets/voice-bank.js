@@ -80,7 +80,7 @@
     const meta = element('div','voice-meta'); meta.append(element('span','',voice.region || 'Região não informada'),element('span','',voice.languages.join(' · ')));
     const actions = element('div','voice-actions');
     const listen = element('button','listen','▶ Ouvir demo'); listen.type='button'; listen.setAttribute('aria-label','Ouvir demonstração de '+voice.name); listen.setAttribute('aria-pressed','false'); listen.addEventListener('click',()=>play(voice));
-    const choose = element('a','choose','Cadastrar grátis e pedir ↗'); choose.href='https://paineldegravacao.com.br/comerciaistop/cadastro'; choose.target='_blank'; choose.rel='noopener'; choose.dataset.cta='escolher_'+voice.id;
+    const choose = element('a','choose','Cadastrar grátis e pedir ↗'); choose.href='/cadastro/';  choose.dataset.cta='escolher_'+voice.id;
     actions.append(listen,choose);
     const compareLabel = element('label','compare-check'); const check = element('input'); check.type='checkbox'; check.checked=selected.has(voice.id); check.setAttribute('aria-label','Comparar '+voice.name);
     check.addEventListener('change',()=>{

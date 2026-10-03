@@ -119,11 +119,13 @@
       url.hostname === "api.whatsapp.com" ||
       url.hostname === "web.whatsapp.com";
 
-    const isPanel = url.hostname === "paineldegravacao.com.br" && url.pathname.startsWith("/comerciaistop");
+    const panelPath = url.pathname.replace(/\/+$/, "");
+    const isPanel = (url.hostname === "paineldegravacao.com.br" && /^\/comerciaistop(?:\/cadastro)?$/.test(panelPath)) ||
+      (url.origin === new URL(window.location.href).origin && ["/painel", "/cadastro"].includes(panelPath));
     if (isPanel && analyticsConsent) {
       const attribution = firstTouch();
       window.alocucaoTrackEvent("panel_click", {
-        event_category: "navigation", panel_action: url.pathname.endsWith("/cadastro") ? "register" : "login",
+        event_category: "navigation", panel_action: panelPath.endsWith("/cadastro") ? "register" : "login",
         page_path: window.location.pathname, service_name: serviceFromPath(window.location.pathname),
         cta_id: cleanLabel(link.dataset.cta || link.id || "panel_link"),
         traffic_source: attribution.source, traffic_medium: attribution.medium, campaign_name: attribution.campaign

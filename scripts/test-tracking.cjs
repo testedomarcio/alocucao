@@ -35,3 +35,11 @@ assert.equal(panel.calls().filter(c=>c[0]==='event').length,2);
 panel.consent('rejected');panel.click('https://paineldegravacao.com.br/comerciaistop/cadastro');
 assert.equal(panel.calls().filter(c=>c[0]==='event').length,2);
 console.log('PASS: panel register/login exits respect consent and exact hostname; no purchase event is inferred.');
+
+const localPanel=setup({saved:'accepted'});
+for(const route of ['painel','cadastro']) for(const ending of ['', '/']) localPanel.click('https://alocucao.com.br/'+route+ending);
+const localEvents=localPanel.calls().filter(c=>c[0]==='event');
+assert.equal(localEvents.map(c=>c[2].panel_action).join(','),'login,login,register,register');
+localPanel.click('https://evil.example/cadastro/');
+assert.equal(localPanel.calls().filter(c=>c[0]==='event').length,4);
+console.log('PASS: local panel links with and without trailing slash; external lookalikes excluded.');

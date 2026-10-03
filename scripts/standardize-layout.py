@@ -31,9 +31,11 @@ def standardize_page(text):
     text = run_path(str(ROOT / "scripts/panel-commerce.py"))["normalize_page"](text)
     text = re.sub(r'<link\b[^>]*href=["\']/assets/panel-commerce\.css[^"\']*["\'][^>]*>\s*', '', text)
     text = text.replace("</head>", '<link rel="stylesheet" href="/assets/panel-commerce.css?v=20261002-panel-focus">\n</head>')
-    text = re.sub(r'/assets/voice-bank.js(?:\?[^"\s<>]+)?', '/assets/voice-bank.js?v=20261002-lb-2', text)
+    text = re.sub(r'/assets/voice-bank.js(?:\?[^"\s<>]+)?', '/assets/voice-bank.js?v=20261003-panel-pages', text)
     text = re.sub(r'/assets/featured-voices.js(?:\?[^"\s<>]+)?', '/assets/featured-voices.js?v=20261002-lb', text)
     text = re.sub(r'/assets/voice-profile.js(?:\?[^"\s<>]+)?', '/assets/voice-profile.js?v=20261002-lb', text)
+    if 'data-panel-page' in text:
+        text = re.sub(r'<a class="al-header-cta"[^>]*>.*?</a>', '<a class="al-header-cta al-support-cta" href="https://wa.me/5527996529832" target="_blank" rel="noopener" data-panel-support data-cta="cabecalho_whatsapp">Suporte WhatsApp</a>', text, count=1)
     return text
 
 def main():
