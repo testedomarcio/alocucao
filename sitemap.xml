@@ -250,4 +250,17 @@
   <url><loc>https://alocucao.com.br/perfil-locutor-leo-menezes/</loc><lastmod>2026-10-03</lastmod></url>
   <url><loc>https://alocucao.com.br/perfil-locutor-dany-alves/</loc><lastmod>2026-10-03</lastmod></url>
 <!-- voice-profiles:end -->
+<!-- tutorials:start -->
+  <url><loc>https://alocucao.com.br/tutoriais/</loc><lastmod>2026-10-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://alocucao.com.br/tutoriais/como-se-cadastrar/</loc><lastmod>2026-10-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://alocucao.com.br/tutoriais/como-completar-cadastro/</loc><lastmod>2026-10-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://alocucao.com.br/tutoriais/como-adquirir-creditos/</loc><lastmod>2026-10-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://alocucao.com.br/tutoriais/como-pedir-locucao-off/</loc><lastmod>2026-10-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://alocucao.com.br/tutoriais/como-pedir-spot-comercial/</loc><lastmod>2026-10-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://alocucao.com.br/tutoriais/como-escolher-locutor/</loc><lastmod>2026-10-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://alocucao.com.br/tutoriais/como-preparar-texto/</loc><lastmod>2026-10-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://alocucao.com.br/tutoriais/como-acompanhar-pedido/</loc><lastmod>2026-10-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://alocucao.com.br/tutoriais/como-solicitar-correcao/</loc><lastmod>2026-10-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://alocucao.com.br/tutoriais/como-baixar-pedido/</loc><lastmod>2026-10-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<!-- tutorials:end -->
 </urlset>
