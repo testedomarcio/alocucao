@@ -115,7 +115,7 @@
     "slug": "como-adquirir-creditos",
     "title": "Como adquirir créditos no Painel de Gravação",
     "description": "Aprenda a comprar créditos para Locução Off ou Spot Comercial, escolher PIX ou cartão e verificar a liberação no Painel de Gravação.",
-    "intro": "Os créditos permitem enviar pedidos pelo painel. Escolha créditos de Off para gravação da voz ou créditos de Produção para Spot Comercial. Antes de iniciar, complete seu cadastro para utilizar a compra automática.",
+    "intro": "Compre créditos diretamente no nosso Painel de Gravação por PIX ou cartão de crédito. Após a confirmação do pagamento pelo Mercado Pago, a liberação é automática e imediata. Complete seu cadastro antes de começar.",
     "prereq": "Entre na conta e <a href=\"/tutoriais/como-completar-cadastro/\">complete os dados cadastrais</a>. Confira qual serviço você pretende pedir: os créditos de Off e Produção são separados.",
     "steps": [
       {
@@ -138,18 +138,18 @@
       },
       {
         "title": "Escolha a forma de pagamento e revise o total",
-        "text": "A tela apresenta <strong>PIX Automático (QR Code)</strong>, <strong>Cartão de Crédito</strong>, <strong>Pagar com Boleto</strong> e <strong>Transferência Bancária</strong>. Para o fluxo automático, escolha a opção correspondente e siga as instruções exibidas. Revise o valor total, inclusive eventuais taxas, antes de pagar.",
-        "image": "creditos-pagamento.jpg",
-        "caption": "Opções de pagamento disponíveis na tela de créditos. PIX automático e transferência bancária são opções distintas."
+        "text": "Escolha <strong>PIX Automático (QR Code)</strong> ou <strong>Cartão de Crédito</strong>. O pagamento é realizado diretamente no Painel de Gravação, com processamento pelo Mercado Pago. Revise o serviço, a quantidade, a validade e o valor total, incluindo eventuais encargos apresentados, antes de concluir.",
+        "image": null,
+        "caption": null
       },
       {
-        "title": "Aguarde a confirmação e confira o saldo",
-        "text": "Conclua o pagamento conforme a opção escolhida. A liberação automática acontece após aprovação ou confirmação, com cadastro completo. Consulte o saldo do serviço e, quando necessário, <strong>Registro de Faturas</strong> e <strong>Movimentação de Créditos</strong>. Se não aparecer, confira a situação antes de pagar novamente.",
+        "title": "Confirme o pagamento e confira a liberação imediata",
+        "text": "Conclua o pagamento no fluxo do Mercado Pago. Assim que ele confirmar o pagamento, os créditos são liberados de forma <strong>automática e imediata</strong>. Consulte o saldo do serviço e, se necessário, <strong>Registro de Faturas</strong> e <strong>Movimentação de Créditos</strong>. Se o saldo não aparecer, confira o status antes de realizar outra compra.",
         "image": null,
         "caption": null
       }
     ],
-    "extra": "<h2>Preço e validade dos créditos</h2><div class=\"t-table-wrap\"><table class=\"t-table\"><thead><tr><th>Serviço</th><th>Valor de 1 crédito</th><th>Validade exibida</th></tr></thead><tbody><tr><td>Locução Off — somente a voz</td><td>R$ 11,90</td><td>2 meses após a compra</td></tr><tr><td>Produção — Spot Comercial + Locução Off</td><td>R$ 24,90</td><td>3 meses após a compra</td></tr></tbody></table></div><p>Valores e validades conferidos no painel em 03/10/2026. Confira sempre a oferta e o total exibidos no momento da compra. Para comerciais, a cobrança considera frações de até 40 segundos; textos mais longos podem exigir créditos adicionais.</p><h2>PIX automático, boleto e transferência</h2><p>No PIX Automático, siga o QR Code ou código disponibilizado no fluxo de pagamento. A liberação depende da confirmação. Cartão depende da autorização e pode passar por análise. Boleto depende de compensação. Transferência bancária pode exigir conferência de comprovante e atendimento em horário comercial; não tem necessariamente o mesmo prazo do PIX Automático.</p><div class=\"t-callout\"><strong>Cadastro completo primeiro.</strong> Se o painel apontar dados pendentes, volte a Minha conta e salve as informações antes de tentar comprar.</div>",
+    "extra": "<h2>Preço e validade dos créditos</h2><div class=\"t-table-wrap\"><table class=\"t-table\"><thead><tr><th>Serviço</th><th>Valor de 1 crédito</th><th>Validade exibida</th></tr></thead><tbody><tr><td>Locução Off — somente a voz</td><td>R$ 11,90</td><td>2 meses após a compra</td></tr><tr><td>Produção — Spot Comercial + Locução Off</td><td>R$ 24,90</td><td>3 meses após a compra</td></tr></tbody></table></div><p>Valores e validades conferidos no painel em 03/10/2026. Confira sempre a oferta e o total exibidos no momento da compra. Para comerciais, a cobrança considera frações de até 40 segundos; textos mais longos podem exigir créditos adicionais.</p><h2>PIX ou cartão de crédito: compra automática no painel</h2><p>Para PIX, utilize o QR Code ou código disponibilizado no pagamento. Para cartão de crédito, conclua a autorização no fluxo do Mercado Pago. Um pagamento pendente, em análise ou recusado ainda não está confirmado. A liberação dos créditos acontece automaticamente e de imediato assim que a confirmação for recebida.</p><div class=\"t-callout\"><strong>Cadastro completo primeiro.</strong> Se o painel apontar dados pendentes, volte a Minha conta e salve as informações antes de tentar comprar.</div>",
     "faqs": [
       [
         "Posso usar créditos de Off para pedir Spot?",
@@ -157,11 +157,15 @@
       ],
       [
         "O crédito é liberado ao clicar em PAGAR AGORA?",
-        "Não. É preciso concluir o pagamento e aguardar sua aprovação ou confirmação. O cadastro também deve estar completo para a compra automática."
+        "Clicar em PAGAR AGORA abre a etapa de pagamento. Os créditos são liberados automaticamente e de imediato assim que o pagamento for confirmado pelo Mercado Pago. O cadastro deve estar completo."
       ],
       [
         "O que fazer se paguei e o saldo não apareceu?",
-        "Confira o serviço comprado, a situação do pagamento e o cadastro. Consulte as faturas e o movimento de créditos. Se precisar de ajuda, procure o suporte com o comprovante e a mensagem do painel, sem compartilhar senha."
+        "Confira a modalidade de crédito e o status do pagamento no painel. Consulte as faturas e movimentações. Se o pagamento estiver confirmado e o saldo não aparecer, procure o suporte com a identificação da transação e a mensagem exibida; não pague novamente nem compartilhe sua senha."
+      ],
+      [
+        "Quais formas de pagamento são aceitas?",
+        "Exclusivamente PIX ou cartão de crédito, diretamente no Painel de Gravação, com processamento pelo Mercado Pago."
       ]
     ],
     "related": [
@@ -301,7 +305,7 @@
     "slug": "como-escolher-locutor",
     "title": "Como escolher um locutor no Painel de Gravação",
     "description": "Aprenda a ouvir demos, consultar estilos, observações e horários e escolher a voz para sua locução ou Spot Comercial no painel.",
-    "intro": "A escolha da voz influencia o resultado da gravação. Use a Lista de Locutores para ouvir demos e consultar disponibilidade, observações e horários antes de enviar um pedido de Off ou Produção.",
+    "intro": "A escolha da voz influencia o resultado da gravação. Use a Lista de Locutores para ouvir demos e consultar disponibilidade, observações e horários antes de enviar um pedido de Off ou Produção. Temos locutores de plantão todos os dias, inclusive finais de semana e feriados; consulte os profissionais disponíveis no momento do pedido.",
     "prereq": "Entre no painel para consultar a lista completa. Você também pode conhecer as vozes no <a href=\"/vozes/\">Banco de Vozes do site</a> antes de criar sua conta.",
     "steps": [
       {
@@ -478,7 +482,7 @@
     "slug": "como-solicitar-correcao",
     "title": "Como solicitar correção de uma gravação",
     "description": "Aprenda a abrir Tive um problema! em Meus Pedidos, descrever o erro e solicitar correção de acordo com os termos do Painel de Gravação.",
-    "intro": "Ouça a entrega assim que ela estiver disponível. Se identificar um erro na gravação ou produção, use a função do próprio pedido para explicar o problema. Os termos preveem solicitação de correção por erro de execução em até três dias após a entrega, enquanto a função estiver disponível.",
+    "intro": "Ouça a entrega assim que ela estiver disponível. Se identificar um erro na gravação ou produção, use a função do próprio pedido para explicar o problema. Os termos preveem solicitação de correção por erro de execução em até três dias após a entrega, enquanto a função estiver disponível. Esse prazo é operacional e não limita os direitos previstos em lei. Se a função estiver indisponível, procure o suporte.",
     "prereq": "Tenha o pedido e o arquivo entregue em mãos. Compare o áudio com o roteiro e as orientações que foram enviados para distinguir erro de execução e alteração do conteúdo.",
     "steps": [
       {
@@ -512,11 +516,11 @@
         "caption": null
       }
     ],
-    "extra": "<div class=\"t-rules\"><h2>Correção ou novo pedido?</h2><p>Conforme os termos consultados, erros atribuíveis à execução devem ser comunicados em até <strong>3 dias após a entrega</strong>, enquanto a função estiver disponível. Erros no texto enviado pelo cliente, omissões, mudança de locutor, tom ou estilo depois da entrega podem exigir nova solicitação cobrada.</p><p>Solicitar uma correção não autoriza incluir uma nova campanha ou trocar o roteiro inteiro sem avaliação. Descreva a divergência em relação ao pedido original. Leia as condições atuais em <strong>Informações → Termos de Uso</strong> no painel.</p></div><h2>Problemas de cobrança</h2><p>Se a dúvida for sobre créditos ou cobrança, utilize a categoria administrativa correspondente e explique a situação. Confira o consumo e as informações do pedido antes de abrir a solicitação. O campo de correção de gravação não substitui a escolha correta da categoria.</p>",
+    "extra": "<div class=\"t-rules\"><h2>Correção ou novo pedido?</h2><p>Conforme os termos consultados, erros atribuíveis à execução devem ser comunicados em até <strong>3 dias após a entrega</strong>, enquanto a função estiver disponível. Erros no texto enviado pelo cliente, omissões, mudança de locutor, tom ou estilo depois da entrega podem exigir nova solicitação cobrada.</p><p>Solicitar uma correção não autoriza incluir uma nova campanha ou trocar o roteiro inteiro sem avaliação. Descreva a divergência em relação ao pedido original. Leia as condições atuais em <strong>Informações → Termos de Uso</strong> no painel.</p><p>O prazo operacional de três dias não limita os direitos e prazos previstos na legislação. Se a função não estiver disponível, procure o suporte da A Locução.</p></div><h2>Problemas de cobrança</h2><p>Se a dúvida for sobre créditos ou cobrança, utilize a categoria administrativa correspondente e explique a situação. Confira o consumo e as informações do pedido antes de abrir a solicitação. O campo de correção de gravação não substitui a escolha correta da categoria.</p>",
     "faqs": [
       [
         "Qual é o prazo para solicitar correção?",
-        "Os termos consultados preveem até três dias após a entrega para erros de execução, enquanto a função estiver disponível. Confira as condições atuais do painel."
+        "O fluxo operacional prevê até três dias após a entrega para erros de execução. Esse prazo não limita direitos e prazos legais. Se a função estiver indisponível, procure o suporte."
       ],
       [
         "Posso mudar o texto depois de ouvir a gravação?",

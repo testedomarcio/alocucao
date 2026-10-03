@@ -5,6 +5,7 @@ import json
 import re
 import struct
 from pathlib import Path
+from runpy import run_path
 
 ROOT = Path(__file__).resolve().parent.parent
 BASE = 'https://alocucao.com.br'
@@ -57,7 +58,7 @@ def breadcrumb_schema(title=None, path=None):
     return {'@type': 'BreadcrumbList', 'itemListElement': [dict({'@type': 'ListItem'}, position=i, name=name, item=BASE+p) for i, (name, p) in enumerate(entries, 1)]}
 
 def document(title, description, path, body, schema, article=False):
-    return f'''<!doctype html>
+    output = f'''<!doctype html>
 <html lang="pt-BR"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)} | A Locução</title><meta name="description" content="{e(description)}">
@@ -69,6 +70,8 @@ def document(title, description, path, body, schema, article=False):
 <script src="/assets/privacy.js" defer></script><script src="/assets/tracking.js?v=20261003-panel-pages" defer></script>
 <script type="application/ld+json">{json.dumps({'@context':'https://schema.org','@graph':schema},ensure_ascii=False,separators=(',',':'))}</script>
 </head><body>{HEADER}<main id="conteudo">{body}</main>{FOOTER}<script src="/assets/site-layout.js?v=20261002" defer></script></body></html>'''
+
+    return run_path(str(ROOT / "scripts/standardize-layout.py"))["standardize_page"](output)
 
 def render_guide(g):
     title, path = g['title'], url(g)
@@ -93,7 +96,7 @@ def render_hub():
         groups.append(f'<section><h2>{e(group)}</h2><div class="t-cards">{cards}</div></section>')
     title = 'Tutoriais do Painel de Gravação'
     description = 'Aprenda a se cadastrar, completar seus dados, comprar créditos, pedir Off ou Spot, solicitar correção e baixar áudios no Painel de Gravação.'
-    body = f'''{breadcrumbs()}<section class="t-hero"><div class="t-shell"><span class="t-label">Central de ajuda · A Locução</span><h1>Aprenda a usar o Painel de Gravação</h1><p class="t-lead">Do primeiro cadastro ao download do áudio: encontre o passo a passo que você precisa para fazer seus pedidos de Locução Off e Spot Comercial.</p><a class="t-button" href="/painel/">Entrar no painel</a><a class="t-button t-button-alt" href="/cadastro/">Criar conta grátis</a></div></section><div class="t-shell t-hub"><div class="t-callout"><strong>Vai comprar créditos pela primeira vez?</strong><p><a href="/tutoriais/como-completar-cadastro/">Complete o cadastro em Minha conta</a> antes de iniciar. Essa etapa é necessária para adquirir créditos de forma automática.</p></div>{''.join(groups)}<section><h2>O caminho do seu primeiro pedido</h2><ol class="t-checklist"><li>Crie o acesso e complete os dados cadastrais.</li><li>Adquira créditos do serviço que você precisa: Off ou Produção.</li><li>Ouça as vozes, revise o roteiro e confirme o pedido.</li><li>Acompanhe em Meus Pedidos e baixe os arquivos entregues.</li></ol></section><section class="t-rules"><h2>Confira as condições do painel</h2><p>Antes de enviar, leia Informações → Termos de Uso na área do cliente. Revise o texto e o estilo escolhido; mudanças depois da entrega podem ser um novo pedido cobrado. Para erros de execução, os termos consultados preveem solicitação de correção em até três dias após a entrega, enquanto a função estiver disponível. Baixe e guarde os arquivos: a disponibilidade mínima prevista é de 30 dias.</p></section><p>Precisa de ajuda com uma mensagem do painel? <a data-panel-support href="https://wa.me/5527996529832" target="_blank" rel="noopener">Fale com o suporte pelo WhatsApp</a>. Atendimento de segunda a sexta, das 08h às 18h.</p><p class="t-meta">Tutoriais e capturas baseados no painel consultado em 03/10/2026. Valores e condições devem ser conferidos na tela antes de confirmar.</p></div>'''
+    body = f'''{breadcrumbs()}<section class="t-hero"><div class="t-shell"><span class="t-label">Central de ajuda · A Locução</span><h1>Aprenda a usar o Painel de Gravação</h1><p class="t-lead">Do primeiro cadastro ao download do áudio: encontre o passo a passo que você precisa para fazer seus pedidos de Locução Off e Spot Comercial.</p><a class="t-button" href="/painel/">Entrar no painel</a><a class="t-button t-button-alt" href="/cadastro/">Criar conta grátis</a></div></section><div class="t-shell t-hub"><div class="t-callout"><strong>Vai comprar créditos pela primeira vez?</strong><p><a href="/tutoriais/como-completar-cadastro/">Complete o cadastro em Minha conta</a> antes de iniciar. Essa etapa é necessária para adquirir créditos de forma automática.</p></div>{''.join(groups)}<section><h2>O caminho do seu primeiro pedido</h2><ol class="t-checklist"><li>Crie o acesso e complete os dados cadastrais.</li><li>Compre créditos de Off ou Produção no painel por PIX ou cartão de crédito, com processamento pelo Mercado Pago.</li><li>Após a confirmação do pagamento, receba os créditos automaticamente e de imediato.</li><li>Ouça as vozes, revise o roteiro e confirme o pedido.</li><li>Acompanhe em Meus Pedidos e baixe os arquivos entregues.</li></ol></section><section class="t-rules"><h2>Confira as condições do painel</h2><p>Antes de enviar, leia Informações → Termos de Uso na área do cliente. Revise o texto e o estilo escolhido; mudanças depois da entrega podem ser um novo pedido cobrado. Para erros de execução, os termos consultados preveem solicitação de correção em até três dias após a entrega, enquanto a função estiver disponível. Esse prazo operacional não limita os direitos legais; se a função estiver indisponível, procure o suporte. Baixe e guarde os arquivos: a disponibilidade mínima prevista é de 30 dias.</p></section><p>Precisa de ajuda com uma mensagem do painel? <a data-panel-support href="https://wa.me/5527996529832" target="_blank" rel="noopener">Fale com o suporte pelo WhatsApp</a>. Atendimento de segunda a sexta, das 08h às 18h.</p><p class="t-meta">Tutoriais e capturas baseados no painel consultado em 03/10/2026. Valores e condições devem ser conferidos na tela antes de confirmar.</p></div>'''
     schema = {'@type':'CollectionPage','name':title,'description':description,'url':BASE+'/tutoriais/','inLanguage':'pt-BR','mainEntity':{'@type':'ItemList','itemListElement':[{'@type':'ListItem','position':i,'name':g['title'],'url':BASE+url(g)} for i,g in enumerate(GUIDES,1)]}}
     folder = ROOT/'tutoriais'
     folder.mkdir(exist_ok=True)

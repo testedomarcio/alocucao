@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Calculadora de Tempo de Locução e Palavras | A Locução</title>
-  <meta name="description" content="Calcule gratuitamente o tempo de locução do seu texto. Veja a duração estimada, o orçamento dinâmico e quantos créditos o roteiro ocupa.">
+  <meta name="description" content="Simule gratuitamente o tempo de locução, os créditos e o valor aproximado. Confira a quantidade efetiva de créditos e o total no Painel de Gravação.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <link rel="canonical" href="https://alocucao.com.br/calculadora/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -31,15 +31,6 @@
     .price-card:hover{border-color:var(--teal)}
     .price-card .price-title{display:block;color:var(--muted);font-size:.85rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
     .price-card .price-value{display:block;color:var(--navy);font-size:1.65rem;font-weight:950}
-    .pix-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:16px;padding:18px;margin-top:16px}
-    .pix-title{display:flex;align-items:center;gap:8px;font-weight:900;color:#166534;font-size:.95rem;margin-bottom:12px}
-    .pix-content{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-    .pix-details{font-size:.88rem;color:#1e293b;line-height:1.5}
-    .pix-details .pix-label{color:#64748b;font-weight:700}
-    .pix-details strong{color:#0f172a;word-break:break-all}
-    .btn-copy-pix{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:#fff;border:1px solid #86efac;border-radius:10px;font-size:.85rem;font-weight:800;color:#166534;cursor:pointer;transition:all .2s ease}
-    .btn-copy-pix:hover{background:#dcfce7;border-color:#4ade80}
-    .btn-copy-pix.copied{background:#22c55e;border-color:#22c55e;color:#fff}
     .actions-center{display:flex;justify-content:center;width:100%;margin-top:20px}
     .btn-wa-hero{width:100%;max-width:100%;min-height:54px;font-size:1.05rem;font-weight:900;background:var(--green);color:#062e17;justify-content:center;text-align:center;border-radius:14px;box-shadow:0 6px 20px rgba(37,211,102,.35);transition:all .2s ease}
     .btn-wa-hero:hover{background:#20bd5a;transform:translateY(-2px);box-shadow:0 8px 25px rgba(37,211,102,.45)}
@@ -75,11 +66,11 @@
 </header>
 <!-- site-header:end -->
   <main>
-    <section class="hero"><div class="container"><span class="eyebrow">Ferramenta gratuita</span><h1>Calculadora de tempo de locução: quanto dura seu texto?</h1><p class="lead">Cole o roteiro abaixo e descubra a duração estimada da narração, o orçamento automático e os créditos necessários. O cálculo acontece de forma privada no seu próprio navegador.</p></div></section>
+    <section class="hero"><div class="container"><span class="eyebrow">Ferramenta gratuita</span><h1>Calculadora de tempo de locução: quanto dura seu texto?</h1><p class="lead">Cole o roteiro abaixo para simular a duração, os créditos e o valor aproximado da gravação. O cálculo acontece de forma privada no seu próprio navegador.</p></div></section>
     <section class="calculator"><div class="container calc-grid">
       <div class="panel">
         <label for="script-text">Cole ou digite o texto da locução</label>
-        <textarea id="script-text" maxlength="12000" placeholder="Exemplo: Atenção! Neste fim de semana, ofertas especiais esperam por você..."></textarea><p class="panel-note">Estimativa pela tabela: Off R$ 11,90 e Produção R$ 24,90 por fração de 40 segundos, sem a taxa de pagamento. Confira o total no painel. Copie seu roteiro para enviá-lo na sua conta; ele não é transferido automaticamente.</p>
+        <textarea id="script-text" maxlength="12000" placeholder="Exemplo: Atenção! Neste fim de semana, ofertas especiais esperam por você..."></textarea><p class="panel-note">Simulação baseada em Off a R$ 11,90 e Spot a R$ 24,90 por fração de até 40 segundos. A quantidade efetiva de créditos e o valor total serão apresentados no Painel de Gravação. Copie seu roteiro para enviá-lo na sua conta; ele não é transferido automaticamente.</p>
         <div class="controls"><div class="field"><label for="voice-speed">Ritmo de leitura</label><select id="voice-speed"><option value="120">Calmo ou institucional</option><option value="140" selected>Natural ou comercial</option><option value="160">Dinâmico ou varejo</option></select></div></div>
         <div class="actions"><button class="btn btn-dark" id="calculate" type="button">Calcular duração</button><button class="btn btn-light" id="clear" type="button">Limpar</button></div>
         <p class="privacy">🔒 O texto não é enviado nem armazenado pela A Locução. O cálculo é feito somente neste dispositivo.</p>
@@ -90,45 +81,29 @@
           <span class="eyebrow">Estimativa</span>
           <div class="metrics">
             <div class="metric"><span>Duração estimada</span><strong id="duration">0:00</strong></div>
-            <div class="metric"><span>Nº de créditos (cobrado a cada bloco de 40 segundos)</span><strong id="blocks">0</strong></div>
+            <div class="metric"><span>Créditos estimados (referência de até 40 segundos)</span><strong id="blocks">0</strong></div>
           </div>
           <div class="pricing-cards">
             <div class="price-card">
-              <span class="price-title">Locução Off</span>
+              <span class="price-title">Locução Off — valor estimado</span>
               <strong class="price-value" id="price-off">R$ 0,00</strong>
             </div>
             <div class="price-card">
-              <span class="price-title">Spot Comercial</span>
+              <span class="price-title">Spot Comercial — valor estimado</span>
               <strong class="price-value" id="price-spot">R$ 0,00</strong>
             </div>
           </div>
           <div class="highlight"><span>Faixa provável de duração</span><strong id="range">0:00–0:00</strong></div>
-          <div class="pix-box">
-            <div class="pix-title">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-              <span>Pagamento via Pix</span>
-            </div>
-            <div class="pix-content">
-              <div class="pix-details">
-                <div><span class="pix-label">Chave PIX:</span> <strong id="pix-key">pix@alocucao.com.br</strong></div>
-                <div><span class="pix-label">Favorecido:</span> <strong>Marcio Pereira de Souza</strong></div>
-              </div>
-              <button id="copy-pix-btn" class="btn-copy-pix" type="button" aria-label="Copiar chave PIX">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                <span id="copy-pix-text">Copiar Chave Pix</span>
-              </button>
-            </div>
-          </div>
-          <div class="note">A interpretação, as pausas, a pronúncia de nomes e o estilo do locutor podem alterar a duração final. Confirmamos o enquadramento antes do pedido.</div>
-          <div class="actions actions-center"><a class="btn btn-wa btn-wa-hero" id="quote-link" href="/cadastro/" data-cta="calculadora_resultado_orcamento">Criar conta grátis</a></div>
+          <div class="note">Esta calculadora é apenas uma simulação. A interpretação, as pausas e as pronúncias podem alterar a duração. Confira a quantidade efetiva de créditos, o valor total e o prazo no Painel de Gravação antes de confirmar o pedido.</div>
+          <div class="actions actions-center"><a class="btn btn-wa btn-wa-hero" id="quote-link" href="/painel/" data-cta="calculadora_resultado_painel">Conferir no Painel de Gravação</a></div>
         </div>
       </aside>
     </div></section>
-    <section class="help"><div class="container"><div class="help-grid"><article><h3>Até 40 segundos</h3><p>É a referência aproximada da locução off inicial. Textos maiores recebem orçamento conforme a duração estimada.</p></article><article><h3>Não leia rápido demais</h3><p>Uma propaganda clara costuma funcionar melhor que um texto apertado em poucos segundos.</p></article><article><h3>Precisa de ajuda?</h3><p>Envie sua dúvida no WhatsApp. Podemos orientar a redução ou adaptação do roteiro.</p></article></div></div></section>
+    <section class="help"><div class="container"><div class="help-grid"><article><h3>Até 40 segundos</h3><p>É a referência aproximada da locução off inicial. Textos maiores podem exigir mais créditos. A quantidade efetiva é apresentada no painel.</p></article><article><h3>Não leia rápido demais</h3><p>Uma propaganda clara costuma funcionar melhor que um texto apertado em poucos segundos.</p></article><article><h3>Precisa de ajuda?</h3><p>Envie sua dúvida no WhatsApp. Podemos orientar a redução ou adaptação do roteiro.</p></article></div></div></section>
     <section class="guide"><div class="container guide-copy">
       <h3>Como a Velocidade da Fala e Palavras por Minuto Impactam o Tempo de Locução</h3>
       <p>A velocidade da fala, calculada em <strong>palavras por minuto</strong> (PPM), é o fator determinante para o <strong>tempo de locução</strong> final do seu áudio. Em um <strong>roteiro para rádio</strong> ou spot comercial, uma leitura institucional costuma variar entre 120 e 130 palavras por minuto, garantindo sobriedade e clareza. Já em anúncios promocionais ou de varejo, a velocidade pode chegar a 150 ou 160 palavras por minuto para criar dinamicidade.</p>
-      <p>Na A Locução, a cobrança e o enquadramento de tempo são calculados em blocos de até 40 segundos (o equivalente a cerca de 80 a 95 palavras em ritmo natural). Quando o número de palavras ultrapassa a capacidade de um bloco de 40 segundos, o sistema contabiliza blocos adicionais de créditos, permitindo dimensionar com precisão os custos tanto de uma <a href="/locucao-off/">Locução Off</a> quanto de um <a href="/spot-comercial/">Spot Comercial</a> completo.</p>
+      <p>Na A Locução, a cobrança e o enquadramento de tempo são calculados em blocos de até 40 segundos (o equivalente a cerca de 80 a 95 palavras em ritmo natural). Quando o número de palavras ultrapassa a capacidade de um bloco de 40 segundos, o sistema contabiliza blocos adicionais de créditos, fornecendo uma referência aproximada dos custos tanto de uma <a href="/locucao-off/">Locução Off</a> quanto de um <a href="/spot-comercial/">Spot Comercial</a> completo.</p>
 
       <h2>Como calcular o tempo de narração de um texto?</h2>
       <p>O tempo de locução depende principalmente da quantidade de palavras, do ritmo escolhido e das pausas indicadas pela pontuação. Uma leitura institucional costuma ser mais calma; um anúncio promocional pode ser mais dinâmico. A calculadora combina esses fatores para oferecer uma faixa provável, útil para planejar spots, vídeos, chamadas, vinhetas e apresentações.</p>
@@ -157,7 +132,7 @@
         <details open><summary>Como calcular o tempo de locução?</summary><p>Cole o texto, selecione o ritmo e veja a estimativa automática. A ferramenta considera palavras e sinais de pontuação para estimar o tempo.</p></details>
         <details><summary>Quantas palavras cabem em 30 segundos?</summary><p>Em uma leitura natural, aproximadamente 60 a 70 palavras. Uma interpretação mais calma ou com muitas pausas comporta menos palavras.</p></details>
         <details><summary>Quantas palavras cabem em 40 segundos?</summary><p>Geralmente entre 80 e 95 palavras em ritmo natural. Textos com muitos números, nomes ou endereços podem durar mais.</p></details>
-        <details><summary>A estimativa substitui a leitura do locutor?</summary><p>Não. A ferramenta auxilia no planejamento. A confirmação final depende da voz, do estilo de interpretação e das pronúncias do roteiro.</p></details>
+        <details><summary>A estimativa substitui a leitura do locutor?</summary><p>Não. A ferramenta auxilia no planejamento. A duração pode variar com a voz, o estilo e as pronúncias. A quantidade efetiva de créditos e o valor total são apresentados no Painel de Gravação.</p></details>
       </div>
     </div></section>
   </main>
@@ -175,7 +150,6 @@
   <script>
     (()=>{
       const text=document.getElementById("script-text"),speed=document.getElementById("voice-speed"),empty=document.getElementById("result-empty"),results=document.getElementById("results");
-      const copyBtn=document.getElementById("copy-pix-btn"),copyText=document.getElementById("copy-pix-text");
       const format=seconds=>{const value=Math.max(0,Math.round(seconds));return `${Math.floor(value/60)}:${String(value%60).padStart(2,"0")}`};
       const formatBRL=val=>`R$ ${val.toFixed(2).replace(".",",")}`;
       const words=value=>{try{return value.match(/[\p{L}\p{N}]+(?:['’\-][\p{L}\p{N}]+)*/gu)||[]}catch(error){return value.trim()?value.trim().split(/\s+/):[]}};
@@ -197,8 +171,7 @@
         document.getElementById("price-spot").textContent=formatBRL(priceSpot);
         document.getElementById("range").textContent=`${format(low)}–${format(high)}`;
 
-        const waMsg=`Olá! Usei a calculadora da A Locução.\nDuração estimada: ${format(estimated)}\nNº de créditos: ${blocks} (${blocks>1?'blocos':'bloco'} de até 40s)\nValores: Locução Off ${formatBRL(priceOff)} | Spot Comercial ${formatBRL(priceSpot)}\nGostaria de confirmar o pedido.`;
-        document.getElementById("quote-link").href="/cadastro/";
+        document.getElementById("quote-link").href="/painel/";
 
         empty.style.display="none";
         results.classList.add("show");
@@ -224,38 +197,6 @@
         calculate();
       }
 
-      function copyPixKey(){
-        const pixKey="pix@alocucao.com.br";
-        const showFeedback=()=>{
-          if(!copyText||!copyBtn)return;
-          copyText.textContent="Copiado!";
-          copyBtn.classList.add("copied");
-          setTimeout(()=>{
-            copyText.textContent="Copiar Chave Pix";
-            copyBtn.classList.remove("copied");
-          },2000);
-        };
-        if(navigator.clipboard&&navigator.clipboard.writeText){
-          navigator.clipboard.writeText(pixKey).then(showFeedback).catch(()=>{
-            fallbackCopy(pixKey,showFeedback);
-          });
-        }else{
-          fallbackCopy(pixKey,showFeedback);
-        }
-      }
-
-      function fallbackCopy(str,cb){
-        const el=document.createElement("textarea");
-        el.value=str;
-        el.setAttribute("readonly","");
-        el.style.position="absolute";
-        el.style.left="-9999px";
-        document.body.appendChild(el);
-        el.select();
-        try{document.execCommand("copy");cb()}catch(e){}
-        document.body.removeChild(el);
-      }
-
       document.getElementById("calculate").addEventListener("click",handleManualCalculate);
       document.getElementById("clear").addEventListener("click",()=>{
         text.value="";
@@ -266,7 +207,6 @@
       });
       text.addEventListener("input",calculate);
       speed.addEventListener("change",calculate);
-      if(copyBtn)copyBtn.addEventListener("click",copyPixKey);
       text.addEventListener("keydown",event=>{if((event.ctrlKey||event.metaKey)&&event.key==="Enter")handleManualCalculate()});
     })();
   </script>
