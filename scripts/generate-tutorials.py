@@ -63,7 +63,7 @@ def document(title, description, path, body, schema, article=False):
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)} | A Locução</title><meta name="description" content="{e(description)}">
 <meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="{BASE+path}">
-<meta name="theme-color" content="#0d1b2a"><link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0d1b2a"><link rel="icon" href="/assets/brand/favicon-64.png?v=20261005" type="image/png" sizes="64x64">
 <meta property="og:type" content="{'article' if article else 'website'}"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="A Locução"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(description)}"><meta property="og:url" content="{BASE+path}">
 <meta name="twitter:card" content="summary"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(description)}">
 <link rel="stylesheet" href="/assets/tutorials.css?v=20261003"><link rel="stylesheet" href="/assets/site-layout.css?v=20261002">

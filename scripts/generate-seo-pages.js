@@ -83,7 +83,7 @@ function generatePages() {
       "@graph": [
         {
           "@type": "Organization", "@id": "https://alocucao.com.br/#organization",
-          name: "A Locução", url: "https://alocucao.com.br/", logo: "https://alocucao.com.br/favicon.svg",
+          name: "A Locução", url: "https://alocucao.com.br/", logo: "https://alocucao.com.br/assets/brand/a-locucao-logo.png",
           telephone: "+5527996529832",
           contactPoint: { "@type": "ContactPoint", telephone: "+5527996529832",
             contactType: "customer service", areaServed: "BR", availableLanguage: "pt-BR" }
