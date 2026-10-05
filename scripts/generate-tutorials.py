@@ -71,7 +71,18 @@ def document(title, description, path, body, schema, article=False):
 <script type="application/ld+json">{json.dumps({'@context':'https://schema.org','@graph':schema},ensure_ascii=False,separators=(',',':'))}</script>
 </head><body class="tutorial-page">{HEADER}<main id="conteudo">{body}</main>{FOOTER}<script src="/assets/site-layout.js?v=20261002" defer></script></body></html>'''
 
-    return run_path(str(ROOT / "scripts/standardize-layout.py"))["standardize_page"](output)
+    output = run_path(str(ROOT / "scripts/standardize-layout.py"))["standardize_page"](output)
+    # Preserve campaign content already published on regenerated tutorials.
+    existing = ROOT / path.strip('/') / 'index.html'
+    if existing.exists():
+        published = existing.read_text()
+        banner = re.search(r'<!-- referral-banner:start -->.*?<!-- referral-banner:end -->', published, re.S)
+        if banner:
+            stylesheet = re.search(r'<link[^>]+href="/assets/referral-banner\.css[^>]*>', published)
+            if stylesheet:
+                output = output.replace('</head>', stylesheet.group(0) + '\n</head>')
+            output = re.sub(r'(<section class="t-hero">.*?</section>)', lambda match: match.group(0) + '\n' + banner.group(0), output, count=1, flags=re.S)
+    return output
 
 def render_guide(g):
     title, path = g['title'], url(g)

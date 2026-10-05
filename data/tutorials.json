@@ -420,7 +420,7 @@
       },
       {
         "title": "Confira a linha do pedido",
-        "text": "A lista apresenta Pedido, Tipo, Data, Status e Atalhos. Abra o pedido desejado para conferir os detalhes disponíveis. Se estiver aguardando pagamento, confira a cobrança antes de esperar a gravação.",
+        "text": "A lista apresenta Pedido, Tipo, Data, Status e Atalhos. Uma entrega pode aparecer como <strong>Oba! Seu áudio chegou!</strong>, com os botões <strong>Ouvir</strong>, <strong>Baixar áudios</strong>, <strong>Avaliar</strong> e <strong>Opções</strong>. Use <strong>Opções → Ver Pedido</strong> para conferir os detalhes. O menu também oferece <strong>Solicitar Correção</strong>. Se estiver aguardando pagamento, confira a cobrança antes de esperar a gravação.",
         "image": null,
         "caption": null
       },
@@ -451,31 +451,55 @@
   {
     "slug": "como-solicitar-correcao",
     "title": "Como solicitar correção de uma gravação",
-    "description": "Aprenda como solicitar correção de uma gravação, com orientações do novo painel da A Locução.",
-    "intro": "Depois da entrega, você pode solicitar ajustes de erros de execução, explicando a divergência entre o pedido e o áudio recebido.",
+    "description": "Veja como pedir correção de voz ou produção no Painel de Gravação: marcar trechos, explicar o erro, anexar guia de pronúncia e acompanhar o ajuste.",
+    "intro": "Solicite correção de erros de leitura ou produção no próprio pedido. Este passo a passo mostra a tela real do novo painel, com marcação de trechos e orientações para voz, trilha e mixagem.",
     "prereq": "Ouça a gravação e compare com o roteiro e as orientações originais.",
     "steps": [
       {
-        "title": "Localize a entrega",
-        "text": "Abra <strong>Meus pedidos</strong> e use <strong>Entregues</strong>. Localize e abra o pedido correspondente.",
-        "image": "novo-pedidos.jpg",
-        "caption": "Use o filtro Entregues para localizar a gravação que precisa conferir."
-      },
-      {
-        "title": "Explique o que precisa de ajuste",
-        "text": "Use a opção de correção disponibilizada nos detalhes do pedido. Conforme os termos atuais, o ajuste pode ser para a voz, a produção ou ambas. Indique o trecho e explique a diferença em relação à solicitação original.",
+        "title": "Localize o pedido e abra Solicitar Correção",
+        "text": "Entre em <strong>Meus pedidos</strong>, use o filtro <strong>Entregues</strong> e localize a gravação. Na linha do pedido, clique em <strong>Opções</strong> e depois em <strong>Solicitar Correção</strong>. Confira o título e o número do pedido antes de preencher.",
         "image": null,
         "caption": null
       },
       {
-        "title": "Inclua uma referência clara",
-        "text": "Os termos atuais preveem marcar o trecho no texto, enviar áudio de referência ou gravar uma explicação. Use as opções apresentadas no pedido e revise sua descrição antes de enviar.",
+        "title": "Confira o áudio e as orientações originais",
+        "text": "Na tela <strong>Pedir correção</strong>, ouça o áudio em <strong>Áudio(s) gravado(s)</strong> e compare com o roteiro. Abra <strong>Orientações que você deu no pedido</strong> para revisar as instruções enviadas. Correção atende erros de leitura ou produção; para mudar o texto do anúncio, faça um novo pedido.",
+        "image": "novo-correcao-formulario.jpg",
+        "caption": "Tela real de correção de um pedido Produzida: áudio, roteiro, descrição e destino do ajuste."
+      },
+      {
+        "title": "Marque a frase ou a palavra com erro",
+        "text": "Toque numa frase para marcá-la inteira ou selecione somente a palavra. Na caixa que aparece, preencha <strong>O que está errado?</strong>. Você pode usar os atalhos <strong>Pronúncia errada</strong>, <strong>Palavra trocada</strong>, <strong>Faltou uma palavra</strong>, <strong>Entonação</strong> ou <strong>Muito rápido</strong>. Se necessário, explique em <strong>Como deve ficar?</strong> e clique em <strong>Marcar</strong>. Repita para os outros trechos.",
+        "image": "novo-correcao-marcar-trecho.jpg",
+        "caption": "Exemplo de marcação de trecho, com atalhos para descrever o erro. O exemplo não foi enviado."
+      },
+      {
+        "title": "Revise os trechos e descreva o ajuste",
+        "text": "A seção <strong>Trechos marcados</strong> permite editar as anotações, usar <strong>Ver no texto</strong> e desmarcar um trecho. Em <strong>Descreva a Correção</strong>, acrescente uma orientação objetiva, indicando a divergência em relação ao pedido original. Essa descrição é opcional quando o texto já está marcado. Para um erro de produção, detalhe o problema de trilha, efeito ou volume e, se possível, o momento do áudio.",
         "image": null,
         "caption": null
       },
       {
-        "title": "Acompanhe a resposta",
-        "text": "Depois da solicitação, acompanhe pelo filtro <strong>Em correção</strong>. Quando houver nova entrega, ouça o trecho corrigido e confira o resultado. Se a opção não aparecer, procure o suporte com a identificação do pedido.",
+        "title": "Escolha onde está o erro",
+        "text": "Em <strong>Onde está o erro?</strong>, marque <strong>A voz</strong> para palavra, pronúncia, entonação ou ritmo; marque <strong>A produção</strong> para trilha, músicas, efeitos, volume ou mixagem. Se os dois precisarem de ajuste, selecione ambos. É necessário marcar ao menos uma opção. No pedido Produzida, o painel informa que você recebe o áudio final completo, inclusive quando a voz precisa ser regravada.",
+        "image": "novo-correcao-revisar.jpg",
+        "caption": "Destino da correção, área de anexos e resumo antes do envio, em um pedido Produzida."
+      },
+      {
+        "title": "Inclua um guia de pronúncia, se precisar",
+        "text": "Em <strong>Guia de pronúncia/Anexos/Músicas</strong>, anexe um arquivo <strong>MP3 ou OGG</strong> clicando na área indicada ou arrastando o arquivo. Outra opção é <strong>Gravar pelo microfone</strong>: abra o gravador, clique em <strong>Começar a gravar</strong> e permita o microfone se o navegador solicitar. Fale devagar o trecho correto; a janela informa o limite de <strong>2 minutos por gravação</strong>. Esse guia é opcional.",
+        "image": "novo-correcao-guia.jpg",
+        "caption": "Janela do guia de pronúncia: orientação para falar devagar e limite de dois minutos."
+      },
+      {
+        "title": "Revise e envie a solicitação",
+        "text": "Confira os trechos, a descrição, o destino e os anexos. Leia o resumo na barra inferior e clique em <strong>Pedir correção</strong> somente quando tudo estiver correto. O botão pode mostrar a quantidade de trechos marcados. As imagens deste tutorial mostram um preenchimento de exemplo, sem envio de correção.",
+        "image": null,
+        "caption": null
+      },
+      {
+        "title": "Acompanhe o áudio corrigido",
+        "text": "Volte a <strong>Meus pedidos</strong> e consulte o filtro <strong>Em correção</strong>. Quando houver nova entrega, ouça o áudio completo e confira os ajustes antes de divulgar. Se a opção de correção não aparecer, fale com o suporte e informe o número do pedido.",
         "image": null,
         "caption": null
       }
@@ -483,12 +507,20 @@
     "extra": "<h2>Erros de execução e alterações de roteiro</h2><p>Os termos atuais não limitam o número de correções para erros do locutor ou produtor em relação ao que foi pedido. Erro no texto enviado, troca de voz ou estilo e falta de orientação no pedido original podem ser recusados como correção, com explicação do motivo; nesses casos, o ajuste será um novo pedido.</p><p>Confira as <a href=\"https://vozlocutor.com.br/termos.php?plataforma=alocucao\" target=\"_blank\" rel=\"noopener\">condições atuais do Painel de Gravação</a> antes de contratar. A disponibilidade de cada voz indica uma estimativa de prazo.</p>",
     "faqs": [
       [
-        "O prazo continua sendo de três dias?",
-        "Os termos do novo painel consultados não apresentam o antigo prazo de três dias. Confira a opção disponível no pedido e fale com o suporte se precisar de ajuda."
+        "Preciso escrever uma descrição se já marquei o texto?",
+        "A tela informa que a descrição é opcional quando já existem trechos marcados. Acrescente detalhes sempre que ajudarem a entender o ajuste."
       ],
       [
-        "Posso trocar todo o roteiro como correção?",
-        "Mudanças no texto ou nas escolhas originais podem exigir novo pedido. A correção de execução trata da divergência em relação ao que você solicitou."
+        "Posso pedir correção de voz e produção juntas?",
+        "Sim. No pedido Produzida, marque A voz e A produção se houver erros nas duas partes. O painel informa que você recebe o áudio final completo."
+      ],
+      [
+        "Como envio a pronúncia correta?",
+        "Anexe um MP3 ou OGG ou use Gravar pelo microfone. O gravador informa um limite de dois minutos por gravação."
+      ],
+      [
+        "Posso trocar o roteiro como correção?",
+        "Para mudar o texto do anúncio, faça um novo pedido. A correção trata de erros de execução em relação ao roteiro e às orientações originais."
       ]
     ],
     "related": [
@@ -512,8 +544,8 @@
         "caption": "Busca e filtro Entregues na área Meus pedidos."
       },
       {
-        "title": "Abra a entrega",
-        "text": "Abra o pedido correspondente e localize os arquivos ou controles de download apresentados na entrega. Confira o tipo de gravação e a versão antes de baixar.",
+        "title": "Use Ouvir ou Baixar áudios",
+        "text": "Na linha de uma entrega, o painel apresenta os atalhos <strong>Ouvir</strong>, <strong>Baixar áudios</strong>, <strong>Avaliar</strong> e <strong>Opções</strong>. Ouça a gravação e clique em <strong>Baixar áudios</strong> para acessar o download. O menu <strong>Opções</strong> também oferece <strong>Baixar áudios…</strong>. Confira o pedido e os arquivos apresentados antes de salvar.",
         "image": null,
         "caption": null
       },
@@ -530,7 +562,7 @@
         "caption": null
       }
     ],
-    "extra": "<h2>Disponibilidade do arquivo</h2><p>Os termos do novo painel informam que o áudio pronto fica disponível por <strong>12 meses a partir da entrega</strong>. Baixe e guarde sua própria cópia. Se o arquivo não aparecer ou não abrir, procure o suporte com a identificação do pedido.</p><p>Confira as <a href=\"https://vozlocutor.com.br/termos.php?plataforma=alocucao\" target=\"_blank\" rel=\"noopener\">condições atuais do Painel de Gravação</a> antes de contratar. A disponibilidade de cada voz indica uma estimativa de prazo.</p>",
+    "extra": "<h2>Outro acesso ao áudio do pedido</h2><p>A tela de correção também apresenta <strong>Áudio(s) gravado(s)</strong>, um player e o link <strong>Baixar</strong>. No exemplo de pedido Produzida, o arquivo aparece identificado como <strong>Produção</strong>. Abra correção apenas quando precisar conferir ou ajustar a entrega.</p><h2>Disponibilidade do arquivo</h2><p>Os termos do novo painel informam que o áudio pronto fica disponível por <strong>12 meses a partir da entrega</strong>. Baixe e guarde sua própria cópia. Se o arquivo não aparecer ou não abrir, procure o suporte com a identificação do pedido.</p><p>Confira as <a href=\"https://vozlocutor.com.br/termos.php?plataforma=alocucao\" target=\"_blank\" rel=\"noopener\">condições atuais do Painel de Gravação</a> antes de contratar. A disponibilidade de cada voz indica uma estimativa de prazo.</p>",
     "faqs": [
       [
         "Por quanto tempo o áudio fica no painel?",
