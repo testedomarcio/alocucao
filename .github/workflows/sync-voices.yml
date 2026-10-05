@@ -30,7 +30,8 @@ permissions:
   contents: read
 concurrency:
   group: sync-voices
-  cancel-in-progress: false
+  # A newer refresh must replace one blocked waiting for Pages publication.
+  cancel-in-progress: true
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -83,7 +84,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}
     concurrency:
-      group: pages
+      # Keep this job separate from the built-in Pages workflow queue.
+      group: voice-catalog-pages
       cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
@@ -108,4 +110,3 @@ jobs:
         id: deployment_retry
         if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@v4
-
