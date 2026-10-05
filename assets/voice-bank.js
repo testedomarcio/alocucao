@@ -71,10 +71,9 @@
     const avatar = element('span','avatar',initials); avatar.setAttribute('aria-hidden','true');
     if(voice.photo) { const photo = element('img'); photo.src = voice.photo; photo.alt = ''; photo.width = 160; photo.height = 160; photo.loading = 'lazy'; photo.decoding = 'async'; photo.addEventListener('error',()=>photo.remove(),{once:true}); avatar.append(photo); }
     const identity = element('div','voice-identity'); identity.append(element('h3','',voice.name),element('p','voice-type',voice.type ? 'Voz '+voice.type.toLowerCase() : 'Voz humana'));
-    if(voice.profilePublished && voice.localProfile) { const profile = element('a','voice-profile-link','Ver perfil'); profile.href=voice.localProfile; profile.setAttribute('aria-label','Ver perfil de '+voice.name); identity.append(profile); }
     const favorite = element('button','favorite-button',favorites.has(voice.id)?'♥':'♡'); favorite.type='button'; favorite.setAttribute('aria-label','Salvar '+voice.name+' nos favoritos'); favorite.setAttribute('aria-pressed',String(favorites.has(voice.id))); favorite.addEventListener('click',()=>saveFavorite(voice.id,favorite));
     top.append(avatar,identity,favorite);
-    const label = fresh() ? voice.statusLabel : 'Disponibilidade sob consulta';
+    const label = fresh() ? (voice.status.startsWith('recording_') ? 'Gravando de '+voice.statusLabel.replace(/^Online\s*\((.+)\)$/, '$1').replace(/(\d+)-(\d+)/, '$1 a $2') : voice.statusLabel) : 'Disponibilidade sob consulta';
     const status = element('span','status-badge'+(recording(voice)?' recording':''),label);
     const tags = element('div','tags'); voice.styles.forEach(style=>tags.append(element('span','tag',style)));
     const meta = element('div','voice-meta'); meta.append(element('span','',voice.region || 'Região não informada'),element('span','',voice.languages.join(' · ')));
@@ -128,8 +127,8 @@
       if(v.localProfile && !/^\/perfil-locutor-[a-z0-9][a-z0-9-]*\/$/.test(v.localProfile))throw Error('Invalid local profile');
       if(v.profilePublished !== undefined && typeof v.profilePublished !== 'boolean')throw Error('Invalid profile flag');
       if(v.schedule !== undefined && (!Array.isArray(v.schedule)||v.schedule.length>7||!v.schedule.every(d=>['Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado','Domingo'].includes(d.day)&&Array.isArray(d.intervals)&&d.intervals.length>0&&d.intervals.length<=8&&d.intervals.every(i=>/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(i.start)&&/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(i.end)))))throw Error('Invalid schedule');
-      if(v.photo) { const photo=new URL(v.photo,location.origin); if(photo.protocol!=='https:'||photo.hostname!=='hd.paineldegravacao.com.br'||!photo.pathname.startsWith('/perfil/')||photo.username||photo.password)throw Error('Invalid photo'); }
-      const media=new URL(v.audio);if(media.protocol!=='https:'||media.hostname!=='hd.paineldegravacao.com.br'||media.username||media.password)throw Error('Invalid media');ids.add(v.id);
+      if(v.photo) { const photo=new URL(v.photo,location.origin); if(photo.protocol!=='https:'||photo.hostname!=='vozlocutor.com.br'||photo.pathname!=='/perfil-img.php'||photo.username||photo.password)throw Error('Invalid photo'); }
+      const media=new URL(v.audio);if(media.protocol!=='https:'||media.hostname!=='vozlocutor.com.br'||media.username||media.password)throw Error('Invalid media');ids.add(v.id);
     }
     return data;
   }

@@ -7,7 +7,7 @@
   let catalog = null, loading = false;
   const safeAudio = value => {
     const url = new URL(value);
-    if (url.protocol !== 'https:' || url.hostname !== 'hd.paineldegravacao.com.br' || url.username || url.password) throw Error('Invalid audio');
+    if (url.protocol !== 'https:' || url.hostname !== 'vozlocutor.com.br' || url.username || url.password) throw Error('Invalid audio');
     return url.href;
   };
   function validate(data) {
@@ -26,7 +26,7 @@
     const byId = new Map((catalog?.voices || []).map(voice => [voice.id, voice]));
     cards.forEach(card => {
       const voice = byId.get(card.dataset.featuredId), status = card.querySelector('[data-featured-status]');
-      const label = fresh && voice ? voice.statusLabel : 'Disponibilidade sob consulta';
+      const label = fresh && voice ? (voice.status.startsWith('recording_') ? 'Gravando de '+voice.statusLabel.replace(/^Online\s*\((.+)\)$/, '$1').replace(/(\d+)-(\d+)/, '$1 a $2') : voice.statusLabel) : 'Disponibilidade sob consulta';
       if (status.textContent !== label) status.textContent = label;
       status.classList.toggle('is-recording', Boolean(fresh && voice?.status.startsWith('recording_')));
       const audio = card.querySelector('audio');

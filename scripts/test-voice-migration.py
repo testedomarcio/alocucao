@@ -1,31 +1,19 @@
 #!/usr/bin/env python3
-"""Regression checks for a provider change, status semantics and public-field allowlisting."""
-import copy,json,runpy,unittest
-from pathlib import Path
-M=runpy.run_path(str(Path(__file__).with_name('sync-voices.py')))
-parse=M['parse_catalog']
+import runpy, unittest
+M=runpy.run_path('scripts/sync-voices.py')
 class MigrationTest(unittest.TestCase):
-    def payload(self):
-        rows=[{'ID':i,'nome':f'Voz {i}','demo':f'demo-{i}.mp3','imagem':f'foto-{i}.jpg','filtro':'masculina','estado':'São Paulo','status_titulo':'Online','status_texto':'','estilos':'PADRÃO, VAREJO<br><b>Informações adicionais:</b><br>Textos Comerciais de até 02:00 minutos','demos':'','obs':'internal-only','ID_obs':123} for i in range(1,41)]
-        return {'recordsTotal':40,'recordsFiltered':40,'data':rows}
-    def test_public_fields_and_media_origin(self):
-        voices=parse(self.payload());serialized=json.dumps(voices)
-        self.assertNotIn('internal-only',serialized);self.assertNotIn('ID_obs',serialized)
-        self.assertTrue(all(v['id'].startswith('lb-') for v in voices))
-        self.assertTrue(all(v['audio'].startswith('https://hd.paineldegravacao.com.br/demos/') for v in voices))
-        self.assertTrue(all(v['schedule']==[] for v in voices))
-    def test_source_status_not_invented_delivery(self):
-        data=self.payload();statuses=['10 min','30 min','Online','Offline','Volto já','Férias','Indisponível','Novo status']
-        for row,status in zip(data['data'],statuses):row['status_titulo']=status
-        voices=parse(data)
-        self.assertEqual([v['status'] for v in voices[:8]],['recording_10min','recording_30min','recording_online','offline','returning','unavailable','unavailable','unknown'])
-        self.assertEqual(voices[2]['statusLabel'],'Online')
-    def test_missing_main_demo_uses_real_published_alternative(self):
-        data=self.payload();data['data'][0]['demo']=None
-        data['data'][0]['demos']=json.dumps({'padroes':{'padrao':{'estilo':'padrao','demo':'alternative.mp3'}}})
-        self.assertTrue(parse(data)[0]['audio'].endswith('/alternative.mp3'))
-    def test_partial_duplicate_and_unsafe_catalogs_are_rejected(self):
-        for mutate in [lambda d:d.update(recordsTotal=41),lambda d:d['data'][1].update(ID=1),lambda d:d['data'][0].update(demo='../private.mp3')]:
-            data=self.payload();mutate(data)
-            with self.assertRaises(ValueError):parse(data)
+    def payload(self,status='10 a 30 minutos'):
+        return '<table><tbody>'+''.join(f'''<tr><td data-label="Locutor"><span>feminino, {status}, Padrão - Impacto - Varejo, Gravação Comercial, SP</span><div class="locutor-name">Voz {i}</div><img class="avatar-img" src="perfil-img.php?file={i}.jpg&amp;sexo=feminino"></td><td data-locutor-id="{i}">{status}</td><td><audio src="download-audio.php?id={i}&amp;v=2"></audio></td></tr>''' for i in range(1,41))+'</tbody></table>'
+    def test_real_fields_and_origins(self):
+        voices=M['parse_catalog'](self.payload())
+        self.assertEqual(len(voices),40);self.assertEqual(voices[0]['region'],'São Paulo')
+        self.assertEqual(voices[0]['statusLabel'],'10 a 30 minutos');self.assertEqual(voices[0]['type'],'Feminina')
+        self.assertIn('&v=2',voices[0]['audio']);self.assertNotIn('profile',voices[0])
+    def test_status_semantics(self):
+        for label,expected in [('Online (1-5 horas)','recording_online'),('30 min a 1 hora','recording_online'),('1 a 2 horas','recording_online'),('Offline','offline'),('Indisponível','unavailable'),('Locutor(a) Volta hoje às 13:00','returning'),('Novo status','unknown')]:
+            v=M['parse_catalog'](self.payload(label))[0]
+            self.assertEqual(v['status'],expected);self.assertEqual(v['statusLabel'],label)
+    def test_invalid_catalogs_rejected(self):
+        for payload in ['',self.payload().replace('data-locutor-id="2"','data-locutor-id="1"'),self.payload().replace('download-audio.php?id=1','https://example.com/demo.mp3?id=1'),self.payload().replace('<audio','<span')]:
+            with self.assertRaises(ValueError):M['parse_catalog'](payload)
 if __name__=='__main__':unittest.main()
