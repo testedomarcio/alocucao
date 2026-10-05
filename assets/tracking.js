@@ -120,7 +120,7 @@
       url.hostname === "web.whatsapp.com";
 
     const panelPath = url.pathname.replace(/\/+$/, "");
-    const isPanel = (url.hostname === "vozlocutor.com.br" && /^\/painel\/alocucao\/(?:entrar|cadastro)$/.test(panelPath)) ||
+    const isPanel = (url.hostname === "vozlocutor.com.br" && /^\/painel\/alocucao(?:\/(?:entrar|cadastro))?$/.test(panelPath)) ||
       (url.origin === new URL(window.location.href).origin && ["/painel", "/cadastro"].includes(panelPath));
     if (isPanel && analyticsConsent) {
       const attribution = firstTouch();
