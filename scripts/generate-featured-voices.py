@@ -23,7 +23,7 @@ def markup(voices):
 <p class="featured-styles">{esc(styles)}</p>
 <audio controls preload="none" data-featured-audio data-voice="{esc(voice['name'])}" aria-label="Ouvir demonstração de {esc(name)}" src="{esc(voice['audio'])}"><a href="{esc(voice['audio'])}">Ouvir demonstração</a></audio>
 <p class="featured-error" hidden>Não foi possível tocar a demo. <a href="{esc(voice['audio'])}" target="_blank" rel="noopener" data-featured-fallback>Abra o áudio em outra aba</a> ou peça orientação.</p>
-<a class="featured-choose" href="https://vozlocutor.com.br/painel/alocucao/" data-cta="voz_destaque_{esc(voice['id'])}">Fazer Pedido</a>
+<a class="featured-choose" href="https://vozlocutor.com.br/painel/alocucao/cadastro" data-cta="voz_destaque_{esc(voice['id'])}">Criar Conta Gratuita</a>
 </article>''')
     return START + '''<div class="featured-voices" data-featured-voices>
 <p class="featured-label">Ouça algumas vozes</p>
