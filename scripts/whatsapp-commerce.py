@@ -113,7 +113,7 @@ def normalize_whatsapp(text):
     # Keep the floating sales button concise, without attendance hours.
     text = re.sub(r'(<a\b[^>]*class="panel-help-link"[^>]*>).*?(</a>)', lambda m: re.sub(r'<span>.*?</span>', '<span>Faça seu pedido pelo WhatsApp</span>', re.sub(r'aria-label="[^"]*"', 'aria-label="Faça seu pedido pelo WhatsApp"', m[0]), flags=re.S), text, flags=re.S)
     if saved:
-        saved = re.sub(r'<a class="al-login"[^>]*>.*?</a>', '<a class="al-login" href="/painel/" data-cta="cabecalho_painel">Painel de Gravação</a>', saved, flags=re.S)
+        saved = re.sub(r'<a class="al-login"[^>]*>.*?</a>', '<a class="al-login" href="https://vozlocutor.com.br/painel/alocucao/entrar" data-cta="cabecalho_painel">Painel de Gravação</a>', saved, flags=re.S)
         saved = re.sub(r'<a class="al-header-cta[^"\n]*"[^>]*>.*?</a>', '<a class="al-header-cta" href="'+WHATSAPP+'" data-cta="cabecalho_whatsapp">Falar pelo WhatsApp</a>', saved, flags=re.S)
         text = text.replace('__SALES_HEADER__', saved)
     return text
