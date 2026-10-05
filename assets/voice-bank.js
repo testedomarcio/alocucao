@@ -80,7 +80,7 @@
     const meta = element('div','voice-meta'); meta.append(element('span','',voice.region || 'Região não informada'),element('span','',voice.languages.join(' · ')));
     const actions = element('div','voice-actions');
     const listen = element('button','listen','▶ Ouvir demo'); listen.type='button'; listen.setAttribute('aria-label','Ouvir demonstração de '+voice.name); listen.setAttribute('aria-pressed','false'); listen.addEventListener('click',()=>play(voice));
-    const choose = element('a','choose','Pedir esta voz pelo WhatsApp'); choose.href='https://wa.me/5527996529832?text='+encodeURIComponent('Olá! Quero uma gravação com '+voice.name+'. Pode confirmar a disponibilidade e o prazo?');  choose.dataset.cta='escolher_'+voice.id;
+    const choose = element('a','choose','Quero essa voz'); choose.href='https://wa.me/5527996529832?text='+encodeURIComponent('Olá! Quero uma gravação com '+voice.name+'. Pode confirmar a disponibilidade e o prazo?');  choose.dataset.cta='escolher_'+voice.id;
     actions.append(listen,choose);
     const compareLabel = element('label','compare-check'); const check = element('input'); check.type='checkbox'; check.checked=selected.has(voice.id); check.setAttribute('aria-label','Comparar '+voice.name);
     check.addEventListener('change',()=>{

@@ -109,7 +109,7 @@ def normalize_whatsapp(text):
                 text = re.sub(r'<a\b[^>]*data-cta="perfil_escolher"[^>]*>.*?</a>', '<a class="btn-wa" href="'+url+'" data-cta="perfil_escolher">Pedir esta voz pelo WhatsApp</a>', text, flags=re.S)
     # Contact and footer wording must match the main conversion on every page.
     text = text.replace('Falar com o suporte pelo WhatsApp', 'Fazer pedido pelo WhatsApp').replace('Suporte<small>WhatsApp', 'Faça seu pedido<small>WhatsApp')
-    text = re.sub(r'src="(/assets/(?:site|voice-bank|voice-profile|featured-voices)\.js)(?:\?[^"]*)?"', r'src="\1?v=20261005-whatsapp-button"', text)
+    text = re.sub(r'src="(/assets/(?:site|voice-bank|voice-profile|featured-voices)\.js)(?:\?[^"]*)?"', r'src="\1?v=20261005-voice-choice"', text)
     # Keep the floating sales button concise, without attendance hours.
     text = re.sub(r'(<a\\b[^>]*class="panel-help-link"[^>]*>).*?(</a>)', lambda m: re.sub(r'<span>.*?</span>', '<span>Faça seu pedido pelo WhatsApp</span>', re.sub(r'aria-label="[^"]*"', 'aria-label="Faça seu pedido pelo WhatsApp"', m[0]), flags=re.S), text, flags=re.S)
     if saved:
