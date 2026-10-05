@@ -15,3 +15,5 @@
 .panel-help-link svg{color:#fff}
 .panel-help-link:hover{background:#066735}
 @media(max-width:767px){body.has-mobile-bar>.panel-help-link{display:none}}
+
+.credit-packages{margin-top:24px;padding:18px 20px;background:#f7f9fc;border:1px solid #dfe7ef;border-radius:12px;color:#17202a;font-size:1rem}.credit-packages summary{cursor:pointer;font-weight:600}.credit-packages-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:18px}.credit-packages h3{font-size:1rem;margin:0 0 10px}.credit-packages table{width:100%;border-collapse:collapse;font-size:1rem}.credit-packages th,.credit-packages td{padding:9px 6px;text-align:left;border-bottom:1px solid #dfe7ef}.credit-packages p{font-size:1rem;color:#5d6b7b;margin:16px 0 0}.credit-packages a{text-decoration:underline}@media(max-width:640px){.credit-packages-grid{grid-template-columns:1fr;gap:20px}.credit-packages{padding:16px 12px}}

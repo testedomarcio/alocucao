@@ -50,7 +50,7 @@
   </script>
   <meta property="og:image" content="https://alocucao.com.br/favicon.svg">
 <link rel="stylesheet" href="/assets/site-layout.css?v=20261002">
-<link rel="stylesheet" href="/assets/panel-commerce.css?v=20261005-whatsapp">
+<link rel="stylesheet" href="/assets/panel-commerce.css?v=20261005-prices">
 </head>
 <body>
   <!-- site-header:start -->
@@ -70,7 +70,7 @@
     <section class="calculator"><div class="container calc-grid">
       <div class="panel">
         <label for="script-text">Cole ou digite o texto da locução</label>
-        <textarea id="script-text" maxlength="12000" placeholder="Exemplo: Atenção! Neste fim de semana, ofertas especiais esperam por você..."></textarea><p class="panel-note">Simulação baseada em Off a R$ 11,90 e Spot a R$ 24,90 por fração de até 40 segundos. A quantidade efetiva de créditos e o valor total serão apresentados no Painel de Gravação. Copie seu roteiro para enviá-lo pelo WhatsApp; ele não é transferido automaticamente.</p>
+        <textarea id="script-text" maxlength="12000" placeholder="Exemplo: Atenção! Neste fim de semana, ofertas especiais esperam por você..."></textarea><p class="panel-note">Simulação baseada em Off a R$ 14,90 e Spot a R$ 29,90 por fração de até 40 segundos. A quantidade efetiva de créditos e o valor total serão apresentados no Painel de Gravação. Copie seu roteiro para enviá-lo pelo WhatsApp; ele não é transferido automaticamente.</p>
         <div class="controls"><div class="field"><label for="voice-speed">Ritmo de leitura</label><select id="voice-speed"><option value="120">Calmo ou institucional</option><option value="140" selected>Natural ou comercial</option><option value="160">Dinâmico ou varejo</option></select></div></div>
         <div class="actions"><button class="btn btn-dark" id="calculate" type="button">Calcular duração</button><button class="btn btn-light" id="clear" type="button">Limpar</button></div>
         <p class="privacy">🔒 O texto não é enviado nem armazenado pela A Locução. O cálculo é feito somente neste dispositivo.</p>
@@ -163,7 +163,7 @@
           return;
         }
         const count=words(value).length,wpm=Number(speed.value),commas=(value.match(/[,;:]/g)||[]).length,endings=(value.match(/[.!?]/g)||[]).length,breaks=(value.match(/\n/g)||[]).length,estimated=(count/wpm)*60+commas*.18+endings*.42+breaks*.28,low=estimated*.9,high=estimated*1.12,blocks=Math.max(1,Math.ceil(high/40));
-        const priceOff=blocks*1190/100,priceSpot=blocks*2490/100;
+        const priceOff=blocks*1490/100,priceSpot=blocks*2990/100;
 
         document.getElementById("duration").textContent=format(estimated);
         document.getElementById("blocks").textContent=blocks;

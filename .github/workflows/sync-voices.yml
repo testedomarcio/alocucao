@@ -12,6 +12,7 @@ on:
       - scripts/generate-voice-profiles.py
       - scripts/generate-featured-voices.py
       - scripts/standardize-layout.py
+      - scripts/site-prices.py
       - scripts/panel-commerce.py
       - scripts/whatsapp-commerce.py
       - assets/panel-commerce.css

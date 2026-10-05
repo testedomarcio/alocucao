@@ -121,14 +121,14 @@
       {
         "title": "Abra Créditos no menu",
         "text": "Na área do cliente, clique em <strong>Créditos</strong>. A seção <strong>ADQUIRIR CRÉDITOS</strong> apresenta as opções disponíveis. Confira o nome do serviço, a quantidade, o preço e a validade antes de selecionar.",
-        "image": "creditos-precos.jpg",
-        "caption": "Opções de créditos de Off e Produção. O valor de uma Produção é R$ 24,90, conforme a tela atualizada."
+        "image": null,
+        "caption": null
       },
       {
         "title": "Selecione o serviço e a quantidade",
-        "text": "Escolha o cartão de créditos de <strong>Off</strong> ou <strong>Produção</strong>. A opção selecionada fica destacada. Um crédito de Off custa <strong>R$ 11,90</strong>; um crédito de Produção custa <strong>R$ 24,90</strong>. O pedido pode consumir mais de um crédito conforme sua duração.",
-        "image": "creditos-selecao.jpg",
-        "caption": "Exemplo de seleção de um crédito de Off e acesso a PAGAR AGORA. O cartão é do serviço Off, por R$ 11,90."
+        "text": "Escolha o cartão de créditos de <strong>Off</strong> ou <strong>Produção</strong>. A opção selecionada fica destacada. Um crédito de Off custa <strong>R$ 14,90</strong>; um crédito de Produção custa <strong>R$ 29,90</strong>. O pedido pode consumir mais de um crédito conforme sua duração.",
+        "image": null,
+        "caption": null
       },
       {
         "title": "Clique em PAGAR AGORA",
@@ -149,7 +149,7 @@
         "caption": null
       }
     ],
-    "extra": "<h2>Preço e validade dos créditos</h2><div class=\"t-table-wrap\"><table class=\"t-table\"><thead><tr><th>Serviço</th><th>Valor de 1 crédito</th><th>Validade exibida</th></tr></thead><tbody><tr><td>Locução Off — somente a voz</td><td>R$ 11,90</td><td>2 meses após a compra</td></tr><tr><td>Produção — Spot Comercial + Locução Off</td><td>R$ 24,90</td><td>3 meses após a compra</td></tr></tbody></table></div><p>Valores e validades conferidos no painel em 03/10/2026. Confira sempre a oferta e o total exibidos no momento da compra. Para comerciais, a cobrança considera frações de até 40 segundos; textos mais longos podem exigir créditos adicionais.</p><h2>PIX ou cartão de crédito: compra automática no painel</h2><p>Para PIX, utilize o QR Code ou código disponibilizado no pagamento. Para cartão de crédito, conclua a autorização no fluxo do Mercado Pago. Um pagamento pendente, em análise ou recusado ainda não está confirmado. A liberação dos créditos acontece automaticamente e de imediato assim que a confirmação for recebida.</p><div class=\"t-callout\"><strong>Cadastro completo primeiro.</strong> Se o painel apontar dados pendentes, volte a Minha conta e salve as informações antes de tentar comprar.</div>",
+    "extra": "<h2>Preço e validade dos créditos</h2><div class=\"t-table-wrap\"><table class=\"t-table\"><thead><tr><th>Serviço</th><th>Valor de 1 crédito</th><th>Validade exibida</th></tr></thead><tbody><tr><td>Locução Off — somente a voz</td><td>R$ 14,90</td><td>2 meses após a compra</td></tr><tr><td>Produção — Spot Comercial + Locução Off</td><td>R$ 29,90</td><td>3 meses após a compra</td></tr></tbody></table></div><p>Valores e validades conferidos no painel em 03/10/2026. Confira sempre a oferta e o total exibidos no momento da compra. Para comerciais, a cobrança considera frações de até 40 segundos; textos mais longos podem exigir créditos adicionais.</p><h2>PIX ou cartão de crédito: compra automática no painel</h2><p>Para PIX, utilize o QR Code ou código disponibilizado no pagamento. Para cartão de crédito, conclua a autorização no fluxo do Mercado Pago. Um pagamento pendente, em análise ou recusado ainda não está confirmado. A liberação dos créditos acontece automaticamente e de imediato assim que a confirmação for recebida.</p><div class=\"t-callout\"><strong>Cadastro completo primeiro.</strong> Se o painel apontar dados pendentes, volte a Minha conta e salve as informações antes de tentar comprar.</div>",
     "faqs": [
       [
         "Posso usar créditos de Off para pedir Spot?",
@@ -213,7 +213,7 @@
         "caption": null
       }
     ],
-    "extra": "<h2>Quanto custa e quantos créditos usar?</h2><p>Um crédito de Locução Off custa R$ 11,90. Para comerciais, cada fração contempla até 40 segundos, conforme as condições do painel. Um roteiro mais longo pode consumir mais créditos; revise a estimativa antes de confirmar. A cobrança pode ser conferida pela duração efetiva da gravação.</p><div class=\"t-rules\"><h2>Cuidados antes de enviar</h2><ul><li>Envie um texto comercial por pedido e defina o estilo antes da gravação.</li><li>Revise nomes, preços, números e datas. Alterar o texto depois da entrega pode exigir outro pedido.</li><li>Escreva o roteiro no campo Texto do pedido, mesmo quando anexar referências.</li></ul></div><p>Se você precisa do anúncio pronto com música e efeitos, siga o <a href=\"/tutoriais/como-pedir-spot-comercial/\">tutorial de pedido de Spot Comercial</a>.</p>",
+    "extra": "<h2>Quanto custa e quantos créditos usar?</h2><p>Um crédito de Locução Off custa R$ 14,90. Para comerciais, cada fração contempla até 40 segundos, conforme as condições do painel. Um roteiro mais longo pode consumir mais créditos; revise a estimativa antes de confirmar. A cobrança pode ser conferida pela duração efetiva da gravação.</p><div class=\"t-rules\"><h2>Cuidados antes de enviar</h2><ul><li>Envie um texto comercial por pedido e defina o estilo antes da gravação.</li><li>Revise nomes, preços, números e datas. Alterar o texto depois da entrega pode exigir outro pedido.</li><li>Escreva o roteiro no campo Texto do pedido, mesmo quando anexar referências.</li></ul></div><p>Se você precisa do anúncio pronto com música e efeitos, siga o <a href=\"/tutoriais/como-pedir-spot-comercial/\">tutorial de pedido de Spot Comercial</a>.</p>",
     "faqs": [
       [
         "Off inclui trilha e efeitos?",
@@ -239,7 +239,7 @@
     "slug": "como-pedir-spot-comercial",
     "title": "Como fazer um pedido de Spot Comercial",
     "description": "Saiba como pedir um Spot Comercial com voz, trilha e efeitos pelo menu Pedir Produção do Painel de Gravação da A Locução.",
-    "intro": "No painel, o pedido de Spot Comercial é chamado Produção. Você recebe o anúncio finalizado com voz, trilha e efeitos, além da Locução Off separada. O crédito de Produção custa R$ 24,90 por fração de até 40 segundos para comerciais.",
+    "intro": "No painel, o pedido de Spot Comercial é chamado Produção. Você recebe o anúncio finalizado com voz, trilha e efeitos, além da Locução Off separada. O crédito de Produção custa R$ 29,90 por fração de até 40 segundos para comerciais.",
     "prereq": "Tenha cadastro completo e créditos de Produção. Prepare um texto revisado e as orientações de estilo, pronúncia e referência musical para o produtor.",
     "steps": [
       {
@@ -287,7 +287,7 @@
       ],
       [
         "Quanto custa um Spot Comercial?",
-        "Um crédito de Produção custa R$ 24,90 para comerciais por fração de até 40 segundos. Textos mais longos podem exigir mais créditos; confira o consumo e o total no painel."
+        "Um crédito de Produção custa R$ 29,90 para comerciais por fração de até 40 segundos. Textos mais longos podem exigir mais créditos; confira o consumo e o total no painel."
       ],
       [
         "O Spot inclui a voz separada?",
