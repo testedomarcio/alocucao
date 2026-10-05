@@ -13,6 +13,7 @@ on:
       - scripts/generate-featured-voices.py
       - scripts/standardize-layout.py
       - scripts/panel-commerce.py
+      - scripts/whatsapp-commerce.py
       - assets/panel-commerce.css
       - templates/site-header.html
       - templates/site-footer.html
