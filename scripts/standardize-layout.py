@@ -12,9 +12,7 @@ JS = '<script src="/assets/site-layout.js?v=20261002" defer></script>'
 
 def standardize_page(text):
     if re.search(r'http-equiv=["\']refresh', text, re.I) or '<body' not in text:
-        text = re.sub(r'/assets/voice-bank.js(?:\?[^"\s<>]+)?', '/assets/voice-bank.js?v=20261005-vl', text)
-    text = re.sub(r'/assets/featured-voices.js(?:\?[^"\s<>]+)?', '/assets/featured-voices.js?v=20261005-vl', text)
-    return text
+        return text
     if '<!-- site-header:start -->' in text:
         text = re.sub(r'<!-- site-header:start -->.*?<!-- site-header:end -->', lambda _: HEADER, text, flags=re.S)
     else:
