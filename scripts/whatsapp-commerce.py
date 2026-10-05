@@ -64,6 +64,13 @@ COPY = {
 }
 
 def normalize_whatsapp(text):
+    # Preserve approved imagery when rebuilding the existing sales sections.
+    section_images = {}
+    for section_id in ('como-funciona', 'painel-de-gravacao'):
+        match = re.search(r'<section\b[^>]*id="'+section_id+r'"[^>]*>.*?</section>', text, re.S)
+        if match:
+            section_images[section_id] = re.findall(r'<figure class="audio-photo[^" ]*(?: [^"]*)?">.*?</figure>', match[0], re.S)
+
     if re.search(r'http-equiv=["\']refresh', text, re.I): return text
     header = re.search(r'<!-- site-header:start -->.*?<!-- site-header:end -->', text, re.S)
     saved = header[0] if header else None
@@ -116,6 +123,16 @@ def normalize_whatsapp(text):
         saved = re.sub(r'<a class="al-login"[^>]*>.*?</a>', '<a class="al-login" href="https://vozlocutor.com.br/painel/alocucao/entrar" data-cta="cabecalho_painel">Painel de Gravação</a>', saved, flags=re.S)
         saved = re.sub(r'<a class="al-header-cta[^"\n]*"[^>]*>.*?</a>', '<a class="al-header-cta" href="'+WHATSAPP+'" data-cta="cabecalho_whatsapp">Falar pelo WhatsApp</a>', saved, flags=re.S)
         text = text.replace('__SALES_HEADER__', saved)
+    for section_id, figures in section_images.items():
+        for figure in figures:
+            if figure in text:
+                continue
+            pattern = r'(<section\b[^>]*id="'+section_id+r'"[^>]*><div class="panel-shell">)'
+            if section_id == 'como-funciona':
+                text = text.replace('<ol class="focus-steps">', figure+'<ol class="focus-steps">', 1)
+            else:
+                text = re.sub(pattern, lambda m: m[0]+figure, text, count=1)
+
     return text
 
 if __name__ == '__main__':
