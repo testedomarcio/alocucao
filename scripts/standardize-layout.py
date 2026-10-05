@@ -12,7 +12,7 @@ JS = '<script src="/assets/site-layout.js?v=20261002" defer></script>'
 
 def standardize_page(text):
     if re.search(r'http-equiv=["\']refresh', text, re.I) or '<body' not in text:
-        return text
+        return run_path(str(ROOT / 'scripts/panel-conversion.py'))['normalize_panel'](text)
     if '<!-- site-header:start -->' in text:
         text = re.sub(r'<!-- site-header:start -->.*?<!-- site-header:end -->', lambda _: HEADER, text, flags=re.S)
     else:
@@ -32,9 +32,7 @@ def standardize_page(text):
     text = re.sub(r'<link\b[^>]*href=["\']/assets/panel-commerce\.css[^"\']*["\'][^>]*>\s*', '', text)
     text = text.replace("</head>", '<link rel="stylesheet" href="/assets/panel-commerce.css?v=20261005-retail-visual">\n</head>')
     text = re.sub(r'/assets/voice-profile.js(?:\?[^"\s<>]+)?', '/assets/voice-profile.js?v=20261005-whatsapp', text)
-    if 'data-panel-page' in text:
-        text = re.sub(r'<a class="al-header-cta"[^>]*>.*?</a>', '<a class="al-header-cta al-support-cta" href="https://wa.me/5527996529832" target="_blank" rel="noopener" data-panel-support data-cta="cabecalho_whatsapp">Suporte WhatsApp</a>', text, count=1)
-    text = run_path(str(ROOT / 'scripts/whatsapp-commerce.py'))['normalize_whatsapp'](text)
+    text = run_path(str(ROOT / 'scripts/panel-conversion.py'))['normalize_panel'](text)
     text = run_path(str(ROOT / 'scripts/site-prices.py'))['normalize_public_prices'](text)
     text = re.sub(r'/assets/voice-bank.js(?:\?[^"\s<>]+)?', '/assets/voice-bank.js?v=20261005-vl', text)
     text = re.sub(r'/assets/featured-voices.js(?:\?[^"\s<>]+)?', '/assets/featured-voices.js?v=20261005-vl', text)
@@ -44,7 +42,7 @@ def standardize_page(text):
     text = text.replace('</head>', icons + '\n</head>')
     text = re.sub(r'("logo"\s*:\s*")https://alocucao.com.br/favicon.svg(")', r'\1https://alocucao.com.br/assets/brand/a-locucao-logo.png\2', text)
     text = text.replace('https://alocucao.com.br/favicon.svg', 'https://alocucao.com.br/assets/brand/icon-192.png')
-    return text
+    return run_path(str(ROOT / 'scripts/panel-conversion.py'))['normalize_panel'](text)
 
 def main():
     changed = 0

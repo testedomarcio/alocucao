@@ -43,3 +43,12 @@ assert.equal(localEvents.map(c=>c[2].panel_action).join(','),'login,login,regist
 localPanel.click('https://evil.example/cadastro/');
 assert.equal(localPanel.calls().filter(c=>c[0]==='event').length,4);
 console.log('PASS: local panel links with and without trailing slash; external lookalikes excluded.');
+
+const panelRoot=setup({saved:'accepted'});
+for(const ending of ['', '/']) panelRoot.click('https://vozlocutor.com.br/painel/alocucao'+ending);
+assert.equal(panelRoot.calls().filter(c=>c[0]==='event'&&c[1]==='panel_click').length,2);
+for(const url of ['https://vozlocutor.com.br/painel/alocucao-outra/', 'https://vozlocutor.com.br.evil.example/painel/alocucao/']) panelRoot.click(url);
+assert.equal(panelRoot.calls().filter(c=>c[0]==='event').length,2);
+panelRoot.consent('rejected');panelRoot.click('https://vozlocutor.com.br/painel/alocucao/');
+assert.equal(panelRoot.calls().filter(c=>c[0]==='event').length,2);
+console.log('PASS: panel root with or without trailing slash, hostname/path allowlist and consent.');

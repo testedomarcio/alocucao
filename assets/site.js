@@ -185,8 +185,8 @@
     if (!mobileBar) {
       mobileBar = document.createElement("div");
       mobileBar.className = "mobile-conversion-bar";
-      mobileBar.innerHTML = `<a href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido." data-cta="barra_mobile_global">
-        Fazer pedido pelo WhatsApp</a>`;
+      mobileBar.innerHTML = `<a href="https://vozlocutor.com.br/painel/alocucao/" data-cta="barra_mobile_global">
+        Fazer Pedido</a>`;
       document.body.appendChild(mobileBar);
     }
     mobileBar.classList.add("wa-mobile-conversion-bar");
