@@ -330,7 +330,7 @@
     const payload={page_type:pageType,service:data.get("service"),deadline:data.get("deadline"),...tracking};
     window.dataLayer.push({event:"brief_completed",...payload});
     window.alocucaoTrackEvent?.("brief_completed", payload);
-    window.location.assign("https://wa.me/5527996529832?text=" + encodeURIComponent(message));
+    window.location.assign("https://vozlocutor.com.br/painel/alocucao/cadastro");
   });
 
 })();
