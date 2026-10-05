@@ -2,48 +2,48 @@
   {
     "slug": "como-se-cadastrar",
     "title": "Como se cadastrar no Painel de Gravação",
-    "description": "Veja como criar sua conta grátis no Painel de Gravação da A Locução e o que fazer antes de comprar créditos e enviar seu primeiro pedido.",
-    "intro": "O cadastro gratuito dá acesso à área do cliente para escolher locutores, adquirir créditos e solicitar gravações. Primeiro você cria o acesso; depois completa os dados cadastrais para utilizar a compra automática de créditos.",
-    "prereq": "Tenha um e-mail que você acessa e seu telefone atual. Criar a conta não compra créditos nem envia um pedido de gravação.",
+    "description": "Aprenda como se cadastrar no Painel de Gravação, com orientações do novo painel da A Locução.",
+    "intro": "Crie sua conta no Painel de Gravação da A Locução. Seu e-mail será também o login para entrar, escolher vozes, enviar pedidos e acompanhar suas gravações.",
+    "prereq": "Tenha um e-mail acessível e seu WhatsApp com DDD. Criar uma conta não compra créditos nem envia gravações.",
     "steps": [
       {
-        "title": "Abra a página de cadastro",
-        "text": "Acesse <a href=\"/cadastro/\">Criar conta grátis</a>. O formulário do Painel de Gravação aparece dentro do site da A Locução. Se você já tem acesso, use <a href=\"/painel/\">Entrar no painel</a> em vez de criar outra conta.",
-        "image": "criar-conta.jpg",
-        "caption": "Formulário inicial de criação de conta no Painel de Gravação. Clique na imagem para ampliar."
+        "title": "Abra Criar conta",
+        "text": "Acesse <a href=\"https://vozlocutor.com.br/painel/alocucao/cadastro\">a página de cadastro da A Locução</a>. Se já tem uma conta, use <a href=\"https://vozlocutor.com.br/painel/alocucao/entrar\">Entrar</a>.",
+        "image": "novo-cadastro.jpg",
+        "caption": "Formulário atual de cadastro: nome, e-mail, WhatsApp, senha e aceite dos termos."
       },
       {
-        "title": "Preencha os dados de acesso",
-        "text": "Informe seu nome, seu melhor e-mail e telefone. Preencha também os campos de usuário e senha apresentados no formulário. Use uma senha exclusiva e guarde-a com segurança. Revise a digitação do e-mail para conseguir receber comunicações do pedido.",
+        "title": "Informe nome, e-mail e WhatsApp",
+        "text": "Preencha <strong>Seu nome</strong>, <strong>E-mail</strong> e <strong>WhatsApp</strong>. O e-mail será seu login. Revise os contatos para receber os avisos dos pedidos.",
         "image": null,
         "caption": null
       },
       {
-        "title": "Leia os termos e crie sua conta",
-        "text": "Leia os Termos de Uso e a Política de Privacidade disponíveis no cadastro. Confira os dados e, se concordar com as condições, clique em <strong>Criar conta grátis</strong>. Caso o painel informe que o usuário ou e-mail já existe, tente entrar com o acesso anterior.",
+        "title": "Defina a senha e leia as condições",
+        "text": "Preencha <strong>Senha</strong> e <strong>Repetir</strong> com a mesma senha. Leia os links de termos de uso e política de privacidade. Marque o aceite somente se concordar.",
         "image": null,
         "caption": null
       },
       {
-        "title": "Entre e complete o cadastro",
-        "text": "Depois da criação, acesse <a href=\"/painel/\">o painel</a> com seu usuário ou e-mail e senha. Abra o menu do perfil, entre em <strong>Minha conta</strong> e complete os dados cadastrais. Essa etapa é necessária antes de adquirir créditos automaticamente.",
+        "title": "Clique em Criar minha conta",
+        "text": "Confira os campos e clique em <strong>Criar minha conta</strong>. Depois entre com o e-mail e senha em <a href=\"https://vozlocutor.com.br/painel/alocucao/entrar\">Entrar no painel</a>. Se houver um aviso, corrija o campo indicado antes de tentar novamente.",
         "image": null,
         "caption": null
       }
     ],
-    "extra": "<h2>Qual é o próximo passo?</h2><p>Siga o <a href=\"/tutoriais/como-completar-cadastro/\">tutorial para completar o cadastro</a>. Depois, escolha entre <a href=\"/tutoriais/como-pedir-locucao-off/\">Locução Off</a>, para receber somente a voz, e <a href=\"/tutoriais/como-pedir-spot-comercial/\">Produção de Spot</a>, para receber o anúncio com trilha, efeitos e finalização.</p>",
+    "extra": "<h2>Depois do cadastro</h2><p>Conheça a área inicial e revise seus contatos em <strong>Meus dados</strong>. Para começar, você pode comprar créditos ou preparar um pedido avulso e conferir a opção de pagamento apresentada na revisão.</p>",
     "faqs": [
       [
-        "O cadastro é gratuito?",
-        "Sim. Criar a conta é gratuito. As gravações são solicitadas com créditos do serviço escolhido."
+        "O e-mail é meu login?",
+        "Sim. O cadastro atual informa que o e-mail será também o login."
       ],
       [
-        "Criar a conta já libera a compra automática?",
-        "Você também precisa completar os dados cadastrais em Minha conta. O formulário inicial cria o acesso; o cadastro completo permite adquirir créditos de forma automática."
+        "Criar uma conta é gratuito?",
+        "Sim. O cadastro não gera uma compra de créditos."
       ],
       [
-        "Posso me cadastrar pelo celular?",
-        "Sim. Abra a página de cadastro no navegador do celular e preencha o formulário. Se algum campo não aparecer, role a área do painel."
+        "Preciso criar uma conta de novo se já sou cliente?",
+        "Tente acessar a conta existente. Se o novo painel não reconhecer seu acesso, fale com o suporte antes de criar outra conta."
       ]
     ],
     "related": [
@@ -55,54 +55,48 @@
   {
     "slug": "como-completar-cadastro",
     "title": "Como completar o cadastro no Painel de Gravação",
-    "description": "Complete seus dados em Minha conta no Painel de Gravação. Veja quais informações revisar para adquirir créditos de forma automática.",
-    "intro": "Para adquirir créditos de forma automática, é necessário estar com o cadastro completo. A conta criada na primeira tela precisa receber os dados de identificação e contato na área Minha conta.",
-    "prereq": "Você precisa ter uma conta e conseguir entrar no painel. Tenha seus dados de identificação e endereço à mão, usando as informações do responsável pela conta.",
+    "description": "Aprenda como completar o cadastro no Painel de Gravação, com orientações do novo painel da A Locução.",
+    "intro": "Confira seus dados pessoais e de contato na área Meus dados. O novo painel reúne perfil, identificação, endereço e troca de senha nessa tela.",
+    "prereq": "Entre na sua conta. Use dados verdadeiros do responsável e mantenha seu WhatsApp atualizado.",
     "steps": [
       {
-        "title": "Acesse o painel e abra seu perfil",
-        "text": "Entre em <a href=\"/painel/\">alocucao.com.br/painel</a>. No canto superior direito da área do cliente, abra o menu da foto ou ícone do perfil. Selecione <strong>Minha conta</strong>.",
+        "title": "Abra Meu perfil ou Meus dados",
+        "text": "Na página inicial, clique em <strong>Meu perfil</strong>. Você também pode clicar no nome ou avatar no rodapé do menu lateral. A página aberta se chama <strong>Meus dados</strong>.",
+        "image": "novo-inicio.jpg",
+        "caption": "Página inicial com o atalho Meu perfil e os principais caminhos do painel."
+      },
+      {
+        "title": "Confira identificação e contato",
+        "text": "Revise <strong>Nome completo</strong> e <strong>WhatsApp</strong> com DDD. O painel também apresenta sexo, nascimento e tipo de pessoa. <strong>E-mail, login e CPF são alterados pela plataforma</strong>: se estiverem incorretos, solicite ajuda à A Locução.",
+        "image": "novo-dados.jpg",
+        "caption": "Tela Meus dados. Dados da conta foram ocultados para preservar a privacidade."
+      },
+      {
+        "title": "Revise o endereço",
+        "text": "Confira <strong>CEP</strong>, <strong>Cidade</strong>, <strong>UF</strong>, <strong>Bairro</strong>, <strong>Rua</strong> e <strong>Número</strong>. A tela informa que o CEP preenche o endereço automaticamente; revise o resultado.",
         "image": null,
         "caption": null
       },
       {
-        "title": "Entre nos dados cadastrais",
-        "text": "Localize a área <strong>Dados Cadastrais</strong>, também identificada pelo título <strong>Informações Cadastrais</strong>. É nessa tela que você revisa e completa os dados da conta; o formulário inicial de criação de acesso não substitui essa etapa.",
-        "image": null,
-        "caption": null
-      },
-      {
-        "title": "Revise identificação, contato e endereço",
-        "text": "Confira nome, e-mail e telefone. Complete CPF ou CNPJ e endereço, CEP, cidade e UF com dados corretos. Se o cadastro for empresarial, preencha também os dados da empresa, como nome fantasia e razão social. Não use dados inventados ou de outra pessoa.",
-        "image": null,
-        "caption": null
-      },
-      {
-        "title": "Salve com Atualizar Cadastro",
-        "text": "Depois de revisar, clique em <strong>Atualizar Cadastro</strong>. Confira a resposta do painel e corrija qualquer campo sinalizado. Ao abrir a tela novamente, verifique se as informações foram mantidas.",
-        "image": null,
-        "caption": null
-      },
-      {
-        "title": "Volte à compra de créditos",
-        "text": "Abra <strong>Créditos</strong> no menu e siga o <a href=\"/tutoriais/como-adquirir-creditos/\">passo a passo para adquirir créditos</a>. Se o painel continuar indicando cadastro incompleto, revise os campos solicitados e procure o suporte com a mensagem exibida, sem enviar sua senha.",
+        "title": "Confira a atualização antes de comprar",
+        "text": "Siga a confirmação apresentada pelo painel ao atualizar os dados. Se não aparecer uma opção para salvar ou algum dado permanecer incorreto, fale com o suporte. Não crie outra conta para corrigir identificação.",
         "image": null,
         "caption": null
       }
     ],
-    "extra": "<h2>O que revisar no cadastro completo</h2><div class=\"t-table-wrap\"><table class=\"t-table\"><thead><tr><th>Grupo</th><th>Informações</th><th>Como preencher</th></tr></thead><tbody><tr><td>Contato principal</td><td>Nome, e-mail e telefone</td><td>Use informações atuais. O formulário sinaliza esses campos com asterisco.</td></tr><tr><td>Identificação</td><td>CPF ou CNPJ</td><td>Informe o documento do titular ou da empresa responsável.</td></tr><tr><td>Empresa</td><td>Nome fantasia e razão social</td><td>Preencha quando o cadastro for de uma empresa.</td></tr><tr><td>Endereço</td><td>Endereço completo, CEP, cidade e UF</td><td>Confira a correspondência entre os campos.</td></tr><tr><td>Preferências e dados adicionais</td><td>E-mails adicionais, WhatsApp, notificações e foto</td><td>Revise conforme sua necessidade. E-mails adicionais e foto não substituem os dados de identificação.</td></tr></tbody></table></div><div class=\"t-callout\"><strong>Antes de pagar:</strong> conclua e salve o cadastro. A liberação automática também depende da aprovação ou confirmação do pagamento.</div><h2>Cadastro inicial e cadastro completo são etapas diferentes</h2><p>No cadastro inicial você cria usuário e senha. Em Minha conta você completa os dados do cliente. Mantenha essas informações atualizadas, como orientam os termos da plataforma. Ative notificações somente de acordo com sua preferência.</p>",
+    "extra": "<h2>O que mudou no novo painel?</h2><p>A área se chama <strong>Meus dados</strong>, em vez de Minha conta. E-mail, login e CPF ficam protegidos para alteração pela plataforma. A tela de compra consultada não exigiu concluir o endereço para mostrar as ofertas de créditos; siga qualquer validação apresentada no seu pagamento.</p>",
     "faqs": [
       [
-        "Por que não consigo adquirir créditos automaticamente?",
-        "Confira primeiro se o cadastro está completo e foi salvo em Minha conta. Depois verifique a mensagem do painel e a situação do pagamento. Se persistir, procure o suporte."
+        "Posso alterar o CPF ou e-mail sozinho?",
+        "A tela informa que e-mail, login e CPF são alterados pela plataforma. Entre em contato com a A Locução."
       ],
       [
-        "Preciso preencher dois e-mails adicionais?",
-        "Os campos de e-mail adicional permitem incluir outros contatos. Eles não são o cadastro principal: confira especialmente o e-mail principal, a identificação e o endereço solicitados pelo painel."
+        "Por que manter o WhatsApp atualizado?",
+        "Ele é usado para avisos do pedido quando informado."
       ],
       [
-        "Preciso criar outra conta para corrigir meus dados?",
-        "Não. Entre na conta existente, abra Minha conta, ajuste os dados e use Atualizar Cadastro."
+        "O endereço é obrigatório para ver os preços?",
+        "As ofertas estavam disponíveis na conta consultada mesmo com endereço não preenchido. Complete os dados solicitados se o pagamento apresentar uma validação."
       ]
     ],
     "related": [
@@ -114,58 +108,58 @@
   {
     "slug": "como-adquirir-creditos",
     "title": "Como adquirir créditos no Painel de Gravação",
-    "description": "Aprenda a comprar créditos para Locução Off ou Spot Comercial, escolher PIX ou cartão e verificar a liberação no Painel de Gravação.",
-    "intro": "Compre créditos diretamente no nosso Painel de Gravação por PIX ou cartão de crédito. Após a confirmação do pagamento pelo Mercado Pago, a liberação é automática e imediata. Complete seu cadastro antes de começar.",
-    "prereq": "Entre na conta e <a href=\"/tutoriais/como-completar-cadastro/\">complete os dados cadastrais</a>. Confira qual serviço você pretende pedir: os créditos de Off e Produção são separados.",
+    "description": "Aprenda como adquirir créditos no Painel de Gravação, com orientações do novo painel da A Locução.",
+    "intro": "Escolha créditos Off ou Produzida, confira a quantidade e veja as formas de pagamento no próprio painel. Os saldos são separados por serviço.",
+    "prereq": "Entre na conta e decida se precisa somente da voz ou do áudio produzido com trilha, efeitos e mixagem.",
     "steps": [
       {
-        "title": "Abra Créditos no menu",
-        "text": "Na área do cliente, clique em <strong>Créditos</strong>. A seção <strong>ADQUIRIR CRÉDITOS</strong> apresenta as opções disponíveis. Confira o nome do serviço, a quantidade, o preço e a validade antes de selecionar.",
+        "title": "Abra Créditos",
+        "text": "Clique em <strong>Créditos</strong> no menu lateral ou em <strong>Comprar créditos</strong> na página inicial. Confira seus saldos antes de iniciar outra compra.",
+        "image": "novo-creditos-off.jpg",
+        "caption": "Área Créditos com saldo, compra avulsa e pacotes Off."
+      },
+      {
+        "title": "Escolha Off ou Produzida",
+        "text": "Use a aba <strong>Off</strong> para somente a voz ou <strong>Produzida</strong> para voz com trilha e efeitos. A aba Edição de áudio corresponde a outro serviço.",
+        "image": "novo-creditos-produzida.jpg",
+        "caption": "Aba Produzida com valor avulso e pacotes de 15 e 30 créditos."
+      },
+      {
+        "title": "Informe a quantidade",
+        "text": "Use os controles de quantidade na oferta desejada. No avulso, a quantidade indica créditos. Nos pacotes, indica quantos pacotes completos você quer comprar. Clique em <strong>Comprar avulso</strong> ou <strong>Comprar</strong>.",
         "image": null,
         "caption": null
       },
       {
-        "title": "Selecione o serviço e a quantidade",
-        "text": "Escolha o cartão de créditos de <strong>Off</strong> ou <strong>Produção</strong>. A opção selecionada fica destacada. Um crédito de Off custa <strong>R$ 14,90</strong>; um crédito de Produção custa <strong>R$ 29,90</strong>. O pedido pode consumir mais de um crédito conforme sua duração.",
-        "image": null,
-        "caption": null
+        "title": "Confira Confirmar compra",
+        "text": "A janela <strong>Confirmar compra</strong> mostra o serviço, os créditos e o total base. Escolha a forma de pagamento e confira o total final antes de prosseguir. Na tela consultada: <strong>PIX automático: +0,80%</strong>; <strong>cartão de crédito: +4,25%, à vista</strong>. Há também Transferência ou PIX manual, com envio de comprovante e liberação após conferência.",
+        "image": "novo-pagamento.jpg",
+        "caption": "Janela de confirmação com as formas de pagamento e suas taxas. Nenhuma compra foi concluída neste exemplo."
       },
       {
-        "title": "Clique em PAGAR AGORA",
-        "text": "Depois de escolher a quantidade, clique em <strong>PAGAR AGORA</strong>, no bloco que indica Tudo certo!. O painel mostra as formas de pagamento. Esse botão inicia a etapa de pagamento; a compra ainda depende da conclusão das instruções apresentadas.",
-        "image": null,
-        "caption": null
-      },
-      {
-        "title": "Escolha a forma de pagamento e revise o total",
-        "text": "Escolha <strong>PIX Automático (QR Code)</strong> ou <strong>Cartão de Crédito</strong>. O pagamento é realizado diretamente no Painel de Gravação, com processamento pelo Mercado Pago. Revise o serviço, a quantidade, a validade e o valor total, incluindo eventuais encargos apresentados, antes de concluir.",
-        "image": null,
-        "caption": null
-      },
-      {
-        "title": "Confirme o pagamento e confira a liberação imediata",
-        "text": "Conclua o pagamento no fluxo do Mercado Pago. Assim que ele confirmar o pagamento, os créditos são liberados de forma <strong>automática e imediata</strong>. Consulte o saldo do serviço e, se necessário, <strong>Registro de Faturas</strong> e <strong>Movimentação de Créditos</strong>. Se o saldo não aparecer, confira o status antes de realizar outra compra.",
-        "image": null,
-        "caption": null
+        "title": "Pague e confira o saldo",
+        "text": "Siga as instruções do pagamento escolhido. PIX automático e cartão são liberados após confirmação ou aprovação. A modalidade manual depende da conferência do comprovante. Verifique o saldo do serviço correto e as áreas <strong>Pagamentos</strong> e <strong>Consumo</strong>.",
+        "image": "novo-extrato.jpg",
+        "caption": "Extrato de créditos: o saldo de cada linha corresponde ao tipo de crédito movimentado."
       }
     ],
-    "extra": "<h2>Preço e validade dos créditos</h2><div class=\"t-table-wrap\"><table class=\"t-table\"><thead><tr><th>Serviço</th><th>Valor de 1 crédito</th><th>Validade exibida</th></tr></thead><tbody><tr><td>Locução Off — somente a voz</td><td>R$ 14,90</td><td>2 meses após a compra</td></tr><tr><td>Produção — Spot Comercial + Locução Off</td><td>R$ 29,90</td><td>3 meses após a compra</td></tr></tbody></table></div><p>Valores e validades conferidos no painel em 03/10/2026. Confira sempre a oferta e o total exibidos no momento da compra. Para comerciais, a cobrança considera frações de até 40 segundos; textos mais longos podem exigir créditos adicionais.</p><h2>PIX ou cartão de crédito: compra automática no painel</h2><p>Para PIX, utilize o QR Code ou código disponibilizado no pagamento. Para cartão de crédito, conclua a autorização no fluxo do Mercado Pago. Um pagamento pendente, em análise ou recusado ainda não está confirmado. A liberação dos créditos acontece automaticamente e de imediato assim que a confirmação for recebida.</p><div class=\"t-callout\"><strong>Cadastro completo primeiro.</strong> Se o painel apontar dados pendentes, volte a Minha conta e salve as informações antes de tentar comprar.</div>",
+    "extra": "<h2>Avulsos e pacotes</h2><div class=\"t-table-wrap\"><table class=\"t-table\"><thead><tr><th>Serviço</th><th>Créditos</th><th>Por crédito</th><th>Total base</th></tr></thead><tbody><tr><td>Off avulso</td><td>1</td><td>R$ 14,90</td><td>R$ 14,90</td></tr><tr><td>Produzida avulsa</td><td>1</td><td>R$ 29,90</td><td>R$ 29,90</td></tr><tr><td>Pacote Off</td><td>5</td><td>R$ 10,00</td><td>R$ 50,00</td></tr><tr><td>Pacote Off</td><td>25</td><td>R$ 6,00</td><td>R$ 150,00</td></tr><tr><td>Pacote Produzida</td><td>15</td><td>R$ 15,00</td><td>R$ 225,00</td></tr><tr><td>Pacote Produzida</td><td>30</td><td>R$ 10,00</td><td>R$ 300,00</td></tr></tbody></table></div><p>Valores base consultados em 05/10/2026. As taxas da forma de pagamento podem ser somadas ao total. Cada crédito cobre até 40 segundos; a quantidade necessária aparece no pedido. Os créditos não vencem enquanto a conta estiver ativa, conforme os termos atuais.</p><p>Confira as <a href=\"https://vozlocutor.com.br/termos.php?plataforma=alocucao\" target=\"_blank\" rel=\"noopener\">condições atuais do Painel de Gravação</a> antes de contratar. A disponibilidade de cada voz indica uma estimativa de prazo.</p>",
     "faqs": [
       [
-        "Posso usar créditos de Off para pedir Spot?",
-        "Os serviços têm créditos separados. Selecione Produção para Spot Comercial e Off para somente a locução."
+        "Os créditos vencem?",
+        "Os termos atuais informam que não há prazo de validade enquanto a conta estiver ativa."
       ],
       [
-        "O crédito é liberado ao clicar em PAGAR AGORA?",
-        "Clicar em PAGAR AGORA abre a etapa de pagamento. Os créditos são liberados automaticamente e de imediato assim que o pagamento for confirmado pelo Mercado Pago. O cadastro deve estar completo."
+        "Quais taxas aparecem na compra?",
+        "Na confirmação consultada em 05/10/2026: 0,80% no PIX automático e 4,25% no cartão de crédito. Confira o total final apresentado na sua compra."
       ],
       [
-        "O que fazer se paguei e o saldo não apareceu?",
-        "Confira a modalidade de crédito e o status do pagamento no painel. Consulte as faturas e movimentações. Se o pagamento estiver confirmado e o saldo não aparecer, procure o suporte com a identificação da transação e a mensagem exibida; não pague novamente nem compartilhe sua senha."
+        "Transferência e PIX manual também são automáticos?",
+        "Não. Essa opção informa envio de comprovante e liberação pela plataforma. Para automação, confira PIX automático ou cartão."
       ],
       [
-        "Quais formas de pagamento são aceitas?",
-        "Exclusivamente PIX ou cartão de crédito, diretamente no Painel de Gravação, com processamento pelo Mercado Pago."
+        "Preciso comprar um pacote antes do primeiro pedido?",
+        "Não necessariamente. A revisão do pedido consultado, sem saldo suficiente, apresentou Enviar e pagar com PIX. Confira o preço e as condições do pedido avulso."
       ]
     ],
     "related": [
@@ -178,54 +172,60 @@
   {
     "slug": "como-pedir-locucao-off",
     "title": "Como fazer um pedido de Locução Off",
-    "description": "Passo a passo para pedir Locução Off: escolha a voz, informe o roteiro e a pronúncia e acompanhe a gravação no Painel de Gravação.",
-    "intro": "A Locução Off é a gravação da voz, sem trilha musical nem efeitos. Ela é indicada quando você vai editar o áudio depois ou precisa apenas da interpretação do locutor. O pedido é feito em Pedir Off, na área do cliente.",
-    "prereq": "Tenha cadastro completo, créditos de Off e um roteiro revisado. Ouça as demos para escolher o locutor e confira a disponibilidade antes de enviar.",
+    "description": "Aprenda como fazer um pedido de Locução Off, com orientações do novo painel da A Locução.",
+    "intro": "Peça somente a voz, sem trilha ou efeitos. O formulário atual tem quatro etapas: Tipo e texto, Voz e estilo, Guia e anexos e Revisão.",
+    "prereq": "Tenha seu roteiro revisado. Você pode usar saldo do serviço ou conferir o pagamento avulso apresentado na revisão.",
     "steps": [
       {
-        "title": "Abra Pedir Off",
-        "text": "Entre em <a href=\"/painel/\">Painel de Gravação</a>, abra o menu <strong>Pedir</strong> e selecione <strong>Pedir Off</strong>. A tela mostra <strong>Novo Pedido de OFF</strong>.",
-        "image": null,
-        "caption": null
+        "title": "Abra Novo pedido e escolha Voz-Off",
+        "text": "Entre em <strong>Meus pedidos → Novo pedido</strong>. Você também encontra <strong>Solicitar Gravação</strong> no menu. Em <strong>Tipo e texto</strong>, escolha <strong>Voz-Off</strong>. Selecione o formato adequado: Gravação Comercial para anúncios ou outro formato conforme a finalidade.",
+        "image": "novo-tipo.jpg",
+        "caption": "Escolha entre Voz-Off e Produzida no início do pedido."
       },
       {
-        "title": "Identifique o pedido e escolha o tipo",
-        "text": "Preencha <strong>Título do Pedido (Identificação)</strong> com um nome fácil de reconhecer, por exemplo Campanha de inauguração. Para uma propaganda, selecione <strong>Comercial</strong>. A opção <strong>Vinheta</strong> é destinada a esse tipo de peça, com regras próprias.",
-        "image": null,
-        "caption": null
+        "title": "Escreva o texto da gravação",
+        "text": "Cole no editor somente as palavras que devem ser narradas. Revise valores, datas, nomes e números. O painel estima a duração; o consumo será apresentado com a voz e o estilo selecionados. Clique em <strong>Próximo</strong>.",
+        "image": "novo-off-texto.jpg",
+        "caption": "Etapa Tipo e texto: escolha do formato e editor do roteiro."
       },
       {
-        "title": "Escolha o estilo e o locutor",
-        "text": "Selecione o estilo de voz adequado, como Padrão, Impacto, Jovem, Varejo ou Institucional. Em <strong>Escolha seu locutor</strong>, selecione a voz que você ouviu nas demos. Confira observações e horários: o painel receber pedidos a qualquer hora não significa que todo locutor esteja gravando naquele momento.",
-        "image": "off-voz.jpg",
-        "caption": "Identificação do pedido, tipo Comercial ou Vinheta, estilos de voz e seleção do locutor no formulário de Off."
+        "title": "Escolha a voz e o estilo",
+        "text": "Na etapa <strong>Voz e estilo</strong>, ouça as demonstrações e clique na voz desejada. Escolha um estilo compatível, como Padrão, Animada ou Varejo. Você pode filtrar por nome, voz masculina ou feminina, disponibilidade e favoritos. Confira o prazo atual.",
+        "image": "novo-voz-estilo.jpg",
+        "caption": "Seleção de locutor, estilo da locução e resumo do pedido."
       },
       {
-        "title": "Insira o roteiro e as orientações",
-        "text": "Cole somente o conteúdo que deve ser falado em <strong>Texto do pedido</strong>. Em <strong>Texto guia para o Locutor/Produtor</strong>, explique pronúncias, ritmo e observações. Use <strong>Arquivos Guias</strong> para referências complementares; o roteiro principal deve continuar no campo de texto. Há também a opção Gravar Áudio para uma referência de pronúncia.",
-        "image": "off-roteiro-guias.jpg",
-        "caption": "Campos de roteiro, arquivos de referência e texto guia no formulário de Off. As orientações ficam separadas do texto a ser narrado."
+        "title": "Inclua guia e orientações",
+        "text": "Em <strong>Guia e anexos</strong>, descreva pronúncias, ritmo e detalhes em <strong>Dicas e Orientações para o locutor/produtor</strong>. Para voz-guia, a tela aceita MP3 ou OGG até 10 MB. Também apresenta <strong>Gravador de Voz</strong> e <strong>Trecho do demo</strong>.",
+        "image": "novo-off-guia.jpg",
+        "caption": "Guia de pronúncia e orientações."
       },
       {
-        "title": "Revise e confirme o pedido",
-        "text": "Confira o locutor, o estilo, o texto, as referências e a estimativa de créditos. Leia as condições e, se estiver tudo certo, use <strong>Aceito os Termos e Condições de Uso e Confirmo este Pedido</strong>. Depois acompanhe em <strong>Meus Pedidos</strong>.",
+        "title": "Revise título, roteiro e valor",
+        "text": "Em <strong>Revisão</strong>, confira o título gerado automaticamente e altere se quiser. Revise texto, voz, estilo, orientações, duração, valor e prazo. Use <strong>Editar</strong> ou <strong>Trocar</strong> para corrigir antes de enviar.",
+        "image": "novo-off-revisao.jpg",
+        "caption": "Exemplo de revisão de um pedido Voz-Off com pagamento avulso por PIX."
+      },
+      {
+        "title": "Envie somente depois de conferir",
+        "text": "Siga a ação final apresentada na revisão. Na conta sem saldo consultada, o botão era <strong>Enviar e pagar com PIX</strong>; o resumo informa que o pedido vai para o locutor após o pagamento. Se usar créditos, confira o consumo indicado. Depois acompanhe em <strong>Meus pedidos</strong>.",
         "image": null,
         "caption": null
       }
     ],
-    "extra": "<h2>Quanto custa e quantos créditos usar?</h2><p>Um crédito de Locução Off custa R$ 14,90. Para comerciais, cada fração contempla até 40 segundos, conforme as condições do painel. Um roteiro mais longo pode consumir mais créditos; revise a estimativa antes de confirmar. A cobrança pode ser conferida pela duração efetiva da gravação.</p><div class=\"t-rules\"><h2>Cuidados antes de enviar</h2><ul><li>Envie um texto comercial por pedido e defina o estilo antes da gravação.</li><li>Revise nomes, preços, números e datas. Alterar o texto depois da entrega pode exigir outro pedido.</li><li>Escreva o roteiro no campo Texto do pedido, mesmo quando anexar referências.</li></ul></div><p>Se você precisa do anúncio pronto com música e efeitos, siga o <a href=\"/tutoriais/como-pedir-spot-comercial/\">tutorial de pedido de Spot Comercial</a>.</p>",
+    "extra": "<h2>Preço e duração</h2><p>O valor avulso base de Voz-Off é <strong>R$ 14,90</strong> por crédito. Cada crédito cobre até 40 segundos; textos maiores podem exigir mais créditos. A revisão mostra a estimativa e as condições aplicáveis. Os pacotes têm valores por crédito diferentes.</p><h2>Texto e orientação têm campos separados</h2><p>Escreva no roteiro apenas o que deve ser falado. Use o guia para explicar pronúncia, intenção e referências. Mudanças no texto, na voz ou no estilo após a entrega podem exigir outro pedido.</p><p>Confira as <a href=\"https://vozlocutor.com.br/termos.php?plataforma=alocucao\" target=\"_blank\" rel=\"noopener\">condições atuais do Painel de Gravação</a> antes de contratar. A disponibilidade de cada voz indica uma estimativa de prazo.</p>",
     "faqs": [
       [
-        "Off inclui trilha e efeitos?",
-        "Não. Off é a voz gravada sem trilha e efeitos. Para o anúncio finalizado, escolha Produção."
+        "Preciso ter créditos antes de preencher o roteiro?",
+        "O formulário consultado permitiu chegar à revisão sem saldo e apresentou pagamento avulso por PIX. Confira as opções da sua conta antes de enviar."
       ],
       [
-        "Posso anexar o roteiro em Word ou imagem?",
-        "Coloque o roteiro no campo Texto do pedido. Arquivos Guias servem para referências e não substituem o texto que deve ser narrado."
+        "O prazo do locutor é garantido?",
+        "Os termos descrevem o prazo exibido como uma estimativa baseada na disponibilidade no momento do pedido."
       ],
       [
-        "Posso mudar o locutor depois da entrega?",
-        "Escolha e confira o locutor antes de confirmar. Trocar a voz ou o estilo após a entrega pode exigir um novo pedido cobrado, conforme os termos."
+        "Off e Produzida usam o mesmo saldo?",
+        "Não. O painel mostra saldos separados para os serviços."
       ]
     ],
     "related": [
@@ -238,60 +238,60 @@
   {
     "slug": "como-pedir-spot-comercial",
     "title": "Como fazer um pedido de Spot Comercial",
-    "description": "Saiba como pedir um Spot Comercial com voz, trilha e efeitos pelo menu Pedir Produção do Painel de Gravação da A Locução.",
-    "intro": "No painel, o pedido de Spot Comercial é chamado Produção. Você recebe o anúncio finalizado com voz, trilha e efeitos, além da Locução Off separada. O crédito de Produção custa R$ 29,90 por fração de até 40 segundos para comerciais.",
-    "prereq": "Tenha cadastro completo e créditos de Produção. Prepare um texto revisado e as orientações de estilo, pronúncia e referência musical para o produtor.",
+    "description": "Aprenda como fazer um pedido de Spot Comercial, com orientações do novo painel da A Locução.",
+    "intro": "Peça seu Spot Comercial com voz, trilha, efeitos e mixagem. O formulário atual tem quatro etapas: Tipo e texto, Voz e estilo, Guia e anexos e Revisão.",
+    "prereq": "Tenha seu roteiro revisado. Você pode usar saldo do serviço ou conferir o pagamento avulso apresentado na revisão.",
     "steps": [
       {
-        "title": "Abra Pedir Produção",
-        "text": "Entre em <a href=\"/painel/\">o painel</a>, abra <strong>Pedir</strong> e escolha <strong>Pedir Produção</strong>. Confirme que a tela apresenta <strong>Novo Pedido de PRODUÇÃO</strong>, pois o formulário de Pedir Off solicita somente a voz.",
+        "title": "Abra Novo pedido e escolha Produzida",
+        "text": "Entre em <strong>Meus pedidos → Novo pedido</strong>. Você também encontra <strong>Solicitar Gravação</strong> no menu. Em <strong>Tipo e texto</strong>, escolha <strong>Produzida</strong>. Selecione o formato adequado: Gravação Comercial para anúncios ou outro formato conforme a finalidade.",
+        "image": "novo-tipo.jpg",
+        "caption": "Escolha entre Voz-Off e Produzida no início do pedido."
+      },
+      {
+        "title": "Escreva o texto da gravação",
+        "text": "Cole no editor somente as palavras que devem ser narradas. Revise valores, datas, nomes e números. O painel estima a duração; o consumo será apresentado com a voz e o estilo selecionados. Clique em <strong>Próximo</strong>.",
+        "image": "novo-off-texto.jpg",
+        "caption": "Etapa Tipo e texto: escolha do formato e editor do roteiro."
+      },
+      {
+        "title": "Escolha a voz e o estilo",
+        "text": "Na etapa <strong>Voz e estilo</strong>, ouça as demonstrações e clique na voz desejada. Escolha um estilo compatível, como Padrão, Animada ou Varejo. Você pode filtrar por nome, voz masculina ou feminina, disponibilidade e favoritos. Confira o prazo atual.",
+        "image": "novo-voz-estilo.jpg",
+        "caption": "Seleção de locutor, estilo da locução e resumo do pedido."
+      },
+      {
+        "title": "Inclua guia e orientações",
+        "text": "Em <strong>Guia e anexos</strong>, descreva pronúncias, ritmo e detalhes em <strong>Dicas e Orientações para o locutor/produtor</strong>. Para voz-guia, a tela aceita MP3 ou OGG até 10 MB. Também apresenta <strong>Gravador de Voz</strong> e <strong>Trecho do demo</strong>. Na seção <strong>Música ou trilha</strong>, você pode anexar MP3, OGG ou WAV até 20 MB por arquivo. Informe as preferências de produção e use materiais que tenha direito de utilizar.",
+        "image": "novo-spot-guia.jpg",
+        "caption": "Guia de pronúncia, anexo de música e orientações para a produção."
+      },
+      {
+        "title": "Revise título, roteiro e valor",
+        "text": "Em <strong>Revisão</strong>, confira o título gerado automaticamente e altere se quiser. Revise texto, voz, estilo, orientações, duração, valor e prazo. Use <strong>Editar</strong> ou <strong>Trocar</strong> para corrigir antes de enviar. Confirme que o resumo indica Produzida, para receber áudio com produção.",
         "image": null,
         "caption": null
       },
       {
-        "title": "Dê um título e escolha Comercial",
-        "text": "Preencha <strong>Título do Pedido (Identificação)</strong>. Selecione <strong>Comercial</strong> para seu anúncio. Informe um título que ajude a encontrar o pedido depois, sem colocar todas as instruções nesse campo.",
-        "image": "spot-formulario.jpg",
-        "caption": "Formulário de Novo Pedido de PRODUÇÃO, com identificação, tipo, estilo e escolha do locutor."
-      },
-      {
-        "title": "Defina o estilo e selecione a voz",
-        "text": "Escolha o estilo da voz e o locutor. Ouça demos antes de decidir e confira observações e disponibilidade. O tempo de produção envolve gravação e finalização; a indicação de agilidade do locutor não é, sozinha, o prazo de entrega do Spot.",
-        "image": null,
-        "caption": null
-      },
-      {
-        "title": "Preencha texto, guias e referências",
-        "text": "Insira o texto a ser narrado em <strong>Texto do pedido</strong>. Em <strong>Texto guia para o Locutor/Produtor</strong>, explique o clima desejado, pronúncias e orientações sobre trilha e efeitos. Anexe referências em <strong>Arquivos Guias</strong>, se precisar, usando materiais que você tenha autorização para enviar.",
-        "image": null,
-        "caption": null
-      },
-      {
-        "title": "Confira os créditos e confirme",
-        "text": "Revise o roteiro, a voz, o estilo e a estimativa de consumo. Leia os termos e, se concordar, clique no botão <strong>Aceito os Termos e Condições de Uso e Confirmo este Pedido</strong>. Acompanhe a gravação e a produção em <strong>Meus Pedidos</strong>.",
-        "image": null,
-        "caption": null
-      },
-      {
-        "title": "Baixe e confira os arquivos entregues",
-        "text": "Quando os arquivos estiverem disponíveis, abra o pedido e confira a aba <strong>Arquivos</strong>. Baixe o Spot finalizado e a Locução Off separada disponibilizados na entrega. Ouça tudo antes de divulgar e guarde uma cópia.",
+        "title": "Envie somente depois de conferir",
+        "text": "Siga a ação final apresentada na revisão. Na conta sem saldo consultada, o botão era <strong>Enviar e pagar com PIX</strong>; o resumo informa que o pedido vai para o locutor após o pagamento. Se usar créditos, confira o consumo indicado. Depois acompanhe em <strong>Meus pedidos</strong>.",
         "image": null,
         "caption": null
       }
     ],
-    "extra": "<h2>O que informar ao produtor</h2><p>Explique onde o anúncio será usado e o clima desejado: varejo animado, apresentação institucional, divulgação de evento ou outro contexto. Descreva com clareza as referências musicais e os efeitos que deseja. Se alguma informação não deve ser narrada, mantenha-a no texto guia, fora do roteiro.</p><div class=\"t-rules\"><h2>Texto revisado evita retrabalho</h2><p>Confira preços, condições da oferta, datas e pronúncias antes de enviar. Os termos distinguem erro de execução e mudança solicitada depois da entrega: alterar texto, locutor ou estilo pode ser um novo pedido cobrado. Para um erro na gravação ou produção, use a função de correção dentro do prazo aplicável.</p></div>",
+    "extra": "<h2>Preço e duração</h2><p>O valor avulso base de Produzida é <strong>R$ 29,90</strong> por crédito. Cada crédito cobre até 40 segundos; textos maiores podem exigir mais créditos. A revisão mostra a estimativa e as condições aplicáveis. Os pacotes têm valores por crédito diferentes.</p><h2>Texto e orientação têm campos separados</h2><p>Escreva no roteiro apenas o que deve ser falado. Use o guia para explicar pronúncia, intenção e referências. Mudanças no texto, na voz ou no estilo após a entrega podem exigir outro pedido.</p><p>Confira as <a href=\"https://vozlocutor.com.br/termos.php?plataforma=alocucao\" target=\"_blank\" rel=\"noopener\">condições atuais do Painel de Gravação</a> antes de contratar. A disponibilidade de cada voz indica uma estimativa de prazo.</p>",
     "faqs": [
       [
-        "Qual opção devo escolher para pedir Spot?",
-        "Use Pedir → Pedir Produção. A tela deve indicar Novo Pedido de PRODUÇÃO."
+        "Preciso ter créditos antes de preencher o roteiro?",
+        "O formulário consultado permitiu chegar à revisão sem saldo e apresentou pagamento avulso por PIX. Confira as opções da sua conta antes de enviar."
       ],
       [
-        "Quanto custa um Spot Comercial?",
-        "Um crédito de Produção custa R$ 29,90 para comerciais por fração de até 40 segundos. Textos mais longos podem exigir mais créditos; confira o consumo e o total no painel."
+        "O prazo do locutor é garantido?",
+        "Os termos descrevem o prazo exibido como uma estimativa baseada na disponibilidade no momento do pedido."
       ],
       [
-        "O Spot inclui a voz separada?",
-        "A Produção da A Locução inclui o Spot finalizado e a Locução Off separada. Confira e baixe os arquivos disponibilizados no pedido."
+        "Off e Produzida usam o mesmo saldo?",
+        "Não. O painel mostra saldos separados para os serviços."
       ]
     ],
     "related": [
@@ -304,54 +304,44 @@
   {
     "slug": "como-escolher-locutor",
     "title": "Como escolher um locutor no Painel de Gravação",
-    "description": "Aprenda a ouvir demos, consultar estilos, observações e horários e escolher a voz para sua locução ou Spot Comercial no painel.",
-    "intro": "A escolha da voz influencia o resultado da gravação. Use a Lista de Locutores para ouvir demos e consultar disponibilidade, observações e horários antes de enviar um pedido de Off ou Produção. Temos locutores de plantão todos os dias, inclusive finais de semana e feriados; consulte os profissionais disponíveis no momento do pedido.",
-    "prereq": "Entre no painel para consultar a lista completa. Você também pode conhecer as vozes no <a href=\"/vozes/\">Banco de Vozes do site</a> antes de criar sua conta.",
+    "description": "Aprenda como escolher um locutor no Painel de Gravação, com orientações do novo painel da A Locução.",
+    "intro": "Ouça as demonstrações e use os filtros para encontrar uma voz adequada à sua campanha. A escolha da voz deve considerar interpretação, estilo e disponibilidade.",
+    "prereq": "Tenha em mente o público do anúncio e a intenção da mensagem.",
     "steps": [
       {
-        "title": "Abra Lista de Locutores",
-        "text": "No menu da área do cliente, selecione <strong>Lista de Locutores</strong>. A página apresenta filtros, busca e a relação das vozes disponíveis.",
+        "title": "Abra Locutores",
+        "text": "Clique em <strong>Locutores</strong> no menu lateral. O catálogo apresenta as demonstrações, estilos e disponibilidade das vozes.",
         "image": null,
         "caption": null
       },
       {
-        "title": "Use os filtros e a pesquisa",
-        "text": "Filtre por Todas vozes, Masculina, Feminina ou Infantil, conforme seu projeto. Há filtros de disponibilidade, como Todos, 10 Min, 30 Min, Online e Volto já. Para localizar uma voz específica, digite no campo <strong>Pesquisar</strong> e use a lupa.",
-        "image": "locutores-filtros.jpg",
-        "caption": "Filtros de tipo de voz, disponibilidade, pesquisa e índice de agilidade na Lista de Locutores."
-      },
-      {
-        "title": "Ouça a Demo e compare a interpretação",
-        "text": "Use o controle da coluna <strong>Demo</strong> para ouvir o exemplo de cada locutor. Compare timbre, clareza e interpretação pensando no público e na mensagem. A demo ajuda a escolher a voz, mas seu pedido também depende do estilo que você vai indicar.",
+        "title": "Use busca e filtros",
+        "text": "Busque pelo nome e, se necessário, filtre por estado, voz masculina ou feminina, estilo e entrega. A ordenação oferece Disponíveis primeiro, Mais bem avaliadas, Mais rápidas, Novas vozes e Nome (A–Z).",
         "image": null,
         "caption": null
       },
       {
-        "title": "Confira Obs, Horários e a disponibilidade",
-        "text": "Veja as colunas <strong>Obs</strong> e <strong>Horários</strong> antes de contratar. O índice de agilidade, como Super Rápido, Rápido, Moderado ou Lento, é uma referência de atendimento e não substitui as condições do pedido. Um locutor fora do horário pode gravar no próximo período disponível.",
+        "title": "Ouça Off e Produzido",
+        "text": "Compare a demo <strong>Off — Só a voz</strong> com <strong>Produzido — Com trilha</strong>. Escolha pela interpretação que combina com o seu texto, sem confundir música da demonstração com uma trilha já escolhida para seu pedido.",
         "image": null,
         "caption": null
       },
       {
-        "title": "Selecione a mesma voz no pedido",
-        "text": "Abra Pedir Off ou Pedir Produção e confira o campo <strong>Escolha seu locutor</strong>. Revise o nome escolhido e o estilo da voz antes de confirmar. Trocar o locutor após a entrega pode exigir outro pedido.",
-        "image": null,
-        "caption": null
+        "title": "Escolha a voz no pedido",
+        "text": "Clique em <strong>Pedir gravação</strong> no catálogo ou escolha na etapa <strong>Voz e estilo</strong>. Confira os estilos que o profissional grava e o prazo atual.",
+        "image": "novo-voz-estilo.jpg",
+        "caption": "Etapa Voz e estilo com busca, filtros e seleção do locutor."
       }
     ],
-    "extra": "<h2>Como combinar voz e estilo</h2><p>Para um texto de oferta, observe se a voz demonstra uma interpretação adequada ao varejo. Para apresentação de empresa, considere clareza e tom institucional. Para festas e eventos, ouça exemplos de maior energia. Descreva sua intenção no texto guia e selecione o estilo correspondente no formulário.</p><div class=\"t-callout\"><strong>Disponibilidade e prazo são informações diferentes.</strong> Consulte o painel no momento de enviar. Em Produção, ainda existe a etapa de trilha, efeitos e finalização depois da gravação da voz.</div>",
+    "extra": "<p>Confira as <a href=\"https://vozlocutor.com.br/termos.php?plataforma=alocucao\" target=\"_blank\" rel=\"noopener\">condições atuais do Painel de Gravação</a> antes de contratar. A disponibilidade de cada voz indica uma estimativa de prazo.</p>",
     "faqs": [
       [
-        "O indicador de 10 minutos garante a entrega do Spot em 10 minutos?",
-        "Não. Consulte disponibilidade e condições no momento do pedido. O Spot também precisa passar pela produção e finalização."
+        "Posso escolher um locutor offline?",
+        "Confira a disponibilidade, as observações e o prazo atual antes de contratar."
       ],
       [
-        "Posso ouvir vozes antes de me cadastrar?",
-        "Sim. O Banco de Vozes do site apresenta demos. Na área do cliente, consulte a Lista de Locutores para as informações do painel."
-      ],
-      [
-        "Como informar a interpretação desejada?",
-        "Selecione o estilo no pedido e complemente com orientações claras no Texto guia para o Locutor/Produtor."
+        "Todos gravam todos os estilos?",
+        "Não. O formulário apresenta os estilos disponíveis para a voz escolhida."
       ]
     ],
     "related": [
@@ -363,54 +353,44 @@
   {
     "slug": "como-preparar-texto",
     "title": "Como preparar o texto para uma locução ou Spot",
-    "description": "Prepare um roteiro claro para o Painel de Gravação: separe texto e instruções, revise pronúncias e estime a duração antes de enviar.",
-    "intro": "Um roteiro bem revisado facilita a gravação e reduz a necessidade de ajustes. No painel, o texto narrado e as instruções têm campos diferentes. Essa separação ajuda o locutor a entender exatamente o que deve falar.",
-    "prereq": "Tenha a mensagem principal, os dados da oferta e as condições de divulgação definidos. Revise as informações com o responsável pelo anúncio antes de enviar.",
+    "description": "Aprenda como preparar o texto para uma locução ou Spot, com orientações do novo painel da A Locução.",
+    "intro": "Um roteiro revisado e orientações claras ajudam o locutor e o produtor a entregar o áudio conforme sua intenção.",
+    "prereq": "Defina o que será falado e o que é apenas orientação.",
     "steps": [
       {
-        "title": "Defina uma mensagem para o comercial",
-        "text": "Organize a chamada, a informação principal e o convite final. Evite reunir anúncios diferentes no mesmo pedido: os termos orientam um texto comercial por solicitação. Se precisar de outro estilo ou outra peça, separe os pedidos.",
+        "title": "Escreva somente o conteúdo falado",
+        "text": "No editor da etapa <strong>Tipo e texto</strong>, coloque as palavras que deverão entrar no áudio. Separe instruções e referências do roteiro.",
+        "image": "novo-off-texto.jpg",
+        "caption": "Editor do roteiro na primeira etapa do formulário."
+      },
+      {
+        "title": "Revise as informações",
+        "text": "Confira nomes, endereço, contatos, preços e datas. Escreva números de forma clara e explique siglas ou termos que tenham pronúncia específica.",
         "image": null,
         "caption": null
       },
       {
-        "title": "Revise nomes, números e condições",
-        "text": "Confira o nome da empresa, valores, datas, telefone, endereço e regras da oferta. Leia em voz alta para identificar frases confusas. Quando a forma de falar um número importar, escreva a orientação de pronúncia no guia.",
-        "image": null,
-        "caption": null
+        "title": "Prepare o guia de pronúncia",
+        "text": "Use <strong>Dicas e Orientações para o locutor/produtor</strong> e, se necessário, anexe uma voz-guia MP3 ou OGG até 10 MB. Explique a intenção, o ritmo e a pronúncia de palavras difíceis.",
+        "image": "novo-off-guia.jpg",
+        "caption": "Voz-guia e instruções ficam separados do texto principal."
       },
       {
-        "title": "Estime a duração",
-        "text": "Use a <a href=\"/calculadora/\">calculadora de texto</a> como apoio e faça uma leitura em voz alta. A estimativa não garante a duração final: pausas, ritmo e interpretação alteram o tempo. Para comerciais, considere a cobrança por fração de até 40 segundos e confira os créditos indicados no painel.",
-        "image": null,
-        "caption": null
-      },
-      {
-        "title": "Separe roteiro e instruções no formulário",
-        "text": "Em <strong>Texto do pedido</strong>, coloque o que deve ser narrado. Em <strong>Texto guia para o Locutor/Produtor</strong>, informe pronúncias, pausas e referências. Anexe exemplos em <strong>Arquivos Guias</strong> quando necessários.",
-        "image": "off-roteiro-guias.jpg",
-        "caption": "O roteiro e o texto guia têm campos separados. Arquivos de referência complementam as orientações."
-      },
-      {
-        "title": "Faça a revisão final antes de confirmar",
-        "text": "Confira o conteúdo já inserido no painel, inclusive caracteres e quebras de linha após colar. Defina locutor e estilo antes de enviar. Mudanças de texto ou interpretação após a entrega podem ser cobradas como um novo pedido.",
-        "image": null,
-        "caption": null
+        "title": "Confira a revisão final",
+        "text": "Revise texto, voz, estilo, anexos, valor e prazo antes da ação final. Use Editar ou Trocar enquanto ainda está preparando o pedido.",
+        "image": "novo-off-revisao.jpg",
+        "caption": "Revisão antes do envio do pedido."
       }
     ],
-    "extra": "<h2>Exemplo de organização do pedido</h2><div class=\"t-table-wrap\"><table class=\"t-table\"><thead><tr><th>Campo</th><th>Exemplo ilustrativo</th></tr></thead><tbody><tr><td>Título do Pedido</td><td>Divulgação de inauguração</td></tr><tr><td>Texto do pedido</td><td>É neste sábado! Venha conhecer nossa nova loja. Esperamos por você!</td></tr><tr><td>Texto guia para o Locutor/Produtor</td><td>Tom alegre e acolhedor. Faça uma pausa curta depois da primeira frase. Em Produção, usar trilha animada com volume que preserve a voz.</td></tr></tbody></table></div><p>O exemplo mostra a separação dos campos e não é um pedido enviado. Evite incluir instruções entre frases do roteiro: elas podem gerar dúvida sobre o conteúdo que deve ser falado.</p>",
+    "extra": "<p>Confira as <a href=\"https://vozlocutor.com.br/termos.php?plataforma=alocucao\" target=\"_blank\" rel=\"noopener\">condições atuais do Painel de Gravação</a> antes de contratar. A disponibilidade de cada voz indica uma estimativa de prazo.</p>",
     "faqs": [
       [
-        "A calculadora define o preço final?",
-        "Ela ajuda a estimar a duração. Confira o consumo no painel, pois a duração efetiva da gravação e as regras do serviço podem influenciar a cobrança."
+        "Posso mudar a voz depois da entrega?",
+        "Troca de voz ou estilo pode exigir novo pedido. Defina a escolha antes do envio."
       ],
       [
-        "Onde explicar a pronúncia de uma marca?",
-        "Use Texto guia para o Locutor/Produtor. Se necessário, complemente com uma referência em áudio ou arquivo guia."
-      ],
-      [
-        "Posso mandar vários comerciais no mesmo texto?",
-        "Os termos orientam um texto comercial por pedido. Separe peças e estilos diferentes em solicitações próprias."
+        "Um texto longo custa o mesmo?",
+        "Cada crédito cobre até 40 segundos. Confira a quantidade e o valor na revisão."
       ]
     ],
     "related": [
@@ -422,54 +402,44 @@
   {
     "slug": "como-acompanhar-pedido",
     "title": "Como acompanhar um pedido no Painel de Gravação",
-    "description": "Veja como localizar seus pedidos, consultar status, arquivos e movimentações e acompanhar a entrega da locução ou produção.",
-    "intro": "Depois de confirmar uma gravação, acompanhe o trabalho em Meus Pedidos. Essa área reúne os pedidos da conta, o status e os acessos aos arquivos e informações de cada solicitação.",
-    "prereq": "Tenha enviado o pedido pelo painel. Para identificar mais facilmente, use o título que você informou no formulário.",
+    "description": "Aprenda como acompanhar um pedido no Painel de Gravação, com orientações do novo painel da A Locução.",
+    "intro": "Veja o andamento das gravações em Meus pedidos. A tela reúne busca, filtros por status e atalhos para cada pedido.",
+    "prereq": "Entre na mesma conta que enviou a gravação.",
     "steps": [
       {
-        "title": "Abra Meus Pedidos",
-        "text": "No menu da área do cliente, clique em <strong>Meus Pedidos</strong>. A tabela apresenta tipo, identificação, status, nome do pedido e locutor, além dos controles disponíveis para cada item.",
+        "title": "Abra Meus pedidos",
+        "text": "Clique em <strong>Meus pedidos</strong> no menu lateral ou no atalho da página inicial.",
+        "image": "novo-pedidos.jpg",
+        "caption": "Tela Meus pedidos. A conta usada no exemplo ainda não tinha gravações."
+      },
+      {
+        "title": "Localize pela busca ou pelo status",
+        "text": "Use <strong>Buscar pedidos</strong> ou os filtros <strong>Todos</strong>, <strong>Em andamento</strong>, <strong>Aguardando pagamento</strong>, <strong>Em correção</strong>, <strong>Entregues</strong> e <strong>Cancelados</strong>.",
         "image": null,
         "caption": null
       },
       {
-        "title": "Localize pelo nome e use a lupa",
-        "text": "Procure o título na lista. Para filtrar, use o campo <strong>Pesquisar</strong> e clique na lupa. Se a lista não mostrar o que você procura, revise o texto da busca e confirme se está na conta em que o pedido foi enviado.",
+        "title": "Confira a linha do pedido",
+        "text": "A lista apresenta Pedido, Tipo, Data, Status e Atalhos. Abra o pedido desejado para conferir os detalhes disponíveis. Se estiver aguardando pagamento, confira a cobrança antes de esperar a gravação.",
         "image": null,
         "caption": null
       },
       {
-        "title": "Consulte o status e abra os detalhes",
-        "text": "Leia a coluna <strong>Status</strong> para saber a situação atual. O status também pode abrir os detalhes do pedido. Na tela consultada, pedidos já baixados aparecem como <strong>Baixado</strong>; isso não significa que um novo pedido seja entregue imediatamente.",
-        "image": null,
-        "caption": null
-      },
-      {
-        "title": "Veja Informações, Arquivos e Pagamento",
-        "text": "Nos detalhes, confira as abas <strong>Informações</strong>, <strong>Arquivos</strong> e <strong>Pagamento</strong>. Em Informações aparecem o texto e as <strong>Movimentações do Pedido</strong>. Em Arquivos, veja o material disponibilizado. Em Pagamento, consulte as informações de cobrança do pedido.",
-        "image": null,
-        "caption": null
-      },
-      {
-        "title": "Baixe a entrega ou procure ajuda sobre uma pendência",
-        "text": "Se houver arquivo disponível, siga o <a href=\"/tutoriais/como-baixar-pedido/\">tutorial de download</a>. Caso haja uma pendência, leia as informações do pedido. Para um erro na entrega, veja <a href=\"/tutoriais/como-solicitar-correcao/\">como solicitar correção</a> dentro do prazo dos termos.",
+        "title": "Confira avisos e entrega",
+        "text": "O painel informa avisos por e-mail quando o áudio fica pronto. Mantenha seus contatos atualizados e, ao receber, ouça a gravação e guarde uma cópia.",
         "image": null,
         "caption": null
       }
     ],
-    "extra": "<h2>Como entender o prazo</h2><p>O painel recebe pedidos 24 horas por dia, mas a gravação depende do horário e da disponibilidade do locutor. Pedidos de Produção também passam pela finalização do áudio. Consulte as informações atuais do painel e evite interpretar um indicador de agilidade como garantia de prazo para qualquer roteiro.</p><h2>Notificações ajudam, mas consulte o painel</h2><p>Mantenha seu e-mail correto e revise as preferências de notificações em Minha conta. Acompanhar diretamente Meus Pedidos permite consultar a situação mesmo quando uma mensagem não chega ao e-mail ou WhatsApp.</p>",
+    "extra": "<h2>Prazo e pagamento</h2><p>O prazo de cada voz é uma estimativa. O formulário de pedido avulso informa que a gravação é encaminhada ao locutor depois do pagamento. A lista também oferece <strong>Pedidos Antigos</strong> para consultar o histórico disponível.</p><p>Confira as <a href=\"https://vozlocutor.com.br/termos.php?plataforma=alocucao\" target=\"_blank\" rel=\"noopener\">condições atuais do Painel de Gravação</a> antes de contratar. A disponibilidade de cada voz indica uma estimativa de prazo.</p>",
     "faqs": [
       [
-        "Como encontrar um pedido antigo?",
-        "Abra Meus Pedidos e pesquise pelo título usando o campo Pesquisar e a lupa. Entre nos detalhes para consultar as informações ainda disponíveis."
+        "Onde vejo pedidos em correção?",
+        "Use o filtro Em correção na tela Meus pedidos."
       ],
       [
-        "Receberei o áudio pelo WhatsApp?",
-        "A entrega e o download são consultados no painel. Notificações podem depender das preferências da conta; acesse Meus Pedidos e a aba Arquivos."
-      ],
-      [
-        "O painel funciona fora do horário comercial?",
-        "Você pode acessar e enviar pedidos a qualquer hora. A execução depende dos horários e da disponibilidade dos profissionais."
+        "Por que o pedido está aguardando pagamento?",
+        "Confira a cobrança do pedido e o status da confirmação. Se já pagou e o status não mudou, fale com o suporte antes de pagar novamente."
       ]
     ],
     "related": [
@@ -481,54 +451,44 @@
   {
     "slug": "como-solicitar-correcao",
     "title": "Como solicitar correção de uma gravação",
-    "description": "Aprenda a abrir Tive um problema! em Meus Pedidos, descrever o erro e solicitar correção de acordo com os termos do Painel de Gravação.",
-    "intro": "Ouça a entrega assim que ela estiver disponível. Se identificar um erro na gravação ou produção, use a função do próprio pedido para explicar o problema. Os termos preveem solicitação de correção por erro de execução em até três dias após a entrega, enquanto a função estiver disponível. Esse prazo é operacional e não limita os direitos previstos em lei. Se a função estiver indisponível, procure o suporte.",
-    "prereq": "Tenha o pedido e o arquivo entregue em mãos. Compare o áudio com o roteiro e as orientações que foram enviados para distinguir erro de execução e alteração do conteúdo.",
+    "description": "Aprenda como solicitar correção de uma gravação, com orientações do novo painel da A Locução.",
+    "intro": "Depois da entrega, você pode solicitar ajustes de erros de execução, explicando a divergência entre o pedido e o áudio recebido.",
+    "prereq": "Ouça a gravação e compare com o roteiro e as orientações originais.",
     "steps": [
       {
-        "title": "Localize o pedido em Meus Pedidos",
-        "text": "Abra <strong>Meus Pedidos</strong>, encontre a gravação pelo título e confira se é o item correto. Na linha do pedido, use o ícone de <strong>exclamação (!)</strong> destinado a informar um problema.",
+        "title": "Localize a entrega",
+        "text": "Abra <strong>Meus pedidos</strong> e use <strong>Entregues</strong>. Localize e abra o pedido correspondente.",
+        "image": "novo-pedidos.jpg",
+        "caption": "Use o filtro Entregues para localizar a gravação que precisa conferir."
+      },
+      {
+        "title": "Explique o que precisa de ajuste",
+        "text": "Use a opção de correção disponibilizada nos detalhes do pedido. Conforme os termos atuais, o ajuste pode ser para a voz, a produção ou ambas. Indique o trecho e explique a diferença em relação à solicitação original.",
         "image": null,
         "caption": null
       },
       {
-        "title": "Escolha a categoria do problema",
-        "text": "A janela <strong>Tive um problema!</strong> apresenta as categorias disponíveis. Para a voz, selecione <strong>Erro na Gravação do OFF</strong>. Em pedidos de Produção há também <strong>Erro na Produção</strong>. Para cobranças e assuntos administrativos, use <strong>Cobrança Indevida / Administração</strong>. Escolha a categoria que corresponde ao problema.",
+        "title": "Inclua uma referência clara",
+        "text": "Os termos atuais preveem marcar o trecho no texto, enviar áudio de referência ou gravar uma explicação. Use as opções apresentadas no pedido e revise sua descrição antes de enviar.",
         "image": null,
         "caption": null
       },
       {
-        "title": "Descreva o erro com precisão",
-        "text": "Em <strong>Descreva seu problema</strong>, informe o trecho ou momento do áudio, o que foi gravado e o que constava no pedido. Exemplo: No trecho final, o nome informado no roteiro foi pronunciado de outra forma. Evite mensagens genéricas como refazer tudo sem explicar o motivo.",
-        "image": "correcao-descricao.jpg",
-        "caption": "Categorias de correção, envio de referências e campo Descreva seu problema na janela Tive um problema!."
-      },
-      {
-        "title": "Inclua uma referência quando necessária",
-        "text": "Se uma pronúncia precisar de exemplo, utilize o campo de arquivos ou a opção <strong>Gravar Áudio</strong> disponível na janela. Os arquivos podem ser enviados automaticamente ao selecionar; inclua somente o material necessário e autorizado.",
-        "image": null,
-        "caption": null
-      },
-      {
-        "title": "Revise, confirme e acompanhe",
-        "text": "Confira a categoria e a descrição antes de clicar em <strong>Confirmar</strong>. Depois acompanhe o pedido e suas movimentações no painel. Quando houver uma nova entrega, ouça e confira o trecho indicado. Se decidiu não enviar, use <strong>Cancelar</strong>.",
+        "title": "Acompanhe a resposta",
+        "text": "Depois da solicitação, acompanhe pelo filtro <strong>Em correção</strong>. Quando houver nova entrega, ouça o trecho corrigido e confira o resultado. Se a opção não aparecer, procure o suporte com a identificação do pedido.",
         "image": null,
         "caption": null
       }
     ],
-    "extra": "<div class=\"t-rules\"><h2>Correção ou novo pedido?</h2><p>Conforme os termos consultados, erros atribuíveis à execução devem ser comunicados em até <strong>3 dias após a entrega</strong>, enquanto a função estiver disponível. Erros no texto enviado pelo cliente, omissões, mudança de locutor, tom ou estilo depois da entrega podem exigir nova solicitação cobrada.</p><p>Solicitar uma correção não autoriza incluir uma nova campanha ou trocar o roteiro inteiro sem avaliação. Descreva a divergência em relação ao pedido original. Leia as condições atuais em <strong>Informações → Termos de Uso</strong> no painel.</p><p>O prazo operacional de três dias não limita os direitos e prazos previstos na legislação. Se a função não estiver disponível, procure o suporte da A Locução.</p></div><h2>Problemas de cobrança</h2><p>Se a dúvida for sobre créditos ou cobrança, utilize a categoria administrativa correspondente e explique a situação. Confira o consumo e as informações do pedido antes de abrir a solicitação. O campo de correção de gravação não substitui a escolha correta da categoria.</p>",
+    "extra": "<h2>Erros de execução e alterações de roteiro</h2><p>Os termos atuais não limitam o número de correções para erros do locutor ou produtor em relação ao que foi pedido. Erro no texto enviado, troca de voz ou estilo e falta de orientação no pedido original podem ser recusados como correção, com explicação do motivo; nesses casos, o ajuste será um novo pedido.</p><p>Confira as <a href=\"https://vozlocutor.com.br/termos.php?plataforma=alocucao\" target=\"_blank\" rel=\"noopener\">condições atuais do Painel de Gravação</a> antes de contratar. A disponibilidade de cada voz indica uma estimativa de prazo.</p>",
     "faqs": [
       [
-        "Qual é o prazo para solicitar correção?",
-        "O fluxo operacional prevê até três dias após a entrega para erros de execução. Esse prazo não limita direitos e prazos legais. Se a função estiver indisponível, procure o suporte."
+        "O prazo continua sendo de três dias?",
+        "Os termos do novo painel consultados não apresentam o antigo prazo de três dias. Confira a opção disponível no pedido e fale com o suporte se precisar de ajuda."
       ],
       [
-        "Posso mudar o texto depois de ouvir a gravação?",
-        "Alterações de texto enviado pelo cliente podem ser cobradas como novo pedido. Correção por erro de execução é diferente de mudar o conteúdo depois da entrega."
-      ],
-      [
-        "Onde solicitar correção?",
-        "Em Meus Pedidos, use o ícone de exclamação do pedido para abrir Tive um problema!, escolha a categoria, descreva o erro e confirme."
+        "Posso trocar todo o roteiro como correção?",
+        "Mudanças no texto ou nas escolhas originais podem exigir novo pedido. A correção de execução trata da divergência em relação ao que você solicitou."
       ]
     ],
     "related": [
@@ -541,54 +501,44 @@
   {
     "slug": "como-baixar-pedido",
     "title": "Como baixar uma locução ou Spot no painel",
-    "description": "Veja como baixar os arquivos do pedido em Meus Pedidos, conferir a entrega e guardar sua Locução Off ou Spot Comercial com segurança.",
-    "intro": "O download é feito na área do cliente, depois que a gravação ou produção disponibiliza os arquivos. Localize o pedido, abra os detalhes e use a aba Arquivos ou o controle de download apresentado no painel.",
-    "prereq": "Tenha acesso à conta que enviou o pedido e espaço para salvar o áudio no computador ou celular. Confira se o arquivo da entrega já está disponível.",
+    "description": "Aprenda como baixar uma locução ou Spot no painel, com orientações do novo painel da A Locução.",
+    "intro": "O áudio pronto fica disponível para download no Painel de Gravação. Localize a entrega, confira os arquivos e guarde uma cópia no seu dispositivo.",
+    "prereq": "Entre na conta do pedido e confira se a entrega já foi concluída.",
     "steps": [
       {
-        "title": "Entre em Meus Pedidos",
-        "text": "Acesse <a href=\"/painel/\">o painel</a> e clique em <strong>Meus Pedidos</strong>. Localize a gravação pelo título. Se necessário, use <strong>Pesquisar</strong> e clique na lupa.",
+        "title": "Localize o pedido entregue",
+        "text": "Abra <strong>Meus pedidos</strong> e clique em <strong>Entregues</strong>. Use Buscar pedidos se necessário.",
+        "image": "novo-pedidos.jpg",
+        "caption": "Busca e filtro Entregues na área Meus pedidos."
+      },
+      {
+        "title": "Abra a entrega",
+        "text": "Abra o pedido correspondente e localize os arquivos ou controles de download apresentados na entrega. Confira o tipo de gravação e a versão antes de baixar.",
         "image": null,
         "caption": null
       },
       {
-        "title": "Abra o pedido e a aba Arquivos",
-        "text": "Acesse os detalhes pelo status do pedido e selecione <strong>Arquivos</strong>. A tela apresenta os arquivos disponíveis e o botão <strong>Baixar</strong>. Na área de informações também podem aparecer cartões de arquivos com uma seta de download.",
-        "image": "baixar-arquivo.jpg",
-        "caption": "Exemplo do cartão de arquivo Off com o ícone de download. Nos detalhes, a aba Arquivos também apresenta Baixar."
-      },
-      {
-        "title": "Use Baixar e salve o arquivo",
-        "text": "Clique em <strong>Baixar</strong> ou na seta de download do arquivo desejado. Aguarde o navegador concluir. Confira a pasta Downloads ou o destino escolhido no dispositivo. O local do arquivo depende das configurações do seu navegador.",
+        "title": "Baixe e confira o áudio",
+        "text": "Use a opção de download do arquivo desejado. Aguarde o navegador terminar e procure na pasta Downloads ou na lista de downloads do dispositivo. Ouça o áudio completo antes de divulgar.",
         "image": null,
         "caption": null
       },
       {
-        "title": "Confira as versões entregues",
-        "text": "Para Off, confira a gravação da voz. Para Produção, baixe o Spot finalizado e a Locução Off separada disponibilizados no pedido. Identifique cada versão antes de enviar para rádio, editor ou outro canal de divulgação.",
-        "image": null,
-        "caption": null
-      },
-      {
-        "title": "Ouça e guarde uma cópia",
-        "text": "Reproduza o áudio completo, confira o texto e as pronúncias e salve uma cópia de segurança. Se houver divergência de execução, solicite correção dentro do prazo. Não deixe para baixar apenas quando for divulgar a campanha.",
+        "title": "Guarde uma cópia",
+        "text": "Organize os arquivos pelo nome da campanha e mantenha uma cópia de segurança. Se perceber um erro de execução, consulte o tutorial de correção.",
         "image": null,
         "caption": null
       }
     ],
-    "extra": "<div class=\"t-rules\"><h2>Por quanto tempo o arquivo fica disponível?</h2><p>Os termos consultados preveem disponibilidade dos arquivos por no mínimo <strong>30 dias</strong> e dos dados do pedido por no mínimo um ano. Histórico de pedido e armazenamento de áudio têm prazos distintos. Faça o download e seu próprio backup assim que receber.</p></div><h2>Se o download não aparecer</h2><p>Confira se a entrega já disponibilizou o arquivo e se você abriu a conta e o pedido corretos. Consulte as movimentações e a aba Arquivos. No celular, veja também a lista de downloads do navegador. Se o arquivo continuar inacessível, procure o suporte com a identificação do pedido e a mensagem exibida, sem compartilhar sua senha.</p>",
+    "extra": "<h2>Disponibilidade do arquivo</h2><p>Os termos do novo painel informam que o áudio pronto fica disponível por <strong>12 meses a partir da entrega</strong>. Baixe e guarde sua própria cópia. Se o arquivo não aparecer ou não abrir, procure o suporte com a identificação do pedido.</p><p>Confira as <a href=\"https://vozlocutor.com.br/termos.php?plataforma=alocucao\" target=\"_blank\" rel=\"noopener\">condições atuais do Painel de Gravação</a> antes de contratar. A disponibilidade de cada voz indica uma estimativa de prazo.</p>",
     "faqs": [
       [
-        "Onde encontro o áudio depois de baixar?",
-        "Normalmente na pasta Downloads ou na lista de downloads do navegador. O destino depende do dispositivo e das configurações usadas."
+        "Por quanto tempo o áudio fica no painel?",
+        "Os termos atuais informam 12 meses a partir da entrega. Guarde uma cópia assim que receber."
       ],
       [
-        "Posso deixar o áudio guardado somente no painel?",
-        "Faça sua própria cópia. Os termos preveem disponibilidade dos arquivos por no mínimo 30 dias; o histórico do pedido tem um prazo diferente."
-      ],
-      [
-        "Como baixar o Spot e a voz separada?",
-        "Abra a aba Arquivos do pedido de Produção e baixe as versões disponibilizadas. Identifique o Spot finalizado e a Locução Off antes de utilizar."
+        "Onde fica o arquivo no celular?",
+        "Normalmente na pasta Downloads ou na lista de downloads do navegador. O destino depende do dispositivo."
       ]
     ],
     "related": [
