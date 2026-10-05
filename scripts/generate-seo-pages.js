@@ -39,9 +39,7 @@ function generatePages() {
     const canonicalUrl = `https://alocucao.com.br/${folderName}/`;
     generatedUrls.push(canonicalUrl);
 
-    // Dynamic WhatsApp Link
-    const waText = `Olá! Acessei a página de ${region.stateName} e quero um orçamento.`;
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=5527996529832&text=${encodeURIComponent(waText)}`;
+    const panelUrl = 'https://vozlocutor.com.br/painel/alocucao/';
 
     // Cities formatting
     const citiesListFormatted = Array.isArray(region.cities)
@@ -76,7 +74,7 @@ function generatePages() {
     pageHtml = safeReplace(pageHtml, '{{exampleScript}}', region.exampleScript);
     pageHtml = safeReplace(pageHtml, '{{briefingTip}}', region.briefingTip);
     pageHtml = safeReplace(pageHtml, '{{citiesListFormatted}}', citiesListFormatted);
-    pageHtml = safeReplace(pageHtml, '{{whatsappUrl}}', whatsappUrl);
+    pageHtml = safeReplace(pageHtml, '{{panelUrl}}', panelUrl);
 
     const structuredData = {
       "@context": "https://schema.org",

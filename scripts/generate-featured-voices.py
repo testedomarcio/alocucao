@@ -16,7 +16,6 @@ def markup(voices):
         name = voice['name'].title()
         esc = lambda value: html.escape(str(value), quote=True)
         photo = f'<img src="{esc(voice["photo"])}" alt="" width="64" height="64" loading="lazy" decoding="async">' if voice.get('photo') else '<span class="featured-initial" aria-hidden="true">' + esc(name[0]) + '</span>'
-        message = quote(f'Olá! Ouvi a voz de {name} na A Locução. Quero escolher este locutor para meu projeto. Pode confirmar disponibilidade, valor e prazo?')
         styles = ' · '.join(voice['styles'][:4])
         cards.append(f'''<article class="featured-voice" data-featured-id="{esc(voice['id'])}">
 <div class="featured-identity">{photo}<div><h3>{esc(name)}</h3><p>Voz {esc(voice['type'].lower())} · {esc(voice['region'])}</p></div></div>
@@ -24,7 +23,7 @@ def markup(voices):
 <p class="featured-styles">{esc(styles)}</p>
 <audio controls preload="none" data-featured-audio data-voice="{esc(voice['name'])}" aria-label="Ouvir demonstração de {esc(name)}" src="{esc(voice['audio'])}"><a href="{esc(voice['audio'])}">Ouvir demonstração</a></audio>
 <p class="featured-error" hidden>Não foi possível tocar a demo. <a href="{esc(voice['audio'])}" target="_blank" rel="noopener" data-featured-fallback>Abra o áudio em outra aba</a> ou peça orientação.</p>
-<a class="featured-choose" href="https://wa.me/5527996529832?text={message}" data-cta="voz_destaque_{esc(voice['id'])}">Quero essa voz</a>
+<a class="featured-choose" href="https://vozlocutor.com.br/painel/alocucao/cadastro" data-cta="voz_destaque_{esc(voice['id'])}">Criar Conta Gratuita</a>
 </article>''')
     return START + '''<div class="featured-voices" data-featured-voices>
 <p class="featured-label">Ouça algumas vozes</p>

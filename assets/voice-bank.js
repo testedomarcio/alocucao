@@ -79,7 +79,7 @@
     const meta = element('div','voice-meta'); meta.append(element('span','',voice.region || 'Região não informada'),element('span','',voice.languages.join(' · ')));
     const actions = element('div','voice-actions');
     const listen = element('button','listen','▶ Ouvir demo'); listen.type='button'; listen.setAttribute('aria-label','Ouvir demonstração de '+voice.name); listen.setAttribute('aria-pressed','false'); listen.addEventListener('click',()=>play(voice));
-    const choose = element('a','choose','Quero essa voz'); choose.href='https://wa.me/5527996529832?text='+encodeURIComponent('Olá! Quero uma gravação com '+voice.name+'. Pode confirmar a disponibilidade e o prazo?');  choose.dataset.cta='escolher_'+voice.id;
+    const choose = element('a','choose','Criar Conta Gratuita'); choose.href='https://vozlocutor.com.br/painel/alocucao/cadastro';  choose.dataset.cta='escolher_'+voice.id;
     actions.append(listen,choose);
     const compareLabel = element('label','compare-check'); const check = element('input'); check.type='checkbox'; check.checked=selected.has(voice.id); check.setAttribute('aria-label','Comparar '+voice.name);
     check.addEventListener('change',()=>{
@@ -109,7 +109,7 @@
     $('shown-count').textContent = list.length ? `Mostrando ${visible.length} de ${list.length}` : '';
     $('empty-state').hidden = list.length > 0; $('load-more').hidden = shown >= list.length;
     updateTotals();updatePlaying();updateLayout();
-    $('status-note').textContent=fresh()?'Status informados pelo catálogo na última consulta. Confirme disponibilidade e prazo pelo WhatsApp antes de enviar o pedido.':'Os status estão sob consulta porque a última atualização tem mais de três horas. As demos continuam disponíveis.';
+    $('status-note').textContent=fresh()?'Status informados pelo catálogo na última consulta. Confirme disponibilidade e prazo no painel antes de enviar o pedido.':'Os status estão sob consulta porque a última atualização tem mais de três horas. As demos continuam disponíveis.';
   }
   function reset() {
     Object.values(fields).forEach(f=>f.value='');favoriteView=false;compareView=false;shown=24;render();

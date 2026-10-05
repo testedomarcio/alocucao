@@ -37,10 +37,10 @@
         card.querySelector('[data-featured-fallback]').href = source;
       }
     });
-    let note = 'Status sob consulta. Confirme disponibilidade e prazo pelo WhatsApp.';
+    let note = 'Status sob consulta. Confirme disponibilidade e prazo no painel.';
     if (fresh) {
       const stamp = new Intl.DateTimeFormat('pt-BR', {timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}).format(new Date(catalog.fetchedAt));
-      note = `Última consulta: ${stamp} (Brasília). Confirme disponibilidade e prazo pelo WhatsApp.`;
+      note = `Última consulta: ${stamp} (Brasília). Confirme disponibilidade e prazo no painel.`;
       if (failed) note += ' Atualização temporariamente indisponível.';
     }
     widgets.forEach(widget => {

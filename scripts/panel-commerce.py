@@ -81,7 +81,7 @@ def _normalize_panel_rules(text):
 def normalize_page(text):
     from runpy import run_path
     normalize_whatsapp = run_path(str(Path(__file__).resolve().parent / 'whatsapp-commerce.py'))['normalize_whatsapp']
-    return normalize_whatsapp(_normalize_panel_rules(text))
+    return normalize_whatsapp(text)
 
 def main():
     root=Path(__file__).resolve().parent.parent

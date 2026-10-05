@@ -185,8 +185,8 @@
     if (!mobileBar) {
       mobileBar = document.createElement("div");
       mobileBar.className = "mobile-conversion-bar";
-      mobileBar.innerHTML = `<a href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido." data-cta="barra_mobile_global">
-        Fazer pedido pelo WhatsApp</a>`;
+      mobileBar.innerHTML = `<a href="https://vozlocutor.com.br/painel/alocucao/cadastro" data-cta="barra_mobile_global">
+        Criar Conta Gratuita</a>`;
       document.body.appendChild(mobileBar);
     }
     mobileBar.classList.add("wa-mobile-conversion-bar");
@@ -326,11 +326,10 @@
   if(briefForm)briefForm.addEventListener("submit",event=>{
     event.preventDefault();
     const data=new FormData(briefForm);
-    const message=["Olá! Vim pelo briefing inicial do site A Locução.","",`Serviço: ${data.get("service")}`,`Prazo: ${data.get("deadline")}`,`Texto: ${data.get("text_ready")}`,"","Pode confirmar o valor, a disponibilidade e me orientar sobre a voz?"].join("\n");
     const payload={page_type:pageType,service:data.get("service"),deadline:data.get("deadline"),...tracking};
     window.dataLayer.push({event:"brief_completed",...payload});
     window.alocucaoTrackEvent?.("brief_completed", payload);
-    window.location.assign("https://wa.me/5527996529832?text=" + encodeURIComponent(message));
+    window.location.assign("https://vozlocutor.com.br/painel/alocucao/cadastro");
   });
 
 })();
