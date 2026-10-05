@@ -104,7 +104,7 @@ def normalize_whatsapp(text):
             if name:
                 from urllib.parse import quote
                 from html import unescape
-                voice = unescape(re.sub(r'<[^>]+>', '', re.sub(r'<span\b[^>]*>.*?</span>', '', name[1], flags=re.S))).strip()
+                voice = unescape(re.sub(r'<[^>]+>', '', re.sub(r'<(?:span|em)\b[^>]*>.*?</(?:span|em)>', '', name[1], flags=re.S))).strip()
                 url = 'https://wa.me/5527996529832?text='+quote('Olá! Vi o perfil de '+voice+' no site A Locução. Quero confirmar a disponibilidade e fazer um pedido.')
                 text = re.sub(r'<a\b[^>]*data-cta="perfil_escolher"[^>]*>.*?</a>', '<a class="btn-wa" href="'+url+'" data-cta="perfil_escolher">Pedir esta voz pelo WhatsApp</a>', text, flags=re.S)
     # Contact and footer wording must match the main conversion on every page.
