@@ -21,7 +21,9 @@ def normalize_whatsapp(text):
     text=re.sub(r'<section\b[^>]*id="identificacao"[^>]*>.*?</section>',protect,text,flags=re.S)
     text=re.sub(r'<section\b[^>]*class="testimonials"[^>]*>.*?</section>',protect,text,flags=re.S)
     def anchor(m):
-        tag=m[0];href=re.search(r'href=(["\'])(.*?)\1',tag)
+        tag=m[0]
+        if "data-legal-contact" in tag:return tag
+        href=re.search(r'href=(["\'])(.*?)\1',tag)
         if not href:return tag
         if re.match(r'https?://(?:wa\.me|(?:api|web)\.whatsapp\.com)(?:/|$)',href[2]):
             if re.search(r'(?:perfil_escolher|voz_destaque_|featured-choose|class="choose")',tag):return tag

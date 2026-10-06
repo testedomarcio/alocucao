@@ -4,7 +4,7 @@ import re
 from pathlib import Path
 REGISTER='/cadastro/'
 LOGIN='/painel/'
-PAYMENT='Compre créditos diretamente no Painel de Gravação, exclusivamente por PIX ou cartão de crédito, com processamento pelo Mercado Pago. A liberação é automática e imediata assim que o pagamento for confirmado. Confira o valor total e eventuais encargos apresentados antes de concluir a compra.'
+PAYMENT='Compre créditos no Painel de Gravação por PIX automático ou cartão de crédito, com processamento pelo Mercado Pago e liberação automática após confirmação. Outras formas, se exibidas, seguem as instruções do painel; pagamento manual depende de conferência. Confira o total e eventuais encargos antes de pagar.'
 PRICES='Locução Off avulsa: R$ 11,90 por crédito. Cada crédito vale até 40 segundos de áudio. Produção completa avulsa (spot comercial) + Locução Off: R$ 29,90 por crédito de até 40 segundos. Na produção, você recebe o spot finalizado e a gravação da voz separada, sem trilha e efeitos.'
 SUPPORT='Pedidos e atendimento pelo WhatsApp: segunda a sexta, das 08h às 18h. Pelo WhatsApp não garantimos a mesma agilidade do Painel de Gravação.'
 
@@ -64,7 +64,7 @@ def _normalize_panel_rules(text):
     for old,new in EDITORIAL_REPLACEMENTS.items():text=text.replace(old,new)
     text=re.sub(r"(?:Suporte )+WhatsApp:", "Suporte WhatsApp:", text)
     # Preserve approved payment, plantão and per-order rules in regenerated pages.
-    text=text.replace('Pagamento via PIX ou cartão de crédito pelo Mercado Pago. Crédito liberado imediatamente após a aprovação do pagamento. O Mercado Pago cobra uma pequena taxa por pagamento; confira o valor total antes de confirmar.','Compre créditos diretamente no Painel de Gravação, exclusivamente por PIX ou cartão de crédito, com processamento pelo Mercado Pago. A liberação é automática e imediata assim que o pagamento for confirmado. Confira o valor total e eventuais encargos apresentados antes de concluir a compra.')
+    text=text.replace('Pagamento via PIX ou cartão de crédito pelo Mercado Pago. Crédito liberado imediatamente após a aprovação do pagamento. O Mercado Pago cobra uma pequena taxa por pagamento; confira o valor total antes de confirmar.','Compre créditos no Painel de Gravação por PIX automático ou cartão de crédito, com processamento pelo Mercado Pago e liberação automática após confirmação. Outras formas, se exibidas, seguem as instruções do painel; pagamento manual depende de conferência. Confira o total e eventuais encargos antes de pagar.')
     text=text.replace('Alguns profissionais também possuem disponibilidade em finais de semana e feriados.','Temos locutores de plantão todos os dias, inclusive finais de semana e feriados. Consulte a disponibilidade e o prazo de cada profissional no painel.')
     text=text.replace('Temos locutores com diferentes janelas de disponibilidade, inclusive opções de gravação rápida e atendimento em horários ampliados.','Temos locutores de plantão todos os dias, inclusive finais de semana e feriados. Escolha no painel o profissional disponível e confira o prazo antes de enviar.')
     text=text.replace('Locutores com disponibilidade todos os dias, inclusive finais de semana e feriados, conforme a agenda de cada profissional.','Locutores de plantão todos os dias, inclusive finais de semana e feriados. Consulte a disponibilidade de cada profissional no painel.')
