@@ -334,3 +334,120 @@
   });
 
 })();
+
+
+/* Installable Painel A Locução (PWA launcher) */
+(() => {
+  const PANEL_URL = "https://vozlocutor.com.br/painel/alocucao/entrar";
+
+  const ensureManifest = () => {
+    if (!document.querySelector('link[rel="manifest"]')) {
+      const link = document.createElement("link");
+      link.rel = "manifest";
+      link.href = "/manifest.webmanifest";
+      document.head.appendChild(link);
+    }
+    if (!document.querySelector('link[rel="apple-touch-icon"]')) {
+      const icon = document.createElement("link");
+      icon.rel = "apple-touch-icon";
+      icon.href = "/assets/brand/apple-touch-icon.png";
+      document.head.appendChild(icon);
+    }
+  };
+
+  const registerServiceWorker = () => {
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/sw.js").catch(() => {});
+      }, { once: true });
+    }
+  };
+
+  let deferredPrompt = null;
+
+  const installPanel = async () => {
+    if (window.matchMedia?.("(display-mode: standalone)").matches) {
+      location.href = PANEL_URL;
+      return;
+    }
+
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const choice = await deferredPrompt.userChoice.catch(() => null);
+      deferredPrompt = null;
+      if (choice?.outcome === "accepted") {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "painel_app_installed" });
+      }
+      return;
+    }
+
+    const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    const message = isIOS
+      ? 'No iPhone/iPad, toque em "Compartilhar" e depois em "Adicionar à Tela de Início".'
+      : 'No navegador, abra o menu e escolha "Instalar app" ou "Adicionar à tela inicial".';
+
+    if (window.confirm(message + "\n\nDeseja abrir o Painel de Gravação agora?")) {
+      window.open(PANEL_URL, "_blank", "noopener");
+    }
+  };
+
+  const createInstallButton = () => {
+    if (document.getElementById("install-painel-app")) return;
+    const button = document.createElement("button");
+    button.id = "install-painel-app";
+    button.type = "button";
+    button.setAttribute("aria-label", "Instalar Painel A Locução");
+    button.innerHTML = '<span aria-hidden="true">⬇</span><span>Instalar Painel</span>';
+    button.style.cssText = [
+      "position:fixed",
+      "left:16px",
+      "bottom:20px",
+      "z-index:19",
+      "display:none",
+      "align-items:center",
+      "gap:8px",
+      "border:1px solid #dfe7ef",
+      "border-radius:999px",
+      "padding:11px 15px",
+      "background:#0d1b2a",
+      "color:#fff",
+      "font:800 .86rem/1.2 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif",
+      "box-shadow:0 8px 24px rgba(13,27,42,.20)",
+      "cursor:pointer"
+    ].join(";");
+    button.addEventListener("click", installPanel);
+    document.body.appendChild(button);
+
+    const show = () => {
+      if (window.matchMedia?.("(display-mode: standalone)").matches) return;
+      button.style.display = "inline-flex";
+    };
+    button.dataset.show = "1";
+    show();
+  };
+
+  window.addEventListener("beforeinstallprompt", event => {
+    event.preventDefault();
+    deferredPrompt = event;
+    const button = document.getElementById("install-painel-app");
+    if (button) button.style.display = "inline-flex";
+  });
+
+  window.addEventListener("appinstalled", () => {
+    const button = document.getElementById("install-painel-app");
+    if (button) button.remove();
+  });
+
+  const init = () => {
+    ensureManifest();
+    registerServiceWorker();
+    createInstallButton();
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init, { once: true });
+  } else {
+    init();
+  }
+})();
