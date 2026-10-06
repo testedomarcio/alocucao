@@ -403,7 +403,7 @@
       "position:fixed",
       "left:16px",
       "bottom:20px",
-      "z-index:19",
+      "z-index:22",
       "display:none",
       "align-items:center",
       "gap:8px",
@@ -424,6 +424,25 @@
       button.style.display = "inline-flex";
     };
     button.dataset.show = "1";
+    const positionInstallButton = () => {
+      const mobile = window.matchMedia?.("(max-width: 767px)").matches;
+      if (mobile) {
+        const barHeight = getComputedStyle(document.documentElement).getPropertyValue("--wa-mobile-bar-height").trim() || "80px";
+        button.style.bottom = "calc(" + barHeight + " + 12px)";
+        button.style.left = "12px";
+        button.style.zIndex = "22";
+      } else {
+        button.style.bottom = "20px";
+        button.style.left = "16px";
+        button.style.zIndex = "19";
+      }
+    };
+    positionInstallButton();
+    window.addEventListener("resize", positionInstallButton);
+    if ("ResizeObserver" in window) {
+      const mobileBar = document.querySelector(".wa-mobile-conversion-bar, .mobile-conversion-bar");
+      if (mobileBar) new ResizeObserver(positionInstallButton).observe(mobileBar);
+    }
     show();
   };
 
@@ -439,7 +458,28 @@
     if (button) button.remove();
   });
 
+  const fixCompanyAddress = () => {
+    const replacements = [
+      ["Av. Firmino Teixeira Griffo, 344, Centro, Brejetuba – ES, CEP 29630-000", "Rua Euzebio Cirilo de Souza, 344 - Centro - Brejetuba - ES - 29630-000"],
+      ["Av. Firmino Teixeira Griffo, 344, Centro", "Rua Euzebio Cirilo de Souza, 344, Centro"]
+    ];
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(node => {
+      let value = node.nodeValue;
+      replacements.forEach(([from,to]) => { value = value.split(from).join(to); });
+      if (value !== node.nodeValue) node.nodeValue = value;
+    });
+    document.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+      let value = script.textContent;
+      replacements.forEach(([from,to]) => { value = value.split(from).join(to); });
+      if (value !== script.textContent) script.textContent = value;
+    });
+  };
+
   const init = () => {
+    fixCompanyAddress();
     ensureManifest();
     registerServiceWorker();
     createInstallButton();
