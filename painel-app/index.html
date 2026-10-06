@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0d1b2a">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+  <title>Painel A Locução</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0d1b2a;color:#fff;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+    main{width:min(440px,calc(100% - 32px));text-align:center;padding:34px 28px;border:1px solid rgba(255,255,255,.12);border-radius:24px;background:#13283d;box-shadow:0 20px 55px rgba(0,0,0,.25)}
+    .mark{width:72px;height:72px;margin:0 auto 18px;border-radius:20px;background:#0b7874;display:grid;place-items:center;font-size:34px}
+    h1{margin:0 0 10px;font-size:1.7rem}p{margin:0 0 22px;color:#d8e4ee;line-height:1.55}
+    a{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 20px;border-radius:12px;background:#20b85a;color:#07130c;text-decoration:none;font-weight:900}
+    small{display:block;margin-top:18px;color:#9fb2c3}
+  </style>
+  <script>
+    const PANEL_URL = "https://vozlocutor.com.br/painel/alocucao/entrar";
+    window.addEventListener("load", () => {
+      setTimeout(() => location.replace(PANEL_URL), 450);
+    });
+  </script>
+</head>
+<body>
+  <main>
+    <div class="mark" aria-hidden="true">🎙️</div>
+    <h1>Painel A Locução</h1>
+    <p>Abrindo seu Painel de Gravação…</p>
+    <a href="https://vozlocutor.com.br/painel/alocucao/entrar">Abrir Painel</a>
+    <small>A Locução • Locução profissional e produção de áudio</small>
+  </main>
+</body>
+</html>
