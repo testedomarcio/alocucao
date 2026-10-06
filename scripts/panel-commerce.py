@@ -26,6 +26,7 @@ def _normalize_panel_rules(text):
     def anchor(m):
         tag=m.group(0)
         if not re.search(r'href=["\']https://(?:wa\.me|api\.whatsapp\.com)',tag):return tag
+        if 'data-legal-contact' in tag:return tag
         if 'rodape_whatsapp' in tag or 'data-panel-support' in tag or 'avaliac' in tag.lower():return tag
         label='Cadastrar grátis e fazer pedido ↗'
         tag=re.sub(r'href=(["\']).*?\1',lambda n:'href='+n.group(1)+REGISTER+n.group(1),tag,count=1)
