@@ -44,7 +44,7 @@ def parse_catalog(payload):
     rows = soup.select('tbody tr')
     if not 40 <= len(rows) <= 1500:
         raise ValueError('Incomplete or unexpectedly sized public catalog')
-    voices = []; seen = set()
+    voices = []; seen = set(); skipped = 0
     abbreviations = dict(zip(['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'], STATES))
     for row in rows:
         cell = row.select_one('[data-locutor-id]')
@@ -59,6 +59,9 @@ def parse_catalog(payload):
         seen.add(native_id)
         label = cell.get_text(' ', strip=True)
         normalized = normalize_name(label)
+        if normalize_name(name.get_text(' ', strip=True)) == 'teste':
+            skipped += 1
+            continue
         if re.search(r'\d.*(?:min|hora)', normalized) and not normalized.startswith('locutor'):
             status = 'recording_online'
         elif normalized == 'offline': status = 'offline'
@@ -82,7 +85,7 @@ def parse_catalog(payload):
                 if urlsplit(value).path != '/perfil-img.php': value = None
             if value: voice['photo'] = value
         voices.append(voice)
-    if len(soup.select('tbody audio[src]')) != len(voices): raise ValueError('Incomplete demos')
+    if len(soup.select('tbody audio[src]')) != len(voices) + skipped: raise ValueError('Incomplete demos')
     return sorted(voices,key=lambda v:v['providerId'])
 
 
