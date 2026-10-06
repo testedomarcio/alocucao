@@ -1,0 +1,26 @@
+{
+  "name": "Painel A Locução",
+  "short_name": "A Locução",
+  "description": "Acesso rápido ao Painel de Gravação da A Locução.",
+  "id": "/painel-app/",
+  "start_url": "/painel-app/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0d1b2a",
+  "theme_color": "#0d1b2a",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/assets/brand/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
