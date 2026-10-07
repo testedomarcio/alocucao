@@ -20,7 +20,6 @@ def markup(voices):
         styles = ' · '.join(voice['styles'][:4])
         cards.append(f'''<article class="featured-voice" data-featured-id="{esc(voice['id'])}">
 <div class="featured-identity">{photo}<div><h3>{esc(name)}</h3><p>Voz {esc(voice['type'].lower())} · {esc(voice['region'])}</p></div></div>
-<p class="featured-status" data-featured-status>Disponibilidade sob consulta</p>
 <p class="featured-styles">{esc(styles)}</p>
 <audio controls preload="none" data-featured-audio data-voice="{esc(voice['name'])}" aria-label="Ouvir demonstração de {esc(name)}" src="{esc(voice['audio'])}"><a href="{esc(voice['audio'])}">Ouvir demonstração</a></audio>
 <p class="featured-error" hidden>Não foi possível tocar a demo. <a href="{esc(voice['audio'])}" target="_blank" rel="noopener" data-featured-fallback>Abra o áudio em outra aba</a> ou peça orientação.</p>
@@ -31,7 +30,7 @@ def markup(voices):
 <div class="featured-list">''' + '\n'.join(cards) + '''</div>
 <p class="featured-sync" data-featured-sync>Consulte a disponibilidade e o prazo no atendimento.</p>
 <a class="featured-all" href="/vozes/#voice-grid" data-cta="vozes_destaque_banco_completo">Ouça todas as vozes <span aria-hidden="true">→</span></a>
-<noscript><p>As demonstrações funcionam sem JavaScript. Para confirmar o status atual, fale com o atendimento.</p></noscript>
+<noscript><p>As demonstrações funcionam sem JavaScript. Para confirmar o prazo, fale com o atendimento.</p></noscript>
 </div>''' + END
 
 def main():
@@ -39,7 +38,7 @@ def main():
     by_id = {voice['id']: voice for voice in data['voices']}
     # Never publish an incomplete selection when the upstream catalog fails.
     voices = [by_id[voice_id] for voice_id in IDS]
-    fields = ('id', 'name', 'type', 'region', 'styles', 'status', 'statusLabel', 'audio', 'photo')
+    fields = ('id', 'name', 'type', 'region', 'styles', 'audio', 'photo')
     selected = [{key: voice[key] for key in fields if key in voice} for voice in voices]
     payload = {'schemaVersion': 1, 'count': len(selected), 'fetchedAt': data['fetchedAt'], 'voices': selected}
     Path('assets/featured-voices.json').write_text(json.dumps(payload, ensure_ascii=False, separators=(',', ':')) + '\n')

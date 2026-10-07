@@ -3,10 +3,10 @@
   const $ = id => document.getElementById(id);
   const normalize = text => String(text || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const grid = $('voice-grid'), player = $('voice-player'), dock = $('player-dock');
-  const fields = {search:$('voice-search'),type:$('voice-type'),style:$('voice-style'),language:$('voice-language'),region:$('voice-region'),status:$('voice-status')};
+  const fields = {search:$('voice-search'),type:$('voice-type'),style:$('voice-style'),language:$('voice-language'),region:$('voice-region')};
   let catalog, shown = 24, favoriteView = false, compareView = false, playingId = null, loading = false;
   const selected = new Set();
-  // A new random order per page opening, stable while filtering or refreshing status.
+  // A new random order per page opening, stable while filtering.
   const randomOrder = new Map();
   function registerRandomOrder(voices) {
     voices.forEach(voice => {
@@ -14,9 +14,8 @@
     });
   }
   function compareVoices(a, b) {
-    if ($('voice-sort').value === 'availability') {
-      return Number(recording(b)) - Number(recording(a)) ||
-        randomOrder.get(a.id) - randomOrder.get(b.id) || a.name.localeCompare(b.name, 'pt-BR');
+    if ($('voice-sort').value === 'random') {
+      return randomOrder.get(a.id) - randomOrder.get(b.id) || a.name.localeCompare(b.name, 'pt-BR');
     }
     return a.name.localeCompare(b.name, 'pt-BR');
   }
@@ -29,8 +28,6 @@
   }
   let favorites = new Set();
   try { const saved = JSON.parse(localStorage.getItem('alocucao_voice_favorites') || '[]'); if (Array.isArray(saved)) favorites = new Set(saved.filter(x => typeof x === 'string').slice(0,500)); } catch (_) {}
-  const fresh = () => catalog && Date.now() - Date.parse(catalog.fetchedAt) >= 0 && Date.now() - Date.parse(catalog.fetchedAt) < 3 * 60 * 60 * 1000;
-  const recording = voice => fresh() && voice.status.startsWith('recording_');
   function element(tag, className, text) { const node = document.createElement(tag); if(className) node.className = className; if(text !== undefined) node.textContent = text; return node; }
   function announce(text) { $('voice-announcement').textContent = text; }
   function updateTotals() {
@@ -73,8 +70,6 @@
     const identity = element('div','voice-identity'); identity.append(element('h3','',voice.name),element('p','voice-type',voice.type ? 'Voz '+voice.type.toLowerCase() : 'Voz humana'));
     const favorite = element('button','favorite-button',favorites.has(voice.id)?'♥':'♡'); favorite.type='button'; favorite.setAttribute('aria-label','Salvar '+voice.name+' nos favoritos'); favorite.setAttribute('aria-pressed',String(favorites.has(voice.id))); favorite.addEventListener('click',()=>saveFavorite(voice.id,favorite));
     top.append(avatar,identity,favorite);
-    const label = fresh() ? (voice.status.startsWith('recording_') ? 'Gravando de '+voice.statusLabel.replace(/^Online\s*\((.+)\)$/, '$1').replace(/(\d+)-(\d+)/, '$1 a $2') : voice.statusLabel) : 'Disponibilidade sob consulta';
-    const status = element('span','status-badge'+(recording(voice)?' recording':''),label);
     const tags = element('div','tags'); voice.styles.forEach(style=>tags.append(element('span','tag',style)));
     const meta = element('div','voice-meta'); meta.append(element('span','',voice.region || 'Região não informada'),element('span','',voice.languages.join(' · ')));
     const actions = element('div','voice-actions');
@@ -87,20 +82,12 @@
       check.checked?selected.add(voice.id):selected.delete(voice.id);updateTotals();announce(selected.size+' vozes selecionadas para comparar.');if(compareView)render();
     });
     compareLabel.append(check,document.createTextNode('Adicionar à comparação'));
-    article.append(top,status,tags,meta,actions,compareLabel);
-    if(voice.schedule?.length) {
-      const schedule = element('details','voice-schedule');
-      const summary = element('summary','','Horários de gravação');
-      const list = element('ul','schedule-days');
-      voice.schedule.forEach(day=>{const row=element('li');row.append(element('strong','',day.day),element('span','',day.intervals.map(i=>i.start+'–'+i.end).join(' · ')));list.append(row)});
-      const note = element('p','schedule-note','Agenda informada no perfil. Confirme o fuso e o prazo no atendimento.');
-      schedule.append(summary,list,note);article.append(schedule);
-    }
+    article.append(top,tags,meta,actions,compareLabel);
     return article;
   }
   function filtered() {
     const terms = normalize(fields.search.value.trim()).split(/\s+/).filter(Boolean);
-    return catalog.voices.filter(v=> (!favoriteView || favorites.has(v.id)) && (!compareView || selected.has(v.id)) && (!fields.type.value || v.type===fields.type.value) && (!fields.style.value || v.styles.includes(fields.style.value)) && (!fields.language.value || v.languages.includes(fields.language.value)) && (!fields.region.value || v.region===fields.region.value) && (!fields.status.value || (fields.status.value==='recording'?recording(v):fresh() && v.status===fields.status.value)) && terms.every(t=>normalize([v.name,v.region,...v.styles,...v.languages].join(' ')).includes(t))).sort(compareVoices);
+    return catalog.voices.filter(v=> (!favoriteView || favorites.has(v.id)) && (!compareView || selected.has(v.id)) && (!fields.type.value || v.type===fields.type.value) && (!fields.style.value || v.styles.includes(fields.style.value)) && (!fields.language.value || v.languages.includes(fields.language.value)) && (!fields.region.value || v.region===fields.region.value) && terms.every(t=>normalize([v.name,v.region,...v.styles,...v.languages].join(' ')).includes(t))).sort(compareVoices);
   }
   function render() {
     if(!catalog)return;
@@ -109,7 +96,6 @@
     $('shown-count').textContent = list.length ? `Mostrando ${visible.length} de ${list.length}` : '';
     $('empty-state').hidden = list.length > 0; $('load-more').hidden = shown >= list.length;
     updateTotals();updatePlaying();updateLayout();
-    $('status-note').textContent=fresh()?'Status informados pelo catálogo na última consulta. Confirme disponibilidade e prazo pelo WhatsApp antes de enviar o pedido.':'Os status estão sob consulta porque a última atualização tem mais de três horas. As demos continuam disponíveis.';
   }
   function reset() {
     Object.values(fields).forEach(f=>f.value='');favoriteView=false;compareView=false;shown=24;render();
@@ -123,7 +109,7 @@
     if(data.schemaVersion!==1 || !Number.isFinite(Date.parse(data.fetchedAt)) || !Array.isArray(data.voices) || !data.voices.length || data.count!==data.voices.length || data.voices.length>1500)throw Error('Invalid catalog');
     const ids=new Set();
     for(const v of data.voices){
-      if(typeof v.id!=='string'||ids.has(v.id)||typeof v.name!=='string'||typeof v.status!=='string'||typeof v.statusLabel!=='string'||!Array.isArray(v.styles)||!v.styles.every(x=>typeof x==='string')||!Array.isArray(v.languages)||!v.languages.every(x=>typeof x==='string'))throw Error('Invalid voice');
+      if(typeof v.id!=='string'||ids.has(v.id)||typeof v.name!=='string'||!Array.isArray(v.styles)||!v.styles.every(x=>typeof x==='string')||!Array.isArray(v.languages)||!v.languages.every(x=>typeof x==='string'))throw Error('Invalid voice');
       if(v.localProfile && !/^\/perfil-locutor-[a-z0-9][a-z0-9-]*\/$/.test(v.localProfile))throw Error('Invalid local profile');
       if(v.profilePublished !== undefined && typeof v.profilePublished !== 'boolean')throw Error('Invalid profile flag');
       if(v.schedule !== undefined && (!Array.isArray(v.schedule)||v.schedule.length>7||!v.schedule.every(d=>['Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado','Domingo'].includes(d.day)&&Array.isArray(d.intervals)&&d.intervals.length>0&&d.intervals.length<=8&&d.intervals.every(i=>/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(i.start)&&/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(i.end)))))throw Error('Invalid schedule');
@@ -135,7 +121,7 @@
   async function load() {
     if(loading)return;loading=true;
     try {
-      const response=await fetch('/assets/voices-catalog.json?v='+Math.floor(Date.now()/600000),{cache:'no-cache',signal:AbortSignal.timeout(15000)}); if(!response.ok)throw Error('Catalog unavailable');
+      const response=await fetch('/assets/voices-catalog.json?v=20261007-static',{signal:AbortSignal.timeout(15000)}); if(!response.ok)throw Error('Catalog unavailable');
       catalog=validate(await response.json());
       registerRandomOrder(catalog.voices);
       // Preserve favorites only for explicit catalog matches and the confirmed Celso alias.
@@ -144,10 +130,9 @@
       const existing=new Set(catalog.voices.map(v=>v.id));for(const id of selected)if(!existing.has(id))selected.delete(id);for(const id of favorites)if(!existing.has(id))favorites.delete(id);
       options(fields.type,catalog.voices.map(v=>v.type));
       options(fields.style,catalog.voices.flatMap(v=>v.styles));options(fields.region,catalog.voices.map(v=>v.region));options(fields.language,catalog.voices.flatMap(v=>v.languages));
-      const stamp=new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}).format(new Date(catalog.fetchedAt));
-      $('sync-info').textContent=`${catalog.count} vozes · última consulta ${stamp} (Brasília)`;render();
+      $('sync-info').textContent = catalog.count + ' vozes para ouvir e comparar';render();
     } catch (_) {
-      if(catalog){$('sync-info').textContent='Última consulta válida mantida · atualização temporariamente indisponível';render();}
+      if(catalog){$('sync-info').textContent='Catálogo disponível para ouvir';render();}
       else{$('result-count').textContent='Catálogo temporariamente indisponível';$('sync-info').textContent='Peça uma indicação no atendimento.';$('empty-state').hidden=false;$('empty-state').querySelector('h3').textContent='Vamos ajudar você a encontrar uma voz.';$('empty-state').querySelector('p').textContent='O catálogo não carregou. Use o botão de orientação ou tente novamente.';$('empty-reset').textContent='Tentar carregar novamente';}
     } finally {loading=false;}
   }
@@ -164,7 +149,5 @@
   $('player-close').addEventListener('click',()=>{player.pause();dock.classList.remove('open');grid.querySelector(`[data-id="${CSS.escape(playingId||'')}"] .listen`)?.focus({preventScroll:true})});
   ['play','pause','ended'].forEach(event=>player.addEventListener(event,updatePlaying));
   player.addEventListener('error',()=>{if(player.getAttribute('src')){$('player-error').hidden=false;updatePlaying()}});
-  document.addEventListener('visibilitychange',()=>{if(!document.hidden)load()});
-  setInterval(()=>{if(!document.hidden)load()},15*60*1000);
   load();
 })();

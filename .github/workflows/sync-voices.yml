@@ -1,112 +1,13 @@
-name: Atualizar banco de vozes
+name: Catálogo automático desativado
+# Disabled at the owner's request. No schedules, push triggers, upstream sync,
+# automatic rewrites, commits, or catalog deployments are performed here.
 on:
-  schedule:
-    - cron: '2,17,32,47 * * * *'
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - scripts/sync-voices.py
-      - scripts/sync-voice-photos.py
-      - data/provider-voice-aliases.json
-      - scripts/generate-voice-profiles.py
-      - scripts/generate-featured-voices.py
-      - scripts/standardize-layout.py
-      - scripts/site-prices.py
-      - scripts/panel-commerce.py
-      - scripts/whatsapp-commerce.py
-      - assets/panel-commerce.css
-      - templates/site-header.html
-      - templates/site-footer.html
-      - assets/site-layout.css
-      - assets/site-layout.js
-      - assets/voice-profile.js
-      - assets/voice-profile.css
-      - .github/workflows/sync-voices.yml
-      - assets/voice-bank.js
-      - vozes/index.html
-      - 'perfil-locutor-*/**'
 permissions:
   contents: read
-concurrency:
-  group: sync-voices
-  # A newer refresh must replace one blocked waiting for Pages publication.
-  cancel-in-progress: true
 jobs:
-  sync:
+  disabled:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-    permissions:
-      contents: write
-    outputs:
-      sha: ${{ steps.commit.outputs.sha }}
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: main
-          fetch-depth: 0
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Instalar parser HTML
-        run: pip install beautifulsoup4==4.14.3
-      - name: Validar integração do novo fornecedor
-        run: python scripts/test-voice-migration.py
-      - name: Consultar e validar catálogo público
-        run: python scripts/sync-voices.py
-      - name: Atualizar seleção de vozes nas páginas
-        run: python scripts/generate-featured-voices.py
-      - name: Preservar navegação padronizada
-        run: python scripts/standardize-layout.py
-      - name: Registrar catálogo validado
-        id: commit
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add '*.html' assets/featured-voices.json assets/voices-catalog.json vozes/index.html sitemap.xml
-          if ! git diff --cached --quiet; then
-            git commit -m 'chore: sincroniza catálogo de vozes'
-            git pull --rebase origin main
-            git push origin HEAD:main
-          fi
-          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-  publish:
-    needs: sync
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}
-    concurrency:
-      # Keep this job separate from the built-in Pages workflow queue.
-      group: voice-catalog-pages
-      cancel-in-progress: false
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: main
-      - uses: actions/configure-pages@v5
-      - uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./_site
-      - name: Publicar catálogo no site
-        id: deployment
-        continue-on-error: true
-        uses: actions/deploy-pages@v4
-      - name: Aguardar publicação simultânea encerrar
-        if: steps.deployment.outcome == 'failure'
-        run: sleep 30
-      - name: Repetir publicação após conflito temporário
-        id: deployment_retry
-        if: steps.deployment.outcome == 'failure'
-        uses: actions/deploy-pages@v4
+      - name: Confirmar manutenção manual
+        run: echo "O catálogo é estático. Atualizações de vozes são feitas manualmente."

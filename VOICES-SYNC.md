@@ -1,7 +1,7 @@
-# Banco de vozes
+# Banco de vozes estático
 
-Fonte pública: https://vozlocutor.com.br/. O workflow sincroniza nomes, fotos, demos, estilos, região e status a cada 15 minutos e publica pelo GitHub Pages. O HTML é validado com BeautifulSoup; respostas incompletas, duplicadas, mídias fora do domínio e reduções superiores a 35% no mesmo fornecedor preservam o último catálogo válido.
+Desde 7 de outubro de 2026, por solicitação do proprietário, a sincronização automática do catálogo foi desativada. O workflow não possui agendamento nem gatilho de push e não consulta o fornecedor, altera páginas ou publica o catálogo.
 
-A interface consulta o JSON local a cada 15 minutos quando visível. Status com mais de três horas passam para Disponibilidade sob consulta. Prazos recebem Gravando de; Offline, Indisponível e avisos de retorno preservam o texto original. O prazo final é confirmado pelo WhatsApp. Não são inferidos horários de gravação.
+O banco mantém as vozes, demonstrações, busca, filtros de perfil/estilo/idioma/região, favoritos e comparação. A ordem padrão é aleatória a cada abertura e permanece estável durante a filtragem. A opção A–Z continua disponível. Não são exibidos status nem horários de gravação individuais.
 
-Perfis individuais foram retirados do sitemap e substituídos por redirecionamentos noindex para /vozes/. Nenhum gerador recria perfis. Nomes são texto, sem links para perfis do fornecedor. Fotos e áudios públicos são carregados da fonte; nenhuma classificação por estrelas é importada. Demos são carregadas ao reproduzir.
+Alterações de nomes, demos e catálogo devem ser manuais e autorizadas. A publicação normal do site e o IndexNow permanecem funcionando.
