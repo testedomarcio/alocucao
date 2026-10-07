@@ -13,6 +13,10 @@ JS = '<script src="/assets/site-layout.js?v=20261002" defer></script>'
 def standardize_page(text):
     if re.search(r'http-equiv=["\']refresh', text, re.I) or '<body' not in text:
         return text
+    # These two conversion pages own their focused layout and commerce content.
+    # Shared normalization would restore cross-service offers and navigation exits.
+    if re.search(r'<body\b[^>]*data-conversion-landing=["\'](?:spot-comercial|locucao-off)["\']', text):
+        return text
     if '<!-- site-header:start -->' in text:
         text = re.sub(r'<!-- site-header:start -->.*?<!-- site-header:end -->', lambda _: HEADER, text, flags=re.S)
     else:
