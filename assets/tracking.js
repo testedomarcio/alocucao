@@ -1,17 +1,43 @@
 (() => {
   const ADS_ID = "AW-18420702149";
   const ANALYTICS_ID = "G-TBHF64CH1R";
+  const UET_ID = "187279262";
 
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
 
   let googleTagLoaded = false;
   let analyticsConsent = false;
+  let uetLoaded = false;
+  window.uetq = window.uetq || [];
+  window.uetq.push("consent", "default", { ad_storage: "denied" });
+
+  function loadUet() {
+    if (uetLoaded) return;
+    uetLoaded = true;
+    const loader = document.createElement("script");
+    loader.async = true;
+    loader.src = "https://bat.bing.net/bat.js?ti=" + UET_ID;
+    loader.onload = () => {
+      if (typeof window.UET !== "function") return;
+      window.uetq = new window.UET({ ti: UET_ID, q: window.uetq, enableAutoSpaTracking: true });
+      if (analyticsConsent) window.uetq.push("pageLoad");
+    };
+    document.head.appendChild(loader);
+  }
+
 
   // Custom interactions belong to GA4 and are sent only after analytics consent.
   window.alocucaoTrackEvent = (name, parameters = {}) => {
     if (!analyticsConsent) return false;
     window.gtag("event", name, { ...parameters, send_to: ANALYTICS_ID });
+    const uetAction = name === "panel_click"
+      ? (parameters.panel_action === "register" ? "panel_register_click" : "panel_login_click")
+      : (name === "whatsapp_click" ? "whatsapp_click" : null);
+    if (uetAction) window.uetq.push("event", uetAction, {
+      event_category: name === "whatsapp_click" ? "contact" : "navigation",
+      event_label: parameters.service_name || "outro"
+    });
     return true;
   };
 
@@ -45,7 +71,11 @@
       ad_user_data: analyticsConsent ? "granted" : "denied",
       ad_personalization: "denied"
     });
-    if (analyticsConsent) loadGoogleTag();
+    window.uetq.push("consent", "update", { ad_storage: analyticsConsent ? "granted" : "denied" });
+    if (analyticsConsent) {
+      loadGoogleTag();
+      loadUet();
+    }
   }
 
   window.addEventListener("alocucao:consent", (event) => applyConsent(event.detail?.value));
