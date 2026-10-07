@@ -20,3 +20,12 @@
 .voice-profile-link{display:inline-block;font-size:.72rem;color:var(--teal);text-decoration:underline;text-underline-offset:3px;margin-top:3px}
 .voice-schedule{font-size:.76rem;border-top:1px solid var(--line);padding-top:9px;min-width:0}.voice-schedule summary{cursor:pointer;color:var(--muted);line-height:1.6}.voice-schedule summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}.schedule-days{padding:0;margin:10px 0;list-style:none;max-width:430px}.schedule-days li{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:4px 0}.schedule-days strong{font-weight:600}.schedule-note{font-size:.7rem;color:var(--muted);line-height:1.6;max-width:65ch}.list-view .voice-schedule{grid-column:1/-1;grid-row:3}
 @media(max-width:767px){.list-view .voice-schedule{grid-column:1;grid-row:7}.voice-profile-link,.voice-schedule{font-size:.78rem}}
+
+/* Static catalog: close the space previously reserved for availability. */
+.filter-row{grid-template-columns:repeat(4,minmax(0,1fr))}
+.list-view .voice{grid-template-columns:minmax(200px,1.2fr) minmax(170px,1fr) minmax(140px,.8fr) minmax(185px,.9fr)}
+.list-view .tags{grid-column:2;grid-row:1}
+.list-view .voice-meta{grid-column:3;grid-row:1}
+.list-view .voice-actions{grid-column:4;grid-row:1}
+@media(max-width:1150px) and (min-width:768px){.list-view .voice{grid-template-columns:minmax(200px,1.5fr) minmax(140px,1fr) minmax(110px,1fr) 190px}.list-view .tags{grid-column:1/4;grid-row:2}}
+@media(max-width:767px){.filter-row{grid-template-columns:repeat(2,minmax(0,1fr))}.filter-row>.field:last-child{grid-column:auto}.list-view .voice{grid-template-columns:minmax(0,1fr)}.list-view .tags{grid-column:1;grid-row:2}.list-view .voice-meta{grid-column:1;grid-row:3}.list-view .voice-actions{grid-column:1;grid-row:4}.list-view .compare-check{grid-column:1;grid-row:5}}
