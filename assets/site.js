@@ -330,7 +330,7 @@
     const payload={page_type:pageType,service:data.get("service"),deadline:data.get("deadline"),...tracking};
     window.dataLayer.push({event:"brief_completed",...payload});
     window.alocucaoTrackEvent?.("brief_completed", payload);
-    window.location.assign("https://vozlocutor.com.br/painel/alocucao/cadastro");
+    window.location.assign("https://vozes.alocucao.com.br/painel/cadastro");
   });
 
 })();
@@ -338,7 +338,7 @@
 
 /* Installable Painel A Locução (PWA launcher) */
 (() => {
-  const PANEL_URL = "https://vozlocutor.com.br/painel/alocucao/entrar";
+  const PANEL_URL = "https://vozes.alocucao.com.br/painel/entrar";
 
   const ensureManifest = () => {
     if (!document.querySelector('link[rel="manifest"]')) {

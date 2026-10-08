@@ -2,8 +2,8 @@
 """Preserve the panel purchase journey in generated pages using standard-library HTML edits."""
 import re
 from pathlib import Path
-REGISTER='https://vozlocutor.com.br/painel/alocucao/cadastro'
-LOGIN='https://vozlocutor.com.br/painel/alocucao/entrar'
+REGISTER='https://vozes.alocucao.com.br/painel/cadastro'
+LOGIN='https://vozes.alocucao.com.br/painel/entrar'
 PAYMENT='Compre créditos no Painel de Gravação por PIX automático ou cartão de crédito, com processamento pelo Mercado Pago e liberação automática após confirmação. Outras formas, se exibidas, seguem as instruções do painel; pagamento manual depende de conferência. Confira o total e eventuais encargos antes de pagar.'
 PRICES='Locução Off avulsa: R$ 11,90 por crédito. Cada crédito vale até 40 segundos de áudio. Produção completa avulsa (spot comercial) + Locução Off: R$ 29,90 por crédito de até 40 segundos. Na produção, você recebe o spot finalizado e a gravação da voz separada, sem trilha e efeitos.'
 SUPPORT='Pedidos e atendimento pelo WhatsApp: segunda a sexta, das 08h às 18h. Pelo WhatsApp não garantimos a mesma agilidade do Painel de Gravação.'

@@ -8,7 +8,7 @@
     "steps": [
       {
         "title": "Abra Criar conta",
-        "text": "Acesse <a href=\"https://vozlocutor.com.br/painel/alocucao/cadastro\">a página de cadastro da A Locução</a>. Se já tem uma conta, use <a href=\"https://vozlocutor.com.br/painel/alocucao/entrar\">Entrar</a>.",
+        "text": "Acesse <a href=\"https://vozes.alocucao.com.br/painel/cadastro\">a página de cadastro da A Locução</a>. Se já tem uma conta, use <a href=\"https://vozes.alocucao.com.br/painel/entrar\">Entrar</a>.",
         "image": "novo-cadastro.jpg",
         "caption": "Formulário atual de cadastro: nome, e-mail, WhatsApp, senha e aceite dos termos."
       },
@@ -26,7 +26,7 @@
       },
       {
         "title": "Clique em Criar minha conta",
-        "text": "Confira os campos e clique em <strong>Criar minha conta</strong>. Depois entre com o e-mail e senha em <a href=\"https://vozlocutor.com.br/painel/alocucao/entrar\">Entrar no painel</a>. Se houver um aviso, corrija o campo indicado antes de tentar novamente.",
+        "text": "Confira os campos e clique em <strong>Criar minha conta</strong>. Depois entre com o e-mail e senha em <a href=\"https://vozes.alocucao.com.br/painel/entrar\">Entrar no painel</a>. Se houver um aviso, corrija o campo indicado antes de tentar novamente.",
         "image": null,
         "caption": null
       }
@@ -143,7 +143,7 @@
         "caption": "Extrato de créditos: o saldo de cada linha corresponde ao tipo de crédito movimentado."
       }
     ],
-    "extra": "<h2>Valores avulsos</h2><p>Locução Off: <strong>R$ 11,90</strong>. Produção Completa: <strong>R$ 29,90</strong>. Cada crédito corresponde a um áudio de até 40 segundos. Textos maiores podem exigir mais créditos. Confira o total e eventuais encargos antes de pagar.</p><!-- credit-packages:start --><div class=\"package-callout\" id=\"pacotes\"><div><h3>Economize comprando em pacote</h3><p>Preços especiais para compras em quantidade estão disponíveis no Painel de Gravação.</p></div><a class=\"panel-primary\" href=\"https://vozlocutor.com.br/painel/alocucao/entrar\" data-cta=\"pacotes_painel\">Ver preços no Painel de Gravação</a></div><!-- credit-packages:end --><p>Confira as <a href=\"https://vozlocutor.com.br/termos.php?plataforma=alocucao\" target=\"_blank\" rel=\"noopener\">condições atuais do Painel de Gravação</a> antes de contratar. A disponibilidade de cada voz indica uma estimativa de prazo.</p>",
+    "extra": "<h2>Valores avulsos</h2><p>Locução Off: <strong>R$ 11,90</strong>. Produção Completa: <strong>R$ 29,90</strong>. Cada crédito corresponde a um áudio de até 40 segundos. Textos maiores podem exigir mais créditos. Confira o total e eventuais encargos antes de pagar.</p><!-- credit-packages:start --><div class=\"package-callout\" id=\"pacotes\"><div><h3>Economize comprando em pacote</h3><p>Preços especiais para compras em quantidade estão disponíveis no Painel de Gravação.</p></div><a class=\"panel-primary\" href=\"https://vozes.alocucao.com.br/painel/entrar\" data-cta=\"pacotes_painel\">Ver preços no Painel de Gravação</a></div><!-- credit-packages:end --><p>Confira as <a href=\"https://vozlocutor.com.br/termos.php?plataforma=alocucao\" target=\"_blank\" rel=\"noopener\">condições atuais do Painel de Gravação</a> antes de contratar. A disponibilidade de cada voz indica uma estimativa de prazo.</p>",
     "faqs": [
       [
         "Os créditos vencem?",

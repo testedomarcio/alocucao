@@ -2,9 +2,9 @@
 """Official retail prices and panel-only package lookup, shared by all page generators."""
 import re
 
-REGISTER = 'https://vozlocutor.com.br/painel/alocucao/cadastro'
+REGISTER = 'https://vozes.alocucao.com.br/painel/cadastro'
 CREDIT_RULE = 'Cada crédito vale até 40 segundos de áudio.'
-PANEL_LOGIN = 'https://vozlocutor.com.br/painel/alocucao/entrar'
+PANEL_LOGIN = 'https://vozes.alocucao.com.br/painel/entrar'
 PACKAGES = ('<!-- credit-packages:start --><div class="package-callout" id="pacotes"><div><h3>Economize comprando em pacote</h3><p>Preços especiais para compras em quantidade estão disponíveis no Painel de Gravação.</p></div><a class="panel-primary" href="'+PANEL_LOGIN+'" data-cta="pacotes_painel">Ver preços no Painel de Gravação</a></div><!-- credit-packages:end -->')
 
 PRICE_CARDS = ('<div class="panel-grid panel-pricing-grid"><article class="panel-card"><span class="panel-plan-label">Avulso · Somente a voz</span><h3>Locução Off</h3><strong class="panel-value">R$ 11,90</strong><p class="panel-price-unit">por crédito avulso · até 40 segundos</p><p>'+CREDIT_RULE+'</p><ul class="panel-inclusions"><li>Locução com voz humana profissional</li><li>Gravação da voz sem trilha e efeitos</li><li>Escolha do locutor no banco de vozes</li></ul><a class="panel-primary" href="'+REGISTER+'" data-cta="preco_off_cadastro">Criar conta grátis</a></article>'
