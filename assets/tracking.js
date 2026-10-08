@@ -92,6 +92,7 @@
 
   function serviceFromPath(pathname) {
     const path = String(pathname || "").toLowerCase();
+    if (path.includes("gravacao-off-e-producao")) return "pacotes_off_producao";
     if (path.includes("perfil-locutor-")) return "perfil_locutor";
     if (path.includes("produtora-de-audio-")) return "servico_regional";
     if (path.includes("black-friday")) return "spot_black_friday";
@@ -151,6 +152,7 @@
 
     const panelPath = url.pathname.replace(/\/+$/, "");
     const isPanel = (url.hostname === "vozlocutor.com.br" && /^\/painel\/alocucao(?:\/(?:entrar|cadastro))?$/.test(panelPath)) ||
+      (url.hostname === "vozes.alocucao.com.br" && /^\/painel(?:\/(?:entrar|cadastro))?$/.test(panelPath)) ||
       (url.origin === new URL(window.location.href).origin && ["/painel", "/cadastro"].includes(panelPath));
     if (isPanel && analyticsConsent) {
       const attribution = firstTouch();

@@ -13,13 +13,13 @@ function setup({saved, memory, blocked=false, path='/perfil-locutor-alan/'}={}) 
   return {window,tags,calls,storage,consent:v=>events['alocucao:consent']({detail:{value:v}}),click:href=>clicks.click({target:new Element(href)})};
 }
 const t=setup();t.click();assert.equal(t.tags.length,0);assert.equal(t.storage.size,0);assert.equal(t.calls().filter(x=>x[0]==='event').length,0);
-t.consent('accepted');assert.equal(t.tags.length,1);assert.match(t.tags[0].src,/G-TBHF64CH1R/);
+t.consent('accepted');assert.equal(t.tags.length,2);assert.match(t.tags[0].src,/G-TBHF64CH1R/);
 const granted=t.calls().findIndex(x=>x[0]==='consent'&&x[1]==='update'&&x[2].analytics_storage==='granted');const config=t.calls().findIndex(x=>x[0]==='config');assert(granted<config);
-t.consent('accepted');assert.equal(t.tags.length,1);t.click();let measured=t.calls().filter(x=>x[0]==='event');assert.equal(measured.length,1);assert.equal(measured[0][1],'whatsapp_click');assert.equal(measured[0][2].send_to,'G-TBHF64CH1R');assert.equal(measured[0][2].service_name,'perfil_locutor');
+t.consent('accepted');assert.equal(t.tags.length,2);t.click();let measured=t.calls().filter(x=>x[0]==='event');assert.equal(measured.length,1);assert.equal(measured[0][1],'whatsapp_click');assert.equal(measured[0][2].send_to,'G-TBHF64CH1R');assert.equal(measured[0][2].service_name,'perfil_locutor');
 t.click('https://wa.me.evil.example/');assert.equal(t.calls().filter(x=>x[0]==='event').length,1);
 t.consent('rejected');t.click();assert.equal(t.calls().filter(x=>x[0]==='event').length,1);assert.equal(t.calls().filter(x=>x[0]==='consent').at(-1)[2].analytics_storage,'denied');
-assert.equal(setup({saved:'accepted'}).tags.length,1);assert.equal(setup({memory:'accepted',blocked:true}).tags.length,1);assert.equal(setup({saved:'rejected'}).tags.length,0);
-for(const [path,service] of [['/produtora-de-audio-sao-paulo/','servico_regional'],['/spot-black-friday/','spot_black_friday'],['/espera-telefonica-ura/','ura_telefonica'],['/locucao-off/','locucao_off']]){const x=setup({saved:'accepted',path});x.click();assert.equal(x.calls().find(c=>c[0]==='event')[2].service_name,service);}
+assert.equal(setup({saved:'accepted'}).tags.length,2);assert.equal(setup({memory:'accepted',blocked:true}).tags.length,2);assert.equal(setup({saved:'rejected'}).tags.length,0);
+for(const [path,service] of [['/produtora-de-audio-sao-paulo/','servico_regional'],['/spot-black-friday/','spot_black_friday'],['/espera-telefonica-ura/','ura_telefonica'],['/locucao-off/','locucao_off'],['/gravacao-off-e-producao/','pacotes_off_producao']]){const x=setup({saved:'accepted',path});x.click();assert.equal(x.calls().find(c=>c[0]==='event')[2].service_name,service);}
 console.log('PASS: consent denied/granted/revoked, saved consent, blocked storage, single loader, single WhatsApp event, hostname allowlist and service classification.');
 const panel=setup();
 panel.click('https://vozes.alocucao.com.br/painel/cadastro');
@@ -43,3 +43,14 @@ assert.equal(localEvents.map(c=>c[2].panel_action).join(','),'login,login,regist
 localPanel.click('https://evil.example/cadastro/');
 assert.equal(localPanel.calls().filter(c=>c[0]==='event').length,4);
 console.log('PASS: local panel links with and without trailing slash; external lookalikes excluded.');
+
+const branded=setup({saved:'accepted',path:'/gravacao-off-e-producao/'});
+for (const action of ['cadastro','entrar']) branded.click('https://vozes.alocucao.com.br/painel/'+action+'/');
+assert.equal(branded.calls().filter(c=>c[0]==='event').length,2);
+assert.equal(branded.calls().find(c=>c[0]==='event')[2].service_name,'pacotes_off_producao');
+assert.equal(branded.window.uetq.filter(x=>x==='panel_register_click'||x==='panel_login_click').join(','),'panel_register_click,panel_login_click');
+for (const href of ['https://vozes.alocucao.com.br.evil.example/painel/cadastro','https://evil.example/painel/cadastro','https://vozes.alocucao.com.br/painel/unknown']) branded.click(href);
+assert.equal(branded.calls().filter(c=>c[0]==='event').length,2);
+branded.consent('rejected');branded.click('https://vozes.alocucao.com.br/painel/cadastro');
+assert.equal(branded.calls().filter(c=>c[0]==='event').length,2);
+console.log('PASS: branded panel domain, trailing slash, UET navigation events, consent revocation, landing attribution and lookalike blocking.');
