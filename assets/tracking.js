@@ -205,8 +205,8 @@
       let url;
       try { url = new URL(link.href, location.href); } catch (_) { return; }
       const panelHost = url.hostname === "vozes.alocucao.com.br" || url.hostname === "vozlocutor.com.br";
-      const isRegistration = panelHost && /\\/(cadastro|registro)(?:\\/|$)/.test(url.pathname);
-      const isPurchaseShortcut = ["\/cadastro", "\/painel"].includes(url.pathname.replace(/\\/$/, "")) && url.origin === location.origin;
+      const isRegistration = panelHost && url.pathname.split("/").some(segment => segment === "cadastro" || segment === "registro");
+      const isPurchaseShortcut = ["/cadastro", "/painel"].includes(url.pathname.replace(/\/$/, "")) && url.origin === location.origin;
       if (!isRegistration && !isPurchaseShortcut) return;
       // Mantém o link de login e instruções de tutoriais como navegação útil.
       if (link.closest("article") && /tutorial|como fazer/i.test(document.title)) return;
