@@ -179,4 +179,64 @@
       campaign_name: attribution.campaign
     });
   });
+
+  // Conversão por conversa: mantém o painel disponível para clientes recorrentes.
+  // O clique é rastreado pelo listener de whatsapp_click acima, sob consentimento.
+  function activateWhatsAppFirst() {
+    const number = "5527996529832";
+    const page = serviceFromPath(location.pathname);
+    const params = new URLSearchParams(location.search);
+    const campaign = (params.get("utm_campaign") || "").slice(0, 80);
+    const clickId = params.has("msclkid") ? " | Bing Ads" : "";
+    const subjects = {
+      locucao_off: "Locução Off",
+      spot_comercial: "Spot Comercial",
+      pacotes_off_producao: "pacotes de locução e produção",
+      pagina_inicial: "locução profissional",
+      banco_de_vozes: "uma voz do catálogo"
+    };
+    const subject = subjects[page] || "uma gravação profissional";
+    const message = "Olá! Vim pelo site A Locução" + clickId +
+      (campaign ? " (campanha: " + campaign + ")" : "") +
+      " e gostaria de atendimento sobre " + subject + ".";
+    const destination = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
+
+    document.querySelectorAll("a[href]").forEach(link => {
+      let url;
+      try { url = new URL(link.href, location.href); } catch (_) { return; }
+      const panelHost = url.hostname === "vozes.alocucao.com.br" || url.hostname === "vozlocutor.com.br";
+      const isRegistration = panelHost && /\\/(cadastro|registro)(?:\\/|$)/.test(url.pathname);
+      const isPurchaseShortcut = ["\/cadastro", "\/painel"].includes(url.pathname.replace(/\\/$/, "")) && url.origin === location.origin;
+      if (!isRegistration && !isPurchaseShortcut) return;
+      // Mantém o link de login e instruções de tutoriais como navegação útil.
+      if (link.closest("article") && /tutorial|como fazer/i.test(document.title)) return;
+      link.href = destination;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.dataset.cta = link.dataset.cta || "whatsapp_primary";
+      link.dataset.conversionTarget = "whatsapp";
+      const label = (link.textContent || "").trim();
+      if (/criar conta|cadastre|cadastrar|fazer pedido|comprar crédito|começar agora|iniciar pedido/i.test(label)) {
+        link.textContent = /crédito|pacote/i.test(label) ? "Consultar pelo WhatsApp" :
+          /pedido|pedir|começar|iniciar/i.test(label) ? "Fazer pedido pelo WhatsApp" :
+          "Falar com a A Locução";
+      }
+    });
+
+    // Evita uma página de anúncio cuja ação principal pareça exigir cadastro.
+    if (document.body.dataset.conversionLanding) {
+      document.querySelectorAll(".hero .small").forEach(el => {
+        el.textContent = "Atendimento personalizado pelo WhatsApp. Tire dúvidas sobre vozes, prazo e pagamento antes de fazer seu pedido.";
+      });
+      document.querySelectorAll(".hero .login").forEach(el => {
+        el.innerHTML = 'Já é cliente? <a href="https://vozes.alocucao.com.br/painel/entrar" data-cta="returning_customer">Acessar minha conta</a>';
+      });
+    }
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", activateWhatsAppFirst, { once: true });
+  } else {
+    activateWhatsAppFirst();
+  }
+
 })();
