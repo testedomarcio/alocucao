@@ -27,6 +27,20 @@
 <div class="hero-prices"><a class="hero-price" href="#pacotes-off"><span>Locução Off</span><strong>R$ 4,00</strong><small>por crédito de até 40s</small><b>50 créditos por R$ 200,00</b></a><a class="hero-price" href="#pacotes-producao"><span>Produção completa</span><strong>R$ 10,00</strong><small>por crédito de até 40s</small><b>30 créditos por R$ 300,00</b></a></div>
 <p class="note">Valores condicionados à compra do pacote completo. Produção inclui voz, trilha, efeitos, finalização e a voz separada. *Créditos não vencem enquanto a conta estiver ativa.</p>
 </aside></div></section>
+<section class="section" id="banco-de-vozes" aria-labelledby="banco-de-vozes-titulo"><div class="wrap"><div class="section-head"><span class="eyebrow">Ouça antes de escolher</span><h2 id="banco-de-vozes-titulo">Conheça as vozes para seu anúncio</h2><p>Ouça as demonstrações e encontre o estilo que combina com seu projeto. Não sabe qual voz escolher? Nossa equipe te ajuda pelo WhatsApp.</p></div>
+<iframe id="vitrine-vozes" src="https://vozes.alocucao.com.br/embed.php" title="Nossas vozes" loading="lazy" style="width:100%;min-height:640px;border:0"></iframe>
+<script>
+window.addEventListener("message", function (e) {
+  if (e.origin !== "https://vozes.alocucao.com.br" || !e.data || !e.data.vitrineVozes) return;
+  var f = document.getElementById("vitrine-vozes");
+  if (!f || e.source !== f.contentWindow) return;
+  var altura = Number(e.data.altura);
+  if (!Number.isFinite(altura) || altura <= 0) return;
+  f.style.minHeight = "0"; f.style.height = altura + "px";
+});
+</script>
+<div class="actions" style="margin-top:24px"><a class="btn primary" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Ouvi%20as%20vozes%20na%20p%C3%A1gina%20de%20Locu%C3%A7%C3%A3o%20Off%20e%20Produ%C3%A7%C3%A3o%20da%20A%20Locu%C3%A7%C3%A3o%20e%20quero%20ajuda%20para%20escolher%20um%20locutor%20e%20fazer%20meu%20pedido." target="_blank" rel="noopener noreferrer" data-cta="voice_bank_whatsapp">Escolher minha voz pelo WhatsApp</a></div><p class="small" style="margin-top:14px">Informe o nome do locutor que você gostou. Confirmaremos disponibilidade e prazo antes de finalizar seu pedido.</p></div></section>
+
 <nav class="quick-nav" aria-label="Seções desta página"><div class="wrap"><a href="#pacotes-off">Pacotes de Off</a><a href="#pacotes-producao">Pacotes de Produção</a><a href="#exemplos">Ouvir exemplos</a><a href="#duvidas">Tirar dúvidas</a></div></nav>
 <section class="section"><div class="wrap"><div class="section-head"><span class="eyebrow">Compare além do preço</span><h2>O que facilita sua próxima gravação?</h2><p>Para quem precisa atender clientes, manter campanhas no ar ou produzir com frequência, estes detalhes fazem diferença.</p></div>
 <div class="benefits"><article class="benefit"><span class="number">01 / Seu ritmo</span><h3>Créditos sem vencimento</h3><p>Compre o pacote e use conforme sua demanda, sem uma data de expiração enquanto a conta estiver ativa.</p></article><article class="benefit"><span class="number">02 / Seu tempo</span><h3>Pedido direto na Central</h3><p>Escolha a voz, confira os créditos e envie seu texto online, sem depender de uma conversa para fazer um pedido padrão.</p></article><article class="benefit"><span class="number">03 / Seu material</span><h3>Produção completa + Off</h3><p>Receba o anúncio com trilha, efeitos e finalização. A gravação da voz separada também está incluída.</p></article><article class="benefit"><span class="number">04 / Sua escolha</span><h3>Ouça antes de contratar</h3><p>Compare estilos e timbres no banco de vozes. Escolha o locutor e confira o prazo antes de enviar seu pedido.</p></article></div></div></section>
