@@ -172,6 +172,8 @@
   // Conversão por conversa: todos os pedidos começam pelo WhatsApp.
   // O clique é rastreado pelo listener de whatsapp_click acima, sob consentimento.
   function activateWhatsAppFirst() {
+    // This landing deliberately offers both self-service and assisted ordering.
+    if (document.body.dataset.orderChannels === "dual") return;
     const number = "5527996529832";
     const page = serviceFromPath(location.pathname);
     const params = new URLSearchParams(location.search);
