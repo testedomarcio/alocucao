@@ -3,6 +3,12 @@ on:
   schedule:
     - cron: '7,22,37,52 * * * *'
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - scripts/sync-voices.py
+      - scripts/generate-featured-voices.py
+      - .github/workflows/sync-voices.yml
 permissions:
   contents: write
   pages: write

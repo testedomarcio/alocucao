@@ -195,7 +195,7 @@
       const isRegistration = panelHost && url.pathname.split("/").some(segment => segment === "cadastro" || segment === "registro");
       const isPurchaseShortcut = ["/cadastro", "/painel"].includes(url.pathname.replace(/\/$/, "")) && url.origin === location.origin;
       if (!isRegistration && !isPurchaseShortcut) return;
-      
+
       link.href = destination;
       link.target = "_blank";
       link.rel = "noopener noreferrer";

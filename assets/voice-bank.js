@@ -20,7 +20,7 @@
       if (v.photo) { const image = node('img'); image.src = v.photo; image.alt = ''; image.width = image.height = 64; image.loading = 'lazy'; image.addEventListener('error',()=>image.remove(),{once:true}); avatar.append(image); }
       const identity = node('div','voice-identity'); identity.append(node('h3','',v.name)); top.append(avatar,identity);
       const status = node('p','status-badge');
-      status.textContent = stale() ? 'Status sob consulta no WhatsApp' : (v.status === 'recording_online' ? 'Gravando em: ' : 'Status: ') + v.statusLabel;
+      status.textContent = stale() ? 'Status sob consulta no WhatsApp' : (v.status === 'recording_online' ? 'Gravando em: ' : 'Status: ') + v.statusLabel.replace(/^Online \((.*)\)$/i, '$1');
       if (!stale() && v.status === 'recording_online') status.classList.add('is-recording');
       const tags = node('p','voice-styles',v.styles.join(' · '));
       const audio = node('audio'); audio.controls = true; audio.preload = 'none'; audio.src = v.audio; audio.dataset.voice = v.name; audio.setAttribute('aria-label','Ouvir demonstração de '+v.name);
@@ -32,7 +32,7 @@
     });
     // Keep an in-progress demo playing during background status refresh.
     grid.replaceChildren(fragment);
-    count.textContent = matches.length+' vozes encontradas · mostrando '+Math.min(shown,matches.length);
+    count.textContent = matches.length+(matches.length === 1 ? ' voz encontrada · mostrando ' : ' vozes encontradas · mostrando ')+Math.min(shown,matches.length);
     more.hidden = shown >= matches.length; empty.hidden = matches.length > 0;
     stamp.textContent = 'Status atualizado em '+new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Sao_Paulo',dateStyle:'short',timeStyle:'short'}).format(new Date(fetchedAt))+' (Brasília). '+(stale()?'Confirme a disponibilidade no WhatsApp.':'Confirme o prazo ao fazer seu pedido.');
   }
