@@ -95,6 +95,7 @@
     if (path.includes("gravacao-off-e-producao")) return "pacotes_off_producao";
     if (path.includes("perfil-locutor-")) return "perfil_locutor";
     if (path.includes("produtora-de-audio-")) return "servico_regional";
+    if (path.includes("producao-para-supermercados")) return "producao_supermercados";
     if (path.includes("producao-para-igrejas")) return "producao_igrejas";
     if (path.includes("black-friday")) return "spot_black_friday";
     if (path.includes("natal")) return "spot_natal";
