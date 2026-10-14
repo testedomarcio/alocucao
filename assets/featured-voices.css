@@ -22,3 +22,9 @@
 .featured-voices a:focus-visible{outline:3px solid #148b7e;outline-offset:4px}
 @media(max-width:1000px){.featured-voices .featured-voice{grid-template-columns:minmax(160px,1fr) minmax(180px,1fr);grid-template-areas:"identity status" "styles audio" "choose choose" "error error"}.featured-voices .featured-choose{justify-self:start}}
 @media(max-width:620px){.featured-voices .featured-voice{grid-template-columns:minmax(0,1fr);grid-template-areas:"identity" "status" "styles" "audio" "choose" "error";padding:16px;gap:10px}.featured-voices .featured-choose{justify-self:stretch}.featured-voices .featured-status{min-height:2.8em}}
+/* Compact curated selection with no empty status row. */
+.featured-voices .featured-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.featured-voices .featured-voice{grid-template-columns:minmax(0,1fr);grid-template-areas:"identity" "styles" "audio" "choose" "error";gap:12px;padding:20px}
+.featured-voices .featured-choose{white-space:normal;line-height:1.45;width:100%;justify-self:stretch}
+.featured-voices .featured-sync{min-height:0}
+@media(max-width:620px){.featured-voices .featured-list{grid-template-columns:1fr}}

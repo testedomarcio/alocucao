@@ -150,19 +150,6 @@
       url.hostname === "api.whatsapp.com" ||
       url.hostname === "web.whatsapp.com";
 
-    const panelPath = url.pathname.replace(/\/+$/, "");
-    const isPanel = (url.hostname === "vozlocutor.com.br" && /^\/painel\/alocucao(?:\/(?:entrar|cadastro))?$/.test(panelPath)) ||
-      (url.hostname === "vozes.alocucao.com.br" && /^\/painel(?:\/(?:entrar|cadastro))?$/.test(panelPath)) ||
-      (url.origin === new URL(window.location.href).origin && ["/painel", "/cadastro"].includes(panelPath));
-    if (isPanel && analyticsConsent) {
-      const attribution = firstTouch();
-      window.alocucaoTrackEvent("panel_click", {
-        event_category: "navigation", panel_action: panelPath.endsWith("/cadastro") ? "register" : "login",
-        page_path: window.location.pathname, service_name: serviceFromPath(window.location.pathname),
-        cta_id: cleanLabel(link.dataset.cta || link.id || "panel_link"),
-        traffic_source: attribution.source, traffic_medium: attribution.medium, campaign_name: attribution.campaign
-      });
-    }
     if (!isWhatsApp || !analyticsConsent) return;
     const attribution = firstTouch();
 
@@ -180,7 +167,7 @@
     });
   });
 
-  // Conversão por conversa: mantém o painel disponível para clientes recorrentes.
+  // Conversão por conversa: todos os pedidos começam pelo WhatsApp.
   // O clique é rastreado pelo listener de whatsapp_click acima, sob consentimento.
   function activateWhatsAppFirst() {
     const number = "5527996529832";
@@ -208,8 +195,7 @@
       const isRegistration = panelHost && url.pathname.split("/").some(segment => segment === "cadastro" || segment === "registro");
       const isPurchaseShortcut = ["/cadastro", "/painel"].includes(url.pathname.replace(/\/$/, "")) && url.origin === location.origin;
       if (!isRegistration && !isPurchaseShortcut) return;
-      // Mantém o link de login e instruções de tutoriais como navegação útil.
-      if (link.closest("article") && /tutorial|como fazer/i.test(document.title)) return;
+      
       link.href = destination;
       link.target = "_blank";
       link.rel = "noopener noreferrer";
@@ -228,9 +214,7 @@
       document.querySelectorAll(".hero .small").forEach(el => {
         el.textContent = "Atendimento personalizado pelo WhatsApp. Tire dúvidas sobre vozes, prazo e pagamento antes de fazer seu pedido.";
       });
-      document.querySelectorAll(".hero .login").forEach(el => {
-        el.innerHTML = 'Já é cliente? <a href="https://vozes.alocucao.com.br/painel/entrar" data-cta="returning_customer">Acessar minha conta</a>';
-      });
+      document.querySelectorAll(".hero .login").forEach(el => el.remove());
     }
   }
   if (document.readyState === "loading") {

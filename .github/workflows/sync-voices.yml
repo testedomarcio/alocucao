@@ -1,13 +1,37 @@
-name: Catálogo automático desativado
-# Disabled at the owner's request. No schedules, push triggers, upstream sync,
-# automatic rewrites, commits, or catalog deployments are performed here.
+name: Atualizar banco oficial de vozes
 on:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
+  pages: write
+concurrency:
+  group: official-voice-catalog
+  cancel-in-progress: false
 jobs:
-  disabled:
+  sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Confirmar manutenção manual
-        run: echo "O catálogo é estático. Atualizações de vozes são feitas manualmente."
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Consultar e validar catálogo oficial
+        run: python scripts/sync-voices.py
+      - name: Atualizar seleção sem status nas páginas de conversão
+        run: python scripts/generate-featured-voices.py
+      - name: Publicar catálogo atualizado
+        run: |
+          git config user.name "A Locução Catálogo"
+          git config user.email "catalogo@users.noreply.github.com"
+          git add assets/voices-catalog.json assets/featured-voices.json vozes/index.html
+          git add $(git ls-files '*index.html')
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Refresh official voice catalog and availability"
+          git pull --rebase origin main
+          git push origin main
+      - name: Solicitar publicação no GitHub Pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST repos/${{ github.repository }}/pages/builds

@@ -1,9 +1,9 @@
 {
-  "name": "Painel A Locução",
+  "name": "A Locução",
   "short_name": "A Locução",
-  "description": "Acesso rápido ao Painel de Gravação da A Locução.",
-  "id": "/painel-app/",
-  "start_url": "/painel-app/",
+  "description": "Locução profissional com atendimento pelo WhatsApp.",
+  "id": "/",
+  "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#0d1b2a",
