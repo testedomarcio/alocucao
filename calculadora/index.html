@@ -34,6 +34,9 @@
     .btn-wa-hero{width:100%;max-width:100%;min-height:54px;font-size:1.05rem;font-weight:900;background:var(--green);color:#062e17;justify-content:center;text-align:center;border-radius:14px;box-shadow:0 6px 20px rgba(37,211,102,.35);transition:all .2s ease}
     .btn-wa-hero:hover{background:#20bd5a;transform:translateY(-2px);box-shadow:0 8px 25px rgba(37,211,102,.45)}
     @media(max-width:820px){.calc-grid{grid-template-columns:1fr}.navlinks a:not(.btn){display:none}.help-grid,.related-grid{grid-template-columns:1fr}}@media(max-width:520px){.metrics,.pricing-cards{grid-template-columns:1fr}.panel{padding:18px}.duration-table{font-size:.88rem}.duration-table th,.duration-table td{padding:11px}}
+
+    [hidden]{display:none!important}.calc-offer{margin:26px 0 0;border-top:1px solid var(--line);padding-top:22px}.calc-offer h2{font-size:1.4rem;line-height:1.2}.calc-offer p,.calc-offer small{color:var(--muted)}.calc-offer select{width:100%;min-height:48px;border:1px solid var(--line);border-radius:10px;padding:8px;background:#fff}.price-card small{display:block}.old-price{font-size:.95rem;color:var(--muted)}.promo-label{color:var(--teal);font-weight:800}.secondary-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:18px}.secondary-links a{color:var(--teal);text-decoration:underline;padding:8px 0}.voice-section{padding:0 0 48px}.copy-fallback{margin-top:16px}.copy-fallback textarea{min-height:100px;margin:12px 0}.calc-offer .btn{white-space:normal;line-height:1.4;padding:12px 16px;width:100%}button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+    body .wa-mobile-conversion-bar,body .panel-help-link,body .wa-float-widget{display:none!important}body.has-mobile-bar{padding-bottom:0!important}
   </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[
@@ -54,8 +57,9 @@
 <link rel="icon" href="/assets/brand/favicon-64.png?v=20261005" type="image/png" sizes="64x64">
 <link rel="icon" href="/favicon.ico?v=20261005" sizes="any">
 <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/featured-voices.css?v=20261014">
 </head>
-<body>
+<body data-order-channels="dual">
   <!-- site-header:start -->
 <header class="al-header">
   <nav class="al-shell al-nav" aria-label="Navegação principal">
@@ -74,10 +78,10 @@
     <section class="calculator"><div class="container calc-grid">
       <div class="panel">
         <label for="script-text">Cole ou digite o texto da locução</label>
-        <textarea id="script-text" maxlength="12000" placeholder="Exemplo: Atenção! Neste fim de semana, ofertas especiais esperam por você..."></textarea><p class="panel-note">Simulação pelos valores avulsos: Off a R$ 11,90 e Spot a R$ 29,90 por fração de até 40 segundos. A quantidade efetiva de créditos e o valor total serão apresentados com nossa equipe pelo WhatsApp. Copie seu roteiro para enviá-lo pelo WhatsApp; ele não é transferido automaticamente.</p>
+        <textarea id="script-text" maxlength="12000" placeholder="Exemplo: Atenção! Neste fim de semana, ofertas especiais esperam por você..."></textarea><p class="panel-note">Ferramenta gratuita, sem cadastro. A duração é aproximada: pausas, números e interpretação podem alterar a leitura.</p>
         <div class="controls"><div class="field"><label for="voice-speed">Ritmo de leitura</label><select id="voice-speed"><option value="120">Calmo ou institucional</option><option value="140" selected>Natural ou comercial</option><option value="160">Dinâmico ou varejo</option></select></div></div>
         <div class="actions"><button class="btn btn-dark" id="calculate" type="button">Calcular duração</button><button class="btn btn-light" id="clear" type="button">Limpar</button></div>
-        <p class="privacy">🔒 O texto não é enviado nem armazenado pela A Locução. O cálculo é feito somente neste dispositivo.</p>
+        <p class="privacy">🔒 O cálculo acontece neste dispositivo. Seu roteiro só será incluído no WhatsApp se você clicar para solicitar atendimento; ele não é enviado ao Analytics.</p>
       </div>
       <aside class="panel" aria-live="polite">
         <div id="result-empty" class="result-empty"><h2>Seu resultado aparecerá aqui</h2><p>Para uma estimativa melhor, escolha o ritmo que mais combina com a interpretação desejada.</p></div>
@@ -87,22 +91,90 @@
             <div class="metric"><span>Duração estimada</span><strong id="duration">0:00</strong></div>
             <div class="metric"><span>Créditos estimados (referência de até 40 segundos)</span><strong id="blocks">0</strong></div>
           </div>
-          <div class="pricing-cards">
-            <div class="price-card">
-              <span class="price-title">Locução Off avulsa — valor estimado</span>
-              <strong class="price-value" id="price-off">R$ 0,00</strong><small>R$ 11,90 por crédito de até 40 segundos</small>
-            </div>
-            <div class="price-card">
-              <span class="price-title">Produção Completa avulsa — valor estimado</span>
-              <strong class="price-value" id="price-spot">R$ 0,00</strong><small>R$ 29,90 por crédito de até 40 segundos</small>
-            </div>
-          </div>
           <div class="highlight"><span>Faixa provável de duração</span><strong id="range">0:00–0:00</strong></div>
-          <div class="note">Esta calculadora é apenas uma simulação. A interpretação, as pausas e as pronúncias podem alterar a duração. Confira a quantidade efetiva de créditos, o valor total e o prazo com nossa equipe pelo WhatsApp antes de confirmar o pedido.</div>
-          <div class="actions actions-center"><a class="btn btn-wa btn-wa-hero" id="quote-link" href="https://wa.me/5527996529832" data-cta="calculadora_resultado_painel">Falar pelo WhatsApp</a></div>
+          <p class="note">A duração é estimada. A leitura do locutor, as pausas e as pronúncias podem alterar o tempo e os créditos. Confirme o total e o prazo antes de pedir.</p>
+          <div class="calc-offer">
+            <h2>Quer transformar seu texto em uma locução profissional?</h2>
+            <p>Se precisar de uma gravação, veja as opções para este roteiro.</p>
+            <p id="promo-label" class="promo-label" hidden>Primeira compra com preço especial até 10/11/2026</p>
+            <div class="pricing-cards">
+              <div class="price-card"><span class="price-title">Locução Off</span><del id="old-off" class="old-price" hidden></del><strong class="price-value" id="price-off"></strong><small>Somente voz profissional.</small></div>
+              <div class="price-card"><span class="price-title">Produção Completa</span><del id="old-spot" class="old-price" hidden></del><strong class="price-value" id="price-spot"></strong><small>Voz, trilha, edição, efeitos e finalização.</small></div>
+            </div>
+            <p id="price-conditions"></p>
+            <label for="service">Qual serviço você procura?</label><select id="service"><option value="off">Locução Off</option><option value="spot">Produção Completa</option></select>
+            <div class="actions"><a class="btn btn-wa" id="quote-link" href="https://wa.me/5527996529832" data-calc-action="whatsapp" data-cta="calculadora_whatsapp" target="_blank" rel="noopener noreferrer">Quero gravar este texto pelo WhatsApp</a></div>
+            <small>O clique abre uma mensagem para você revisar e enviar no WhatsApp.</small>
+            <div class="secondary-links"><a href="#calc-voices">Ouvir vozes disponíveis</a><a id="panel-link" href="https://vozes.alocucao.com.br/painel/" target="_blank" rel="noopener">Fazer pedido pelo painel</a></div>
+            <p>Locutores com gravações entre 10 e 30 minutos, conforme a voz e a disponibilidade. Confirme o prazo do seu pedido.</p><small>Atendimento humano: segunda a sexta, 8h às 18h. Gravações todos os dias até as 22h, inclusive fins de semana e feriados (Brasília).</small>
+            <div id="adjust-offer" class="note" hidden><h3>Quer tentar encaixar em até 40 segundos?</h3><p>Nossa equipe pode avaliar como deixar o roteiro mais objetivo, preservando sua mensagem. A possibilidade depende do texto.</p><a class="btn btn-light" href="https://wa.me/5527996529832" data-calc-action="ajuste" target="_blank" rel="noopener">Quero ajuda para ajustar meu texto</a></div>
+            <div id="copy-fallback" class="copy-fallback" hidden><p>Seu roteiro é longo para um link de WhatsApp. Copie o texto abaixo e depois continue o atendimento para colá-lo na conversa.</p><label for="copy-text">Roteiro para copiar</label><textarea id="copy-text" readonly></textarea><button id="copy-button" class="btn btn-light" type="button">Copiar roteiro</button><p id="copy-status" role="status"></p><a id="continue-whatsapp" class="btn btn-wa" href="https://wa.me/5527996529832" target="_blank" rel="noopener noreferrer">Continuar no WhatsApp</a></div>
+          </div>
         </div>
       </aside>
     </div></section>
+    <section id="calc-voices" class="voice-section" hidden><div class="container"><h2>Seu texto merece a voz certa</h2><p>Ouça algumas opções e confirme a disponibilidade com nossa equipe.</p><div class="featured-voices" data-featured-voices>
+<p class="featured-label">Ouça nossa seleção de 8 vozes</p>
+<div class="featured-list"><article class="featured-voice" data-featured-id="vl-116">
+<div class="featured-identity"><img src="https://vozes.alocucao.com.br/midia.php?tipo=avatar&amp;arq=116.jpg" alt="" width="64" height="64" loading="lazy" decoding="async"><div><h3>Celso Ricardo</h3><p>Voz masculina · São Paulo</p></div></div>
+<p class="featured-styles">Padrão · Impacto · Animada · Varejo</p>
+<audio controls preload="none" data-featured-audio data-voice="Celso Ricardo" aria-label="Ouvir demonstração de Celso Ricardo" src="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=116.mp3"><a href="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=116.mp3">Ouvir demonstração</a></audio>
+<p class="featured-error" hidden>Não foi possível tocar a demo. <a href="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=116.mp3" target="_blank" rel="noopener" data-featured-fallback>Abra o áudio em outra aba</a> ou peça orientação.</p>
+<a class="featured-choose" href="https://wa.me/5527996529832" data-calc-action="locutor" target="_blank" rel="noopener">Quero esta voz no meu texto</a>
+</article>
+<article class="featured-voice" data-featured-id="vl-698">
+<div class="featured-identity"><img src="https://vozes.alocucao.com.br/midia.php?tipo=avatar&amp;arq=698.jpg" alt="" width="64" height="64" loading="lazy" decoding="async"><div><h3>Lindy</h3><p>Voz feminina · Bahia</p></div></div>
+<p class="featured-styles">Padrão · Animada · Varejo</p>
+<audio controls preload="none" data-featured-audio data-voice="Lindy" aria-label="Ouvir demonstração de Lindy" src="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=698.mp3"><a href="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=698.mp3">Ouvir demonstração</a></audio>
+<p class="featured-error" hidden>Não foi possível tocar a demo. <a href="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=698.mp3" target="_blank" rel="noopener" data-featured-fallback>Abra o áudio em outra aba</a> ou peça orientação.</p>
+<a class="featured-choose" href="https://wa.me/5527996529832" data-calc-action="locutor" target="_blank" rel="noopener">Quero esta voz no meu texto</a>
+</article>
+<article class="featured-voice" data-featured-id="vl-639">
+<div class="featured-identity"><img src="https://vozes.alocucao.com.br/midia.php?tipo=avatar&amp;arq=639.jpg" alt="" width="64" height="64" loading="lazy" decoding="async"><div><h3>Gabriel Zamboni</h3><p>Voz masculina · Santa Catarina</p></div></div>
+<p class="featured-styles">Padrão · Impacto · Animada · Varejo</p>
+<audio controls preload="none" data-featured-audio data-voice="Gabriel Zamboni" aria-label="Ouvir demonstração de Gabriel Zamboni" src="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=639.mp3"><a href="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=639.mp3">Ouvir demonstração</a></audio>
+<p class="featured-error" hidden>Não foi possível tocar a demo. <a href="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=639.mp3" target="_blank" rel="noopener" data-featured-fallback>Abra o áudio em outra aba</a> ou peça orientação.</p>
+<a class="featured-choose" href="https://wa.me/5527996529832" data-calc-action="locutor" target="_blank" rel="noopener">Quero esta voz no meu texto</a>
+</article>
+<article class="featured-voice" data-featured-id="vl-570">
+<div class="featured-identity"><img src="https://vozes.alocucao.com.br/midia.php?tipo=avatar&amp;arq=570.jpg" alt="" width="64" height="64" loading="lazy" decoding="async"><div><h3>Elissandra Lima</h3><p>Voz feminina · Rio Grande do Norte</p></div></div>
+<p class="featured-styles">Padrão · Animada · Varejo</p>
+<audio controls preload="none" data-featured-audio data-voice="ELISSANDRA LIMA" aria-label="Ouvir demonstração de Elissandra Lima" src="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=570.mp3"><a href="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=570.mp3">Ouvir demonstração</a></audio>
+<p class="featured-error" hidden>Não foi possível tocar a demo. <a href="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=570.mp3" target="_blank" rel="noopener" data-featured-fallback>Abra o áudio em outra aba</a> ou peça orientação.</p>
+<a class="featured-choose" href="https://wa.me/5527996529832" data-calc-action="locutor" target="_blank" rel="noopener">Quero esta voz no meu texto</a>
+</article>
+<article class="featured-voice" data-featured-id="vl-64">
+<div class="featured-identity"><img src="https://vozes.alocucao.com.br/midia.php?tipo=avatar&amp;arq=64.jpg" alt="" width="64" height="64" loading="lazy" decoding="async"><div><h3>Sunshine</h3><p>Voz feminina · Ceará</p></div></div>
+<p class="featured-styles">Padrão · Animada · Varejo</p>
+<audio controls preload="none" data-featured-audio data-voice="Sunshine" aria-label="Ouvir demonstração de Sunshine" src="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=64.mp3"><a href="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=64.mp3">Ouvir demonstração</a></audio>
+<p class="featured-error" hidden>Não foi possível tocar a demo. <a href="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=64.mp3" target="_blank" rel="noopener" data-featured-fallback>Abra o áudio em outra aba</a> ou peça orientação.</p>
+<a class="featured-choose" href="https://wa.me/5527996529832" data-calc-action="locutor" target="_blank" rel="noopener">Quero esta voz no meu texto</a>
+</article>
+<article class="featured-voice" data-featured-id="vl-2052">
+<div class="featured-identity"><img src="https://vozes.alocucao.com.br/midia.php?tipo=avatar&amp;arq=2052.jpg" alt="" width="64" height="64" loading="lazy" decoding="async"><div><h3>Absamira Santos</h3><p>Voz feminina · São Paulo</p></div></div>
+<p class="featured-styles">Padrão · Impacto · Animada · Varejo</p>
+<audio controls preload="none" data-featured-audio data-voice="Absamira Santos" aria-label="Ouvir demonstração de Absamira Santos" src="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=2052.mp3"><a href="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=2052.mp3">Ouvir demonstração</a></audio>
+<p class="featured-error" hidden>Não foi possível tocar a demo. <a href="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=2052.mp3" target="_blank" rel="noopener" data-featured-fallback>Abra o áudio em outra aba</a> ou peça orientação.</p>
+<a class="featured-choose" href="https://wa.me/5527996529832" data-calc-action="locutor" target="_blank" rel="noopener">Quero esta voz no meu texto</a>
+</article>
+<article class="featured-voice" data-featured-id="vl-1875">
+<div class="featured-identity"><img src="https://vozes.alocucao.com.br/midia.php?tipo=avatar&amp;arq=1875.jpg" alt="" width="64" height="64" loading="lazy" decoding="async"><div><h3>Charles Helfer</h3><p>Voz masculina · Santa Catarina</p></div></div>
+<p class="featured-styles">Padrão · Impacto · Animada · Varejo</p>
+<audio controls preload="none" data-featured-audio data-voice="Charles Helfer" aria-label="Ouvir demonstração de Charles Helfer" src="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=1875.mp3"><a href="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=1875.mp3">Ouvir demonstração</a></audio>
+<p class="featured-error" hidden>Não foi possível tocar a demo. <a href="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=1875.mp3" target="_blank" rel="noopener" data-featured-fallback>Abra o áudio em outra aba</a> ou peça orientação.</p>
+<a class="featured-choose" href="https://wa.me/5527996529832" data-calc-action="locutor" target="_blank" rel="noopener">Quero esta voz no meu texto</a>
+</article>
+<article class="featured-voice" data-featured-id="vl-1125">
+<div class="featured-identity"><img src="https://vozes.alocucao.com.br/midia.php?tipo=avatar&amp;arq=1125.jpg" alt="" width="64" height="64" loading="lazy" decoding="async"><div><h3>Tito Maciel</h3><p>Voz masculina · Paraná</p></div></div>
+<p class="featured-styles">Padrão · Impacto · Animada · Varejo</p>
+<audio controls preload="none" data-featured-audio data-voice="Tito Maciel" aria-label="Ouvir demonstração de Tito Maciel" src="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=1125.mp3"><a href="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=1125.mp3">Ouvir demonstração</a></audio>
+<p class="featured-error" hidden>Não foi possível tocar a demo. <a href="https://vozes.alocucao.com.br/midia.php?tipo=demo&amp;arq=1125.mp3" target="_blank" rel="noopener" data-featured-fallback>Abra o áudio em outra aba</a> ou peça orientação.</p>
+<a class="featured-choose" href="https://wa.me/5527996529832" data-calc-action="locutor" target="_blank" rel="noopener">Quero esta voz no meu texto</a>
+</article></div>
+<p class="featured-sync" data-featured-sync>Consulte a disponibilidade e o prazo no atendimento.</p>
+<a class="featured-all" href="/vozes/#demo" data-cta="vozes_destaque_banco_completo">Ouça todas as vozes <span aria-hidden="true">→</span></a>
+<noscript><p>As demonstrações funcionam sem JavaScript. Para confirmar o prazo, fale com o atendimento.</p></noscript>
+</div></div></section>
     <section class="help"><div class="container"><div class="help-grid"><article><h3>Até 40 segundos</h3><p>É a referência aproximada da locução off inicial. Textos maiores podem exigir mais créditos. A quantidade efetiva é apresentada com nossa equipe.</p></article><article><h3>Não leia rápido demais</h3><p>Uma propaganda clara costuma funcionar melhor que um texto apertado em poucos segundos.</p></article><article><h3>Precisa de ajuda?</h3><p>Envie sua dúvida no WhatsApp. Podemos orientar a redução ou adaptação do roteiro.</p></article></div></div></section>
     <section class="guide"><div class="container guide-copy">
       <h3>Como a Velocidade da Fala e Palavras por Minuto Impactam o Tempo de Locução</h3>
@@ -152,68 +224,119 @@
 </footer>
 <!-- site-footer:end -->
   <script>
-    (()=>{
-      const text=document.getElementById("script-text"),speed=document.getElementById("voice-speed"),empty=document.getElementById("result-empty"),results=document.getElementById("results");
-      const format=seconds=>{const value=Math.max(0,Math.round(seconds));return `${Math.floor(value/60)}:${String(value%60).padStart(2,"0")}`};
-      const formatBRL=val=>`R$ ${val.toFixed(2).replace(".",",")}`;
-      const words=value=>{try{return value.match(/[\p{L}\p{N}]+(?:['’\-][\p{L}\p{N}]+)*/gu)||[]}catch(error){return value.trim()?value.trim().split(/\s+/):[]}};
+(() => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const text = $('script-text'), speed = $('voice-speed'), results = $('results'), empty = $('result-empty');
+  // One source of prices for display and messages. Promotion ends at midnight in Brasília.
+  const pricing = { off: 11.90, spot: 29.90, firstOff: 8.90, firstSpot: 16.90, expires: Date.parse('2026-11-11T00:00:00-03:00') };
+  const wa = 'https://wa.me/5527996529832';
+  const names = { off: 'Locução Off', spot: 'Produção Completa' };
+  const money = value => value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  const format = seconds => { const n = Math.max(0, Math.round(seconds)); return `${Math.floor(n / 60)}:${String(n % 60).padStart(2, '0')}`; };
+  const words = value => value.match(/[\p{L}\p{N}]+(?:['’\-][\p{L}\p{N}]+)*/gu) || [];
+  let state = null, started = false, timer, pendingMessage = '', pendingAction = '', pendingVoice = '';
+  const promoActive = () => Date.now() < pricing.expires;
+  const discounted = () => state && state.blocks === 1 && promoActive();
+  function track(name, origin) {
+    const params = { service_name: $('service').value, duration_band: !state ? 'sem_calculo' : state.seconds <= 40 ? 'ate_40s' : state.seconds <= 80 ? '41_80s' : state.seconds <= 120 ? '81_120s' : 'acima_120s', credits: state?.blocks || 0, offer_type: discounted() ? 'primeira_compra_sujeita_elegibilidade' : 'regular', interaction_origin: origin };
+    // Shared tracker gates analytics on consent; no script or full outbound URL is tracked.
+    if (window.alocucaoTrackEvent?.(name, params)) window.uetq?.push('event', name, { event_category: 'calculadora', event_label: origin });
+  }
+  function hideResults() {
+    state = null;
+    results.classList.remove('show'); empty.style.display = 'block';
+    $('calc-voices').hidden = true; $('copy-fallback').hidden = true;
+    pendingMessage = ''; $('copy-text').value = ''; clearTimeout(timer);
+  }
+  function renderPrices() {
+    if (!state) return;
+    const promo = discounted();
+    $('promo-label').hidden = !promo;
+    for (const key of ['off', 'spot']) {
+      $('price-' + key).textContent = money(promo ? pricing[key === 'off' ? 'firstOff' : 'firstSpot'] : state.blocks * pricing[key]);
+      $('old-' + key).textContent = money(pricing[key]);
+      $('old-' + key).hidden = !promo;
+    }
+    $('price-conditions').textContent = promo
+      ? 'Valores para a primeira compra, por serviço de até 40 segundos (1 crédito). Elegibilidade confirmada no atendimento. Válido até 10/11/2026, horário de Brasília.'
+      : state.blocks > 1
+        ? `Estimativa avulsa: Off a ${money(pricing.off)} e Produção a ${money(pricing.spot)} por crédito de até 40 segundos. Confirme o total pelo WhatsApp.${promoActive() ? ' Consulte também as condições de primeira compra para textos maiores; nenhum desconto foi aplicado aos créditos adicionais.' : ''}`
+        : 'Valores avulsos regulares para até 40 segundos (1 crédito). Confirme o valor total e o prazo no atendimento.';
+    $('quote-link').textContent = promo ? 'Quero aproveitar minha primeira compra' : 'Quero gravar este texto pelo WhatsApp';
+    $('adjust-offer').hidden = state.seconds <= 40;
+  }
+  function calculate() {
+    const value = text.value.trim(), count = words(value).length;
+    if (!count) { hideResults(); return; }
+    const wpm = Number(speed.value), commas = (value.match(/[,;:]/g) || []).length, endings = (value.match(/[.!?]/g) || []).length, breaks = (value.match(/\n/g) || []).length;
+    const estimated = (count / wpm) * 60 + commas * .18 + endings * .42 + breaks * .28;
+    // Credits follow the estimate itself; the upper uncertainty range is shown separately.
+    const seconds = Math.ceil(estimated), blocks = Math.max(1, Math.ceil(seconds / 40));
+    state = { value, seconds, blocks };
+    $('duration').textContent = format(seconds); $('blocks').textContent = blocks;
+    $('range').textContent = `${format(estimated * .9)}–${format(estimated * 1.12)}`;
+    empty.style.display = 'none'; results.classList.add('show'); $('calc-voices').hidden = false;
+    $('copy-fallback').hidden = true; $('copy-text').value = ''; pendingMessage = '';
+    renderPrices();
+    clearTimeout(timer); timer = setTimeout(() => track('calculadora_calculada', 'resultado'), 800);
+  }
+  function message(action, voice) {
+    const service = $('service').value;
+    const promo = discounted(), value = money(promo ? pricing[service === 'off' ? 'firstOff' : 'firstSpot'] : pricing[service] * state.blocks);
+    return [action === 'ajuste' ? 'Olá! Usei a calculadora da A Locução e gostaria de ajuda para tentar ajustar meu roteiro para até 40 segundos.' : 'Olá! Usei a calculadora da A Locução e gostaria de solicitar uma gravação.', '', `Duração estimada: ${format(state.seconds)} (${state.seconds} segundos).`, `Créditos estimados: ${state.blocks}.`, `Serviço desejado: ${names[service]}.`, `Valor indicado: ${value}${promo ? ' — primeira compra, sujeito à elegibilidade, até 10/11/2026.' : ' — estimativa avulsa; confirmar total e condições.'}`, voice ? `Voz desejada: ${voice}. Confirmar disponibilidade.` : '', '', 'Pode confirmar as condições e o prazo?'].filter(Boolean).join('\n');
+  }
+  function openWhatsApp(url) {
+    window.open(url, '_blank', 'noopener,noreferrer');
+    // noopener may return null even when the new tab opened; never open a duplicate.
+  }
+  document.querySelectorAll('[data-calc-action]').forEach(link => link.addEventListener('click', event => {
+    event.preventDefault();
+    if (!state) { text.focus(); return; }
+    renderPrices();
+    const action = link.dataset.calcAction;
+    const voice = action === 'locutor' ? link.closest('.featured-voice').querySelector('h3').textContent.trim() : '';
+    const summary = message(action, voice), fullMessage = summary + '\n\nMeu texto:\n' + state.value;
+    const url = wa + '?text=' + encodeURIComponent(fullMessage);
+    const eventName = action === 'ajuste' ? 'calculadora_ajuste_texto' : action === 'locutor' ? 'calculadora_clique_locutor' : discounted() ? 'calculadora_clique_promocao' : 'calculadora_clique_whatsapp';
+    // Full message never enters href/dataLayer, avoiding outbound-link analytics capture of the script.
+    if (url.length > 1900) {
+      event.stopPropagation();
+      pendingAction = action; pendingVoice = voice;
+      pendingMessage = summary + '\n\nVou colar meu roteiro na próxima mensagem.';
+      $('copy-text').value = state.value; $('copy-status').textContent = '';
+      $('copy-fallback').hidden = false; $('copy-text').focus();
+      $('copy-fallback').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      track(eventName, action + '_copiar_roteiro');
+    } else { track(eventName, action); openWhatsApp(url); }
+  }));
+  $('continue-whatsapp').addEventListener('click', event => {
+    event.preventDefault(); if (pendingMessage && state) { track('calculadora_clique_whatsapp', 'continuar_roteiro_longo'); openWhatsApp(wa + '?text=' + encodeURIComponent(message(pendingAction, pendingVoice) + '\n\nVou colar meu roteiro na próxima mensagem.')); }
+  });
+  $('copy-button').addEventListener('click', async () => {
+    $('copy-text').focus(); $('copy-text').select();
+    try { await navigator.clipboard.writeText($('copy-text').value); $('copy-status').textContent = 'Texto copiado! Continue no WhatsApp e cole na conversa.'; }
+    catch (_) { $('copy-status').textContent = 'Selecione o texto acima e use Copiar no seu dispositivo (ou Ctrl+C / ⌘C).'; }
+  });
+  $('panel-link').addEventListener('click', () => track('calculadora_clique_painel', 'resultado'));
+  $('service').addEventListener('change', () => { $('copy-fallback').hidden = true; pendingMessage = ''; renderPrices(); });
+  $('calculate').addEventListener('click', () => {
+    calculate();
+    if (!state) { empty.innerHTML = '<h2>Digite um texto para calcular</h2><p>Inclua ao menos uma palavra ou número.</p>'; text.focus(); return; }
+    clearTimeout(timer); track('calculadora_calculada', 'botao');
+    results.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+  $('clear').addEventListener('click', () => { text.value = ''; hideResults(); started = false; empty.innerHTML = '<h2>Seu resultado aparecerá aqui</h2><p>Para uma estimativa melhor, escolha o ritmo que mais combina com a interpretação desejada.</p>'; text.focus(); });
+  text.addEventListener('input', () => { if (!started && words(text.value).length) { track('calculadora_iniciada', 'campo_texto'); started = true; } calculate(); });
+  speed.addEventListener('change', calculate);
+  text.addEventListener('keydown', event => { if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') $('calculate').click(); });
+  // Reevaluate on a long-open tab as well as on every calculation and click.
+  setInterval(renderPrices, 30000);
+  window.addEventListener('focus', renderPrices);
+})();
 
-      let calculationTracked = false, calculationTimer;
-      function calculate(){
-        const value=text.value.trim();
-        if(!value){
-          results.classList.remove("show");
-          empty.style.display="block";
-          return;
-        }
-        const count=words(value).length,wpm=Number(speed.value),commas=(value.match(/[,;:]/g)||[]).length,endings=(value.match(/[.!?]/g)||[]).length,breaks=(value.match(/\n/g)||[]).length,estimated=(count/wpm)*60+commas*.18+endings*.42+breaks*.28,low=estimated*.9,high=estimated*1.12,blocks=Math.max(1,Math.ceil(high/40));
-        const priceOff=blocks*1190/100,priceSpot=blocks*2990/100;
-
-        document.getElementById("duration").textContent=format(estimated);
-        document.getElementById("blocks").textContent=blocks;
-        document.getElementById("price-off").textContent=formatBRL(priceOff);
-        document.getElementById("price-spot").textContent=formatBRL(priceSpot);
-        document.getElementById("range").textContent=`${format(low)}–${format(high)}`;
-
-        document.getElementById("quote-link").href="https://wa.me/5527996529832?text="+encodeURIComponent("Olá! Usei a calculadora do site e quero confirmar o valor e fazer um pedido. Vou enviar meu roteiro.");
-
-        empty.style.display="none";
-        results.classList.add("show");
-
-        clearTimeout(calculationTimer);
-        if (!calculationTracked) calculationTimer = setTimeout(() => {
-          if (text.value.trim() && window.alocucaoTrackEvent?.("calculator_use", {
-            page_path: window.location.pathname, word_count: count,
-            estimated_seconds: Math.round(estimated), estimated_blocks: blocks, reading_speed: wpm
-          })) calculationTracked = true;
-        }, 750);
-      }
-
-      function handleManualCalculate(){
-        const value=text.value.trim();
-        if(!value){
-          text.focus();
-          empty.innerHTML="<h2>Digite um texto para calcular</h2><p>O campo não pode ficar vazio.</p>";
-          results.classList.remove("show");
-          empty.style.display="block";
-          return;
-        }
-        calculate();
-      }
-
-      document.getElementById("calculate").addEventListener("click",handleManualCalculate);
-      document.getElementById("clear").addEventListener("click",()=>{
-        text.value="";
-        results.classList.remove("show");
-        empty.style.display="block";
-        empty.innerHTML="<h2>Seu resultado aparecerá aqui</h2><p>Para uma estimativa melhor, escolha o ritmo que mais combina com a interpretação desejada.</p>";
-        text.focus();
-      });
-      text.addEventListener("input",calculate);
-      speed.addEventListener("change",calculate);
-      text.addEventListener("keydown",event=>{if((event.ctrlKey||event.metaKey)&&event.key==="Enter")handleManualCalculate()});
-    })();
   </script>
+<script src="/assets/featured-voices.js?v=20261014" defer></script>
   <script src="/assets/site.js?v=20261014"></script>
 <a class="panel-help-link" data-panel-support data-cta="whatsapp_flutuante" href="https://wa.me/5527996529832" target="_blank" rel="noopener" aria-label="Faça seu pedido pelo WhatsApp"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M18.403 5.592A9.002 9.002 0 003.111 16.29L1.87 20.83a.6.6 0 00.732.732l4.54-1.241A9.002 9.002 0 0018.403 5.592zM12.004 2.2a9.792 9.792 0 00-8.48 14.691l-1.3 4.757a1.2 1.2 0 001.465 1.465l4.757-1.3A9.794 9.794 0 1012.004 2.2zm4.846 12.191c-.225-.113-1.328-.655-1.534-.73-.205-.075-.355-.113-.505.113-.15.225-.58.73-.711.88-.131.15-.262.169-.487.056a6.126 6.126 0 01-1.802-1.112 6.757 6.757 0 01-1.248-1.554c-.131-.225-.014-.347.098-.459.1-.1.225-.262.338-.394.113-.131.15-.225.225-.375.075-.15.038-.281-.019-.394-.056-.113-.505-1.218-.692-1.668-.182-.438-.367-.378-.505-.386l-.43-.008a.83.83 0 00-.6.281c-.206.225-.787.769-.787 1.875 0 1.106.806 2.175.918 2.325.113.15 1.587 2.423 3.845 3.398.537.232.956.37 1.283.474.54.172 1.03.148 1.418.09.432-.065 1.328-.543 1.516-1.068.188-.525.188-.975.131-1.068-.056-.094-.206-.15-.431-.263z" fill="currentColor"/>
