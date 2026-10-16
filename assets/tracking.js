@@ -36,7 +36,7 @@
       : (name === "whatsapp_click" ? "whatsapp_click" : null);
     if (uetAction) window.uetq.push("event", uetAction, {
       event_category: name === "whatsapp_click" ? "contact" : "navigation",
-      event_label: parameters.service_name || "outro"
+      event_label: (parameters.page_path || "/") + " | " + (parameters.cta_id || parameters.service_name || "outro")
     });
     return true;
   };
@@ -152,7 +152,27 @@
       url.hostname === "api.whatsapp.com" ||
       url.hostname === "web.whatsapp.com";
 
-    if (!isWhatsApp || !analyticsConsent) return;
+    const isPanelHost = url.hostname === "vozes.alocucao.com.br";
+    const panelPath = url.pathname.replace(/\/$/, "");
+    const isLocalPanel = url.origin === window.location.origin || url.hostname === "alocucao.com.br";
+    const panelAction = isPanelHost && panelPath === "/painel/cadastro" || isLocalPanel && panelPath === "/cadastro" ? "register"
+      : isPanelHost && ["/painel", "/painel/entrar"].includes(panelPath) || isLocalPanel && panelPath === "/painel" ? "login" : null;
+    if (!analyticsConsent) return;
+    if (panelAction) {
+      const attribution = firstTouch();
+      window.alocucaoTrackEvent("panel_click", {
+        panel_action: panelAction,
+        page_path: window.location.pathname,
+        service_name: serviceFromPath(window.location.pathname),
+        cta_id: cleanLabel(link.dataset.cta || link.id || "panel_link"),
+        cta_location: link.closest("section")?.id || (link.closest("header") ? "header" : link.closest("footer") ? "footer" : "content"),
+        traffic_source: attribution.source,
+        traffic_medium: attribution.medium,
+        campaign_name: attribution.campaign
+      });
+      return;
+    }
+    if (!isWhatsApp) return;
     const attribution = firstTouch();
 
     window.alocucaoTrackEvent("whatsapp_click", {
@@ -168,63 +188,5 @@
       campaign_name: attribution.campaign
     });
   });
-
-  // Conversão por conversa: todos os pedidos começam pelo WhatsApp.
-  // O clique é rastreado pelo listener de whatsapp_click acima, sob consentimento.
-  function activateWhatsAppFirst() {
-    // This landing deliberately offers both self-service and assisted ordering.
-    if (document.body.dataset.orderChannels === "dual") return;
-    const number = "5527996529832";
-    const page = serviceFromPath(location.pathname);
-    const params = new URLSearchParams(location.search);
-    const campaign = (params.get("utm_campaign") || "").slice(0, 80);
-    const clickId = params.has("msclkid") ? " | Bing Ads" : "";
-    const subjects = {
-      locucao_off: "Locução Off",
-      spot_comercial: "Spot Comercial",
-      pacotes_off_producao: "pacotes de locução e produção",
-      pagina_inicial: "locução profissional",
-      banco_de_vozes: "uma voz do catálogo"
-    };
-    const subject = subjects[page] || "uma gravação profissional";
-    const message = "Olá! Vim pelo site A Locução" + clickId +
-      (campaign ? " (campanha: " + campaign + ")" : "") +
-      " e gostaria de atendimento sobre " + subject + ".";
-    const destination = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
-
-    document.querySelectorAll("a[href]").forEach(link => {
-      let url;
-      try { url = new URL(link.href, location.href); } catch (_) { return; }
-      const panelHost = url.hostname === "vozes.alocucao.com.br" || url.hostname === "vozlocutor.com.br";
-      const isRegistration = panelHost && url.pathname.split("/").some(segment => segment === "cadastro" || segment === "registro");
-      const isPurchaseShortcut = ["/cadastro", "/painel"].includes(url.pathname.replace(/\/$/, "")) && url.origin === location.origin;
-      if (!isRegistration && !isPurchaseShortcut) return;
-
-      link.href = destination;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.dataset.cta = link.dataset.cta || "whatsapp_primary";
-      link.dataset.conversionTarget = "whatsapp";
-      const label = (link.textContent || "").trim();
-      if (/criar conta|cadastre|cadastrar|fazer pedido|comprar crédito|começar agora|iniciar pedido/i.test(label)) {
-        link.textContent = /crédito|pacote/i.test(label) ? "Consultar pelo WhatsApp" :
-          /pedido|pedir|começar|iniciar/i.test(label) ? "Fazer pedido pelo WhatsApp" :
-          "Falar com a A Locução";
-      }
-    });
-
-    // Evita uma página de anúncio cuja ação principal pareça exigir cadastro.
-    if (document.body.dataset.conversionLanding) {
-      document.querySelectorAll(".hero .small").forEach(el => {
-        el.textContent = "Atendimento personalizado pelo WhatsApp. Tire dúvidas sobre vozes, prazo e pagamento antes de fazer seu pedido.";
-      });
-      document.querySelectorAll(".hero .login").forEach(el => el.remove());
-    }
-  }
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", activateWhatsAppFirst, { once: true });
-  } else {
-    activateWhatsAppFirst();
-  }
 
 })();

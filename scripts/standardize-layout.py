@@ -13,6 +13,8 @@ JS = '<script src="/assets/site-layout.js?v=20261002" defer></script>'
 def standardize_page(text):
     if re.search(r'http-equiv=["\']refresh', text, re.I) or '<body' not in text:
         return text
+    if 'data-order-channels="dual"' in text:
+        return run_path(str(ROOT / 'scripts/hybrid-commerce.py'))['normalize_hybrid'](text)
     # These two conversion pages own their focused layout and commerce content.
     # Shared normalization would restore cross-service offers and navigation exits.
     if re.search(r'<body\b[^>]*data-conversion-landing=["\'](?:spot-comercial|locucao-off)["\']', text):

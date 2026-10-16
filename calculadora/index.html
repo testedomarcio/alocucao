@@ -3,7 +3,7 @@
 <head>
   <meta name="google-site-verification" content="WcO6J5Y4iflQpSpdu-w0tIuax-aBDPbO9-UM0hgKUFM" />
   <script src="/assets/privacy.js" defer></script>
-  <script src="/assets/tracking.js?v=20261014" defer></script>
+  <script src="/assets/tracking.js?v=20261016-hybrid" defer></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Calculadora de Tempo de Locução e Palavras | A Locução</title>
@@ -58,6 +58,7 @@
 <link rel="icon" href="/favicon.ico?v=20261005" sizes="any">
 <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/featured-voices.css?v=20261014">
+<link rel="stylesheet" href="/assets/hybrid-commerce.css?v=20261016">
 </head>
 <body data-order-channels="dual">
   <!-- site-header:start -->
@@ -68,7 +69,7 @@
     <div class="al-menu" id="al-main-menu">
       <a href="/servicos/">Serviços</a><a href="/locucao-off/">Locução Off</a><a href="/spot-comercial/">Spot Comercial</a><a href="/vozes/">Banco de Vozes</a><a href="/precos/">Preços</a><a href="/blog/">Blog</a><a href="/sobre/">Sobre</a>
       <a class="al-header-cta" href="https://wa.me/5527996529832" data-cta="cabecalho_cadastro">Falar pelo WhatsApp</a>
-    </div>
+    <a class="hybrid-client" href="https://vozes.alocucao.com.br/painel/" data-cta="header_client">Área do Cliente</a></div>
   </nav>
 </header>
 <!-- site-header:end -->
@@ -101,11 +102,11 @@
               <div class="price-card"><span class="price-title">Locução Off</span><del id="old-off" class="old-price" hidden></del><strong class="price-value" id="price-off"></strong><small>Somente voz profissional.</small></div>
               <div class="price-card"><span class="price-title">Produção Completa</span><del id="old-spot" class="old-price" hidden></del><strong class="price-value" id="price-spot"></strong><small>Voz, trilha, edição, efeitos e finalização.</small></div>
             </div>
-            <p id="price-conditions"></p>
+            <p id="price-conditions"></p><p class="hybrid-channel-note">Para aproveitar o preço promocional exibido, solicite pelo WhatsApp. No pedido online, confira os valores apresentados no painel antes de pagar; a promoção não é aplicada automaticamente.</p>
             <label for="service">Qual serviço você procura?</label><select id="service"><option value="off">Locução Off</option><option value="spot">Produção Completa</option></select>
-            <div class="actions"><a class="btn btn-wa" id="quote-link" href="https://wa.me/5527996529832" data-calc-action="whatsapp" data-cta="calculadora_whatsapp" target="_blank" rel="noopener noreferrer">Quero gravar este texto pelo WhatsApp</a></div>
+            <div class="actions"><a class="btn btn-wa" id="quote-link" href="https://wa.me/5527996529832" data-calc-action="whatsapp" data-cta="calculadora_whatsapp" target="_blank" rel="noopener noreferrer">Quero gravar este texto pelo WhatsApp</a><a class="hybrid-online" id="panel-link" href="https://vozes.alocucao.com.br/painel/cadastro" data-cta="calculator_online" target="_blank" rel="noopener">Fazer pedido online</a></div>
             <small>O clique abre uma mensagem para você revisar e enviar no WhatsApp.</small>
-            <div class="secondary-links"><a href="#calc-voices">Ouvir vozes disponíveis</a><a id="panel-link" href="https://vozes.alocucao.com.br/painel/" target="_blank" rel="noopener">Fazer pedido pelo painel</a></div>
+            <p class="hybrid-login"><a href="https://vozes.alocucao.com.br/painel/" data-cta="calculator_login">Já sou cliente — Acessar painel</a></p><div class="secondary-links"><a href="#calc-voices">Ouvir vozes disponíveis</a></div>
             <p>Locutores com gravações entre 10 e 30 minutos, conforme a voz e a disponibilidade. Confirme o prazo do seu pedido.</p><small>Atendimento humano: segunda a sexta, 8h às 18h. Gravações todos os dias até as 22h, inclusive fins de semana e feriados (Brasília).</small>
             <div id="adjust-offer" class="note" hidden><h3>Quer tentar encaixar em até 40 segundos?</h3><p>Nossa equipe pode avaliar como deixar o roteiro mais objetivo, preservando sua mensagem. A possibilidade depende do texto.</p><a class="btn btn-light" href="https://wa.me/5527996529832" data-calc-action="ajuste" target="_blank" rel="noopener">Quero ajuda para ajustar meu texto</a></div>
             <div id="copy-fallback" class="copy-fallback" hidden><p>Seu roteiro é longo para um link de WhatsApp. Copie o texto abaixo e depois continue o atendimento para colá-lo na conversa.</p><label for="copy-text">Roteiro para copiar</label><textarea id="copy-text" readonly></textarea><button id="copy-button" class="btn btn-light" type="button">Copiar roteiro</button><p id="copy-status" role="status"></p><a id="continue-whatsapp" class="btn btn-wa" href="https://wa.me/5527996529832" target="_blank" rel="noopener noreferrer">Continuar no WhatsApp</a></div>
@@ -218,7 +219,7 @@
     <div class="al-footer-about"><a class="al-brand" href="/" aria-label="A Locução — início"><img class="al-logo" src="/assets/brand/a-locucao-logo.png" width="1000" height="252" alt="A Locução" decoding="async"></a><p>Vozes humanas para mensagens que conectam. Locução off e produção de áudio com atendimento online em todo o Brasil.</p><p><strong>Empresa registrada · MEI</strong><br>CNPJ 69.502.587/0001-33<br>69.502.587 MARCIO PEREIRA DE SOUZA</p><p>Av. Firmino Teixeira Griffo, 344, Centro, Brejetuba – ES, CEP 29630-000</p><a href="/sobre/#identificacao">Identificação e contato da empresa</a></div>
     <div><h2>Serviços</h2><a href="/locucao-off/">Locução Off</a><a href="/spot-comercial/">Spot Comercial</a><a href="/vinhetas-para-podcast-e-radio/">Vinhetas</a><a href="/espera-telefonica-ura/">URA e espera telefônica</a><a href="/servicos/">Todos os serviços</a></div>
     <div><h2>Ouça e planeje</h2><a href="/vozes/">Banco de Vozes</a><a href="/portfolio/">Portfólio</a><a href="/precos/">Preços</a><a href="/#como-funciona">Como funciona</a><a href="https://wa.me/5527996529832">Tirar dúvidas pelo WhatsApp</a><a href="/calculadora/">Calculadora de texto</a><a href="/blog/">Blog</a></div>
-    <div><h2>Pedidos e atendimento</h2><a href="https://wa.me/5527996529832" data-cta="rodape_cadastro">Falar pelo WhatsApp</a><a href="/sobre/">Sobre e contato</a><a href="/avaliacoes/">Depoimentos</a><p>Pedidos pelo WhatsApp. Gravações de Locução Off todos os dias, até as 22h, inclusive finais de semana e feriados. Suporte humano de segunda a sexta, das 08h às 18h.</p></div>
+    <div><h2>Pedidos e atendimento</h2><a href="https://vozes.alocucao.com.br/painel/" data-cta="footer_client">Área do Cliente — Acessar painel</a><a class="hybrid-online" href="https://vozes.alocucao.com.br/painel/cadastro" data-cta="online_order">Fazer pedido online</a><a href="https://wa.me/5527996529832" data-cta="rodape_cadastro">Falar pelo WhatsApp</a><a href="/sobre/">Sobre e contato</a><a href="/avaliacoes/">Depoimentos</a><p>Pedidos pelo WhatsApp ou pela Central A Locução. Gravações de Locução Off todos os dias, até as 22h, inclusive finais de semana e feriados. Atendimento pelo WhatsApp: segunda a sexta, das 08h às 18h; sábado, das 08h às 12h, exceto feriados (Brasília).</p></div>
   </div>
   <div class="al-shell al-footer-bottom"><span>© <span id="year">2026</span> A Locução. Todos os direitos reservados.</span><div><a href="/politica-de-privacidade/">Política de privacidade</a><a href="/termos-de-uso/">Termos de uso</a></div></div>
 </footer>

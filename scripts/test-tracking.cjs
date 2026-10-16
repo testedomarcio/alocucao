@@ -54,3 +54,9 @@ assert.equal(branded.calls().filter(c=>c[0]==='event').length,2);
 branded.consent('rejected');branded.click('https://vozes.alocucao.com.br/painel/cadastro');
 assert.equal(branded.calls().filter(c=>c[0]==='event').length,2);
 console.log('PASS: branded panel domain, trailing slash, UET navigation events, consent revocation, landing attribution and lookalike blocking.');
+
+const rootPanel=setup({saved:'accepted'});
+rootPanel.click('https://vozes.alocucao.com.br/painel/');
+assert.equal(rootPanel.calls().find(c=>c[0]==='event')[2].panel_action,'login');
+assert.equal(rootPanel.calls().filter(c=>c[0]==='event').length,1);
+console.log('PASS: official panel root produces exactly one login navigation event.');

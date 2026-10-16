@@ -24,9 +24,7 @@
     const link = event.target instanceof Element ? event.target.closest('a[href]') : null;
     if (!link) return;
     const url = new URL(link.href, location.href);
-    if (url.hostname === 'vozes.alocucao.com.br' && url.pathname.startsWith('/painel/')) {
-      window.alocucaoTrackEvent?.('panel_click', { ...common(link), panel_action: url.pathname.includes('/cadastro') ? 'register' : 'login' });
-    }
+    // Shared tracking.js owns panel_click and whatsapp_click on every page.
     if (link.dataset.offer === 'welcome') window.alocucaoTrackEvent?.('welcome_offer_click', { ...common(link), offer_id: 'first_eligible_order', redemption_channel: 'whatsapp' });
     if (link.dataset.cta === 'all_voices') window.alocucaoTrackEvent?.('voice_bank_click', common(link));
     // Existing tracking.js owns whatsapp_click; packages-landing.js owns package_interest.
