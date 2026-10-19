@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /scripts/
+Disallow: /templates/
+Disallow: /reports/
 
+# Keep public assets crawlable and let crawlers read noindex on retired pages.
+# vozes.alocucao.com.br requires its own robots.txt and authentication.
 Sitemap: https://alocucao.com.br/sitemap.xml
-
