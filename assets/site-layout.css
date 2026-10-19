@@ -23,3 +23,8 @@ footer.al-footer{position:static;display:block;width:100%;height:auto;margin:0;p
 .al-footer .al-footer-bottom #year{display:inline}
 @media(max-width:1100px){.al-header nav.al-nav{flex-wrap:wrap;gap:0;min-height:72px}.al-header .al-menu{width:100%;flex-wrap:wrap;justify-content:flex-start;gap:8px 20px;padding:12px 0 4px}.al-header[data-enhanced] .al-menu-toggle{display:inline-flex;margin-left:auto}.al-header[data-enhanced] .al-menu{display:none}.al-header[data-enhanced] .al-menu.is-open{display:flex}.al-header .al-menu>a.al-header-cta{margin-left:auto}.al-footer .al-footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.al-header .al-shell,.al-footer .al-shell{padding-left:20px;padding-right:20px}.al-header .al-brand,.al-footer .al-brand{font-size:1.2rem}.al-header .al-menu{flex-direction:column;align-items:stretch;gap:0;padding-top:14px;max-height:70vh;overflow-y:auto}.al-header .al-menu>a{padding:12px 4px}.al-header .al-menu>a.al-header-cta{margin:8px 0 4px}.al-footer .al-footer-grid{grid-template-columns:1fr;gap:26px}.al-footer .al-footer-bottom{flex-direction:column;align-items:flex-start;gap:12px}}
+/* Audit 2026-10-19: readable supporting copy and accessible footer controls. */
+.voice-proof .voice-microcopy{color:#475569!important;opacity:1!important}
+.al-footer .al-footer-bottom a,.al-footer>button{display:inline-flex;align-items:center;min-height:44px;min-width:44px;padding:8px 4px;box-sizing:border-box}
+.al-footer>button{margin:8px 24px;cursor:pointer}
+.al-footer button:focus-visible{outline:3px solid #81e0d4;outline-offset:4px}
