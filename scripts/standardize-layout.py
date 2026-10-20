@@ -11,6 +11,9 @@ CSS = '<link rel="stylesheet" href="/assets/site-layout.css?v=20261005-brand">'
 JS = '<script src="/assets/site-layout.js?v=20261002" defer></script>'
 
 def standardize_page(text):
+    # IA has its own catalog, prices and WhatsApp order process.
+    if 'data-catalog="vozes-ia"' in text:
+        return text
     if re.search(r'http-equiv=["\']refresh', text, re.I) or '<body' not in text:
         return text
     if 'data-order-channels="dual"' in text:

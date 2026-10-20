@@ -1,0 +1,276 @@
+[
+  {
+    "id": "will",
+    "name": "Will",
+    "gender": "Masculina",
+    "style": "Varejo energético",
+    "description": "Voz masculina jovem e energética para ofertas, supermercados e campanhas de Black Friday.",
+    "tags": [
+      "Varejo e promoções",
+      "Comercial",
+      "Forte e impactante"
+    ]
+  },
+  {
+    "id": "aida",
+    "name": "Aida",
+    "gender": "Feminina",
+    "style": "Comercial envolvente",
+    "description": "Dinâmica, sorridente e persuasiva, para produtos, anúncios e redes sociais.",
+    "tags": [
+      "Comercial",
+      "Animada e divertida"
+    ]
+  },
+  {
+    "id": "aline-mota",
+    "name": "Aline Mota",
+    "gender": "Feminina",
+    "style": "Firme e impactante",
+    "description": "Voz madura, forte e urgente para chamadas promocionais e comerciais de impacto.",
+    "tags": [
+      "Comercial",
+      "Forte e impactante",
+      "Varejo e promoções"
+    ],
+    "audio": "aline-mota.mp3",
+    "drive_id": "1eSByZ1jWizdmNUKeFx2nuaMKSSti2cCA",
+    "duration": 38
+  },
+  {
+    "id": "noel-natal",
+    "name": "Noel Natal",
+    "gender": "Personagem",
+    "style": "Natalino e festivo",
+    "description": "Papai Noel alegre e caloroso para campanhas natalinas e publicidade temática.",
+    "tags": [
+      "Natalina e temática",
+      "Animada e divertida"
+    ],
+    "audio": "noel-natal.mp3",
+    "drive_id": "1hp-vw2fjRsxbxnDSmdN8cCiUBL4wQnj1",
+    "duration": 40
+  },
+  {
+    "id": "thiago",
+    "name": "Thiago",
+    "gender": "Masculina",
+    "style": "Institucional acolhedor",
+    "description": "Voz profunda, calma e relaxante para comerciais elegantes e comunicação institucional.",
+    "tags": [
+      "Institucional",
+      "Suave e acolhedora"
+    ]
+  },
+  {
+    "id": "mario",
+    "name": "Mário",
+    "gender": "Masculina",
+    "style": "Comercial vibrante",
+    "description": "Voz madura, alegre e animada para publicidade descontraída e vídeos promocionais.",
+    "tags": [
+      "Comercial",
+      "Animada e divertida"
+    ],
+    "audio": "mario.mp3",
+    "drive_id": "1fTxzhOvpmKDcfaV_s9AaXH2-DKp8j3nl",
+    "duration": 37
+  },
+  {
+    "id": "leo-antonio",
+    "name": "Leo Antonio",
+    "gender": "Masculina",
+    "style": "Institucional inspirador",
+    "description": "Voz brasileira calma, acolhedora e confiável para campanhas institucionais e conteúdo educativo.",
+    "tags": [
+      "Institucional",
+      "Suave e acolhedora"
+    ],
+    "audio": "leo-antonio.mp3",
+    "drive_id": "1nTmPDhWf6-mq0GgPtR3rWaO7Cqb6kLuN",
+    "duration": 39
+  },
+  {
+    "id": "ana-alice",
+    "name": "Ana Alice",
+    "gender": "Feminina",
+    "style": "Comercial natural",
+    "description": "Natural, simpática e envolvente para uma comunicação próxima do consumidor.",
+    "tags": [
+      "Comercial"
+    ]
+  },
+  {
+    "id": "koraly",
+    "name": "Koraly",
+    "gender": "Feminina",
+    "style": "Jovem e vibrante",
+    "description": "Voz jovem, brilhante e expressiva para comerciais dinâmicos e vídeos promocionais.",
+    "tags": [
+      "Comercial",
+      "Jovem e descontraída"
+    ],
+    "audio": "koraly.mp3",
+    "drive_id": "12cNKzGj-PCUq9Vmkx-U8ObVMLx2-VUJ1",
+    "duration": 45
+  },
+  {
+    "id": "audrey",
+    "name": "Audrey",
+    "gender": "Feminina",
+    "style": "Comercial energético",
+    "description": "Voz madura e energética para anúncios de produtos e campanhas publicitárias.",
+    "tags": [
+      "Comercial",
+      "Forte e impactante"
+    ],
+    "audio": "audrey.mp3",
+    "drive_id": "1av0TZxzYMuo_EJfcsxyk0hL4Yl4iVrkR",
+    "duration": 38
+  },
+  {
+    "id": "enzo",
+    "name": "Enzo",
+    "gender": "Masculina",
+    "style": "Comercial conversado",
+    "description": "Voz brasileira jovem, calorosa e amigável, ideal para recomendações de produtos.",
+    "tags": [
+      "Comercial",
+      "Jovem e descontraída"
+    ],
+    "audio": "enzo.mp3",
+    "drive_id": "12OVx6GvXkRfS2C-x9DbZEOxUANCUcsI2",
+    "duration": 44
+  },
+  {
+    "id": "lax",
+    "name": "Lax",
+    "gender": "Masculina",
+    "style": "Criativo e descontraído",
+    "description": "Voz jovem, suave e bem-humorada, com um toque sarcástico para campanhas criativas.",
+    "tags": [
+      "Comercial",
+      "Jovem e descontraída"
+    ],
+    "audio": "lax.mp3",
+    "drive_id": "1_PnCmIxTJpmbmlWvniSDlQyuJlpmSPgB",
+    "duration": 34
+  },
+  {
+    "id": "zozo",
+    "name": "Zozo",
+    "gender": "Personagem",
+    "style": "Animado e divertido",
+    "description": "Voz expressiva, alegre e caricata para publicidade divertida e personagens.",
+    "tags": [
+      "Animada e divertida"
+    ],
+    "audio": "zozo.mp3",
+    "drive_id": "1mm_Gq98U85RR_LkDk1FrAfpqMhoB83mW",
+    "duration": 35
+  },
+  {
+    "id": "larissa",
+    "name": "Larissa",
+    "gender": "Feminina",
+    "style": "Jovem e expressiva",
+    "description": "Voz brasileira vibrante, divertida e melódica para comerciais e entretenimento.",
+    "tags": [
+      "Comercial",
+      "Jovem e descontraída"
+    ],
+    "audio": "larissa.mp3",
+    "drive_id": "1HlMJR72anVSt1xaUAxqTpmM2NWprQ2wi",
+    "duration": 44
+  },
+  {
+    "id": "kaique",
+    "name": "Kaique",
+    "gender": "Masculina",
+    "style": "Jovem e clara",
+    "description": "Voz masculina jovem, de sonoridade limpa e clara. Ouça a demonstração para conhecer a interpretação.",
+    "tags": [
+      "Jovem e descontraída"
+    ],
+    "audio": "kaique.mp3",
+    "drive_id": "1ReiP_MlVG_rKlUdyq1GX09fhn2bNbwF2",
+    "duration": 36
+  },
+  {
+    "id": "david",
+    "name": "David",
+    "gender": "Masculina",
+    "style": "Conheça a demonstração",
+    "description": "Ouça a demonstração deste perfil e converse com nossa equipe sobre a aplicação no seu projeto.",
+    "tags": [],
+    "audio": "david.mp3",
+    "drive_id": "1ApUpAnG-ramTKGOV__GggwNEsZMFcXBJ",
+    "duration": 47
+  },
+  {
+    "id": "eduardo-s",
+    "name": "Eduardo S",
+    "gender": "Masculina",
+    "style": "Conheça a demonstração",
+    "description": "Ouça a demonstração deste perfil e converse com nossa equipe sobre a aplicação no seu projeto.",
+    "tags": [],
+    "audio": "eduardo-s.mp3",
+    "drive_id": "1AAqInQZztYur9aKDCLHI4VUwx82Si9pW",
+    "duration": 36
+  },
+  {
+    "id": "roberta",
+    "name": "Roberta",
+    "gender": "Feminina",
+    "style": "Conheça a demonstração",
+    "description": "Ouça a demonstração deste perfil e converse com nossa equipe sobre a aplicação no seu projeto.",
+    "tags": [],
+    "audio": "roberta.mp3",
+    "drive_id": "1CoDDSxkxSveUF8yBeQOV2XnFcT4YxxFS",
+    "duration": 38
+  },
+  {
+    "id": "fernanda",
+    "name": "Fernanda",
+    "gender": "Feminina",
+    "style": "Conheça a demonstração",
+    "description": "Ouça a demonstração deste perfil e converse com nossa equipe sobre a aplicação no seu projeto.",
+    "tags": [],
+    "audio": "fernanda.mp3",
+    "drive_id": "1-_uEZaQzKMvM73Olcpk5sBL7c-daDFfd",
+    "duration": 42
+  },
+  {
+    "id": "amanda-kelly",
+    "name": "Amanda Kelly",
+    "gender": "Feminina",
+    "style": "Conheça a demonstração",
+    "description": "Ouça a demonstração deste perfil e converse com nossa equipe sobre a aplicação no seu projeto.",
+    "tags": [],
+    "audio": "amanda-kelly.mp3",
+    "drive_id": "1TYI9x1NVABD0cUY3DW9KYP9rplT8zed-",
+    "duration": 40
+  },
+  {
+    "id": "cassio-cruz",
+    "name": "Cassio Cruz",
+    "gender": "Masculina",
+    "style": "Conheça a demonstração",
+    "description": "Ouça a demonstração deste perfil e converse com nossa equipe sobre a aplicação no seu projeto.",
+    "tags": [],
+    "audio": "cassio-cruz.mp3",
+    "drive_id": "1M3szgHp37Oj9QOm3r1M03YPoEOWwvkgR",
+    "duration": 40
+  },
+  {
+    "id": "marcio",
+    "name": "Marcio",
+    "gender": "Masculina",
+    "style": "Conheça a demonstração",
+    "description": "Ouça a demonstração deste perfil e converse com nossa equipe sobre a aplicação no seu projeto.",
+    "tags": [],
+    "audio": "marcio.mp3",
+    "drive_id": "1bqYOih7V-knCb0YuxD97aOPU9j4wvC94",
+    "duration": 36
+  }
+]

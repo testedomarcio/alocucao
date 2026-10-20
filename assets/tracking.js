@@ -109,6 +109,7 @@
     if (path.includes("locucao-off") || path.includes("locucao_off")) return "locucao_off";
     if (path.includes("campanha-politica") || path.includes("campanha-eleitoral")) return "campanha_politica";
     if (path.includes("calculadora")) return "calculadora";
+    if (path.includes("vozes-ia")) return "vozes_ia";
     if (path.includes("vozes")) return "banco_de_vozes";
     if (path.includes("portfolio")) return "portfolio";
     if (path === "/" || path === "") return "pagina_inicial";

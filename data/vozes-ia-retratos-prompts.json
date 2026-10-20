@@ -1,0 +1,116 @@
+{
+  "method": "Built-in image_gen",
+  "shared_prompt": "Create one square photorealistic studio headshot for an illustrative synthetic voice profile on A Locução website. Subject: [subject]. Entirely fictional person, not a real voice actor. Head and shoulders, centered, natural skin texture, subtle teal-gray studio background, soft professional lighting, simple navy shirt, friendly professional demeanor. No words, no logos, no collage.",
+  "portraits": [
+    {
+      "id": "will",
+      "subject": "Brazilian man, 28, medium brown skin, short textured hair, energetic smile",
+      "path": "assets/vozes-ia/images/will.webp"
+    },
+    {
+      "id": "aida",
+      "subject": "Italian woman, 35, olive skin, dark shoulder length hair, charismatic smile",
+      "path": "assets/vozes-ia/images/aida.webp"
+    },
+    {
+      "id": "aline-mota",
+      "subject": "Brazilian woman, 44, light brown skin, straight dark hair, confident",
+      "path": "assets/vozes-ia/images/aline-mota.webp"
+    },
+    {
+      "id": "noel-natal",
+      "subject": "fictional Santa Claus, elderly man, white beard, red suit, kind smile",
+      "path": "assets/vozes-ia/images/noel-natal.webp"
+    },
+    {
+      "id": "thiago",
+      "subject": "Brazilian man, 38, dark skin, close cropped hair, serene",
+      "path": "assets/vozes-ia/images/thiago.webp"
+    },
+    {
+      "id": "mario",
+      "subject": "Brazilian man, 50, salt and pepper hair, joyful smile",
+      "path": "assets/vozes-ia/images/mario.webp"
+    },
+    {
+      "id": "leo-antonio",
+      "subject": "Brazilian man, 40, brown skin, short beard, warm smile",
+      "path": "assets/vozes-ia/images/leo-antonio.webp"
+    },
+    {
+      "id": "ana-alice",
+      "subject": "Brazilian woman, 30, dark skin, natural curly hair, friendly",
+      "path": "assets/vozes-ia/images/ana-alice.webp"
+    },
+    {
+      "id": "koraly",
+      "subject": "French woman, 24, fair skin, wavy auburn hair, lively smile",
+      "path": "assets/vozes-ia/images/koraly.webp"
+    },
+    {
+      "id": "audrey",
+      "subject": "woman, 46, dark skin, elegant short curly hair, enthusiastic",
+      "path": "assets/vozes-ia/images/audrey.webp"
+    },
+    {
+      "id": "enzo",
+      "subject": "Brazilian man, 25, olive skin, wavy black hair, relaxed smile",
+      "path": "assets/vozes-ia/images/enzo.webp"
+    },
+    {
+      "id": "lax",
+      "subject": "Portuguese man, 27, fair skin, dark blond hair, playful smirk",
+      "path": "assets/vozes-ia/images/lax.webp"
+    },
+    {
+      "id": "zozo",
+      "subject": "fictional cheerful adult androgynous character, short colorful hair, expressive smile",
+      "path": "assets/vozes-ia/images/zozo.webp"
+    },
+    {
+      "id": "larissa",
+      "subject": "Brazilian woman, 24, brown skin, curly dark hair, sunny smile",
+      "path": "assets/vozes-ia/images/larissa.webp"
+    },
+    {
+      "id": "kaique",
+      "subject": "Brazilian man, 24, light brown skin, short black hair",
+      "path": "assets/vozes-ia/images/kaique.webp"
+    },
+    {
+      "id": "david",
+      "subject": "fictional man, 35, brown skin, short dark hair",
+      "path": "assets/vozes-ia/images/david.webp"
+    },
+    {
+      "id": "eduardo-s",
+      "subject": "fictional man, 42, fair skin, dark hair, glasses",
+      "path": "assets/vozes-ia/images/eduardo-s.webp"
+    },
+    {
+      "id": "roberta",
+      "subject": "fictional woman, 38, brown skin, braided hair",
+      "path": "assets/vozes-ia/images/roberta.webp"
+    },
+    {
+      "id": "fernanda",
+      "subject": "fictional woman, 32, fair skin, wavy brown hair",
+      "path": "assets/vozes-ia/images/fernanda.webp"
+    },
+    {
+      "id": "amanda-kelly",
+      "subject": "fictional woman, 29, brown skin, shoulder length black hair",
+      "path": "assets/vozes-ia/images/amanda-kelly.webp"
+    },
+    {
+      "id": "cassio-cruz",
+      "subject": "fictional man, 45, dark skin, short beard",
+      "path": "assets/vozes-ia/images/cassio-cruz.webp"
+    },
+    {
+      "id": "marcio",
+      "subject": "fictional man, 40, olive skin, short curly hair, no resemblance to any actual person",
+      "path": "assets/vozes-ia/images/marcio.webp"
+    }
+  ]
+}

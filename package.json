@@ -4,7 +4,7 @@
   "description": "A Locução - Site institucional e gerador de páginas de SEO local",
   "main": "scripts/generate-seo-pages.js",
   "scripts": {
-    "build": "node scripts/generate-seo-pages.js",
+    "build": "node scripts/generate-seo-pages.js && python3 scripts/generate-vozes-ia.py",
     "generate-seo": "node scripts/generate-seo-pages.js"
   },
   "author": "A Locução",

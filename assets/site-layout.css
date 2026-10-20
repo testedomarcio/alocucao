@@ -28,3 +28,5 @@ footer.al-footer{position:static;display:block;width:100%;height:auto;margin:0;p
 .al-footer .al-footer-bottom a,.al-footer>button{display:inline-flex;align-items:center;min-height:44px;min-width:44px;padding:8px 4px;box-sizing:border-box}
 .al-footer>button{margin:8px 24px;cursor:pointer}
 .al-footer button:focus-visible{outline:3px solid #81e0d4;outline-offset:4px}
+/* Keep the IA entry within the existing desktop navigation width. */
+@media(min-width:1101px){.al-header .al-menu{gap:12px}.al-header nav.al-nav{gap:16px}}
