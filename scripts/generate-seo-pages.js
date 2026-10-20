@@ -84,7 +84,7 @@ function generatePages() {
         {
           "@type": "Organization", "@id": "https://alocucao.com.br/#organization",
           legalName: "69.502.587 MARCIO PEREIRA DE SOUZA", taxID: "69.502.587/0001-33",
-          address: {"@type": "PostalAddress", "streetAddress": "Av. Firmino Teixeira Griffo, 344, Centro", "addressLocality": "Brejetuba", "addressRegion": "ES", "postalCode": "29630-000", "addressCountry": "BR"},
+          address: {"@type": "PostalAddress", "streetAddress": "Rua Euzebio Cirilo de Souza, 344, Centro", "addressLocality": "Brejetuba", "addressRegion": "ES", "postalCode": "29630-000", "addressCountry": "BR"},
           name: "A Locução", url: "https://alocucao.com.br/", logo: "https://alocucao.com.br/assets/brand/a-locucao-logo.png",
           telephone: "+5527996529832",
           contactPoint: { "@type": "ContactPoint", telephone: "+5527996529832",
@@ -172,4 +172,4 @@ function escapeRegExp(string) {
 generatePages();
 
 // Preserve shared navigation and panel purchase links in regenerated regional pages.
-require("child_process").execFileSync("python3", [path.join(__dirname, "standardize-layout.py")], {stdio: "inherit"});
+require("child_process").execFileSync("python3", [path.join(__dirname, "standardize-layout.py")], {stdio: "inherit"});  
