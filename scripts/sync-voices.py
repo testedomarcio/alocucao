@@ -79,6 +79,8 @@ def atomic_write(path, text):
 def update_schema(voices):
     page = Path('vozes/index.html')
     html = page.read_text(encoding='utf-8')
+    if '<!-- unified-catalog:start -->' in html:
+        return  # The shared generator refreshes these indexable lists in the workflow.
     schema = {'@context':'https://schema.org', '@type':'ItemList', 'name':'Banco de vozes da A Locução', 'numberOfItems':len(voices), 'itemListElement':[{'@type':'ListItem','position':i+1,'item':{'@type':'Person','name':v['name'],'jobTitle':'Profissional de locução'}} for i,v in enumerate(voices)]}
     data = json.dumps(schema, ensure_ascii=False, separators=(',', ':')).replace('<', '\\u003c')
     html = re.sub(r'(<script id="voices-schema" type="application/ld\+json">).*?(</script>)', lambda m: m[1]+data+m[2], html, flags=re.S)

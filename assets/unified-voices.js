@@ -18,14 +18,33 @@
   const row=node('article','uv-row');Object.assign(row.dataset,{id:v.id,name:v.name,gender:v.type||'',styles:v.styles.join('|')});
   const avatar=node('div','uv-avatar');avatar.textContent=v.name[0];
   if(v.photo){const img=node('img');Object.assign(img,{src:v.photo,alt:'Perfil do locutor '+v.name,width:56,height:56,loading:'lazy',decoding:'async'});img.addEventListener('error',()=>img.remove(),{once:true});avatar.append(img)}
-  const identity=node('div','uv-identity');identity.append(node('h3','',v.name),node('p','uv-meta',[v.type,...v.styles].filter(Boolean).join(' · ')),node('p','uv-description','Interpretações disponíveis: '+v.styles.join(', ')+'.'),node('span','uv-status','Disponibilidade sob consulta'));
+  const identity=node('div','uv-identity');identity.append(node('h3','',v.name),node('p','uv-meta',[v.type,...v.styles].filter(Boolean).join(' · ')),node('p','uv-description',v.styles.length?'Interpretações disponíveis: '+v.styles.join(', ')+'.':'Ouça a demonstração para conhecer o estilo desta voz.'),node('span','uv-status','Disponibilidade sob consulta'));
   const controls=node('div','uv-controls'),button=node('button','uv-play','▶ Ouvir');button.type='button';button.setAttribute('aria-label','Ouvir '+v.name);
   const audio=node('audio','uv-audio');audio.controls=true;audio.preload='none';audio.hidden=true;audio.dataset.src=v.audio;audio.dataset.voice=v.name;audio.setAttribute('aria-label','Demonstração de '+v.name);
   const choose=node('a','uv-choose','Escolher esta voz');choose.href='https://wa.me/5527996529832?text='+encodeURIComponent('Olá! Gostei da voz humana '+v.name+' no site A Locução e gostaria de solicitar uma gravação. Origem: https://alocucao.com.br'+origin+'. Podem me orientar?');choose.target='_blank';choose.rel='noopener noreferrer';Object.assign(choose.dataset,{cta:'unified_human_'+v.id,voiceName:v.name,voiceKind:'human'});
   const error=node('p','uv-error','Não foi possível carregar a demonstração. Solicite o áudio pelo WhatsApp.');error.hidden=true;error.setAttribute('role','status');controls.append(button,audio,choose);row.append(avatar,identity,controls,error);return row;
  }
  document.querySelectorAll('.uv-catalog').forEach(root=>{
-  const panels=[];
+  const panels=[];let lastStatusCheck='0',liveAt=0,statusLoading=false,liveFailed=false;const liveStates=new Map();
+  function applyLiveStatuses(){
+   if(liveFailed){const panel=root.querySelector('.uv-panel[data-kind="human"]');if(panel){panel.querySelectorAll('.uv-status').forEach(status=>{status.textContent='Disponibilidade sob consulta';status.classList.remove('uv-online')});panel.querySelector('.uv-sync').textContent='Consulta direta temporariamente indisponível. Confirme o status pelo WhatsApp.';}return;}
+   if(!liveAt||Date.now()-liveAt>90000)return;
+   root.querySelectorAll('.uv-panel[data-kind="human"] .uv-row').forEach(row=>{const state=liveStates.get(row.dataset.id);if(!state)return;const status=row.querySelector('.uv-status');status.textContent=state.label;status.classList.toggle('uv-online',state.online)});
+   const sync=root.querySelector('.uv-panel[data-kind="human"] .uv-sync');
+   if(sync)sync.textContent='Disponibilidade consultada diretamente na fonte oficial. Confirme o prazo ao pedir.';
+  }
+  async function refreshLiveStatuses(){
+   const panel=root.querySelector('.uv-panel[data-kind="human"]');if(!panel||statusLoading||document.hidden)return;statusLoading=true;
+   try{
+    const response=await fetch('https://vozes.alocucao.com.br/check_status.php?loja=382&last_check='+encodeURIComponent(lastStatusCheck),{cache:'no-store',credentials:'omit',signal:AbortSignal.timeout(10000)});
+    if(!response.ok)throw Error('Status indisponível');const data=await response.json();
+    if(data.success!==true||!Array.isArray(data.data)||typeof data.current_timestamp!=='string'||!/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/.test(data.current_timestamp))throw Error('Status inválido');
+    for(const item of data.data){if(!/^\d+$/.test(String(item.id))||typeof item.status_display!=='string'||item.status_display.length>200||!Number.isInteger(Number(item.status_id)))throw Error('Perfil de status inválido');}
+    for(const item of data.data)liveStates.set('vl-'+item.id,{label:item.status_display,online:Number(item.status_id)>=0&&Number(item.status_id)<=7});
+    lastStatusCheck=data.current_timestamp;liveAt=Date.now();liveFailed=false;applyLiveStatuses();
+   }catch(_){liveAt=0;liveFailed=true;lastStatusCheck='0';liveStates.clear();panel.querySelectorAll('.uv-status').forEach(status=>{status.textContent='Disponibilidade sob consulta';status.classList.remove('uv-online')});panel.querySelector('.uv-sync').textContent='Consulta direta temporariamente indisponível. Confirme o status pelo WhatsApp.';
+   }finally{statusLoading=false;}
+  }
   root.querySelectorAll('.uv-panel').forEach(panel=>{
    const list=panel.querySelector('.uv-list'),search=panel.querySelector('.uv-search'),gender=panel.querySelector('.uv-gender'),style=panel.querySelector('.uv-style'),count=panel.querySelector('.uv-count'),more=panel.querySelector('.uv-more');
    let rows=[...list.querySelectorAll('.uv-row')],shown=12;const order=new Map();
@@ -41,7 +60,7 @@
      const fragment=document.createDocumentFragment();rows=data.voices.map(v=>humanRow(v,root.dataset.origin));rows.forEach(row=>fragment.append(row));list.replaceChildren(fragment);
      const selected=style.value;style.replaceChildren(new Option('Todos os estilos',''));[...new Set(data.voices.flatMap(v=>v.styles))].sort().forEach(s=>style.add(new Option(s,s)));style.value=selected;
      const stale=Date.now()-Date.parse(data.fetchedAt)>45*60000;const byId=new Map(data.voices.map(v=>[v.id,v]));rows.forEach(row=>{const v=byId.get(row.dataset.id),status=row.querySelector('.uv-status');status.textContent=stale?'Disponibilidade sob consulta':v.statusLabel||'Sob consulta';status.classList.toggle('uv-online',!stale&&v.status==='recording_online')});
-     sync.textContent='Atualização automática: '+new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Sao_Paulo',dateStyle:'short',timeStyle:'short'}).format(new Date(data.fetchedAt))+'. '+(stale?'Status sob consulta; confirme pelo WhatsApp.':'Condições da fonte oficial; confirme o prazo ao pedir.');sort();filter();
+     sync.textContent='Atualização automática: '+new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Sao_Paulo',dateStyle:'short',timeStyle:'short'}).format(new Date(data.fetchedAt))+'. '+(stale?'Status sob consulta; confirme pelo WhatsApp.':'Condições da fonte oficial; confirme o prazo ao pedir.');sort();filter();applyLiveStatuses();
     }catch(_){rows.forEach(row=>{const status=row.querySelector('.uv-status');status.textContent='Disponibilidade sob consulta';status.classList.remove('uv-online')});sync.textContent='Não foi possível atualizar agora. Ouça as demonstrações disponíveis e confirme a disponibilidade pelo WhatsApp.';}}
    panels.push({panel,refresh});refresh();
   });
@@ -53,7 +72,8 @@
   });
   root.addEventListener('play',event=>{const audio=event.target;if(!(audio instanceof HTMLMediaElement))return;document.querySelectorAll('audio').forEach(other=>{if(other!==audio)other.pause()});const row=audio.closest('.uv-row');row.querySelector('.uv-play').textContent='❚❚ Pausar';row.querySelector('.uv-error').hidden=true;track('voice_demo_play',{voice_name:audio.dataset.voice,voice_kind:row.closest('.uv-panel').dataset.kind})},true);
   for(const name of ['pause','ended'])root.addEventListener(name,event=>{const button=event.target.closest('.uv-row')?.querySelector('.uv-play');if(button)button.textContent='▶ Ouvir'},true);
-  root.addEventListener('error',event=>{const row=event.target.closest?.('.uv-row');if(row){row.querySelector('.uv-error').hidden=false;row.querySelector('.uv-play').textContent='▶ Tentar novamente'}},true);
-  const refresh=()=>{catalogPromise=undefined;panels.forEach(p=>p.refresh())};setInterval(()=>{if(!document.hidden)refresh()},5*60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh()});
+  root.addEventListener('error',event=>{if(!(event.target instanceof HTMLMediaElement))return;const row=event.target.closest?.('.uv-row');if(row){row.querySelector('.uv-error').hidden=false;row.querySelector('.uv-play').textContent='▶ Tentar novamente'}},true);
+  const refresh=()=>{catalogPromise=undefined;panels.forEach(p=>p.refresh());refreshLiveStatuses()};setInterval(()=>{if(!document.hidden)refresh()},5*60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh()});
+  if(panels.some(p=>p.panel.dataset.kind==='human')){refreshLiveStatuses();setInterval(refreshLiveStatuses,30000);}
  });
 })();

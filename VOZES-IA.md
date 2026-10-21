@@ -10,7 +10,7 @@ Acesso direto: https://alocucao.com.br/vozes-ia/#banco-de-vozes
 2. Baixe o original da pasta Drive indicada pelo proprietário, sem o modificar. Coloque uma cópia otimizada em `assets/vozes-ia/audio/<id>.mp3`. Exemplo: `ffmpeg -i original.mp3 -map_metadata -1 -ac 1 -ar 44100 -codec:a libmp3lame -b:a 96k <id>.mp3`.
 3. Adicione `"audio": "<id>.mp3"` e `"duration": 40` (duração real em segundos) ao perfil. Na ausência do campo de áudio, a página exibe “Demonstração em breve”. Kaique corresponde ao arquivo Kaike.mp3 fornecido no Drive.
 4. Use retratos fictícios em `assets/vozes-ia/images/<id>.webp`. Eles representam perfis sintéticos, sem afirmar a identidade de pessoas reais.
-5. Execute `python3 scripts/generate-vozes-ia.py`, verifique os arquivos e publique pelo fluxo GitHub Pages existente. O HTML é pré-renderizado; não depende de JS para exibir o catálogo.
+5. Execute `npm run build` para regenerar a página IA e todas as listas compartilhadas, verifique os arquivos e publique pelo fluxo GitHub Pages existente. O HTML é pré-renderizado; não depende de JS para exibir o catálogo.
 
 Não há sincronização automática com o Drive. Novos arquivos exigem atualização e publicação. O script não baixa áudios nem altera os originais.
 

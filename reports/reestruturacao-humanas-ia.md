@@ -13,13 +13,15 @@ Catálogos: `/vozes/` apresenta ambas as modalidades; `/locutores/` apresenta hu
 
 ## Atualização humana automática
 
-A fonte continua sendo `https://vozes.alocucao.com.br/`. O catálogo público `locutoresData` é consultado e validado pelo sincronizador já existente, sem login, dados privados ou alteração na origem. A resposta pública não apresentou um endpoint JSON com CORS utilizável diretamente pelo navegador; foi aproveitado o mecanismo autorizado já existente.
+A fonte continua sendo `https://vozes.alocucao.com.br/`. O catálogo público `locutoresData` é consultado e validado pelo sincronizador já existente, sem login, dados privados ou alteração na origem. Também foi identificada e testada a API pública `check_status.php` da própria vitrine, com CORS habilitado e escopo da loja 382, conforme o código público da fonte.
 
-O workflow `sync-voices.yml` consulta a fonte a cada 15 minutos, sujeito a atrasos do GitHub Actions, atualiza o JSON público e regenera as listas indexáveis das páginas. O navegador consulta o JSON com `cache: no-store` ao abrir, ao retornar à aba e a cada cinco minutos. O total é calculado pelos dados. Estados humanos seguem a fonte: não são convertidos em Online. Após 45 minutos sem atualização válida, a disponibilidade aparece sob consulta. A última versão é preservada quando a fonte falha.
+O workflow `sync-voices.yml` consulta a fonte a cada 15 minutos, sujeito a atrasos do GitHub Actions, atualiza o JSON público e regenera as listas indexáveis das páginas. O navegador consulta esse JSON ao abrir, ao retornar à aba e a cada cinco minutos para atualizar perfis e totais. A disponibilidade é consultada diretamente na API pública a cada 30 segundos, somente com a página visível, por atualizações incrementais e sem credenciais. A resposta é validada e usada como texto, ignorando o HTML enviado pela origem. Os status não mudam a ordem da lista nem interrompem áudios.
+
+O total é calculado pelos dados. Estados humanos seguem a fonte: não são convertidos em Online. O cache periódico com mais de 45 minutos aparece sob consulta quando não há status direto válido; uma falha na consulta direta também mostra disponibilidade sob consulta até a próxima tentativa. Os áudios e perfis continuam disponíveis mesmo quando o status não pode ser consultado.
 
 Não se trata de disponibilidade instantânea. A interface mostra a data da atualização e orienta a confirmação do prazo. A sincronização de IA com o Drive continua manual: novas demonstrações precisam ser integradas e publicadas.
 
-A primeira execução do workflow após a publicação encontrou timeout de conexão ao servidor de origem. Foram adicionadas até três tentativas para falhas transitórias de rede (sem repetir erros de autorização nem aceitar dados inválidos). A consulta local foi bem-sucedida; o catálogo publicado preserva os últimos dados válidos e o tratamento de status desatualizado.
+A primeira execução do workflow após a publicação encontrou timeout de conexão ao servidor de origem. Foram adicionadas até três tentativas para falhas transitórias de rede (sem repetir erros de autorização nem aceitar dados inválidos). A execução seguinte passou, atualizando o catálogo automaticamente. O catálogo publicado preserva os últimos dados válidos e o tratamento de falhas.
 
 ## Interface e conteúdo
 
