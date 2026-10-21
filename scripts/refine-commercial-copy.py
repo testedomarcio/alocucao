@@ -48,6 +48,7 @@ COPY={
 def plain(v):return unescape(re.sub('<[^>]*>','',v)).strip()
 def update(text,route):
  old=text
+ text=text.replace('Com Vozes Naturais.', 'Com Vozes Naturais (IA).').replace('Com Vozes Naturais ·', 'Com Vozes Naturais (IA) ·')
  # Label changes only, not educational prose or SEO terms.
  def labels(m):
   body=m[2]
