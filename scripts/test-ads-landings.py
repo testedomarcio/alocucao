@@ -6,13 +6,14 @@ from urllib.parse import urlsplit,parse_qs,unquote
 import json,re,runpy,unittest
 ROOT=Path(__file__).resolve().parent.parent
 HUMAN=['off-comercial','locucao-off','producao-para-igrejas','gravacao-off-e-producao','producao-para-supermercados','spot-black-friday']
+TABBED=['spot-comercial','locucao-off','producao-para-igrejas','gravacao-off-e-producao','producao-para-supermercados']
 class Page(HTMLParser):
  def __init__(self,text):
   super().__init__();self.tags=[];self.feed(text)
  def handle_starttag(self,tag,attrs):self.tags.append((tag,dict(attrs)))
 class Landings(unittest.TestCase):
  def test_routes_and_commercial_boundaries(self):
-  for route in HUMAN+['locucao-ia']:
+  for route in list(dict.fromkeys(HUMAN+TABBED+['locucao-ia'])):
    with self.subTest(route=route):
     text=(ROOT/route/'index.html').read_text();p=Page(text)
     self.assertEqual(len(re.findall('<h1[ >]',text)),1)
@@ -20,8 +21,13 @@ class Landings(unittest.TestCase):
     self.assertNotIn('noindex',text);self.assertNotIn('http-equiv="refresh"',text)
     self.assertTrue(any(tag=='meta' and attrs.get('name')=='description' and attrs.get('content') for tag,attrs in p.tags))
     panels=[a.get('data-kind') for tag,a in p.tags if a.get('class')=='uv-panel']
-    self.assertEqual(panels,['ia' if route=='locucao-ia' else 'human'])
-    if route in HUMAN:
+    self.assertEqual(panels,['human','ia'] if route in TABBED else ['ia' if route=='locucao-ia' else 'human'])
+    if route in TABBED:
+     self.assertIn('data-layout="tabs"',text)
+     self.assertIn('data-active="human"',text)
+     self.assertIn('Com voz IA.',text) if route!='gravacao-off-e-producao' else self.assertIn('Valores para vozes IA.',text)
+     self.assertNotIn('Duas opções de voz. Preços claros para escolher.',text)
+    elif route in HUMAN:
      plain=re.sub(r'<script\b.*?</script>','',text,flags=re.S)
      self.assertNotRegex(plain,r'(?i)vozes? IA|inteligência artificial|R\$ 8,50|R\$ 19,00|/vozes-ia/')
      self.assertEqual(len(re.findall('class="uv-row"',text)),10)
@@ -40,7 +46,7 @@ class Landings(unittest.TestCase):
  def test_build_preserves_target_pages(self):
   normalize=runpy.run_path(str(ROOT/'scripts/standardize-layout.py'))['standardize_page']
   update=runpy.run_path(str(ROOT/'scripts/review-dual-positioning.py'))['update']
-  for route in HUMAN+['locucao-ia']:
+  for route in list(dict.fromkeys(HUMAN+TABBED+['locucao-ia'])):
    path=ROOT/route/'index.html';text=path.read_text();self.assertEqual(normalize(text),text);self.assertEqual(update(text,path),text)
  def test_portfolio_and_distinct_off(self):
   self.assertIn('/assets/audio/igreja-evangelica-monte-moria.mp3',(ROOT/'producao-para-igrejas/index.html').read_text())
