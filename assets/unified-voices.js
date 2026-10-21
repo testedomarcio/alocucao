@@ -16,8 +16,9 @@
  const node=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e};
  function humanRow(v,origin){
   const row=node('article','uv-row');Object.assign(row.dataset,{id:v.id,name:v.name,gender:v.type||'',styles:v.styles.join('|')});
-  const avatar=node('div','uv-avatar');avatar.textContent=v.name[0];
-  if(v.photo){const img=node('img');Object.assign(img,{src:v.photo,alt:'Perfil do locutor '+v.name,width:56,height:56,loading:'lazy',decoding:'async'});img.addEventListener('error',()=>img.remove(),{once:true});avatar.append(img)}
+  const avatar=node('div','uv-avatar');
+  if(v.photo){const img=node('img');Object.assign(img,{src:v.photo,alt:'Perfil do locutor '+v.name,width:56,height:56,loading:'lazy',decoding:'async'});avatar.append(img)}
+  else avatar.textContent=v.name.trim().charAt(0);
   const identity=node('div','uv-identity');identity.append(node('h3','',v.name),node('p','uv-meta',[v.type,...v.styles].filter(Boolean).join(' · ')),node('p','uv-description',v.styles.length?'Interpretações disponíveis: '+v.styles.join(', ')+'.':'Ouça a demonstração para conhecer o estilo desta voz.'),node('span','uv-status','Disponibilidade sob consulta'));
   const controls=node('div','uv-controls'),button=node('button','uv-play','▶ Ouvir');button.type='button';button.setAttribute('aria-label','Ouvir '+v.name);
   const audio=node('audio','uv-audio');audio.controls=true;audio.preload='none';audio.hidden=true;audio.dataset.src=v.audio;audio.dataset.voice=v.name;audio.setAttribute('aria-label','Demonstração de '+v.name);
@@ -71,9 +72,11 @@
    if(link)track('voice_select',{voice_name:link.dataset.voiceName,voice_kind:link.dataset.voiceKind,cta_id:link.dataset.cta});
   });
   root.addEventListener('play',event=>{const audio=event.target;if(!(audio instanceof HTMLMediaElement))return;document.querySelectorAll('audio').forEach(other=>{if(other!==audio)other.pause()});const row=audio.closest('.uv-row');row.querySelector('.uv-play').textContent='❚❚ Pausar';row.querySelector('.uv-error').hidden=true;track('voice_demo_play',{voice_name:audio.dataset.voice,voice_kind:row.closest('.uv-panel').dataset.kind})},true);
+  root.addEventListener('change',event=>{if(!event.target.matches('.uv-demo-select'))return;const row=event.target.closest('.uv-row'),audio=row.querySelector('audio');audio.pause();audio.removeAttribute('src');audio.load();audio.hidden=true;audio.dataset.src=event.target.value;row.querySelector('.uv-play').textContent='▶ Ouvir';row.querySelector('.uv-error').hidden=true;});
   for(const name of ['pause','ended'])root.addEventListener(name,event=>{const button=event.target.closest('.uv-row')?.querySelector('.uv-play');if(button)button.textContent='▶ Ouvir'},true);
-  root.addEventListener('error',event=>{if(!(event.target instanceof HTMLMediaElement))return;const row=event.target.closest?.('.uv-row');if(row){row.querySelector('.uv-error').hidden=false;row.querySelector('.uv-play').textContent='▶ Tentar novamente'}},true);
+  root.addEventListener('error',event=>{if(event.target.matches?.('.uv-avatar img')){const avatar=event.target.parentElement;avatar.textContent=avatar.closest('.uv-row')?.dataset.name.trim().charAt(0)||'?';return;}if(!(event.target instanceof HTMLMediaElement))return;const row=event.target.closest?.('.uv-row');if(row){row.querySelector('.uv-error').hidden=false;row.querySelector('.uv-play').textContent='▶ Tentar novamente'}},true);
   const refresh=()=>{catalogPromise=undefined;panels.forEach(p=>p.refresh());refreshLiveStatuses()};setInterval(()=>{if(!document.hidden)refresh()},5*60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh()});
   if(panels.some(p=>p.panel.dataset.kind==='human')){refreshLiveStatuses();setInterval(refreshLiveStatuses,30000);}
+  root.querySelectorAll('.uv-avatar img').forEach(img=>{if(img.complete&&img.naturalWidth===0)img.parentElement.textContent=img.closest('.uv-row').dataset.name.trim().charAt(0);});
  });
 })();

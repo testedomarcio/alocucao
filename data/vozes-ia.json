@@ -9,7 +9,10 @@
       "Varejo e promoções",
       "Comercial",
       "Forte e impactante"
-    ]
+    ],
+    "audio": "will.mp3",
+    "drive_id": "1ZHbJFZIuOw2inmBaICmtghLsMgJX_rvq",
+    "duration": 33
   },
   {
     "id": "aida",
@@ -20,7 +23,10 @@
     "tags": [
       "Comercial",
       "Animada e divertida"
-    ]
+    ],
+    "audio": "aida.mp3",
+    "drive_id": "17PiFnthgjR_TZ1Zq4GSUPvwhcsXaMdWf",
+    "duration": 36
   },
   {
     "id": "aline-mota",
@@ -98,7 +104,10 @@
     "description": "Natural, simpática e envolvente para uma comunicação próxima do consumidor.",
     "tags": [
       "Comercial"
-    ]
+    ],
+    "audio": "ana-alice.mp3",
+    "drive_id": "1O5YYNYIlvJ6NRTXn0J0CnjvUfpf2V1Iv",
+    "duration": 36
   },
   {
     "id": "koraly",
@@ -205,7 +214,15 @@
     "tags": [],
     "audio": "david.mp3",
     "drive_id": "1ApUpAnG-ramTKGOV__GggwNEsZMFcXBJ",
-    "duration": 47
+    "duration": 47,
+    "additional_demos": [
+      {
+        "audio": "david-nova.mp3",
+        "label": "Nova demonstração",
+        "drive_id": "1S6KM6e3wYbHVSAlolGxdTxBSfj3ltIGU",
+        "duration": 33
+      }
+    ]
   },
   {
     "id": "eduardo-s",
@@ -272,5 +289,43 @@
     "audio": "marcio.mp3",
     "drive_id": "1bqYOih7V-knCb0YuxD97aOPU9j4wvC94",
     "duration": 36
+  },
+  {
+    "id": "leonardo",
+    "name": "Leonardo",
+    "gender": "Masculina",
+    "style": "Profunda e ressonante",
+    "description": "Graves quentes e tom imponente para narrativas marcantes e documentários.",
+    "tags": [
+      "Narrativa",
+      "Forte e impactante"
+    ],
+    "audio": "leonardo.mp3",
+    "drive_id": "17Ubfr7GzPmUy6d_VwkPkkxU7ct9LRfOi",
+    "duration": 45
+  },
+  {
+    "id": "leonardo-br",
+    "name": "Leonardo BR",
+    "gender": "Masculina",
+    "style": "Conheça a demonstração",
+    "description": "Ouça este perfil e converse com nossa equipe sobre a aplicação no seu projeto.",
+    "tags": [],
+    "audio": "leonardo-br.mp3",
+    "drive_id": "1qgC7CU2-Qjv09xnswBkICy15a-OYcvqb",
+    "duration": 41
+  },
+  {
+    "id": "christine",
+    "name": "Christine",
+    "gender": "Feminina",
+    "style": "Dinâmica e narrativa",
+    "description": "Expressão dinâmica e fluida, com energia para apresentações e foco para narrações.",
+    "tags": [
+      "Narrativa"
+    ],
+    "audio": "christine.mp3",
+    "drive_id": "1_AUPJqHrSw7s7JLe8JlN3INcPymPru4f",
+    "duration": 40
   }
 ]

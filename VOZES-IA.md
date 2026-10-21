@@ -18,6 +18,6 @@ Não há sincronização automática com o Drive. Novos arquivos exigem atualiza
 
 O catálogo reutiliza `alocucaoTrackEvent` e o consentimento existentes. Eventos GA4: `ia_demo_play`, `ia_voice_select`, `ia_filter_select`. Cliques WhatsApp usam o evento global `whatsapp_click`, com `service_name=vozes_ia`, origem, campanha e `cta_id`; o evento global também alimenta UET. Nenhuma meta de conversão nova foi configurada nas plataformas de anúncios.
 
-## Pendentes no momento da implementação
+## Sincronização de 21/10/2026
 
-Will, Aida, Thiago e Ana Alice sem áudio na pasta lida. David, Eduardo S, Roberta, Fernanda, Amanda Kelly, Cassio Cruz e Marcio usam descrição neutra até confirmação do perfil vocal.
+25 arquivos de áudio conferidos: sete novos integrados. Will, Aida e Ana Alice agora têm áudio. Leonardo, Leonardo BR e Christine são novos perfis. David mantém a demonstração original e oferece a nova em um seletor; `additional_demos` registra arquivo, rótulo, duração e origem. Thiago continua sem arquivo correspondente. David, Eduardo S, Roberta, Fernanda, Amanda Kelly, Cassio Cruz e Marcio usam descrição neutra até confirmação do perfil vocal.

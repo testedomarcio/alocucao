@@ -111,6 +111,21 @@
       "id": "marcio",
       "subject": "fictional man, 40, olive skin, short curly hair, no resemblance to any actual person",
       "path": "assets/vozes-ia/images/marcio.webp"
+    },
+    {
+      "id": "leonardo",
+      "subject": "fictional adult Brazilian man, short black hair, brown skin",
+      "path": "assets/vozes-ia/images/leonardo.webp"
+    },
+    {
+      "id": "leonardo-br",
+      "subject": "fictional adult Brazilian man, medium brown wavy hair, fair skin, short beard",
+      "path": "assets/vozes-ia/images/leonardo-br.webp"
+    },
+    {
+      "id": "christine",
+      "subject": "fictional adult woman, dark skin, shoulder length curly hair",
+      "path": "assets/vozes-ia/images/christine.webp"
     }
   ]
 }

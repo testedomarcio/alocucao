@@ -4,7 +4,7 @@ from pathlib import Path
 import html, json, re
 from urllib.parse import quote
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = '20261021-unified-live'
+VERSION = '20261021-avatar-demos'
 def esc(value): return html.escape(str(value), quote=True)
 def rows(kind):
     if kind == 'human':
@@ -16,6 +16,11 @@ def row(v, kind, origin):
     photo=f'<img src="{esc(v["photo"])}" alt="{esc("Retrato ilustrativo da voz IA " if kind=="ia" else "Perfil do locutor ")}{esc(name)}" width="56" height="56" loading="lazy" decoding="async">' if v.get('photo') else f'<span>{esc(name[:1])}</span>'
     styles=v.get('styles',[]);description=v.get('description') or ('Interpretações disponíveis: '+', '.join(styles)+'.' if styles else 'Ouça a demonstração para conhecer o estilo desta voz.')
     media=(f'<button class="uv-play" type="button" aria-label="Ouvir {esc(name)}">▶ Ouvir</button><audio class="uv-audio" hidden controls preload="none" data-src="{esc(v["audio"])}" data-voice="{esc(name)}" aria-label="Demonstração de {esc(name)}"></audio>' if v.get('audio') else '<span class="uv-pending">Demonstração em breve</span>')
+    if v.get('audio') and v.get('additional_demos'):
+        options='<option value="'+esc(v['audio'])+'">Demonstração original</option>'
+        for demo in v['additional_demos']:
+            options+='<option value="/assets/vozes-ia/audio/'+esc(demo['audio'])+'">'+esc(demo['label'])+'</option>'
+        media='<label class="uv-demo-label">Demonstração<select class="uv-demo-select">'+options+'</select></label>'+media
     status='● Online' if kind=='ia' else 'Disponibilidade sob consulta'
     return f'''<article class="uv-row" data-id="{esc(v['id'])}" data-name="{esc(name)}" data-gender="{esc(v.get('type',''))}" data-styles="{esc('|'.join(styles))}"><div class="uv-avatar">{photo}</div><div class="uv-identity"><h3>{esc(name)}{' <small>Voz IA</small>' if kind=='ia' else ''}</h3><p class="uv-meta">{esc(v.get('type',''))} · {esc(v.get('style') or ' · '.join(styles))}</p><p class="uv-description">{esc(description)}</p><span class="uv-status{' uv-online' if kind=='ia' else ''}">{status}</span></div><div class="uv-controls">{media}<a class="uv-choose" href="https://wa.me/5527996529832?text={quote(message)}" target="_blank" rel="noopener noreferrer" data-cta="unified_{kind}_{esc(v['id'])}" data-voice-name="{esc(name)}" data-voice-kind="{kind}">Escolher esta voz</a></div><p class="uv-error" hidden role="status">Não foi possível carregar a demonstração. Solicite o áudio pelo WhatsApp.</p></article>'''
 def render_catalog(mode='both', origin='/vozes/'):
