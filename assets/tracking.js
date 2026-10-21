@@ -92,6 +92,8 @@
 
   function serviceFromPath(pathname) {
     const path = String(pathname || "").toLowerCase();
+    if (path.includes("locucao-ia")) return "locucao_ia";
+    if (path.includes("off-comercial")) return "off_comercial";
     if (path.includes("gravacao-off-e-producao")) return "pacotes_off_producao";
     if (path.includes("perfil-locutor-")) return "perfil_locutor";
     if (path.includes("produtora-de-audio-")) return "servico_regional";
@@ -184,6 +186,9 @@
       page_title: cleanLabel(document.title),
       service_name: serviceFromPath(window.location.pathname),
       cta_id: cleanLabel(link.dataset.cta || link.id || "whatsapp_link"),
+      voice_kind: cleanLabel(link.dataset.voiceKind || (window.location.pathname.includes("locucao-ia") || window.location.pathname.includes("vozes-ia") ? "ia" : ["/off-comercial/","/locucao-off/","/producao-para-igrejas/","/gravacao-off-e-producao/","/producao-para-supermercados/","/spot-black-friday/"].includes(window.location.pathname) ? "human" : "nao_informado")),
+      voice_name: cleanLabel(link.dataset.voiceName),
+      service_selected: cleanLabel(link.dataset.service || "a_confirmar"),
       cta_label: cleanLabel(link.textContent || link.getAttribute("aria-label") || "WhatsApp"),
       traffic_source: attribution.source,
       traffic_medium: attribution.medium,

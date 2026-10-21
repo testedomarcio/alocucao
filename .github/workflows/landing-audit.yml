@@ -1,0 +1,29 @@
+name: Validar landing pages comerciais
+on:
+  pull_request:
+    paths: ['**/*.html', 'assets/**', 'scripts/**', 'package.json', '.github/workflows/landing-audit.yml']
+  push:
+    branches: [main]
+    paths: ['**/*.html', 'assets/**', 'scripts/**', 'package.json', '.github/workflows/landing-audit.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm run build
+      - run: python3 scripts/test-ads-landings.py
+      - run: node scripts/test-black-friday.cjs
+      - run: node scripts/test-tracking.cjs
+      - run: python3 scripts/test-voice-migration.py
+      - run: node scripts/test-calculator.cjs
+      - run: python3 scripts/seo-consistency.py
+      - run: node --check assets/unified-voices.js && node --check assets/tracking.js

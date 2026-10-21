@@ -48,6 +48,8 @@ def metadata(text,title,description,h1=None):
     return re.sub(r'<script type="application/ld\+json">(.*?)</script>',schema,text,flags=re.S)
 def update(text,path):
     route=path.parent.relative_to(ROOT).as_posix();route='' if route=='.' else route
+    if route in {'off-comercial','locucao-off','producao-para-igrejas','gravacao-off-e-producao','producao-para-supermercados','spot-black-friday','locucao-ia'}:
+        return text
     text=text.replace('<a href="/vozes/#banco-de-vozes">Ouvir vozes humanas e IA</a>', '<a href="/vozes/#banco-de-vozes">Ouvir vozes humanas</a> · <a href="/vozes-ia/#banco-de-vozes">Ouvir vozes IA</a>')
     # Shared identity is updated on all pages, including human-only profiles.
     text=text.replace(FOOTER_OLD,FOOTER_NEW)

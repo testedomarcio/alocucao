@@ -11,6 +11,8 @@ CSS = '<link rel="stylesheet" href="/assets/site-layout.css?v=20261005-brand">'
 JS = '<script src="/assets/site-layout.js?v=20261002" defer></script>'
 
 def standardize_page(text):
+    if 'data-landing-kind=' in text:
+        return text
     if 'data-business-positioning="dual"' in text:
         return text
     # IA has its own catalog, prices and WhatsApp order process.

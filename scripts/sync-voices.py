@@ -55,7 +55,8 @@ def parse_catalog(payload):
         seen.add(native_id)
         gender = normalize_name(row.get('sexo'))
         label = plain_html(row.get('display') or row.get('status') or 'Sob consulta')
-        status = 'recording_online' if re.search(r'\d.*(?:minuto|hora)', normalize_name(label)) and not 'offline' in normalize_name(label) else 'unavailable'
+        normalized = normalize_name(label)
+        status = ('offline' if 'offline' in normalized else 'unavailable' if 'indisponivel' in normalized else 'returning' if 'volta' in normalized else 'recording_online' if re.search(r'\d.*(?:min|hora)', normalized) else 'unknown')
         media = safe_url(urljoin(SOURCE, row.get('demo_principal_url') or row.get('demo_url') or ''), {'vozes.alocucao.com.br'})
         if urlsplit(media).path not in ['/midia.php', '/download-audio.php']:
             raise ValueError('Unexpected official demo endpoint')
