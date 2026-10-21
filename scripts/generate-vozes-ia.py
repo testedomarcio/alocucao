@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Render the crawlable IA catalog from data/vozes-ia.json."""
 from pathlib import Path
-import json, html, urllib.parse
+import json, html, urllib.parse, re, runpy
 ROOT = Path(__file__).resolve().parent.parent
 esc = html.escape
 voices = json.loads((ROOT/'data/vozes-ia.json').read_text())
@@ -39,6 +39,11 @@ page=f'''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta nam
 <section class="ia-section"><div class="ia-shell ia-two"><div><span class="ia-eyebrow">Duas opções, a sua escolha</span><h2>Voz IA ou voz humana?</h2><p>Vozes IA oferecem economia, consistência e agilidade. Vozes humanas podem oferecer maior espontaneidade, nuances emocionais e interpretação personalizada.</p><p>A melhor escolha depende da mensagem e da interpretação que você procura. A Locução oferece as duas opções.</p><a class="ia-secondary" href="https://vozes.alocucao.com.br/">Ouvir vozes humanas ↗</a></div><div class="ia-process"><h2>Como contratar</h2><ol><li>Ouça as demonstrações.</li><li>Escolha sua voz favorita.</li><li>Envie seu texto pelo WhatsApp.</li><li>Receba as orientações para solicitar a gravação.</li></ol>{cta()}</div></div></section>
 <section id="duvidas" class="ia-section ia-soft"><div class="ia-shell ia-faq"><span class="ia-eyebrow">Vamos tirar suas dúvidas</span><h2>Perguntas frequentes</h2>{''.join('<details><summary>'+q+'</summary><p>'+a+'</p></details>' for q,a in faq)}</div></section>
 <section class="ia-section ia-final"><div class="ia-shell"><h2>Encontrou a voz perfeita para sua marca?</h2><p>Envie sua ideia e escolha com a nossa equipe a locução para sua próxima campanha.</p>{cta('Solicitar minha locução',location='final')}<p class="ia-disclosure">As imagens das vozes são meramente ilustrativas, criadas para representar visualmente os perfis de inteligência artificial. As demonstrações de áudio são geradas por tecnologia de síntese de voz.</p></div></section></main>{footer}</body></html>'''
+shared = runpy.run_path(str(ROOT/'scripts/unified-catalog.py'))
+page = re.sub(r'<section id="banco-de-vozes".*?</section>', lambda _: '<section id="banco-de-vozes" class="ia-section ia-catalog"><div class="ia-shell"><span class="ia-eyebrow">Dê play na sua próxima campanha</span><h2>Escolha sua Voz IA</h2>'+shared['render_catalog']('ia','/vozes-ia/')+'</div></section>', page, count=1, flags=re.S)
+page = page.replace('<script src="/assets/vozes-ia/catalog.js?v=20261021-shuffle" defer></script>', '')
+page = page.replace('https://vozes.alocucao.com.br/">Ouvir vozes humanas', '/locutores/">Ouvir vozes humanas')
+page = shared['install_assets'](page)
 (ROOT/'vozes-ia').mkdir(exist_ok=True)
 (ROOT/'vozes-ia/index.html').write_text(page)
 print(f'Rendered {len(voices)} voices; {sum(bool(v.get("audio")) for v in voices)} demos')

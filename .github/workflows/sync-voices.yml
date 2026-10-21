@@ -8,6 +8,7 @@ on:
     paths:
       - scripts/sync-voices.py
       - scripts/generate-featured-voices.py
+      - scripts/unified-catalog.py
       - .github/workflows/sync-voices.yml
 permissions:
   contents: write
@@ -25,8 +26,8 @@ jobs:
           python-version: '3.12'
       - name: Consultar e validar catálogo oficial
         run: python scripts/sync-voices.py
-      - name: Atualizar seleção sem status nas páginas de conversão
-        run: python scripts/generate-featured-voices.py
+      - name: Atualizar listas humanas e IA nas páginas
+        run: python scripts/unified-catalog.py
       - name: Publicar catálogo atualizado
         run: |
           git config user.name "A Locução Catálogo"
