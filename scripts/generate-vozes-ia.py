@@ -37,7 +37,7 @@ page=f'''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta nam
 <section id="precos" class="ia-section al-pricing-section"><div class="ia-shell">
   <div class="section-head text-center">
     <span class="ia-eyebrow">Transparência em Preços e Pacotes</span>
-    <h2 class="al-section-title">Tabela de Preços para Vozes IA e Comparativo Humano</h2>
+    <h2 class="al-section-title">Tabela de Preços para Vozes Naturais (IA) e Comparativo Humano</h2>
     <p class="al-section-subtitle">Economize contratando avulso ou em pacotes de créditos. Compare os valores para Vozes IA e Locutores Humanos.</p>
   </div>
 
@@ -47,109 +47,140 @@ page=f'''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta nam
   </div>
 
   <div class="al-pricing-dual-grid">
-    <!-- Coluna Vozes IA -->
+    <!-- Grupo: Vozes IA -->
     <div class="al-pricing-column ia">
       <div class="al-pricing-col-header">
-        <span class="badge">🤖 Vozes IA</span>
-        <h3>Valores de Vozes IA</h3>
+        <h3>Vozes IA</h3>
+        <span class="badge">🤖 Vozes Naturais</span>
       </div>
 
-      <div class="al-price-card popular">
-        <span class="al-price-tag-popular">Off IA Avulso</span>
-        <div class="al-price-card-title">Locução Off IA (Avulsa)</div>
-        <p style="font-size:0.875rem;color:var(--al-text-muted);margin:0 0 8px;">Somente a voz gerada por IA, sem trilha e sem efeitos.</p>
-        <div class="al-price-main">
-          <span class="al-price-value">R$ 8,50</span>
-          <span class="al-price-unit">/ crédito</span>
+      <div class="al-pricing-group-body">
+        <!-- Serviço: Locução Off IA -->
+        <div class="al-service-block">
+          <div class="al-service-block-header">
+            <h4 class="al-service-title">Locução Off IA</h4>
+            <p class="al-service-desc">Somente a voz gerada por IA, sem trilha e sem efeitos.</p>
+          </div>
+          <div class="al-pricing-options-grid">
+            <div class="al-price-card">
+              <div class="al-card-type">Avulso</div>
+              <div class="al-price-main">
+                <span class="al-price-value">R$ 8,50</span>
+                <span class="al-price-unit">/ crédito</span>
+              </div>
+              <p class="al-price-sub">Por crédito de até 40s</p>
+            </div>
+            <div class="al-price-card featured">
+              <span class="al-card-badge">Pacote 50 Offs IA</span>
+              <div class="al-card-type">Pacote</div>
+              <div class="al-price-main">
+                <span class="al-price-value">R$ 3,00</span>
+                <span class="al-price-unit">/ crédito</span>
+              </div>
+              <div class="al-price-total">Total: R$ 150,00</div>
+            </div>
+          </div>
         </div>
-        <div class="al-price-details">Por crédito de até 40s. Geração ultra-rápida.</div>
-      </div>
 
-      <div class="al-price-card">
-        <div class="al-price-card-title">Pacote 50 Offs IA</div>
-        <p style="font-size:0.875rem;color:var(--al-text-muted);margin:0 0 8px;">50 créditos de locução off IA.</p>
-        <div class="al-price-main">
-          <span class="al-price-value">R$ 3,00</span>
-          <span class="al-price-unit">/ crédito</span>
+        <!-- Serviço: Produção Completa IA -->
+        <div class="al-service-block">
+          <div class="al-service-block-header">
+            <h4 class="al-service-title">Produção Completa IA</h4>
+            <p class="al-service-desc">Voz IA com trilha sonora, efeitos e edição finalizada.</p>
+          </div>
+          <div class="al-pricing-options-grid">
+            <div class="al-price-card">
+              <div class="al-card-type">Avulso</div>
+              <div class="al-price-main">
+                <span class="al-price-value">R$ 19,00</span>
+                <span class="al-price-unit">/ crédito</span>
+              </div>
+              <p class="al-price-sub">Por crédito de até 40s</p>
+            </div>
+            <div class="al-price-card featured">
+              <span class="al-card-badge">Pacote 20 Produções IA</span>
+              <div class="al-card-type">Pacote</div>
+              <div class="al-price-main">
+                <span class="al-price-value">R$ 10,00</span>
+                <span class="al-price-unit">/ crédito</span>
+              </div>
+              <div class="al-price-total">Total: R$ 200,00</div>
+            </div>
+          </div>
         </div>
-        <div class="al-price-total">Valor Total: R$ 150,00</div>
-        <div class="al-price-details">Créditos sem expiração. Máxima economia em volume.</div>
       </div>
 
-      <div class="al-price-card">
-        <div class="al-price-card-title">Produção Completa IA (Avulsa)</div>
-        <p style="font-size:0.875rem;color:var(--al-text-muted);margin:0 0 8px;">Voz IA com trilha, efeitos e edição finalizada.</p>
-        <div class="al-price-main">
-          <span class="al-price-value">R$ 19,00</span>
-          <span class="al-price-unit">/ crédito</span>
-        </div>
-        <div class="al-price-details">Spot completo por crédito de até 40s.</div>
+      <div class="al-pricing-col-footer">
+        {cta('Solicitar Voz Natural (IA) pelo WhatsApp', location='precos')}
       </div>
-
-      <div class="al-price-card">
-        <div class="al-price-card-title">Pacote 20 Produções IA</div>
-        <p style="font-size:0.875rem;color:var(--al-text-muted);margin:0 0 8px;">20 créditos de produção completa com voz IA.</p>
-        <div class="al-price-main">
-          <span class="al-price-value">R$ 10,00</span>
-          <span class="al-price-unit">/ crédito</span>
-        </div>
-        <div class="al-price-total">Valor Total: R$ 200,00</div>
-        <div class="al-price-details">Créditos sem expiração para campanhas recorrentes.</div>
-      </div>
-
-      {cta('Solicitar Voz IA pelo WhatsApp', location='precos')}
     </div>
 
-    <!-- Coluna Locução Humana (Comparativo) -->
+    <!-- Grupo: Locução Humana -->
     <div class="al-pricing-column human">
       <div class="al-pricing-col-header">
-        <span class="badge">🎙️ Locução Humana</span>
-        <h3>Locutores Profissionais</h3>
+        <h3>Locução Humana</h3>
+        <span class="badge">🎙️ Voz Humana</span>
       </div>
 
-      <div class="al-price-card">
-        <div class="al-price-card-title">Locução Off Humana (Avulsa)</div>
-        <p style="font-size:0.875rem;color:var(--al-text-muted);margin:0 0 8px;">Somente a voz gravada por locutor humano.</p>
-        <div class="al-price-main">
-          <span class="al-price-value">R$ 11,90</span>
-          <span class="al-price-unit">/ crédito</span>
+      <div class="al-pricing-group-body">
+        <!-- Serviço: Locução Off -->
+        <div class="al-service-block">
+          <div class="al-service-block-header">
+            <h4 class="al-service-title">Locução Off</h4>
+            <p class="al-service-desc">Somente a voz gravada por locutor humano, sem trilha e sem efeitos.</p>
+          </div>
+          <div class="al-pricing-options-grid">
+            <div class="al-price-card">
+              <div class="al-card-type">Avulso</div>
+              <div class="al-price-main">
+                <span class="al-price-value">R$ 11,90</span>
+                <span class="al-price-unit">/ crédito</span>
+              </div>
+              <p class="al-price-sub">Por crédito de até 40s</p>
+            </div>
+            <div class="al-price-card featured">
+              <span class="al-card-badge">Pacote 50 Offs</span>
+              <div class="al-card-type">Pacote</div>
+              <div class="al-price-main">
+                <span class="al-price-value">R$ 4,00</span>
+                <span class="al-price-unit">/ crédito</span>
+              </div>
+              <div class="al-price-total">Total: R$ 200,00</div>
+            </div>
+          </div>
         </div>
-        <div class="al-price-details">Por crédito de até 40s. Voz natural profissional.</div>
-      </div>
 
-      <div class="al-price-card">
-        <div class="al-price-card-title">Pacote 50 Offs Humanos</div>
-        <p style="font-size:0.875rem;color:var(--al-text-muted);margin:0 0 8px;">50 créditos de locução off humana.</p>
-        <div class="al-price-main">
-          <span class="al-price-value">R$ 4,00</span>
-          <span class="al-price-unit">/ crédito</span>
+        <!-- Serviço: Produção Completa -->
+        <div class="al-service-block">
+          <div class="al-service-block-header">
+            <h4 class="al-service-title">Produção Completa</h4>
+            <p class="al-service-desc">Voz humana, trilha sonora, efeitos e finalização comercial.</p>
+          </div>
+          <div class="al-pricing-options-grid">
+            <div class="al-price-card">
+              <div class="al-card-type">Avulso</div>
+              <div class="al-price-main">
+                <span class="al-price-value">R$ 29,90</span>
+                <span class="al-price-unit">/ crédito</span>
+              </div>
+              <p class="al-price-sub">Por crédito de até 40s</p>
+            </div>
+            <div class="al-price-card featured">
+              <span class="al-card-badge">Pacote 30 Produções</span>
+              <div class="al-card-type">Pacote</div>
+              <div class="al-price-main">
+                <span class="al-price-value">R$ 10,00</span>
+                <span class="al-price-unit">/ crédito</span>
+              </div>
+              <div class="al-price-total">Total: R$ 300,00</div>
+            </div>
+          </div>
         </div>
-        <div class="al-price-total">Valor Total: R$ 200,00</div>
-        <div class="al-price-details">Créditos sem expiração.</div>
       </div>
 
-      <div class="al-price-card">
-        <div class="al-price-card-title">Produção Completa Humana (Avulsa)</div>
-        <p style="font-size:0.875rem;color:var(--al-text-muted);margin:0 0 8px;">Voz humana, trilha e finalização.</p>
-        <div class="al-price-main">
-          <span class="al-price-value">R$ 29,90</span>
-          <span class="al-price-unit">/ crédito</span>
-        </div>
-        <div class="al-price-details">Anúncio pronto com locutor profissional.</div>
+      <div class="al-pricing-col-footer">
+        <a class="al-cta-btn al-cta-secondary" href="/locutores/">Conhecer Locutores Humanos →</a>
       </div>
-
-      <div class="al-price-card">
-        <div class="al-price-card-title">Pacote 30 Produções Humanas</div>
-        <p style="font-size:0.875rem;color:var(--al-text-muted);margin:0 0 8px;">30 créditos de produção completa com voz humana.</p>
-        <div class="al-price-main">
-          <span class="al-price-value">R$ 10,00</span>
-          <span class="al-price-unit">/ crédito</span>
-        </div>
-        <div class="al-price-total">Valor Total: R$ 300,00</div>
-        <div class="al-price-details">Créditos sem expiração.</div>
-      </div>
-
-      <a class="al-cta-btn al-cta-secondary" href="/locutores/">Conhecer Locutores Humanos →</a>
     </div>
   </div>
 </div></section>
