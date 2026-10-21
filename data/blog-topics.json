@@ -50,7 +50,7 @@
     "commercial_url": "https://alocucao.com.br/spot-comercial/",
     "excerpt": "Passo a passo prático para criar roteiros de anúncios impactantes, objetivos e focados na conversão de clientes.",
     "reading_time": "8 min de leitura",
-    "published": false,
+    "published": true,
     "sections": [
       {
         "h2": "O segredo de um texto comercial de alta conversão",
@@ -78,7 +78,8 @@
         "question": "O estúdio ajuda na revisão do texto?",
         "answer": "Sim, na A Locução nossa equipe auxilia na conferência do ritmo e adequação do roteiro antes de enviar para a locução."
       }
-    ]
+    ],
+    "published_at": "2026-10-21"
   },
   {
     "slug": "vinhetas-comerciais-para-radio-e-podcasts",
