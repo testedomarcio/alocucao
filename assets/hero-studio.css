@@ -1,0 +1,21 @@
+/* Real studio imagery alongside service copy; no decorative media downloads. */
+.commercial-hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.85fr);gap:48px;align-items:center}
+.commercial-hero-copy{min-width:0}
+[data-commercial-refresh] .commercial-hero-grid h1{font-size:clamp(2rem,3.35vw,3.3rem)}
+.studio-visual{position:relative;isolation:isolate;margin:0;border-radius:28px;overflow:hidden;background:#102739;box-shadow:0 24px 60px #10273926;min-width:0;aspect-ratio:1/1}
+.studio-visual picture,.studio-visual img{display:block;width:100%;height:100%;object-fit:cover}
+.studio-visual picture{position:absolute;inset:0;z-index:-2}
+.studio-visual::after{content:'';position:absolute;inset:35% 0 0;background:linear-gradient(transparent,#071b29e8);z-index:-1}
+.studio-visual figcaption{position:absolute;bottom:0;left:0;right:0;padding:28px;color:#fff}
+.studio-label{display:inline-block;font:750 11px/1.5 system-ui,sans-serif;letter-spacing:.12em;color:#a8f2e5;margin-bottom:9px}
+.studio-visual strong{display:block;font:700 clamp(1.2rem,2vw,1.65rem)/1.25 system-ui,sans-serif;color:#fff;max-width:310px;letter-spacing:-.025em}
+.studio-wave{display:flex;align-items:center;gap:4px;height:30px;margin-top:18px}
+.studio-wave i{display:block;width:4px;height:var(--bar);border-radius:4px;background:#68dfc8;opacity:.9}
+.focus-price-preview .studio-visual{margin-bottom:24px;border-radius:17px;aspect-ratio:4/3;box-shadow:none}
+.focus-price-preview .studio-visual figcaption{padding:20px}
+.focus-price-preview .studio-visual strong{font-size:1.25rem}
+.focus-price-preview .studio-wave{height:20px;margin-top:12px}
+[data-commercial-refresh] .focus-price-preview>div>strong{font-size:1.75rem;line-height:1.25;overflow-wrap:anywhere}
+[data-commercial-refresh] .panel-value{font-size:clamp(1.6rem,3vw,2.4rem)}
+@media(max-width:1000px){.commercial-hero-grid{gap:28px;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}.studio-visual figcaption{padding:20px}}
+@media(max-width:800px){.commercial-hero-grid{grid-template-columns:1fr;gap:28px}.studio-visual{width:100%;max-width:520px;aspect-ratio:4/3;margin:0 auto}.studio-visual img{object-position:center 45%}.studio-visual strong{font-size:1.4rem}.commercial-hero-copy{width:100%}}

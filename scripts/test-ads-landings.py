@@ -51,6 +51,23 @@ class Landings(unittest.TestCase):
  def test_portfolio_and_distinct_off(self):
   self.assertIn('/assets/audio/igreja-evangelica-monte-moria.mp3',(ROOT/'producao-para-igrejas/index.html').read_text())
   self.assertIn('Off Comercial para quem produz publicidade',(ROOT/'off-comercial/index.html').read_text())
+ def test_home_and_full_catalog(self):
+  render=runpy.run_path(str(ROOT/'scripts/unified-catalog.py'))['render_catalog']
+  for route,origin in [('', '/'),('vozes','/vozes/')]:
+   text=(ROOT/route/'index.html').read_text()
+   self.assertIn('data-layout="tabs"',text)
+   self.assertIn('data-active="human"',text)
+   self.assertIn('Vozes IA Naturais',text)
+   self.assertIn(render('both',origin),text)
+   self.assertNotIn('Duas opções de voz. Preços claros para escolher.',text)
+  home=(ROOT/'index.html').read_text()
+  self.assertIn('A partir de R$ 8,50',home)
+  self.assertIn('A partir de R$ 19,00',home)
+  self.assertIn('Com voz IA. Com voz humana: R$ 11,90.',home)
+  for route in TABBED:
+   text=(ROOT/route/'index.html').read_text()
+   self.assertIn('commercial-hero-grid',text)
+   self.assertIn('/assets/images/voice-studio-960.webp',text)
  def test_avatar_fallback(self):
   for route in HUMAN:
    t=(ROOT/route/'index.html').read_text()
