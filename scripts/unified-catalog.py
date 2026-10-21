@@ -52,6 +52,9 @@ def render_catalog(mode='both', origin='/vozes/'):
     result = '<!-- unified-catalog:start --><div class="uv-catalog" data-mode="'+mode+'" data-active="'+kinds[0]+'" data-origin="'+esc(origin)+'">'+tabs+'<div class="uv-panels">'+''.join(panels)+'</div><p class="uv-footnote">'+footnote+'</p></div><!-- unified-catalog:end -->'
     if origin in TABBED_PAGES:
         result = result.replace('class="uv-catalog"', 'class="uv-catalog" data-layout="tabs"').replace('>Vozes IA</button>', '>Vozes IA Naturais</button>').replace('<h2>Locutores humanos</h2>', '<h2>Locutores humanos profissionais</h2>').replace('<h2>Vozes IA</h2>', '<h2>Vozes IA naturais</h2>')
+    if origin == '/vozes-ia/':
+        # Visible target before JS reveals the search controls; existing catalog anchor stays valid.
+        result = result.replace('<div class="uv-filters" hidden>', '<span id="buscar-voz" style="display:block"></span><div class="uv-filters" hidden>', 1)
     return result
 def install_assets(text):
     version = VERSION + '-commercial' if 'data-commercial-refresh=' in text else VERSION
