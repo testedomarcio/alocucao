@@ -8,6 +8,19 @@
   const gender = root.querySelector('#ia-gender');
   const style = root.querySelector('#ia-style');
   const cards = [...root.querySelectorAll('.ia-voice')];
+  // Shuffle the existing cards once per visit; keep each voice and its player together.
+  function shuffleCatalog() {
+    const shuffled = [...cards];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    root.querySelector('.ia-grid').append(...shuffled);
+  }
+  shuffleCatalog();
+  window.addEventListener('pageshow', event => {
+    if (event.persisted) shuffleCatalog();
+  });
   const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
   const track = (event, params = {}) => window.alocucaoTrackEvent?.(event, {page_path:'/vozes-ia/', service_name:'vozes_ia', ...params});
   function filter() {
