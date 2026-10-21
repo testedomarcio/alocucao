@@ -4,7 +4,7 @@ from pathlib import Path
 import html, json, re
 from urllib.parse import quote
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = '20261021-landings'
+VERSION = '20261021-no-human-status'
 HUMAN_LANDINGS = {'/off-comercial/','/locucao-off/','/producao-para-igrejas/','/gravacao-off-e-producao/','/producao-para-supermercados/','/spot-black-friday/'}
 TABBED_LANDINGS = {'/spot-comercial/','/locucao-off/','/producao-para-igrejas/','/gravacao-off-e-producao/','/producao-para-supermercados/'}
 TABBED_PAGES = TABBED_LANDINGS | {'/', '/vozes/'}
@@ -29,8 +29,8 @@ def row(v, kind, origin):
         for demo in v['additional_demos']:
             options+='<option value="/assets/vozes-ia/audio/'+esc(demo['audio'])+'">'+esc(demo['label'])+'</option>'
         media='<label class="uv-demo-label">Demonstração<select class="uv-demo-select">'+options+'</select></label>'+media
-    status='● Online' if kind=='ia' else 'Disponibilidade sob consulta'
-    return f'''<article class="uv-row" data-id="{esc(v['id'])}" data-name="{esc(name)}" data-gender="{esc(v.get('type',''))}" data-styles="{esc('|'.join(styles))}"><div class="uv-avatar">{photo}</div><div class="uv-identity"><h3>{esc(name)}{' <small>Voz IA</small>' if kind=='ia' else ''}</h3><p class="uv-meta">{esc(v.get('type',''))} · {esc(v.get('style') or ' · '.join(styles))}</p><p class="uv-description">{esc(description)}</p><span class="uv-status{' uv-online' if kind=='ia' else ''}">{status}</span></div><div class="uv-controls">{media}<a class="uv-choose" href="https://wa.me/5527996529832?text={quote(message)}" target="_blank" rel="noopener noreferrer" data-cta="unified_{kind}_{esc(v['id'])}" data-voice-name="{esc(name)}" data-voice-kind="{kind}">Escolher esta voz</a></div><p class="uv-error" hidden role="status">Não foi possível carregar a demonstração. Solicite o áudio pelo WhatsApp.</p></article>'''
+    status_markup = '<span class="uv-status uv-online">● Online</span>' if kind=='ia' else ''
+    return f'''<article class="uv-row" data-id="{esc(v['id'])}" data-name="{esc(name)}" data-gender="{esc(v.get('type',''))}" data-styles="{esc('|'.join(styles))}"><div class="uv-avatar">{photo}</div><div class="uv-identity"><h3>{esc(name)}{' <small>Voz IA</small>' if kind=='ia' else ''}</h3><p class="uv-meta">{esc(v.get('type',''))} · {esc(v.get('style') or ' · '.join(styles))}</p><p class="uv-description">{esc(description)}</p>{status_markup}</div><div class="uv-controls">{media}<a class="uv-choose" href="https://wa.me/5527996529832?text={quote(message)}" target="_blank" rel="noopener noreferrer" data-cta="unified_{kind}_{esc(v['id'])}" data-voice-name="{esc(name)}" data-voice-kind="{kind}">Escolher esta voz</a></div><p class="uv-error" hidden role="status">Não foi possível carregar a demonstração. Solicite o áudio pelo WhatsApp.</p></article>'''
 def render_catalog(mode='both', origin='/vozes/'):
     # Landing pages, home and the main voice catalog share the tabbed experience.
     if origin in TABBED_PAGES: mode = 'both'
@@ -45,8 +45,9 @@ def render_catalog(mode='both', origin='/vozes/'):
         labels=['Masculina','Feminina','Personagem'];labels=[x for x in labels if any(v.get('type')==x for v in voices)]
         title='Locutores humanos' if kind=='human' else 'Vozes IA'
         prices='Off R$ 11,90 · Produzida R$ 29,90' if kind=='human' else 'Off R$ 8,50 · Produzida R$ 19,00'
-        note='Catálogo atualizado automaticamente pela fonte oficial. Confirme a disponibilidade e o prazo ao pedir.' if kind=='human' else 'Imagens ilustrativas utilizadas para representar os perfis das vozes IA. Online significa disponível para solicitação.'
-        panels.append(f'''<section class="uv-panel" id="{prefix}-{kind}" data-kind="{kind}" aria-label="{title}"><div class="uv-panel-head"><span class="uv-category">{'Profissionais de locução' if kind=='human' else 'Inteligência artificial'}</span><h2>{title}</h2><p class="uv-prices">{prices}<small> por locução de até 40 segundos</small></p></div><div class="uv-filters" hidden><label>Buscar voz<input class="uv-search" type="search" placeholder="Nome, estilo ou característica…" autocomplete="off"></label><div><label>Gênero<select class="uv-gender"><option value="">Todos</option>{''.join('<option>'+esc(x)+'</option>' for x in labels)}</select></label><label>Estilo<select class="uv-style"><option value="">Todos os estilos</option>{''.join('<option>'+esc(s)+'</option>' for s in styles)}</select></label><button type="button" class="uv-clear">Limpar</button></div></div><p class="uv-count" role="status" aria-live="polite">{len(voices)} vozes no catálogo</p><p class="uv-sync">{note}</p><div class="uv-list">{''.join(row(v,kind,origin) for v in voices)}</div><p class="uv-empty" hidden>Nenhuma voz encontrada. Tente outro termo ou limpe os filtros.</p><button class="uv-more" type="button" hidden>Mostrar mais vozes</button><a class="uv-full" href="{'/locutores/' if kind=='human' else '/vozes-ia/'}">{'Conhecer os locutores humanos' if kind=='human' else 'Conhecer as vozes IA'} →</a></section>''')
+        note='Ouça as demonstrações e confirme o prazo do seu pedido pelo WhatsApp.' if kind=='human' else 'Imagens ilustrativas utilizadas para representar os perfis das vozes IA. Online significa disponível para solicitação.'
+        full_link = ('<a class="uv-full" href="https://wa.me/5527996529832?text='+quote('Olá! Gostaria de ajuda para escolher uma voz '+('humana' if kind=='human' else 'IA')+' e solicitar uma gravação.')+'" data-cta="catalog_help_whatsapp">Solicitar orientação pelo WhatsApp →</a>') if origin in TABBED_LANDINGS else ('<a class="uv-full" href="'+('/locutores/' if kind=='human' else '/vozes-ia/')+'">'+('Conhecer os locutores humanos' if kind=='human' else 'Conhecer as vozes IA')+' →</a>')
+        panels.append(f'''<section class="uv-panel" id="{prefix}-{kind}" data-kind="{kind}" aria-label="{title}"><div class="uv-panel-head"><span class="uv-category">{'Profissionais de locução' if kind=='human' else 'Inteligência artificial'}</span><h2>{title}</h2><p class="uv-prices">{prices}<small> por locução de até 40 segundos</small></p></div><div class="uv-filters" hidden><label>Buscar voz<input class="uv-search" type="search" placeholder="Nome, estilo ou característica…" autocomplete="off"></label><div><label>Gênero<select class="uv-gender"><option value="">Todos</option>{''.join('<option>'+esc(x)+'</option>' for x in labels)}</select></label><label>Estilo<select class="uv-style"><option value="">Todos os estilos</option>{''.join('<option>'+esc(s)+'</option>' for s in styles)}</select></label><button type="button" class="uv-clear">Limpar</button></div></div><p class="uv-count" role="status" aria-live="polite">{len(voices)} vozes no catálogo</p><p class="uv-sync">{note}</p><div class="uv-list">{''.join(row(v,kind,origin) for v in voices)}</div><p class="uv-empty" hidden>Nenhuma voz encontrada. Tente outro termo ou limpe os filtros.</p><button class="uv-more" type="button" hidden>Mostrar mais vozes</button>{full_link}</section>''')
     footnote = 'Escolha um locutor humano e confirme o serviço, a disponibilidade e o prazo com a equipe antes de pedir.' if mode == 'human' else 'Escolha uma voz IA e confirme o serviço e o prazo com a equipe. Os retratos são ilustrativos.' if mode == 'ia' else 'Escolha uma voz humana ou sintética conforme seu projeto. Confira o serviço e o prazo com a equipe antes de confirmar. Os retratos de IA são ilustrativos e representam perfis sintéticos.'
     result = '<!-- unified-catalog:start --><div class="uv-catalog" data-mode="'+mode+'" data-active="'+kinds[0]+'" data-origin="'+esc(origin)+'">'+tabs+'<div class="uv-panels">'+''.join(panels)+'</div><p class="uv-footnote">'+footnote+'</p></div><!-- unified-catalog:end -->'
     if origin in TABBED_PAGES:
@@ -58,6 +59,26 @@ def install_assets(text):
         text=re.sub(r'(/assets/'+re.escape(filename)+r')(?:\?[^"\s<>]*)?',lambda m:m[1]+'?v='+version,text)
         if '/assets/'+filename not in text:text=text.replace('</head>',tag+'\n</head>',1)
     return text
+def focus_landing_links(text, origin):
+    if origin not in TABBED_LANDINGS: return text
+    text=re.sub(r'<p>Também trabalhamos com inteligência artificial\..*?</p>', '', text, flags=re.S)
+    text=re.sub(r'<section class="hybrid-central".*?</section>', '', text, flags=re.S)
+    text=re.sub(r'<section\b[^>]*>(?:(?!<section).)*?<h2>Acessar o Painel de Gravação e Central A Locução</h2>.*?</section>', '', text, flags=re.S)
+    def anchor(m):
+        opening,href,closing,body=m.groups()
+        if href.startswith('#') or href.startswith('https://wa.me/'):return m[0]
+        if any(route in href for route in ['/politica-de-privacidade/','/termos/']):return re.sub('<[^>]+>','',body)
+        # Brand retains its image but becomes a contact action. Audio stays in the player;
+        # fallback links request a demonstration instead of navigating to another page.
+        if '<img ' in body:
+            label=body
+            opening=re.sub(r'aria-label="[^"]*"', 'aria-label="Falar com A Locução pelo WhatsApp"', opening)
+        elif '/assets/audio/' in href:label='Solicitar demonstração pelo WhatsApp'
+        elif any(x in href for x in ['/painel','/cadastro','/central']):label='Solicitar pelo WhatsApp'
+        else:label='Falar com nossa equipe pelo WhatsApp'
+        msg='Olá! Gostaria de atendimento sobre '+{'/spot-comercial/':'spot comercial','/locucao-off/':'locução Off','/producao-para-igrejas/':'produção para minha igreja','/gravacao-off-e-producao/':'locução e produção','/producao-para-supermercados/':'anúncios para meu supermercado'}[origin]+'.'
+        return opening+'https://wa.me/5527996529832?text='+quote(msg)+closing+label+'</a>'
+    return re.sub(r'(<a\b[^>]*?href=")([^"]*)("[^>]*>)(.*?)</a>', anchor, text, flags=re.S)
 def refresh():
     count=0
     for p in ROOT.rglob('*.html'):
@@ -68,6 +89,7 @@ def refresh():
         origin=re.search(r'class="uv-catalog"[^>]*data-origin="([^"]+)"',text)[1]
         new=re.sub(r'<!-- unified-catalog:start -->.*?<!-- unified-catalog:end -->',lambda _:render_catalog(mode,html.unescape(origin)),text,flags=re.S)
         new=install_assets(new)
+        new=focus_landing_links(new,html.unescape(origin))
         if text!=new:p.write_text(new);count+=1
     print(f'Unified catalogs refreshed: {count}')
 if __name__=='__main__':refresh()

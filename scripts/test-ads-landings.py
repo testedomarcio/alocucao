@@ -34,14 +34,15 @@ class Landings(unittest.TestCase):
     else:self.assertNotRegex(text,r'R\$ 11,90|R\$ 29,90|data-kind="human"')
     for tag,attrs in p.tags:
      href=attrs.get('href','');u=urlsplit(href)
-     if route!='gravacao-off-e-producao':self.assertFalse(any(x in href for x in ['/painel','/cadastro','/central']))
+     self.assertFalse(any(x in href for x in ['/painel','/cadastro','/central']))
      if u.hostname=='wa.me':
       self.assertEqual(u.path,'/5527996529832');self.assertTrue(parse_qs(u.query).get('text'))
      if href.startswith('#'):self.assertTrue(any(a.get('id')==href[1:] for _,a in p.tags),href)
      for key in ['src','data-src']:
       src=attrs.get(key,'');path=unquote(urlsplit(src).path)
       if path.startswith('/assets/'):self.assertTrue((ROOT/path.lstrip('/')).is_file(),src)
-    if route=='gravacao-off-e-producao':self.assertIn('https://vozes.alocucao.com.br/painel/cadastro',text)
+    if route in TABBED:
+     self.assertTrue(all(a.get('href','').startswith(('#','https://wa.me/')) for tag,a in p.tags if tag=='a'))
     for content in re.findall(r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>',text,re.S):json.loads(content)
  def test_build_preserves_target_pages(self):
   normalize=runpy.run_path(str(ROOT/'scripts/standardize-layout.py'))['standardize_page']
@@ -68,6 +69,16 @@ class Landings(unittest.TestCase):
    text=(ROOT/route/'index.html').read_text()
    self.assertIn('commercial-hero-grid',text)
    self.assertIn('/assets/images/voice-studio-960.webp',text)
+ def test_no_human_status_or_runtime_polling(self):
+  for page in ROOT.rglob('*.html'):
+   if '.git' in page.parts:continue
+   text=page.read_text()
+   for panel in re.findall(r'<section class="uv-panel"[^>]*data-kind="human".*?</section>',text,re.S):
+    self.assertNotIn('uv-status',panel)
+  script=(ROOT/'assets/unified-voices.js').read_text()
+  self.assertNotIn('check_status.php',script)
+  self.assertNotIn('setInterval',script)
+  self.assertNotIn('statusLabel',script)
  def test_avatar_fallback(self):
   for route in HUMAN:
    t=(ROOT/route/'index.html').read_text()
