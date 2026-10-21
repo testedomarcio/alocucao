@@ -17,9 +17,19 @@
    sort();filter();
   });
   const tabs=[...root.querySelectorAll('[data-tab]')];
+  const preferenceKey='alocucao_voice_category';
+  const valid=kind=>['ia','human'].includes(kind)&&!!root.querySelector('.uv-panel[data-kind="'+kind+'"]');
+  const explicit=new URLSearchParams(location.search).get('categoria');
+  let saved=null;
+  try{if(window.alocucaoConsent==='accepted')saved=localStorage.getItem(preferenceKey)}catch(_){}
+  const generic=['/','/vozes/'].includes(location.pathname);
+  const initial=valid(explicit)?explicit:(generic&&valid(saved)?saved:root.dataset.active);
+  const remember=kind=>{try{if(window.alocucaoConsent==='accepted')localStorage.setItem(preferenceKey,kind)}catch(_){}};
+  window.addEventListener('alocucao:consent',event=>{if(event.detail.value==='accepted')remember(root.dataset.active);else try{localStorage.removeItem(preferenceKey)}catch(_){}});
+
   function activate(kind,focus=false){root.dataset.active=kind;if(root.dataset.layout==='tabs')root.querySelectorAll('.uv-panel').forEach(panel=>{const active=panel.dataset.kind===kind;panel.hidden=!active;panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby',panel.id+'-tab')});tabs.forEach(tab=>{const active=tab.dataset.tab===kind;tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;if(active&&focus)tab.focus()});root.querySelectorAll('.uv-panel').forEach(panel=>{if(panel.dataset.kind!==kind&&(root.dataset.layout==='tabs'||matchMedia('(max-width:800px)').matches))panel.querySelectorAll('audio').forEach(a=>a.pause())})}
-  if(root.dataset.layout==='tabs'){tabs.forEach(tab=>tab.id=tab.getAttribute('aria-controls')+'-tab');activate(root.dataset.active)}
-  tabs.forEach((tab,index)=>{tab.addEventListener('click',()=>activate(tab.dataset.tab));tab.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();const next=event.key==='Home'?0:event.key==='End'?tabs.length-1:(index+(event.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;activate(tabs[next].dataset.tab,true)})});
+  if(root.dataset.layout==='tabs'){tabs.forEach(tab=>tab.id=tab.getAttribute('aria-controls')+'-tab');activate(initial);track('voice_category_view',{voice_kind:initial,selection_source:valid(explicit)?'link':generic&&valid(saved)?'preference':'page'})}
+  tabs.forEach((tab,index)=>{tab.addEventListener('click',()=>{activate(tab.dataset.tab);remember(tab.dataset.tab);track('voice_category_switch',{voice_kind:tab.dataset.tab})});tab.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();const next=event.key==='Home'?0:event.key==='End'?tabs.length-1:(index+(event.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;activate(tabs[next].dataset.tab,true);remember(tabs[next].dataset.tab);track('voice_category_switch',{voice_kind:tabs[next].dataset.tab})})});
   root.addEventListener('click',async event=>{const link=event.target.closest('.uv-choose');const button=event.target.closest('.uv-play');if(button){const row=button.closest('.uv-row'),audio=row.querySelector('audio'),error=row.querySelector('.uv-error');if(!audio.src){audio.src=audio.dataset.src;audio.hidden=false}if(!audio.paused){audio.pause();return}error.hidden=true;button.disabled=true;button.textContent='Carregando…';try{await audio.play()}catch(_){error.hidden=false;button.textContent='▶ Tentar novamente'}finally{button.disabled=false}}
    if(link)track('voice_select',{voice_name:link.dataset.voiceName,voice_kind:link.dataset.voiceKind,cta_id:link.dataset.cta});
   });

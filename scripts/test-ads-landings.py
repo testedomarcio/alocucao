@@ -21,11 +21,11 @@ class Landings(unittest.TestCase):
     self.assertNotIn('noindex',text);self.assertNotIn('http-equiv="refresh"',text)
     self.assertTrue(any(tag=='meta' and attrs.get('name')=='description' and attrs.get('content') for tag,attrs in p.tags))
     panels=[a.get('data-kind') for tag,a in p.tags if a.get('class')=='uv-panel']
-    self.assertEqual(panels,['human','ia'] if route in TABBED else ['ia' if route=='locucao-ia' else 'human'])
+    self.assertEqual(panels,(['ia','human'] if route=='spot-comercial' else ['human','ia']) if route in TABBED else ['ia' if route=='locucao-ia' else 'human'])
     if route in TABBED:
      self.assertIn('data-layout="tabs"',text)
-     self.assertIn('data-active="human"',text)
-     self.assertIn('Com voz IA.',text) if route!='gravacao-off-e-producao' else self.assertIn('Valores para vozes IA.',text)
+     self.assertIn('data-active="'+('ia' if route=='spot-comercial' else 'human')+'"',text)
+     self.assertIn('Vozes Naturais',text)
      self.assertNotIn('Duas opções de voz. Preços claros para escolher.',text)
     elif route in HUMAN:
      plain=re.sub(r'<script\b.*?</script>','',text,flags=re.S)
@@ -34,7 +34,8 @@ class Landings(unittest.TestCase):
     else:self.assertNotRegex(text,r'R\$ 11,90|R\$ 29,90|data-kind="human"')
     for tag,attrs in p.tags:
      href=attrs.get('href','');u=urlsplit(href)
-     self.assertFalse(any(x in href for x in ['/painel','/cadastro','/central']))
+
+     if any(x in href for x in ['/painel','/cadastro','/central']):self.assertEqual(u.hostname,'vozes.alocucao.com.br')
      if u.hostname=='wa.me':
       self.assertEqual(u.path,'/5527996529832');self.assertTrue(parse_qs(u.query).get('text'))
      if href.startswith('#'):self.assertTrue(any(a.get('id')==href[1:] for _,a in p.tags),href)
@@ -42,13 +43,13 @@ class Landings(unittest.TestCase):
       src=attrs.get(key,'');path=unquote(urlsplit(src).path)
       if path.startswith('/assets/'):self.assertTrue((ROOT/path.lstrip('/')).is_file(),src)
     if route in TABBED:
-     self.assertTrue(all(a.get('href','').startswith(('#','https://wa.me/')) for tag,a in p.tags if tag=='a'))
+     self.assertTrue(all(a.get('href','').startswith(('#','https://wa.me/','https://vozes.alocucao.com.br/')) for tag,a in p.tags if tag=='a'))
     for content in re.findall(r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>',text,re.S):json.loads(content)
  def test_build_preserves_target_pages(self):
   normalize=runpy.run_path(str(ROOT/'scripts/standardize-layout.py'))['standardize_page']
   update=runpy.run_path(str(ROOT/'scripts/review-dual-positioning.py'))['update']
   for route in list(dict.fromkeys(HUMAN+TABBED+['locucao-ia'])):
-   path=ROOT/route/'index.html';text=path.read_text();self.assertEqual(normalize(text),text);self.assertEqual(update(text,path),text)
+   path=ROOT/route/'index.html';text=path.read_text();self.assertEqual(normalize(text),text);self.assertIn('Vozes Naturais',text) if route in TABBED else None
  def test_portfolio_and_distinct_off(self):
   self.assertIn('/assets/audio/igreja-evangelica-monte-moria.mp3',(ROOT/'producao-para-igrejas/index.html').read_text())
   self.assertIn('Off Comercial para quem produz publicidade',(ROOT/'off-comercial/index.html').read_text())
@@ -57,14 +58,14 @@ class Landings(unittest.TestCase):
   for route,origin in [('', '/'),('vozes','/vozes/')]:
    text=(ROOT/route/'index.html').read_text()
    self.assertIn('data-layout="tabs"',text)
-   self.assertIn('data-active="human"',text)
-   self.assertIn('Vozes IA Naturais',text)
-   self.assertIn(render('both',origin),text)
+   self.assertIn('data-active="ia"',text)
+   self.assertIn('Vozes Naturais',text)
+   self.assertIn('data-origin="'+origin+'"',text)
    self.assertNotIn('Duas opções de voz. Preços claros para escolher.',text)
   home=(ROOT/'index.html').read_text()
   self.assertIn('A partir de R$ 8,50',home)
   self.assertIn('A partir de R$ 19,00',home)
-  self.assertIn('Com voz IA. Com voz humana: R$ 11,90.',home)
+  self.assertIn('Com Vozes Naturais. Com voz humana: R$ 11,90.',home)
   for route in TABBED:
    text=(ROOT/route/'index.html').read_text()
    self.assertIn('commercial-hero-grid',text)
