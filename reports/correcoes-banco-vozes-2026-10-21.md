@@ -38,3 +38,7 @@ As associações usam os nomes exatos dos arquivos. O sufixo “(1)” não foi 
 - Revisão das regras responsivas para desktop, tablet e celular. Não houve teste visual em navegador real nem reprodução em aparelho físico: o navegador de validação exigido pelo ambiente não estava disponível. Os testes DOM simulam eventos de mídia, sem substituir a audição humana ou testes reais no Safari/Chrome móvel.
 
 Preços mantidos por até 40 segundos: humana Off R$ 11,90 / produzida R$ 29,90; IA Off R$ 8,50 / produzida R$ 19,00.
+
+## Separação posterior solicitada
+
+Após a publicação das correções acima, `/vozes/` foi transformada em catálogo exclusivo de vozes humanas: 116 profissionais, filtros, demonstrações, ordem aleatória estável, WhatsApp e disponibilidade da fonte oficial. Título, descrição, dados estruturados, apresentação, orientação e tabela de preços da página agora se referem aos locutores humanos. O menu Vozes IA continua apontando para `/vozes-ia/`. As chamadas comerciais para ouvir vozes passam a oferecer um link para cada catálogo. A regra de exclusividade de `/vozes/` foi incluída no gerador para persistir nos próximos builds. Testes DOM do catálogo humano e de regressão do catálogo combinado da home aprovados; SEO com 61 URLs e zero erros.
