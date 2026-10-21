@@ -7,7 +7,7 @@ esc = html.escape
 voices = json.loads((ROOT/'data/vozes-ia.json').read_text())
 base = '/assets/vozes-ia/'
 def whatsapp(name=''):
-    message = ('Olá! Conheci as vozes com inteligência artificial no site da A Locução e gostaria de fazer uma gravação com a voz '+name+'. Podem me orientar?') if name else 'Olá! Conheci as vozes com inteligência artificial no site da A Locução e gostaria de solicitar uma locução. Podem me orientar?'
+    message = f'Olá! Gostei da voz natural (IA) {name} e gostaria de solicitar uma gravação.' if name else 'Olá! Gostaria de solicitar uma locução com voz natural (IA).'
     return 'https://wa.me/5527996529832?text='+urllib.parse.quote(message)
 def cta(label='Falar com a A Locução', name='', location='geral'):
     return f'<a class="ia-btn" href="{whatsapp(name)}" target="_blank" rel="noopener noreferrer" data-cta="ia_{location}" data-ia-voice="{esc(name)}">{label}</a>'

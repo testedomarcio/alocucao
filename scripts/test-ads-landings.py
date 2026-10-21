@@ -65,7 +65,7 @@ class Landings(unittest.TestCase):
   home=(ROOT/'index.html').read_text()
   self.assertIn('A partir de R$ 8,50',home)
   self.assertIn('A partir de R$ 19,00',home)
-  self.assertIn('Com Vozes Naturais. Com voz humana: R$ 11,90.',home)
+  self.assertIn('Com Vozes Naturais (IA). Com voz humana: R$ 11,90.',home)
   for route in TABBED:
    text=(ROOT/route/'index.html').read_text()
    self.assertIn('commercial-hero-grid',text)
