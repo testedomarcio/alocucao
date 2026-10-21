@@ -60,3 +60,8 @@ rootPanel.click('https://vozes.alocucao.com.br/painel/');
 assert.equal(rootPanel.calls().find(c=>c[0]==='event')[2].panel_action,'login');
 assert.equal(rootPanel.calls().filter(c=>c[0]==='event').length,1);
 console.log('PASS: official panel root produces exactly one login navigation event.');
+for(const [path,service,kind] of [['/locucao-ia/','locucao_ia','ia'],['/off-comercial/','off_comercial','human'],['/locucao-off/','locucao_off','human']]){
+ const x=setup({saved:'accepted',path});x.click();const events=x.calls().filter(c=>c[0]==='event');assert.equal(events.length,1);assert.equal(events[0][2].service_name,service);assert.equal(events[0][2].voice_kind,kind);
+ x.window.alocucaoTrackEvent('voice_demo_play',{voice_kind:kind});assert.equal(x.window.uetq.filter(v=>v==='whatsapp_click').length,1);
+}
+console.log('PASS: human/IA leads retain the existing single WhatsApp conversion; audio plays never trigger a UET lead.');

@@ -3,7 +3,10 @@ import runpy, unittest
 M=runpy.run_path('scripts/sync-voices.py')
 class MigrationTest(unittest.TestCase):
     def payload(self,status='10 a 30 minutos'):
-        return '<table><tbody>'+''.join(f'''<tr><td data-label="Locutor"><span>feminino, {status}, Padrão - Impacto - Varejo, Gravação Comercial, SP</span><div class="locutor-name">Voz {i}</div><img class="avatar-img" src="perfil-img.php?file={i}.jpg&amp;sexo=feminino"></td><td data-locutor-id="{i}">{status}</td><td><audio src="download-audio.php?id={i}&amp;v=2"></audio></td></tr>''' for i in range(1,41))+'</tbody></table>'
+        import json
+        rows=[dict(id=i,nome=f'Voz {i}',sexo='feminino',display=status,estado='São Paulo',estilos='Padrão - Impacto - Varejo',avatar_url=f'midia.php?file={i}.jpg',demo_url=f'download-audio.php?id={i}&v=2') for i in range(1,41)]
+        return 'const locutoresData = '+json.dumps(rows)+';'
+
     def test_real_fields_and_origins(self):
         voices=M['parse_catalog'](self.payload())
         self.assertEqual(len(voices),40);self.assertEqual(voices[0]['region'],'São Paulo')
@@ -14,6 +17,6 @@ class MigrationTest(unittest.TestCase):
             v=M['parse_catalog'](self.payload(label))[0]
             self.assertEqual(v['status'],expected);self.assertEqual(v['statusLabel'],label)
     def test_invalid_catalogs_rejected(self):
-        for payload in ['',self.payload().replace('data-locutor-id="2"','data-locutor-id="1"'),self.payload().replace('download-audio.php?id=1','https://example.com/demo.mp3?id=1'),self.payload().replace('<audio','<span')]:
+        for payload in ['',self.payload().replace('"id": 2,','"id": 1,'),self.payload().replace('download-audio.php?id=1','https://example.com/demo.mp3?id=1'),self.payload().replace('demo_url','invalid_demo')]:
             with self.assertRaises(ValueError):M['parse_catalog'](payload)
 if __name__=='__main__':unittest.main()
