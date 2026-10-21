@@ -27,14 +27,132 @@ footer=(ROOT/'templates/site-footer.html').read_text()
 page=f'''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Locução com IA: Vozes para Comerciais a partir de R$ 8,50 | A Locução</title><meta name="description" content="Conheça nossas vozes com Inteligência Artificial. Ouça demonstrações, escolha sua voz e solicite locuções comerciais a partir de R$ 8,50."><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://alocucao.com.br/vozes-ia/">
 <meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="A Locução"><meta property="og:title" content="Locução com IA a partir de R$ 8,50 | A Locução"><meta property="og:description" content="Ouça vozes IA para comerciais e escolha o perfil da sua campanha."><meta property="og:url" content="https://alocucao.com.br/vozes-ia/"><meta property="og:image" content="https://alocucao.com.br/assets/vozes-ia/images/aida.webp"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#0d1b2a"><link rel="icon" href="/favicon.ico">
-<link rel="stylesheet" href="/assets/vozes-ia/catalog.css"><link rel="stylesheet" href="/assets/site-layout.css?v=20261020-ia"><script src="/assets/privacy.js" defer></script><script src="/assets/tracking.js?v=20261020-ia" defer></script><script src="/assets/site-layout.js" defer></script><script src="/assets/vozes-ia/catalog.js?v=20261021-shuffle" defer></script><script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('<',chr(92)+'u003c')}</script></head>
+<link rel="stylesheet" href="/assets/vozes-ia/catalog.css"><link rel="stylesheet" href="/assets/commercial-refresh.css"><link rel="stylesheet" href="/assets/site-layout.css?v=20261020-ia"><script src="/assets/privacy.js" defer></script><script src="/assets/tracking.js?v=20261020-ia" defer></script><script src="/assets/site-layout.js" defer></script><script src="/assets/vozes-ia/catalog.js?v=20261021-shuffle" defer></script><script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('<',chr(92)+'u003c')}</script></head>
 <body data-catalog="vozes-ia"><a class="ia-skip" href="#banco-de-vozes">Ir para o banco de vozes</a>{header}<main>
 <section class="ia-hero"><div class="ia-shell ia-hero-grid"><div><span class="ia-eyebrow">Tecnologia na voz. Sua marca em destaque.</span><h1>Locução com Inteligência Artificial: <em>escolha sua Voz IA.</em></h1><p class="ia-lead">Sua próxima locução pode ter a voz perfeita. E custar menos.</p><p>Vozes para comerciais, vídeos e campanhas. Ouça, compare e encontre o estilo da sua marca, com locução Off a partir de <strong>R$ 8,50 por até 40 segundos.</strong></p><div class="ia-actions"><a class="ia-btn" href="#banco-de-vozes">▶ Ouvir Vozes IA</a><a class="ia-secondary" href="#precos">Comparar preços ↗</a></div><div class="ia-pills"><span>Sem cadastro para ouvir</span><span>Pedido pelo WhatsApp</span><span>Off ou produzida</span></div></div><div class="ia-hero-art" aria-hidden="true"><img src="/assets/vozes-ia/images/aida.webp" width="480" height="480" alt="" fetchpriority="high"><div class="ia-art-label"><span>ENCONTRE SEU ESTILO</span><strong>Uma voz para cada ideia.</strong><div class="ia-wave">▂ ▅ ▃ ▇ ▅ ▂ ▆ ▇ ▃ ▅ ▂ ▆ ▃ ▇ ▄ ▂</div></div></div></div></section>
 <nav class="ia-subnav" aria-label="Nesta página"><div class="ia-shell"><a href="#banco-de-vozes">Banco de Vozes IA</a><a href="#vantagens">Vantagens</a><a href="#precos">Preços</a><a href="#duvidas">Dúvidas</a><a href="https://vozes.alocucao.com.br/">Vozes humanas ↗</a></div></nav>
 <section id="banco-de-vozes" class="ia-section ia-catalog"><div class="ia-shell"><span class="ia-eyebrow">Dê play na sua próxima campanha</span><h2>Escolha sua Voz IA</h2><p>Compare timbres e estilos. Depois, leve sua escolha para o WhatsApp.</p><p class="ia-disclosure">Retratos ilustrativos de perfis sintéticos. “Online” indica disponibilidade para solicitar a voz, independentemente da demonstração.</p>
 <div class="ia-filters" hidden><label>Buscar voz<input id="ia-search" type="search" placeholder="Nome, estilo ou aplicação…" autocomplete="off"></label><label>Perfil<select id="ia-gender"><option value="">Todos os perfis</option>Masculina</option><option>Feminina</option><option>Personagem</option></select></label><label>Estilo<select id="ia-style"><option value="">Todos os estilos</option>{''.join('<option>'+esc(t)+'</option>' for t in sorted(set(t for v in voices for t in v['tags'])))}</select></label><button id="ia-reset" type="button">Limpar filtros</button></div><p id="ia-count" role="status" aria-live="polite">{len(voices)} vozes disponíveis</p><div class="ia-grid">{''.join(cards)}</div><p id="ia-empty" hidden>Nenhuma voz encontrada. Tente outro nome ou limpe os filtros.</p></div></section>
 <section id="vantagens" class="ia-section ia-soft"><div class="ia-shell"><span class="ia-eyebrow">Mais possibilidades para sua comunicação</span><h2>Por que escolher Voz IA?</h2><div class="ia-benefits">{''.join('<article><span class="ia-number">0'+str(i+1)+'</span><h3>'+t+'</h3><p>'+d+'</p></article>' for i,(t,d) in enumerate([('Economia','Publicidade profissional com investimento menor para sua campanha.'),('Agilidade','Tecnologia que agiliza a geração de gravações, com orientação da nossa equipe.'),('Variedade','Diferentes timbres e perfis para você escolher o que combina com a mensagem.'),('Padronização','Mantenha uma identidade vocal consistente em campanhas recorrentes.'),('Versatilidade','Opções para empresas, lojas, supermercados, igrejas e redes sociais.'),('Praticidade','Ouça, escolha e envie seu texto pelo WhatsApp.')] ))}</div></div></section>
-<section id="precos" class="ia-section"><div class="ia-shell"><span class="ia-eyebrow">Seu orçamento rende mais</span><h2>Compare os preços</h2><p>Valores avulsos por locução de até 40 segundos.</p><div class="ia-table-wrap"><table><caption>Locução IA e humana — até 40 segundos</caption><thead><tr><th scope="col">Serviço</th><th scope="col">Voz humana</th><th scope="col">Voz IA</th><th scope="col">Economia aproximada</th></tr></thead><tbody><tr><th scope="row">Locução Off</th><td>R$ 11,90</td><td><strong>R$ 8,50</strong></td><td>29%</td></tr><tr><th scope="row">Locução Produzida</th><td>R$ 29,90</td><td><strong>R$ 19,00</strong></td><td>36%</td></tr></tbody></table></div><div class="ia-two"><p><strong>Off:</strong> somente a voz, sem trilha musical ou produção adicional. <a href="/locucao-off/">Conheça a locução Off.</a></p><p><strong>Produzida:</strong> voz com tratamento, trilha musical e recursos de produção conforme o serviço. <a href="/spot-comercial/">Conheça a produção comercial.</a></p></div><p class="ia-disclosure">Economias calculadas sobre os preços avulsos informados, arredondadas: 28,57% no Off e 36,45% na Produzida. Para textos maiores, confirme o valor com a equipe.</p>{cta('Solicitar minha locução',location='precos')}</div></section>
+<section id="precos" class="ia-section al-pricing-section"><div class="ia-shell">
+  <div class="section-head text-center">
+    <span class="ia-eyebrow">Transparência em Preços e Pacotes</span>
+    <h2 class="al-section-title">Tabela de Preços para Vozes IA e Comparativo Humano</h2>
+    <p class="al-section-subtitle">Economize contratando avulso ou em pacotes de créditos. Compare os valores para Vozes IA e Locutores Humanos.</p>
+  </div>
+
+  <div class="al-credit-rule-banner">
+    <span class="icon">⏱️</span>
+    <p><strong>Regra dos créditos:</strong> Os créditos não expiram. Cada crédito corresponde a até 40 segundos de áudio.</p>
+  </div>
+
+  <div class="al-pricing-dual-grid">
+    <!-- Coluna Vozes IA -->
+    <div class="al-pricing-column ia">
+      <div class="al-pricing-col-header">
+        <span class="badge">🤖 Vozes IA</span>
+        <h3>Valores de Vozes IA</h3>
+      </div>
+
+      <div class="al-price-card popular">
+        <span class="al-price-tag-popular">Off IA Avulso</span>
+        <div class="al-price-card-title">Locução Off IA (Avulsa)</div>
+        <p style="font-size:0.875rem;color:var(--al-text-muted);margin:0 0 8px;">Somente a voz gerada por IA, sem trilha e sem efeitos.</p>
+        <div class="al-price-main">
+          <span class="al-price-value">R$ 8,50</span>
+          <span class="al-price-unit">/ crédito</span>
+        </div>
+        <div class="al-price-details">Por crédito de até 40s. Geração ultra-rápida.</div>
+      </div>
+
+      <div class="al-price-card">
+        <div class="al-price-card-title">Pacote 50 Offs IA</div>
+        <p style="font-size:0.875rem;color:var(--al-text-muted);margin:0 0 8px;">50 créditos de locução off IA.</p>
+        <div class="al-price-main">
+          <span class="al-price-value">R$ 3,00</span>
+          <span class="al-price-unit">/ crédito</span>
+        </div>
+        <div class="al-price-total">Valor Total: R$ 150,00</div>
+        <div class="al-price-details">Créditos sem expiração. Máxima economia em volume.</div>
+      </div>
+
+      <div class="al-price-card">
+        <div class="al-price-card-title">Produção Completa IA (Avulsa)</div>
+        <p style="font-size:0.875rem;color:var(--al-text-muted);margin:0 0 8px;">Voz IA com trilha, efeitos e edição finalizada.</p>
+        <div class="al-price-main">
+          <span class="al-price-value">R$ 19,00</span>
+          <span class="al-price-unit">/ crédito</span>
+        </div>
+        <div class="al-price-details">Spot completo por crédito de até 40s.</div>
+      </div>
+
+      <div class="al-price-card">
+        <div class="al-price-card-title">Pacote 20 Produções IA</div>
+        <p style="font-size:0.875rem;color:var(--al-text-muted);margin:0 0 8px;">20 créditos de produção completa com voz IA.</p>
+        <div class="al-price-main">
+          <span class="al-price-value">R$ 10,00</span>
+          <span class="al-price-unit">/ crédito</span>
+        </div>
+        <div class="al-price-total">Valor Total: R$ 200,00</div>
+        <div class="al-price-details">Créditos sem expiração para campanhas recorrentes.</div>
+      </div>
+
+      {cta('Solicitar Voz IA pelo WhatsApp', location='precos')}
+    </div>
+
+    <!-- Coluna Locução Humana (Comparativo) -->
+    <div class="al-pricing-column human">
+      <div class="al-pricing-col-header">
+        <span class="badge">🎙️ Locução Humana</span>
+        <h3>Locutores Profissionais</h3>
+      </div>
+
+      <div class="al-price-card">
+        <div class="al-price-card-title">Locução Off Humana (Avulsa)</div>
+        <p style="font-size:0.875rem;color:var(--al-text-muted);margin:0 0 8px;">Somente a voz gravada por locutor humano.</p>
+        <div class="al-price-main">
+          <span class="al-price-value">R$ 11,90</span>
+          <span class="al-price-unit">/ crédito</span>
+        </div>
+        <div class="al-price-details">Por crédito de até 40s. Voz natural profissional.</div>
+      </div>
+
+      <div class="al-price-card">
+        <div class="al-price-card-title">Pacote 50 Offs Humanos</div>
+        <p style="font-size:0.875rem;color:var(--al-text-muted);margin:0 0 8px;">50 créditos de locução off humana.</p>
+        <div class="al-price-main">
+          <span class="al-price-value">R$ 4,00</span>
+          <span class="al-price-unit">/ crédito</span>
+        </div>
+        <div class="al-price-total">Valor Total: R$ 200,00</div>
+        <div class="al-price-details">Créditos sem expiração.</div>
+      </div>
+
+      <div class="al-price-card">
+        <div class="al-price-card-title">Produção Completa Humana (Avulsa)</div>
+        <p style="font-size:0.875rem;color:var(--al-text-muted);margin:0 0 8px;">Voz humana, trilha e finalização.</p>
+        <div class="al-price-main">
+          <span class="al-price-value">R$ 29,90</span>
+          <span class="al-price-unit">/ crédito</span>
+        </div>
+        <div class="al-price-details">Anúncio pronto com locutor profissional.</div>
+      </div>
+
+      <div class="al-price-card">
+        <div class="al-price-card-title">Pacote 30 Produções Humanas</div>
+        <p style="font-size:0.875rem;color:var(--al-text-muted);margin:0 0 8px;">30 créditos de produção completa com voz humana.</p>
+        <div class="al-price-main">
+          <span class="al-price-value">R$ 10,00</span>
+          <span class="al-price-unit">/ crédito</span>
+        </div>
+        <div class="al-price-total">Valor Total: R$ 300,00</div>
+        <div class="al-price-details">Créditos sem expiração.</div>
+      </div>
+
+      <a class="al-cta-btn al-cta-secondary" href="/locutores/">Conhecer Locutores Humanos →</a>
+    </div>
+  </div>
+</div></section>
 <section class="ia-section ia-dark"><div class="ia-shell"><span class="ia-eyebrow">Cada mensagem pede um estilo</span><h2>Qual voz escolher?</h2><div class="ia-benefits">{''.join('<article><h3>'+t+'</h3><p>'+d+'</p></article>' for t,d in [('Supermercados e varejo','Energia e clareza para apresentar ofertas e promoções.'),('Lojas e comércio','Uma conversa próxima para apresentar produtos e novidades.'),('Publicidade para rádio','Ritmo e presença para valorizar o texto da campanha.'),('Anúncios digitais','Perfis dinâmicos para vídeos e redes sociais.'),('Vídeos institucionais','Tons acolhedores e confiáveis para apresentar sua empresa.'),('Igrejas e eventos','Comunicação clara para convites e divulgações.'),('Campanhas sazonais','Personagens e estilos temáticos para datas especiais.')])}</div></div></section>
 <section class="ia-section"><div class="ia-shell ia-two"><div><span class="ia-eyebrow">Duas opções, a sua escolha</span><h2>Voz IA ou voz humana?</h2><p>Vozes IA oferecem economia, consistência e agilidade. Vozes humanas podem oferecer maior espontaneidade, nuances emocionais e interpretação personalizada.</p><p>A melhor escolha depende da mensagem e da interpretação que você procura. A Locução oferece as duas opções.</p><a class="ia-secondary" href="https://vozes.alocucao.com.br/">Ouvir vozes humanas ↗</a></div><div class="ia-process"><h2>Como contratar</h2><ol><li>Ouça as demonstrações.</li><li>Escolha sua voz favorita.</li><li>Envie seu texto pelo WhatsApp.</li><li>Receba as orientações para solicitar a gravação.</li></ol>{cta()}</div></div></section>
 <section id="duvidas" class="ia-section ia-soft"><div class="ia-shell ia-faq"><span class="ia-eyebrow">Vamos tirar suas dúvidas</span><h2>Perguntas frequentes</h2>{''.join('<details><summary>'+q+'</summary><p>'+a+'</p></details>' for q,a in faq)}</div></section>
