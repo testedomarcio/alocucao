@@ -7,6 +7,8 @@ import re
 import tempfile
 import urllib.request
 import unicodedata
+import time
+import urllib.error
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -90,15 +92,30 @@ def update_schema(voices):
         atomic_write(page, html)
 
 
+def fetch_public_catalog():
+    """Retry transient connection failures, never an invalid catalog or auth wall."""
+    for attempt in range(3):
+        request = urllib.request.Request(API, headers={'User-Agent':'A-Locucao-Catalog-Sync/1.0 (+https://alocucao.com.br/)', 'Accept':'text/html'})
+        try:
+            with urllib.request.urlopen(request, timeout=20) as response:
+                if urlsplit(response.url).hostname != 'vozes.alocucao.com.br':
+                    raise ValueError('Unexpected redirect')
+                payload = response.read(4_000_001)
+                if len(payload) > 4_000_000:
+                    raise ValueError('Catalog response too large')
+                return parse_catalog(payload)
+        except urllib.error.HTTPError as exc:
+            if exc.code not in (502, 503, 504) or attempt == 2:
+                raise
+        except (urllib.error.URLError, TimeoutError, ConnectionError):
+            if attempt == 2:
+                raise
+        print(f'Temporary source connection failure; retry {attempt + 2}/3')
+        time.sleep(2 * (attempt + 1))
+
+
 def main():
-    request = urllib.request.Request(API, headers={'User-Agent':'A-Locucao-Catalog-Sync/1.0 (+https://alocucao.com.br/)', 'Accept':'text/html'})
-    with urllib.request.urlopen(request, timeout=40) as response:
-        if urlsplit(response.url).hostname != 'vozes.alocucao.com.br':
-            raise ValueError('Unexpected redirect')
-        html = response.read(4_000_001)
-        if len(html) > 4_000_000:
-            raise ValueError('Catalog response too large')
-        voices = parse_catalog(html)
+    voices = fetch_public_catalog()
     previous = json.loads(OUTPUT.read_text(encoding='utf-8')) if OUTPUT.exists() else None
     if previous and previous.get('provider')==PROVIDER and len(voices) < len(previous['voices']) * .65:
         raise ValueError('Large catalog shrink; preserving previous catalog')

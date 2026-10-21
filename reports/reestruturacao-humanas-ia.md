@@ -19,6 +19,8 @@ O workflow `sync-voices.yml` consulta a fonte a cada 15 minutos, sujeito a atras
 
 Não se trata de disponibilidade instantânea. A interface mostra a data da atualização e orienta a confirmação do prazo. A sincronização de IA com o Drive continua manual: novas demonstrações precisam ser integradas e publicadas.
 
+A primeira execução do workflow após a publicação encontrou timeout de conexão ao servidor de origem. Foram adicionadas até três tentativas para falhas transitórias de rede (sem repetir erros de autorização nem aceitar dados inválidos). A consulta local foi bem-sucedida; o catálogo publicado preserva os últimos dados válidos e o tratamento de status desatualizado.
+
 ## Interface e conteúdo
 
 Dois painéis em computadores e abas em celulares, com busca e filtros independentes. Listas horizontais compactas, fotos/avatares, nome, características, disponibilidade, reprodução e seleção pelo WhatsApp. São mostradas inicialmente 12 vozes por painel, com botão para carregar mais. Os perfis permanecem no HTML para indexação e uso sem JavaScript.
