@@ -7,6 +7,7 @@ import json,re,runpy,unittest
 ROOT=Path(__file__).resolve().parent.parent
 MODEL=runpy.run_path(str(ROOT/'scripts/refresh-whatsapp-site.py'))
 LANDINGS=runpy.run_path(str(ROOT/'scripts/standardize-single-offer.py'))['ROUTES']
+LANDINGS=[r for r in LANDINGS if r!='vozes-ia']
 class Page(HTMLParser):
  def __init__(self,text):super().__init__();self.tags=[];self.feed(text)
  def handle_starttag(self,tag,attrs):self.tags.append((tag,dict(attrs)))

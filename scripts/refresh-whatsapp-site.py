@@ -48,7 +48,7 @@ def render_catalog(voices,route):
   msg='Olá! Gostei da voz '+v['name']+' e gostaria de solicitar um orçamento. Origem: https://alocucao.com.br/'+route+('/' if route else '')
   cards.append('<article class="sv-card" data-sv-name="'+e(v['name'])+'" data-sv-gender="'+e(v['gender'])+'" data-sv-styles="'+e('|'.join(v['styles']))+'"><div class="sv-card-head"><img src="'+e(v['photo'])+'" alt="Perfil ilustrativo da voz '+e(v['name'])+'" width="80" height="80" loading="lazy" decoding="async"><div><h3>'+e(v['name'])+'</h3><p>'+e(v['gender'])+'</p></div></div><div class="sv-tags">'+''.join('<span>'+e(x)+'</span>' for x in v['styles'])+'</div><audio controls preload="none" src="'+e(v['audio'])+'" aria-label="Ouvir demonstração de '+e(v['name'])+'" data-voice="'+e(v['name'])+'">Seu navegador não suporta áudio.</audio><p class="sv-audio-error" hidden>Não foi possível carregar o áudio. Solicite a demonstração pelo WhatsApp.</p><a class="sv-order" href="'+WA+quote(msg)+'" target="_blank" rel="noopener noreferrer" data-cta="selected_voice_quote" data-voice-kind="ia" data-voice-name="'+e(v['name'])+'">Quero essa voz</a></article>')
  more=WA+quote('Olá! Quero conhecer mais opções de vozes para meu projeto. Origem: https://alocucao.com.br/'+route+('/' if route else ''))
- return '<!-- selected-voices:start --><section class="sv-section" id="banco-de-vozes" data-selected-voices><div class="sv-shell"><div class="sv-heading"><span>OUÇA ANTES DE ESCOLHER</span><h2>Encontre a voz do seu próximo anúncio</h2><p>Ouça as demonstrações, encontre seu estilo e peça um orçamento direto pelo WhatsApp.</p></div><div class="sv-filters"><label>Buscar voz<input type="search" class="sv-search" placeholder="Nome da voz" autocomplete="off"></label><label>Gênero<select class="sv-gender"><option value="">Todos</option><option>Masculina</option><option>Feminina</option></select></label><label>Estilo<select class="sv-style"><option value="">Todos os estilos</option>'+''.join('<option>'+e(x)+'</option>' for x in styles)+'</select></label><button type="button" class="sv-clear">Limpar filtros</button></div><p class="sv-count" role="status" aria-live="polite">'+str(len(voices))+' vozes na seleção</p><div class="sv-grid">'+''.join(cards)+'</div><p class="sv-empty" hidden>Nenhuma voz encontrada. Tente outro nome ou limpe os filtros.</p><button class="sv-more" type="button" hidden>Mostrar mais vozes</button><div class="sv-footer"><p>Quer explorar outros estilos e locutores? Nossa equipe ajuda você a escolher.</p><a class="sv-order sv-more-whatsapp" href="'+more+'" target="_blank" rel="noopener noreferrer" data-cta="more_voices_whatsapp">Conheça mais vozes pelo WhatsApp</a><p class="sv-disclosure">Esta seleção reúne vozes geradas por inteligência artificial. As fotos representam perfis ilustrativos. Confirme o formato, a disponibilidade e o prazo antes do pedido.</p></div></div></section><!-- selected-voices:end -->'
+ return '<!-- selected-voices:start --><section class="sv-section" id="banco-de-vozes" data-selected-voices><div class="sv-shell"><div class="sv-heading"><span>OUÇA ANTES DE ESCOLHER</span><h2>Encontre a voz certa para sua mensagem</h2><p>Ouça as demonstrações, encontre seu estilo e peça um orçamento direto pelo WhatsApp.</p></div><div class="sv-filters"><label>Buscar voz<input type="search" class="sv-search" placeholder="Nome da voz" autocomplete="off"></label><label>Gênero<select class="sv-gender"><option value="">Todos</option><option>Masculina</option><option>Feminina</option></select></label><label>Estilo<select class="sv-style"><option value="">Todos os estilos</option>'+''.join('<option>'+e(x)+'</option>' for x in styles)+'</select></label><button type="button" class="sv-clear">Limpar filtros</button></div><p class="sv-count" role="status" aria-live="polite">'+str(len(voices))+' vozes na seleção</p><div class="sv-grid">'+''.join(cards)+'</div><p class="sv-empty" hidden>Nenhuma voz encontrada. Tente outro nome ou limpe os filtros.</p><button class="sv-more" type="button" hidden>Mostrar mais vozes</button><div class="sv-footer"><p>Quer explorar outros estilos e locutores? Nossa equipe ajuda você a escolher.</p><a class="sv-order sv-more-whatsapp" href="'+more+'" target="_blank" rel="noopener noreferrer" data-cta="more_voices_whatsapp">Conheça mais vozes pelo WhatsApp</a><p class="sv-disclosure">Esta seleção reúne vozes geradas por inteligência artificial. As fotos representam perfis ilustrativos. Confirme o formato, a disponibilidade e o prazo antes do pedido.</p></div></div></section><!-- selected-voices:end -->'
 
 
 def is_order_url(href):
@@ -62,6 +62,10 @@ def normalize_prices(s):
  return s
 
 def update(s,route,voices,template=False):
+ if route=='vozes-ia':
+  return '<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Banco de Vozes | A Locução</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="https://alocucao.com.br/vozes/"><meta http-equiv="refresh" content="0;url=https://alocucao.com.br/vozes/"></head><body><p>Nosso catálogo está no <a href="https://alocucao.com.br/vozes/">Banco de Vozes da A Locução</a>.</p></body></html>\n'
+ # Retire the former separate catalog from navigation and other internal links.
+ s=rewrite(s,lambda t,a,b:t=='a' and urlsplit(unescape(a.get('href',''))).path.rstrip('/')=='/vozes-ia')
  s=normalize_prices(s)
  # Remove customer endorsements sitewide, including legacy templates and generated sections.
  s=rewrite(s,lambda t,a,b:t=='section' and (bool(re.search(r'testimonial|depoimento|reviews-public',a.get('class','')+' '+a.get('id',''),re.I)) or 'testimonial-card' in b or 'spot-testimonial' in b))
@@ -162,6 +166,16 @@ def update(s,route,voices,template=False):
  s=re.sub(r'(<a\b[^>]*>Ouvir vozes disponíveis</a>)(?:\s*<a\b[^>]*>Ouvir vozes disponíveis</a>)+',r'\1',s)
  # Stale panel-first positioning should not remain visible on PWA/help pages.
  for old,new in [('Pedir voz humana na Central','Pedir pelo WhatsApp'),('Já sou cliente — Acessar painel','Falar pelo WhatsApp'),('Área do Cliente — Acessar painel','Atendimento pelo WhatsApp'),('Faça seu pedido pela Central A Locução','Faça seu pedido pelo WhatsApp'),('Prefere contratar diretamente pela Central A Locução?','Precisa de ajuda para contratar? Fale pelo WhatsApp.'),('Faça pedidos pelo WhatsApp e acompanhe cada etapa na sua conta.','Faça pedidos e acompanhe cada etapa pelo WhatsApp.')]:s=s.replace(old,new)
+ # Brand signature: one per footer, plus the home hero and voice-selection heading.
+ slogan='A Locução, a voz certa para sua mensagem'
+ def brand_footer(m):
+  footer=m[0]
+  if 'data-brand-slogan' in footer:return footer
+  if 'al-footer-about' in footer:
+   return re.sub(r'(<div class="al-footer-about">\s*<a\b.*?</a>)',lambda x:x[1]+'<p data-brand-slogan><strong>'+slogan+'</strong></p>',footer,count=1,flags=re.S)
+  return re.sub(r'<p><strong>A Locução[^<]*</strong></p>','<p data-brand-slogan><strong>'+slogan+'</strong></p>',footer,count=1)
+ s=re.sub(r'<footer\b.*?</footer>',brand_footer,s,flags=re.S)
+ if route=='' and not template:s=s.replace('Sua ideia. A voz certa. Áudio pronto.',slogan)
  return re.sub(r'[ \t]+$','',s,flags=re.M)
 
 
@@ -175,5 +189,7 @@ def main():
   route=path.parent.relative_to(ROOT).as_posix();route='' if route=='.' else route
   old=path.read_text();new=update(old,route,voices,route.startswith('templates'))
   if new!=old:path.write_text(new);changed.append(str(path.relative_to(ROOT)))
+ sitemap=ROOT/'sitemap.xml'
+ if sitemap.exists():sitemap.write_text(re.sub(r'\s*<url>\s*<loc>https://alocucao\.com\.br/vozes-ia/</loc>.*?</url>','',sitemap.read_text(),flags=re.S))
  print('WhatsApp-only pages:',len(changed),'updated; selected voices:',len(voices))
 if __name__=='__main__':main()
