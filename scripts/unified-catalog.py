@@ -6,7 +6,7 @@ from urllib.parse import quote
 ROOT = Path(__file__).resolve().parent.parent
 VERSION = '20261021-natural-voices'
 HUMAN_LANDINGS = {'/off-comercial/','/locucao-off/','/producao-para-igrejas/','/gravacao-off-e-producao/','/producao-para-supermercados/','/spot-black-friday/'}
-TABBED_LANDINGS = {'/spot-comercial/','/locucao-off/','/producao-para-igrejas/','/gravacao-off-e-producao/','/producao-para-supermercados/'}
+TABBED_LANDINGS = {'/locucao-off/','/producao-para-igrejas/','/gravacao-off-e-producao/','/producao-para-supermercados/'}
 TABBED_PAGES = TABBED_LANDINGS | {'/', '/vozes/'}
 def select_humans(voices, origin):
     if origin not in HUMAN_LANDINGS and origin not in TABBED_LANDINGS: return voices
@@ -88,7 +88,9 @@ def refresh():
         if any(x.startswith('.') for x in p.relative_to(ROOT).parts):continue
         text=p.read_text()
         if '<!-- unified-catalog:start -->' not in text:continue
-        mode=re.search(r'class="uv-catalog"[^>]*data-mode="(both|human|ia)"',text)[1]
+        m=re.search(r'class="uv-catalog"[^>]*data-mode="(both|human|ia|unified)"',text)
+        if not m or m[1]=='unified':continue
+        mode=m[1]
         origin=re.search(r'class="uv-catalog"[^>]*data-origin="([^"]+)"',text)[1]
         new=re.sub(r'<!-- unified-catalog:start -->.*?<!-- unified-catalog:end -->',lambda _:render_catalog(mode,html.unescape(origin)),text,flags=re.S)
         new=install_assets(new)
