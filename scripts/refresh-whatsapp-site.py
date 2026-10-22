@@ -7,7 +7,7 @@ import json,re,runpy
 ROOT=Path(__file__).resolve().parent.parent
 HELPERS=runpy.run_path(str(ROOT/'scripts/standardize-single-offer.py'))
 rewrite=HELPERS['rewrite'];plain=HELPERS['plain']
-VERSION='20261022-selected-voices-v1'
+VERSION='20261022-selected-voices-v2'
 WA='https://wa.me/5527996529832?text='
 PRICE='A Locução Off custa R$ 12,00 por crédito de até 40 segundos e inclui somente a voz, sem edição, trilha ou efeitos. A produção completa custa R$ 30,00 por crédito e inclui locução, trilha sonora, efeitos e finalização. O preço é o mesmo para qualquer voz escolhida. De 41 a 80 segundos são necessários 2 créditos.'
 META={
@@ -46,7 +46,7 @@ def render_catalog(voices,route):
  cards=[]
  for v in voices:
   msg='Olá! Gostei da voz '+v['name']+' e gostaria de solicitar um orçamento. Origem: https://alocucao.com.br/'+route+('/' if route else '')
-  cards.append('<article class="sv-card" data-sv-name="'+e(v['name'])+'" data-sv-gender="'+e(v['gender'])+'" data-sv-styles="'+e('|'.join(v['styles']))+'"><div class="sv-card-head"><img src="'+e(v['photo'])+'" alt="Perfil ilustrativo da voz '+e(v['name'])+'" width="80" height="80" loading="lazy" decoding="async"><div><h3>'+e(v['name'])+'</h3><p>'+e(v['gender'])+' · Voz natural (IA)</p></div></div><div class="sv-tags">'+''.join('<span>'+e(x)+'</span>' for x in v['styles'])+'</div><audio controls preload="none" src="'+e(v['audio'])+'" aria-label="Ouvir demonstração de '+e(v['name'])+'" data-voice="'+e(v['name'])+'">Seu navegador não suporta áudio.</audio><p class="sv-audio-error" hidden>Não foi possível carregar o áudio. Solicite a demonstração pelo WhatsApp.</p><a class="sv-order" href="'+WA+quote(msg)+'" target="_blank" rel="noopener noreferrer" data-cta="selected_voice_quote" data-voice-kind="ia" data-voice-name="'+e(v['name'])+'">Solicitar orçamento</a></article>')
+  cards.append('<article class="sv-card" data-sv-name="'+e(v['name'])+'" data-sv-gender="'+e(v['gender'])+'" data-sv-styles="'+e('|'.join(v['styles']))+'"><div class="sv-card-head"><img src="'+e(v['photo'])+'" alt="Perfil ilustrativo da voz '+e(v['name'])+'" width="80" height="80" loading="lazy" decoding="async"><div><h3>'+e(v['name'])+'</h3><p>'+e(v['gender'])+'</p></div></div><div class="sv-tags">'+''.join('<span>'+e(x)+'</span>' for x in v['styles'])+'</div><audio controls preload="none" src="'+e(v['audio'])+'" aria-label="Ouvir demonstração de '+e(v['name'])+'" data-voice="'+e(v['name'])+'">Seu navegador não suporta áudio.</audio><p class="sv-audio-error" hidden>Não foi possível carregar o áudio. Solicite a demonstração pelo WhatsApp.</p><a class="sv-order" href="'+WA+quote(msg)+'" target="_blank" rel="noopener noreferrer" data-cta="selected_voice_quote" data-voice-kind="ia" data-voice-name="'+e(v['name'])+'">Quero essa voz</a></article>')
  more=WA+quote('Olá! Quero conhecer mais opções de vozes para meu projeto. Origem: https://alocucao.com.br/'+route+('/' if route else ''))
  return '<!-- selected-voices:start --><section class="sv-section" id="banco-de-vozes" data-selected-voices><div class="sv-shell"><div class="sv-heading"><span>OUÇA ANTES DE ESCOLHER</span><h2>Encontre a voz do seu próximo anúncio</h2><p>Ouça as demonstrações, encontre seu estilo e peça um orçamento direto pelo WhatsApp.</p></div><div class="sv-filters"><label>Buscar voz<input type="search" class="sv-search" placeholder="Nome da voz" autocomplete="off"></label><label>Gênero<select class="sv-gender"><option value="">Todos</option><option>Masculina</option><option>Feminina</option></select></label><label>Estilo<select class="sv-style"><option value="">Todos os estilos</option>'+''.join('<option>'+e(x)+'</option>' for x in styles)+'</select></label><button type="button" class="sv-clear">Limpar filtros</button></div><p class="sv-count" role="status" aria-live="polite">'+str(len(voices))+' vozes na seleção</p><div class="sv-grid">'+''.join(cards)+'</div><p class="sv-empty" hidden>Nenhuma voz encontrada. Tente outro nome ou limpe os filtros.</p><button class="sv-more" type="button" hidden>Mostrar mais vozes</button><div class="sv-footer"><p>Quer explorar outros estilos e locutores? Nossa equipe ajuda você a escolher.</p><a class="sv-order sv-more-whatsapp" href="'+more+'" target="_blank" rel="noopener noreferrer" data-cta="more_voices_whatsapp">Conheça mais vozes pelo WhatsApp</a><p class="sv-disclosure">Esta seleção reúne vozes geradas por inteligência artificial. As fotos representam perfis ilustrativos. Confirme o formato, a disponibilidade e o prazo antes do pedido.</p></div></div></section><!-- selected-voices:end -->'
 
@@ -63,6 +63,11 @@ def normalize_prices(s):
 
 def update(s,route,voices,template=False):
  s=normalize_prices(s)
+ # Remove customer endorsements sitewide, including legacy templates and generated sections.
+ s=rewrite(s,lambda t,a,b:t=='section' and (bool(re.search(r'testimonial|depoimento|reviews-public',a.get('class','')+' '+a.get('id',''),re.I)) or 'testimonial-card' in b or 'spot-testimonial' in b))
+ s=rewrite(s,lambda t,a,b:t=='a' and (urlsplit(unescape(a.get('href',''))).path.rstrip('/')=='/avaliacoes' or bool(re.search(r'depoimento',a.get('href',''),re.I))))
+ s=re.sub(r'<link\b[^>]*href=["\'][^"\']*/assets/testimonials\.css[^"\']*["\'][^>]*>','',s)
+ s=s.replace('Avalie sua experiência com a A Locução e leia depoimentos autorizados de clientes de locução e produção de áudio.','Envie sua avaliação sobre o atendimento e os serviços de locução e produção de áudio da A Locução.')
  # Isolate all old voice widgets, preserving separate real-work/portfolio audio.
  s=re.sub(r'<!-- selected-voices:start -->.*?<!-- selected-voices:end -->','<!-- selected-voices:slot -->',s,flags=re.S)
  s=rewrite(s,lambda t,a,b:t=='section' and ('unified-catalog:start' in b or 'vitrine-vozes' in b), '<!-- selected-voices:slot -->')
@@ -126,6 +131,7 @@ def update(s,route,voices,template=False):
   def walk(o,context=''):
    if isinstance(o,dict):
     kind=o.get('@type');name=str(o.get('name',''))
+    for key in ['review','reviews','aggregateRating']:o.pop(key,None)
     if kind=='FAQPage' and faqs:o['mainEntity']=[{'@type':'Question','name':q,'acceptedAnswer':{'@type':'Answer','text':a}} for q,a in faqs]
     if kind in {'Service','Product'} and ('offers' in o or 'hasOfferCatalog' in o):
      o.pop('hasOfferCatalog',None);o['offers']=[{'@type':'Offer','name':name,'price':price,'priceCurrency':'BRL','description':'Preço por crédito de até 40 segundos, com qualquer voz escolhida.','url':'https://alocucao.com.br/'+route+('/' if route else '')} for name,price in [('Locução Off — somente voz','12.00'),('Produção completa','30.00')]]

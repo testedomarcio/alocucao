@@ -3,7 +3,12 @@
   const normalize = text => String(text || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
   document.querySelectorAll('[data-selected-voices]').forEach(widget => {
     const search=widget.querySelector('.sv-search'),gender=widget.querySelector('.sv-gender'),style=widget.querySelector('.sv-style'),clear=widget.querySelector('.sv-clear'),more=widget.querySelector('.sv-more'),count=widget.querySelector('.sv-count'),empty=widget.querySelector('.sv-empty');
-    const cards=[...widget.querySelectorAll('.sv-card')];let limit=6;
+    const cards=[...widget.querySelectorAll('.sv-card')];
+    // Shuffle once per page load; filters and pagination keep this order.
+    for(let i=cards.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[cards[i],cards[j]]=[cards[j],cards[i]];}
+    const grid=widget.querySelector('.sv-grid');
+    cards.forEach(card=>grid.appendChild(card));
+    let limit=6;
     const filter = () => {
       const term=normalize(search.value);
       const found=cards.filter(card => normalize(card.dataset.svName).includes(term)&&(!gender.value||card.dataset.svGender===gender.value)&&(!style.value||card.dataset.svStyles.split('|').includes(style.value)));
