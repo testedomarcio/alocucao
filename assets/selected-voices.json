@@ -1,0 +1,325 @@
+{
+  "source": "https://vozes.alocucao.com.br/#locutores",
+  "selection": "🧠",
+  "count": 23,
+  "voices": [
+    {
+      "id": "vl-6829",
+      "name": "Aida",
+      "gender": "Feminina",
+      "styles": [
+        "Padrão",
+        "Animada",
+        "Varejo",
+        "Outro"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6829.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6829-cb82f8aa9921.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6822",
+      "name": "Aline Mota",
+      "gender": "Feminina",
+      "styles": [
+        "Padrão",
+        "Animada",
+        "Varejo",
+        "Outro"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6822.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6822-d1b3af9f6a6c.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6817",
+      "name": "Amanda Kelly",
+      "gender": "Feminina",
+      "styles": [
+        "Padrão",
+        "Animada",
+        "Varejo",
+        "Outro"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6817.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6817-7e857c0872fc.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6830",
+      "name": "Ana Alice",
+      "gender": "Feminina",
+      "styles": [
+        "Padrão",
+        "Animada",
+        "Varejo",
+        "Outro"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6830.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6830-3b8c67ad0e80.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6810",
+      "name": "Audrey",
+      "gender": "Feminina",
+      "styles": [
+        "Padrão",
+        "Animada",
+        "Varejo",
+        "Outro"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6810.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6810-97638644d332.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6827",
+      "name": "Cassio Cruz",
+      "gender": "Masculina",
+      "styles": [
+        "Padrão",
+        "Impacto",
+        "Animada",
+        "Varejo",
+        "Outro"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6827.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6827-26b3ab440dd1.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6826",
+      "name": "Christine",
+      "gender": "Feminina",
+      "styles": [
+        "Padrão",
+        "Animada",
+        "Varejo",
+        "Outro"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6826.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6826-0da45a9a9358.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6807",
+      "name": "David",
+      "gender": "Masculina",
+      "styles": [
+        "Padrão",
+        "Impacto",
+        "Varejo"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6807.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6807-770cb5ff5ace.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6812",
+      "name": "Eduardo S",
+      "gender": "Masculina",
+      "styles": [
+        "Padrão",
+        "Animada",
+        "Varejo",
+        "Outro"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6812.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6812-e16452c6309a.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6825",
+      "name": "Enzo",
+      "gender": "Masculina",
+      "styles": [
+        "Padrão",
+        "Animada",
+        "Varejo",
+        "Outro"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6825.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6825-db799d9936b0.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6813",
+      "name": "Fernanda",
+      "gender": "Feminina",
+      "styles": [
+        "Padrão",
+        "Animada",
+        "Varejo",
+        "Outro"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6813.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6813-937b5bba8e18.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6821",
+      "name": "Kaique",
+      "gender": "Masculina",
+      "styles": [
+        "Padrão",
+        "Impacto",
+        "Animada",
+        "Varejo",
+        "Outro"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6821.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6821-af66003d4c1c.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6819",
+      "name": "Koraly",
+      "gender": "Feminina",
+      "styles": [
+        "Padrão",
+        "Animada",
+        "Varejo",
+        "Outro"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6819.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6819-775ee2f3fce4.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6808",
+      "name": "Larissa",
+      "gender": "Feminina",
+      "styles": [
+        "Padrão",
+        "Animada",
+        "Varejo"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6808.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6808-e503bd914f8e.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6816",
+      "name": "Lax",
+      "gender": "Masculina",
+      "styles": [
+        "Padrão",
+        "Animada",
+        "Varejo",
+        "Outro"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6816.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6816-cff718f74205.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6818",
+      "name": "Leo Antonio",
+      "gender": "Masculina",
+      "styles": [
+        "Padrão",
+        "Animada",
+        "Varejo",
+        "Outro"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6818.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6818-62c5d60e2b67.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6831",
+      "name": "Leonardo",
+      "gender": "Masculina",
+      "styles": [
+        "Padrão",
+        "Animada",
+        "Varejo",
+        "Outro"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6831.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6831-80463a4d081c.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6814",
+      "name": "Marcio",
+      "gender": "Masculina",
+      "styles": [
+        "Padrão",
+        "Animada",
+        "Varejo",
+        "Outro"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6814.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6814-29f03c33f733.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6828",
+      "name": "Mário",
+      "gender": "Masculina",
+      "styles": [
+        "Padrão",
+        "Animada",
+        "Varejo",
+        "Outro"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6828.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6828-6a64f55617cb.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6823",
+      "name": "Noel Natal",
+      "gender": "Masculina",
+      "styles": [
+        "Caricata"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6823.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6823-fa5d322d3133.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6815",
+      "name": "Roberta",
+      "gender": "Feminina",
+      "styles": [
+        "Padrão",
+        "Animada",
+        "Varejo"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6815.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6815-8a9564188bcb.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6824",
+      "name": "Will",
+      "gender": "Masculina",
+      "styles": [
+        "Padrão",
+        "Impacto",
+        "Animada",
+        "Varejo",
+        "Outro"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6824.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6824-397aa01bacc2.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6809",
+      "name": "Zozo",
+      "gender": "Masculina",
+      "styles": [
+        "Padrão",
+        "Animada",
+        "Varejo"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6809.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6809-f727fe23d445.webp",
+      "kind": "ia"
+    }
+  ]
+}

@@ -9,5 +9,5 @@ vm.runInNewContext(code,{document,window,URL,URLSearchParams,Date,setTimeout:()=
 el('voice-speed').value='120';el('service').value='off';
 for(const [n,seconds,credits] of [[20,10,1],[80,40,1],[81,41,2],[180,90,3]]){el('script-text').value=Array(n).fill('palavra').join(' ');el('calculate').click();assert.equal(el('blocks').textContent,credits);assert.equal(el('duration').textContent,`${Math.floor(seconds/60)}:${String(seconds%60).padStart(2,'0')}`)}
 el('clear').click();assert.equal(el('script-text').value,'');
-const panel=[...html.matchAll(/<a[^>]+id="panel-link"[^>]+>/g)];assert.equal(panel.length,1);assert.match(panel[0][0],/https:\/\/vozes.alocucao.com.br\/painel\/cadastro/);
-console.log('PASS: calculator initializes, computes 1/2/3 credits and 40-second boundary, clears input, preserves one online CTA.');
+const panel=[...html.matchAll(/<a[^>]+id="panel-link"[^>]+>/g)];assert.equal(panel.length,1);assert.match(panel[0][0],/https:\/\/wa.me\/5527996529832/);
+console.log('PASS: calculator initializes, computes 1/2/3 credits and 40-second boundary, clears input, preserves its WhatsApp order CTA.');

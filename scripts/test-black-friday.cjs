@@ -4,6 +4,7 @@ assert(!html.includes('const ended'),'Retired promotion must not overwrite the n
 assert(!html.includes('data-normal='),'No legacy expiry prices');
 assert(!html.includes('R$ 8,90')&&!html.includes('R$ 16,90'));
 assert(html.includes('R$ 12,00')&&html.includes('R$ 30,00'));
-assert(html.includes('id="vitrine-vozes"'));
+assert(html.includes('data-selected-voices'));
+assert(!html.includes('id="vitrine-vozes"'));
 assert(html.includes('id="single-offer-schema"'));
 console.log('PASS: Black Friday uses fixed current prices and official showcase, with no expired promotion logic.');

@@ -1,5 +1,5 @@
 (() => {
-  const players = [...document.querySelectorAll('audio')];
+  const players = [...document.querySelectorAll('audio')].filter(audio => !audio.closest('[data-selected-voices]'));
   players.forEach(audio => {
     const error = audio.closest('.audio-card')?.querySelector('.audio-error');
     audio.addEventListener('error', () => { if (error) error.hidden = false; });
