@@ -6,32 +6,40 @@ from urllib.parse import urlsplit,parse_qs,unquote
 import json,re,runpy,unittest
 ROOT=Path(__file__).resolve().parent.parent
 HUMAN=['off-comercial','locucao-off','producao-para-igrejas','gravacao-off-e-producao','producao-para-supermercados','spot-black-friday']
-TABBED=['spot-comercial','locucao-off','producao-para-igrejas','gravacao-off-e-producao','producao-para-supermercados']
+TABBED=['locucao-off','producao-para-igrejas','gravacao-off-e-producao','producao-para-supermercados']
+UNIFIED=['spot-comercial']
 class Page(HTMLParser):
  def __init__(self,text):
   super().__init__();self.tags=[];self.feed(text)
  def handle_starttag(self,tag,attrs):self.tags.append((tag,dict(attrs)))
 class Landings(unittest.TestCase):
  def test_routes_and_commercial_boundaries(self):
-  for route in list(dict.fromkeys(HUMAN+TABBED+['locucao-ia'])):
+  for route in list(dict.fromkeys(HUMAN+TABBED+['locucao-ia']+UNIFIED)):
    with self.subTest(route=route):
     text=(ROOT/route/'index.html').read_text();p=Page(text)
     self.assertEqual(len(re.findall('<h1[ >]',text)),1)
     self.assertIn('https://alocucao.com.br/'+route+'/',text)
     self.assertNotIn('noindex',text);self.assertNotIn('http-equiv="refresh"',text)
     self.assertTrue(any(tag=='meta' and attrs.get('name')=='description' and attrs.get('content') for tag,attrs in p.tags))
-    panels=[a.get('data-kind') for tag,a in p.tags if a.get('class')=='uv-panel']
-    self.assertEqual(panels,(['ia','human'] if route=='spot-comercial' else ['human','ia']) if route in TABBED else ['ia' if route=='locucao-ia' else 'human'])
+    panels=[a.get('data-kind') for tag,a in p.tags if a.get('class')=='uv-panel' and a.get('data-kind')]
+    if route in UNIFIED:
+     self.assertIn('data-mode="unified"',text)
+     self.assertIn('Spot Comercial Completo por R$ 30,00',text)
+     self.assertNotIn('uv-tabs',text)
+     self.assertNotIn('al-pricing-dual-grid',text)
+    else:
+     self.assertEqual(panels,['human','ia'] if route in TABBED else ['ia' if route=='locucao-ia' else 'human'])
     if route in TABBED:
      self.assertIn('data-layout="tabs"',text)
-     self.assertIn('data-active="'+('ia' if route=='spot-comercial' else 'human')+'"',text)
+     self.assertIn('data-active="human"',text)
      self.assertIn('Vozes Naturais',text)
      self.assertNotIn('Duas opções de voz. Preços claros para escolher.',text)
     elif route in HUMAN:
      plain=re.sub(r'<script\b.*?</script>','',text,flags=re.S)
      self.assertNotRegex(plain,r'(?i)vozes? IA|inteligência artificial|R\$ 8,50|R\$ 19,00|/vozes-ia/')
      self.assertEqual(len(re.findall('class="uv-row"',text)),10)
-    else:self.assertNotRegex(text,r'R\$ 11,90|R\$ 29,90|data-kind="human"')
+    elif route not in UNIFIED:
+     self.assertNotRegex(text,r'R\$ 11,90|R\$ 29,90|data-kind="human"')
     for tag,attrs in p.tags:
      href=attrs.get('href','');u=urlsplit(href)
 
@@ -48,7 +56,7 @@ class Landings(unittest.TestCase):
  def test_build_preserves_target_pages(self):
   normalize=runpy.run_path(str(ROOT/'scripts/standardize-layout.py'))['standardize_page']
   update=runpy.run_path(str(ROOT/'scripts/review-dual-positioning.py'))['update']
-  for route in list(dict.fromkeys(HUMAN+TABBED+['locucao-ia'])):
+  for route in list(dict.fromkeys(HUMAN+TABBED+['locucao-ia']+UNIFIED)):
    path=ROOT/route/'index.html';text=path.read_text();self.assertEqual(normalize(text),text);self.assertIn('Vozes Naturais',text) if route in TABBED else None
  def test_portfolio_and_distinct_off(self):
   self.assertIn('/assets/audio/igreja-evangelica-monte-moria.mp3',(ROOT/'producao-para-igrejas/index.html').read_text())

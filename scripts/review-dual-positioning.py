@@ -8,7 +8,7 @@ OFFER=runpy.run_path(str(ROOT/'scripts/dual-offer.py'))['render_offer']()
 META={
  '':('Locução Profissional com Vozes Humanas e IA | A Locução','Produzimos locuções comerciais, spots e vinhetas com vozes humanas e inteligência artificial. Off humano R$ 11,90 ou IA R$ 8,50 por até 40 segundos.','A voz ideal para seu comercial: humana ou inteligência artificial.'),
  'locucao-off':('Locução Off com Vozes Humanas e IA | A Locução','Receba somente a voz para seus anúncios e vídeos. Off humano R$ 11,90 ou IA R$ 8,50 por até 40 segundos. Ouça e peça pelo WhatsApp.','Locução Off com vozes humanas e IA para seu projeto.'),
- 'spot-comercial':('Spot Comercial com Voz Humana ou IA | A Locução','Produza anúncios com voz, trilha e finalização. Até 40 segundos: voz humana R$ 29,90 ou IA R$ 19,00. Ouça as vozes e solicite pelo WhatsApp.','Spot comercial com voz humana ou inteligência artificial.'),
+ 'spot-comercial':('Spot Comercial com Produção Completa | A Locução','Produzimos spots comerciais com locução, trilha, efeitos e finalização profissional em até 2 horas. A partir de R$ 30,00.','Sua propaganda com a voz certa para vender mais.'),
  'producao-para-supermercados':('Locução para Supermercado com Vozes Humanas e IA | A Locução','Divulgue ofertas do supermercado com vozes humanas ou IA. Off IA R$ 8,50; Off humano R$ 11,90 por até 40 segundos. Conheça também a produção completa.','Locução para supermercado com vozes humanas e IA.'),
  'producao-para-igrejas':('Locução para Igrejas, Eventos e Congressos | A Locução','Produza convites para cultos, congressos e eventos com vozes humanas ou IA. Produção IA R$ 19,00 ou humana R$ 29,90 por até 40 segundos.','Locução para igrejas, eventos e congressos.'),
  'gravacao-off-e-producao':('Locução Humana e IA: Off, Produção e Pacotes Humanos | A Locução','Compare locutores humanos e vozes IA para seus anúncios. Off IA R$ 8,50 ou humano R$ 11,90 por até 40 segundos; consulte os pacotes humanos.','Já compra locução? Compare vozes humanas e IA na A Locução.'),
@@ -49,7 +49,7 @@ def metadata(text,title,description,h1=None):
 def update(text,path):
     route=path.parent.relative_to(ROOT).as_posix();route='' if route=='.' else route
     if 'data-commercial-refresh=' in text: return text
-    if route in {'off-comercial','locucao-off','producao-para-igrejas','gravacao-off-e-producao','producao-para-supermercados','spot-black-friday','locucao-ia'}:
+    if route in {'off-comercial','locucao-off','producao-para-igrejas','gravacao-off-e-producao','producao-para-supermercados','spot-black-friday','locucao-ia','spot-comercial'}:
         return text
     text=text.replace('<a href="/vozes/#banco-de-vozes">Ouvir vozes humanas e IA</a>', '<a href="/vozes/#banco-de-vozes">Ouvir vozes humanas</a> · <a href="/vozes-ia/#banco-de-vozes">Ouvir vozes IA</a>')
     # Shared identity is updated on all pages, including human-only profiles.
