@@ -5,9 +5,9 @@ from html.parser import HTMLParser
 from urllib.parse import urlsplit,parse_qs,unquote
 import json,re,runpy,unittest
 ROOT=Path(__file__).resolve().parent.parent
-HUMAN=['off-comercial','locucao-off','producao-para-igrejas','gravacao-off-e-producao','producao-para-supermercados','spot-black-friday']
-TABBED=['locucao-off','producao-para-igrejas','gravacao-off-e-producao','producao-para-supermercados']
-UNIFIED=['spot-comercial']
+HUMAN=['off-comercial','producao-para-igrejas','gravacao-off-e-producao','producao-para-supermercados','spot-black-friday']
+TABBED=['producao-para-igrejas','gravacao-off-e-producao','producao-para-supermercados']
+UNIFIED=['spot-comercial','locucao-off']
 class Page(HTMLParser):
  def __init__(self,text):
   super().__init__();self.tags=[];self.feed(text)
@@ -31,7 +31,7 @@ class Landings(unittest.TestCase):
      self.assertNotIn('/assets/unified-voices.js',text)
      self.assertNotIn('class="uv-catalog"',text)
      self.assertTrue(all(urlsplit(a.get('href','')).hostname=='wa.me' for tag,a in p.tags if tag=='a' and 'btn' in a.get('class','').split() and not a.get('href','').startswith('#')))
-     self.assertIn('Spot Comercial Completo por R$ 30,00',text)
+     self.assertIn('Locução Off por R$ 12,00' if route=='locucao-off' else 'Spot Comercial Completo por R$ 30,00',text)
      self.assertNotIn('uv-tabs',text)
      self.assertNotIn('al-pricing-dual-grid',text)
     else:
