@@ -20,7 +20,6 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="{{pageTitle}}">
   <meta name="twitter:description" content="{{metaDescription}}">
-
   <style>
     :root{--navy:#0b1726;--navy2:#14334f;--teal:#18a39c;--teal2:#0d7c77;--green:#25d366;--green-dark:#1da851;--gold:#f3b944;--ink:#132033;--muted:#667588;--bg:#f5f8fb;--line:#dfe7ef;--soft:#eaf8f7;--white:#fff;--shadow:0 22px 65px rgba(11,23,38,.12);--max:1140px}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);line-height:1.6;background:#fff}a{text-decoration:none;color:inherit}svg{display:block}.container{width:min(var(--max),calc(100% - 34px));margin:auto}
@@ -37,7 +36,6 @@
     ul, ol{margin:0 0 24px;padding-left:22px;color:#405060;font-size:1.02rem}
     li{margin-bottom:12px;line-height:1.6}
     li strong{color:var(--navy)}
-
     .cta-card{background:linear-gradient(135deg,var(--navy),#153756);border-radius:24px;padding:32px;color:#fff;margin:32px 0;box-shadow:var(--shadow)}.cta-card h3{font-size:1.5rem;margin:0 0 10px;color:#fff}.cta-card p{color:#d0dce6;margin:0 0 20px;font-size:1rem}.cta-actions{display:flex;gap:14px;flex-wrap:wrap}.cta-actions .btn{flex:1 1 240px}
     .content-section{padding:48px 0}
     .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:28px 0}
@@ -45,21 +43,21 @@
     .benefits-list{background:var(--bg);border:1px solid var(--line);border-radius:24px;padding:32px;margin:32px 0}
     .steps-list{background:var(--soft);border-radius:24px;padding:32px;margin:32px 0}
     .callout-box{background:var(--soft);border-left:4px solid var(--teal);border-radius:12px;padding:20px 24px;margin:28px 0}
-
     footer{background:#07111d;color:#aebdcc;padding:30px 16px 90px;font-size:.84rem}.footer-inner{width:min(var(--max),calc(100% - 34px));margin:auto;display:flex;justify-space-between;gap:20px;flex-wrap:wrap}.footer-links{display:flex;gap:15px;flex-wrap:wrap}.footer-links a{color:#dce8f4}.sticky-mobile{display:none}
-
     @media(max-width:920px){.nav-links a:not(.btn){display:none}}
     @media(max-width:650px){.hero{padding:36px 0 28px}.cta-card{padding:24px}.cta-actions{flex-direction:column}.cta-actions .btn{width:100%}.sticky-mobile{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:10px 13px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -9px 30px rgba(11,23,38,.1)}.sticky-mobile .btn{width:100%}}
   </style>
-
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://alocucao.com.br/#organization","legalName":"69.502.587 MARCIO PEREIRA DE SOUZA","taxID":"69.502.587/0001-33","address":{"@type":"PostalAddress","streetAddress":"Rua Euzebio Cirilo de Souza, 344, Centro","addressLocality":"Brejetuba","addressRegion":"ES","postalCode":"29630-000","addressCountry":"BR"},"name":"A Locução","url":"https://alocucao.com.br/"}</script>
 <link rel="stylesheet" href="/assets/contextual-cta.css">
-<link rel="stylesheet" href="/assets/site-layout.css?v=20261005-brand">
 <link rel="stylesheet" href="/assets/hybrid-commerce.css?v=20261016">
 <link rel="stylesheet" href="/assets/panel-commerce.css?v=20261005-retail-visual">
 <link rel="icon" href="/assets/brand/favicon-64.png?v=20261005" type="image/png" sizes="64x64">
 <link rel="icon" href="/favicon.ico?v=20261005" sizes="any">
 <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/site-layout.css?v=20261022-panel-v1">
+<script src="/assets/site-layout.js?v=20261022-panel-v1" defer></script>
+<link rel="stylesheet" href="/assets/recording-panel.css?v=20261022-panel-v1">
+<script src="/assets/recording-panel.js?v=20261022-panel-v1" defer></script>
 </head>
 <body data-order-channels="dual">
 <div class="topbar">
@@ -69,21 +67,9 @@
     <span>✓ Pedidos pelo WhatsApp</span>
   </div>
 </div>
-
 <!-- site-header:start -->
-<header class="al-header">
-  <nav class="al-shell al-nav" aria-label="Navegação principal">
-    <a class="al-brand" href="/" aria-label="A Locução — início"><img class="al-logo" src="/assets/brand/a-locucao-logo.png" width="1000" height="252" alt="A Locução" decoding="async"></a>
-    <button class="al-menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="al-main-menu"><span aria-hidden="true">☰</span><span>Menu</span></button>
-    <div class="al-menu" id="al-main-menu">
-      <a href="/servicos/">Serviços</a><a href="/locucao-off/">Locução Off</a><a href="/spot-comercial/">Spot Comercial</a><a href="/vozes/">Banco de Vozes</a><a href="/precos/">Preços</a><a href="/blog/">Blog</a><a href="/sobre/">Sobre</a>
-      <a class="al-header-cta" href="https://wa.me/5527996529832" data-cta="cabecalho_cadastro">Falar pelo WhatsApp</a>
-
-    </div>
-  </nav>
-</header>
+<header class="al-header"><nav class="al-shell al-nav" aria-label="Navegação principal"><a class="al-brand" href="/" aria-label="A Locução — início"><img class="al-logo" src="/assets/brand/a-locucao-logo.png" width="1000" height="252" alt="A Locução" decoding="async"></a><button class="al-menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="al-main-menu"><span aria-hidden="true">☰</span><span>Menu</span></button><div class="al-menu" id="al-main-menu"><a href="/servicos/">Serviços</a><a href="/vozes/">Banco de Vozes</a><a href="/precos/">Preços</a><a href="/#painel-gravacao">Painel de Gravação</a><a href="https://vozes.alocucao.com.br/painel/" data-cta="header_login">Entrar</a><a class="al-header-cta rp-header-register" href="https://vozes.alocucao.com.br/painel/cadastro" data-cta="header_register">Criar conta grátis</a><a href="https://wa.me/5527996529832" data-cta="header_whatsapp">WhatsApp</a></div></nav></header>
 <!-- site-header:end -->
-
 <main>
   <section class="hero">
     <div class="container">
@@ -103,7 +89,6 @@
     </div>
   </section>
 <!-- contextual-answer:start --><nav class="contextual-links" aria-label="Próximos passos"><a href="/vozes/" data-cta="servico_resposta_principal">Escolher uma voz para este serviço</a><a href="/precos/" data-cta="servico_resposta_precos">Consultar preços</a></nav><!-- contextual-answer:end -->
-
   <section class="content-section" id="servicos"><div class="container">
     <h2>Qual serviço de áudio você precisa?</h2>
     <ul>
@@ -115,8 +100,7 @@
     </ul>
     <p>Consulte <a href="/precos/">os preços e condições</a> e informe o formato necessário com nossa equipe.</p>
   </div></section>
-
-  <section class="content-section" id="diferenciais"><div class="container">
+<section class="content-section" id="diferenciais"><div class="container">
     <h2>Como preparar uma campanha {{stateIn}}</h2>
     <p>{{regionalFocus}}</p>
     <h3>{{exampleTitle}}</h3>
@@ -125,10 +109,8 @@
     <p>O exemplo não é um anúncio de cliente nem uma promessa de resultado. Revise oferta, contatos e condições antes de aprovar o texto.</p>
     <p>Para ouvir opções, acesse o <a href="/vozes/">banco de vozes humanas e IA</a>. Se precisar de sotaque ou pronúncia específica, avalie a demonstração e confirme com o atendimento: o estado informado no perfil não garante uma interpretação regional.</p>
   </div></section>
-
-  <section class="panel-section focus-process" id="como-funciona"><div class="panel-shell"><h2>Peça seu áudio pelo WhatsApp: simples e fácil</h2><p>Fale pelo WhatsApp e faça seu pedido em poucos passos, direto pelo WhatsApp.</p><ol class="focus-steps"><li><strong>1. Fale pelo WhatsApp</strong><span>Envie sua ideia pelo WhatsApp. Nossa equipe ajuda a escolher o serviço e a voz.</span></li><li><strong>2. Confirme sua proposta</strong><span>Confirme o serviço, a duração, o valor total e o prazo. Nossa equipe orienta o pagamento por Pix ou cartão.</span></li><li><strong>3. Escolha a voz e envie o texto</strong><span>Selecione o locutor, informe seu roteiro e as orientações. Confira o serviço, os créditos necessários e o prazo antes de confirmar.</span></li><li><strong>4. Receba seu áudio</strong><span>Nossa equipe acompanha a gravação e orienta a entrega. Se necessário, solicite a correção pelo WhatsApp.</span></li></ol><div class="panel-actions"><a class="panel-primary" href="https://wa.me/5527996529832" data-cta="como_funciona_cadastro">Falar pelo WhatsApp</a></div><p class="panel-note">Nossa equipe orienta o pedido, o pagamento e a entrega pelo WhatsApp.</p></div></section>
-
-  <section class="content-section"><div class="container">
+<section class="panel-section focus-process" id="como-funciona"><div class="panel-shell"><h2>Peça seu áudio pelo WhatsApp: simples e fácil</h2><p>Fale pelo WhatsApp e faça seu pedido em poucos passos, direto pelo WhatsApp.</p><ol class="focus-steps"><li><strong>1. Fale pelo WhatsApp</strong><span>Envie sua ideia pelo WhatsApp. Nossa equipe ajuda a escolher o serviço e a voz.</span></li><li><strong>2. Confirme sua proposta</strong><span>Confirme o serviço, a duração, o valor total e o prazo. Nossa equipe orienta o pagamento por Pix ou cartão.</span></li><li><strong>3. Escolha a voz e envie o texto</strong><span>Selecione o locutor, informe seu roteiro e as orientações. Confira o serviço, os créditos necessários e o prazo antes de confirmar.</span></li><li><strong>4. Receba seu áudio</strong><span>Nossa equipe acompanha a gravação e orienta a entrega. Se necessário, solicite a correção pelo WhatsApp.</span></li></ol><div class="panel-actions"><a class="panel-primary" href="https://wa.me/5527996529832" data-cta="como_funciona_cadastro">Falar pelo WhatsApp</a></div><p class="panel-note">Nossa equipe orienta o pedido, o pagamento e a entrega pelo WhatsApp.</p></div></section>
+<section class="content-section"><div class="container">
     <h2>Dúvidas sobre o atendimento {{stateIn}}</h2>
     <h3>Existe atendimento presencial ou unidade regional?</h3><p>Não. A contratação e a entrega são online. Esta página apresenta opções para empresas {{stateIn}}; não representa um estabelecimento físico nessa região.</p>
     <h3>Posso contratar de outra cidade do estado?</h3><p>Sim. O processo é remoto e atende empresas em todo o estado. Envie o roteiro e confirme os detalhes do projeto com nossa equipe pelo WhatsApp.</p>
@@ -139,24 +121,21 @@
     </div></div>
   </div></section>
 <!-- contextual-final:start --><nav class="contextual-links" aria-label="Próximos passos"><a href="/vozes/" data-cta="servico_final_principal">Ouvir os locutores disponíveis</a><a href="/precos/" data-cta="servico_final_precos">Consultar preços</a></nav><!-- contextual-final:end -->
-<div class="hybrid-catalog-order"><p>Precisa de ajuda para contratar? Fale pelo WhatsApp.</p><p></p></div><div class="hybrid-catalog-order"><p>Envie seu texto pelo WhatsApp. Nossa equipe confirma a voz, o serviço, o valor e o prazo e acompanha seu pedido até a entrega.</p><p></p></div><div class="hybrid-catalog-order"><p>Envie seu texto pelo WhatsApp. Nossa equipe confirma a voz, o serviço, o valor e o prazo e acompanha seu pedido até a entrega.</p><p></p></div><div class="hybrid-catalog-order"><p>Envie seu texto pelo WhatsApp. Nossa equipe confirma a voz, o serviço, o valor e o prazo e acompanha seu pedido até a entrega.</p><p></p></div></main>
-
+</main>
 <!-- site-footer:start -->
 <footer class="al-footer">
   <div class="al-shell al-footer-grid">
     <div class="al-footer-about"><a class="al-brand" href="/" aria-label="A Locução — início"><img class="al-logo" src="/assets/brand/a-locucao-logo.png" width="1000" height="252" alt="A Locução" decoding="async"></a><p data-brand-slogan><strong>A Locução, a voz certa para sua mensagem</strong></p><p>Locução e produção de áudio para mensagens que conectam. Atendimento online em todo o Brasil.</p><p><strong>Empresa registrada · MEI</strong><br>CNPJ 69.502.587/0001-33<br>69.502.587 MARCIO PEREIRA DE SOUZA</p><p>Rua Euzebio Cirilo de Souza, 344 - Centro - Brejetuba - ES - 29630-000</p><a href="/sobre/#identificacao">Identificação e contato da empresa</a></div>
     <div><h2>Serviços</h2><a href="/locucao-off/">Locução Off</a><a href="/spot-comercial/">Spot Comercial</a><a href="/vinhetas-para-podcast-e-radio/">Vinhetas</a><a href="/espera-telefonica-ura/">URA e espera telefônica</a><a href="/servicos/">Todos os serviços</a></div>
     <div><h2>Ouça e planeje</h2><a href="/vozes/">Banco de Vozes</a><a href="/locutores/">Locutores humanos</a><a href="/portfolio/">Portfólio</a><a href="/precos/">Preços</a><a href="/#como-funciona">Como funciona</a><a href="https://wa.me/5527996529832">Tirar dúvidas pelo WhatsApp</a><a href="/calculadora/">Calculadora de texto</a><a href="/blog/">Blog</a></div>
-    <div><h2>Pedidos e atendimento</h2><a href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20solicitar%20um%20or%C3%A7amento.%20Origem%3A%20https%3A//alocucao.com.br/templates/">Solicitar orçamento pelo WhatsApp</a><a href="https://wa.me/5527996529832" data-cta="rodape_cadastro">Falar pelo WhatsApp</a><a href="/sobre/">Sobre e contato</a><p>Pedidos e atendimento pelo WhatsApp. Gravações de Locução Off todos os dias, até as 22h, inclusive finais de semana e feriados. Atendimento pelo WhatsApp: segunda a sexta, das 08h às 18h; sábado, das 08h às 12h, exceto feriados (Brasília).</p></div>
+    <div><h2>Pedidos e atendimento</h2><a href="https://vozes.alocucao.com.br/painel/cadastro" data-cta="footer_register">Criar conta grátis</a><a href="https://vozes.alocucao.com.br/painel/" data-cta="footer_login">Acessar minha conta</a><a href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20solicitar%20um%20or%C3%A7amento.%20Origem%3A%20https%3A//alocucao.com.br/templates/">Solicitar orçamento pelo WhatsApp</a><a href="https://wa.me/5527996529832" data-cta="rodape_cadastro">Falar pelo WhatsApp</a><a href="/sobre/">Sobre e contato</a><p>Faça pedidos 24h pelo painel e acompanhe cada etapa online. Para orientação, fale pelo WhatsApp de segunda a sexta, das 8h às 18h.</p></div>
   </div>
   <div class="al-shell al-footer-bottom"><span>© <span id="year">2026</span> A Locução. Todos os direitos reservados.</span><div><a href="/politica-de-privacidade/">Política de privacidade</a><a href="/termos/">Termos de uso</a></div></div>
 <p data-ia-disclosure style="font-size:12px;line-height:1.7;max-width:1180px;margin:20px auto;padding:0 24px">Os retratos de vozes IA são ilustrativos e representam perfis sintéticos. Os áudios IA utilizam tecnologia de síntese de voz.</p></footer>
 <!-- site-footer:end -->
-
 <div class="sticky-mobile">
   <a class="btn btn-wa" href="https://wa.me/5527996529832?text=Ol%C3%A1%21%20Quero%20solicitar%20um%20or%C3%A7amento.%20Origem%3A%20https%3A//alocucao.com.br/templates/" target="_blank" rel="noopener">Solicitar orçamento pelo WhatsApp</a>
 </div>
-
 <script src="/assets/site.js?v=20261014"></script>
 <script>
   const y = document.getElementById('year');
@@ -165,6 +144,5 @@
 <a class="panel-help-link" data-panel-support data-cta="whatsapp_flutuante" href="https://wa.me/5527996529832" target="_blank" rel="noopener" aria-label="Faça seu pedido pelo WhatsApp"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M18.403 5.592A9.002 9.002 0 003.111 16.29L1.87 20.83a.6.6 0 00.732.732l4.54-1.241A9.002 9.002 0 0018.403 5.592zM12.004 2.2a9.792 9.792 0 00-8.48 14.691l-1.3 4.757a1.2 1.2 0 001.465 1.465l4.757-1.3A9.794 9.794 0 1012.004 2.2zm4.846 12.191c-.225-.113-1.328-.655-1.534-.73-.205-.075-.355-.113-.505.113-.15.225-.58.73-.711.88-.131.15-.262.169-.487.056a6.126 6.126 0 01-1.802-1.112 6.757 6.757 0 01-1.248-1.554c-.131-.225-.014-.347.098-.459.1-.1.225-.262.338-.394.113-.131.15-.225.225-.375.075-.15.038-.281-.019-.394-.056-.113-.505-1.218-.692-1.668-.182-.438-.367-.378-.505-.386l-.43-.008a.83.83 0 00-.6.281c-.206.225-.787.769-.787 1.875 0 1.106.806 2.175.918 2.325.113.15 1.587 2.423 3.845 3.398.537.232.956.37 1.283.474.54.172 1.03.148 1.418.09.432-.065 1.328-.543 1.516-1.068.188-.525.188-.975.131-1.068-.056-.094-.206-.15-.431-.263z" fill="currentColor"/>
         </svg><span>Faça seu pedido pelo WhatsApp</span></a>
-<script src="/assets/site-layout.js?v=20261002" defer></script>
 </body>
 </html>

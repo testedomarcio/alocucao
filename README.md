@@ -57,3 +57,7 @@ npm run build
 
 O arquivo de chave IndexNow fica na raiz pública. A automação envia somente URLs afetadas por cada publicação; não remova a chave nem altere o domínio no workflow sem gerar e publicar uma nova chave.
 
+
+## Integração do Painel de Gravação
+
+A última etapa de `npm run build`, `scripts/integrate-recording-panel.py`, aplica a política atual de dois canais: WhatsApp e painel. Edite essa etapa para alterar os links oficiais, horários, preços, bloco de benefícios ou iframe. Não execute os geradores antigos isoladamente para publicar. A captura real está em `assets/images/painel-real-*.webp`; a moldura é CSS, sem tela fictícia. Relatório em `reports/integracao-painel-2026-10-22.md`.
