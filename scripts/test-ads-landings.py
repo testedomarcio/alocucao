@@ -23,7 +23,14 @@ class Landings(unittest.TestCase):
     self.assertTrue(any(tag=='meta' and attrs.get('name')=='description' and attrs.get('content') for tag,attrs in p.tags))
     panels=[a.get('data-kind') for tag,a in p.tags if a.get('class')=='uv-panel' and a.get('data-kind')]
     if route in UNIFIED:
-     self.assertIn('data-mode="unified"',text)
+     frames=[a for tag,a in p.tags if tag=='iframe' and a.get('id')=='vitrine-vozes']
+     self.assertEqual(len(frames),1)
+     self.assertEqual(frames[0].get('src'),'https://vozes.alocucao.com.br/embed.php')
+     self.assertIn('e.origin !== "https://vozes.alocucao.com.br"',text)
+     self.assertIn('e.source !== f.contentWindow',text)
+     self.assertNotIn('/assets/unified-voices.js',text)
+     self.assertNotIn('class="uv-catalog"',text)
+     self.assertTrue(all(urlsplit(a.get('href','')).hostname=='wa.me' for tag,a in p.tags if tag=='a' and 'btn' in a.get('class','').split() and not a.get('href','').startswith('#')))
      self.assertIn('Spot Comercial Completo por R$ 30,00',text)
      self.assertNotIn('uv-tabs',text)
      self.assertNotIn('al-pricing-dual-grid',text)
