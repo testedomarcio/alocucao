@@ -13,7 +13,7 @@ PRICE='A Locução Off custa R$ 12,00 por crédito de até 40 segundos, com qual
 DELIVERY='Temos locutores que gravam o Off em até 10 minutos, conforme disponibilidade. Confira o status no catálogo e confirme o prazo pelo WhatsApp antes de concluir o pedido. A produção completa tem prazo estimado de 1 a 2 horas após a conclusão da gravação.'
 DIFFERENCE='A voz humana é gravada por um locutor; a voz natural (IA) é gerada por tecnologia de síntese de voz. Nossa equipe esclarece a modalidade antes da contratação. O preço é o mesmo para qualquer voz escolhida: Off por R$ 12,00 ou produção completa por R$ 30,00, por crédito de até 40 segundos.'
 WA='https://wa.me/5527996529832?text='
-VERSION='20261022-single-offer'
+VERSION='20261022-single-offer-v2'
 VOID={'area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'}
 class Spans(HTMLParser):
  def __init__(self,s):
@@ -144,6 +144,7 @@ def update(s,route):
  s=re.sub(r'(<script[^>]*type="application/ld\+json"[^>]*>)(.*?)(</script>)',schema,s,flags=re.S)
  if 'id="single-offer-schema"' not in s:
   s=s.replace('</head>','<script id="single-offer-schema" type="application/ld+json">'+json.dumps({'@context':'https://schema.org','@type':'OfferCatalog','name':'Locução e produção por crédito de até 40 segundos','itemListElement':offers},ensure_ascii=False,separators=(',',':'))+'</script>\n</head>')
+ s=re.sub(r'(/assets/single-offer-landings\.(?:css|js))\?[^\"\s<>]+',lambda m:m[1]+'?v='+VERSION,s)
  # Dedicated, scoped assets do not affect the home or the full voice pages.
  if '/assets/single-offer-landings.css' not in s:s=s.replace('</head>','<link rel="stylesheet" href="/assets/single-offer-landings.css?v='+VERSION+'">\n<script src="/assets/single-offer-landings.js?v='+VERSION+'" defer></script>\n</head>')
  # Clean dangling legacy IDs/links without moving any legal navigation.
