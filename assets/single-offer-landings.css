@@ -35,3 +35,8 @@ body[data-single-offer] .sf-mobile{display:none}
 
 body[data-single-offer] :is(.panel-help-link,.sticky-mobile,.mobile-conversion-bar,.wa-float-widget,.wa-mobile-conversion-bar){display:none!important}
 @media(max-width:767px){body[data-single-offer].has-mobile-bar{padding-bottom:110px!important}}
+
+/* Long service navigation wraps without widening regional landing pages. */
+body[data-single-offer] .al-nav{flex-wrap:wrap}
+body[data-single-offer] .al-menu{flex-wrap:wrap;min-width:0;max-width:100%;gap:14px}
+body[data-single-offer] a[href="#banco-de-vozes"] + a[href="#banco-de-vozes"]{display:none}
