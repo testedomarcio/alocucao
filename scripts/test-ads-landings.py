@@ -1,102 +1,69 @@
 #!/usr/bin/env python3
-"""Commercial boundaries must survive the complete build and scheduled catalog sync."""
+"""Commercial landing offers, external showcase and conversion boundaries."""
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit,parse_qs,unquote
 import json,re,runpy,unittest
 ROOT=Path(__file__).resolve().parent.parent
-HUMAN=['off-comercial','producao-para-igrejas','gravacao-off-e-producao','producao-para-supermercados','spot-black-friday']
-TABBED=['producao-para-igrejas','gravacao-off-e-producao','producao-para-supermercados']
-UNIFIED=['spot-comercial','locucao-off']
+MODEL=runpy.run_path(str(ROOT/'scripts/standardize-single-offer.py'))
 class Page(HTMLParser):
- def __init__(self,text):
-  super().__init__();self.tags=[];self.feed(text)
+ def __init__(self,text):super().__init__();self.tags=[];self.feed(text)
  def handle_starttag(self,tag,attrs):self.tags.append((tag,dict(attrs)))
 class Landings(unittest.TestCase):
  def test_routes_and_commercial_boundaries(self):
-  for route in list(dict.fromkeys(HUMAN+TABBED+['locucao-ia']+UNIFIED)):
+  for route in MODEL['ROUTES']:
    with self.subTest(route=route):
     text=(ROOT/route/'index.html').read_text();p=Page(text)
     self.assertEqual(len(re.findall('<h1[ >]',text)),1)
-    self.assertIn('https://alocucao.com.br/'+route+'/',text)
-    self.assertNotIn('noindex',text);self.assertNotIn('http-equiv="refresh"',text)
-    self.assertTrue(any(tag=='meta' and attrs.get('name')=='description' and attrs.get('content') for tag,attrs in p.tags))
-    panels=[a.get('data-kind') for tag,a in p.tags if a.get('class')=='uv-panel' and a.get('data-kind')]
-    if route in UNIFIED:
-     frames=[a for tag,a in p.tags if tag=='iframe' and a.get('id')=='vitrine-vozes']
-     self.assertEqual(len(frames),1)
-     self.assertEqual(frames[0].get('src'),'https://vozes.alocucao.com.br/embed.php')
-     self.assertIn('e.origin !== "https://vozes.alocucao.com.br"',text)
-     self.assertIn('e.source !== f.contentWindow',text)
-     self.assertNotIn('/assets/unified-voices.js',text)
-     self.assertNotIn('class="uv-catalog"',text)
-     self.assertTrue(all(urlsplit(a.get('href','')).hostname=='wa.me' for tag,a in p.tags if tag=='a' and 'btn' in a.get('class','').split() and not a.get('href','').startswith('#')))
-     self.assertIn('Locução Off por R$ 12,00' if route=='locucao-off' else 'Spot Comercial Completo por R$ 30,00',text)
-     self.assertNotIn('uv-tabs',text)
-     self.assertNotIn('al-pricing-dual-grid',text)
-    else:
-     self.assertEqual(panels,['human','ia'] if route in TABBED else ['ia' if route=='locucao-ia' else 'human'])
-    if route in TABBED:
-     self.assertIn('data-layout="tabs"',text)
-     self.assertIn('data-active="human"',text)
-     self.assertIn('Vozes Naturais',text)
-     self.assertNotIn('Duas opções de voz. Preços claros para escolher.',text)
-    elif route in HUMAN:
-     plain=re.sub(r'<script\b.*?</script>','',text,flags=re.S)
-     self.assertNotRegex(plain,r'(?i)vozes? IA|inteligência artificial|R\$ 8,50|R\$ 19,00|/vozes-ia/')
-     self.assertEqual(len(re.findall('class="uv-row"',text)),10)
-    elif route not in UNIFIED:
-     self.assertNotRegex(text,r'R\$ 11,90|R\$ 29,90|data-kind="human"')
-    for tag,attrs in p.tags:
-     href=attrs.get('href','');u=urlsplit(href)
-
-     if any(x in href for x in ['/painel','/cadastro','/central']):self.assertEqual(u.hostname,'vozes.alocucao.com.br')
-     if u.hostname=='wa.me':
-      self.assertEqual(u.path,'/5527996529832');self.assertTrue(parse_qs(u.query).get('text'))
-     if href.startswith('#'):self.assertTrue(any(a.get('id')==href[1:] for _,a in p.tags),href)
-     for key in ['src','data-src']:
-      src=attrs.get(key,'');path=unquote(urlsplit(src).path)
+    self.assertNotIn('noindex',text)
+    self.assertTrue(any(tag=='meta' and a.get('name')=='description' and a.get('content') for tag,a in p.tags))
+    ids=[a['id'] for _,a in p.tags if a.get('id')]
+    self.assertEqual(len(ids),len(set(ids)))
+    frames=[a for tag,a in p.tags if tag=='iframe']
+    self.assertEqual(len(frames),1)
+    self.assertEqual(frames[0].get('src'),'https://vozes.alocucao.com.br/embed.php')
+    self.assertEqual(frames[0].get('id'),'vitrine-vozes')
+    self.assertNotIn('uv-catalog',text)
+    self.assertNotIn('/assets/unified-voices.js',text)
+    self.assertNotIn('al-pricing-dual-grid',text)
+    self.assertNotIn('dual-offer:start',text)
+    self.assertNotRegex(text,r'R\$\s*(?:11,90|29,90|8,50|19,00|8,90|16,90)')
+    self.assertTrue('somente voz sem edição' in text.lower())
+    self.assertIn('R$ 12,00',text);self.assertIn('R$ 30,00',text)
+    self.assertEqual(len([a for _,a in p.tags if a.get('class')=='sf-floating']),1)
+    self.assertEqual(len([a for _,a in p.tags if a.get('class')=='sf-mobile']),1)
+    offers=[]
+    def visit(obj):
+     if isinstance(obj,dict):
+      if obj.get('@type')=='Offer':offers.append(obj)
+      for v in obj.values():visit(v)
+     elif isinstance(obj,list):
+      for v in obj:visit(v)
+    for raw in re.findall(r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>',text,re.S):visit(json.loads(raw))
+    self.assertTrue(offers)
+    self.assertEqual({str(o['price']) for o in offers},{'12.00','30.00'})
+    for tag,a in p.tags:
+     href=a.get('href','');u=urlsplit(href)
+     self.assertFalse(any(x in href for x in ['/painel','/cadastro','/central']),href)
+     if u.hostname=='wa.me':self.assertEqual(u.path,'/5527996529832');self.assertTrue(parse_qs(u.query).get('text'))
+     if href.startswith('#'):self.assertIn(href[1:],ids)
+     if tag=='a' and set(a.get('class','').split())&{'btn','sf-button','sf-floating','panel-primary','al-header-cta'} and not href.startswith('#'):self.assertEqual(u.hostname,'wa.me',href)
+     for key in ['src','href','data-src']:
+      src=a.get(key,'');path=unquote(urlsplit(src).path)
       if path.startswith('/assets/'):self.assertTrue((ROOT/path.lstrip('/')).is_file(),src)
-    if route in TABBED:
-     self.assertTrue(all(a.get('href','').startswith(('#','https://wa.me/','https://vozes.alocucao.com.br/')) for tag,a in p.tags if tag=='a'))
-    for content in re.findall(r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>',text,re.S):json.loads(content)
- def test_build_preserves_target_pages(self):
-  normalize=runpy.run_path(str(ROOT/'scripts/standardize-layout.py'))['standardize_page']
-  update=runpy.run_path(str(ROOT/'scripts/review-dual-positioning.py'))['update']
-  for route in list(dict.fromkeys(HUMAN+TABBED+['locucao-ia']+UNIFIED)):
-   path=ROOT/route/'index.html';text=path.read_text();self.assertEqual(normalize(text),text);self.assertIn('Vozes Naturais',text) if route in TABBED else None
- def test_portfolio_and_distinct_off(self):
-  self.assertIn('/assets/audio/igreja-evangelica-monte-moria.mp3',(ROOT/'producao-para-igrejas/index.html').read_text())
-  self.assertIn('Off Comercial para quem produz publicidade',(ROOT/'off-comercial/index.html').read_text())
- def test_home_and_full_catalog(self):
-  render=runpy.run_path(str(ROOT/'scripts/unified-catalog.py'))['render_catalog']
-  for route,origin in [('', '/'),('vozes','/vozes/')]:
-   text=(ROOT/route/'index.html').read_text()
-   self.assertIn('data-layout="tabs"',text)
-   self.assertIn('data-active="ia"',text)
-   self.assertIn('Vozes Naturais',text)
-   self.assertIn('data-origin="'+origin+'"',text)
-   self.assertNotIn('Duas opções de voz. Preços claros para escolher.',text)
+ def test_idempotent_and_home_excluded(self):
+  self.assertNotIn('',MODEL['ROUTES']);self.assertNotIn('vozes',MODEL['ROUTES'])
+  for route in MODEL['ROUTES']:
+   text=(ROOT/route/'index.html').read_text();self.assertEqual(MODEL['update'](text,route),text,route)
   home=(ROOT/'index.html').read_text()
-  self.assertIn('A partir de R$ 8,50',home)
-  self.assertIn('A partir de R$ 19,00',home)
-  self.assertIn('Com Vozes Naturais (IA). Com voz humana: R$ 11,90.',home)
-  for route in TABBED:
-   text=(ROOT/route/'index.html').read_text()
-   self.assertIn('commercial-hero-grid',text)
-   self.assertIn('/assets/images/voice-studio-960.webp',text)
- def test_no_human_status_or_runtime_polling(self):
-  for page in ROOT.rglob('*.html'):
-   if '.git' in page.parts:continue
-   text=page.read_text()
-   for panel in re.findall(r'<section class="uv-panel"[^>]*data-kind="human".*?</section>',text,re.S):
-    self.assertNotIn('uv-status',panel)
-  script=(ROOT/'assets/unified-voices.js').read_text()
-  self.assertNotIn('check_status.php',script)
-  self.assertNotIn('setInterval',script)
-  self.assertNotIn('statusLabel',script)
- def test_avatar_fallback(self):
-  for route in HUMAN:
-   t=(ROOT/route/'index.html').read_text()
-   for avatar in re.findall(r'<div class="uv-avatar">(.*?)</div>',t,re.S):self.assertNotIn('<span>',avatar) if '<img ' in avatar else self.assertIn('<span>',avatar)
+  self.assertNotIn('data-single-offer',home);self.assertNotIn('single-offer-landings',home)
+  self.assertIn('data-layout="tabs"',home)
+ def test_real_audio_samples_preserved(self):
+  self.assertIn('/assets/audio/igreja-evangelica-monte-moria.mp3',(ROOT/'producao-para-igrejas/index.html').read_text())
+  self.assertIn('/assets/audio/spot-clinica-ecoar.mp3',(ROOT/'spot-comercial/index.html').read_text())
+ def test_external_message_boundary(self):
+  script=(ROOT/'assets/single-offer-landings.js').read_text()
+  self.assertIn("event.origin !== 'https://vozes.alocucao.com.br'",script)
+  self.assertIn('event.source !== frame.contentWindow',script)
+  self.assertIn('Number.isFinite(height)',script)
 if __name__=='__main__':unittest.main()
