@@ -24,8 +24,7 @@
       "styles": [
         "Padrão",
         "Animada",
-        "Varejo",
-        "Outro"
+        "Varejo"
       ],
       "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6822.mp3",
       "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6822-d1b3af9f6a6c.webp",
@@ -183,7 +182,7 @@
         "Outro"
       ],
       "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6819.mp3",
-      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6819-775ee2f3fce4.webp",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6819-05eb4dc5a890.png",
       "kind": "ia"
     },
     {
@@ -318,7 +317,7 @@
         "Varejo"
       ],
       "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6809.mp3",
-      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6809-f727fe23d445.webp",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6809-e630d329163e.png",
       "kind": "ia"
     }
   ]
