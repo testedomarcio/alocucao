@@ -13,7 +13,32 @@ LOGIN='https://vozes.alocucao.com.br/painel/'
 WA='https://wa.me/5527996529832'
 VERSION='20261022-panel-v1'
 COMMERCIAL=(set(H['ROUTES'])-{'vozes-ia'})|{'','vozes','locutores'}
-HOURS='Atendimento e pedidos pelo WhatsApp: segunda a sexta-feira, das 8h às 18h (Brasília). Pedidos pelo Painel de Gravação: 24 horas por dia, todos os dias. Gravações até as 22h, conforme a disponibilidade de cada locutor.'
+SCHEDULE='segunda a sexta-feira, das 07h às 18h; sábado, das 07h às 14h (horário de Brasília)'
+PRODUCTION='Produção todos os dias, inclusive finais de semana e feriados. A estimativa de entrega da produção é de 30 minutos a 4 horas, dependendo da demanda e da complexidade do pedido.'
+HOURS='Atendimento e suporte pelo WhatsApp: '+SCHEDULE+'. Pedidos pelo Painel de Gravação: 24 horas por dia, todos os dias. Gravações de Locução Off até as 22h, conforme a disponibilidade de cada locutor. '+PRODUCTION
+ATTRIBUTION_VERSION='20261023-audit-v1'
+def public_policy(s,route):
+ # Update support language without changing the distinction between human and synthetic voices.
+ for old,new in [('atendimento humano','atendimento pelo WhatsApp'),('Atendimento humano','Atendimento pelo WhatsApp'),('Suporte humano','Suporte pelo WhatsApp'),('suporte humano','suporte pelo WhatsApp'),('Atendimento exclusivo pelo WhatsApp','Atendimento pelo WhatsApp')]:s=s.replace(old,new)
+ s=re.sub(r'(?i)segunda a sexta(?:-feira)?,?\s*(?:das\s*)?0?8h\s*às\s*18h(?:\s*\(Brasília\))?',lambda m:('S' if m[0][0].isupper() else 's')+SCHEDULE[1:],s)
+ # Older templates include a second Saturday schedule after the weekday range.
+ s=re.sub(re.escape(SCHEDULE)+r';?\s*sábado,?\s*das\s*08h\s*às\s*12h(?:, exceto feriados)?\s*\(Brasília\)',SCHEDULE,s,flags=re.I)
+ s=s.replace('Segunda a sexta-feira: das 08h às 18h.','Segunda a sexta-feira: das 07h às 18h.').replace('Sábado: das 08h às 12h.','Sábado: das 07h às 14h.')
+ old_delivery=[
+  'A produção completa tem prazo estimado de 1 a 2 horas após a conclusão da gravação.',
+  'A produção completa tem estimativa de 1 a 2 horas após a conclusão da gravação.',
+  'Para produção completa, considere mais 1 a 2 horas após a conclusão da gravação, para edição e finalização.',
+  'Para produção completa, a estimativa é de 1 a 2 horas após a gravação.']
+ for old in old_delivery:s=s.replace(old,PRODUCTION)
+ s=s.replace('Confirme pelo WhatsApp a disponibilidade da voz e o prazo de entrega de até 2 horas antes de finalizar o pedido.','Confirme a disponibilidade da voz antes de finalizar o pedido. '+PRODUCTION)
+ s=s.replace('Compras, pedidos, acompanhamento e download são realizados pelo WhatsApp.','Compras, pedidos, acompanhamento e download podem ser realizados pelo Painel de Gravação. Para orientação e pedidos pelo WhatsApp, consulte os horários de atendimento.')
+ if route=='termos':
+  s=re.sub(r'(Se a entrega ocorrer após o expediente, entre na )<a\b[^>]*>.*?</a>( e consulte seus pedidos\.)',lambda m:m[1]+'<a href="'+LOGIN+'" data-cta="terms_orders_login">Painel de Gravação</a>'+m[2],s,flags=re.S)
+  if 'data-production-policy' not in s:
+   s=s.replace('<section id="prazos" class="terms-section"><h2>6. Pedidos, disponibilidade e estimativas</h2>','<section id="prazos" class="terms-section"><h2>6. Pedidos, disponibilidade e estimativas</h2><p data-production-policy>'+PRODUCTION+'</p>')
+  s=s.replace('<time datetime="2026-10-16">16 de outubro de 2026</time>','<time datetime="2026-10-23">23 de outubro de 2026</time>')
+ return s
+
 def button(href,label,kind='secondary',cta=''):
  return f'<a class="rp-button rp-{kind}" href="{href}" data-cta="{cta}">{label}</a>'
 def header():
@@ -21,7 +46,7 @@ def header():
 def catalog():
  return '''<section class="rp-catalog" id="banco-de-vozes" data-recording-catalog><div class="rp-shell"><div class="rp-heading"><span class="rp-eyebrow">OUÇA ANTES DE ESCOLHER</span><h2>Encontre a voz certa para sua mensagem.</h2><p>Ouça as demonstrações, escolha seu locutor e faça seu pedido com praticidade.</p></div><iframe id="vitrine-vozes" data-voice-showcase src="https://vozes.alocucao.com.br/embed.php" title="Nossas vozes — catálogo oficial A Locução" loading="lazy" style="width:100%;min-height:640px;border:0"></iframe><p class="rp-catalog-help">Prefere ajuda para escolher? <a href="'''+WA+'''" data-cta="catalog_whatsapp">Fale com nossa equipe pelo WhatsApp.</a></p></div></section>'''
 def panel():
- benefits=[('24h','Pedidos a qualquer hora','Envie seu texto e solicite orçamentos, todos os dias.'),('Pix','Créditos com praticidade','Pague por Pix ou cartão. Créditos liberados imediatamente após a confirmação do pagamento.'),('↗','Acompanhe em tempo real','Veja o andamento de cada pedido no painel.'),('↓','Seus áudios organizados','Consulte o histórico e baixe as gravações concluídas.'),('22h','Horários ampliados','Locutores disponíveis até as 22h, conforme o status de cada profissional.'),('＋','Ofertas exclusivas','Confira as condições especiais disponíveis no painel.')]
+ benefits=[('24h','Pedidos a qualquer hora','Envie seu texto e solicite orçamentos, todos os dias.'),('Pix','Créditos com praticidade','Pague por Pix ou cartão. Créditos liberados imediatamente após a confirmação do pagamento.'),('↗','Acompanhe em tempo real','Veja o andamento de cada pedido no painel.'),('↓','Seus áudios organizados','Consulte o histórico e baixe as gravações concluídas.'),('↻','Produção todos os dias',PRODUCTION),('＋','Ofertas exclusivas','Confira as condições especiais disponíveis no painel.')]
  cards=''.join('<li><span class="rp-icon" aria-hidden="true">'+i+'</span><div><h3>'+t+'</h3><p>'+d+'</p></div></li>' for i,t,d in benefits)
  return '''<section class="rp-panel" id="painel-gravacao"><div class="rp-shell"><div class="rp-panel-intro"><div><span class="rp-eyebrow">PAINEL DE GRAVAÇÃO A LOCUÇÃO</span><h2>Seu próximo áudio começa aqui. A qualquer hora.</h2><p>Crie sua conta grátis para pedir locuções, consultar orçamentos e acompanhar suas gravações em um só lugar.</p><p class="rp-availability">Pedidos online 24h. Gravações até as 22h, conforme a disponibilidade de cada locutor.</p></div><figure class="rp-mockup"><div class="rp-laptop-screen"><div class="rp-window-bar" aria-hidden="true"><i></i><i></i><i></i><span>Painel de Gravação · A Locução</span></div><picture><source srcset="/assets/images/painel-real-640.webp 640w, /assets/images/painel-real-1280.webp 1280w" sizes="(max-width:800px) calc(100vw - 64px), 600px" type="image/webp"><img src="/assets/images/painel-real-1280.webp" width="1916" height="904" loading="lazy" decoding="async" alt="Tela real do Painel de Gravação A Locução, com locutores, pedidos e compra de créditos"></picture></div><div class="rp-laptop-base" aria-hidden="true"></div><figcaption>Conheça o ambiente onde você acompanha suas gravações.</figcaption></figure></div><ul class="rp-benefits">'''+cards+'''</ul><div class="rp-panel-bottom"><div class="rp-actions">'''+button(REGISTER,'Criar minha conta grátis','primary','panel_register')+button(LOGIN,'Já tenho conta — Entrar','secondary','panel_login')+'''</div><p>Prefere atendimento personalizado? Recebemos pedidos e oferecemos suporte pelo <a href="'''+WA+'''" data-cta="panel_whatsapp">WhatsApp</a>, de segunda a sexta-feira, das 8h às 18h.</p></div></div></section>'''
 def process():
@@ -37,7 +62,7 @@ def prices(s):
  return s
 
 def update(s,route):
- s=prices(s)
+ s=public_policy(prices(s),route)
  s=re.sub(r'<(?:script|link)\b[^>]*(?:src|href)=[\"\']/assets/selected-voices\.(?:js|css)[^\"\']*[\"\'][^>]*>(?:</script>)?','',s)
  if re.search(r'http-equiv=["\']refresh',s,re.I):
   if route in {'cadastro','painel'}:
@@ -62,7 +87,7 @@ def update(s,route):
   tag='<link rel="stylesheet" href="/assets/'+asset+'?v='+VERSION+'">' if kind=='link' else '<script src="/assets/'+asset+'?v='+VERSION+'" defer></script>'
   s=s.replace('</head>',tag+'\n</head>',1)
  # Replace contradictory hours, including historical Saturday support.
- s=rewrite(s,lambda t,a,b:t=='p' and bool(re.search(r'(?:Atendimento pelo WhatsApp:|Atendimento humano de segunda|segunda a sexta.*sábado)',plain(b),re.I)), '<p>'+HOURS+'</p>')
+ s=rewrite(s,lambda t,a,b:t=='p' and bool(re.search(r'(?:Atendimento pelo WhatsApp:|Atendimento humano de segunda|Atendimento e pedidos pelo WhatsApp:)',plain(b),re.I)), '<p>'+HOURS+'</p>')
  s=s.replace('Pedidos e atendimento pelo WhatsApp.','Pedidos pelo painel ou pelo WhatsApp.').replace('Faça pedidos e acompanhe cada etapa pelo WhatsApp.','Faça pedidos e acompanhe cada etapa pelo Painel de Gravação, ou conte com nossa equipe pelo WhatsApp.')
  s=s.replace('A seleção desta página identifica a modalidade das demonstrações.','Consulte as características e a disponibilidade da voz antes de confirmar seu pedido.')
  s=s.replace('Envie seu texto pelo WhatsApp. Nossa equipe confirma a voz, o serviço, o valor e o prazo e acompanha seu pedido até a entrega.','Faça pedidos 24h pelo painel e acompanhe cada etapa online. Para orientação, fale pelo WhatsApp de segunda a sexta, das 8h às 18h.')
@@ -133,6 +158,11 @@ def update(s,route):
   elif re.search(r'(?:pagar|pagamento|cartão)',question,re.I):answer='<p>'+FAQ[3][1]+' Para pedidos pelo WhatsApp, nossa equipe orienta o pagamento antes da confirmação.</p>'
   return m[1]+m[2]+'</summary>'+answer+'</details>'
  s=re.sub(r'(<details\b[^>]*>\s*<summary[^>]*>)(.*?)</summary>(.*?)</details>',faq_answer,s,flags=re.S)
+ # Apply current operational policy to generated sections before synchronizing schemas.
+ s=public_policy(s,route)
+ # Attribution must cover editorial navigation and every ad landing, not only older layouts.
+ s=re.sub(r'<script\b[^>]*src=[\"\']/assets/commercial-refresh\.js[^\"\']*[\"\'][^>]*></script>','',s)
+ s=s.replace('</head>','<script src="/assets/commercial-refresh.js?v='+ATTRIBUTION_VERSION+'" defer></script>\n</head>',1)
  # Sync structured prices and FAQ answers to the published copy; no stale manual voice list.
  faqlist=[(plain(q),plain(a)) for q,a in re.findall(r'<details[^>]*>\s*<summary[^>]*>(.*?)</summary>(.*?)</details>',s,re.S)]
  def schema(m):

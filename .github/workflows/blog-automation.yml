@@ -28,7 +28,9 @@ jobs:
           python-version: '3.x'
 
       - name: Publicar próximo artigo do calendário
-        run: python3 scripts/generate-blog-post.py
+        run: |
+          python3 scripts/generate-blog-post.py
+          python3 scripts/integrate-recording-panel.py
 
       - name: Validar SEO e consistência de links
         run: python3 scripts/seo-consistency.py
