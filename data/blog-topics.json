@@ -91,7 +91,7 @@
     "commercial_url": "https://alocucao.com.br/vinhetas-para-podcast-e-radio/",
     "excerpt": "Descubra como vinhetas personalizadas e assinaturas sonoras aumentam o reconhecimento de marcas em rádios e podcasts.",
     "reading_time": "6 min de leitura",
-    "published": false,
+    "published": true,
     "sections": [
       {
         "h2": "O que é uma vinheta comercial?",
@@ -115,7 +115,8 @@
         "question": "Quanto custa gravar uma vinheta?",
         "answer": "Na A Locução, a locução off avulsa por fração de até 40 segundos custa R$ 11,90, permitindo gravar vinhetas curtas na mesma fração."
       }
-    ]
+    ],
+    "published_at": "2026-10-23"
   },
   {
     "slug": "aplicacoes-comerciais-de-vozes-ia-na-publicidade",
