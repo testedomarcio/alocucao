@@ -10,6 +10,8 @@ on:
       - scripts/generate-featured-voices.py
       - scripts/unified-catalog.py
       - scripts/refresh-whatsapp-site.py
+      - scripts/integrate-recording-panel.py
+      - assets/recording-panel.css
       - .github/workflows/sync-voices.yml
 permissions:
   contents: write
