@@ -1,7 +1,7 @@
 {
   "source": "https://vozes.alocucao.com.br/#locutores",
   "selection": "🧠",
-  "count": 23,
+  "count": 24,
   "voices": [
     {
       "id": "vl-6829",
@@ -112,6 +112,20 @@
       ],
       "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6807.mp3",
       "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6807-770cb5ff5ace.webp",
+      "kind": "ia"
+    },
+    {
+      "id": "vl-6841",
+      "name": "Diego",
+      "gender": "Masculina",
+      "styles": [
+        "Padrão",
+        "Impacto",
+        "Animada",
+        "Varejo"
+      ],
+      "audio": "https://vozes.alocucao.com.br/midia.php?tipo=demo&arq=6841.mp3",
+      "photo": "https://vozes.alocucao.com.br/midia.php?tipo=avatar&arq=voz-6841-2da89618df04.png",
       "kind": "ia"
     },
     {
