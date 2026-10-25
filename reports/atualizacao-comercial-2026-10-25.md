@@ -1,6 +1,6 @@
 # Atualização comercial — 25/10/2026
 
-Status: implementada e verificada localmente; publicação bloqueada pela revisão automática. A versão pública permanece no commit eae72a66d778ef037bc17799c6b38dbe8aeb0185. Alterações locais no commit a9474bd2f384b700ea4694294b4c9dca088219d3.
+Status: publicada após autorização explícita do proprietário. Alterações enviadas no commit a6ed689ae158fffaf871e99093b128bdf12d60b9. A atualização automática do catálogo gerou c08c2b3dcb0e299f571157527e66456b5a72af7b, publicado com sucesso pelo GitHub Pages (execução 40209196749).
 
 ## Alterações preparadas
 
@@ -25,9 +25,9 @@ Status: implementada e verificada localmente; publicação bloqueada pela revis�
 
 ## Dependências e pendências
 
-- Publicar após autorização explícita para atualizar a branch main do repositório público testedomarcio/alocucao, que alimenta o site principal.
+- Publicação concluída e confirmada na hospedagem. SEO e validação de landing pages passaram no GitHub Actions. Foram conferidas 45 URLs de páginas alteradas ao vivo: todas responderam HTTP 200, incluindo /off-comercial/. As páginas comerciais exibem os novos preços e pacotes. Os oito planos e seus destinos foram conferidos na página /precos/.
 - Confirmar as condições comerciais dentro do painel externo. Os botões de pacotes direcionam ao WhatsApp, sem anunciar compra automática.
-- Após publicação, confirmar a implantação e conferir todas as landing pages ao vivo, inclusive /off-comercial/, com histórico de indisponibilidade. A página existe no código e foi atualizada; a disponibilidade pública após implantação ainda deve ser verificada.
+- /off-comercial/: disponível com HTTP 200, preços novos e pacotes publicados.
 - Cadastro e login: destinos conferidos, sem criação de conta ou autenticação de cliente.
 
 ## Páginas alteradas no código
