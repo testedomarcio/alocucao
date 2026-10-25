@@ -7,6 +7,7 @@ import re,json,runpy
 ROOT=Path(__file__).resolve().parent.parent
 H=runpy.run_path(str(ROOT/'scripts/standardize-single-offer.py'))
 rewrite=H['rewrite'];plain=H['plain']
+POLICY=runpy.run_path(str(ROOT/'scripts/commercial-policy.py'))
 Nodes=runpy.run_path(str(ROOT/'scripts/hybrid-commerce.py'))['Nodes']
 REGISTER='https://vozes.alocucao.com.br/painel/cadastro'
 LOGIN='https://vozes.alocucao.com.br/painel/'
@@ -62,6 +63,9 @@ def prices(s):
  return s
 
 def update(s,route):
+ s=re.sub(r'<link[^>]*href="/assets/credit-packages\.css[^"]*"[^>]*>','',s)
+ s=re.sub(r'<section class="cp-final".*?</section>','',s,flags=re.S)
+ s=re.sub(r'<!-- commercial-packages:start -->.*?<!-- commercial-packages:end -->','',s,flags=re.S)
  s=public_policy(prices(s),route)
  s=re.sub(r'<(?:script|link)\b[^>]*(?:src|href)=[\"\']/assets/selected-voices\.(?:js|css)[^\"\']*[\"\'][^>]*>(?:</script>)?','',s)
  if re.search(r'http-equiv=["\']refresh',s,re.I):
@@ -183,13 +187,14 @@ def update(s,route):
   return m[1]+json.dumps(d,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')+m[3]
  s=re.sub(r'(<script[^>]*type=["\']application/ld\+json["\'][^>]*>)(.*?)(</script>)',schema,s,flags=re.S)
  s=re.sub(r"</section>\s*<section", "</section>\n<section", s)
- return re.sub(r"\n(?:[ \t]*\n)+", "\n", s)
+ return POLICY['update'](re.sub(r"\n(?:[ \t]*\n)+", "\n", s),route,COMMERCIAL)
 
 def main():
  changed=[]
  for p in sorted(ROOT.rglob('*.html')):
   if any(x.startswith('.') or x in {'node_modules','_site'} for x in p.relative_to(ROOT).parts):continue
   route=p.parent.relative_to(ROOT).as_posix();route='' if route=='.' else route
+  if p.name!='index.html':route='file:'+p.relative_to(ROOT).as_posix()
   old=p.read_text();new=update(old,route)
   if old!=new:p.write_text(new);changed.append(str(p.relative_to(ROOT)))
  print('Recording panel integration:',len(changed),'pages updated')

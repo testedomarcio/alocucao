@@ -1,0 +1,17 @@
+/* Static credit cards: no checkout or third-party purchase promises. */
+.cp-section,.cp-final{padding:56px 0;background:#f3f8f8;color:#122230}
+.cp-section h2,.cp-final h2{font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.2;margin:12px 0}
+.cp-section p,.cp-final p{line-height:1.6}
+.cp-group{margin-top:32px}.cp-group h3{font-size:1.4rem;margin-bottom:8px}
+.cp-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:24px}
+.cp-card{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid #cbdedc;border-radius:16px;padding:24px 20px;min-width:0;box-sizing:border-box}
+.cp-card h4{font-size:1.15rem;margin:0 0 14px}.cp-card .cp-unit{margin:0}
+.cp-unit strong{display:block;color:#05504a;font-size:clamp(1.8rem,3vw,2.3rem);line-height:1.2}
+.cp-unit span{display:block;font-size:.88rem;color:#4e6170;margin-top:8px}
+.cp-card .cp-total{margin:16px 0 8px}.cp-card .cp-saving{font-size:.88rem;color:#05504a;flex:1;margin:0 0 20px}
+.cp-best{border:2px solid #08786f}.cp-badge{position:absolute;top:-14px;left:16px;background:#05504a;color:#fff;border-radius:20px;font-size:.76rem;font-weight:700;padding:5px 12px}
+.cp-card .rp-button{width:100%;box-sizing:border-box;white-space:normal;text-align:center}
+.cp-note{max-width:900px;font-size:.9rem;color:#4e6170;margin-top:28px}
+.cp-final{background:#fff}.cp-final .rp-actions{margin-top:24px}
+@media(max-width:1000px){.cp-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px}}
+@media(max-width:540px){.cp-grid{grid-template-columns:1fr}.cp-section,.cp-final{padding:36px 0}.cp-card{padding:24px}.cp-final .rp-actions{flex-direction:column;align-items:stretch}}

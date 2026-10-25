@@ -15,7 +15,8 @@ class Landings(unittest.TestCase):
    if any(p.startswith('.') or p in {'node_modules','_site'} for p in path.relative_to(ROOT).parts):continue
    with self.subTest(path=str(path.relative_to(ROOT))):
     text=path.read_text()
-    self.assertFalse(bool(re.search(r'R\$\s*(?:12,00|30,00|11,90|29,90|8,50|19,00|8,90|16,90)',text)))
+    retail=re.sub(r'<!-- commercial-packages:start -->.*?<!-- commercial-packages:end -->','',text,flags=re.S)
+    self.assertFalse(bool(re.search(r'R\$\s*(?:10,00|25,00|12,00|11,90|29,90|8,50|19,00|8,90|16,90)',retail)))
     self.assertNotIn('data-selected-voices',text)
     self.assertNotIn('/assets/selected-voices.js',text)
  def test_commercial_journey(self):
@@ -49,11 +50,27 @@ class Landings(unittest.TestCase):
       if local.startswith('/assets/'):self.assertTrue((ROOT/local.lstrip('/')).is_file(),src)
     def visit(o):
      if isinstance(o,dict):
-      if o.get('@type')=='Offer':self.assertIn(str(o.get('price')),{'10.00','25.00'})
+      if o.get('@type')=='Offer':self.assertIn(str(o.get('price')),{'15.00','30.00'})
       for v in o.values():visit(v)
      elif isinstance(o,list):
       for v in o:visit(v)
     for raw in re.findall(r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>',text,re.S):visit(json.loads(raw))
+ def test_packages_and_primary_channel(self):
+  policy=runpy.run_path(str(ROOT/'scripts/commercial-policy.py'))
+  for route in MODEL['COMMERCIAL']:
+   text=(ROOT/route/'index.html').read_text();tags=Page(text).tags
+   self.assertEqual(text.count('data-credit-packages'),1,route)
+   chosen=policy['PLANS'] if route in policy['GENERAL'] or route.startswith('produtora-de-audio-') else [policy['PLANS'][0] if route in policy['OFF_ROUTES'] else policy['PLANS'][1]]
+   cards=re.findall(r'<article class="cp-card.*?</article>',text,re.S)
+   self.assertEqual(len(cards),len(chosen)*4,route)
+   for key,name,retail,plans in chosen:
+    for qty,unit in plans:
+     card=next(c for c in cards if f'data-package="{key}-{qty}"' in c)
+     self.assertIn(f'R$ {unit},00',card);self.assertIn(f'Total: <strong>R$ {qty*unit},00</strong>',card)
+     href=next(a['href'] for t,a in Page(card).tags if t=='a')
+     self.assertEqual(urlsplit(href).hostname,'vozes.alocucao.com.br' if qty==1 else 'wa.me')
+   hero=[a for t,a in tags if a.get('data-cta')=='hero_register']
+   self.assertEqual(len(hero),1,route);self.assertIn('rp-primary',hero[0]['class'])
  def test_repeatable_and_samples_preserved(self):
   for route in MODEL['COMMERCIAL']:
    text=(ROOT/route/'index.html').read_text();self.assertEqual(text,MODEL['update'](text,route),route)
