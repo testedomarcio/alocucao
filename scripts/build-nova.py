@@ -43,18 +43,18 @@ def audio(v,kind,instance=""):
 def portrait(v):
  if v.get('image'):return f'<img src="{v["image"]}" width="480" height="480" loading="lazy" decoding="async" alt="Retrato ilustrativo da voz {E(v["name"])}">'
  return f'<div class="portrait-placeholder" aria-label="Perfil de voz {E(v["name"])}">{E(v["name"][0])}</div>'
-def voicecard(v,primary="off",context=""):
+def voicecard(v,primary="off",context="",heading=3):
  secondary="off" if primary=="producao" else "producao"
  message=f'Olá! Conheci a voz {v["name"]} no site da A Locução e gostaria de solicitar um orçamento.'
  if context: message=f'Olá! Conheci a voz {v["name"]} no site da A Locução e gostaria de um orçamento de {context}.'
- return f'''<article class="voice-card" data-search="{E(v['name']+' '+v['style']+' '+ ' '.join(v['applications']))}" data-gender="{E(v['gender'])}" data-tags="{E('|'.join(v['tags']))}"><a class="portrait" style="display:block" href="/locutores/{v['slug']}/" aria-label="Ver perfil de {E(v['name'])}">{portrait(v)}</a><div class="voice-body"><h3><a href="/locutores/{v['slug']}/">{E(v['name'])}</a></h3><p class="voice-style">{E(v['style'])}</p><div class="voice-tags">{''.join('<span class="tag">'+E(t)+'</span>' for t in v['tags'])}</div>{audio(v,primary)}{audio(v,secondary)}<div class="voice-actions">{cta('Contratar esta voz',message,voice=v['name'])}<a class="profile-link" href="/locutores/{v['slug']}/">Ver perfil</a></div></div></article>'''
+ return f'''<article class="voice-card" data-search="{E(v['name']+' '+v['style']+' '+ ' '.join(v['applications']))}" data-gender="{E(v['gender'])}" data-tags="{E('|'.join(v['tags']))}"><a class="portrait" style="display:block" href="/locutores/{v['slug']}/" aria-label="Ver perfil de {E(v['name'])}">{portrait(v)}</a><div class="voice-body"><h{heading}><a href="/locutores/{v['slug']}/">{E(v['name'])}</a></h{heading}><p class="voice-style">{E(v['style'])}</p><div class="voice-tags">{''.join('<span class="tag">'+E(t)+'</span>' for t in v['tags'])}</div>{audio(v,primary)}{audio(v,secondary)}<div class="voice-actions">{cta('Contratar esta voz',message,voice=v['name'])}<a class="profile-link" href="/locutores/{v['slug']}/">Ver perfil</a></div></div></article>'''
 def catalog(subset=None,filters=False,primary="off",context=""):
  selected=subset or voices
  f=''
  if filters:
   opts=sorted({t for v in voices for t in v['tags']})
   f='<form class="filters" hidden aria-label="Filtrar vozes"><label>Buscar por nome ou aplicação<input type="search" placeholder="Qual voz você procura?" autocomplete="off"></label><label>Perfil<select id="gender"><option value="">Todos os perfis</option><option>Masculina</option><option>Feminina</option><option>Personagem</option></select></label><label>Estilo<select id="style"><option value="">Todos os estilos</option>'+''.join('<option>'+E(t)+'</option>' for t in opts)+'</select></label><button type="button">Limpar filtros</button></form><p id="voice-count" class="status" role="status" aria-live="polite">'+str(len(voices))+' vozes no catálogo</p>'
- return f+f'<div class="voice-grid">{"".join(voicecard(v,primary,context) for v in selected)}</div><p id="empty-voices" hidden>Nenhuma voz encontrada. Tente outro nome ou limpe os filtros.</p>'
+ return f+f'<div class="voice-grid">{"".join(voicecard(v,primary,context,2 if filters else 3) for v in selected)}</div><p id="empty-voices" hidden>Nenhuma voz encontrada. Tente outro nome ou limpe os filtros.</p>'
 def acquisition_hero(slug):
  production=slug=='spot-comercial'
  label='Produção Completa' if production else 'Locução Off'
