@@ -128,7 +128,7 @@
     "commercial_url": "https://alocucao.com.br/vozes-ia/",
     "excerpt": "Entenda as vantagens, limitações e melhores cenários para aplicar vozes sintéticas em anúncios, vídeos e atendimento.",
     "reading_time": "7 min de leitura",
-    "published": false,
+    "published": true,
     "sections": [
       {
         "h2": "A evolução da síntese de voz na comunicação comercial",
@@ -156,7 +156,8 @@
         "question": "Quanto custa um áudio com voz IA na A Locução?",
         "answer": "A locução off com voz IA custa R$ 8,50 por fração de até 40 segundos, enquanto o spot produzido com voz IA custa R$ 19,00."
       }
-    ]
+    ],
+    "published_at": "2026-10-26"
   },
   {
     "slug": "propaganda-para-supermercado-como-divulgar-ofertas-do-dia",
