@@ -1,0 +1,119 @@
+[
+  {
+    "id": "aida-2026-10-26",
+    "voice": "aida",
+    "title": "Rádio Mellody FM",
+    "date": "2026-10-26",
+    "format": "Vinhetas Off",
+    "tracks": [
+      {
+        "title": "Vinheta 1",
+        "src": "/assets/trabalhos/aida-2026-10-26-mellody-fm-1.mp3",
+        "duration_seconds": 9.33,
+        "source_file_id": "1qsT2IBUvWxexzg_wzqc6FD6elcTGNXdA",
+        "source_filename": "aida 1.mp3.mpeg",
+        "source_modified": "2026-10-26T21:57:28.027Z",
+        "source_sha256": "9fa0e19cb0e153f59f3d7d298c9628d05dc3280d63b96764779f0a5f8b12ab7e"
+      },
+      {
+        "title": "Vinheta 2",
+        "src": "/assets/trabalhos/aida-2026-10-26-mellody-fm-2.mp3",
+        "duration_seconds": 3.4,
+        "source_file_id": "1__f8m0V9jbCIOvQ3PFmD4NOYLr-liOQW",
+        "source_filename": "aida 2.mp3.mpeg",
+        "source_modified": "2026-10-26T21:57:32.918Z",
+        "source_sha256": "acf031ef9a93c40027ecb170c4900d38af217d469be328c2d60ce3349a0c3141"
+      },
+      {
+        "title": "Vinheta 3",
+        "src": "/assets/trabalhos/aida-2026-10-26-mellody-fm-3.mp3",
+        "duration_seconds": 10.92,
+        "source_file_id": "1dk-i1cv4mG5tO16NipHEnu6KDzo8od8J",
+        "source_filename": "aida 3.mp3.mpeg",
+        "source_modified": "2026-10-26T21:57:39.294Z",
+        "source_sha256": "a95dfa93ab989a11c587c99fd3fef32f4f24f6af95c9319059fbcbb39c01d84c"
+      }
+    ]
+  },
+  {
+    "id": "zozo-2026-10-26",
+    "voice": "zozo",
+    "title": "Rádio Mellody FM",
+    "date": "2026-10-26",
+    "format": "Vinhetas Off",
+    "tracks": [
+      {
+        "title": "Vinheta 1",
+        "src": "/assets/trabalhos/zozo-2026-10-26-mellody-fm-1.mp3",
+        "duration_seconds": 23.72,
+        "source_file_id": "1YywXpc9Zz2tQDtE2CvEXSBRlM0ywGUmW",
+        "source_filename": "Off 1.mp3.mpeg",
+        "source_modified": "2026-10-26T21:58:57.321Z",
+        "source_sha256": "679dc73c286ccf38b7edcf4e3a0987a2a49b9be6addb035377ed63704e5941e7"
+      },
+      {
+        "title": "Vinheta 2",
+        "src": "/assets/trabalhos/zozo-2026-10-26-mellody-fm-2.mp3",
+        "duration_seconds": 5.25,
+        "source_file_id": "1LVIEAwKbgxsUH_BU4bnZxmsUKsEdBEX6",
+        "source_filename": "Off 2.mp3.mpeg",
+        "source_modified": "2026-10-26T21:59:04.404Z",
+        "source_sha256": "4d0dbaa4b0edfb0bfdaa8bf9f0c93399fb9ba402a3d2f5369a9052d26a44ff23"
+      },
+      {
+        "title": "Vinheta 3",
+        "src": "/assets/trabalhos/zozo-2026-10-26-mellody-fm-3.mp3",
+        "duration_seconds": 21.39,
+        "source_file_id": "1yUryYjYJroMpHYn2aIrgJr_4szWMgyGW",
+        "source_filename": "Off 3.mp3.mpeg",
+        "source_modified": "2026-10-26T21:59:11.220Z",
+        "source_sha256": "ebf26e50e1742daa30983ba03efac023f8475edc968de54675143d6a6e8b00e2"
+      },
+      {
+        "title": "Vinheta 4",
+        "src": "/assets/trabalhos/zozo-2026-10-26-mellody-fm-4.mp3",
+        "duration_seconds": 8.83,
+        "source_file_id": "1Tcv0GyTsx_sfvKabCPlQy9lEu216g8R0",
+        "source_filename": "Off 4.mp3.mpeg",
+        "source_modified": "2026-10-26T21:59:17.141Z",
+        "source_sha256": "bc5747331ab0c829ba2f72581fde688e307d2d4b74e6180256666a7a642a29ae"
+      },
+      {
+        "title": "Vinheta 5",
+        "src": "/assets/trabalhos/zozo-2026-10-26-mellody-fm-5.mp3",
+        "duration_seconds": 3.97,
+        "source_file_id": "1_HTWPj7VAoaC-G7EOrzriX0ltwbkyTSw",
+        "source_filename": "Off 5.mp3.mpeg",
+        "source_modified": "2026-10-26T21:59:22.712Z",
+        "source_sha256": "8816ae6016aec1504174d4b56a573ce9f264cf7d7bfe3cb9221f96505785cbba"
+      },
+      {
+        "title": "Vinheta 6",
+        "src": "/assets/trabalhos/zozo-2026-10-26-mellody-fm-6.mp3",
+        "duration_seconds": 22.91,
+        "source_file_id": "12B2Moyq4tvR0t9eWRK-Vu_zeWz9lWEto",
+        "source_filename": "Off 6.mp3.mpeg",
+        "source_modified": "2026-10-26T21:59:30.603Z",
+        "source_sha256": "c3e0db6d661f9c10fdf03140c3a42fd41d7d55f114b6c9fccba766647216b961"
+      }
+    ]
+  },
+  {
+    "id": "fernanda-2026-10-25",
+    "voice": "fernanda",
+    "title": "LEMEDE Ultrassom",
+    "date": "2026-10-25",
+    "format": "Produção Completa",
+    "tracks": [
+      {
+        "title": "Produção completa",
+        "src": "/assets/trabalhos/fernanda-2026-10-25-lemede-ultrassom-1.mp3",
+        "duration_seconds": 30.04,
+        "source_file_id": "1MOA0krO9QPi1xDFQdmIagn8ZVlemG6a6",
+        "source_filename": "WhatsApp Audio 2026-10-23 at 11.16.23.mpeg",
+        "source_modified": "2026-10-26T22:04:32.017Z",
+        "source_sha256": "0cc1b13a0af9d9342a309861f7154e055e4d708eb92ef806409a629cac0960be"
+      }
+    ]
+  }
+]

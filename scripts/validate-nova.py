@@ -56,6 +56,21 @@ for v in voices:
  for kind in ['off','producao']:
   if v[kind] and not v[kind].endswith('-'+v.get('temporary_demo',{}).get(kind,kind)+'.mp3'):errors.append('wrong demo label: '+v['name'])
   if v[kind] and not(ROOT/v[kind].lstrip('/')).is_file():errors.append('missing demo: '+v['name'])
+works=json.loads((ROOT/'data/latest-works.json').read_text());work_ids=set();source_ids=set()
+for work in works:
+ if work['voice'] not in seen:errors.append('unknown work voice: '+work['voice']);continue
+ if work['id'] in work_ids:errors.append('duplicate work id: '+work['id'])
+ work_ids.add(work['id'])
+ profile=(ROOT/'locutores'/work['voice']/'index.html').read_text()
+ if 'id="ultimos-trabalhos"' not in profile:errors.append('missing latest works section: '+work['voice'])
+ for track in work['tracks']:
+  if track['source_file_id'] in source_ids:errors.append('duplicate work source')
+  source_ids.add(track['source_file_id'])
+  if not track['src'].startswith('/assets/trabalhos/'+work['voice']+'-') or not(ROOT/track['src'].lstrip('/')).is_file():errors.append('wrong work asset: '+track['src'])
+  if profile.count('src="'+track['src']+'"')!=1:errors.append('wrong work mapping: '+track['src'])
+  if track['duration_seconds']<=0:errors.append('invalid work duration: '+track['src'])
+  for other in seen-{work['voice']}:
+   if 'src="'+track['src']+'"' in (ROOT/'locutores'/other/'index.html').read_text():errors.append('work assigned to another voice: '+track['src'])
 ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
 urls=[e.text for e in ET.parse(ROOT/'sitemap.xml').findall('.//s:loc',ns)]
 expected={r['url'] for r in manifest if r['index'] and r['url']==r['canonical']}

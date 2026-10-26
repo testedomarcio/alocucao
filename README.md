@@ -25,3 +25,9 @@ Locução Off R$ 12,00 e Produção Completa R$ 25,00 por peça comercial de at�
 GitHub Pages não oferece configuração nativa de redirecionamentos HTTP 301 por rota. As rotas equivalentes mantidas como compatibilidade servem conteúdo e indicam a URL principal com canonical e noindex. Não há redirecionamento HTML. Um 301 real exige uma camada de servidor/proxy compatível e deve ser tratado separadamente, sem mudança de DNS automática.
 
 Relatório da migração em `reports/reformulacao-2026-10-26/RELATORIO.md`.
+
+### Últimos trabalhos dos perfis
+
+`data/latest-works.json` organiza os projetos por `voice` (slug existente), cliente/título, data real do trabalho e formato. O gerador mantém as demonstrações fixas e acrescenta a seção `#ultimos-trabalhos` somente nos perfis com projetos disponíveis, ordenados por data decrescente. Os players usam MP3 locais em `assets/trabalhos/`, sem autoplay e com carregamento sob demanda.
+
+A pasta autorizada de importação tem ID `1gX1hUIiTJEbvXC5GAJjIKU3JrFCtBqLY`. Organize como `Locutor / Tipo e cliente — data / áudios`. Os IDs, nomes, datas de modificação e hashes de origem ficam no JSON para evitar duplicações; nenhum link do Drive é incluído nas páginas. Datas e clientes devem vir da identificação fornecida, sem inferir a data do trabalho pelo upload. Arquivos sem identificação segura ficam pendentes. A atualização é executada pela tarefa semanal vinculada à conversa; o site não consulta o Drive no navegador.
