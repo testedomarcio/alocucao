@@ -15,6 +15,19 @@
     const message = audio.parentElement.querySelector('.audio-error');
     if (message) message.hidden = false;
   }));
+  // Shuffle on every fresh visit; also refresh the order after back/forward cache restores.
+  function shuffleVoices() {
+    document.querySelectorAll('.voice-grid').forEach(grid => {
+      const cards = [...grid.children];
+      for (let i=cards.length-1;i>0;i--) {
+        const j=Math.floor(Math.random()*(i+1));
+        [cards[i],cards[j]]=[cards[j],cards[i]];
+      }
+      cards.forEach(card => grid.appendChild(card));
+    });
+  }
+  shuffleVoices();
+  window.addEventListener('pageshow', event => { if(event.persisted) shuffleVoices(); });
   const normalize = text => text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const form = document.querySelector('.filters');
   if (form) {

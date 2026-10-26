@@ -54,7 +54,7 @@ for v in voices:
  expected=re.sub('[^a-z0-9]','',__import__('unicodedata').normalize('NFKD',v['name']).encode('ascii','ignore').decode().lower())+'@alocucao.com.br'
  if v['email']!=expected:errors.append('wrong email: '+v['name'])
  for kind in ['off','producao']:
-  if v[kind] and not v[kind].endswith('-'+kind+'.mp3'):errors.append('wrong demo label: '+v['name'])
+  if v[kind] and not v[kind].endswith('-'+v.get('temporary_demo',{}).get(kind,kind)+'.mp3'):errors.append('wrong demo label: '+v['name'])
   if v[kind] and not(ROOT/v[kind].lstrip('/')).is_file():errors.append('missing demo: '+v['name'])
 ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
 urls=[e.text for e in ET.parse(ROOT/'sitemap.xml').findall('.//s:loc',ns)]

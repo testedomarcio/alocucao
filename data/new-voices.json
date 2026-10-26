@@ -34,8 +34,8 @@
         "Ouça as demonstrações e entre em contato com A Locução informando o tipo de projeto, o texto ou duração aproximada e o estilo desejado. A equipe poderá orientar a contratação e as condições do serviço."
       ]
     ],
-    "off": null,
-    "producao": null
+    "off": "/assets/demos/aida-off.mp3",
+    "producao": "/assets/demos/aida-producao.mp3"
   },
   {
     "slug": "aline-mota",
@@ -73,7 +73,7 @@
       ]
     ],
     "off": "/assets/demos/aline-mota-off.mp3",
-    "producao": null
+    "producao": "/assets/demos/aline-mota-producao.mp3"
   },
   {
     "slug": "amanda-kelly",
@@ -375,8 +375,8 @@
         "Ouça as demonstrações e entre em contato com A Locução informando o tipo de projeto, o texto ou duração aproximada e o estilo desejado. A equipe poderá orientar a contratação e as condições do serviço."
       ]
     ],
-    "off": null,
-    "producao": null
+    "off": "/assets/demos/eduardo-s-off.mp3",
+    "producao": "/assets/demos/eduardo-s-producao.mp3"
   },
   {
     "slug": "enzo",
@@ -415,8 +415,8 @@
         "Ouça as demonstrações e entre em contato com A Locução informando o tipo de projeto, o texto ou duração aproximada e o estilo desejado. A equipe poderá orientar a contratação e as condições do serviço."
       ]
     ],
-    "off": null,
-    "producao": null
+    "off": "/assets/demos/enzo-off.mp3",
+    "producao": "/assets/demos/enzo-producao.mp3"
   },
   {
     "slug": "fernanda",
@@ -453,8 +453,8 @@
         "Ouça as demonstrações e entre em contato com A Locução informando o tipo de projeto, o texto ou duração aproximada e o estilo desejado. A equipe poderá orientar a contratação e as condições do serviço."
       ]
     ],
-    "off": null,
-    "producao": null
+    "off": "/assets/demos/fernanda-off.mp3",
+    "producao": "/assets/demos/fernanda-producao.mp3"
   },
   {
     "slug": "kaique",
@@ -725,8 +725,8 @@
         "Ouça as demonstrações e entre em contato com A Locução informando o tipo de projeto, o texto ou duração aproximada e o estilo desejado. A equipe poderá orientar a contratação e as condições do serviço."
       ]
     ],
-    "off": null,
-    "producao": null
+    "off": "/assets/demos/marcio-off.mp3",
+    "producao": "/assets/demos/marcio-producao.mp3"
   },
   {
     "slug": "noel-natal",
@@ -808,45 +808,6 @@
     "producao": "/assets/demos/paulo-becker-producao.mp3"
   },
   {
-    "slug": "peter",
-    "name": "Peter",
-    "style": "Sensível e Claro",
-    "description": "Timbre masculino grave e escuro, com interpretação moderada e caráter místico. Indicado especialmente para narrações longas e textos que pedem atenção.",
-    "about": "Gosto de dar tempo às palavras. Uma história bem contada precisa de presença, clareza e um ritmo que permita ao ouvinte imaginar cada cena. Minha voz segue essa proposta: profunda, sensível e envolvente.",
-    "applications": [
-      "Audiolivros",
-      "Artigos narrados",
-      "Histórias de mistério",
-      "Vídeos reflexivos",
-      "Narrativas de fantasia"
-    ],
-    "gender": "Masculina",
-    "tags": [
-      "Narrativa",
-      "Grave"
-    ],
-    "image": "/assets/vozes-ia/images/peter.webp",
-    "email": "peter@alocucao.com.br",
-    "seo_title": "Peter | Narrador de audiolivros e textos reflexivos | A Locução",
-    "meta_description": "Conheça Peter, voz profunda, sensível, grave e narrativa. Ouça demonstrações de locução Off e produção completa e solicite orçamento na A Locução.",
-    "faq": [
-      [
-        "Qual tipo de narração combina com Peter?",
-        "Audiolivros, artigos e histórias de atmosfera reflexiva ou misteriosa são aplicações próximas à descrição de sua voz."
-      ],
-      [
-        "Qual é a diferença entre locução Off e produção completa?",
-        "Na locução Off, o destaque é a voz sem trilha musical ou efeitos. Na produção completa, a locução recebe edição, música e efeitos quando fazem sentido para o roteiro."
-      ],
-      [
-        "Como pedir orçamento com a voz de Peter?",
-        "Ouça as demonstrações e entre em contato com a A Locução, indicando tipo de projeto, texto ou duração aproximada e estilo desejado. A equipe poderá informar as condições de contratação."
-      ]
-    ],
-    "off": null,
-    "producao": null
-  },
-  {
     "slug": "roberta",
     "name": "Roberta",
     "style": "Descontraída, Envolvente e Clara",
@@ -921,8 +882,11 @@
         "Ouça as demonstrações e entre em contato com a A Locução, indicando tipo de projeto, texto ou duração aproximada e estilo desejado. A equipe poderá informar as condições de contratação."
       ]
     ],
-    "off": null,
-    "producao": null
+    "off": "/assets/demos/thiago-off.mp3",
+    "producao": "/assets/demos/thiago-off.mp3",
+    "temporary_demo": {
+      "producao": "off"
+    }
   },
   {
     "slug": "will",
@@ -981,7 +945,7 @@
       "Narrativa",
       "Energética"
     ],
-    "image": "/assets/vozes-ia/images/zozo.webp",
+    "image": "/assets/vozes-ia/images/zozo-masculino.webp",
     "email": "zozo@alocucao.com.br",
     "seo_title": "Zozo | Voz animada para vídeos de games e aventuras | A Locução",
     "meta_description": "Conheça Zozo, voz alegre, expressiva e cheia de aventura. Ouça demonstrações de locução Off e produção completa e solicite orçamento na A Locução.",
