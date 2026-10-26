@@ -1,53 +1,11 @@
-name: Atualizar banco oficial de vozes
+name: Catálogo próprio da A Locução
 on:
-  schedule:
-    - cron: '7,22,37,52 * * * *'
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - scripts/sync-voices.py
-      - scripts/generate-featured-voices.py
-      - scripts/unified-catalog.py
-      - scripts/refresh-whatsapp-site.py
-      - scripts/integrate-recording-panel.py
-      - assets/recording-panel.css
-      - .github/workflows/sync-voices.yml
 permissions:
-  contents: write
-  pages: write
-concurrency:
-  group: official-voice-catalog
-  cancel-in-progress: false
+  contents: read
 jobs:
-  sync:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Consultar e validar catálogo oficial
-        run: python scripts/sync-voices.py
-      - name: Atualizar listas humanas e IA nas páginas
-        run: |
-          python scripts/unified-catalog.py
-          python scripts/standardize-single-offer.py
-          python scripts/refresh-whatsapp-site.py
-          python scripts/integrate-recording-panel.py
-      - name: Publicar catálogo atualizado
-        run: |
-          git config user.name "A Locução Catálogo"
-          git config user.email "catalogo@users.noreply.github.com"
-          git add assets/voices-catalog.json assets/featured-voices.json assets/selected-voices.json vozes/index.html
-          # Include all tracked HTML outputs (templates, 404 and aliases too),
-          # so the rebase never starts with unstaged generated files.
-          git add -u -- '*.html'
-          if git diff --cached --quiet; then exit 0; fi
-          git commit -m "Refresh official voice catalog and availability"
-          git pull --rebase origin main
-          git push origin main
-      - name: Solicitar publicação no GitHub Pages
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh api --method POST repos/${{ github.repository }}/pages/builds
+      - run: python3 scripts/validate-nova.py

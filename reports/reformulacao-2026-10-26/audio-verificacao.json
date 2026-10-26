@@ -1,0 +1,236 @@
+[
+  {
+    "path": "assets/demos/will-off.mp3",
+    "duration": 35.239125,
+    "bytes": 580763,
+    "sha256": "1bb2ff04a0e003e0e2c4a1a75c9bfb738edd20c67943642f420ced967ad8b8e0"
+  },
+  {
+    "path": "assets/demos/will-producao.mp3",
+    "duration": 32.966531,
+    "bytes": 395956,
+    "sha256": "bb1628d7c3e76c41f1e74620ed8447cae4d1580431ceabceddc304294a844625"
+  },
+  {
+    "path": "assets/demos/audrey-producao.mp3",
+    "duration": 38.373878,
+    "bytes": 460845,
+    "sha256": "e90cfa2c38ff3a980438c120feaa3b8989f5680081eb685d9a538e28181a1dd6"
+  },
+  {
+    "path": "assets/demos/noel-natal-off.mp3",
+    "duration": 42.762438,
+    "bytes": 701136,
+    "sha256": "1afded172c86a15c7eddd6c4e10623d6209c0e61bec0e49addfeae7dfda10bcf"
+  },
+  {
+    "path": "assets/demos/lax-producao.mp3",
+    "duration": 33.933061,
+    "bytes": 407555,
+    "sha256": "34b22f4d1269be414b1a3d2e6b9d4ac18eb1bb637d38b4e8fbf7861a3f64658e"
+  },
+  {
+    "path": "assets/demos/david-off.mp3",
+    "duration": 28.9175,
+    "bytes": 479617,
+    "sha256": "4ac2c4fa5afd4c5daf58803488ddafaffd2e16b994df5c3a8e67cf3ff551c35f"
+  },
+  {
+    "path": "assets/demos/christine-off.mp3",
+    "duration": 32.026063,
+    "bytes": 529354,
+    "sha256": "014f58b9bc4fd076c3b18371aebbe30401f1aa3d3769303b94a54a65844c1ede"
+  },
+  {
+    "path": "assets/demos/leonardo-producao.mp3",
+    "duration": 45.374694,
+    "bytes": 544854,
+    "sha256": "8b283bc0038082633c2651935f1a69af4e11ad0fc49f4e2b2f26006a081f0eab"
+  },
+  {
+    "path": "assets/demos/larissa-producao.mp3",
+    "duration": 43.807347,
+    "bytes": 526046,
+    "sha256": "1dac7324d39b72e28b235a6e863846e41648ef09e8b741131a26dc2ee0561fb0"
+  },
+  {
+    "path": "assets/demos/koraly-off.mp3",
+    "duration": 28.995875,
+    "bytes": 480871,
+    "sha256": "8c2ebd606f7c3aa5bf1e2c8c8b09198b1c8dc9b89c26e14a206eca8d379d5bc2"
+  },
+  {
+    "path": "assets/demos/audrey-off.mp3",
+    "duration": 26.044063,
+    "bytes": 433642,
+    "sha256": "784a3c02177c9c26edc0857e9f6c35a0dbedcbc8440d8f944018457fefa5cf7e"
+  },
+  {
+    "path": "assets/demos/noel-natal-producao.mp3",
+    "duration": 40.150204,
+    "bytes": 482160,
+    "sha256": "5c3f0aeece1c04ba6ec8296521b4dfe709fd5cb98793d6e4df0a618eec1e9b74"
+  },
+  {
+    "path": "assets/demos/aline-mota-off.mp3",
+    "duration": 19.408938,
+    "bytes": 327480,
+    "sha256": "c70bc4c25e5ef1c7c37189ca5389172a1c94e07a2306fe9718e671a69ab3fa8d"
+  },
+  {
+    "path": "assets/demos/leo-antonio-producao.mp3",
+    "duration": 38.974694,
+    "bytes": 468054,
+    "sha256": "7268f2d2521b14f3a86282c326a5f2d65f5a4999b8f5f9c219f4e202fc17ac2c"
+  },
+  {
+    "path": "assets/demos/diego-off.mp3",
+    "duration": 23.640813,
+    "bytes": 395190,
+    "sha256": "a6e5833d6ea39286c040421d7325bf42f4547a467b74c40578cf5de73044c1ee"
+  },
+  {
+    "path": "assets/demos/ana-alice-off.mp3",
+    "duration": 27.010563,
+    "bytes": 449106,
+    "sha256": "c6a771630ca1b5f4cc281422d2f415659a0f2ba947317ab1f452f8739a329707"
+  },
+  {
+    "path": "assets/demos/larissa-off.mp3",
+    "duration": 39.549375,
+    "bytes": 649727,
+    "sha256": "b72d26422f8bb9bcd5610a6cb111b07d6e40fce44af4095c4c14a8f67dbda8b1"
+  },
+  {
+    "path": "assets/demos/mario-off.mp3",
+    "duration": 39.000813,
+    "bytes": 640950,
+    "sha256": "927eb0be5181142f7154030b60f2da8f949d5acdb193c04db70aec5dec647ed9"
+  },
+  {
+    "path": "assets/demos/kaique-producao.mp3",
+    "duration": 36.440816,
+    "bytes": 437648,
+    "sha256": "23ddc588c8532fee7027d2e1277f504d4338391151de46ff87c4c66a0be969ba"
+  },
+  {
+    "path": "assets/demos/cassio-cruz-off.mp3",
+    "duration": 29.38775,
+    "bytes": 487141,
+    "sha256": "28089cf6762d096bcc9e6cf588a629f13b49242f1a888ad74d6038eb8ba6bbec"
+  },
+  {
+    "path": "assets/demos/kaique-off.mp3",
+    "duration": 41.482438,
+    "bytes": 680656,
+    "sha256": "a5c3a823226148f92de3484f2ea459ee35799ae70069520ecb2761175273f5e0"
+  },
+  {
+    "path": "assets/demos/leonardo-off.mp3",
+    "duration": 38.687313,
+    "bytes": 635934,
+    "sha256": "ef5a19bab792d1a66760cc1f1e481bfa3aab78c7055bd3cc57a235fbd3d57cf4"
+  },
+  {
+    "path": "assets/demos/diego-producao.mp3",
+    "duration": 28.029388,
+    "bytes": 673376,
+    "sha256": "4c75cfae61518d59beeba6fa5e93737babb8fd65eb91ea1320481e20b42a3bba"
+  },
+  {
+    "path": "assets/demos/lax-off.mp3",
+    "duration": 34.272625,
+    "bytes": 565299,
+    "sha256": "eaed517bcb57d132b46eef0d303c26137f19ae49f0dc110f7c99aedd80aee89f"
+  },
+  {
+    "path": "assets/demos/leo-antonio-off.mp3",
+    "duration": 40.59425,
+    "bytes": 666445,
+    "sha256": "c5e26e16afc0f586ff74035c8f6ca3dd93d8479c050a167e6382afa000ae775f"
+  },
+  {
+    "path": "assets/demos/david-producao.mp3",
+    "duration": 46.863673,
+    "bytes": 562722,
+    "sha256": "3d8aa9238e2df2e4ff84d32f220d8d081d62384d350f569e36afc99ee56c796f"
+  },
+  {
+    "path": "assets/demos/amanda-kelly-producao.mp3",
+    "duration": 40.097959,
+    "bytes": 481534,
+    "sha256": "eed9751998ab8774cb3f5022c0c08c39ce3603cb1e5201405152f52e4d1b27e3"
+  },
+  {
+    "path": "assets/demos/amanda-kelly-off.mp3",
+    "duration": 24.189375,
+    "bytes": 403967,
+    "sha256": "1e9ae096cd25680dfa2cf15ad41e92b3d86cd6e4cf3d8c3f7ee57ae7e4ed4053"
+  },
+  {
+    "path": "assets/demos/roberta-producao.mp3",
+    "duration": 37.825306,
+    "bytes": 454262,
+    "sha256": "b248067f353d325258fb0355cc29b10fc2ba41dd6888a3a79ba0dc8113d98377"
+  },
+  {
+    "path": "assets/demos/mario-producao.mp3",
+    "duration": 36.519184,
+    "bytes": 438588,
+    "sha256": "7a08e6129732a0ff284b6b153dd044cd6ba958090eee43223ed3fb19e995fb3a"
+  },
+  {
+    "path": "assets/demos/christine-producao.mp3",
+    "duration": 40.254694,
+    "bytes": 483414,
+    "sha256": "e3d48ad7ffeb5c75a751e056c0062bf64808850ddfac5bcebc33e436444b7ac3"
+  },
+  {
+    "path": "assets/demos/paulo-becker-producao.mp3",
+    "duration": 26.044082,
+    "bytes": 625729,
+    "sha256": "32ab2623fc95d3e5d8b2f03fe23ea7ac2b8521701afc69080ca02c3d2751ed2b"
+  },
+  {
+    "path": "assets/demos/cassio-cruz-producao.mp3",
+    "duration": 40.202449,
+    "bytes": 482787,
+    "sha256": "4ca22b562441484e1d9e5f62ca43f0f7acc27f70062937975d2b51d7df28220b"
+  },
+  {
+    "path": "assets/demos/ana-alice-producao.mp3",
+    "duration": 36.466939,
+    "bytes": 437961,
+    "sha256": "416ba19157bed9220bdc60f3dabb53ccad657c08caffd9aafad88edf1d3a80b2"
+  },
+  {
+    "path": "assets/demos/paulo-becker-off.mp3",
+    "duration": 23.640813,
+    "bytes": 395190,
+    "sha256": "ea0be415791f22a2b368555fa510c9d657d78f7699079d9b187305600b834bc4"
+  },
+  {
+    "path": "assets/demos/koraly-producao.mp3",
+    "duration": 45.400816,
+    "bytes": 545168,
+    "sha256": "f97f71817ef1dedc69afed122dd0805a0f3bfac4df0ac31af3c1cddca06e6ac3"
+  },
+  {
+    "path": "assets/demos/zozo-off.mp3",
+    "duration": 36.284063,
+    "bytes": 597482,
+    "sha256": "346b6200505f4b3ad0c35fb71b52006b6e4e0a49e3ffc9307fab8ab4999c4c9e"
+  },
+  {
+    "path": "assets/demos/zozo-producao.mp3",
+    "duration": 35.369796,
+    "bytes": 424796,
+    "sha256": "75518a6f3f04b8846aa3dec584ca3093dd6d9eee2bdc41336d3c01c665c925e0"
+  },
+  {
+    "path": "assets/demos/roberta-off.mp3",
+    "duration": 40.4375,
+    "bytes": 663937,
+    "sha256": "6fdd2905a94733d6cfcfcb9578405103092be5eb996412706057c80b5617b62d"
+  }
+]

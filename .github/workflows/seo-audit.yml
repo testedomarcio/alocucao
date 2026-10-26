@@ -3,21 +3,11 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths:
-      - "**/*.html"
-      - "sitemap.xml"
-      - "scripts/seo-consistency.py"
-      - ".github/workflows/seo-audit.yml"
 permissions:
   contents: read
-concurrency:
-  group: seo-consistency
-  cancel-in-progress: false
 jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Conferir páginas canônicas
-        run: python3 scripts/seo-consistency.py
-  
+      - run: python3 scripts/validate-nova.py

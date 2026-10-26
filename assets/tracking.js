@@ -31,11 +31,8 @@
   window.alocucaoTrackEvent = (name, parameters = {}) => {
     if (!analyticsConsent) return false;
     window.gtag("event", name, { ...parameters, send_to: ANALYTICS_ID });
-    const uetAction = name === "panel_click"
-      ? (parameters.panel_action === "register" ? "panel_register_click" : "panel_login_click")
-      : (name === "whatsapp_click" ? "whatsapp_click" : null);
-    if (uetAction) window.uetq.push("event", uetAction, {
-      event_category: name === "whatsapp_click" ? "contact" : "navigation",
+    if (name === "whatsapp_click") window.uetq.push("event", "whatsapp_click", {
+      event_category: "contact",
       event_label: (parameters.page_path || "/") + " | " + (parameters.cta_id || parameters.service_name || "outro")
     });
     return true;
@@ -94,8 +91,8 @@
     const path = String(pathname || "").toLowerCase();
     if (path.includes("locucao-ia")) return "locucao_ia";
     if (path.includes("off-comercial")) return "off_comercial";
-    if (path.includes("gravacao-off-e-producao")) return "pacotes_off_producao";
-    if (path.includes("perfil-locutor-")) return "perfil_locutor";
+    if (path.includes("gravacao-off-e-producao")) return "off_producao";
+    if (path.includes("/locutores/") || path.includes("perfil-locutor-")) return "perfil_locutor";
     if (path.includes("produtora-de-audio-")) return "servico_regional";
     if (path.includes("producao-para-supermercados")) return "producao_supermercados";
     if (path.includes("producao-para-igrejas")) return "producao_igrejas";
@@ -104,14 +101,14 @@
     if (path.includes("vinheta") || path.includes("podcast")) return "vinhetas";
     if (path.includes("video-institucional")) return "video_institucional";
     if (path.includes("telefonica") || path.includes("ura")) return "ura_telefonica";
-    if (path.includes("agencias-revenda")) return "agencias_revenda";
+    if (path.includes("agencias-revenda")) return "agencias_produtoras";
     if (path.includes("voz-infantil")) return "voz_infantil";
     if (path.includes("spot-para-carro-de-som")) return "spot_carro_de_som";
     if (path.includes("spot-comercial") || path.includes("quanto-custa-um-spot")) return "spot_comercial";
     if (path.includes("locucao-off") || path.includes("locucao_off")) return "locucao_off";
     if (path.includes("campanha-politica") || path.includes("campanha-eleitoral")) return "campanha_politica";
     if (path.includes("calculadora")) return "calculadora";
-    if (path.includes("locutores")) return "locutores_humanos";
+    if (path.includes("locutores")) return "banco_de_vozes";
     if (path.includes("vozes-ia")) return "vozes_ia";
     if (path.includes("vozes")) return "banco_de_vozes";
     if (path.includes("portfolio")) return "portfolio";
@@ -156,26 +153,7 @@
       url.hostname === "api.whatsapp.com" ||
       url.hostname === "web.whatsapp.com";
 
-    const isPanelHost = url.hostname === "vozes.alocucao.com.br";
-    const panelPath = url.pathname.replace(/\/$/, "");
-    const isLocalPanel = url.origin === window.location.origin || url.hostname === "alocucao.com.br";
-    const panelAction = isPanelHost && panelPath === "/painel/cadastro" || isLocalPanel && panelPath === "/cadastro" ? "register"
-      : isPanelHost && ["/painel", "/painel/entrar"].includes(panelPath) || isLocalPanel && panelPath === "/painel" ? "login" : null;
     if (!analyticsConsent) return;
-    if (panelAction) {
-      const attribution = firstTouch();
-      window.alocucaoTrackEvent("panel_click", {
-        panel_action: panelAction,
-        page_path: window.location.pathname,
-        service_name: serviceFromPath(window.location.pathname),
-        cta_id: cleanLabel(link.dataset.cta || link.id || "panel_link"),
-        cta_location: link.closest("section")?.id || (link.closest("header") ? "header" : link.closest("footer") ? "footer" : "content"),
-        traffic_source: attribution.source,
-        traffic_medium: attribution.medium,
-        campaign_name: attribution.campaign
-      });
-      return;
-    }
     if (!isWhatsApp) return;
     const attribution = firstTouch();
 
@@ -186,7 +164,7 @@
       page_title: cleanLabel(document.title),
       service_name: serviceFromPath(window.location.pathname),
       cta_id: cleanLabel(link.dataset.cta || link.id || "whatsapp_link"),
-      voice_kind: cleanLabel(link.dataset.voiceKind || (window.location.pathname.includes("locucao-ia") || window.location.pathname.includes("vozes-ia") ? "ia" : ["/off-comercial/","/locucao-off/","/producao-para-igrejas/","/gravacao-off-e-producao/","/producao-para-supermercados/","/spot-black-friday/"].includes(window.location.pathname) ? "human" : "nao_informado")),
+      voice_kind: cleanLabel(link.dataset.voiceKind || "synthetic"),
       voice_name: cleanLabel(link.dataset.voiceName),
       service_selected: cleanLabel(link.dataset.service || "a_confirmar"),
       cta_label: cleanLabel(link.textContent || link.getAttribute("aria-label") || "WhatsApp"),

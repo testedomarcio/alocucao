@@ -1,63 +1,27 @@
 # A Locução
 
-Site institucional e páginas de conversão da A Locução, publicado no GitHub Pages em [alocucao.com.br](https://alocucao.com.br/).
+Site estático da produtora A Locução, publicado pelo GitHub Pages em https://alocucao.com.br.
 
-## Estrutura
+## Manutenção
 
-- `data/regions.json`: base de dados regional para geração de páginas de SEO local.
-- `templates/region-template.html`: template HTML base para páginas estáticas de SEO regional.
-- `scripts/generate-seo-pages.js`: script gerador de páginas regionais e atualizador do `sitemap.xml`.
-- `index.html`: página inicial.
-- `locucao-off/`: landing page de locução off.
-- `spot-comercial/`: landing page de produção de spot comercial.
-- `calculadora/`: estimador público de palavras, duração e blocos de até 40 segundos.
-- `sobre/`: apresentação e contato.
-- `politica-de-privacidade/` e `termos-de-uso/`: páginas de confiança e conformidade.
-- `assets/`: scripts compartilhados e estilos das páginas institucionais.
-- `robots.txt`, `sitemap.xml` e `404.html`: suporte técnico de SEO e navegação.
-- `.github/workflows/indexnow.yml`: avisa Bing e mecanismos participantes do IndexNow quando URLs públicas são alteradas.
+- `data/new-voices.json`: perfis, características, e-mails profissionais e caminhos separados de demonstração Off e Produção Completa.
+- `data/site-pages.json`: conteúdo editorial e rotas anteriores preservadas após a migração.
+- `data/legal-pages.json`: documentos jurídicos personalizados; revisão por advogado não é presumida.
+- `scripts/build-nova.py`: gerador único das páginas e sitemap.
+- `assets/nova.css` e `assets/nova.js`: identidade visual, navegação, filtros e reprodução de áudio.
+- `assets/demos/`: áudios fornecidos para o novo catálogo, hospedados neste domínio.
+- `assets/privacy.js` e `assets/tracking.js`: consentimento e medição de cliques pelo WhatsApp.
 
-Os arquivos `locucao_off.html` e `spot_comercial.html` são mantidos temporariamente para compatibilidade com links antigos. As URLs preferenciais estão definidas nas tags canônicas e no sitemap.
+Execute `npm run build` e `npm test`. O build usa apenas a biblioteca padrão do Python. Os testes dinâmicos usam Node.js.
 
-## Medição
+Não execute os geradores antigos isoladamente: eles pertencem ao modelo comercial anterior. As automações antigas de importação do fornecedor e publicação de artigos foram retiradas do agendamento para evitar a reintrodução de regras antigas. O conteúdo editorial existente foi mantido; novas publicações devem entrar em `data/site-pages.json` e passar pelo gerador atual.
 
-O site usa a tag do Google Ads `AW-18420702149` e dispara a conversão existente em cliques para o WhatsApp. O Consent Mode mantém armazenamento publicitário e analítico negado por padrão até a escolha do visitante.
+## Especificação comercial vigente em 26/10/2026
 
-Antes de alterar IDs, rótulos de conversão ou URLs de campanha, valide a configuração da conta do Google Ads.
+Locução Off R$ 12,00 e Produção Completa R$ 25,00 por peça comercial de até 40 segundos. Narrativas longas e projetos especiais sob orçamento. Atendimento de segunda a sexta, 08h–18h, e sábado, 08h–12h, horário de Brasília. Contratação pelo WhatsApp +55 27 99652-9832. Não divulgar outros idiomas.
 
-## Geração Dinâmica de Páginas de SEO Local
+## Limitações da hospedagem
 
-O projeto possui um sistema automatizado para gerar landing pages regionais (`/produtora-de-audio-[slug]/`) e atualizar o `sitemap.xml`.
+GitHub Pages não oferece configuração nativa de redirecionamentos HTTP 301 por rota. As rotas equivalentes mantidas como compatibilidade servem conteúdo e indicam a URL principal com canonical e noindex. Não há redirecionamento HTML. Um 301 real exige uma camada de servidor/proxy compatível e deve ser tratado separadamente, sem mudança de DNS automática.
 
-### Como adicionar novos estados ou cidades:
-1. Abra o arquivo `data/regions.json`.
-2. Adicione um novo objeto ao array com a seguinte estrutura:
-```json
-{
-  "stateName": "Nome do Estado ou Cidade",
-  "stateAbbr": "UF",
-  "slug": "nome-do-estado",
-  "nicheEmphasis": "ênfase nos nichos de mercado da região",
-  "pageTitle": "Título SEO para a tag <title>",
-  "metaDescription": "Descrição única para meta description (evitando doorway pages)",
-  "eyebrow": "Sua Produtora de Áudio em [Nome]",
-  "h1Title": "Produtora de Áudio e Estúdio de Locução em [Nome]",
-  "heroParagraph": "Descrição persuasiva sobre atendimento e locução para a região.",
-  "regionalFocus": "Pontos fortes e setores atendidos no estado.",
-  "cities": ["Cidade 1", "Cidade 2", "Cidade 3"]
-}
-```
-3. Execute o comando de build no terminal:
-```bash
-npm run build
-```
-4. As novas páginas serão geradas na raiz do projeto (ex: `produtora-de-audio-nome-do-estado/index.html`) e adicionadas ao `sitemap.xml`.
-
-## Indexação no Bing
-
-O arquivo de chave IndexNow fica na raiz pública. A automação envia somente URLs afetadas por cada publicação; não remova a chave nem altere o domínio no workflow sem gerar e publicar uma nova chave.
-
-
-## Integração do Painel de Gravação
-
-A última etapa de `npm run build`, `scripts/integrate-recording-panel.py`, aplica a política atual de dois canais: WhatsApp e painel. Edite essa etapa para alterar os links oficiais, horários, preços, bloco de benefícios ou iframe. Não execute os geradores antigos isoladamente para publicar. A captura real está em `assets/images/painel-real-*.webp`; a moldura é CSS, sem tela fictícia. Relatório em `reports/integracao-painel-2026-10-22.md`.
+Relatório da migração em `reports/reformulacao-2026-10-26/RELATORIO.md`.

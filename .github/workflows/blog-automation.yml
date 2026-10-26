@@ -1,49 +1,12 @@
-name: Automação do Blog - A Locução
-
+name: Conteúdo editorial — validação manual
 on:
-  schedule:
-    # Segunda, Quarta e Sexta às 09:00 BRT (12:00 UTC)
-    - cron: '0 12 * * 1,3,5'
   workflow_dispatch:
-
 permissions:
-  contents: write
-
-concurrency:
-  group: blog-automation
-  cancel-in-progress: false
-
+  contents: read
 jobs:
-  publish-article:
+  validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-
-      - name: Publicar próximo artigo do calendário
-        run: |
-          python3 scripts/generate-blog-post.py
-          python3 scripts/integrate-recording-panel.py
-
-      - name: Validar SEO e consistência de links
-        run: python3 scripts/seo-consistency.py
-
-      - name: Commit e push das alterações
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          if [[ -n "$(git status --porcelain)" ]]; then
-            git add blog/ data/blog-topics.json sitemap.xml
-            git commit -m "feat(blog): publicar artigo automatizado [skip ci]"
-            git push origin main
-          else
-            echo "Nenhuma alteração a ser publicada."
-          fi
+      - uses: actions/checkout@v4
+      - run: python3 scripts/build-nova.py
+      - run: python3 scripts/validate-nova.py
