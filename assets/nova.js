@@ -26,7 +26,7 @@
       cards.forEach(card => grid.appendChild(card));
     });
   }
-  shuffleVoices();
+  // Initial ordering happens inline beside each grid, before the first paint.
   window.addEventListener('pageshow', event => { if(event.persisted) shuffleVoices(); });
   const normalize = text => text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const form = document.querySelector('.filters');
