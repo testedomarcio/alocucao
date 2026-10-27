@@ -1,0 +1,67 @@
+{
+  "narracao-de-audiobooks": {
+    "voice": "Christine",
+    "tracks": [
+      {
+        "kind": "off",
+        "src": "/assets/demonstrativos-servicos/audiobooks-christine-off.mp3",
+        "duration_seconds": 67.55
+      },
+      {
+        "kind": "produzida",
+        "src": "/assets/demonstrativos-servicos/audiobooks-christine-produzida.mp3",
+        "duration_seconds": 65.8
+      }
+    ]
+  },
+  "narracao-para-videos": {
+    "voice": "Leonardo",
+    "tracks": [
+      {
+        "kind": "off",
+        "src": "/assets/demonstrativos-servicos/narracao-videos-leonardo-off.mp3",
+        "duration_seconds": 39.63
+      }
+    ]
+  },
+  "narracoes": {
+    "voice": "Cássio Cruz",
+    "tracks": [
+      {
+        "kind": "off",
+        "src": "/assets/demonstrativos-servicos/narracoes-longas-cassio-cruz-off.mp3",
+        "duration_seconds": 69.49
+      },
+      {
+        "kind": "produzida",
+        "src": "/assets/demonstrativos-servicos/narracoes-longas-cassio-cruz-produzida.mp3",
+        "duration_seconds": 78.03
+      }
+    ]
+  },
+  "producao-de-podcasts": {
+    "voice": "Ana Alice",
+    "tracks": [
+      {
+        "kind": "off",
+        "src": "/assets/demonstrativos-servicos/podcasts-ana-alice-off.mp3",
+        "duration_seconds": 31.71
+      }
+    ]
+  },
+  "gravacao-de-ura": {
+    "voice": "Amanda Kelly",
+    "tracks": [
+      {
+        "kind": "off",
+        "src": "/assets/demonstrativos-servicos/ura-amanda-kelly-off.mp3",
+        "duration_seconds": 36.05
+      },
+      {
+        "kind": "produzida",
+        "src": "/assets/demonstrativos-servicos/ura-amanda-kelly-produzida.mp3",
+        "duration_seconds": 37.83
+      }
+    ]
+  }
+}
