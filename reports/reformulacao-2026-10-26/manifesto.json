@@ -2580,6 +2580,48 @@
     "canonical": "https://alocucao.com.br/calculadora/"
   },
   {
+    "path": "narracao-para-videos/index.html",
+    "url": "https://alocucao.com.br/narracao-para-videos/",
+    "index": true,
+    "canonical": "https://alocucao.com.br/narracao-para-videos/"
+  },
+  {
+    "path": "narracoes/index.html",
+    "url": "https://alocucao.com.br/narracoes/",
+    "index": true,
+    "canonical": "https://alocucao.com.br/narracoes/"
+  },
+  {
+    "path": "gravacao-de-ura/index.html",
+    "url": "https://alocucao.com.br/gravacao-de-ura/",
+    "index": true,
+    "canonical": "https://alocucao.com.br/gravacao-de-ura/"
+  },
+  {
+    "path": "tratamento-de-audio/index.html",
+    "url": "https://alocucao.com.br/tratamento-de-audio/",
+    "index": true,
+    "canonical": "https://alocucao.com.br/tratamento-de-audio/"
+  },
+  {
+    "path": "narracao-de-audiobooks/index.html",
+    "url": "https://alocucao.com.br/narracao-de-audiobooks/",
+    "index": true,
+    "canonical": "https://alocucao.com.br/narracao-de-audiobooks/"
+  },
+  {
+    "path": "producao-de-podcasts/index.html",
+    "url": "https://alocucao.com.br/producao-de-podcasts/",
+    "index": true,
+    "canonical": "https://alocucao.com.br/producao-de-podcasts/"
+  },
+  {
+    "path": "dublagem-de-videos/index.html",
+    "url": "https://alocucao.com.br/dublagem-de-videos/",
+    "index": true,
+    "canonical": "https://alocucao.com.br/dublagem-de-videos/"
+  },
+  {
     "path": "termos/index.html",
     "url": "https://alocucao.com.br/termos/",
     "index": true,

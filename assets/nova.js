@@ -49,11 +49,27 @@
     form.hidden = false;
   }
   const text = document.querySelector('#calc-text');
-  if (text) text.addEventListener('input', () => {
-    const words = text.value.trim() ? text.value.trim().split(/\s+/).length : 0;
-    const seconds = Math.ceil(words / 2.5), blocks = Math.ceil(seconds/40);
-    document.querySelector('#calc-result').textContent = `${words} palavras · aproximadamente ${seconds} segundos. Estimativa: Locução Off R$ ${(blocks*12).toFixed(2).replace('.',',')} · Produção Completa R$ ${(blocks*25).toFixed(2).replace('.',',')}. Interpretação, pausas e projetos especiais dependem de avaliação. Valor final confirmado pelo WhatsApp.`;
-  });
+  const service = document.querySelector('#calc-service');
+  function updateCalculator() {
+    const words = text.value.trim() ? text.value.trim().split(/\s+/u).length : 0;
+    const seconds = Math.ceil(words / 2.5), blocks = Math.ceil(seconds / 40);
+    const production = service?.value === 'producao';
+    const name = production ? 'Produção Completa' : 'Locução Off';
+    const money = value => value.toFixed(2).replace('.', ',');
+    const result = document.querySelector('#calc-result');
+    const link = document.querySelector('#calc-whatsapp');
+    if (!words) {
+      result.textContent = 'Digite um texto para estimar a duração e o valor.';
+      if (link) link.href = 'https://wa.me/5527996529832?text=' + encodeURIComponent('Olá! Preciso de ajuda para orçar uma peça comercial.');
+      return;
+    }
+    result.textContent = `${words} palavras · aproximadamente ${seconds} segundos · ${blocks} faixa(s) de até 40 segundos. Estimativa: Locução Off R$ ${money(blocks*12)} · Produção Completa R$ ${money(blocks*25)}. Selecionado: ${name}. Interpretação e pausas alteram a duração. Valor final confirmado antes do pagamento.`;
+    if (link) link.href = 'https://wa.me/5527996529832?text=' + encodeURIComponent(`Olá! Fiz uma estimativa no site da A Locução e gostaria de conferir o orçamento. Serviço: ${name}. Roteiro: ${words} palavras. Duração estimada: ${seconds} segundos (${blocks} faixa(s) de até 40 segundos). Valor estimado: R$ ${money(blocks*(production?25:12))}. Entendo que a duração e o valor final precisam ser confirmados pela equipe.`);
+  }
+  if (text) {
+    text.addEventListener('input', updateCalculator);
+    service?.addEventListener('change', updateCalculator);
+  }
   // Remove any cached legacy service worker so the current public pages are fetched.
   if ('serviceWorker' in navigator) navigator.serviceWorker.getRegistrations().then(registrations => registrations.forEach(registration => registration.unregister())).catch(() => {});
 })();

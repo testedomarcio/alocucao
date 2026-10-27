@@ -1,0 +1,219 @@
+[
+  {
+    "slug": "narracao-para-videos",
+    "name": "Narração para Vídeos",
+    "category": "Narrações Profissionais",
+    "headline": "Sua história, com clareza e intenção.",
+    "description": "Narração para vídeos institucionais, apresentações de produtos, YouTube, treinamentos e conteúdos educacionais. Uma voz alinhada ao objetivo do seu roteiro.",
+    "price": "A partir de R$ 25,00",
+    "unit": "por até 1 minuto de narração",
+    "applications": [
+      "Apresentações de empresas e produtos",
+      "Treinamentos e vídeos educacionais",
+      "Conteúdo para YouTube e publicidade digital"
+    ],
+    "included": "Uma voz, um roteiro aprovado e um arquivo de narração, com preparação básica da fala. Entrega em MP3; outro formato deve ser confirmado antes da contratação.",
+    "limits": "Até 1 minuto de áudio final no escopo inicial. Cerca de 150 palavras são apenas uma referência de leitura: pausas e interpretação alteram a duração. Não inclui edição integral do vídeo, legendas, trilha ou sincronização complexa.",
+    "brief": "Envie o roteiro, duração pretendida, tom de voz e onde o vídeo será exibido. Se houver marcações de tempo, informe-as para avaliarmos a sincronização.",
+    "faq": [
+      [
+        "Vocês entregam o vídeo pronto?",
+        "Este serviço entrega a narração. Montagem de vídeo, legendagem e sincronização complexa precisam de avaliação e orçamento separado."
+      ],
+      [
+        "Posso usar a narração em anúncios?",
+        "Informe mídia, território e período da campanha. A equipe verifica as autorizações necessárias e registra o uso aprovado na proposta."
+      ],
+      [
+        "O que acontece se o roteiro ultrapassar um minuto?",
+        "A equipe confirma a duração e envia o total antes do pagamento. Textos longos ou com direção especial recebem orçamento próprio."
+      ]
+    ]
+  },
+  {
+    "slug": "narracoes",
+    "name": "Narrações Profissionais",
+    "category": "Narrações Profissionais",
+    "headline": "Ideias que merecem ser ouvidas.",
+    "description": "Narrações institucionais, educacionais e informativas com atenção à pronúncia, ao ritmo e à compreensão. Do vídeo curto ao conteúdo de maior duração.",
+    "price": "A partir de R$ 75,00",
+    "unit": "por até 5 minutos de narração longa",
+    "applications": [
+      "Aulas e conteúdos informativos",
+      "Apresentações e materiais institucionais",
+      "Devocionais e textos autorizados"
+    ],
+    "included": "Uma voz, um roteiro contínuo aprovado, preparação básica e um arquivo final em MP3. Divisão em capítulos ou vários arquivos deve constar do orçamento.",
+    "limits": "Escopo inicial de até 5 minutos de áudio final. A referência de 750 palavras não garante duração. Textos com muitas siglas, nomes técnicos, personagens ou direção especial passam por avaliação. Para vídeos curtos, consulte Narração para Vídeos.",
+    "brief": "Envie o texto final, a duração, a finalidade, pronúncias importantes e o número de arquivos desejado.",
+    "faq": [
+      [
+        "Como escolher entre narração curta e longa?",
+        "Para vídeos de até um minuto, consulte a página de Narração para Vídeos. Para conteúdo contínuo mais longo, esta modalidade começa em R$ 75 por até cinco minutos."
+      ],
+      [
+        "O preço inclui personagens e dramatização?",
+        "Não automaticamente. Múltiplas vozes, interpretação complexa e divisão em capítulos são avaliadas no orçamento."
+      ],
+      [
+        "Posso enviar uma apostila?",
+        "Sim, desde que você tenha autorização para sua reprodução e adaptação. A equipe avalia o texto e o formato de entrega."
+      ]
+    ]
+  },
+  {
+    "slug": "gravacao-de-ura",
+    "name": "Gravação de URA",
+    "category": "Comunicação e Soluções Empresariais",
+    "headline": "Receba bem, desde a primeira chamada.",
+    "description": "Mensagens de atendimento, saudações, menus e espera telefônica para orientar seus clientes com clareza. Arquivos preparados conforme as exigências informadas da sua central.",
+    "price": "R$ 20,00 por mensagem",
+    "unit": "até 30 segundos por mensagem · 5 mensagens por R$ 75,00",
+    "applications": [
+      "Saudação e horário de funcionamento",
+      "Menus de setores e opções de atendimento",
+      "Espera telefônica e avisos de indisponibilidade"
+    ],
+    "included": "Cada mensagem inclui uma voz, um texto de até 30 segundos e um arquivo. O pacote inclui cinco mensagens na mesma voz, com até 30 segundos cada. Entrega em MP3 ou WAV conforme requisito validado no orçamento.",
+    "limits": "Textos maiores, mais versões, trilha ou configuração da central não estão incluídos. Envie os requisitos de amostragem, canais e codificação antes da produção; formatos específicos dependem de confirmação técnica.",
+    "brief": "Envie os textos numerados, nomes e siglas com pronúncia, a voz escolhida e o formato exigido pela central telefônica.",
+    "faq": [
+      [
+        "Qual é o limite de cada mensagem?",
+        "Até 30 segundos por mensagem. Textos mais longos recebem orçamento próprio antes da contratação."
+      ],
+      [
+        "Como funciona o pacote de cinco?",
+        "São cinco textos e cinco arquivos na mesma voz, cada um com até 30 segundos, por R$ 75. Variações adicionais precisam ser orçadas."
+      ],
+      [
+        "Vocês instalam os áudios na central?",
+        "A entrega é dos arquivos. Instalação, programação de ramais e configuração do sistema telefônico não fazem parte deste serviço."
+      ]
+    ]
+  },
+  {
+    "slug": "tratamento-de-audio",
+    "name": "Tratamento de Áudio",
+    "category": "Comunicação e Soluções Empresariais",
+    "headline": "Mais clareza para o que precisa ser ouvido.",
+    "description": "Avaliação e tratamento de gravações de fala para melhorar a inteligibilidade, reduzir ruídos e preparar entrevistas, podcasts e conteúdos educacionais.",
+    "price": "A partir de R$ 25,00",
+    "unit": "por arquivo de até 5 minutos",
+    "applications": [
+      "Entrevistas e gravações de fala",
+      "Preparação de áudio para podcasts",
+      "Conteúdos educacionais e institucionais"
+    ],
+    "included": "Avaliação de um arquivo com uma fala principal, redução de ruído quando tecnicamente possível, ajuste básico de nível e um arquivo final em MP3 ou no formato combinado.",
+    "limits": "O resultado depende do arquivo original. Não garantimos remoção total de ruído nem recuperação de trechos inaudíveis, distorcidos ou perdidos. Múltiplos participantes, sobreposição de vozes e problemas graves exigem avaliação antes de aceitar o orçamento.",
+    "brief": "Envie o arquivo original, a duração, o problema percebido e a finalidade. Evite recomprimir ou reenviar sucessivamente o áudio antes da avaliação.",
+    "faq": [
+      [
+        "Todo áudio pode ser recuperado?",
+        "Não. Ruído, saturação e falas sobrepostas podem impedir a recuperação. A equipe avalia a viabilidade antes de aceitar o trabalho."
+      ],
+      [
+        "O tratamento inclui edição completa do podcast?",
+        "Não. Cortes editoriais, montagem de episódios e finalização sonora têm orçamento específico em Produção de Podcasts."
+      ],
+      [
+        "Preciso enviar o arquivo antes de pagar?",
+        "Sim, para avaliar o problema, confirmar o escopo e informar o que é tecnicamente possível."
+      ]
+    ]
+  },
+  {
+    "slug": "narracao-de-audiobooks",
+    "name": "Narração de Audiobooks",
+    "category": "Produções Especializadas",
+    "headline": "Do texto à experiência de escuta.",
+    "description": "Planejamento de narração para livros, devocionais, apostilas e materiais educacionais autorizados, com escopo definido por obra e formato de distribuição.",
+    "price": "Sob orçamento",
+    "unit": "conforme obra, duração e direitos de uso",
+    "applications": [
+      "Livros e devocionais autorizados",
+      "Apostilas e materiais educacionais",
+      "Publicações institucionais"
+    ],
+    "included": "A proposta define voz, capítulos, preparação, edição, quantidade de arquivos e formato de entrega. Não há pacote padronizado ou preço baseado na tabela de peças comerciais.",
+    "limits": "É necessário comprovar autorização de reprodução e adaptação. Regras da editora e da plataforma de distribuição, inclusive sobre voz sintética, devem ser verificadas antes da produção. Não prometemos aceitação em todas as plataformas.",
+    "brief": "Envie a obra ou amostra autorizada, extensão do texto, capítulos, prazo e destino de distribuição. Informe os direitos que possui sobre o conteúdo.",
+    "faq": [
+      [
+        "Posso narrar qualquer livro disponível na internet?",
+        "A disponibilidade do texto não autoriza sua reprodução. Precisamos verificar os direitos de adaptação e distribuição da obra."
+      ],
+      [
+        "É possível narrar com voz sintética?",
+        "A viabilidade depende do projeto, dos direitos disponíveis e das regras da plataforma de destino. A natureza da voz será informada na proposta."
+      ],
+      [
+        "Como o valor é calculado?",
+        "Consideramos extensão, capítulos, preparação, direção, edição, revisões, formato e distribuição. O total é aprovado antes da produção."
+      ]
+    ]
+  },
+  {
+    "slug": "producao-de-podcasts",
+    "name": "Produção de Podcasts",
+    "category": "Produções Especializadas",
+    "headline": "Conteúdo bem conduzido, do início ao fim.",
+    "description": "Apoio em áudio para seu podcast: aberturas e encerramentos falados, narração, edição de gravações e finalização sonora conforme o formato do episódio.",
+    "price": "Sob orçamento",
+    "unit": "conforme duração, participantes e edição",
+    "applications": [
+      "Aberturas e encerramentos falados",
+      "Narração de episódios e quadros",
+      "Edição, tratamento e finalização de áudio"
+    ],
+    "included": "O orçamento discrimina as etapas contratadas, duração dos arquivos recebidos, duração prevista do episódio, participantes, revisões e arquivos finais.",
+    "limits": "Músicas e vinhetas dependem de licença compatível com a distribuição aprovada. Não inclui composição musical, jingle, hospedagem, publicação do episódio ou edição de vídeo sem contratação específica.",
+    "brief": "Envie uma amostra, duração bruta, quantidade de participantes e instruções de edição. Informe se precisa de abertura falada, narração ou somente tratamento.",
+    "faq": [
+      [
+        "Vocês fazem apenas a abertura?",
+        "Sim. Aberturas e encerramentos falados podem ser orçados separadamente, de acordo com o roteiro e a produção desejada."
+      ],
+      [
+        "Posso escolher qualquer música?",
+        "Precisamos verificar a licença para o uso pretendido. Não basta a música estar disponível em uma plataforma ou rede social."
+      ],
+      [
+        "O orçamento inclui publicar o episódio?",
+        "A entrega padrão é de arquivos de áudio. Publicação, hospedagem e vídeo só integram o projeto se estiverem expressamente previstos."
+      ]
+    ]
+  },
+  {
+    "slug": "dublagem-de-videos",
+    "name": "Dublagem de Vídeos",
+    "category": "Produções Especializadas",
+    "headline": "Uma nova voz, com o contexto preservado.",
+    "description": "Avaliação de dublagem para vídeos institucionais, treinamentos e conteúdos digitais autorizados. A viabilidade técnica e os direitos necessários são conferidos antes do orçamento.",
+    "price": "Sob orçamento",
+    "unit": "sujeito à análise técnica e de licenciamento",
+    "applications": [
+      "Vídeos institucionais autorizados",
+      "Treinamentos de empresas",
+      "Conteúdos digitais com direitos comprovados"
+    ],
+    "included": "A proposta define a versão de áudio, roteiro ou tradução autorizada, vozes, sincronização possível, duração e formato de entrega. A ferramenta e a modalidade utilizadas dependem de licença confirmada.",
+    "limits": "Não garantimos preservação exata da voz original nem sincronização labial perfeita. Alterações de voz e uso de imagem exigem as autorizações aplicáveis. Filmes, séries e entretenimento audiovisual com direitos não disponíveis não fazem parte desta oferta.",
+    "brief": "Envie um trecho do vídeo, duração, objetivo, roteiro ou tradução e informações sobre os direitos de uso e autorizações das pessoas envolvidas.",
+    "faq": [
+      [
+        "A dublagem mantém a mesma voz da pessoa?",
+        "Não há promessa de preservação exata da voz. Eventual transformação vocal exige autorização e confirmação de viabilidade e licença."
+      ],
+      [
+        "Vocês dublam filmes e séries?",
+        "Esta oferta é voltada a conteúdos institucionais, treinamentos e vídeos digitais autorizados. Não anunciamos entretenimento audiovisual sem as licenças específicas exigidas."
+      ],
+      [
+        "Basta ter acesso ao vídeo?",
+        "Não. É necessário ter autorização para dublar, adaptar e distribuir o conteúdo, incluindo os direitos de voz, imagem e tradução aplicáveis."
+      ]
+    ]
+  }
+]

@@ -89,6 +89,12 @@
 
   function serviceFromPath(pathname) {
     const path = String(pathname || "").toLowerCase();
+    if (path.includes("narracao-para-videos")) return "narracao_videos";
+    if (path.includes("narracao-de-audiobooks")) return "audiobooks";
+    if (path.includes("narracoes")) return "narracao_longa";
+    if (path.includes("tratamento-de-audio")) return "tratamento_audio";
+    if (path.includes("dublagem-de-videos")) return "dublagem_videos";
+    if (path.includes("producao-de-podcasts")) return "producao_podcasts";
     if (path.includes("locucao-ia")) return "locucao_ia";
     if (path.includes("off-comercial")) return "off_comercial";
     if (path.includes("gravacao-off-e-producao")) return "off_producao";

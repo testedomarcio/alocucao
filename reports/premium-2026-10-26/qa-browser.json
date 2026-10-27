@@ -1,0 +1,40 @@
+{
+  "preview": "http://terminal.local:4173/",
+  "desktop": [
+    "homepage",
+    "servicos",
+    "gravacao-de-ura",
+    "calculadora",
+    "locutores/will"
+  ],
+  "calculator_browser_case": {
+    "words": 101,
+    "seconds": 41,
+    "blocks": 2,
+    "off": 24,
+    "producao": 50,
+    "whatsapp_estimate_confirmed": true
+  },
+  "mobile_ura": {
+    "iframe_outer_width": 390,
+    "document_width": 375,
+    "scroll_width": 375,
+    "menu_opened": true,
+    "physical_device_test": false
+  },
+  "audio_will_off": {
+    "duration_seconds": 35.239125,
+    "ready_state": 4,
+    "current_time_observed": 28.508423,
+    "error": null,
+    "paused_when_other_player_started": true
+  },
+  "site_javascript_errors_observed": [],
+  "browser_extension_metadata_errors": "Observed chrome-extension messages, unrelated to site JavaScript.",
+  "not_verified": [
+    "physical Android/iOS",
+    "field Core Web Vitals",
+    "events received in ad/analytics accounts",
+    "all final permissions and vendor settings"
+  ]
+}

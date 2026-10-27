@@ -17,5 +17,6 @@ jobs:
       - run: python3 scripts/build-nova.py
       - run: python3 scripts/validate-nova.py
       - run: node scripts/test-nova.cjs
+      - run: node scripts/test-premium.cjs
       - run: node --check assets/nova.js
       - run: node --check assets/tracking.js

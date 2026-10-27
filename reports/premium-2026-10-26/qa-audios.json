@@ -1,0 +1,551 @@
+[
+  {
+    "file": "/assets/demos/aida-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "33.959125"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/aida-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "27.036735"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/aline-mota-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "19.408938"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/aline-mota-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "25.051429"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/amanda-kelly-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "24.189375"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/amanda-kelly-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "40.097959"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/ana-alice-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "27.010563"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/ana-alice-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "36.466939"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/audrey-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "26.044063"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/audrey-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "38.373878"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/cassio-cruz-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "29.387750"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/cassio-cruz-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "40.202449"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/christine-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "32.026063"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/christine-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "40.254694"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/david-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "28.917500"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/david-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "46.863673"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/diego-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "23.640813"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/diego-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "28.029388"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/eduardo-s-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "38.269375"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/eduardo-s-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "36.414694"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/enzo-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "38.269375"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/enzo-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "43.598367"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/fernanda-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "40.202438"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/fernanda-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "41.639184"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/kaique-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "41.482438"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/kaique-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "36.440816"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/koraly-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "28.995875"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/koraly-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "45.400816"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/larissa-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "39.549375"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/larissa-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "43.807347"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/lax-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "34.272625"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/lax-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "33.933061"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/leo-antonio-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "40.594250"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/leo-antonio-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "38.974694"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/leonardo-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "38.687313"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/leonardo-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "45.374694"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/marcio-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "36.911000"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/marcio-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "35.683265"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/mario-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "39.000813"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/mario-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "36.519184"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/noel-natal-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "42.762438"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/noel-natal-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "40.150204"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/paulo-becker-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "23.640813"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/paulo-becker-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "26.044082"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/roberta-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "40.437500"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/roberta-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "37.825306"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/thiago-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "37.067750"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/will-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "35.239125"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/will-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "32.966531"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/zozo-off.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "36.284063"
+      }
+    }
+  },
+  {
+    "file": "/assets/demos/zozo-producao.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "35.369796"
+      }
+    }
+  },
+  {
+    "file": "/assets/trabalhos/aida-2026-10-26-mellody-fm-1.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "9.325714"
+      }
+    }
+  },
+  {
+    "file": "/assets/trabalhos/aida-2026-10-26-mellody-fm-2.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "3.395918"
+      }
+    }
+  },
+  {
+    "file": "/assets/trabalhos/aida-2026-10-26-mellody-fm-3.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "10.919184"
+      }
+    }
+  },
+  {
+    "file": "/assets/trabalhos/fernanda-2026-10-25-lemede-ultrassom-1.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "30.040816"
+      }
+    }
+  },
+  {
+    "file": "/assets/trabalhos/zozo-2026-10-26-mellody-fm-1.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "23.719184"
+      }
+    }
+  },
+  {
+    "file": "/assets/trabalhos/zozo-2026-10-26-mellody-fm-2.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "5.250612"
+      }
+    }
+  },
+  {
+    "file": "/assets/trabalhos/zozo-2026-10-26-mellody-fm-3.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "21.394286"
+      }
+    }
+  },
+  {
+    "file": "/assets/trabalhos/zozo-2026-10-26-mellody-fm-4.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "8.829388"
+      }
+    }
+  },
+  {
+    "file": "/assets/trabalhos/zozo-2026-10-26-mellody-fm-5.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "3.970612"
+      }
+    }
+  },
+  {
+    "file": "/assets/trabalhos/zozo-2026-10-26-mellody-fm-6.mp3",
+    "ok": true,
+    "data": {
+      "format": {
+        "duration": "22.909388"
+      }
+    }
+  }
+]

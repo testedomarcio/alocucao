@@ -1,0 +1,14 @@
+{
+  "baseline_sha": "fb298b68546129020c24bd88d303417bbc567f22",
+  "before": {
+    "entries": 443,
+    "unique_paths": 443,
+    "indexable": 89
+  },
+  "after": {
+    "pages": 450,
+    "indexable": 96
+  },
+  "removed_urls": [],
+  "legal_source_unchanged": true
+}
