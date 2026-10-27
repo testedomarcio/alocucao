@@ -51,7 +51,6 @@
   const text = document.querySelector('#calc-text');
   const service = document.querySelector('#calc-service');
   function updateCalculator() {
-    const characters = Array.from(text.value).length;
     const words = text.value.trim() ? text.value.trim().split(/\s+/u).length : 0;
     const seconds = Math.ceil(words / 2.5), blocks = Math.ceil(seconds / 40);
     const production = service?.value === 'producao';
@@ -60,17 +59,27 @@
     const result = document.querySelector('#calc-result');
     const link = document.querySelector('#calc-whatsapp');
     if (!words) {
+      if (link?.dataset) delete link.dataset.service;
       result.textContent = 'Digite um texto para estimar a duração e o valor.';
       if (link) link.href = 'https://wa.me/5527996529832?text=' + encodeURIComponent('Olá! Preciso de ajuda para orçar uma peça comercial.');
       return;
     }
-    result.textContent = `${words} palavras · aproximadamente ${seconds} segundos · ${blocks} faixa(s) de até 40 segundos. ${characters} caracteres. Estimativa: Locução Off R$ ${money(blocks*12)} · Produção Completa R$ ${money(blocks*25)}. Selecionado: ${name}. Interpretação e pausas alteram a duração. Valor final confirmado antes do pagamento.`;
-    if (link) link.dataset && (link.dataset.service = name);
-    if (link) link.href = 'https://wa.me/5527996529832?text=' + encodeURIComponent(`Olá! Fiz uma estimativa no site da A Locução e gostaria de conferir o orçamento. Serviço: ${name}. Roteiro: ${words} palavras, ${characters} caracteres. Duração estimada: ${seconds} segundos (${blocks} faixa(s) de até 40 segundos). Valor estimado: R$ ${money(blocks*(production?25:12))}. Entendo que a duração e o valor final precisam ser confirmados pela equipe.`);
+    const minutes = Math.floor(seconds / 60), remaining = seconds % 60;
+    const duration = seconds < 60 ? `${seconds} ${seconds === 1 ? 'segundo' : 'segundos'}` : `${minutes} ${minutes === 1 ? 'minuto' : 'minutos'}${remaining ? ` e ${remaining} ${remaining === 1 ? 'segundo' : 'segundos'}` : ''}`;
+    const credits = `${blocks} ${blocks === 1 ? 'crédito' : 'créditos'}`;
+    const total = `R$ ${money(blocks * (production ? 25 : 12))}`;
+    // Only calculated values and fixed service names enter the result markup.
+    result.innerHTML = `<p class="calc-service-name">${name}</p><dl class="calc-details"><div><dt>Duração estimada</dt><dd>${duration}</dd></div><div><dt>Créditos necessários</dt><dd>${credits}</dd></div></dl><div class="calc-total"><span>Valor estimado</span><strong>${total}</strong></div>`;
+    if (link) {
+      if (link.dataset) link.dataset.service = name;
+      link.href = 'https://wa.me/5527996529832?text=' + encodeURIComponent(`Olá! Fiz uma estimativa no site da A Locução e gostaria de solicitar um orçamento.\n\nServiço: ${name}\nDuração estimada: ${duration}\nCréditos necessários: ${credits}\nValor estimado: ${total}\n\nRoteiro:\n${text.value}\n\nValor sujeito à confirmação após análise do roteiro.`);
+    }
   }
   if (text) {
     text.addEventListener('input', updateCalculator);
     service?.addEventListener('change', updateCalculator);
+    service?.addEventListener('input', updateCalculator);
+    updateCalculator();
   }
   // Remove any cached legacy service worker so the current public pages are fetched.
   if ('serviceWorker' in navigator) navigator.serviceWorker.getRegistrations().then(registrations => registrations.forEach(registration => registration.unregister())).catch(() => {});

@@ -4,8 +4,9 @@ const text={value:'',events:{},addEventListener(n,f){this.events[n]=f}},service=
 vm.runInNewContext(source,{document:{querySelector:s=>({'#calc-text':text,'#calc-service':service,'#calc-result':result,'#calc-whatsapp':link}[s]||null),querySelectorAll:()=>[],addEventListener(){}},navigator:{},window:{addEventListener(){}},encodeURIComponent});
 for(const [words,seconds,blocks] of [[1,1,1],[100,40,1],[101,41,2],[200,80,2],[201,81,3],[300,120,3],[301,121,4]]){
  text.value=('palavra\n').repeat(words);text.events.input();
- assert.ok(result.textContent.includes(`${words} palavras · aproximadamente ${seconds} segundos · ${blocks} faixa`));
- const msg=new URL(link.href).searchParams.get('text');assert.ok(msg.includes(`R$ ${(blocks*12).toFixed(2).replace('.',',')}`));assert.ok(!msg.includes('palavra\npalavra'));
+ assert.ok(result.innerHTML.includes(`${blocks} ${blocks===1?'crédito':'créditos'}`));
+ assert.ok(!/palavras|caracteres|faixa/.test(result.innerHTML));
+ const msg=new URL(link.href).searchParams.get('text');assert.ok(msg.includes(`R$ ${(blocks*12).toFixed(2).replace('.',',')}`));assert.ok(msg.includes(text.value));
  service.value='producao';service.events.change();assert.ok(new URL(link.href).searchParams.get('text').includes(`R$ ${(blocks*25).toFixed(2).replace('.',',')}`));
  service.value='off';
 }
@@ -17,7 +18,7 @@ for(const s of services){
  assert.equal((p.match(/<h1[ >]/g)||[]).length,1);assert.ok(manifest.find(x=>x.path===`${s.slug}/index.html`&&x.index));
 }
 assert.equal(new Set(manifest.map(x=>x.path)).size,manifest.length);
-console.log('PASS: calculator boundaries, selected-service WhatsApp estimate, empty input, no script leakage, seven scoped pages and unique manifest.');
+console.log('PASS: calculator boundaries, selected-service WhatsApp estimate, empty input, complete WhatsApp script, seven scoped pages and unique manifest.');
 // Service samples must remain distinct from profile samples and specialized pricing.
 const demos=JSON.parse(fs.readFileSync('data/service-demos.json'));
 const samplePaths=[];
