@@ -14,6 +14,10 @@
     root.querySelector('.review-stars-fill').style.width=`${count?Math.max(0,Math.min(100,mean*20)):0}%`;
     root.setAttribute('aria-label',count?label:'Ainda sem avaliações');
   };
+  document.querySelectorAll('.review-form').forEach(form=>{
+    form.addEventListener('submit',event=>event.preventDefault());
+    form.addEventListener('change',()=>{const value=Number(new FormData(form).get('rating'));form.querySelectorAll('.review-choice label').forEach((label,i)=>label.classList.toggle('selected',i<value));});
+  });
   if(!enabled)return;
   const endpoint=cfg.url+'/functions/v1/reviews';
   async function api(action,body={},access=''){
@@ -36,15 +40,13 @@
     more.addEventListener('click',()=>{more.disabled=true;load().finally(()=>more.disabled=false);});load();
     notice.textContent='Para enviar sua avaliação, utilize o convite individual recebido após a conclusão do trabalho.';
     // The simple anchor shows the form, but submitting requires a server-validated invitation.
-    const form=el('form',undefined,'review-form');
-    form.innerHTML='<fieldset class="review-choice"><legend>Sua avaliação (obrigatória)</legend>'+[1,2,3,4,5].map(n=>`<label><input type="radio" name="rating" value="${n}" required><span aria-hidden="true">★</span><span class="sr-only">${n} ${n===1?'estrela':'estrelas'}</span></label>`).join('')+'</fieldset><label>Nome do cliente ou empresa<input name="name" required minlength="2" maxlength="80" autocomplete="organization"></label><label>Comentário<textarea name="comment" required minlength="20" maxlength="2000" placeholder="Conte como foi a qualidade da locução, a interpretação, a entrega e sua experiência."></textarea></label><label>Fotografia ou logotipo (opcional)<input type="file" name="image" accept="image/jpeg,image/png,image/webp"><small>JPG, PNG ou WebP. Até 2 MB e 4000 × 4000 pixels.</small></label><label class="review-consent"><input type="checkbox" name="consent" required><span>Autorizo a publicação desta avaliação, do nome informado e da imagem, se enviada. Li a <a href="/politica-de-privacidade/#avaliacoes">Política de Privacidade</a>.</span></label><div data-captcha></div><button class="btn" type="submit" disabled>Enviar minha avaliação</button><p class="review-status" role="status" aria-live="polite"></p>';
-    section.querySelector('[data-review-form-host]').append(form);
-    form.addEventListener('change',()=>{const value=Number(new FormData(form).get('rating'));form.querySelectorAll('.review-choice label').forEach((label,i)=>label.classList.toggle('selected',i<value));});
+    const form=section.querySelector('.review-form');
     let widget, captcha='',valid=false;
     const status=form.querySelector('[role=status]'),button=form.querySelector('button');
+    status.textContent='Para enviar, abra o convite individual recebido após a conclusão do trabalho.';
     async function init(){
       if(!token)return;
-      try{await api('validate',{voice,token});valid=true;notice.textContent='Convite confirmado. Sua avaliação será analisada antes da publicação.';
+      try{await api('validate',{voice,token});valid=true;status.textContent='Conclua a verificação de segurança para enviar.';notice.textContent='Convite confirmado. Sua avaliação será analisada antes da publicação.';
         const script=el('script');script.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';script.onload=()=>{widget=window.turnstile.render(form.querySelector('[data-captcha]'),{sitekey:cfg.turnstileSiteKey,action:'review',callback:value=>{captcha=value;button.disabled=false;},'expired-callback':()=>{captcha='';button.disabled=true;},'error-callback':()=>{status.textContent='Não foi possível verificar a proteção. Atualize a página.';}});};script.onerror=()=>{status.textContent='Proteção indisponível. Reabra seu convite mais tarde.';};document.head.append(script);
       }catch{notice.textContent='Este convite é inválido, expirou ou já foi utilizado. Solicite outro à equipe.';}}
     init();

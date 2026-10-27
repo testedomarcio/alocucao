@@ -4,7 +4,7 @@
 
 A interface pública está preparada para todos os 27 locutores atuais e futuros: estrelas SVG cinza, “0 avaliações”, resumo no perfil e nos cards, seção `#avalie` e política de moderação. Os recursos comerciais anteriores são preservados. A ordem aleatória não é modificada.
 
-O recebimento permanece **desativado** em `assets/reviews-config.js`. Não há formulário de envio enquanto o serviço não estiver configurado. A área administrativa também informa a pendência de configuração. As migrações e funções são código preparado; não constituem um serviço provisionado.
+O recebimento permanece **desativado** em `assets/reviews-config.js`. O formulário é visível mesmo sem configuração do serviço, mas seu botão de envio permanece desativado e o aviso explica a pendência. Os campos não são armazenados nem enviados nesse estado. A área administrativa também informa a pendência de configuração. As migrações e funções são código preparado; não constituem um serviço provisionado.
 
 Nenhuma conta externa foi criada, nenhum plano pago foi contratado e nenhuma avaliação fictícia foi publicada. Não há custo recorrente contratado por esta alteração. O custo de operação dependerá dos planos escolhidos e do uso de Supabase/Cloudflare; conferir as condições vigentes antes de ativar, sem upgrade automático autorizado.
 
@@ -63,3 +63,15 @@ Configurar uma rotina diária de operação ou um agendador seguro sob controle 
 9. Nenhuma avaliação ou imagem de teste em produção. Nenhum segredo no repositório. Confirmar política e consentimento da versão ativada.
 
 Referências técnicas: https://supabase.com/docs/guides/database/postgres/row-level-security e https://supabase.com/docs/guides/functions/examples/image-manipulation.
+
+## Atualização visual de 27/10/2026
+
+O formulário passou a fazer parte do HTML de todos os perfis, com campos acessíveis mesmo antes da ativação. A âncora `#avalie` leva diretamente ao bloco do formulário; `#avaliacoes-clientes` leva ao resumo das avaliações. A integração habilitada reutiliza esse formulário, sem duplicação. O botão continua desativado até a configuração do serviço, a validação do convite e o CAPTCHA.
+
+O ranking atual foi mantido conforme confirmação do proprietário: Aida (1), Aline Mota (2), Fernanda (3). A fonte histórica são trabalhos publicados; não se infere desse dado a quantidade de pedidos entregues. Os trabalhos de Zozo continuam disponíveis. Não foi criado ou reativado agendamento.
+
+`data/delivered-orders.json` está sem fonte confirmada (`verified:false`), portanto nenhum total de pedidos aparece. Para futura integração, um processo autorizado deve exportar somente agregados conferidos por locutor em `counts`, com `source` descritiva e `verified:true`, excluindo cancelados, testes e duplicados na origem. Não colocar pedidos, nomes de clientes ou identificadores privados no JSON público. O build valida esses totais e deriva automaticamente os indicadores e o ranking. Não há conexão com sistema de pedidos contratada ou configurada.
+
+O componente de portfólio deriva seu comportamento de `data/latest-works.json`: quatro vozes têm links para áudios existentes e as demais abrem diálogo nativo acessível, com Escape, botão de fechar, fechamento por clique externo e restauração de foco. “Ouvir demonstrações” leva ao player correto sem reprodução automática.
+
+Teste visual reproduzível: `npm run test:voice-ui`, com Playwright e Chromium disponíveis. Esse teste inclui um fluxo local com API e CAPTCHA simulados para confirmar que a integração reutiliza o formulário visível, consome o token correto e mostra a confirmação somente após resposta de envio; não substitui a homologação externa.
