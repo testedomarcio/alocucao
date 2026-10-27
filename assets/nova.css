@@ -20,5 +20,5 @@
 
 .portrait-language{position:absolute;top:12px;right:12px;display:grid;place-items:center;min-width:44px;min-height:40px;padding:3px 9px;background:#f5f3ed;border:1px solid #c6d2bd;border-radius:4px;font-size:1.5rem;line-height:1;box-shadow:0 2px 10px #0002}
 
-/* Published work links and fortnightly voice ranking. */
-.top-voice-badge{display:inline-flex;align-items:center;padding:5px 11px;margin:0 0 14px;background:#224d36;color:#fff;border:1px solid #224d36;border-radius:4px;font-size:.78rem;font-weight:700;letter-spacing:.06em;line-height:1.5}.recent-work-link{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:44px;margin:4px 0 16px;padding:10px 12px;background:#eef2e8;border:1px solid #b9c8b8;border-radius:3px;color:#224d36;font-size:.88rem;font-weight:600;text-decoration:none}.recent-work-link:hover{text-decoration:underline;background:#e1e9da}
+/* Published work links and weekly voice ranking. */
+.top-voice-badge{display:inline-flex;align-items:center;max-width:100%;padding:6px 12px;margin:0 0 14px;background:#f4e2ad;color:#59400c;border:1px solid #b88b2f;border-radius:999px;font-size:.75rem;font-weight:700;letter-spacing:.02em;line-height:1.5}.recent-work-link{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:44px;margin:4px 0 16px;padding:10px 12px;background:#eef2e8;border:1px solid #b9c8b8;border-radius:3px;color:#224d36;font-size:.88rem;font-weight:600;text-decoration:none}.recent-work-link:hover{text-decoration:underline;background:#e1e9da}
