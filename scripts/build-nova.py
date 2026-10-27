@@ -134,6 +134,7 @@ def reviews_section(v):
  for row in rows:
   picture=('<img src="'+E(row['image'])+'" width="72" height="72" loading="lazy" decoding="async" alt="'+E(row.get('company') or row['name'])+'">') if row.get('image') else ''
   company='<p class="review-company">'+E(row['company'])+'</p>' if row.get('company') else ''
+  links=('<ul class="review-links">'+''.join('<li><a href="'+E(link['url'])+'" target="_blank" rel="noopener noreferrer">'+E(link['label'])+'</a></li>' for link in row.get('links',[]))+'</ul>') if row.get('links') else ''
   cards.append('<article class="review-card" data-review-id="'+E(row['id'])+'"><header class="review-client">'+picture+'<div><h3>'+E(row['name'])+'</h3>'+company+'<p class="review-score">'+str(row['rating'])+'/5</p></div></header><blockquote>'+E(row['comment'])+'</blockquote><p class="review-date">Publicado em <time datetime="'+row['published_on']+'">'+'/'.join(reversed(row['published_on'].split('-')))+'</time></p></article>')
  content=''.join(cards[:10])+('<details class="review-more"><summary>Ver mais avaliações</summary>'+''.join(cards[10:])+'</details>' if len(cards)>10 else '') if rows else '<p>Ainda não há avaliações publicadas para este locutor.</p>'
  return '<section class="section reviews-section" id="avaliacoes-clientes"><span id="avalie" aria-hidden="true"></span><div class="wrap"><span class="eyebrow">Experiências com esta voz</span><h2>Avaliações de clientes</h2>'+rating(v['slug'],False)+content+'</div></section>'

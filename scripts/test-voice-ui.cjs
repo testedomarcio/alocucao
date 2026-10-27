@@ -1,7 +1,7 @@
 // Requires Playwright and a Chromium installation. CHROMIUM_HELPER optionally points to a launch adapter.
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http');
 (async()=>{
-const root=process.cwd(),voices=JSON.parse(fs.readFileSync('data/new-voices.json'));const expectedRatings={diego:'5,0/5 · 1 avaliação',enzo:'5,0/5 · 1 avaliação',fernanda:'3,0/5 · 1 avaliação'};
+const root=process.cwd(),voices=JSON.parse(fs.readFileSync('data/new-voices.json'));const expectedRatings={aida:'5,0/5 · 1 avaliação','aline-mota':'5,0/5 · 1 avaliação',diego:'5,0/5 · 1 avaliação',enzo:'5,0/5 · 1 avaliação',fernanda:'3,0/5 · 1 avaliação'};
 const server=http.createServer((req,res)=>{let file=path.join(root,decodeURIComponent(new URL(req.url,'http://localhost').pathname));if(!file.startsWith(root+path.sep)){res.writeHead(403).end();return;}try{if(fs.statSync(file).isDirectory())file=path.join(file,'index.html');res.setHeader('Content-Type',file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':file.endsWith('.html')?'text/html':file.endsWith('.webp')?'image/webp':file.endsWith('.mp3')?'audio/mpeg':'application/octet-stream');res.end(fs.readFileSync(file));}catch{res.writeHead(404).end();}});
 await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port;let browser;
 try{
@@ -22,7 +22,7 @@ for(const width of [360,820,1440]){
  assert.equal(await page.locator('.review-form').count(),0);assert.equal(await page.getByRole('button',{name:'Enviar minha avaliação'}).count(),0);assert.equal(await page.locator('body').evaluate(n=>n.scrollWidth<=innerWidth),true);
  await page.screenshot({path:'/tmp/voice-form-'+width+'.png'});
  await page.goto(base+'/vozes/');await page.screenshot({path:'/tmp/voice-catalog-'+width+'.png',fullPage:false});
- for(const slug of ['diego','enzo','fernanda']){
+ for(const slug of ['aida','aline-mota','diego','enzo','fernanda']){
  await page.goto(base+'/locutores/'+slug+'/#avaliacoes-clientes');await page.waitForFunction(()=>{const y=document.querySelector('#avaliacoes-clientes').getBoundingClientRect().top;return y>=0&&y<250;});
  assert.equal(await page.locator('.review-card').count(),1);assert.equal(await page.locator('.reviews-section .review-count').textContent(),expectedRatings[slug]);
  assert.equal(await page.locator('.review-card img').count(),slug==='fernanda'?0:1);
@@ -33,8 +33,8 @@ for(const width of [360,820,1440]){
  }
  assert.deepEqual(errors,[]);await browser.close();browser=null;
 }
-// Every generated profile contains a real form, correct work behavior, and both original demos.
+// Every generated profile contains no submission form, correct work behavior, and both original demos.
 for(const v of voices){const html=fs.readFileSync(`locutores/${v.slug}/index.html`,'utf8');assert.ok(!html.includes('class="review-form"'));assert.ok(html.includes('id="avalie"'));assert.ok(html.includes('Ver últimos trabalhos'));for(const kind of ['off','producao'])if(v[kind])assert.ok(html.includes(v[kind]));}
-console.log('PASS: 27 cards without forms and 3 authentic manual ratings, 5 real portfolio links, 22 empty-state controls, responsive 1/2/3 columns, three badge colors, keyboard modal/focus, correct demo targeting, no submission controls or automatic review scripts, no JS errors or horizontal overflow.');
+console.log('PASS: 27 cards without forms and 5 authentic manual ratings, 5 real portfolio links, 22 empty-state controls, responsive 1/2/3 columns, three badge colors, keyboard modal/focus, correct demo targeting, no submission controls or automatic review scripts, no JS errors or horizontal overflow.');
 }finally{if(browser)await browser.close();await new Promise(r=>server.close(r));}
 })().catch(e=>{console.error(e);process.exit(1)});

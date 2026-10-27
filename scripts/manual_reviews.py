@@ -2,6 +2,7 @@
 import json
 from pathlib import Path
 from datetime import date
+from urllib.parse import urlsplit
 
 def load_reviews(path, slugs):
  rows=json.loads(Path(path).read_text())
@@ -17,6 +18,14 @@ def load_reviews(path, slugs):
   date.fromisoformat(row['published_on'])
   image=row.get('image')
   if image and (not image.startswith('/assets/reviews/') or '..' in image):raise ValueError('Images must be hosted locally')
+  links=row.get('links',[])
+  if not isinstance(links,list) or len(links)>5:raise ValueError('Invalid review links')
+  for link in links:
+   if not isinstance(link,dict) or not isinstance(link.get('label'),str) or not 2<=len(link['label'])<=120:raise ValueError('Invalid link label')
+   url=link.get('url')
+   if not isinstance(url,str) or any(c.isspace() or ord(c)<32 for c in url):raise ValueError('Invalid link URL')
+   parsed=urlsplit(url)
+   if parsed.scheme!='https' or not parsed.hostname or parsed.username or parsed.password:raise ValueError('Review links must use HTTPS without credentials')
  return rows
 
 def summarize(rows,voice):
