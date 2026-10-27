@@ -1,0 +1,24 @@
+{
+  "updated_on": "2026-10-27",
+  "basis": "published_projects",
+  "entries": [
+    {
+      "rank": 1,
+      "voice": "aida",
+      "name": "Aida",
+      "work_count": 1
+    },
+    {
+      "rank": 2,
+      "voice": "aline-mota",
+      "name": "Aline Mota",
+      "work_count": 1
+    },
+    {
+      "rank": 3,
+      "voice": "fernanda",
+      "name": "Fernanda",
+      "work_count": 1
+    }
+  ]
+}

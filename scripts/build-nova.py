@@ -7,6 +7,9 @@ E=html.escape
 BASE='https://alocucao.com.br'
 voices=json.loads((ROOT/'data/new-voices.json').read_text())
 latest_works=json.loads((ROOT/'data/latest-works.json').read_text())
+top_voices=json.loads((ROOT/'data/top-voices.json').read_text())
+top_ranks={entry['voice']:entry['rank'] for entry in top_voices['entries']}
+work_voices={project['voice'] for project in latest_works}
 HOURS='Segunda a sexta-feira: 08h às 18h. Sábado: 08h às 12h. Horário de Brasília.'
 ENTITY='69.502.587 MARCIO PEREIRA DE SOUZA · CNPJ 69.502.587/0001-33'
 ADDRESS=''
@@ -33,7 +36,7 @@ def write(path,title,desc,body,index=True,extra=None,canonical=None):
  page_footer=footer.replace(wa(),wa(service_message)) if service_message else footer
  nova_version = '20261027services' if 'class="calculator"' in body or 'service-demos' in body or 'calculator-callout' in body else '20261026premium'
  if path=='locutores/lucan-rook':nova_version='20261027lucan'
- if path=='vozes':nova_version='20261027languages'
+ if 'class="voice-card"' in body:nova_version='20261027topvoices'
  page=f'''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(title)}</title><meta name="description" content="{E(desc)}"><meta name="robots" content="{'index,follow' if index else 'noindex,follow'},max-image-preview:large"><link rel="canonical" href="{E(canonical)}"><meta name="theme-color" content="#173b2a"><link rel="icon" href="/favicon.svg"><meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{E(canonical)}"><meta property="og:image" content="{BASE}/assets/images/estudio-locucao-960.webp"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/assets/nova.css?v={nova_version}"><script src="/assets/privacy.js" defer></script><script src="/assets/tracking.js?v=20261026premium" defer></script><script src="/assets/nova.js?v={nova_version}" defer></script><script type="application/ld+json">{json.dumps(schemas,ensure_ascii=False).replace('<','\\u003c')}</script></head><body data-page="{E(path)}">{page_header}<main id="conteudo">{body}</main>{page_footer}</body></html>'''
  file.write_text(page)
  built.append({'path':str(file.relative_to(ROOT)),'url':url,'index':index,'canonical':canonical})
@@ -93,9 +96,12 @@ def voicecard(v,primary="off",context="",heading=3,filter_language=False):
  secondary="off" if primary=="producao" else "producao"
  language_attr=(' data-language="'+E(v.get("language_code","pt-BR"))+'"') if filter_language else ""
  flag=('<span class="portrait-language" aria-label="Idioma: '+E(v["language_label"])+'">'+E(v["language_flag"])+'</span>') if filter_language and v.get("language_flag") else ""
+ work_link=('<a class="recent-work-link" href="/locutores/'+v['slug']+'/#ultimos-trabalhos">Ouça meus últimos trabalhos <span aria-hidden="true">→</span></a>') if v['slug'] in work_voices else ''
+ rank=top_ranks.get(v['slug'])
+ top_badge=('<span class="top-voice-badge" title="Classificação pela quantidade de trabalhos publicados no perfil; desempate por ordem alfabética. Atualização quinzenal.">TOP '+str(rank)+'</span>') if rank else ''
  message=voice_message(v)
  if context: message=f'Olá! Conheci a voz {v["name"]} no site da A Locução e gostaria de um orçamento de {context}.'
- return f'''<article class="voice-card" data-search="{E(voice_search(v))}" data-gender="{E(v['gender'])}"{language_attr} data-tags="{E('|'.join(v['tags']))}"><a class="portrait" style="display:block" href="/locutores/{v['slug']}/" aria-label="Ver perfil de {E(v['name'])}">{portrait(v)}{flag}</a><div class="voice-body"><h{heading}><a href="/locutores/{v['slug']}/">{display_name(v)}</a></h{heading}><p class="voice-style">{E(v['style'])}</p>{language_badge(v)}{('<p class="voice-summary">'+E(v['short_description'])+'</p>') if v.get('short_description') else ''}<div class="voice-tags">{''.join('<span class="tag">'+E(t)+'</span>' for t in v['tags'])}</div>{audio(v,primary)}{audio(v,secondary)}<div class="voice-actions">{cta('Contratar esta voz',message,voice=v['name'])}<a class="profile-link" href="/locutores/{v['slug']}/">Ver perfil</a></div></div></article>'''
+ return f'''<article class="voice-card" data-search="{E(voice_search(v))}" data-gender="{E(v['gender'])}"{language_attr} data-tags="{E('|'.join(v['tags']))}"><a class="portrait" style="display:block" href="/locutores/{v['slug']}/" aria-label="Ver perfil de {E(v['name'])}">{portrait(v)}{flag}</a><div class="voice-body"><h{heading}><a href="/locutores/{v['slug']}/">{display_name(v)}</a></h{heading}>{top_badge}<p class="voice-style">{E(v['style'])}</p>{language_badge(v)}{('<p class="voice-summary">'+E(v['short_description'])+'</p>') if v.get('short_description') else ''}<div class="voice-tags">{''.join('<span class="tag">'+E(t)+'</span>' for t in v['tags'])}</div>{audio(v,primary)}{audio(v,secondary)}{work_link}<div class="voice-actions">{cta('Contratar esta voz',message,voice=v['name'])}<a class="profile-link" href="/locutores/{v['slug']}/">Ver perfil</a></div></div></article>'''
 CATALOG_INIT = """<script>(()=>{const grid=document.currentScript.previousElementSibling;const cards=Array.from(grid.children);for(let i=cards.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[cards[i],cards[j]]=[cards[j],cards[i]];}cards.forEach(card=>grid.appendChild(card));const filters=grid.parentElement.querySelector('.filters');if(filters)filters.hidden=false;})();</script>"""
 def catalog(subset=None,filters=False,primary="off",context=""):
  selected=subset or voices
