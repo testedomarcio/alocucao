@@ -2490,6 +2490,12 @@
     "canonical": "https://alocucao.com.br/locutores/mario/"
   },
   {
+    "path": "locutores/lucan-rook/index.html",
+    "url": "https://alocucao.com.br/locutores/lucan-rook/",
+    "index": true,
+    "canonical": "https://alocucao.com.br/locutores/lucan-rook/"
+  },
+  {
     "path": "servicos/index.html",
     "url": "https://alocucao.com.br/servicos/",
     "index": true,

@@ -28,9 +28,11 @@ def write(path,title,desc,body,index=True,extra=None,canonical=None):
  canonical=canonical or url
  schemas={'@context':'https://schema.org','@graph':[org,{'@type':'WebPage','@id':url+'#webpage','url':url,'name':title,'description':desc,'publisher':{'@id':BASE+'/#organization'}}]+(extra or [])}
  service_message={**{s['slug']:'Olá! Gostaria de um orçamento de '+s['name'].lower()+'.' for s in json.loads((ROOT/'data/premium-services.json').read_text())},'locucao-off':'Olá! Gostaria de contratar uma Locução Off.','spot-comercial':'Olá! Quero um orçamento para Produção Completa.'}.get(path)
+ if path=='locutores/lucan-rook':service_message=voice_message(next(v for v in voices if v['slug']=='lucan-rook'))
  page_header=header.replace(wa(),wa(service_message)) if service_message else header
  page_footer=footer.replace(wa(),wa(service_message)) if service_message else footer
  nova_version = '20261027services' if 'class="calculator"' in body or 'service-demos' in body or 'calculator-callout' in body else '20261026premium'
+ if path in ['vozes','locutores/lucan-rook']:nova_version='20261027lucan'
  page=f'''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(title)}</title><meta name="description" content="{E(desc)}"><meta name="robots" content="{'index,follow' if index else 'noindex,follow'},max-image-preview:large"><link rel="canonical" href="{E(canonical)}"><meta name="theme-color" content="#173b2a"><link rel="icon" href="/favicon.svg"><meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{E(canonical)}"><meta property="og:image" content="{BASE}/assets/images/estudio-locucao-960.webp"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/assets/nova.css?v={nova_version}"><script src="/assets/privacy.js" defer></script><script src="/assets/tracking.js?v=20261026premium" defer></script><script src="/assets/nova.js?v={nova_version}" defer></script><script type="application/ld+json">{json.dumps(schemas,ensure_ascii=False).replace('<','\\u003c')}</script></head><body data-page="{E(path)}">{page_header}<main id="conteudo">{body}</main>{page_footer}</body></html>'''
  file.write_text(page)
  built.append({'path':str(file.relative_to(ROOT)),'url':url,'index':index,'canonical':canonical})
@@ -76,11 +78,21 @@ def portrait(v):
  return f'<div class="portrait-placeholder" aria-label="Perfil de voz {E(v["name"])}">{E(v["name"][0])}</div>'
 def display_name(v):
  return E(v['name'])+(' <span class="exclusive-badge" aria-label="Voz exclusiva A Locução">💎</span>' if v.get('exclusive') is True else '')
+def language_badge(v):
+ if not v.get('language_code'):return ''
+ return '<p class="voice-language"><span aria-hidden="true">'+E(v['language_flag'])+'</span> '+E(v['language_label'])+' <span lang="en">· English (US)</span></p>'
+def voice_message(v):
+ if v.get('language_code')=='en-US':return 'Olá! Tenho interesse na voz do locutor '+v['name']+', em inglês americano. Gostaria de mais informações.'
+ return f'Olá! Conheci a voz {v["name"]} no site da A Locução e gostaria de solicitar um orçamento.'
+def voice_search(v):
+ text=v['name']+' '+v['style']+' '+ ' '.join(v['applications'])
+ if v.get('language_label'):text+=' '+v['language_label']+' English US'
+ return text
 def voicecard(v,primary="off",context="",heading=3):
  secondary="off" if primary=="producao" else "producao"
- message=f'Olá! Conheci a voz {v["name"]} no site da A Locução e gostaria de solicitar um orçamento.'
+ message=voice_message(v)
  if context: message=f'Olá! Conheci a voz {v["name"]} no site da A Locução e gostaria de um orçamento de {context}.'
- return f'''<article class="voice-card" data-search="{E(v['name']+' '+v['style']+' '+ ' '.join(v['applications']))}" data-gender="{E(v['gender'])}" data-tags="{E('|'.join(v['tags']))}"><a class="portrait" style="display:block" href="/locutores/{v['slug']}/" aria-label="Ver perfil de {E(v['name'])}">{portrait(v)}</a><div class="voice-body"><h{heading}><a href="/locutores/{v['slug']}/">{display_name(v)}</a></h{heading}><p class="voice-style">{E(v['style'])}</p><div class="voice-tags">{''.join('<span class="tag">'+E(t)+'</span>' for t in v['tags'])}</div>{audio(v,primary)}{audio(v,secondary)}<div class="voice-actions">{cta('Contratar esta voz',message,voice=v['name'])}<a class="profile-link" href="/locutores/{v['slug']}/">Ver perfil</a></div></div></article>'''
+ return f'''<article class="voice-card" data-search="{E(voice_search(v))}" data-gender="{E(v['gender'])}" data-tags="{E('|'.join(v['tags']))}"><a class="portrait" style="display:block" href="/locutores/{v['slug']}/" aria-label="Ver perfil de {E(v['name'])}">{portrait(v)}</a><div class="voice-body"><h{heading}><a href="/locutores/{v['slug']}/">{display_name(v)}</a></h{heading}><p class="voice-style">{E(v['style'])}</p>{language_badge(v)}{('<p class="voice-summary">'+E(v['short_description'])+'</p>') if v.get('short_description') else ''}<div class="voice-tags">{''.join('<span class="tag">'+E(t)+'</span>' for t in v['tags'])}</div>{audio(v,primary)}{audio(v,secondary)}<div class="voice-actions">{cta('Contratar esta voz',message,voice=v['name'])}<a class="profile-link" href="/locutores/{v['slug']}/">Ver perfil</a></div></div></article>'''
 CATALOG_INIT = """<script>(()=>{const grid=document.currentScript.previousElementSibling;const cards=Array.from(grid.children);for(let i=cards.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[cards[i],cards[j]]=[cards[j],cards[i]];}cards.forEach(card=>grid.appendChild(card));const filters=grid.parentElement.querySelector('.filters');if(filters)filters.hidden=false;})();</script>"""
 def catalog(subset=None,filters=False,primary="off",context=""):
  selected=subset or voices
@@ -124,10 +136,10 @@ for v in voices:
  works_body,works_schema=recent_works(v)
  demos=audio(v,'off')+audio(v,'producao')
  if not demos:demos='<p class="note">Solicite uma demonstração desta voz pelo WhatsApp.</p>'
- body=f'''<section class="hero"><div class="wrap"><nav class="breadcrumb" aria-label="Caminho"><a href="/">Início</a> / <a href="/vozes/">Banco de Vozes</a> / {E(v['name'])}</nav><div class="profile-hero"><div class="portrait">{portrait(v)}</div><div class="profile-copy"><span class="eyebrow">Identidade vocal · {E(v['gender'])}</span><h1>{display_name(v)}</h1><p class="style">{E(v['style'])}</p><p>{E(v['about'])}</p><h2>Minha voz e meu estilo</h2><p>{E(v['description'])}</p><h2>Ouça as demonstrações</h2>{demos}<p class="note">Voz sintética, produzida com tecnologia de inteligência artificial. O retrato é ilustrativo. <a href="/termos/#tecnologia">Entenda o serviço</a>.</p><div class="actions">{cta('Contratar esta voz',f'Olá! Conheci a voz {v["name"]} no site da A Locução e gostaria de solicitar um orçamento.',voice=v['name'])}</div><p class="mini-link">Contato secundário: <a href="mailto:{v['email']}">{v['email']}</a></p><h2>Aplicações recomendadas</h2><ul class="application-list">{''.join('<li>'+E(a)+'</li>' for a in v['applications'])}</ul><p class="note">Sugestões baseadas no perfil vocal. A adequação da interpretação ao roteiro é avaliada com a equipe.</p><a class="mini-link" href="/vozes/">Conhecer outras vozes →</a></div></div></div></section>'''+works_body+faq(v['faq'])
+ body=f'''<section class="hero"><div class="wrap"><nav class="breadcrumb" aria-label="Caminho"><a href="/">Início</a> / <a href="/vozes/">Banco de Vozes</a> / {E(v['name'])}</nav><div class="profile-hero"><div class="portrait">{portrait(v)}</div><div class="profile-copy"><span class="eyebrow">Identidade vocal · {E(v['gender'])}</span><h1>{display_name(v)}</h1><p class="style">{E(v['style'])}</p>{language_badge(v)}<p>{E(v['about'])}</p><h2>Minha voz e meu estilo</h2><p>{E(v['description'])}</p><h2>Ouça as demonstrações</h2>{demos}<p class="note">Voz sintética, produzida com tecnologia de inteligência artificial. O retrato é ilustrativo. <a href="/termos/#tecnologia">Entenda o serviço</a>.</p><div class="actions">{cta('Contratar esta voz',voice_message(v),voice=v['name'])}</div><p class="mini-link">Contato secundário: <a href="mailto:{v['email']}">{v['email']}</a></p><h2>Aplicações recomendadas</h2><ul class="application-list">{''.join('<li>'+E(a)+'</li>' for a in v['applications'])}</ul><p class="note">Sugestões baseadas no perfil vocal. A adequação da interpretação ao roteiro é avaliada com a equipe.</p><a class="mini-link" href="/vozes/">Conhecer outras vozes →</a></div></div></div></section>'''+works_body+faq(v['faq'])
  desc=v['meta_description']
  if not(v['off'] and v['producao']): desc=f'Conheça a voz {v["name"]}: {v["style"].lower()}. Veja o perfil e consulte as demonstrações e as condições pelo WhatsApp da A Locução.'
- audio_schema=[{'@type':'AudioObject','name':v['name']+' — '+('Locução Off' if k=='off' else 'Produção Completa — amostra temporária de Locução Off' if v.get('temporary_demo',{}).get(k) else 'Produção Completa'),'contentUrl':BASE+v[k],'encodingFormat':'audio/mpeg'} for k in ['off','producao'] if v[k]]
+ audio_schema=[{'@type':'AudioObject','name':v['name']+' — '+('Locução Off' if k=='off' else 'Produção Completa — amostra temporária de Locução Off' if v.get('temporary_demo',{}).get(k) else 'Produção Completa'),'contentUrl':BASE+v[k],'encodingFormat':'audio/mpeg',**({'inLanguage':v['language_code']} if v.get('language_code') else {})} for k in ['off','producao'] if v[k]]
  write('locutores/'+v['slug'],v['seo_title'],desc,body,extra=audio_schema+works_schema)
 write('servicos','Serviços de Locução e Produção de Áudio | A Locução','Locução comercial, produção de spots, narração institucional e URA. Escolha o serviço e peça orçamento pelo WhatsApp.',hero('Soluções em áudio','Sua ideia.<br>Nossa produção.','Locução comercial é o nosso ponto de partida. Voz e produção também dão vida a vídeos, conteúdos e comunicação institucional.')+'<section class="section"><div class="wrap">'+service_list()+'<div class="link-grid"><a href="/producao-para-igrejas/">Produção para igrejas ↗</a><a href="/producao-para-supermercados/">Supermercados e varejo ↗</a><a href="/spot-black-friday/">Black Friday ↗</a><a href="/vinhetas-para-podcast-e-radio/">Vinhetas e chamadas ↗</a><a href="/spot-para-carro-de-som/">Carro de som ↗</a><a href="/locucao-ia/">Tecnologia de voz ↗</a></div></div></section>'+steps())
 landings={
@@ -179,7 +191,7 @@ built=list({row['path']:row for row in built}.values())
 ns='http://www.sitemaps.org/schemas/sitemap/0.9';ET.register_namespace('',ns);tree=ET.Element('{'+ns+'}urlset')
 for row in sorted(built,key=lambda p:p['url']):
  if row['index'] and row['url']==row['canonical']:
-  node=ET.SubElement(tree,'{'+ns+'}url');ET.SubElement(node,'{'+ns+'}loc').text=row['url'];ET.SubElement(node,'{'+ns+'}lastmod').text='2026-10-26'
+  node=ET.SubElement(tree,'{'+ns+'}url');ET.SubElement(node,'{'+ns+'}loc').text=row['url'];ET.SubElement(node,'{'+ns+'}lastmod').text='2026-10-27' if row['url']==BASE+'/locutores/lucan-rook/' else '2026-10-26'
 ET.ElementTree(tree).write(ROOT/'sitemap.xml',encoding='utf-8',xml_declaration=True)
 (ROOT/'reports/reformulacao-2026-10-26/manifesto.json').write_text(json.dumps(built,ensure_ascii=False,indent=2))
 print(f'Built {len(built)} page entries and {len(voices)} individual voice profiles.')

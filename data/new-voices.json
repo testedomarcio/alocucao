@@ -1004,5 +1004,49 @@
     ],
     "off": "/assets/demos/mario-off.mp3",
     "producao": "/assets/demos/mario-producao.mp3"
+  },
+  {
+    "slug": "lucan-rook",
+    "name": "Lucan Rook",
+    "style": "Energetic Male Voice",
+    "language_code": "en-US",
+    "language_label": "Inglês Americano",
+    "language_flag": "🇺🇸",
+    "short_description": "Voz masculina americana, energética e envolvente, ideal para anúncios digitais, redes sociais, vídeos promocionais e conteúdos educacionais.",
+    "description": "Voz masculina americana, energética e envolvente, ideal para anúncios digitais, redes sociais, vídeos promocionais e conteúdos educacionais. Sua interpretação dinâmica combina clareza, entusiasmo e naturalidade, tornando cada mensagem mais atraente e memorável.",
+    "about": "Lucan Rook reúne energia, clareza e naturalidade em uma voz masculina de meia-idade. Sua interpretação comunicativa e envolvente dá presença a mensagens em inglês americano.",
+    "applications": [
+      "Redes sociais",
+      "Vídeos promocionais",
+      "Publicidade digital",
+      "E-learning",
+      "Conteúdos educacionais"
+    ],
+    "gender": "Masculina",
+    "tags": [
+      "Comercial",
+      "Energética",
+      "Narrativa"
+    ],
+    "image": "/assets/vozes-ia/images/lucan-rook.webp",
+    "email": "lucanrook@alocucao.com.br",
+    "seo_title": "Lucan Rook | Locutor em Inglês Americano | A Locução",
+    "meta_description": "Ouça Lucan Rook: voice-over em inglês americano com voz masculina energética para publicidade digital, vídeos promocionais e educação. Contrate pelo WhatsApp.",
+    "faq": [
+      [
+        "Em qual idioma Lucan Rook grava?",
+        "As demonstrações deste perfil são em inglês americano (English US). Envie seu roteiro e as pronúncias desejadas para avaliarmos a interpretação."
+      ],
+      [
+        "Qual é a diferença entre os demonstrativos?",
+        "Locução Off apresenta a voz sem trilha ou efeitos. Produção Completa apresenta a voz com acabamento sonoro. O escopo da contratação é confirmado no orçamento."
+      ],
+      [
+        "Como contratar Lucan Rook?",
+        "Fale com a A Locução pelo WhatsApp informando o nome Lucan Rook, o roteiro, a finalidade e o prazo. A equipe confirma a adequação da voz, as condições e o orçamento antes de produzir."
+      ]
+    ],
+    "off": "/assets/demos/lucan-rook-off.mp3",
+    "producao": "/assets/demos/lucan-rook-producao.mp3"
   }
 ]
