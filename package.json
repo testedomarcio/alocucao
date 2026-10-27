@@ -5,7 +5,8 @@
   "main": "scripts/generate-seo-pages.js",
   "scripts": {
     "build": "python3 scripts/build-nova.py",
-    "test": "python3 scripts/validate-nova.py && node scripts/test-nova.cjs && node scripts/test-premium.cjs"
+    "test": "python3 scripts/validate-nova.py && node scripts/test-nova.cjs && node scripts/test-premium.cjs && node scripts/test-reviews.mjs",
+    "test:reviews:db": "node scripts/test-reviews-db.cjs"
   },
   "author": "A Locução",
   "license": "ISC"

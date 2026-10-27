@@ -1,0 +1,5 @@
+project_id = "alocucao-reviews"
+[functions.reviews]
+# Public actions are intentional; admin actions verify Auth + allowlist on the server.
+verify_jwt = false
+static_files = ["./functions/reviews/magick.wasm"]

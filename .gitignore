@@ -1,3 +1,7 @@
 __pycache__/
 *.pyc
 node_modules/
+supabase/functions/reviews/magick.wasm
+supabase/.temp/
+.env
+.env.*

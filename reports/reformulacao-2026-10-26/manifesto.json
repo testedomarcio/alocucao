@@ -2628,6 +2628,12 @@
     "canonical": "https://alocucao.com.br/dublagem-de-videos/"
   },
   {
+    "path": "administracao/avaliacoes/index.html",
+    "url": "https://alocucao.com.br/administracao/avaliacoes/",
+    "index": false,
+    "canonical": "https://alocucao.com.br/administracao/avaliacoes/"
+  },
+  {
     "path": "termos/index.html",
     "url": "https://alocucao.com.br/termos/",
     "index": true,
