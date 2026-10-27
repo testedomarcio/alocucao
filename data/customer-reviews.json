@@ -1,0 +1,32 @@
+[
+  {
+    "id": "diego-evandro-ponto-do-pastelao-20261027",
+    "voice": "diego",
+    "name": "Evandro",
+    "company": "Ponto do Pastelão",
+    "rating": 5,
+    "comment": "Gostei muito da locução, mas quero destacar que eu não fazia ideia de como seria a locução, mas o atendente Eduardo elaborou o texto e ficou muito bom. Obrigado",
+    "published_on": "2026-10-27",
+    "image": "/assets/reviews/evandro-ponto-do-pastelao.webp"
+  },
+  {
+    "id": "enzo-matheus-radio-mellody-fm-20261027",
+    "voice": "enzo",
+    "name": "Matheus",
+    "company": "Rádio Mellody FM",
+    "rating": 5,
+    "comment": "Amigão fala com o Enzo ele arrasou o cara é bom a voz do cara é Lisa bom demais e vem mais trabalho para ele aí que todas as vinhetas da rádio vai ser feita aí a maioria né vai ser feita na voz dele Parabéns o Enzo top viu meu amigo que Deus te abençoe abençoe a sua voz aqui é o Produtor Matheus Mello",
+    "published_on": "2026-10-27",
+    "image": "/assets/reviews/matheus-radio-mellody-fm.webp"
+  },
+  {
+    "id": "fernanda-rubner-lemede-20261027",
+    "voice": "fernanda",
+    "name": "Rubner Estaquio",
+    "company": "LEMEDE ULTRASSOM em IPATINGA",
+    "rating": 3,
+    "comment": "Bom, mas Acho q podemos melhorar um pouquinho só. Precisava ouvir a Fernanda num tom empodeirado? E acho q ficará muito bom",
+    "published_on": "2026-10-27",
+    "image": null
+  }
+]

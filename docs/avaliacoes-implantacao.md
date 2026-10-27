@@ -1,3 +1,9 @@
+# Recebimento automático cancelado em 27/10/2026
+
+Por solicitação do proprietário, o formulário foi removido de todos os perfis. O Supabase foi pausado, sem apagar o projeto. Não há conexão de avaliações carregada nas páginas públicas. Avaliações futuras serão recebidas pelo atendimento e publicadas manualmente após autorização do cliente. Nenhum agendamento de exclusão automática foi criado.
+
+**As instruções abaixo são históricas e não devem ser executadas sem uma nova decisão do proprietário.**
+
 # Avaliações verificadas — implantação
 
 ## Estado entregue em 27/10/2026

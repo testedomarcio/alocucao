@@ -5,7 +5,7 @@
   "main": "scripts/generate-seo-pages.js",
   "scripts": {
     "build": "python3 scripts/build-nova.py",
-    "test": "python3 scripts/validate-nova.py && node scripts/test-nova.cjs && node scripts/test-premium.cjs && node scripts/test-reviews.mjs && python3 scripts/test-voice-orders.py",
+    "test": "python3 scripts/validate-nova.py && node scripts/test-nova.cjs && node scripts/test-premium.cjs && node scripts/test-reviews.mjs && python3 scripts/test-voice-orders.py && python3 scripts/test-manual-reviews.py",
     "test:reviews:db": "node scripts/test-reviews-db.cjs",
     "test:voice-ui": "node scripts/test-voice-ui.cjs"
   },

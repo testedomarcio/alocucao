@@ -6,6 +6,10 @@ ROOT=Path(__file__).resolve().parent.parent
 E=html.escape
 BASE='https://alocucao.com.br'
 voices=json.loads((ROOT/'data/new-voices.json').read_text())
+from manual_reviews import load_reviews,summarize
+customer_reviews=load_reviews(ROOT/'data/customer-reviews.json',{v['slug'] for v in voices})
+for review in customer_reviews:
+ if review.get('image') and not (ROOT/review['image'].lstrip('/')).is_file():raise ValueError('Review image is missing')
 latest_works=json.loads((ROOT/'data/latest-works.json').read_text())
 top_voices=json.loads((ROOT/'data/top-voices.json').read_text())
 top_ranks={entry['voice']:entry['rank'] for entry in top_voices['entries']}
@@ -43,7 +47,7 @@ def write(path,title,desc,body,index=True,extra=None,canonical=None):
  nova_version = '20261027services' if 'class="calculator"' in body or 'service-demos' in body or 'calculator-callout' in body else '20261026premium'
  if path=='locutores/lucan-rook':nova_version='20261027lucan'
  if 'class="voice-card"' in body or 'data-review-voice=' in body:nova_version='20261027cards2'
- review_assets = '<meta name="referrer" content="no-referrer"><script data-review-privacy>window.__reviewInvite=new URLSearchParams(location.search).get("convite");if(window.__reviewInvite){const p=new URLSearchParams(location.search);p.delete("convite");history.replaceState(null,"",location.pathname+(p.size?"?"+p:"")+location.hash);}</script><link rel="stylesheet" href="/assets/reviews.css?v=20261027cards2"><script src="/assets/reviews-config.js?v=20261027" defer></script><script src="/assets/reviews.js?v=20261027cards2" defer></script>' if 'data-rating-voice=' in body or 'data-review-admin' in body else ''
+ review_assets = '<meta name="referrer" content="no-referrer"><script data-review-privacy>window.__reviewInvite=new URLSearchParams(location.search).get("convite");if(window.__reviewInvite){const p=new URLSearchParams(location.search);p.delete("convite");history.replaceState(null,"",location.pathname+(p.size?"?"+p:"")+location.hash);}</script><link rel="stylesheet" href="/assets/reviews.css?v=20261027manual1">' if 'data-rating-voice=' in body or 'data-review-admin' in body else ''
  if 'data-work-empty' in body:review_assets+='<script src="/assets/voice-ui.js?v=20261027cards2" defer></script>'
  page=f'''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(title)}</title><meta name="description" content="{E(desc)}"><meta name="robots" content="{'index,follow' if index else 'noindex,follow'},max-image-preview:large"><link rel="canonical" href="{E(canonical)}"><meta name="theme-color" content="#173b2a"><link rel="icon" href="/favicon.svg"><meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{E(canonical)}"><meta property="og:image" content="{BASE}/assets/images/estudio-locucao-960.webp"><meta name="twitter:card" content="summary_large_image">{review_assets}<link rel="stylesheet" href="/assets/nova.css?v={nova_version}"><script src="/assets/privacy.js" defer></script><script src="/assets/tracking.js?v=20261026premium" defer></script><script src="/assets/nova.js?v={nova_version}" defer></script><script type="application/ld+json">{json.dumps(schemas,ensure_ascii=False).replace('<','\\u003c')}</script></head><body data-page="{E(path)}">{page_header}<main id="conteudo">{body}</main>{page_footer}</body></html>'''
  file.write_text(page)
@@ -101,13 +105,12 @@ def voice_search(v):
  if v.get('language_label'):text+=' '+v['language_label']+' English US'
  return text
 def rating(slug,linked=True):
+ average,count=summarize(customer_reviews,slug)
+ label=(f"{average:.1f}".replace(".",",")+"/5 · "+str(count)+(" avaliação" if count==1 else " avaliações")) if count else "0 avaliações"
+ fill=f"{average*20:.4f}".rstrip("0").rstrip(".") if count else "0"
  star_svg='<svg viewBox="0 0 120 24" width="120" height="24" focusable="false">'+''.join('<path transform="translate('+str(i*24)+' 0)" d="m12 2 3.1 6.3 7 .9-5.1 5 1.2 7-6.2-3.3L5.8 21l1.2-6.8-5.1-5 7-.9Z"/>' for i in range(5))+'</svg>'
- markup = '<div class="review-rating" data-rating-voice="'+E(slug)+'" aria-label="Ainda sem avaliações"><span class="review-stars" aria-hidden="true"><span>'+star_svg+'</span><span class="review-stars-fill" style="width:0%">'+star_svg+'</span></span><span class="review-count">0 avaliações</span></div>'
+ markup = '<div class="review-rating" data-rating-voice="'+E(slug)+'" aria-label="'+E(label if count else 'Ainda sem avaliações')+'"><span class="review-stars" aria-hidden="true"><span>'+star_svg+'</span><span class="review-stars-fill" style="width:'+fill+'%">'+star_svg+'</span></span><span class="review-count">'+E(label)+'</span></div>'
  return '<a class="review-rating-link" href="/locutores/'+E(slug)+'/#avaliacoes-clientes" aria-label="Ver avaliações deste locutor">'+markup+'</a>' if linked else markup
-def review_form(v):
- prefix='review-'+v['slug']
- choices=''.join('<label><input type="radio" name="rating" value="'+str(n)+'" required><span aria-hidden="true">★</span><span class="sr-only">'+str(n)+' '+('estrela' if n==1 else 'estrelas')+'</span></label>' for n in range(1,6))
- return '<form class="review-form" aria-label="Avaliar '+E(v['name'])+'" aria-describedby="'+prefix+'-notice" onsubmit="return false"><fieldset class="review-choice"><legend>Sua avaliação (obrigatória)</legend>'+choices+'</fieldset><label>Nome do cliente ou empresa<input name="name" required minlength="2" maxlength="80" autocomplete="organization"></label><label>Comentário<textarea name="comment" required minlength="20" maxlength="2000" placeholder="Conte como foi a qualidade da locução, a interpretação, a entrega e sua experiência."></textarea></label><label>Fotografia ou logotipo (opcional)<input type="file" name="image" accept="image/jpeg,image/png,image/webp"><small>JPG, PNG ou WebP. Até 2 MB, 4000 × 4000 pixels e 12 megapixels.</small></label><label class="review-consent"><input type="checkbox" name="consent" required><span>Autorizo a publicação desta avaliação, do nome informado e da imagem, se enviada. Li a <a href="/politica-de-privacidade/#avaliacoes">Política de Privacidade</a>.</span></label><div data-captcha></div><button class="btn" type="submit" disabled aria-describedby="'+prefix+'-notice">Enviar minha avaliação</button><p class="review-status" role="status" aria-live="polite">O envio será liberado após a ativação do serviço e com um convite válido.</p></form>'
 def icon(kind):
  paths={'headphones':'<path d="M4 14v-3a8 8 0 0 1 16 0v3M4 13h3v8H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2Zm16 0h-3v8h3a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Z"/>','trophy':'<path d="M8 3h8v7a4 4 0 0 1-8 0V3Zm0 2H4v3a4 4 0 0 0 4 4m8-7h4v3a4 4 0 0 1-4 4m-4 2v5m-4 2h8"/>','medal':'<path d="m7 2 5 7 5-7M5 2h4m6 0h4"/><circle cx="12" cy="15" r="7"/><path d="m12 11 1.2 2.4 2.7.4-2 1.9.5 2.7-2.4-1.3-2.4 1.3.5-2.7-2-1.9 2.7-.4Z"/>','check':'<path d="m8 12 3 3 5-6"/><circle cx="12" cy="12" r="9"/>'}
  return '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'+paths[kind]+'</svg>'
@@ -126,7 +129,14 @@ def works_link(v):
  if v['slug'] in work_voices:return '<a class="recent-work-link" href="/locutores/'+v['slug']+'/#ultimos-trabalhos">'+inner+'</a>'
  return '<button type="button" class="recent-work-link" data-work-empty="'+v['slug']+'" data-voice-label="'+E(v['name'])+'" aria-haspopup="dialog">'+inner+'</button>'
 def reviews_section(v):
- return '<section class="section reviews-section" id="avaliacoes-clientes" data-review-voice="'+E(v['slug'])+'"><div class="wrap"><span class="eyebrow">Experiências com esta voz</span><h2>Avaliações de clientes</h2>'+rating(v['slug'],False)+'<p data-review-empty>Ainda não há avaliações publicadas para este locutor.</p><div data-review-list></div><button type="button" class="btn secondary" data-review-more hidden>Ver mais avaliações</button><div class="review-invitation" id="avalie"><h3>Como foi sua experiência com este locutor?</h3><p>Seu comentário ajuda outros clientes a escolherem a voz ideal. Compartilhe sua experiência com a A Locução.</p><p id="review-'+E(v['slug'])+'-notice" data-review-notice>O recebimento de avaliações ainda está em preparação. O envio será liberado após a ativação do serviço, com um convite válido.</p><div data-review-form-host>'+review_form(v)+'</div><p class="note">Apenas experiências de contratação verificadas. A moderação considera spam, fraude, conteúdo ofensivo e dados pessoais indevidos; opiniões negativas legítimas também são publicadas. Para solicitar remoção, fale com <a href="mailto:suporte@alocucao.com.br">suporte@alocucao.com.br</a>.</p></div></div></section>'
+ rows=sorted([r for r in customer_reviews if r['voice']==v['slug']],key=lambda r:(r['published_on'],r['id']),reverse=True)
+ cards=[]
+ for row in rows:
+  picture=('<img src="'+E(row['image'])+'" width="72" height="72" loading="lazy" decoding="async" alt="'+E(row.get('company') or row['name'])+'">') if row.get('image') else ''
+  company='<p class="review-company">'+E(row['company'])+'</p>' if row.get('company') else ''
+  cards.append('<article class="review-card" data-review-id="'+E(row['id'])+'"><header class="review-client">'+picture+'<div><h3>'+E(row['name'])+'</h3>'+company+'<p class="review-score">'+str(row['rating'])+'/5</p></div></header><blockquote>'+E(row['comment'])+'</blockquote><p class="review-date">Publicado em <time datetime="'+row['published_on']+'">'+'/'.join(reversed(row['published_on'].split('-')))+'</time></p></article>')
+ content=''.join(cards[:10])+('<details class="review-more"><summary>Ver mais avaliações</summary>'+''.join(cards[10:])+'</details>' if len(cards)>10 else '') if rows else '<p>Ainda não há avaliações publicadas para este locutor.</p>'
+ return '<section class="section reviews-section" id="avaliacoes-clientes"><span id="avalie" aria-hidden="true"></span><div class="wrap"><span class="eyebrow">Experiências com esta voz</span><h2>Avaliações de clientes</h2>'+rating(v['slug'],False)+content+'</div></section>'
 def voicecard(v,primary="off",context="",heading=3,filter_language=False):
  secondary="off" if primary=="producao" else "producao"
  language_attr=(' data-language="'+E(v.get("language_code","pt-BR"))+'"') if filter_language else ""
@@ -218,7 +228,7 @@ write('sobre','Sobre a A Locução | Produtora de Locução e Áudio','Conheça 
 write('calculadora','Calculadora de Locução Off e Produção Completa | A Locução','Estime duração e preço da sua peça comercial: Off R$ 12 e Produção Completa R$ 25 por até 40 segundos. Confirme o orçamento pelo WhatsApp.',hero('Planeje seu roteiro','Seu texto cabe no tempo do anúncio?','A duração real depende da interpretação, do ritmo e das pausas.',False)+calculator())
 from premium_pages import render
 render(globals())
-write('administracao/avaliacoes','Administração de avaliações | A Locução','Área restrita de avaliações verificadas.',hero('Área restrita','Avaliações verificadas','Acesso exclusivo para a administração.',False)+'<section class="section"><div class="wrap" data-review-admin><p>O painel aguarda configuração do serviço de avaliações.</p></div></section>',index=False)
+write('administracao/avaliacoes','Gestão de avaliações | A Locução','Informações sobre avaliações de clientes.',hero('Avaliações de clientes','Publicação manual','As avaliações são recebidas pelo atendimento e publicadas pela equipe, com autorização do cliente.',False),index=False)
 # Legal copy is plain-language draft; never present it as professional legal certification.
 legal=json.loads((ROOT/'data/legal-pages.json').read_text())
 for slug,p in legal.items(): write(slug,p['title']+' | A Locução',p['description'],hero('Informações e condições',p['title'],'Atualização: 26 de outubro de 2026.',False)+'<article class="wrap editorial">'+p['body']+'</article>')
@@ -238,7 +248,7 @@ built=list({row['path']:row for row in built}.values())
 ns='http://www.sitemaps.org/schemas/sitemap/0.9';ET.register_namespace('',ns);tree=ET.Element('{'+ns+'}urlset')
 for row in sorted(built,key=lambda p:p['url']):
  if row['index'] and row['url']==row['canonical']:
-  node=ET.SubElement(tree,'{'+ns+'}url');ET.SubElement(node,'{'+ns+'}loc').text=row['url'];ET.SubElement(node,'{'+ns+'}lastmod').text='2026-10-27' if row['url']==BASE+'/locutores/lucan-rook/' else '2026-10-26'
+  node=ET.SubElement(tree,'{'+ns+'}url');ET.SubElement(node,'{'+ns+'}loc').text=row['url'];ET.SubElement(node,'{'+ns+'}lastmod').text='2026-10-27' if row['url'] in {BASE+'/vozes/',BASE+'/locutores/lucan-rook/'}|{BASE+'/locutores/'+r['voice']+'/' for r in customer_reviews} else '2026-10-26'
 ET.ElementTree(tree).write(ROOT/'sitemap.xml',encoding='utf-8',xml_declaration=True)
 (ROOT/'reports/reformulacao-2026-10-26/manifesto.json').write_text(json.dumps(built,ensure_ascii=False,indent=2))
 print(f'Built {len(built)} page entries and {len(voices)} individual voice profiles.')

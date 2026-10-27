@@ -160,5 +160,23 @@
         "source_sha256": "f642fad240bdb0300dc06071718e88f1fe12ccf886b3109809d05f97ad022d41"
       }
     ]
+  },
+  {
+    "id": "diego-2026-10-27-ponto-do-pastelao",
+    "voice": "diego",
+    "title": "Ponto do Pastelão",
+    "date": "2026-10-27",
+    "format": "Produção Completa",
+    "tracks": [
+      {
+        "title": "Produção completa — Ponto do Pastelão",
+        "src": "/assets/trabalhos/diego-2026-10-27-ponto-do-pastelao.mp3",
+        "duration_seconds": 51.04,
+        "source_file_id": "1-JrbBpt_p-9ZHTOQd7xcCvS2g0PzE92W",
+        "source_filename": "Ponto do Pastelão - Produção - Locutor Diego - 27/10/2026.mp3",
+        "source_modified": "2026-10-27T17:39:35.108Z",
+        "source_sha256": "99b6ee2e474e7e5db9ad0636a00cf642b6df51fac210e68a5e0fbacf2f1f268d"
+      }
+    ]
   }
 ]
