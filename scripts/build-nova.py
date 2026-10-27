@@ -32,7 +32,8 @@ def write(path,title,desc,body,index=True,extra=None,canonical=None):
  page_header=header.replace(wa(),wa(service_message)) if service_message else header
  page_footer=footer.replace(wa(),wa(service_message)) if service_message else footer
  nova_version = '20261027services' if 'class="calculator"' in body or 'service-demos' in body or 'calculator-callout' in body else '20261026premium'
- if path in ['vozes','locutores/lucan-rook']:nova_version='20261027lucan'
+ if path=='locutores/lucan-rook':nova_version='20261027lucan'
+ if path=='vozes':nova_version='20261027languages'
  page=f'''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(title)}</title><meta name="description" content="{E(desc)}"><meta name="robots" content="{'index,follow' if index else 'noindex,follow'},max-image-preview:large"><link rel="canonical" href="{E(canonical)}"><meta name="theme-color" content="#173b2a"><link rel="icon" href="/favicon.svg"><meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{E(canonical)}"><meta property="og:image" content="{BASE}/assets/images/estudio-locucao-960.webp"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/assets/nova.css?v={nova_version}"><script src="/assets/privacy.js" defer></script><script src="/assets/tracking.js?v=20261026premium" defer></script><script src="/assets/nova.js?v={nova_version}" defer></script><script type="application/ld+json">{json.dumps(schemas,ensure_ascii=False).replace('<','\\u003c')}</script></head><body data-page="{E(path)}">{page_header}<main id="conteudo">{body}</main>{page_footer}</body></html>'''
  file.write_text(page)
  built.append({'path':str(file.relative_to(ROOT)),'url':url,'index':index,'canonical':canonical})
@@ -88,19 +89,24 @@ def voice_search(v):
  text=v['name']+' '+v['style']+' '+ ' '.join(v['applications'])
  if v.get('language_label'):text+=' '+v['language_label']+' English US'
  return text
-def voicecard(v,primary="off",context="",heading=3):
+def voicecard(v,primary="off",context="",heading=3,filter_language=False):
  secondary="off" if primary=="producao" else "producao"
+ language_attr=(' data-language="'+E(v.get("language_code","pt-BR"))+'"') if filter_language else ""
+ flag=('<span class="portrait-language" aria-label="Idioma: '+E(v["language_label"])+'">'+E(v["language_flag"])+'</span>') if filter_language and v.get("language_flag") else ""
  message=voice_message(v)
  if context: message=f'Olá! Conheci a voz {v["name"]} no site da A Locução e gostaria de um orçamento de {context}.'
- return f'''<article class="voice-card" data-search="{E(voice_search(v))}" data-gender="{E(v['gender'])}" data-tags="{E('|'.join(v['tags']))}"><a class="portrait" style="display:block" href="/locutores/{v['slug']}/" aria-label="Ver perfil de {E(v['name'])}">{portrait(v)}</a><div class="voice-body"><h{heading}><a href="/locutores/{v['slug']}/">{display_name(v)}</a></h{heading}><p class="voice-style">{E(v['style'])}</p>{language_badge(v)}{('<p class="voice-summary">'+E(v['short_description'])+'</p>') if v.get('short_description') else ''}<div class="voice-tags">{''.join('<span class="tag">'+E(t)+'</span>' for t in v['tags'])}</div>{audio(v,primary)}{audio(v,secondary)}<div class="voice-actions">{cta('Contratar esta voz',message,voice=v['name'])}<a class="profile-link" href="/locutores/{v['slug']}/">Ver perfil</a></div></div></article>'''
+ return f'''<article class="voice-card" data-search="{E(voice_search(v))}" data-gender="{E(v['gender'])}"{language_attr} data-tags="{E('|'.join(v['tags']))}"><a class="portrait" style="display:block" href="/locutores/{v['slug']}/" aria-label="Ver perfil de {E(v['name'])}">{portrait(v)}{flag}</a><div class="voice-body"><h{heading}><a href="/locutores/{v['slug']}/">{display_name(v)}</a></h{heading}><p class="voice-style">{E(v['style'])}</p>{language_badge(v)}{('<p class="voice-summary">'+E(v['short_description'])+'</p>') if v.get('short_description') else ''}<div class="voice-tags">{''.join('<span class="tag">'+E(t)+'</span>' for t in v['tags'])}</div>{audio(v,primary)}{audio(v,secondary)}<div class="voice-actions">{cta('Contratar esta voz',message,voice=v['name'])}<a class="profile-link" href="/locutores/{v['slug']}/">Ver perfil</a></div></div></article>'''
 CATALOG_INIT = """<script>(()=>{const grid=document.currentScript.previousElementSibling;const cards=Array.from(grid.children);for(let i=cards.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[cards[i],cards[j]]=[cards[j],cards[i]];}cards.forEach(card=>grid.appendChild(card));const filters=grid.parentElement.querySelector('.filters');if(filters)filters.hidden=false;})();</script>"""
 def catalog(subset=None,filters=False,primary="off",context=""):
  selected=subset or voices
  f=''
  if filters:
   opts=sorted({t for v in voices for t in v['tags']})
-  f='<form class="filters" hidden aria-label="Filtrar vozes"><label>Buscar por nome ou aplicação<input type="search" placeholder="Qual voz você procura?" autocomplete="off"></label><label>Perfil<select id="gender"><option value="">Todos os perfis</option><option>Masculina</option><option>Feminina</option><option>Personagem</option></select></label><label>Estilo<select id="style"><option value="">Todos os estilos</option>'+''.join('<option>'+E(t)+'</option>' for t in opts)+'</select></label><button type="button">Limpar filtros</button></form><p id="voice-count" class="status" role="status" aria-live="polite">'+str(len(voices))+' vozes no catálogo</p>'
- return f+f'<div class="voice-grid">{"".join(voicecard(v,primary,context,2 if filters else 3) for v in selected)}</div>{CATALOG_INIT}<p id="empty-voices" hidden>Nenhuma voz encontrada. Tente outro nome ou limpe os filtros.</p>'
+  available={v.get('language_code','pt-BR') for v in selected}
+  languages=[('pt-BR','Português brasileiro'),('en-US','🇺🇸 Inglês americano'),('es-419','Espanhol latino-americano'),('fr-FR','Francês'),('it-IT','Italiano'),('de-DE','Alemão')]
+  language_options='<option value="">Todos os idiomas</option>'+''.join('<option value="'+code+'"'+(' disabled' if code not in available else '')+'>'+E(label+(' (em breve)' if code not in available else ''))+'</option>' for code,label in languages)
+  f='<form class="filters" hidden aria-label="Filtrar vozes"><label>Buscar por nome ou aplicação<input type="search" placeholder="Qual voz você procura?" autocomplete="off"></label><label>Perfil<select id="gender"><option value="">Todos os perfis</option><option>Masculina</option><option>Feminina</option><option>Personagem</option></select></label><label>Estilo<select id="style"><option value="">Todos os estilos</option>'+''.join('<option>'+E(t)+'</option>' for t in opts)+'</select></label><label class="language-filter">Idioma<select id="language">'+language_options+'</select></label><button type="button">Limpar filtros</button></form><p id="voice-count" class="status" role="status" aria-live="polite">'+str(len(voices))+' vozes no catálogo</p>'
+ return f+f'<div class="voice-grid">{"".join(voicecard(v,primary,context,2 if filters else 3,filters) for v in selected)}</div>{CATALOG_INIT}<p id="empty-voices" hidden>Nenhuma voz encontrada. Tente outro nome ou limpe os filtros.</p>'
 def acquisition_hero(slug):
  production=slug=='spot-comercial'
  label='Produção Completa' if production else 'Locução Off'

@@ -32,11 +32,11 @@
   const form = document.querySelector('.filters');
   if (form) {
     const cards = [...document.querySelectorAll('.voice-card')];
-    const search = form.querySelector('input'), gender = form.querySelector('#gender'), style = form.querySelector('#style');
+    const search = form.querySelector('input'), gender = form.querySelector('#gender'), style = form.querySelector('#style'), language = form.querySelector('#language');
     function filter() {
       let count = 0;
       cards.forEach(card => {
-        const show = normalize(card.dataset.search).includes(normalize(search.value.trim())) && (!gender.value || card.dataset.gender === gender.value) && (!style.value || card.dataset.tags.split('|').includes(style.value));
+        const show = normalize(card.dataset.search).includes(normalize(search.value.trim())) && (!gender.value || card.dataset.gender === gender.value) && (!style.value || card.dataset.tags.split('|').includes(style.value)) && (!language?.value || (card.dataset.language || 'pt-BR') === language.value);
         card.hidden = !show; if (show) count++;
       });
       document.querySelector('#voice-count').textContent = count + (count === 1 ? ' voz encontrada' : ' vozes encontradas');

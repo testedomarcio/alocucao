@@ -14,3 +14,8 @@
 
 /* A language badge is rendered only for explicitly identified voice profiles. */
 .voice-language{display:flex;align-items:center;flex-wrap:wrap;gap:6px;width:fit-content;max-width:100%;padding:5px 9px;border:1px solid #c6d2bd;border-radius:3px;background:#eef2e8;color:#224d36;font-size:.78rem;line-height:1.5}.voice-language>span[aria-hidden]{font-size:1.1rem}.voice-body .voice-language{margin:0 0 14px;color:#224d36}.voice-body .voice-summary{font-size:.85rem}.profile-copy .voice-language{margin:0 0 20px}
+
+/* Keep the catalog language filter alongside the existing search controls. */
+@media(min-width:761px){.filters{grid-template-columns:minmax(180px,1.5fr) minmax(120px,.8fr) minmax(130px,.8fr) minmax(210px,1.2fr) auto;align-items:end}.filters label{min-width:0}}@media(min-width:761px) and (max-width:1100px){.filters{grid-template-columns:1fr 1fr}.filters label:first-child{grid-column:1/-1}.filters button{grid-column:1/-1}}@media(max-width:760px){.filters .language-filter{grid-column:1/-1}}
+
+.portrait-language{position:absolute;top:12px;right:12px;display:grid;place-items:center;min-width:44px;min-height:40px;padding:3px 9px;background:#f5f3ed;border:1px solid #c6d2bd;border-radius:4px;font-size:1.5rem;line-height:1;box-shadow:0 2px 10px #0002}

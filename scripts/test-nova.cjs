@@ -42,3 +42,19 @@ vm.runInNewContext(inline,{document:{currentScript:{previousElementSibling:grid}
 assert.deepEqual(grid.children.map(c=>c.name),['B','C','A']);
 restored({persisted:true});assert.deepEqual(grid.children.map(c=>c.name),['C','A','B']);assert.equal(new Set(grid.children).size,3);
 console.log('PASS: initial random order and back/forward restore preserve every voice exactly once.');
+// Language filtering combines with existing filters and resets to the whole catalog.
+{
+ const search=node(),gender=node(),style=node(),language=node(),reset=node(),count=node(),empty=node();
+ const cards=[{dataset:{search:'Voz Brasileira',gender:'Masculina',tags:'Comercial',language:'pt-BR'}},{dataset:{search:'Lucan Rook English US Inglês Americano',gender:'Masculina',tags:'Comercial|Energética',language:'en-US'}}];
+ const form={hidden:true,events:{},querySelector:s=>({'input':search,'#gender':gender,'#style':style,'#language':language,'button':reset}[s]),addEventListener(n,f){this.events[n]=f},reset(){search.value='';gender.value='';style.value='';language.value=''}};
+ const document={querySelector:s=>s==='.filters'?form:s==='#voice-count'?count:s==='#empty-voices'?empty:null,querySelectorAll:s=>s==='.voice-card'?cards:[],addEventListener(){}};
+ vm.runInNewContext(fs.readFileSync('assets/nova.js','utf8'),{document,navigator:{},window:{addEventListener(){}}});
+ language.value='en-US';form.events.change();assert.deepEqual(cards.map(c=>c.hidden),[true,false]);assert.equal(count.textContent,'1 voz encontrada');
+ gender.value='Feminina';form.events.change();assert.equal(empty.hidden,false);
+ reset.events.click();assert.deepEqual(cards.map(c=>c.hidden),[false,false]);assert.equal(language.value,'');
+ language.value='pt-BR';form.events.change();assert.deepEqual(cards.map(c=>c.hidden),[false,true]);
+ const html=fs.readFileSync('vozes/index.html','utf8');
+ for(const [code,label] of [['es-419','Espanhol latino-americano'],['fr-FR','Francês'],['it-IT','Italiano'],['de-DE','Alemão']])assert.ok(html.includes(`<option value="${code}" disabled>${label} (em breve)</option>`));
+ assert.equal((html.match(/class="portrait-language"/g)||[]).length,1);
+ console.log('PASS: Portuguese/English language filtering, combined filters, empty state, reset, disabled upcoming languages and one visible country flag.');
+}
