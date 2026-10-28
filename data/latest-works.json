@@ -178,5 +178,50 @@
         "source_sha256": "99b6ee2e474e7e5db9ad0636a00cf642b6df51fac210e68a5e0fbacf2f1f268d"
       }
     ]
+  },
+  {
+    "id": "david-2026-10-28-mellody-cultural-fm",
+    "voice": "david",
+    "title": "Mellody Cultural FM — Manhã da Mellody",
+    "date": "2026-10-28",
+    "format": "Vinhetas Off",
+    "tracks": [
+      {
+        "title": "Abertura — versão 1",
+        "src": "/assets/trabalhos/david-2026-10-28-mellody-fm-abertura-versao-1.mp3",
+        "duration_seconds": 17.48,
+        "source_file_id": "1_HkSzLx9WvwiWWDqdYG1kpdK0JuoYljS",
+        "source_filename": "David - Abertura do Manhã da Mellody - Versão 1.mp3",
+        "source_modified": "2026-10-28T17:43:23.707Z",
+        "source_sha256": "57249fc798ecfdbdcb44f87c15e98b2f4ed8a862360fa58040506f0cfc02e04c"
+      },
+      {
+        "title": "Abertura — versão 2",
+        "src": "/assets/trabalhos/david-2026-10-28-mellody-fm-abertura-versao-2.mp3",
+        "duration_seconds": 17.71,
+        "source_file_id": "103rWSmwIjXrp8O05z0lf4OeX2pUp4bjd",
+        "source_filename": "David - Abertura do Manhã da Mellody - Versão 2.mp3",
+        "source_modified": "2026-10-28T17:43:36.312Z",
+        "source_sha256": "56eb35a61b578631690f24acaf2c3cd07822ae462f8e59852d4662f0de0aed99"
+      },
+      {
+        "title": "Encerramento — versão 1",
+        "src": "/assets/trabalhos/david-2026-10-28-mellody-fm-encerramento-versao-1.mp3",
+        "duration_seconds": 20.92,
+        "source_file_id": "1FCQn6CK9AobrydY6eXjAB0gX_3WAfLI4",
+        "source_filename": "David - Encerramento do Manhã da Melody - versão 1.mp3",
+        "source_modified": "2026-10-28T17:46:03.545Z",
+        "source_sha256": "1b761931873c13c7262c0f2ec8aac6b36307dfc5e255fe8edc0cf3eb52b19244"
+      },
+      {
+        "title": "Encerramento — versão 2",
+        "src": "/assets/trabalhos/david-2026-10-28-mellody-fm-encerramento-versao-2.mp3",
+        "duration_seconds": 20.92,
+        "source_file_id": "1J08LXKlWbZQybnnbrdQYQIZdI2IL9EP3",
+        "source_filename": "David - Encerramento do Manhã da Melody - versão 2.mp3",
+        "source_modified": "2026-10-28T17:46:18.289Z",
+        "source_sha256": "a6d65f19500fca81370bd99e0ef82c78cf8aced542236be565cc35daca830e73"
+      }
+    ]
   }
 ]
