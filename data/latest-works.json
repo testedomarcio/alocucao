@@ -223,5 +223,23 @@
         "source_sha256": "a6d65f19500fca81370bd99e0ef82c78cf8aced542236be565cc35daca830e73"
       }
     ]
+  },
+  {
+    "id": "christine-2026-10-29-casa-de-carnes-ubajara",
+    "voice": "christine",
+    "title": "Casa de Carnes Ubajara",
+    "date": "2026-10-29",
+    "format": "Produção Completa",
+    "tracks": [
+      {
+        "title": "Spot comercial",
+        "src": "/assets/trabalhos/christine-2026-10-29-casa-de-carnes-ubajara.mp3",
+        "duration_seconds": 71.84,
+        "source_file_id": "1N4SXvQ416OW890t8eghHmzLeDYE2qZA5",
+        "source_filename": "Spot - Christine - Cliente - CASA DE CARNES UBAJARA - 29/10/2026.mp3",
+        "source_modified": "2026-10-29T18:55:08.262Z",
+        "source_sha256": "8d5953438ad7021e302380629ca7b8214417c26024e89be8b3c47df759a7b8e2"
+      }
+    ]
   }
 ]

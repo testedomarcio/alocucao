@@ -14,7 +14,7 @@ def load_reviews(path, slugs):
   if row.get('voice') not in slugs:raise ValueError('Unknown review voice')
   if type(row.get('rating')) is not int or not 1<=row['rating']<=5:raise ValueError('Review rating must be 1–5')
   if not isinstance(row.get('name'),str) or not 2<=len(row['name'])<=120:raise ValueError('Missing public reviewer name')
-  if not isinstance(row.get('comment'),str) or not 20<=len(row['comment'])<=3000:raise ValueError('Invalid review comment')
+  if not isinstance(row.get('comment'),str) or not 1<=len(row['comment'].strip())<=3000:raise ValueError('Invalid review comment')
   date.fromisoformat(row['published_on'])
   image=row.get('image')
   if image and (not image.startswith('/assets/reviews/') or '..' in image):raise ValueError('Images must be hosted locally')
