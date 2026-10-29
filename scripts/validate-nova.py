@@ -31,6 +31,9 @@ for path,p in pages.items():
  if len(p.canon)!=1:errors.append(f'{path}: canonical count {len(p.canon)}')
  if len(p.scripts)!=len(set(p.scripts)):errors.append(f'{path}: duplicate scripts')
  visible=' '.join(p.text)
+ # Pricing terms explicitly preserve legacy balances without linking to the panel.
+ if path in ['termos/index.html','termos-de-uso/index.html']:
+  visible=re.sub(r'painel de gravação|créditos?', '', visible, flags=re.I)
  if re.search(r'painel de gravação|central de gravação|créditos?|cadastre|criar conta|🧠|multilíng|07h|22h',visible,re.I):errors.append(f'{path}: obsolete copy')
  if any('drive.google' in s or 'vozes.alocucao.com.br' in s for s in p.links+p.assets):errors.append(f'{path}: external legacy dependency')
  for src in p.assets:

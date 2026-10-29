@@ -52,27 +52,33 @@
   const service = document.querySelector('#calc-service');
   function updateCalculator() {
     const words = text.value.trim() ? text.value.trim().split(/\s+/u).length : 0;
-    const seconds = Math.ceil(words / 2.5), blocks = Math.ceil(seconds / 40);
+    const seconds = Math.ceil(words / 2.5);
     const production = service?.value === 'producao';
     const name = production ? 'Produção Completa' : 'Locução Off';
     const money = value => value.toFixed(2).replace('.', ',');
+    const bands = window.ALocucaoPricing[production ? 'producao' : 'off'].bands;
     const result = document.querySelector('#calc-result');
     const link = document.querySelector('#calc-whatsapp');
     if (!words) {
       if (link?.dataset) delete link.dataset.service;
+      if (link) link.textContent = 'Solicitar pelo WhatsApp';
       result.textContent = 'Digite um texto para estimar a duração e o valor.';
       if (link) link.href = 'https://wa.me/5527996529832?text=' + encodeURIComponent('Olá! Preciso de ajuda para orçar uma peça comercial.');
       return;
     }
     const minutes = Math.floor(seconds / 60), remaining = seconds % 60;
     const duration = seconds < 60 ? `${seconds} ${seconds === 1 ? 'segundo' : 'segundos'}` : `${minutes} ${minutes === 1 ? 'minuto' : 'minutos'}${remaining ? ` e ${remaining} ${remaining === 1 ? 'segundo' : 'segundos'}` : ''}`;
-    const credits = `${blocks} ${blocks === 1 ? 'crédito' : 'créditos'}`;
-    const total = `R$ ${money(blocks * (production ? 25 : 12))}`;
+    const band = bands.find(([limit]) => seconds <= limit);
+    const total = band ? `R$ ${money(band[1])}` : 'Sob orçamento';
     // Only calculated values and fixed service names enter the result markup.
-    result.innerHTML = `<p class="calc-service-name">${name}</p><dl class="calc-details"><div><dt>Duração estimada</dt><dd>${duration}</dd></div><div><dt>Créditos necessários</dt><dd>${credits}</dd></div></dl><div class="calc-total"><span>Valor estimado</span><strong>${total}</strong></div>`;
+    const durationMarkup = `<dl class="calc-details"><div><dt>Duração estimada</dt><dd>${duration}</dd></div></dl>`;
+    result.innerHTML = durationMarkup + (band
+      ? `<div class="calc-total"><span>Valor da ${name}</span><strong>${total}</strong></div>`
+      : '<div class="calc-total"><strong>Orçamento personalizado</strong></div><p>Seu projeto merece uma avaliação especial. Envie seu texto e nossa equipe preparará uma proposta.</p>');
     if (link) {
       if (link.dataset) link.dataset.service = name;
-      link.href = 'https://wa.me/5527996529832?text=' + encodeURIComponent(`Olá! Fiz uma estimativa no site da A Locução e gostaria de solicitar um orçamento.\n\nServiço: ${name}\nDuração estimada: ${duration}\nCréditos necessários: ${credits}\nValor estimado: ${total}\n\nRoteiro:\n${text.value}\n\nValor sujeito à confirmação após análise do roteiro.`);
+      link.textContent = band ? 'Solicitar pelo WhatsApp' : 'Solicitar orçamento pelo WhatsApp';
+      link.href = 'https://wa.me/5527996529832?text=' + encodeURIComponent(`Olá! Gostaria de solicitar uma ${name}.\n\nDuração estimada: ${duration}\nValor estimado: ${total}\n\nSegue o meu texto para gravação:\n${text.value}\n\nValor sujeito à confirmação após análise do roteiro.`);
     }
   }
   if (text) {

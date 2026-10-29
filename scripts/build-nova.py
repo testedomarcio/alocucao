@@ -254,3 +254,7 @@ for row in sorted(built,key=lambda p:p['url']):
 ET.ElementTree(tree).write(ROOT/'sitemap.xml',encoding='utf-8',xml_declaration=True)
 (ROOT/'reports/reformulacao-2026-10-26/manifesto.json').write_text(json.dumps(built,ensure_ascii=False,indent=2))
 print(f'Built {len(built)} page entries and {len(voices)} individual voice profiles.')
+
+# Retain the approved pricing policy after any subsequent build.
+from progressive_pricing import update as update_progressive_pricing
+update_progressive_pricing(ROOT)
