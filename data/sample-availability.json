@@ -1,0 +1,113 @@
+{
+  "note": "Catálogo próprio habilitado para novos pedidos pelo proprietário em 29/10/2026. Configuração estática de elegibilidade, sem monitoramento em tempo real. Desative accepting_orders para suspender a oferta de uma voz. Não inclui catálogo de terceiros.",
+  "voices": {
+    "aida": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "aline-mota": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "amanda-kelly": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "ana-alice": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "audrey": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "cassio-cruz": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "christine": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "david": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "diego": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "eduardo-s": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "enzo": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "fernanda": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "kaique": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "koraly": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "larissa": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "lax": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "leao-antonio": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "leonardo": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "marcio": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "noel-natal": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "paulo-becker": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "roberta": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "thiago": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "will": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "zozo": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "mario": {
+      "exclusive": true,
+      "accepting_orders": true
+    },
+    "lucan-rook": {
+      "exclusive": true,
+      "accepting_orders": true
+    }
+  }
+}

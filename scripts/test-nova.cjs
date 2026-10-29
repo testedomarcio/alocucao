@@ -6,7 +6,7 @@ function setup(saved,path='/locutores/amanda-kelly/'){
  const window={location:{pathname:path,search:'?utm_source=bing&utm_campaign=teste',href:'https://alocucao.com.br'+path},addEventListener:(n,f)=>events[n]=f};
  const document={title:'Perfil Amanda',referrer:'',head:{appendChild:s=>tags.push(s)},createElement:()=>({}),addEventListener:(n,f)=>clicks[n]=f};
  vm.runInNewContext(tracking,{window,document,Element,URL,URLSearchParams,Date,localStorage:{getItem:()=>saved},sessionStorage:{getItem:k=>storage.get(k),setItem:(k,v)=>storage.set(k,v)}});
- return {window,tags,storage,consent:v=>events['alocucao:consent']({detail:{value:v}}),click:href=>clicks.click({target:new Element(href)}),events:()=>window.dataLayer.map(c=>Array.from(c)).filter(c=>c[0]==='event')};
+ return {window,tags,storage,consent:v=>events['alocucao:consent']({detail:{value:v}}),click:href=>clicks.click({target:new Element(href)}),events:()=>window.dataLayer.map(c=>Array.from(c)).filter(c=>c[0]==='event' && c[1]==='whatsapp_click')};
 }
 let t=setup();t.click();assert.equal(t.tags.length,0);assert.equal(t.events().length,0);assert.equal(t.storage.size,0);
 t.consent('accepted');t.consent('accepted');assert.equal(t.tags.length,2);t.click();assert.equal(t.events().length,1);

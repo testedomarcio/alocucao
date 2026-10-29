@@ -35,7 +35,14 @@ footer=f'''<section class="contact-band"><div class="wrap"><h2>Sua mensagem mere
 org={'@type':'Organization','@id':BASE+'/#organization','name':'A Locução','legalName':'69.502.587 MARCIO PEREIRA DE SOUZA','taxID':'69.502.587/0001-33','url':BASE+'/','telephone':'+5527996529832','email':'suporte@alocucao.com.br','address':{'@type':'PostalAddress','streetAddress':'Rua Euzebio Cirilo de Souza, 344, Centro','addressLocality':'Brejetuba','addressRegion':'ES','postalCode':'29630-000','addressCountry':'BR'},'contactPoint':{'@type':'ContactPoint','contactType':'Atendimento','telephone':'+5527996529832','hoursAvailable':[{'@type':'OpeningHoursSpecification','dayOfWeek':['Monday','Tuesday','Wednesday','Thursday','Friday'],'opens':'08:00','closes':'18:00'},{'@type':'OpeningHoursSpecification','dayOfWeek':'Saturday','opens':'08:00','closes':'12:00'}]}}
 org.pop('address', None) # Await current company registration before publishing an address.
 built=[]
+prior_sitemap={}
+if (ROOT/'sitemap.xml').exists():
+ for node in ET.parse(ROOT/'sitemap.xml').getroot():
+  fields={child.tag.rsplit('}',1)[-1]:child.text for child in node}
+  prior_sitemap[fields.get('loc')]=fields.get('lastmod')
 def write(path,title,desc,body,index=True,extra=None,canonical=None):
+ from sample_offer import enhance
+ body,sample_enabled=enhance(path.strip('/'),body)
  path=path.strip('/'); file=ROOT/(path if path.endswith('.html') else path+'/index.html' if path else 'index.html');file.parent.mkdir(parents=True,exist_ok=True)
  url=BASE+('/'+path if path.endswith('.html') else '/'+path+'/' if path else '/')
  canonical=canonical or url
@@ -50,7 +57,9 @@ def write(path,title,desc,body,index=True,extra=None,canonical=None):
  if 'class="calculator"' in body:nova_version='20261027calculator'
  review_assets = '<meta name="referrer" content="no-referrer"><script data-review-privacy>window.__reviewInvite=new URLSearchParams(location.search).get("convite");if(window.__reviewInvite){const p=new URLSearchParams(location.search);p.delete("convite");history.replaceState(null,"",location.pathname+(p.size?"?"+p:"")+location.hash);}</script><link rel="stylesheet" href="/assets/reviews.css?v=20261027manual1">' if 'data-rating-voice=' in body or 'data-review-admin' in body else ''
  if 'data-work-empty' in body:review_assets+='<script src="/assets/voice-ui.js?v=20261027cards2" defer></script>'
- page=f'''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(title)}</title><meta name="description" content="{E(desc)}"><meta name="robots" content="{'index,follow' if index else 'noindex,follow'},max-image-preview:large"><link rel="canonical" href="{E(canonical)}"><meta name="theme-color" content="#173b2a"><link rel="icon" href="/favicon.svg"><meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{E(canonical)}"><meta property="og:image" content="{BASE}/assets/images/estudio-locucao-960.webp"><meta name="twitter:card" content="summary_large_image">{review_assets}<link rel="stylesheet" href="/assets/nova.css?v={nova_version}"><script src="/assets/privacy.js" defer></script><script src="/assets/tracking.js?v=20261026premium" defer></script><script src="/assets/nova.js?v={nova_version}" defer></script><script type="application/ld+json">{json.dumps(schemas,ensure_ascii=False).replace('<','\\u003c')}</script></head><body data-page="{E(path)}">{page_header}<main id="conteudo">{body}</main>{page_footer}</body></html>'''
+ sample_assets='<link rel="stylesheet" href="/assets/sample-offer.css?v=20261029">' if sample_enabled else ''
+ page=f'''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(title)}</title><meta name="description" content="{E(desc)}"><meta name="robots" content="{'index,follow' if index else 'noindex,follow'},max-image-preview:large"><link rel="canonical" href="{E(canonical)}"><meta name="theme-color" content="#173b2a"><link rel="icon" href="/favicon.svg"><meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{E(canonical)}"><meta property="og:image" content="{BASE}/assets/images/estudio-locucao-960.webp"><meta name="twitter:card" content="summary_large_image">{review_assets}{sample_assets}<link rel="stylesheet" href="/assets/nova.css?v={nova_version}"><script src="/assets/privacy.js" defer></script><script src="/assets/tracking.js?v=20261026premium" defer></script><script src="/assets/nova.js?v={nova_version}" defer></script><script type="application/ld+json">{json.dumps(schemas,ensure_ascii=False).replace('<','\\u003c')}</script></head><body data-page="{E(path)}">{page_header}<main id="conteudo">{body}</main>{page_footer}</body></html>'''
+ if sample_enabled:page=page.replace('/assets/tracking.js?v=20261026premium','/assets/tracking.js?v=20261029samples')
  file.write_text(page)
  built.append({'path':str(file.relative_to(ROOT)),'url':url,'index':index,'canonical':canonical})
 def hero(kicker,title,desc,buttons=True):
@@ -136,7 +145,7 @@ def reviews_section(v):
   picture=('<img src="'+E(row['image'])+'" width="72" height="72" loading="lazy" decoding="async" alt="'+E(row.get('company') or row['name'])+'">') if row.get('image') else ''
   company='<p class="review-company">'+E(row['company'])+'</p>' if row.get('company') else ''
   links=('<ul class="review-links">'+''.join('<li><a href="'+E(link['url'])+'" target="_blank" rel="noopener noreferrer">'+E(link['label'])+'</a></li>' for link in row.get('links',[]))+'</ul>') if row.get('links') else ''
-  cards.append('<article class="review-card" data-review-id="'+E(row['id'])+'"><header class="review-client">'+picture+'<div><h3>'+E(row['name'])+'</h3>'+company+'<p class="review-score">'+str(row['rating'])+'/5</p></div></header><blockquote>'+E(row['comment'])+'</blockquote><p class="review-date">Publicado em <time datetime="'+row['published_on']+'">'+'/'.join(reversed(row['published_on'].split('-')))+'</time></p></article>')
+  cards.append('<article class="review-card" data-review-id="'+E(row['id'])+'"><header class="review-client">'+picture+'<div><h3>'+E(row['name'])+'</h3>'+company+'<p class="review-score">'+str(row['rating'])+'/5</p></div></header><blockquote>'+E(row['comment'])+'</blockquote>'+links+'<p class="review-date">Publicado em <time datetime="'+row['published_on']+'">'+'/'.join(reversed(row['published_on'].split('-')))+'</time></p></article>')
  content=''.join(cards[:10])+('<details class="review-more"><summary>Ver mais avaliações</summary>'+''.join(cards[10:])+'</details>' if len(cards)>10 else '') if rows else '<p>Ainda não há avaliações publicadas para este locutor.</p>'
  return '<section class="section reviews-section" id="avaliacoes-clientes"><span id="avalie" aria-hidden="true"></span><div class="wrap"><span class="eyebrow">Experiências com esta voz</span><h2>Avaliações de clientes</h2>'+rating(v['slug'],False)+content+'</div></section>'
 def voicecard(v,primary="off",context="",heading=3,filter_language=False):
@@ -250,7 +259,7 @@ built=list({row['path']:row for row in built}.values())
 ns='http://www.sitemaps.org/schemas/sitemap/0.9';ET.register_namespace('',ns);tree=ET.Element('{'+ns+'}urlset')
 for row in sorted(built,key=lambda p:p['url']):
  if row['index'] and row['url']==row['canonical']:
-  node=ET.SubElement(tree,'{'+ns+'}url');ET.SubElement(node,'{'+ns+'}loc').text=row['url'];ET.SubElement(node,'{'+ns+'}lastmod').text='2026-10-27' if row['url'] in {BASE+'/vozes/',BASE+'/locutores/lucan-rook/'}|{BASE+'/locutores/'+r['voice']+'/' for r in customer_reviews} else '2026-10-26'
+  node=ET.SubElement(tree,'{'+ns+'}url');ET.SubElement(node,'{'+ns+'}loc').text=row['url'];ET.SubElement(node,'{'+ns+'}lastmod').text=prior_sitemap.get(row['url']) or ('2026-10-27' if row['url'] in {BASE+'/vozes/',BASE+'/locutores/lucan-rook/'}|{BASE+'/locutores/'+r['voice']+'/' for r in customer_reviews} else '2026-10-26')
 ET.ElementTree(tree).write(ROOT/'sitemap.xml',encoding='utf-8',xml_declaration=True)
 (ROOT/'reports/reformulacao-2026-10-26/manifesto.json').write_text(json.dumps(built,ensure_ascii=False,indent=2))
 print(f'Built {len(built)} page entries and {len(voices)} individual voice profiles.')

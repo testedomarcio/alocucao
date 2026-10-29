@@ -110,7 +110,7 @@
     if (path.includes("agencias-revenda")) return "agencias_produtoras";
     if (path.includes("voz-infantil")) return "voz_infantil";
     if (path.includes("spot-para-carro-de-som")) return "spot_carro_de_som";
-    if (path.includes("spot-comercial") || path.includes("quanto-custa-um-spot")) return "spot_comercial";
+    if (path.includes("spot_comercial") || path.includes("spotcomercial") || path.includes("spot-comercial") || path.includes("quanto-custa-um-spot")) return "spot_comercial";
     if (path.includes("locucao-off") || path.includes("locucao_off")) return "locucao_off";
     if (path.includes("campanha-politica") || path.includes("campanha-eleitoral")) return "campanha_politica";
     if (path.includes("calculadora")) return "calculadora";
@@ -160,11 +160,22 @@
       url.hostname === "web.whatsapp.com";
 
     if (!analyticsConsent) return;
+    const intent = link.dataset.cta === "solicitar_amostra" ? "solicitar_amostra" :
+      isWhatsApp && /contratar|pedir locução|pedir produção|quero uma locução|quero produção/i.test(link.textContent || "") ? "contratar_locucao" :
+      url.origin === window.location.origin && !url.hash && (/^\/locutores\/[^/]+\/$/.test(url.pathname) || url.pathname === "/vozes/") ? "escolher_voz" : "contato";
+    if (intent !== "contato") window.alocucaoTrackEvent(intent + "_click", {
+      page_path: window.location.pathname,
+      service_name: serviceFromPath(window.location.pathname),
+      voice_name: cleanLabel(link.dataset.voiceName || (intent === "escolher_voz" ? url.pathname.split("/")[2] : "")),
+      cta_id: cleanLabel(link.dataset.cta || intent),
+      contact_method: isWhatsApp ? "whatsapp" : "site"
+    });
     if (!isWhatsApp) return;
     const attribution = firstTouch();
 
     window.alocucaoTrackEvent("whatsapp_click", {
       event_category: "contact",
+      cta_intent: intent,
       contact_method: "whatsapp",
       page_path: window.location.pathname,
       page_title: cleanLabel(document.title),
