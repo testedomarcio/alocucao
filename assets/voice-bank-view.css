@@ -1,0 +1,44 @@
+/* Loaded only by /vozes/. Cards retain their original layout. */
+.bank-identity,.bank-conversion{display:contents}
+.bank-results-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:18px 0}
+.bank-results-bar .status{margin:0}
+.bank-view-switch{display:inline-flex;gap:3px;border:1px solid #c4cfc0;border-radius:9px;padding:3px;background:#eef2e8}
+.bank-view-switch button{display:flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:8px 14px;border:1px solid transparent;border-radius:6px;background:transparent;color:#45634d;cursor:pointer;font-size:.85rem}
+.bank-view-switch button[aria-pressed="true"]{background:#fff;border-color:#cad5c5;color:#173b2a;box-shadow:0 1px 3px #173b2a10}
+.bank-view-switch button:hover{color:#112b20;background:#f5f7f3}
+html[data-voice-view="list"] #voice-results{grid-template-columns:minmax(0,1fr);gap:12px}
+html[data-voice-view="list"] #voice-results .voice-card{display:grid;grid-template-columns:76px minmax(0,1fr);align-items:start;gap:20px;padding:22px;border-radius:14px;overflow:visible}
+html[data-voice-view="list"] #voice-results .portrait{width:76px;height:88px;aspect-ratio:auto;border-radius:10px}
+html[data-voice-view="list"] #voice-results .portrait img{transform:none}
+html[data-voice-view="list"] #voice-results .portrait-language{top:auto;bottom:0;right:0;min-height:24px;min-width:28px;padding:2px;font-size:1rem}
+html[data-voice-view="list"] #voice-results .voice-body{display:grid;grid-template-columns:minmax(160px,1.1fr) minmax(190px,1fr) minmax(190px,1fr) minmax(165px,.85fr);gap:18px;padding:0;align-items:start;min-width:0}
+html[data-voice-view="list"] #voice-results .bank-identity{display:flex;flex-direction:column;min-width:0}
+html[data-voice-view="list"] #voice-results h2{font-size:1.2rem;margin:0 0 5px;line-height:1.25}
+html[data-voice-view="list"] #voice-results .voice-style{font-size:.82rem;line-height:1.45;margin:0 0 7px}
+html[data-voice-view="list"] #voice-results .sample-availability{font-size:.72rem;line-height:1.5;margin:0;color:#285d3d}
+html[data-voice-view="list"] #voice-results :is(.top-voice-badge,.review-rating-link,.voice-tags,.voice-summary,.voice-language,.recent-work-link){display:none}
+html[data-voice-view="list"] #voice-results .audio-item{min-width:0;margin:0;padding:10px 8px}
+html[data-voice-view="list"] #voice-results .audio-label{font-size:.72rem}
+html[data-voice-view="list"] #voice-results audio{height:44px;width:100%}
+html[data-voice-view="list"] #voice-results .bank-conversion{display:flex;flex-direction:column;min-width:0}
+html[data-voice-view="list"] #voice-results .sample-card-link{margin:0}
+html[data-voice-view="list"] #voice-results .sample-card-link a{display:flex;justify-content:center;text-align:center;min-height:46px;padding:9px 12px;background:#224d36;color:#fff;border:1px solid #224d36;border-radius:8px;font-size:.8rem;font-weight:600;line-height:1.5;text-decoration:none}
+html[data-voice-view="list"] #voice-results .sample-card-link a:hover{background:#163b28}
+html[data-voice-view="list"] #voice-results .voice-actions{padding:0;margin:0}
+html[data-voice-view="list"] #voice-results .voice-actions .btn{display:none}
+html[data-voice-view="list"] #voice-results .profile-link{margin:3px 0 0;font-size:.78rem;min-height:44px}
+@media(max-width:1099px){
+ html[data-voice-view="list"] #voice-results .voice-body{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+ html[data-voice-view="list"] #voice-results .bank-identity{grid-column:1/-1}
+ html[data-voice-view="list"] #voice-results .bank-conversion{grid-column:1/-1;flex-direction:row;align-items:center;gap:18px;flex-wrap:wrap}
+}
+@media(max-width:600px){
+ html[data-voice-view="list"] #voice-results .voice-card{grid-template-columns:64px minmax(0,1fr);padding:18px;gap:14px}
+ html[data-voice-view="list"] #voice-results .portrait{width:64px;height:76px}
+ html[data-voice-view="list"] #voice-results .voice-body{display:contents}
+ html[data-voice-view="list"] #voice-results .bank-identity{grid-column:2;min-height:76px}
+ html[data-voice-view="list"] #voice-results :is(.audio-item,.bank-conversion){grid-column:1/-1}
+ html[data-voice-view="list"] #voice-results .bank-conversion{display:flex;flex-direction:column;gap:0;align-items:stretch}
+ html[data-voice-view="list"] #voice-results h2{font-size:1.25rem}
+ html[data-voice-view="list"] #voice-results .sample-availability{font-size:.74rem}
+}
