@@ -1,7 +1,7 @@
 """Presentation-only enhancement, restricted to /vozes/."""
 import re
 
-ASSETS = '<link rel="stylesheet" href="/assets/voice-bank-view.css?v=20261030"><script src="/assets/voice-bank-view.js?v=20261030"></script>'
+ASSETS = '<link rel="stylesheet" href="/assets/voice-bank-view.css?v=20261030compact2"><script src="/assets/voice-bank-view.js?v=20261030compact2"></script>'
 
 def enhance(body):
     def card(match):
@@ -13,6 +13,24 @@ def enhance(body):
         if marker:
             markup = markup[:marker.start()] + '<div class="bank-conversion">' + markup[marker.start():]
             markup = markup.replace('</article>', '</div></article>')
+        # Native players are reused; these lightweight controls exist only in list view.
+        name = re.search(r'<h2><a[^>]*>(.*?)</a></h2>', markup).group(1)
+        buttons = []
+        def panel(audio_match):
+            item = audio_match.group(0)
+            audio_id = re.search(r'<audio id="([^"]+)"', item).group(1)
+            label = re.search(r'aria-label="([^"]+)"', item).group(1)
+            produced = audio_id.endswith('-producao')
+            title = 'Produção Completa' if produced else 'Locução Off — voz sem trilha'
+            buttons.append(f'<button type="button" data-bank-demo="{audio_id}" aria-controls="panel-{audio_id}" aria-expanded="false" aria-label="Ouvir {label}" title="{title}"><span aria-hidden="true">▷</span>{"Produzido" if produced else "Off"}</button>')
+            item = item.replace('<div class="audio-item">', f'<div class="audio-item" id="panel-{audio_id}">', 1)
+            return item[:-6] + f'<button type="button" class="bank-demo-close" aria-label="Fechar {label}" title="Fechar demonstração">×</button></div>'
+        markup = re.sub(r'<div class="audio-item">.*?</div>', panel, markup, flags=re.S)
+        controls = '<div class="bank-demo-controls" role="group" aria-label="Demonstrações de '+name+'">'+''.join(buttons)+'</div>'
+        markup = markup.replace('</div><div class="audio-item"', '</div>'+controls+'<div class="audio-item"', 1)
+        markup = re.sub(r'<a class="profile-link" href="([^"]+)">Ver perfil completo</a>', lambda m: '<a class="profile-link" href="'+m[1]+'" aria-label="Ver perfil completo de '+name+'"><span class="bank-profile-full">Ver perfil completo</span><span class="bank-profile-short" aria-hidden="true">Perfil ↗</span></a>', markup)
+        if 'aria-label="Ainda sem avaliações"' not in markup:
+            markup = markup.replace('class="voice-card"', 'class="voice-card" data-bank-reviewed', 1)
         return markup
     body = re.sub(r'<article class="voice-card".*?</article>', card, body, flags=re.S)
     selector = '''<div class="bank-view-switch" role="group" aria-label="Visualização das vozes" hidden>
