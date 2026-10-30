@@ -30,3 +30,101 @@
 
 /* Approved progressive prices; scoped to pricing, preserving the visual identity. */
 .progressive-pricing .section-head p{max-width:48ch}.progressive-start{font-size:1.2rem;line-height:1.8}.progressive-start strong{white-space:nowrap}.progressive-card{min-width:0}.duration-prices{width:100%;border-collapse:collapse;margin:24px 0 28px;font-size:1rem}.duration-prices th,.duration-prices td{padding:14px 0;border-bottom:1px solid #ffffff40;text-align:left;vertical-align:top}.duration-prices thead th{font-size:.8rem;font-weight:500;color:#d6e1d0}.duration-prices tbody th{font-weight:400;padding-right:12px}.duration-prices td{font-weight:600;white-space:nowrap;text-align:right}.duration-prices thead th:last-child{text-align:right}.progressive-card .price{font-size:2.6rem}.single-price{grid-template-columns:minmax(0,660px)}.progressive-card .btn{max-width:100%;white-space:normal}.progressive-pricing .note{color:#d6e1d0}@media(max-width:480px){.progressive-card{padding:24px 18px}.duration-prices{font-size:.9rem}.duration-prices th,.duration-prices td{padding:12px 0}.progressive-pricing h2{font-size:2.15rem}}
+
+/* Shared visual refinement: retain the cream, graphite and deep-green identity. */
+.hero{padding:clamp(36px,4vw,56px) 0 32px}
+.hero>.wrap>h1,.editorial>h1{font-size:clamp(2.25rem,4.2vw,3.5rem);line-height:1.12;max-width:24ch;text-wrap:balance;overflow-wrap:break-word}
+.hero>.wrap>.lead{font-size:1.05rem;line-height:1.65;max-width:66ch;margin-bottom:0}
+.hero>.wrap>.eyebrow{margin-bottom:18px}
+.hero>.wrap>.actions{margin-bottom:0}
+.hero+.section{padding-top:28px}
+.section{padding-block:clamp(48px,5vw,72px)}
+.section h2{font-size:clamp(1.9rem,3.2vw,2.75rem);line-height:1.15;text-wrap:balance;overflow-wrap:break-word}
+.section-head{align-items:flex-start;gap:32px}
+.section-head>*,.content-grid>*,.steps>*{min-width:0}
+.section-head p{line-height:1.65}
+.content-card{border-radius:12px;background:#fafbf7;padding:clamp(24px,2.5vw,32px)}
+.content-card h2{font-size:clamp(1.5rem,2.2vw,1.9rem);line-height:1.2;margin-bottom:16px}
+.content-card h3{line-height:1.25}
+.content-card p:last-child{margin-bottom:0}
+.hero-demo,.calculator-callout,.sample-panel{border-radius:12px}
+.btn{border-radius:7px;max-width:100%;white-space:normal;text-align:center}
+.btn.secondary:hover{background:#e5eddc}
+.dark .btn.secondary:hover{background:#284f38}
+.category-nav{margin-bottom:32px;gap:10px}
+.category-nav a{border-radius:6px}
+.editorial h2{font-size:clamp(1.7rem,2.8vw,2.4rem);line-height:1.2}
+.editorial p{line-height:1.75}
+.profile-hero{gap:clamp(32px,5vw,64px)}
+.profile-hero h1{font-size:clamp(2.4rem,4vw,3.5rem);line-height:1.12;overflow-wrap:break-word}
+.home-sample-conditions{padding:8px 0 20px}
+.home-sample-conditions .sample-conditions{border-top:0;padding-top:0;margin:0;color:#426049}
+.home-sample-conditions .sample-conditions div{color:#526158}
+/* One shared calculator: inputs and estimate remain in the same reading order. */
+.calculator-section>.wrap{max-width:1080px}
+.calculator-heading{margin-bottom:28px}
+.calculator-heading .eyebrow{margin-bottom:12px}
+.calculator-heading h2{margin:0}
+.calculator{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:32px;max-width:1080px;margin-inline:auto;padding:32px;border:1px solid #cbd5c7;border-radius:16px;background:#fafbf7;box-shadow:0 6px 24px #173b2a06;align-items:stretch}
+.calculator .calc-inputs,.calculator .calc-summary{min-width:0}
+.calculator .calc-inputs{display:flex;flex-direction:column;gap:10px}
+.calculator label{font-size:.9rem;color:#304a38;line-height:1.4}
+.calculator select{margin:0 0 10px;padding:12px 14px;min-height:48px;width:100%;font-size:1rem;border-color:#aebfa7;border-radius:7px}
+.calculator textarea{display:block;min-height:210px;max-width:100%;padding:16px;line-height:1.6;font-size:1rem;border-radius:8px;color:#1b2421;background:#fff}
+.calculator textarea::placeholder{color:#626e65;opacity:1}
+.calculator #calc-text-note{margin:0;font-size:.78rem;line-height:1.55}
+.calculator .calc-summary{display:flex;flex-direction:column;gap:20px;padding:28px;border:1px solid #d3dfce;border-radius:12px;background:#edf2e8}
+.calculator .calc-summary h3{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;line-height:1.5;margin:0;color:#426049}
+.calculator .calc-result{padding:0;border:0;border-radius:0;box-shadow:none;background:transparent;line-height:1.6;color:#526158;flex:1;min-height:80px}
+.calculator .calc-details>div{display:grid;grid-template-columns:1fr;gap:4px}
+.calculator .calc-details dd{font-size:1.15rem;text-align:left;color:#173b2a}
+.calculator .calc-total{margin-top:20px;padding-top:18px}
+.calculator .calc-total strong{font-size:clamp(1.9rem,3.5vw,2.75rem);line-height:1.2;color:#173b2a;overflow-wrap:break-word}
+.calculator .calc-total+p{font-size:.9rem;margin:12px 0 0}
+.calculator #calc-whatsapp{min-height:52px;margin:0;padding:13px 16px;border-radius:7px;font-size:.9rem}
+.calculator .calc-disclaimer{font-size:.75rem;color:#526158}
+body[data-page="calculadora"] .calculator-intro{padding:40px 0 24px}
+body[data-page="calculadora"] .calculator-intro>.wrap{max-width:1080px}
+body[data-page="calculadora"] .calculator-intro h1{font-size:clamp(2rem,3.2vw,2.75rem);max-width:none;margin-bottom:14px;text-wrap:balance}
+body[data-page="calculadora"] .calculator-intro .lead{max-width:none;font-size:1rem;margin:0}
+body[data-page="calculadora"] .calculator-intro .eyebrow{margin-bottom:12px}
+body[data-page="calculadora"] .calculator-section{padding-top:0;padding-bottom:48px}
+@media(max-width:1000px){
+ .calculator{gap:24px;padding:24px;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}
+ .calculator .calc-summary{padding:22px}
+}
+@media(max-width:760px){
+ .hero{padding-top:32px;padding-bottom:24px}
+ .hero>.wrap>h1{font-size:clamp(2rem,7.5vw,2.75rem)}
+ .hero+.section{padding-top:20px}
+ .section-head{margin-bottom:28px}
+ .section-head p{margin-top:16px}
+ .calculator{grid-template-columns:minmax(0,1fr);padding:22px;gap:24px}
+ .calculator .calc-summary{padding:22px}
+ .calculator .calc-details>div{grid-template-columns:1fr auto;align-items:baseline;gap:12px}
+ .calculator .calc-details dd{text-align:right;font-size:1rem;margin-left:0}
+ .calculator .calc-total strong{font-size:2.25rem}
+ .calculator .calc-result{min-height:0}
+ .calculator textarea{min-height:180px}
+ .calculator-heading{margin-bottom:24px}
+ body[data-page="calculadora"] .calculator-intro{padding:28px 0 22px}
+ body[data-page="calculadora"] .calculator-intro h1{font-size:2rem;text-wrap:balance}
+ .home-sample-conditions{padding-bottom:12px}
+ .profile-hero h1{font-size:2.6rem}
+}
+@media(max-width:380px){
+ .calculator{padding:16px;gap:20px}
+ .calculator .calc-summary{padding:18px}
+ .calculator .calc-details>div{grid-template-columns:1fr;gap:4px}
+ .calculator .calc-details dd{text-align:left}
+ .calculator #calc-whatsapp{font-size:.85rem;padding-inline:10px}
+}
+/* Visible keyboard focus and stronger field boundaries on light surfaces. */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #42694c;outline-offset:3px}
+.calculator select,.calculator textarea{border-color:#7d9078}
+/* The voice catalog leads with its filters and demos; sample CTAs stay on each voice. */
+.catalog-sample-conditions{padding:0 0 16px}
+.catalog-sample-conditions .sample-conditions{border-top:0;padding-top:0;margin:0;color:#426049}
+.catalog-sample-conditions .sample-conditions div{color:#526158}
+body[data-page="vozes"] .hero h1{font-size:clamp(2.1rem,4.2vw,3.5rem)}
+@media(max-width:760px){body[data-page="vozes"] .hero h1{font-size:2rem}body[data-page="vozes"] .hero{padding:28px 0 18px}.catalog-sample-conditions{padding-bottom:4px}}

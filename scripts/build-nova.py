@@ -273,3 +273,7 @@ update_progressive_pricing(ROOT)
 from voice_bank_view import enhance as enhance_bank, ASSETS as bank_assets
 bank_file=ROOT/"vozes/index.html"
 bank_file.write_text(enhance_bank(bank_file.read_text()).replace("</head>",bank_assets+"</head>"))
+
+# Preserve the approved visual system after pricing and catalog enhancements.
+from visual_refinement import update as update_visual_refinement
+update_visual_refinement(ROOT)
