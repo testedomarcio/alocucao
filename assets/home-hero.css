@@ -1,0 +1,41 @@
+/* Home hero only: keep shared typography and all other sections untouched. */
+.home-hero{padding-top:clamp(36px,4vw,64px)}
+.home-hero .hero-top{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:center}
+.home-hero .hero-top>div{min-width:0}
+.home-hero .hero-top .eyebrow{margin-bottom:18px}
+.home-hero .hero-top h1{font-size:clamp(2.75rem,4.6vw,4rem);line-height:1.08;letter-spacing:-.045em;margin:0 0 22px}
+.home-hero .hero-top .lead{font-size:1.05rem;line-height:1.65;max-width:48ch;margin:0 0 24px}
+.home-hero .hero-top .side{padding:0}
+.home-hero .hero-top .actions{align-items:center;gap:12px 24px;margin:0}
+.home-hero .hero-top .actions .secondary{padding:8px 0;min-height:44px;border:0;background:transparent;font-size:.9rem;text-decoration:underline;text-underline-offset:5px;gap:8px}
+.home-hero .sample-hero-copy{margin:0;padding:clamp(24px,2.6vw,36px);border:1px solid #cbd7ca;border-radius:4px;background:#e9eee5}
+.home-hero .sample-hero-copy .eyebrow{font-size:.65rem;letter-spacing:.12em;margin-bottom:16px}
+.home-hero .sample-hero-copy h2{font-size:clamp(1.65rem,2.25vw,2rem);line-height:1.16;letter-spacing:-.035em;max-width:18ch;margin:0 0 16px}
+.home-hero .sample-hero-copy p{font-size:1rem;line-height:1.6;margin:0 0 22px;color:#526158}
+.home-hero .sample-hero-copy .btn{max-width:100%;text-align:center;white-space:normal}
+.home-hero .sample-hero-copy .note{font-size:.75rem;line-height:1.55;margin:14px 0 0;max-width:44ch}
+.home-hero .hero-image{margin-top:clamp(28px,3vw,40px);height:auto;aspect-ratio:3.8}
+.home-hero .hero-image img{display:block;position:absolute;inset:0}
+@media(max-width:1000px) and (min-width:761px){
+ .home-hero .hero-top{gap:28px;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+ .home-hero .hero-top h1{font-size:clamp(2.2rem,4.5vw,2.8rem)}
+ .home-hero .hero-top .lead{font-size:1rem}
+ .home-hero .hero-top .actions{gap:8px 20px}
+ .home-hero .sample-hero-copy{padding:24px}
+ .home-hero .sample-hero-copy .eyebrow{letter-spacing:.08em}
+}
+@media(max-width:760px){
+ .home-hero .hero-top{grid-template-columns:minmax(0,1fr);gap:28px}
+ .home-hero .hero-top h1{font-size:clamp(2.15rem,7.8vw,3.2rem);margin-bottom:20px}
+ .home-hero .hero-top .lead{font-size:1rem;margin-bottom:20px}
+ .home-hero .sample-hero-copy{padding:24px}
+ .home-hero .sample-hero-copy h2{font-size:1.75rem}
+ .home-hero .sample-hero-copy .btn{width:auto}
+ .home-hero .hero-image{aspect-ratio:2}
+ .home-hero .image-caption{left:18px;bottom:16px;right:18px;font-size:.7rem;letter-spacing:.04em}
+}
+@media(max-width:380px){
+ .home-hero .hero-top h1{font-size:clamp(1.8rem,8.7vw,2.15rem)}
+ .home-hero .hero-top .actions{gap:8px 16px}
+ .home-hero .sample-hero-copy{padding:22px 20px}
+}
