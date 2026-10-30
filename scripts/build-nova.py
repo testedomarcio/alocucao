@@ -267,3 +267,8 @@ print(f'Built {len(built)} page entries and {len(voices)} individual voice profi
 # Retain the approved pricing policy after any subsequent build.
 from progressive_pricing import update as update_progressive_pricing
 update_progressive_pricing(ROOT)
+
+# Apply the hybrid view only to the canonical bank, preserving compatibility pages.
+from voice_bank_view import enhance as enhance_bank, ASSETS as bank_assets
+bank_file=ROOT/"vozes/index.html"
+bank_file.write_text(enhance_bank(bank_file.read_text()).replace("</head>",bank_assets+"</head>"))
