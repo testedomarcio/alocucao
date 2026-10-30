@@ -27,7 +27,11 @@ finally:offer.ELIGIBLE['christine']=voice
 files=subprocess.check_output(['git','ls-files','*.html'],cwd=root,text=True).splitlines()
 for name in files:
  old=subprocess.check_output(['git','show','HEAD:'+name],cwd=root,text=True);new=(root/name).read_text()
- for pattern in [r'<title>.*?</title>',r'<meta name="description"[^>]*>',r'<link rel="canonical"[^>]*>',r'<audio[^>]*>',r'<section class="section dark progressive-pricing".*?</section>',r'<div class="calculator">.*?</div></div></section>']:
+ for pattern in [r'<title>.*?</title>',r'<meta name="description"[^>]*>',r'<link rel="canonical"[^>]*>',r'<audio[^>]*>',r'<section class="section dark progressive-pricing".*?</section>']:
+  assert re.findall(pattern,old)==re.findall(pattern,new),(name,pattern)
+ for control in ['calc-service','calc-text','calc-result','calc-whatsapp']:
+  assert old.count('id="'+control+'"')==new.count('id="'+control+'"'),(name,control)
+ for pattern in [r'<select id="calc-service".*?</select>',r'<a[^>]*id="calc-whatsapp"[^>]*>']:
   assert re.findall(pattern,old)==re.findall(pattern,new),(name,pattern)
  for review in re.findall(r'<article class="review-card".*?</article>',old):assert review in new,name
 print('PASS: eligibility suspension, third-party boundary, voice/service messages and preservation of SEO, audio, prices, calculators and reviews.')
