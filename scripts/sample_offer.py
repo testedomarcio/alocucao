@@ -46,7 +46,7 @@ def enhance(path,body):
   marker=re.search(r'<(?:a|button)[^>]*class="recent-work-link"',body)
   body=body[:marker.start()]+block(voice=ELIGIBLE[profile])+body[marker.start():] if marker else body
  elif path=='':
-  body=body.replace('<div class="actions">','<div class="sample-hero-copy"><h2>Sua locução, do jeito que você imaginou.</h2><p>Escolha sua voz, solicite uma amostra gratuita do seu texto e contrate com mais confiança.</p>'+button('Ouvir meu texto grátis',css='btn secondary')+'<p class="note">Com as vozes exclusivas habilitadas. Preparação mediante solicitação.</p></div><div class="actions">',1)
+  body=body.replace('<div class="side"></div>','<div class="side"><div class="sample-hero-copy"><span class="eyebrow">Amostra personalizada gratuita</span><h2>Ouça seu texto antes de contratar.</h2><p>Escolha uma voz exclusiva e ouça uma prévia do seu texto. Grátis e sem compromisso.</p>'+button('Ouvir meu texto grátis',css='btn secondary')+'<p class="note">Com as vozes exclusivas habilitadas. Preparação mediante solicitação.</p></div></div>',1)
   benefits='<div class="sample-benefits"><article><h3>🎧 Ouça antes de contratar</h3><p>Solicite uma amostra personalizada e conheça a interpretação do seu texto.</p></article><article><h3><span class="sample-dot" aria-hidden="true"></span> Vozes disponíveis para pedidos</h3><p>Encontre vozes exclusivas prontas para receber seu pedido.</p></article><article><h3>✓ Contrate com confiança</h3><p>Avalie a amostra e decida sem compromisso.</p></article></div>'
   offer=block().replace('</div></div></section>',benefits+'</div></div></section>')
   body=body.replace('</section>','</section>'+offer,1)
